@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# VS Code settings directory
+.vscode/
+
+# IntelliJ config directory
+.idea/
+
+# Visual Studio dir
+.vs/
