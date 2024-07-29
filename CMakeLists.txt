@@ -12,12 +12,19 @@ file(
     GLOB_RECURSE SOURCES "${SOURCE_DIR}/*.cpp" "${SOURCE_DIR}/*.hpp"
 )
 
-add_library(AVX-CPP STATIC ${SOURCES})
 
-target_include_directories(AVX-CPP PUBLIC ${SOURCE_DIR})
+if(BUILD_SHARED_LIBS)
+    add_library(avxcpp SHARED ${SOURCES})
+else()
+    add_library(avxcpp STATIC ${SOURCES})
+endif()
 
-if(CMAKE_CXX_COMPILER_ID MATCHES "GCC|Clang")
-    target_compile_options(AVX-CPP PRIVATE -mavx -mavx2)
+target_include_directories(avxcpp PUBLIC ${SOURCE_DIR})
+
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
+    target_compile_options(avxcpp PRIVATE -mavx2)
 elseif(MSVC)
-    target_compile_options(AVX-CPP PRIVATE /arch:AVX /arch:AVX2)
+    target_compile_options(avxcpp PRIVATE /arch:AVX /arch:AVX2)
 endif()

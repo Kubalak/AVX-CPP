@@ -39,3 +39,6 @@
 
 # Visual Studio dir
 .vs/
+
+# Test project dir
+out/
