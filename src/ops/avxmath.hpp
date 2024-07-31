@@ -1,8 +1,13 @@
 #pragma once
 #ifndef MATH_HPP_
 #define MATH_HPP_
-#include "types.hpp"
-#include "int256.hpp"
+
+#include "types/long256.hpp"
+#include "types/int256.hpp"
+#include "types/short256.hpp"
+#include "types/char256.hpp"
+#include "types/double256.hpp"
+#include "types/float256.hpp"
 #include <set>
 
 namespace avx {
