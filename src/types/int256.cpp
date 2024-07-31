@@ -159,7 +159,7 @@ namespace avx {
     }
 
 
-    Int256 Int256::operator+(Int256& b) const {
+    Int256 Int256::operator+(const Int256& b) const {
         return Int256(_mm256_add_epi32(v, b.v));
     }
 
@@ -358,6 +358,46 @@ namespace avx {
     }
 
 
+    Int256 Int256::operator<<(const Int256& b) const {
+        return Int256(
+            _mm256_srlv_epi32(
+                v,
+                b.v
+            )
+        );
+    }
+    
+    
+    Int256 Int256::operator<<(const int& b) const {
+        return Int256(
+            _mm256_srli_epi32(
+                v,
+                b
+            )
+        );
+    }
+
+    
+    Int256 Int256::operator>>(const Int256& b) const {
+        return Int256(
+            _mm256_srav_epi32(
+                v,
+                b.v
+            )
+        );
+    }
+    
+    
+    Int256 Int256::operator>>(const int& b) const {
+        return Int256(
+            _mm256_srai_epi32(
+                v,
+                b
+            )
+        );
+    }
+
+
     Int256& Int256::operator+=(const Int256& b) {
         v = _mm256_add_epi32(v,b.v);
         return *this;
@@ -499,7 +539,43 @@ namespace avx {
     }
 
 
-    std::string Int256::str(){
+    Int256& Int256::operator<<=(const Int256& b) {
+        v = _mm256_srlv_epi32(
+            v,
+            b.v
+        );
+        return *this;
+    }
+    
+    
+    Int256& Int256::operator<<=(const int& b) {
+        v = _mm256_srli_epi32(
+            v,
+            b
+        );
+        return *this;
+    }
+
+    
+    Int256& Int256::operator>>=(const Int256& b) {
+        v = _mm256_srav_epi32(
+            v,
+            b.v
+        );
+        return *this;
+    }
+    
+    
+    Int256& Int256::operator>>=(const int& b) {
+        v = _mm256_srai_epi32(
+            v,
+            b
+        );
+        return *this;
+    }
+
+
+    std::string Int256::str() const{
         std::string result = "Int256(";
         int* iv = (int*)&v; 
         for(unsigned i{0}; i < 7; ++i)
@@ -518,6 +594,7 @@ namespace avx {
         
         return Int256(result);
     }
+
 
     Int256 sum(std::set<Int256>& a){
         __m256i result = _mm256_setzero_si256();

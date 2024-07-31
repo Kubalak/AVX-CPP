@@ -38,6 +38,8 @@ Supported operators:<br/>
 - `|` `|=` - integer types + integer scalars
 - `&` `&=` - integer types + integer scalars
 - `^` `^=` - integer types + integer scalars
+- `<<` `<<=` - integer types + integer scalars
+- `>>` `>>=` - integer types + integer scalars
 - `[]` - all types (gets underlying value from vector)
 - `~` - integer types
 
@@ -70,4 +72,8 @@ Available building options are
 | --- | --- | --- | ---|
 | AVX_BUILD_SHARED_LIBS | BOOLEAN| ON | Build shared libraries (*.dll or *.so) |
 | AVX_ENABLE_TESTS | BOOLEAN | OFF | Build tests when building library |
+
+## Known issues
+- Building binaries with MinGW on Windows may result in segfault (`ACCESS_VIOLATION`)<br/>
+- `/` and `%` on integer types don't use AVX2 directly (performance penalty)
 

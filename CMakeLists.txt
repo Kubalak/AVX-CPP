@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.20)
 project(AVX-CPP VERSION 0.0.1 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -27,13 +27,20 @@ target_include_directories(avxcpp PUBLIC ${SOURCE_DIR})
 
 if(AVX_ENABLE_TESTS)
     add_executable(int_arithmetic_test "${SOURCE_DIR}/tests/int_arithmetic_test.cpp")
+    add_executable(int_perf_tests "${SOURCE_DIR}/tests/int_perf_tests.cpp")
 
     target_link_libraries(int_arithmetic_test PRIVATE avxcpp)
+    target_link_libraries(int_perf_tests PRIVATE avxcpp)
     enable_testing()
 
     add_test(
         NAME int_arithmetic_test
         COMMAND $<TARGET_FILE:int_arithmetic_test>
+    )
+
+    add_test(
+        NAME int_perf_tests
+        COMMAND $<TARGET_FILE:int_perf_tests> 10000000
     )
 endif()
 
@@ -43,11 +50,13 @@ if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
     target_compile_options(avxcpp PRIVATE -mavx -mavx2)
     if(AVX_ENABLE_TESTS)
         target_compile_options(int_arithmetic_test PRIVATE -mavx -mavx2)
+        target_compile_options(int_perf_tests PRIVATE -mavx -mavx2)
     endif()
 elseif(MSVC)
     target_compile_options(avxcpp PRIVATE /arch:AVX /arch:AVX2)
     if(AVX_ENABLE_TESTS)
         target_compile_options(int_arithmetic_test PRIVATE /arch:AVX /arch:AVX2)
+        target_compile_options(int_perf_tests PRIVATE /arch:AVX /arch:AVX2)
     endif()
 endif()
 

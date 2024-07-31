@@ -1,14 +1,25 @@
 #pragma once
 #ifndef INT256_HPP__
 #define INT256_HPP__
+/**
+ * @author Jakub Jach (c) 2024
+ */
 #include <set>
 #include <array>
 #include <vector>
+#include <string>
 #include <immintrin.h>
 #include <unordered_set>
 
+#define INT256_SIZE 8
 
+/**
+ * Namespace containing type definitions and basic functions.
+ */
 namespace avx {
+    /**
+     * Vector containing 8 signed 32-bit integers.
+     */
     class Int256 {
         private:
             __m256i v;
@@ -24,6 +35,8 @@ namespace avx {
             Int256(std::array<short, 8> init);
             Int256(std::array<char, 8> init);
             Int256(std::initializer_list<int> init);
+            __m256i get() const {return v;}
+            void set(__m256i val){v = val;}
 
             bool operator==(const Int256&) const;
             bool operator==(const int&) const;
@@ -33,7 +46,7 @@ namespace avx {
 
 
 // Plus operators
-            Int256 operator+(Int256&) const;
+            Int256 operator+(const Int256&) const;
             Int256 operator+(const int&) const;
 
 // Minus operators
@@ -69,6 +82,14 @@ namespace avx {
 // NOT operators
             Int256 operator~() const;
 
+// Bitwise shift operations
+            Int256 operator<<(const Int256&) const;
+            Int256 operator<<(const int&) const;
+
+            Int256 operator>>(const Int256&) const;
+            Int256 operator>>(const int&) const;
+
+// Calc and store operators
             Int256& operator+=(const Int256&);
             Int256& operator+=(const int&);
 
@@ -93,7 +114,13 @@ namespace avx {
             Int256& operator^=(const Int256&);
             Int256& operator^=(const int&);
 
-            std::string str();
+            Int256& operator<<=(const Int256&);
+            Int256& operator<<=(const int&);
+
+            Int256& operator>>=(const Int256&);
+            Int256& operator>>=(const int&);
+
+            std::string str() const;
 
             friend Int256 sum(std::vector<Int256>&);
             friend Int256 sum(std::set<Int256>&);
