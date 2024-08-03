@@ -27,6 +27,7 @@ namespace avx {
         
         public:
             Int256():v(_mm256_setzero_si256()){}
+            Int256(const int*);
             Int256(const int& init);
             Int256(__m256i init);
             Int256(Int256& init);

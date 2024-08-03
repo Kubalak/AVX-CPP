@@ -5,6 +5,11 @@
 namespace avx {
     const __m256i Int256::ones = _mm256_set1_epi8(0xFF);
 
+    Int256::Int256(const int* init):
+        v(_mm256_lddqu_si256((const __m256i*)init))
+    {}
+
+
     Int256::Int256(const int& init):
         v(_mm256_set1_epi32(init))
     {}

@@ -40,7 +40,7 @@ if(AVX_ENABLE_TESTS)
 
     add_test(
         NAME int_perf_tests
-        COMMAND $<TARGET_FILE:int_perf_tests> 10000000
+        COMMAND $<TARGET_FILE:int_perf_tests> 1000000
     )
 endif()
 

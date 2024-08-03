@@ -74,6 +74,7 @@ Available building options are
 | AVX_ENABLE_TESTS | BOOLEAN | OFF | Build tests when building library |
 
 ## Known issues
-- Building binaries with MinGW on Windows may result in segfault (`ACCESS_VIOLATION`)<br/>
+- Building binaries with MinGW on Windows may result in segfault (`ERROR_ACCESS_VIOLATION`) for yet unknown reasons<br/>
 - `/` and `%` on integer types don't use AVX2 directly (performance penalty)
+- Performance benefits need further testing
 

@@ -42,13 +42,13 @@ void test_division_avx_float(const avx::Int256& a, const avx::Int256& b, unsigne
         iresult = _mm256_cvttps_epi32(result);
 
         stop = std::chrono::system_clock::now();
-        counts.push_back(std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count());
-        start = stop;
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
     }
     double mean = Mean(counts);
     
     std::cout << "Result: " << avx::Int256(iresult).str() << '\n';
-    printf("Performance test %s finished. Iterations: %d Time total: %.3lf ms, stddev. %.3lf us, per loop %.3lf us\n",
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
         __func__,
         i,
         std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
@@ -84,14 +84,14 @@ void test_division_avx_seq(const avx::Int256& a, const avx::Int256& b, unsigned 
         );
 
         stop = std::chrono::system_clock::now();
-        counts.push_back(std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count());
-        start = stop;
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
     }
     std::cout << "Result: " << avx::Int256(iresult).str() << '\n';
 
     double mean = Mean(counts);
     
-    printf("Performance test %s finished. Iterations: %d Time total: %.3lf ms, stddev. %.3lf us, per loop %.3lf us\n",
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
         __func__,
         i,
         std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
@@ -127,15 +127,15 @@ void test_division_avx_seq_float(const avx::Int256& a, const avx::Int256& b, uns
             av[0] / bv[0]
         );
         stop = std::chrono::system_clock::now();
-        counts.push_back(std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count());
-        start = stop;
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
     }
     
     std::cout << "Result: " << avx::Int256(iresult).str() << '\n';
 
     double mean = Mean(counts);
 
-    printf("Performance test %s finished. Iterations: %d Time total: %.3lf ms stddev. %.3lf us, per loop %.3lf us\n",
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us stddev. %.3lf ns, per loop %.3lf ns\n",
         __func__,
         i,
         std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
@@ -165,14 +165,14 @@ void test_mod_avx_float(const avx::Int256& a, const avx::Int256& b, unsigned int
         __m256i byprod = _mm256_cvttps_epi32(result);
         iresult = _mm256_sub_epi32(v1, _mm256_mullo_epi32(v2, byprod));
         stop = std::chrono::system_clock::now();
-        counts.push_back(std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count());
-        start = stop;
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
     }
     std::cout << "Result: " << avx::Int256(iresult).str() << '\n';
 
     double mean = Mean(counts);
 
-    printf("Performance test %s finished. Iterations: %d Time total: %.3lf ms, stddev. %.3lf us, per loop %.3lf us\n",
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
         __func__,
         i,
         std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
@@ -208,14 +208,14 @@ void test_mod_avx_seq(const avx::Int256& a, const avx::Int256& b, unsigned int i
         );
 
         stop = std::chrono::system_clock::now();
-        counts.push_back(std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count());
-        start = stop;
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
     }
     std::cout << "Result: " << avx::Int256(iresult).str() << '\n';
 
     double mean = Mean(counts);
     
-    printf("Performance test %s finished. Iterations: %d Time total: %.3lf ms, stddev. %.3lf us, per loop %.3lf us\n",
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
         __func__,
         i,
         std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
@@ -236,14 +236,14 @@ void baseline_avx_add(const avx::Int256& a, const avx::Int256& b, unsigned int i
     for(; i < iters; ++i){
         result = a + b;
         stop = std::chrono::system_clock::now();
-        counts.push_back(std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count());
-        start = stop;
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
     }
     std::cout << "Result: " << result.str() << '\n';
 
     double mean = Mean(counts);
     
-    printf("Performance test %s finished. Iterations: %d Time total: %.3lf ms, stddev. %.3lf us, per loop %.3lf us\n",
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
         __func__,
         i,
         std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
@@ -267,14 +267,69 @@ void baseline_avx_add_raw(const avx::Int256& a, const avx::Int256& b, unsigned i
     for(; i < iters; ++i){
         result = _mm256_add_epi32(av, bv);
         stop = std::chrono::system_clock::now();
-        counts.push_back(std::chrono::duration_cast<std::chrono::microseconds>(stop-start).count());
-        start = stop;
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
     }
     std::cout << "Result: " << avx::Int256(result).str() << '\n';
 
     double mean = Mean(counts);
     
-    printf("Performance test %s finished. Iterations: %d Time total: %.3lf ms, stddev. %.3lf us, per loop %.3lf us\n",
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
+        __func__,
+        i,
+        std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
+        stdev(counts, mean),
+        mean
+    );
+}
+
+
+void baseline_add(const int a[], const int b[], unsigned int iters){
+    std::cout << "Starting performance test " << __func__ << '\n';
+
+    std::vector<long long> counts;
+    auto start = std::chrono::system_clock::now();
+    auto stop = start;
+    int result[8];
+
+    unsigned int i{0};
+    for(; i < iters; ++i){
+        for(int j{0}; j < 8; ++j)
+            result[j] = a[j] + b[j];
+        stop = std::chrono::system_clock::now();
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
+    }
+    printf("Result: %d %d %d %d %d %d %d %d\n", result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7]);
+
+    double mean = Mean(counts);
+    
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
+        __func__,
+        i,
+        std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
+        stdev(counts, mean),
+        mean
+    );
+}
+
+void baseline_perf(unsigned int iters){
+    std::cout << "Starting performance test " << __func__ << '\n';
+
+    std::vector<long long> counts;
+    auto start = std::chrono::system_clock::now();
+    auto stop = start;
+
+    unsigned int i{0};
+    for(; i < iters; ++i){
+        stop = std::chrono::system_clock::now();
+        counts.push_back(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+        start = std::chrono::system_clock::now();
+    }
+
+    double mean = Mean(counts);
+    
+    printf("Performance test %s finished. Iterations: %d Time total: %.3lf us, stddev. %.3lf ns, per loop %.3lf ns\n",
         __func__,
         i,
         std::accumulate(counts.begin(), counts.end(), 0.0) / 1000.f,
@@ -314,6 +369,13 @@ int main(int argc, char* argv[]) {
     baseline_avx_add(a, b, iters);
     puts("--");
     baseline_avx_add_raw(a, b, iters);
+    puts("--");
+    int av[8] = {128, 125, 456, 265, 710, 288, 353, 321};
+    int bv[8] = {5, 14, 456, 3, 21, 33, 24, 88};
+    baseline_add(av, bv, iters);
+    puts("--");
+    baseline_perf(iters);
+   
 
 
     return 0;
