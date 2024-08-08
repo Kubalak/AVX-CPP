@@ -201,7 +201,7 @@ namespace avx {
 
     Int256 Int256::operator*(const Int256& b) const{
         return Int256(
-            _mm256_mul_epi32(
+            _mm256_mullo_epi32(
                 v, 
                 b.v
             )
@@ -338,7 +338,7 @@ namespace avx {
 
     Int256 Int256::operator&(const Int256& b) const{
         return Int256(
-            _mm256_or_si256(
+            _mm256_and_si256(
                 v, 
                 b.v
             )
@@ -365,7 +365,7 @@ namespace avx {
 
     Int256 Int256::operator<<(const Int256& b) const {
         return Int256(
-            _mm256_srlv_epi32(
+            _mm256_sllv_epi32(
                 v,
                 b.v
             )
@@ -375,7 +375,7 @@ namespace avx {
     
     Int256 Int256::operator<<(const int& b) const {
         return Int256(
-            _mm256_srli_epi32(
+            _mm256_slli_epi32(
                 v,
                 b
             )
@@ -545,7 +545,7 @@ namespace avx {
 
 
     Int256& Int256::operator<<=(const Int256& b) {
-        v = _mm256_srlv_epi32(
+        v = _mm256_sllv_epi32(
             v,
             b.v
         );
@@ -554,7 +554,7 @@ namespace avx {
     
     
     Int256& Int256::operator<<=(const int& b) {
-        v = _mm256_srli_epi32(
+        v = _mm256_slli_epi32(
             v,
             b
         );

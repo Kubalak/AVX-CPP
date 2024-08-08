@@ -239,8 +239,7 @@ int long256_test_bitwise_or() {
     avx::Long256 act_or = a | b;
 
     if (act_or != expected_or) {
-        std::cerr << "Test " << __func__ << " Long256 | Long256 failed! Expected: " 
-                  << expected_or.str() << " actual: " << act_or.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Long256 | Long256 failed! Expected: "  << expected_or.str() << " actual: " << act_or.str() << std::endl;
         result = 1;
     }
 
@@ -248,8 +247,7 @@ int long256_test_bitwise_or() {
     c |= b;
 
     if (c != expected_or) {
-        std::cerr << "Test " << __func__ << " |= Long256 |= Long256 failed! Expected: " 
-                  << expected_or.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " |= Long256 |= Long256 failed! Expected: " << expected_or.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -267,8 +265,7 @@ int long256_test_bitwise_xor() {
     avx::Long256 act_xor = a ^ b;
 
     if (act_xor != expected_xor) {
-        std::cerr << "Test " << __func__ << " Long256 ^ Long256 failed! Expected: " 
-                  << expected_xor.str() << " actual: " << act_xor.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Long256 ^ Long256 failed! Expected: " << expected_xor.str() << " actual: " << act_xor.str() << std::endl;
         result = 1;
     }
 
@@ -276,8 +273,7 @@ int long256_test_bitwise_xor() {
     c ^= b;
 
     if (c != expected_xor) {
-        std::cerr << "Test " << __func__ << " Long256 ^= Long256 failed! Expected: " 
-                  << expected_xor.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Long256 ^= Long256 failed! Expected: " << expected_xor.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -295,8 +291,7 @@ int long256_test_bitwise_and() {
     avx::Long256 act_and = a & b;
 
     if (act_and != expected_and) {
-        std::cerr << "Test " << __func__ << " Long256 & Long256 failed! Expected: " 
-                  << expected_and.str() << " actual: " << act_and.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Long256 & Long256 failed! Expected: " << expected_and.str() << " actual: " << act_and.str() << std::endl;
         result = 1;
     }
 
@@ -304,8 +299,7 @@ int long256_test_bitwise_and() {
     c &= b;
 
     if (c != expected_and) {
-        std::cerr << "Test " << __func__ << " Long256 &= Long256 failed! Expected: " 
-                  << expected_and.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Long256 &= Long256 failed! Expected: " << expected_and.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -322,8 +316,7 @@ int long256_test_bitwise_not() {
     avx::Long256 act_not = ~a;
 
     if (act_not != expected_not) {
-        std::cerr << "Test " << __func__ << " ~Long256 failed! Expected: " 
-                  << expected_not.str() << " actual: " << act_not.str() << std::endl;
+        std::cerr << "Test " << __func__ << " ~Long256 failed! Expected: " << expected_not.str() << " actual: " << act_not.str() << std::endl;
         result = 1;
     }
 
