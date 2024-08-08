@@ -11,42 +11,42 @@ int check_create(void) {
     
     if(a[0] != 7){
         printf("[0] Values don't match %d != %d\n", a[0], 7);
-        res |= 1;
+        res = 1;
     }
     
     if(a[1] != 6){
         printf("[1] Values don't match %d != %d\n", a[1], 6);
-        res |= 1;
+        res = 1;
     }
 
     if(a[2] != 5){
         printf("[2] Values don't match %d != %d\n", a[2], 5);
-        res |= 1;
+        res = 1;
     }
     
     if(a[3] != 4){
         printf("[3] Values don't match %d != %d\n", a[3], 4);
-        res |= 1;
+        res = 1;
     }
     
     if(a[4] != 3){
         printf("[4] Values don't match %d != %d\n", a[4], 3);
-        res |= 1;
+        res = 1;
     }
     
     if(a[5] != 2){
         printf("[5] Values don't match %d != %d\n", a[5], 2);
-        res |= 1;
+        res = 1;
     }
     
     if(a[6] != 1){
         printf("[6] Values don't match %d != %d\n", a[6], 1);
-        res |= 1;
+        res = 1;
     }
     
     if(a[7] != 0){
         printf("[7] Values don't match %d != %d\n", a[7], 0);
-        res |= 1;
+        res = 1;
     }
 
     return res;
@@ -60,13 +60,35 @@ int check_add(void){
     avx::Int256 b = a + 5;
     std::cout << "b: " << b.str() << '\n';
 
-    if(b != c){
-        std::cout << "Add failed - expected: " << c.str() << "real: " << b.str() <<'\n';
-        return 1;
+    int res = 0;
+
+    if(b != c) {
+        std::cout << "Add +lit failed - expected: " << c.str() << "real: " << b.str() <<'\n';
+        res = 1;
+    }
+    b = a + avx::Int256(std::array<int, 8>{5,5,5,5,5,5,5,5});
+
+    if(b != c) {
+        std::cout << "Add +vec failed - expected: " << c.str() << "real: " << b.str() <<'\n';
+        res = 1;
+    }
+    b = a;
+    a += 5;
+
+    if(a != c) {
+        std::cout << "Add +=lit failed - expected: " << c.str() << "real: " << b.str() <<'\n';
+        res = 1;
     }
 
+    a = b;
+    a += avx::Int256(std::array<int, 8>{5,5,5,5,5,5,5,5});
 
-    return 0;
+    if(a != c) {
+        std::cout << "Add +=vec failed - expected: " << c.str() << "real: " << b.str() <<'\n';
+        res = 1;
+    }
+
+    return res;
 }
 
 int check_sub(void) {
