@@ -1,146 +1,6 @@
 #include "types/int256.hpp"
 #include <iostream>
 
-/*
-int check_create(void) {
-
-    std::cout << "Starting " << __func__ << '\n';
-
-    avx::Int256 a(std::array<int, 8>{0, 1, 2, 3, 4, 5, 6, 7});
-
-    char res = 0;
-    
-    if(a[0] != 7){
-        printf("[0] Values don't match %d != %d\n", a[0], 7);
-        res = 1;
-    }
-    
-    if(a[1] != 6){
-        printf("[1] Values don't match %d != %d\n", a[1], 6);
-        res = 1;
-    }
-
-    if(a[2] != 5){
-        printf("[2] Values don't match %d != %d\n", a[2], 5);
-        res = 1;
-    }
-    
-    if(a[3] != 4){
-        printf("[3] Values don't match %d != %d\n", a[3], 4);
-        res = 1;
-    }
-    
-    if(a[4] != 3){
-        printf("[4] Values don't match %d != %d\n", a[4], 3);
-        res = 1;
-    }
-    
-    if(a[5] != 2){
-        printf("[5] Values don't match %d != %d\n", a[5], 2);
-        res = 1;
-    }
-    
-    if(a[6] != 1){
-        printf("[6] Values don't match %d != %d\n", a[6], 1);
-        res = 1;
-    }
-    
-    if(a[7] != 0){
-        printf("[7] Values don't match %d != %d\n", a[7], 0);
-        res = 1;
-    }
-
-    return res;
-}
-
-int check_add(void){
-    std::cout << "Starting " << __func__ << '\n';
-    avx::Int256 a({1, 3, 5, 2, 8, 9, 7, 10});
-    avx::Int256 c(std::array<int,8>{6, 8, 10, 7, 13, 14, 12, 15});
-    std::cout << "a: " << a.str() << '\n';
-    avx::Int256 b = a + 5;
-    std::cout << "b: " << b.str() << '\n';
-
-    int res = 0;
-
-    if(b != c) {
-        std::cout << "Add +lit failed - expected: " << c.str() << "real: " << b.str() <<'\n';
-        res = 1;
-    }
-    b = a + avx::Int256(std::array<int, 8>{5,5,5,5,5,5,5,5});
-
-    if(b != c) {
-        std::cout << "Add +vec failed - expected: " << c.str() << "real: " << b.str() <<'\n';
-        res = 1;
-    }
-    b = a;
-    a += 5;
-
-    if(a != c) {
-        std::cout << "Add +=lit failed - expected: " << c.str() << "real: " << b.str() <<'\n';
-        res = 1;
-    }
-
-    a = b;
-    a += avx::Int256(std::array<int, 8>{5,5,5,5,5,5,5,5});
-
-    if(a != c) {
-        std::cout << "Add +=vec failed - expected: " << c.str() << "real: " << b.str() <<'\n';
-        res = 1;
-    }
-
-    return res;
-}
-
-int check_sub(void) {
-    std::cout << "Starting " << __func__ << '\n';
-    avx::Int256 a({1, 3, 5, 2, 8, 9, 7, 10});
-    avx::Int256 c(std::array<int,8>{-4, -2, 0, -3, 3, 4, 2, 5});
-    std::cout << "a: " << a.str() << '\n';
-    avx::Int256 b = a - 5;
-    std::cout << "b: " << b.str() << '\n';
-
-    if(b != c){
-        std::cout << "Sub failed - expected: " << c.str() << "real: " << b.str() <<'\n';
-        return 1;
-    }
-
-    return 0;
-}
-
-int check_mul(void) {
-    std::cout << "Starting " << __func__ << '\n';
-    avx::Int256 a({1, 3, 5, 2, 8, 9, 7, 10});
-
-    std::cout << "a: " << a.str() << '\n';
-    avx::Int256 b = a * 5;
-    std::cout << "b: " << b.str() << '\n';
-
-    if(b == avx::Int256({5, 15, 25, 10, 40, 45, 35, 50}))
-        return 0;
-    
-    return 1;
-}
-
-int check_div(void) {
-    std::cout << "Starting " << __func__ << '\n';
-    avx::Int256 a({2, 4, 8, 16, 32, 64, 128, 256});
-
-    avx::Int256 b = a / 3;
-
-    avx::Int256 c({0, 1, 2, 5, 10, 21, 42, 85});
-
-    std::cout << "a: " << a.str() << '\n';
-    std::cout << "b: " << b.str() << '\n';
-    std::cout << "c: " << c.str() << '\n';
-
-    if(c != b)
-        return 1;
-
-    return 0;
-}
-*/
-
 int int256_test_add() {
     std::cout << "Starting test: " << __func__ << std::endl;
 
@@ -152,16 +12,14 @@ int int256_test_add() {
     avx::Int256 act_add = a + b;
 
     if (act_add != expected_add) {
-        std::cerr << "Test " << __func__ << " Int256 + Int256 failed! Expected: " 
-                  << expected_add.str() << " actual: " << act_add.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 + Int256 failed! Expected: " << expected_add.str() << " actual: " << act_add.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c += b;
     if (c != expected_add) {
-        std::cerr << "Test " << __func__ << " Int256 += Int256 failed! Expected: " 
-                  << expected_add.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 += Int256 failed! Expected: " << expected_add.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -171,15 +29,13 @@ int int256_test_add() {
     avx::Int256 act_add_int = d + e;
 
     if (act_add_int != expected_add_int) {
-        std::cerr << "Test " << __func__ << " Int256 + int failed! Expected: " 
-                  << expected_add_int.str() << " actual: " << act_add_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 + int failed! Expected: " << expected_add_int.str() << " actual: " << act_add_int.str() << std::endl;
         result = 1;
     }
 
     d += e;
     if (d != expected_add_int) {
-        std::cerr << "Test " << __func__ << " Int256 += int failed! Expected: " 
-                  << expected_add_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 += int failed! Expected: " << expected_add_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -197,16 +53,14 @@ int int256_test_sub() {
     avx::Int256 act_sub = a - b;
 
     if (act_sub != expected_sub) {
-        std::cerr << "Test " << __func__ << " Int256 - Int256 failed! Expected: " 
-                  << expected_sub.str() << " actual: " << act_sub.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 - Int256 failed! Expected: " << expected_sub.str() << " actual: " << act_sub.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c -= b;
     if (c != expected_sub) {
-        std::cerr << "Test " << __func__ << " Int256 -= Int256 failed! Expected: " 
-                  << expected_sub.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 -= Int256 failed! Expected: " << expected_sub.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -216,15 +70,13 @@ int int256_test_sub() {
     avx::Int256 act_sub_int = d - e;
 
     if (act_sub_int != expected_sub_int) {
-        std::cerr << "Test " << __func__ << " Int256 - int failed! Expected: " 
-                  << expected_sub_int.str() << " actual: " << act_sub_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 - int failed! Expected: " << expected_sub_int.str() << " actual: " << act_sub_int.str() << std::endl;
         result = 1;
     }
 
     d -= e;
     if (d != expected_sub_int) {
-        std::cerr << "Test " << __func__ << " Int256 -= int failed! Expected: " 
-                  << expected_sub_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 -= int failed! Expected: " << expected_sub_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -242,16 +94,14 @@ int int256_test_mul() {
     avx::Int256 act_mul = a * b;
 
     if (act_mul != expected_mul) {
-        std::cerr << "Test " << __func__ << " Int256 * Int256 failed! Expected: " 
-                  << expected_mul.str() << " actual: " << act_mul.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 * Int256 failed! Expected: " << expected_mul.str() << " actual: " << act_mul.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c *= b;
     if (c != expected_mul) {
-        std::cerr << "Test " << __func__ << " Int256 *= Int256 failed! Expected: " 
-                  << expected_mul.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 *= Int256 failed! Expected: " << expected_mul.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -261,15 +111,13 @@ int int256_test_mul() {
     avx::Int256 act_mul_int = d * e;
 
     if (act_mul_int != expected_mul_int) {
-        std::cerr << "Test " << __func__ << " Int256 * int failed! Expected: " 
-                  << expected_mul_int.str() << " actual: " << act_mul_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 * int failed! Expected: " << expected_mul_int.str() << " actual: " << act_mul_int.str() << std::endl;
         result = 1;
     }
 
     d *= e;
     if (d != expected_mul_int) {
-        std::cerr << "Test " << __func__ << " Int256 *= int failed! Expected: " 
-                  << expected_mul_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 *= int failed! Expected: " << expected_mul_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -287,16 +135,14 @@ int int256_test_div() {
     avx::Int256 act_div = a / b;
 
     if (act_div != expected_div) {
-        std::cerr << "Test " << __func__ << " Int256 / Int256 failed! Expected: " 
-                  << expected_div.str() << " actual: " << act_div.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 / Int256 failed! Expected: " << expected_div.str() << " actual: " << act_div.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c /= b;
     if (c != expected_div) {
-        std::cerr << "Test " << __func__ << " Int256 /= Int256 failed! Expected: " 
-                  << expected_div.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 /= Int256 failed! Expected: " << expected_div.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -306,15 +152,13 @@ int int256_test_div() {
     avx::Int256 act_div_int = d / e;
 
     if (act_div_int != expected_div_int) {
-        std::cerr << "Test " << __func__ << " Int256 / int failed! Expected: " 
-                  << expected_div_int.str() << " actual: " << act_div_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 / int failed! Expected: " << expected_div_int.str() << " actual: " << act_div_int.str() << std::endl;
         result = 1;
     }
 
     d /= e;
     if (d != expected_div_int) {
-        std::cerr << "Test " << __func__ << " Int256 /= int failed! Expected: " 
-                  << expected_div_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 /= int failed! Expected: " << expected_div_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -332,16 +176,14 @@ int int256_test_mod() {
     avx::Int256 act_mod = a % b;
 
     if (act_mod != expected_mod) {
-        std::cerr << "Test " << __func__ << " Int256 % Int256 failed! Expected: " 
-                  << expected_mod.str() << " actual: " << act_mod.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 % Int256 failed! Expected: " << expected_mod.str() << " actual: " << act_mod.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c %= b;
     if (c != expected_mod) {
-        std::cerr << "Test " << __func__ << " Int256 %= Int256 failed! Expected: " 
-                  << expected_mod.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 %= Int256 failed! Expected: " << expected_mod.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -351,15 +193,13 @@ int int256_test_mod() {
     avx::Int256 act_mod_int = d % e;
 
     if (act_mod_int != expected_mod_int) {
-        std::cerr << "Test " << __func__ << " Int256 % int failed! Expected: " 
-                  << expected_mod_int.str() << " actual: " << act_mod_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 % int failed! Expected: " << expected_mod_int.str() << " actual: " << act_mod_int.str() << std::endl;
         result = 1;
     }
 
     d %= e;
     if (d != expected_mod_int) {
-        std::cerr << "Test " << __func__ << " Int256 %= int failed! Expected: " 
-                  << expected_mod_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 %= int failed! Expected: " << expected_mod_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -377,16 +217,14 @@ int int256_test_and() {
     avx::Int256 act_and = a & b;
 
     if (act_and != expected_and) {
-        std::cerr << "Test " << __func__ << " Int256 & Int256 failed! Expected: " 
-                  << expected_and.str() << " actual: " << act_and.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 & Int256 failed! Expected: " << expected_and.str() << " actual: " << act_and.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c &= b;
     if (c != expected_and) {
-        std::cerr << "Test " << __func__ << " Int256 &= Int256 failed! Expected: " 
-                  << expected_and.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 &= Int256 failed! Expected: " << expected_and.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -396,15 +234,13 @@ int int256_test_and() {
     avx::Int256 act_and_int = d & e;
 
     if (act_and_int != expected_and_int) {
-        std::cerr << "Test " << __func__ << " Int256 & int failed! Expected: " 
-                  << expected_and_int.str() << " actual: " << act_and_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 & int failed! Expected: " << expected_and_int.str() << " actual: " << act_and_int.str() << std::endl;
         result = 1;
     }
 
     d &= e;
     if (d != expected_and_int) {
-        std::cerr << "Test " << __func__ << " Int256 &= int failed! Expected: " 
-                  << expected_and_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 &= int failed! Expected: " << expected_and_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -422,16 +258,14 @@ int int256_test_or() {
     avx::Int256 act_or = a | b;
 
     if (act_or != expected_or) {
-        std::cerr << "Test " << __func__ << " Int256 | Int256 failed! Expected: " 
-                  << expected_or.str() << " actual: " << act_or.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 | Int256 failed! Expected: " << expected_or.str() << " actual: " << act_or.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c |= b;
     if (c != expected_or) {
-        std::cerr << "Test " << __func__ << " Int256 |= Int256 failed! Expected: " 
-                  << expected_or.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 |= Int256 failed! Expected: " << expected_or.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -441,15 +275,13 @@ int int256_test_or() {
     avx::Int256 act_or_int = d | e;
 
     if (act_or_int != expected_or_int) {
-        std::cerr << "Test " << __func__ << " Int256 | int failed! Expected: " 
-                  << expected_or_int.str() << " actual: " << act_or_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 | int failed! Expected: " << expected_or_int.str() << " actual: " << act_or_int.str() << std::endl;
         result = 1;
     }
 
     d |= e;
     if (d != expected_or_int) {
-        std::cerr << "Test " << __func__ << " Int256 |= int failed! Expected: " 
-                  << expected_or_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 |= int failed! Expected: " << expected_or_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -467,16 +299,14 @@ int int256_test_xor() {
     avx::Int256 act_xor = a ^ b;
 
     if (act_xor != expected_xor) {
-        std::cerr << "Test " << __func__ << " Int256 ^ Int256 failed! Expected: " 
-                  << expected_xor.str() << " actual: " << act_xor.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 ^ Int256 failed! Expected: " << expected_xor.str() << " actual: " << act_xor.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c ^= b;
     if (c != expected_xor) {
-        std::cerr << "Test " << __func__ << " Int256 ^= Int256 failed! Expected: " 
-                  << expected_xor.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 ^= Int256 failed! Expected: " << expected_xor.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -486,15 +316,13 @@ int int256_test_xor() {
     avx::Int256 act_xor_int = d ^ e;
 
     if (act_xor_int != expected_xor_int) {
-        std::cerr << "Test " << __func__ << " Int256 ^ int failed! Expected: " 
-                  << expected_xor_int.str() << " actual: " << act_xor_int.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 ^ int failed! Expected: " << expected_xor_int.str() << " actual: " << act_xor_int.str() << std::endl;
         result = 1;
     }
 
     d ^= e;
     if (d != expected_xor_int) {
-        std::cerr << "Test " << __func__ << " Int256 ^= int failed! Expected: " 
-                  << expected_xor_int.str() << " actual: " << d.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 ^= int failed! Expected: " << expected_xor_int.str() << " actual: " << d.str() << std::endl;
         result = 1;
     }
 
@@ -511,8 +339,7 @@ int int256_test_not() {
     avx::Int256 act_not = ~a;
 
     if (act_not != expected_not) {
-        std::cerr << "Test " << __func__ << " ~Int256 failed! Expected: " 
-                  << expected_not.str() << " actual: " << act_not.str() << std::endl;
+        std::cerr << "Test " << __func__ << " ~Int256 failed! Expected: " << expected_not.str() << " actual: " << act_not.str() << std::endl;
         result = 1;
     }
 
@@ -530,16 +357,14 @@ int int256_test_lshift() {
     avx::Int256 act_lshift = a << b;
 
     if (act_lshift != expected_lshift) {
-        std::cerr << "Test " << __func__ << " Int256 << Int256 failed! Expected: " 
-                  << expected_lshift.str() << " actual: " << act_lshift.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 << Int256 failed! Expected: " << expected_lshift.str() << " actual: " << act_lshift.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c <<= b;
     if (c != expected_lshift) {
-        std::cerr << "Test " << __func__ << " Int256 <<= int failed! Expected: " 
-                  << expected_lshift.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 <<= int failed! Expected: " << expected_lshift.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 
@@ -557,16 +382,14 @@ int int256_test_rshift() {
     avx::Int256 act_rshift = a >> b;
 
     if (act_rshift != expected_rshift) {
-        std::cerr << "Test " << __func__ << " Int256 >> Int256 failed! Expected: " 
-                  << expected_rshift.str() << " actual: " << act_rshift.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 >> Int256 failed! Expected: " << expected_rshift.str() << " actual: " << act_rshift.str() << std::endl;
         result = 1;
     }
 
     avx::Int256 c = a;
     c >>= b;
     if (c != expected_rshift) {
-        std::cerr << "Test " << __func__ << " Int256 >>= int failed! Expected: " 
-                  << expected_rshift.str() << " actual: " << c.str() << std::endl;
+        std::cerr << "Test " << __func__ << " Int256 >>= int failed! Expected: " << expected_rshift.str() << " actual: " << c.str() << std::endl;
         result = 1;
     }
 

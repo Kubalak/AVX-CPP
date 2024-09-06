@@ -1,6 +1,8 @@
 # AVX-CPP - AVX2 made easy in C++
 AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides basic numeric types and math operations.
 
+**NOTE:** This is still in development state. Some features are not yet available!
+
 # Types and functions
 
 Library provides both integer and floating-point types:<br/>
