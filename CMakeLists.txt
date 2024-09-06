@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(AVX-CPP VERSION 0.0.1 LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
 
 set(SOURCE_DIR 
@@ -27,7 +27,7 @@ target_include_directories(avxcpp PUBLIC ${SOURCE_DIR})
 
 if(AVX_ENABLE_TESTS)
     add_executable(int_arithmetic_test "${SOURCE_DIR}/tests/int_arithmetic_test.cpp")
-    add_executable(uint_arithmetic_test "${SOURCE_DIR}/tests/int_arithmetic_test.cpp")
+    add_executable(uint_arithmetic_test "${SOURCE_DIR}/tests/uint_arithmetic_test.cpp")
     add_executable(long_arithmetic_test "${SOURCE_DIR}/tests/long_arithmetic_test.cpp")
     add_executable(int_perf_tests "${SOURCE_DIR}/tests/int_perf_tests.cpp")
 
@@ -35,7 +35,7 @@ if(AVX_ENABLE_TESTS)
     target_link_libraries(uint_arithmetic_test PRIVATE avxcpp)
     target_link_libraries(long_arithmetic_test PRIVATE avxcpp)
     target_link_libraries(int_perf_tests PRIVATE avxcpp)
-    enable_testing()
+    include(CTest)
 
     add_test(
         NAME int_arithmetic_test
@@ -43,7 +43,7 @@ if(AVX_ENABLE_TESTS)
     )
     add_test(
         NAME uint_arithmetic_test
-        COMMAND $<TARGET_FILE:int_arithmetic_test>
+        COMMAND $<TARGET_FILE:uint_arithmetic_test>
     )
 
     add_test(

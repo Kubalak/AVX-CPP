@@ -192,14 +192,51 @@ namespace avx {
         );
     }
 
-
+    //TODO: Check performance vs not using AVX directly
     UInt256 UInt256::operator*(const UInt256& b) const{
-        return UInt256(
-            _mm256_mul_epu32(
-                v, 
-                b.v
+        // return UInt256(
+        //     _mm256_mul_epu32(
+        //         v, 
+        //         b.v
+        //     )
+        // );
+        __m256i first = _mm256_mul_epu32(v, b.v);
+        int* fp = (int*)&v,*sp = (int*)&b.v;
+        __m256i second = _mm256_mul_epu32(
+            _mm256_set_epi32(
+                0,
+                fp[1],
+                0,
+                fp[3],
+                0,
+                fp[5],
+                0,
+                fp[7]
+            ),
+            _mm256_set_epi32(
+                0,
+                sp[1],
+                0,
+                sp[3],
+                0,
+                sp[5],
+                0,
+                sp[7]
             )
         );
+        fp = (int*) &first;
+        sp = (int*) &second;
+
+        return UInt256(_mm256_set_epi32(
+            sp[0],
+            fp[6],
+            sp[2],
+            fp[4],
+            sp[4],
+            fp[2],
+            sp[6],
+            fp[0]
+        ));
     }
 
 
@@ -332,7 +369,7 @@ namespace avx {
 
     UInt256 UInt256::operator&(const UInt256& b) const{
         return UInt256(
-            _mm256_or_si256(
+            _mm256_and_si256(
                 v, 
                 b.v
             )
@@ -359,7 +396,7 @@ namespace avx {
 
     UInt256 UInt256::operator<<(const UInt256& b) const {
         return UInt256(
-            _mm256_srlv_epi32(
+            _mm256_sllv_epi32(
                 v,
                 b.v
             )
@@ -369,7 +406,7 @@ namespace avx {
     
     UInt256 UInt256::operator<<(const unsigned int& b) const {
         return UInt256(
-            _mm256_srli_epi32(
+            _mm256_slli_epi32(
                 v,
                 b
             )
@@ -379,7 +416,7 @@ namespace avx {
     
     UInt256 UInt256::operator>>(const UInt256& b) const {
         return UInt256(
-            _mm256_srav_epi32(
+            _mm256_srlv_epi32(
                 v,
                 b.v
             )
@@ -389,7 +426,7 @@ namespace avx {
     
     UInt256 UInt256::operator>>(const unsigned int& b) const {
         return UInt256(
-            _mm256_srai_epi32(
+            _mm256_srli_epi32(
                 v,
                 b
             )
@@ -539,7 +576,7 @@ namespace avx {
 
 
     UInt256& UInt256::operator<<=(const UInt256& b) {
-        v = _mm256_srlv_epi32(
+        v = _mm256_sllv_epi32(
             v,
             b.v
         );
@@ -548,7 +585,7 @@ namespace avx {
     
     
     UInt256& UInt256::operator<<=(const unsigned int& b) {
-        v = _mm256_srli_epi32(
+        v = _mm256_slli_epi32(
             v,
             b
         );
@@ -557,7 +594,7 @@ namespace avx {
 
     
     UInt256& UInt256::operator>>=(const UInt256& b) {
-        v = _mm256_srav_epi32(
+        v = _mm256_srlv_epi32(
             v,
             b.v
         );
@@ -566,7 +603,7 @@ namespace avx {
     
     
     UInt256& UInt256::operator>>=(const unsigned int& b) {
-        v = _mm256_srai_epi32(
+        v = _mm256_srli_epi32(
             v,
             b
         );
