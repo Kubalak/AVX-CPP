@@ -88,7 +88,7 @@ namespace avx {
             bool operator==(const unsigned int&) const;
             bool operator!=(const UInt256&) const;
             bool operator!=(const unsigned int&) const;
-            unsigned int operator[](unsigned int) const;
+            const unsigned int operator[](unsigned int) const;
 
 
 // Plus operators

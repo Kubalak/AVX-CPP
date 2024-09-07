@@ -23,11 +23,26 @@ namespace avx {
     class Int256 {
         private:
             __m256i v;
-            const static __m256i ones; 
-        
+            const static __m256i ones;
         public:
+            
+            
+            /**
+             * Default constructor. Initializes vector with zeros.
+            */
             Int256():v(_mm256_setzero_si256()){}
+            
+            
+            /** Initializes vector by loading data from memory (via `_mm256_lddq_si256`). 
+             * @param init Valid memory addres of minimal size of 256-bits (32 bytes).
+            */
             Int256(const int*);
+
+
+            /**
+             * Initializes vector with const value. Each cell will be set with value of `init`.
+             * @param init Value to be set.
+             */
             Int256(const int& init);
             Int256(__m256i init);
             Int256(Int256& init);
@@ -43,11 +58,21 @@ namespace avx {
             bool operator==(const int&) const;
             bool operator!=(const Int256&) const;
             bool operator!=(const int&) const;
-            int operator[](unsigned int) const;
+            const int operator[](unsigned int) const;
 
 
 // Plus operators
+            /**
+             * Adds values from other vector and returns new vector.
+             * @return New vector being a sum of this vector and `bv`.
+             */
             Int256 operator+(const Int256&) const;
+
+
+            /**
+             * Adds single value across all vector fields.
+             * @return New vector being a sum of this vector and `b`.
+             */
             Int256 operator+(const int&) const;
 
 // Minus operators

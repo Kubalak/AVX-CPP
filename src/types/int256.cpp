@@ -152,7 +152,7 @@ namespace avx {
     }
 
 
-    int Int256::operator[](unsigned int index) const {
+    const int Int256::operator[](unsigned int index) const {
         if(index > 7) {
             std::string error_text = "Invalid index! Valid range is [0-7] (was ";
             error_text += std::to_string(index);

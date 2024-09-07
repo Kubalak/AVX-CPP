@@ -146,7 +146,7 @@ namespace avx {
     }
 
 
-    unsigned int UInt256::operator[](unsigned int index) const {
+    const unsigned int UInt256::operator[](unsigned int index) const {
         if(index > 7) {
             std::string error_text = "Invalid index! Valid range is [0-7] (was ";
             error_text += std::to_string(index);
@@ -192,49 +192,24 @@ namespace avx {
         );
     }
 
-    //TODO: Check performance vs not using AVX directly
+
     UInt256 UInt256::operator*(const UInt256& b) const{
-        // return UInt256(
-        //     _mm256_mul_epu32(
-        //         v, 
-        //         b.v
-        //     )
-        // );
         __m256i first = _mm256_mul_epu32(v, b.v);
-        int* fp = (int*)&v,*sp = (int*)&b.v;
-        __m256i second = _mm256_mul_epu32(
-            _mm256_set_epi32(
-                0,
-                fp[1],
-                0,
-                fp[3],
-                0,
-                fp[5],
-                0,
-                fp[7]
-            ),
-            _mm256_set_epi32(
-                0,
-                sp[1],
-                0,
-                sp[3],
-                0,
-                sp[5],
-                0,
-                sp[7]
-            )
-        );
-        fp = (int*) &first;
-        sp = (int*) &second;
+        __m256i av = _mm256_srli_si256(v, sizeof(unsigned int));
+        __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
+        __m256i second = _mm256_mul_epu32(av, bv);
+
+        int* fp = (int*) &first;
+        int* sp = (int*) &second;
 
         return UInt256(_mm256_set_epi32(
-            sp[0],
-            fp[6],
-            sp[2],
-            fp[4],
-            sp[4],
-            fp[2],
             sp[6],
+            fp[6],
+            sp[4],
+            fp[4],
+            sp[2],
+            fp[2],
+            sp[0],
             fp[0]
         ));
     }
