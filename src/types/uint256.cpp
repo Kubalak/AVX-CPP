@@ -3,6 +3,7 @@
 
 namespace avx {
     const __m256i UInt256::ones = _mm256_set1_epi8(0xFF);
+    const __m256i UInt256::crate = _mm256_set_epi32(0, 0xFFFFFFFF, 0, 0xFFFFFFFF, 0, 0xFFFFFFFF, 0, 0xFFFFFFFF);
 
     UInt256::UInt256(const unsigned int& init):
         v(_mm256_set1_epi32(init))
@@ -199,28 +200,42 @@ namespace avx {
         __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
         __m256i second = _mm256_mul_epu32(av, bv);
 
-        int* fp = (int*) &first;
-        int* sp = (int*) &second;
+        // Full AVX version
+        second = _mm256_and_si256(second, crate);
+        first = _mm256_and_si256(first, crate);
+        second = _mm256_slli_si256(second, sizeof(unsigned int));
 
-        return UInt256(_mm256_set_epi32(
-            sp[6],
-            fp[6],
-            sp[4],
-            fp[4],
-            sp[2],
-            fp[2],
-            sp[0],
-            fp[0]
-        ));
+        return UInt256(_mm256_or_si256(first, second));
+
+        // int* fp = (int*) &first;
+        // int* sp = (int*) &second;
+
+        // return UInt256(_mm256_set_epi32(
+        //     sp[6],
+        //     fp[6],
+        //     sp[4],
+        //     fp[4],
+        //     sp[2],
+        //     fp[2],
+        //     sp[0],
+        //     fp[0]
+        // ));
     }
 
 
     UInt256 UInt256::operator*(const unsigned int& b) const{
+        __m256i bv = _mm256_set1_epi32(b);
+        __m256i first = _mm256_mul_epu32(v, bv);
+        __m256i av = _mm256_srli_si256(v, sizeof(unsigned int));
+        __m256i second = _mm256_mul_epu32(av, bv);
+
+        second = _mm256_and_si256(second, crate);
+        first = _mm256_and_si256(first, crate);
+        second = _mm256_slli_si256(second, sizeof(unsigned int));
+
+
         return UInt256(
-            _mm256_mul_epu32(
-                v, 
-                _mm256_set1_epi32(b)
-            )
+            _mm256_or_si256(first, second)
         );
     }
 
@@ -434,13 +449,34 @@ namespace avx {
 
 
     UInt256& UInt256::operator*=(const UInt256& b){
-        v = _mm256_mul_epu32(v, b.v);
+        __m256i first = _mm256_mul_epu32(v, b.v);
+        v = _mm256_srli_si256(v, sizeof(unsigned int));
+        
+        __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
+        __m256i second = _mm256_mul_epu32(v, bv);
+
+        second = _mm256_and_si256(second, crate);
+        first = _mm256_and_si256(first, crate);
+        second = _mm256_slli_si256(second, sizeof(unsigned int));
+
+        v =_mm256_or_si256(first, second);
         return *this;
     }
 
 
     UInt256& UInt256::operator*=(const unsigned int& b){
-        v = _mm256_mul_epu32(v, _mm256_set1_epi32(b));
+        __m256i bv = _mm256_set1_epi32(b);
+        __m256i first = _mm256_mul_epu32(v, bv);
+
+        v = _mm256_srli_si256(v, sizeof(unsigned int));
+        __m256i second = _mm256_mul_epu32(v, bv);
+
+        second = _mm256_and_si256(second, crate);
+        first = _mm256_and_si256(first, crate);
+        second = _mm256_slli_si256(second, sizeof(unsigned int));
+        
+        v =_mm256_or_si256(first, second);
+
         return *this;
     }
 
@@ -597,19 +633,35 @@ namespace avx {
         return result;
     }
 
+
+    void UInt256::save(std::array<unsigned int, 8>& dest) {
+        _mm256_storeu_si256((__m256i*)dest.data(), v);
+    }
+
+            
+
+    void UInt256::save(unsigned int* dest) {
+        _mm256_storeu_si256((__m256i*)dest, v);
+    }
+
+
+    void UInt256::saveAligned(unsigned int* dest){
+        _mm256_store_si256((__m256i*)dest, v);
+    }
+
     
-    UInt256 sum(std::vector<UInt256>& a){
+    UInt256 sum(std::vector<UInt256>& items){
         __m256i result = _mm256_setzero_si256();
-        for(const UInt256& item : a)
+        for(const UInt256& item : items)
             result = _mm256_add_epi32(result, item.v);
         
         return UInt256(result);
     }
 
 
-    UInt256 sum(std::set<UInt256>& a){
+    UInt256 sum(std::set<UInt256>& items){
         __m256i result = _mm256_setzero_si256();
-        for(const UInt256& item : a)
+        for(const UInt256& item : items)
             result = _mm256_add_epi32(result, item.v);
         
         return UInt256(result);

@@ -104,6 +104,22 @@ namespace avx {
     {}
 
 
+    void Int256::save(std::array<int, 8>& dest) {
+        _mm256_storeu_si256((__m256i*)dest.data(), v);
+    }
+
+            
+
+    void Int256::save(int* dest) {
+        _mm256_storeu_si256((__m256i*)dest, v);
+    }
+
+
+    void Int256::saveAligned(int* dest){
+        _mm256_store_si256((__m256i*)dest, v);
+    }
+
+
     bool Int256::operator==(const Int256& b) const {
         int* v1,* v2;
         v1 = (int*)&v;

@@ -13,6 +13,7 @@ namespace avx {
         private:
             __m256i v;
             const static __m256i ones; 
+            const static __m256i crate;
         
         public:
             /**
@@ -169,12 +170,45 @@ namespace avx {
             /**
              * Return string representation of vector.
              * 
-             * @include uint_example.cpp
              * @returns String representation of vector.
              */
             std::string str() const;
 
+
+            /**
+             * Saves vector data into an array.
+             * @param dest Destination array.
+             */
+            void save(std::array<unsigned int, 8>&);
+
+            
+            /**
+             * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
+             * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
+             */
+            void save(unsigned int*);
+
+            /**
+             * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
+             * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
+             * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
+             */
+            void saveAligned(unsigned int*);
+
+            
+            /**
+             * Sums all elements in vector.
+             * @param items Vector containing `UInt256` values.
+             * @return Sum of all elements in vector.
+             */
             friend UInt256 sum(std::vector<UInt256>&);
+
+            
+            /**
+             * Sums all elements in set.
+             * @param items Set containing `UInt256` values.
+             * @return Sum of all elements in set.
+             */
             friend UInt256 sum(std::set<UInt256>&);
 
     };

@@ -396,6 +396,53 @@ int int256_test_rshift() {
     return result;
 }
 
+int data_load_save(){
+    std::cout << "Starting test: " << __func__ << std::endl;
+
+    int result = 0;
+
+    int data[] = {1, 2, 4, 5, 6, 10, 2, 5};
+    int dest[8];
+
+    int expected[] = {12, 14, 18, 20, 22, 30, 14, 20};
+
+    avx::Int256 val(data);
+
+    val+= 5;
+    val*= 2;
+
+    val.save(dest);
+
+    for(unsigned i{0}; i < 8;++i)
+        std::cout << expected[i] << " <-> " << dest[i] << '\n';
+    
+    return result;
+}
+
+int data_load_save_aligned(){
+    std::cout << "Starting test: " << __func__ << std::endl;
+
+    int result = 0;
+
+    int data[] = {1, 2, 4, 5, 6, 10, 2, 5};
+
+    __declspec(align(32)) int dest[8] ;
+
+    int expected[] = {12, 14, 18, 20, 22, 30, 14, 20};
+
+    avx::Int256 val(data);
+
+    val+= 5;
+    val*= 2;
+
+    val.saveAligned(dest);
+
+    for(unsigned i{0}; i < 8;++i)
+        std::cout << expected[i] << " <-> " << dest[i] << '\n';
+    
+    return result;
+}
+
 
 int main(int argc, char* argv[]) {
     int result = 0;
@@ -411,6 +458,9 @@ int main(int argc, char* argv[]) {
     result |= int256_test_not();
     result |= int256_test_lshift();
     result |= int256_test_rshift();
+
+    result |= data_load_save();
+    result |= data_load_save_aligned();
 
     return result;
 }
