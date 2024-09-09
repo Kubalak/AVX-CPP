@@ -5,6 +5,10 @@ namespace avx {
     const __m256i UInt256::ones = _mm256_set1_epi8(0xFF);
     const __m256i UInt256::crate = _mm256_set_epi32(0, 0xFFFFFFFF, 0, 0xFFFFFFFF, 0, 0xFFFFFFFF, 0, 0xFFFFFFFF);
 
+    UInt256::UInt256(const unsigned int* init):
+        v(_mm256_lddqu_si256((const __m256i*)init))
+    {}
+
     UInt256::UInt256(const unsigned int& init):
         v(_mm256_set1_epi32(init))
     {}

@@ -401,9 +401,67 @@ int uint256_test_rshift() {
     return result;
 }
 
-int main(int argc, char* argv[]) {
+int data_load_save(){
+    std::cout << "Starting test: " << __func__ << std::endl;
+
     int result = 0;
 
+    unsigned int data[] = {1, 2, 4, 5, 6, 10, 2, 5};
+    unsigned int dest[8];
+
+    int expected[] = {12, 14, 18, 20, 22, 30, 14, 20};
+
+    avx::UInt256 val(data);
+
+    val+= 5;
+    val*= 2;
+
+    val.save(dest);
+
+    for(unsigned i{0}; i < 8;++i)
+        if(expected[i] != dest[i]){
+            result = 1;
+            printf("[%u] %u <-> %u\n", i, expected[i], dest[i]);
+        }
+    
+    return result;
+}
+
+int data_load_save_aligned(){
+    std::cout << "Starting test: " << __func__ << std::endl;
+
+    int result = 0;
+
+    unsigned int data[] = {1, 2, 4, 5, 6, 10, 2, 5};
+
+#ifdef _MSC_VER
+    __declspec(align(32)) unsigned int dest[8] ;
+    std::cout << _MSC_VER << '\n';
+#else
+    int dest[8] __attribute_((aligned(32)));
+#endif
+
+    unsigned expected[] = {12, 14, 18, 20, 22, 30, 14, 20};
+
+    avx::UInt256 val(data);
+
+    val+= 5;
+    val*= 2;
+
+    val.saveAligned(dest);
+
+    for(unsigned i{0}; i < 8;++i)
+        if(expected[i] != dest[i]){
+            result = 1;
+            printf("[%u] %u <-> %u\n", i, expected[i], dest[i]);
+        }
+    
+    return result;
+}
+
+int main(int argc, char* argv[]) {
+    int result = 0;
+    printf("Compiler version: %d, build date: %s %s\n", _MSC_VER, __DATE__, __TIME__);
     result |= uint256_test_add();
     result |= uint256_test_sub();
     result |= uint256_test_mul();
@@ -416,22 +474,8 @@ int main(int argc, char* argv[]) {
     result |= uint256_test_lshift();
     result |= uint256_test_rshift();
 
-    std::vector<int> va{1,2,3,4}, vb{5,6,7,8};
-
-    auto vc = testing::apply_seq(va, vb, testing::add<int>);
-
-    std::cout << vc.size() << std::endl;
-    for(const int& item : vc)
-        std::cout << item << ' ';
-    
-    std::cout << '\n';
-
-    avx::UInt256 x({1, 2, 0, 256, 0xFFFFFFFFu, 512, 128, 3});
-    __m256i xv = x.get();
-    xv = _mm256_srai_epi32(xv, 32);
-    x.set(xv);
-
-    std::cout << x.str() << std::endl;
+    result |= data_load_save();
+    result |= data_load_save_aligned();
 
 
     return result;

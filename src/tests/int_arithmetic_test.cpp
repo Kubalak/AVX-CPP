@@ -414,7 +414,10 @@ int data_load_save(){
     val.save(dest);
 
     for(unsigned i{0}; i < 8;++i)
-        std::cout << expected[i] << " <-> " << dest[i] << '\n';
+        if(expected[i] != dest[i]){
+            result = 1;
+            printf("[%u] %d <-> %d\n", i, expected[i], dest[i]);
+        }
     
     return result;
 }
@@ -426,7 +429,12 @@ int data_load_save_aligned(){
 
     int data[] = {1, 2, 4, 5, 6, 10, 2, 5};
 
+#ifdef _MSC_VER
     __declspec(align(32)) int dest[8] ;
+    std::cout << _MSC_VER << '\n';
+#else
+    int dest[8] __attribute_((aligned(32)));
+#endif
 
     int expected[] = {12, 14, 18, 20, 22, 30, 14, 20};
 
@@ -438,7 +446,10 @@ int data_load_save_aligned(){
     val.saveAligned(dest);
 
     for(unsigned i{0}; i < 8;++i)
-        std::cout << expected[i] << " <-> " << dest[i] << '\n';
+        if(expected[i] != dest[i]){
+            result = 1;
+            printf("[%u] %d <-> %d\n", i, expected[i], dest[i]);
+        }
     
     return result;
 }

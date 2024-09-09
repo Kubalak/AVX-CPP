@@ -22,6 +22,11 @@ namespace avx {
              */
             UInt256():v(_mm256_setzero_si256()){}
 
+            /** Initializes vector by loading data from memory (via `_mm256_lddq_si256`). 
+             * @param init Valid memory addres of minimal size of 256-bits (32 bytes).
+            */
+            UInt256(const unsigned int*);
+
             /**
              * Fills vector with passed value using `_mm256_set1_epi32()`.
              * @param init Value to be set.

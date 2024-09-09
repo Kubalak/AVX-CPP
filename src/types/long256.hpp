@@ -14,7 +14,7 @@ namespace avx {
             const static __m256i ones; 
         
         public:
-            Long256():v(_mm256_setzero_si256()){}
+            Long256():v(_mm256_setzero_si256()){};
             Long256(const long long*);
             Long256(const long long& init);
             Long256(__m256i init);
@@ -111,6 +111,26 @@ namespace avx {
             Long256& operator>>=(const unsigned int&);
 
             std::string str() const;
+
+            /**
+             * Saves vector data into an array.
+             * @param dest Destination array.
+             */
+            void save(std::array<long long, 4>&) const;
+
+            
+            /**
+             * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
+             * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
+             */
+            void save(const long long*) const;
+
+            /**
+             * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
+             * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
+             * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
+             */
+            void saveAligned(const long long*) const;
 
             friend Long256 sum(std::vector<Long256>&);
             friend Long256 sum(std::set<Long256>&);

@@ -566,6 +566,21 @@ namespace avx {
     }
 
     
+    void Long256::save(std::array<long long, 4>& dest) const{
+        _mm256_storeu_si256((__m256i*)dest.data(), v);
+    }
+
+            
+
+    void Long256::save(const long long* dest) const{
+        _mm256_storeu_si256((__m256i*)dest, v);
+    }
+
+
+    void Long256::saveAligned(const long long* dest) const{
+        _mm256_store_si256((__m256i*)dest, v);
+    }
+
     Long256 sum(std::vector<Long256>& a){
         __m256i result = _mm256_setzero_si256();
         for(const Long256& item : a)
