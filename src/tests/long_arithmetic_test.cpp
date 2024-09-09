@@ -1,6 +1,5 @@
 #include <iostream>
 #include <array>
-#include <intrin.h>
 #include "types/long256.hpp"
 
 int long256_test_add() {
@@ -361,7 +360,7 @@ int data_load_save_aligned(){
     __declspec(align(32)) long long dest[4] ;
     std::cout << _MSC_VER << '\n';
 #else
-    long long dest[4] __attribute_((aligned(32)));
+    long long dest[4] __attribute__((aligned(32)));
 #endif
 
     long long expected[] = {12, 14, 18, 20};

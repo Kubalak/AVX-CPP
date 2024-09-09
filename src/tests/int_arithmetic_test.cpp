@@ -433,7 +433,7 @@ int data_load_save_aligned(){
     __declspec(align(32)) int dest[8] ;
     std::cout << _MSC_VER << '\n';
 #else
-    int dest[8] __attribute_((aligned(32)));
+    int dest[8] __attribute__((aligned(32)));
 #endif
 
     int expected[] = {12, 14, 18, 20, 22, 30, 14, 20};

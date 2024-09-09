@@ -1,6 +1,7 @@
 #include <iostream>
 #include <array>
 #include <string>
+#include <climits>
 #include <types/uint256.hpp> 
 #include "test_utils.hpp"
 
@@ -438,7 +439,7 @@ int data_load_save_aligned(){
     __declspec(align(32)) unsigned int dest[8] ;
     std::cout << _MSC_VER << '\n';
 #else
-    int dest[8] __attribute_((aligned(32)));
+    unsigned int dest[8] __attribute__((aligned(32)));
 #endif
 
     unsigned expected[] = {12, 14, 18, 20, 22, 30, 14, 20};
@@ -461,7 +462,11 @@ int data_load_save_aligned(){
 
 int main(int argc, char* argv[]) {
     int result = 0;
-    printf("Compiler version: %d, build date: %s %s\n", _MSC_VER, __DATE__, __TIME__);
+    #ifdef _MSC_VER
+        printf("Compiler version: %d, build date: %s %s\n", _MSC_VER, __DATE__, __TIME__);
+    #else
+        printf("Build date: %s %s\n", __DATE__, __TIME__);
+    #endif
     result |= uint256_test_add();
     result |= uint256_test_sub();
     result |= uint256_test_mul();
