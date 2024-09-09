@@ -16,6 +16,9 @@ namespace avx {
             const static __m256i crate;
         
         public:
+
+            static constexpr int size = 8;
+
             /**
              * Default constructor.
              * Initializes vector with zeros using `_mm256_setzero_si256()`.

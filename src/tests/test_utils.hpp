@@ -3,6 +3,9 @@
 #define _TEST_UTILS_HPP
 #include <vector>
 #include <functional>
+#include <random>
+#include <string>
+#include <chrono>
 
 namespace testing
 {
@@ -165,6 +168,1111 @@ namespace testing
     T rshift(const T &a, const T &b)
     {
         return a >> b;
+    }
+
+    /**
+     * Universal function for testing + and += operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_add(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] + bV[i];
+            litV[i] = aV[i] + randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a + b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s + %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c += b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s += %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a + randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s + %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c += randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s += %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+    /**
+     * Universal function for testing - and -= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_sub(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] - bV[i];
+            litV[i] = aV[i] - randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a - b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s - %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c -= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s -= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a - randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s - %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c -= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s -= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+    /**
+     * Universal function for testing * and *= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_mul(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] * bV[i];
+            litV[i] = aV[i] * randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a * b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s * %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c *= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s *= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a * randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s * %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c *= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s *= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+    /**
+     * Universal function for testing / and /= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_div(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] / bV[i];
+            litV[i] = aV[i] / randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a / b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s / %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c /= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s /= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a / randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s / %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c /= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s /= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+    /**
+     * Universal function for testing % and %= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_mod(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] % bV[i];
+            litV[i] = aV[i] % randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a % b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s %% %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c %= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s %%= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a % randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s %% %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c %= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s %%= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+    /**
+     * Universal function for testing << and <<= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_lshift(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S randLit;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] << bV[i];
+            litV[i] = aV[i] << randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a << b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s << %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c <<= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s <<= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a << randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s << %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c <<= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s <<= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+    /**
+     * Universal function for testing >> and >>= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_rshift(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S randLit;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] >> bV[i];
+            litV[i] = aV[i] >> randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a >> b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s >> %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c >>= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s >>= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a >> randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s >> %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c >>= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s >>= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+    /**
+     * Universal function for testing | and |= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_or(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] | bV[i];
+            litV[i] = aV[i] | randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a | b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s | %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c |= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s |= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a | randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s | %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c |= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s |= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+    /**
+     * Universal function for testing & and &= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_and(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] & bV[i];
+            litV[i] = aV[i] & randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a & b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s & %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c &= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s &= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a & randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s & %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c &= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s &= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+    /**
+     * Universal function for testing ^ and ^= operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_xor(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size), litV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S zero{0}, randLit;
+        zero |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+
+        randLit = dist(rng);
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            bV[i] = dist(rng);
+            resV[i] = aV[i] ^ bV[i];
+            litV[i] = aV[i] ^ randLit;
+        }
+
+        T a(aV.data()), b(bV.data()), c, expected(resV.data()), expectedLit(litV.data());
+
+        c = a ^ b;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s ^ %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c ^= b;
+
+        if(c != expected){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s ^= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(T).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a ^ randLit;
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s ^ %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        c = a;
+        c ^= randLit;
+
+        if(c != expectedLit){
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (%s ^= %s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                typeid(S).name(),
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
+            std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
     }
 };
 #endif

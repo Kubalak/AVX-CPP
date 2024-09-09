@@ -26,6 +26,7 @@ namespace avx {
             const static __m256i ones;
         public:
             
+            static constexpr int size = 8;
             
             /**
              * Default constructor. Initializes vector with zeros.
@@ -58,21 +59,21 @@ namespace avx {
              * Saves vector data into an array.
              * @param dest Destination array.
              */
-            void save(std::array<int, 8>&);
+            void save(std::array<int, 8>&) const;
 
             
             /**
              * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
              * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
              */
-            void save(int*);
+            void save(int*) const;
 
             /**
              * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
              * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
              * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
              */
-            void saveAligned(int*);
+            void saveAligned(int*) const;
 
             bool operator==(const Int256&) const;
             bool operator==(const int&) const;

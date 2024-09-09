@@ -1,6 +1,7 @@
 #include <iostream>
 #include <array>
 #include "types/long256.hpp"
+#include "test_utils.hpp"
 
 int long256_test_add() {
     int result = 0;
@@ -358,7 +359,6 @@ int data_load_save_aligned(){
 
 #ifdef _MSC_VER
     __declspec(align(32)) long long dest[4] ;
-    std::cout << _MSC_VER << '\n';
 #else
     long long dest[4] __attribute__((aligned(32)));
 #endif
@@ -394,6 +394,17 @@ int main(int argc, char* argv[]) {
     result |= long256_test_bitwise_or();
     result |= long256_test_bitwise_xor();
     result |= long256_test_bitwise_not();
+
+    /*result |= testing::universal_test_add<avx::Long256, long long>();
+    result |= testing::universal_test_sub<avx::Long256, long long>();
+    result |= testing::universal_test_mul<avx::Long256, long long>();
+    result |= testing::universal_test_div<avx::Long256, long long>();
+    result |= testing::universal_test_mod<avx::Long256, long long>();
+    result |= testing::universal_test_lshift<avx::Long256, long long>();
+    result |= testing::universal_test_rshift<avx::Long256, long long>();
+    result |= testing::universal_test_and<avx::Long256, long long>();
+    result |= testing::universal_test_or<avx::Long256, long long>();
+    result |= testing::universal_test_xor<avx::Long256, long long>();*/
     
     result |= data_load_save();
     result |= data_load_save_aligned();

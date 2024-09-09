@@ -59,17 +59,7 @@ namespace avx {
     }
 
     UInt256::UInt256(std::array<unsigned int, 8> init):
-        v(_mm256_set_epi32(
-            init[0], 
-            init[1], 
-            init[2], 
-            init[3], 
-            init[4], 
-            init[5], 
-            init[6], 
-            init[7]
-            )
-        )
+        v(_mm256_lddqu_si256((const __m256i*)init.data()))
     {}
 
 

@@ -47,13 +47,7 @@ namespace avx {
     }
 
     Long256::Long256(std::array<long long, 4> init):
-        v(_mm256_set_epi64x(
-            init[0], 
-            init[1], 
-            init[2], 
-            init[3]
-            )
-        )
+        v(_mm256_lddqu_si256((const __m256i*)init.data()))
     {}
 
 
@@ -146,7 +140,7 @@ namespace avx {
 
     Long256 Long256::operator+(const long long& b) const{
         return Long256(
-            _mm256_add_epi32(
+            _mm256_add_epi64(
                 v, 
                 _mm256_set1_epi64x(b)
             )

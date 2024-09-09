@@ -14,6 +14,7 @@ namespace avx {
             const static __m256i ones; 
         
         public:
+            static constexpr int size = 4;
             Long256():v(_mm256_setzero_si256()){};
             Long256(const long long*);
             Long256(const long long& init);

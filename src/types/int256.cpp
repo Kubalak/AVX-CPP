@@ -60,17 +60,7 @@ namespace avx {
     }
 
     Int256::Int256(std::array<int, 8> init):
-        v(_mm256_set_epi32(
-            init[0], 
-            init[1], 
-            init[2], 
-            init[3], 
-            init[4], 
-            init[5], 
-            init[6], 
-            init[7]
-            )
-        )
+        v(_mm256_loadu_si256((const __m256i*)init.data()))
     {}
 
 
@@ -104,18 +94,18 @@ namespace avx {
     {}
 
 
-    void Int256::save(std::array<int, 8>& dest) {
+    void Int256::save(std::array<int, 8>& dest) const{
         _mm256_storeu_si256((__m256i*)dest.data(), v);
     }
 
             
 
-    void Int256::save(int* dest) {
+    void Int256::save(int* dest) const{
         _mm256_storeu_si256((__m256i*)dest, v);
     }
 
 
-    void Int256::saveAligned(int* dest){
+    void Int256::saveAligned(int* dest) const{
         _mm256_store_si256((__m256i*)dest, v);
     }
 
@@ -234,10 +224,9 @@ namespace avx {
         );
     }
 
-    // TODO: Optimize division and modulo.
     Int256 Int256::operator/(const Int256& b) const {
 
-        int* a = (int*)&v;
+        /*int* a = (int*)&v;
         int* bv = (int*)&b.v;
 
         return Int256(
@@ -251,13 +240,17 @@ namespace avx {
                 a[1] / bv[1],
                 a[0] / bv[0]
             )
+        );*/ 
+        
+        return _mm256_cvtps_epi32(
+            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
         );
     }
 
 
     Int256 Int256::operator/(const int& b) const {
 
-        int* a = (int*)&v;
+        /*int* a = (int*)&v;
 
         return Int256(
             _mm256_set_epi32(
@@ -270,6 +263,10 @@ namespace avx {
                 a[1] / b,
                 a[0] / b
             )
+        );*/
+
+        return _mm256_cvtps_epi32(
+            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
         );
     }
 
@@ -456,7 +453,7 @@ namespace avx {
 
 
     Int256& Int256::operator/=(const Int256& b){
-        int* a = (int*)&v;
+        /*int* a = (int*)&v;
         int* bv = (int*)&b.v;
 
         v = _mm256_set_epi32(
@@ -468,13 +465,16 @@ namespace avx {
             a[2] / bv[2],
             a[1] / bv[1],
             a[0] / bv[0]
+        );*/
+        v = _mm256_cvtps_epi32(
+            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
         );
         return *this;
     }
 
 
     Int256& Int256::operator/=(const int& b){
-        int* a = (int*)&v;
+        /*int* a = (int*)&v;
         v = _mm256_set_epi32(
             a[7] / b,
             a[6] / b,
@@ -484,6 +484,10 @@ namespace avx {
             a[2] / b,
             a[1] / b,
             a[0] / b
+        );*/
+
+        v = _mm256_cvtps_epi32(
+            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
         );
         return *this;
     }
