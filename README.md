@@ -5,12 +5,12 @@ AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides
 
 # Types and functions
 
-Library provides both integer and floating-point types:<br/>
+Library provides both integer and floating-point types (&#x2705; shows currently working):<br/>
 - Integer types:<br/>
-  - `Long256` - Vector containing 4 signed 64-bit integers (`__m256i`)<br/>
-  - `Long256` - Vector containing 4 unsigned 64-bit integers (`__m256i`)<br/>
-  - `Int256` - Vector containing 8 signed 32-bit integers (`__m256i`)<br/>
-  - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`)<br/>
+  - `Long256` - Vector containing 4 signed 64-bit integers (`__m256i`) &#x2705;<br/>
+  - `ULong256` - Vector containing 4 unsigned 64-bit integers (`__m256i`) &#x2705;<br/>
+  - `Int256` - Vector containing 8 signed 32-bit integers (`__m256i`) &#x2705;<br/>
+  - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`) &#x2705;<br/>
   - `Short256` - Vector containing 16 signed 16-bit integers (`__m256i`)<br/>
   - `Ushort256` - Vector containing 16 unsigned 16-bit integers (`__m256i`)<br/>
   - `Char256` - Vector containing 32 signed 8-bit integers (`__m256i`)<br/>
@@ -72,11 +72,12 @@ Available building options are
 
 | Option | Type | Defualt | Description |
 | --- | --- | --- | ---|
-| AVX_BUILD_SHARED_LIBS | BOOLEAN| ON | Build shared libraries (*.dll or *.so) |
-| AVX_ENABLE_TESTS | BOOLEAN | OFF | Build tests when building library |
+| BUILD_SHARED_LIBS | BOOLEAN| ON | Build shared libraries (*.dll or *.so) |
+| BUILD_TESTING | BOOLEAN | OFF | Build tests when building library |
 
 ## Known issues
-- Building binaries with MinGW on Windows may result in segfault (`ERROR_ACCESS_VIOLATION`) for yet unknown reasons<br/>
-- `/` and `%` on integer types don't use AVX2 directly (performance penalty)
+- Building binaries with MinGW on Windows may result in segfault (`ERROR_ACCESS_VIOLATION`) when running program for yet unknown reasons<br/>
+- `/` and `%` on integer types don't use AVX2 or use it scarcely due to lack of available AVX2 functions (type conversion may introduce more bugs).
 - Performance benefits need further testing
+- `CMakeLists.txt` doesn't currently support building tests when `BUILD_SHARED_LIBS` is `ON`.
 

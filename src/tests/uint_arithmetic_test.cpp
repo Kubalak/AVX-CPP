@@ -462,10 +462,36 @@ int data_load_save_aligned(){
 
 int main(int argc, char* argv[]) {
     int result = 0;
+    #ifdef _WIN32
+        #ifdef _WIN64
+            constexpr char os[] = "Win64";
+        #else
+            constexpr char os[] = "Win32";
+        #endif
+    #elif __linux__
+        constexpr char os[] = "Linux";
+    #elif __unix__
+        constexpr char os[] = "Unix";
+    #elif __APPLE__
+        constexpr char os[] = "Apple";
+    #endif
+
+    #ifdef __AVX2__
+        puts("AVX2 enabled");
+    #else 
+        puts("AVX2 disabled");
+    #endif
+
+    #ifdef __AVX512F__
+        puts("AVX512F enabled");
+    #else 
+        puts("AVX512F disabled");
+    #endif
+
     #ifdef _MSC_VER
-        printf("Compiler version: %d, build date: %s %s\n", _MSC_VER, __DATE__, __TIME__);
-    #else
-        printf("Build date: %s %s\n", __DATE__, __TIME__);
+        printf("Compiler MSC v.%d, build date: %s %s on %s\n", _MSC_VER, __DATE__, __TIME__, os);
+    #elif __GNUC__
+        printf("Compiler GCC %d.%d.%d, build date: %s %s on %s\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__, __DATE__, __TIME__, os);
     #endif
     result |= uint256_test_add();
     result |= uint256_test_sub();

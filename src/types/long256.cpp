@@ -121,7 +121,7 @@ namespace avx {
     }
 
 
-    long long Long256::operator[](unsigned long long index) const {
+    const long long Long256::operator[](unsigned long long index) const {
         if(index > 4) {
             std::string error_text = "Invalid index! Valid range is [0-7] (was ";
             error_text += std::to_string(index);

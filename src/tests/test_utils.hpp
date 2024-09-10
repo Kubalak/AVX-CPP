@@ -171,7 +171,7 @@ namespace testing
     }
 
     /**
-     * Universal function for testing + and += operator of integer types.
+     * Universal function for testing `+` and `+=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -281,7 +281,7 @@ namespace testing
     }
 
     /**
-     * Universal function for testing - and -= operator of integer types.
+     * Universal function for testing `-` and `-=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -392,7 +392,7 @@ namespace testing
 
 
     /**
-     * Universal function for testing * and *= operator of integer types.
+     * Universal function for testing `*` and `*=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -503,7 +503,7 @@ namespace testing
 
 
     /**
-     * Universal function for testing / and /= operator of integer types.
+     * Universal function for testing `/` and `/=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -613,7 +613,7 @@ namespace testing
     }
 
     /**
-     * Universal function for testing % and %= operator of integer types.
+     * Universal function for testing `%` and `%=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -724,7 +724,7 @@ namespace testing
 
 
     /**
-     * Universal function for testing << and <<= operator of integer types.
+     * Universal function for testing `<`< and` <`<= operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -834,7 +834,7 @@ namespace testing
 
 
     /**
-     * Universal function for testing >> and >>= operator of integer types.
+     * Universal function for testing `>`> and` >`>= operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -944,7 +944,7 @@ namespace testing
 
 
     /**
-     * Universal function for testing | and |= operator of integer types.
+     * Universal function for testing `|` and `|=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -1055,7 +1055,7 @@ namespace testing
 
 
     /**
-     * Universal function for testing & and &= operator of integer types.
+     * Universal function for testing `&` and `&=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
@@ -1166,7 +1166,7 @@ namespace testing
 
 
     /**
-     * Universal function for testing ^ and ^= operator of integer types.
+     * Universal function for testing `^` and `^=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
      * @param size Elements count in type `T`.
