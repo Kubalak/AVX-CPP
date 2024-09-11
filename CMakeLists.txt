@@ -17,15 +17,16 @@ file(
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(BUILD_TESTING "Build tests" OFF)
 
+add_library(avxcpp_s STATIC ${SOURCES})
 
 if(BUILD_SHARED_LIBS)
     add_library(avxcpp SHARED ${SOURCES})
-else()
-    add_library(avxcpp STATIC ${SOURCES})
+    set_target_properties(avxcpp PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
+    target_include_directories(avxcpp PUBLIC ${SOURCE_DIR})
 endif()
 
-set_target_properties(avxcpp PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
-target_include_directories(avxcpp PUBLIC ${SOURCE_DIR})
+set_target_properties(avxcpp_s PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
+target_include_directories(avxcpp_s PUBLIC ${SOURCE_DIR})
 
 if(BUILD_TESTING)
     add_executable(int_arithmetic_test "${SOURCE_DIR}/tests/int_arithmetic_test.cpp")
@@ -33,12 +34,14 @@ if(BUILD_TESTING)
     add_executable(long_arithmetic_test "${SOURCE_DIR}/tests/long_arithmetic_test.cpp")
     add_executable(ulong_arithmetic_test "${SOURCE_DIR}/tests/ulong_arithmetic_test.cpp")
     add_executable(int_perf_tests "${SOURCE_DIR}/tests/int_perf_tests.cpp")
+    add_executable(perf_tests "${SOURCE_DIR}/tests/new_perf_tests.cpp")
 
-    target_link_libraries(int_arithmetic_test PRIVATE avxcpp)
-    target_link_libraries(uint_arithmetic_test PRIVATE avxcpp)
-    target_link_libraries(long_arithmetic_test PRIVATE avxcpp)
-    target_link_libraries(ulong_arithmetic_test PRIVATE avxcpp)
-    target_link_libraries(int_perf_tests PRIVATE avxcpp)
+    target_link_libraries(int_arithmetic_test PRIVATE avxcpp_s)
+    target_link_libraries(uint_arithmetic_test PRIVATE avxcpp_s)
+    target_link_libraries(long_arithmetic_test PRIVATE avxcpp_s)
+    target_link_libraries(ulong_arithmetic_test PRIVATE avxcpp_s)
+    target_link_libraries(int_perf_tests PRIVATE avxcpp_s)
+    target_link_libraries(perf_tests PRIVATE avxcpp_s)
     include(CTest)
 
     add_test(
@@ -51,11 +54,6 @@ if(BUILD_TESTING)
     )
 
     add_test(
-        NAME int_perf_tests
-        COMMAND $<TARGET_FILE:int_perf_tests> 1000000
-    )
-
-    add_test(
         NAME long_arithmetic_test
         COMMAND $<TARGET_FILE:long_arithmetic_test>
     )
@@ -64,27 +62,45 @@ if(BUILD_TESTING)
         NAME ulong_arithmetic_test
         COMMAND $<TARGET_FILE:ulong_arithmetic_test>
     )
+
+    add_test(
+        NAME int_perf_tests
+        COMMAND $<TARGET_FILE:int_perf_tests> 1000000
+    )
+
+    add_test(
+        NAME perf_tests
+        COMMAND $<TARGET_FILE:perf_tests>
+    )
 endif()
 
 
 
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
-    target_compile_options(avxcpp PRIVATE -mavx -mavx2)
+    target_compile_options(avxcpp_s PRIVATE -mavx -mavx2)
+    if(BUILD_SHARED_LIBS)
+        target_compile_options(avxcpp PRIVATE -mavx -mavx2)
+    endif()
     if(BUILD_TESTING)
         target_compile_options(int_arithmetic_test PRIVATE -mavx -mavx2)
         target_compile_options(uint_arithmetic_test PRIVATE -mavx -mavx2)
         target_compile_options(long_arithmetic_test PRIVATE -mavx -mavx2)
         target_compile_options(ulong_arithmetic_test PRIVATE -mavx -mavx2)
         target_compile_options(int_perf_tests PRIVATE -mavx -mavx2)
+        target_compile_options(perf_tests PRIVATE -mavx -mavx2)
     endif()
 elseif(MSVC)
-    target_compile_options(avxcpp PRIVATE /arch:AVX /arch:AVX2)
+    target_compile_options(avxcpp_s PRIVATE /arch:AVX /arch:AVX2)
+    if(BUILD_SHARED_LIBS)
+        target_compile_options(avxcpp PRIVATE /arch:AVX /arch:AVX2)
+    endif()
     if(BUILD_TESTING)
         target_compile_options(int_arithmetic_test PRIVATE /arch:AVX /arch:AVX2)
         target_compile_options(uint_arithmetic_test PRIVATE /arch:AVX /arch:AVX2)
         target_compile_options(long_arithmetic_test PRIVATE /arch:AVX /arch:AVX2)
         target_compile_options(ulong_arithmetic_test PRIVATE /arch:AVX /arch:AVX2)
         target_compile_options(int_perf_tests PRIVATE /arch:AVX /arch:AVX2)
+        target_compile_options(perf_tests PRIVATE /arch:AVX /arch:AVX2)
     endif()
 endif()
 

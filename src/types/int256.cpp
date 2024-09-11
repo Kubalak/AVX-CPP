@@ -3,26 +3,8 @@
 #include <stdexcept>
 
 namespace avx {
+    static_assert(sizeof(int) == 4, "You are compiling to 32-bit. Please switch to x64 to avoid undefined behaviour.");
     const __m256i Int256::ones = _mm256_set1_epi8(0xFF);
-
-    Int256::Int256(const int* init):
-        v(_mm256_lddqu_si256((const __m256i*)init))
-    {}
-
-
-    Int256::Int256(const int& init):
-        v(_mm256_set1_epi32(init))
-    {}
-
-
-    Int256::Int256(__m256i init):
-        v(init)
-    {}
-
-
-    Int256::Int256(Int256& init):
-        v(init.v)
-    {}
 
 
     Int256::Int256(std::initializer_list<int> init) {
@@ -57,56 +39,6 @@ namespace avx {
             a6,
             a7
         );
-    }
-
-    Int256::Int256(std::array<int, 8> init):
-        v(_mm256_loadu_si256((const __m256i*)init.data()))
-    {}
-
-
-    Int256::Int256(std::array<short, 8> init):
-        v(_mm256_set_epi32(
-            init[0], 
-            init[1], 
-            init[2], 
-            init[3], 
-            init[4], 
-            init[5], 
-            init[6], 
-            init[7]
-            )
-        )
-    {}
-
-
-    Int256::Int256(std::array<char, 8> init):
-        v(_mm256_set_epi32(
-            init[0], 
-            init[1], 
-            init[2], 
-            init[3], 
-            init[4], 
-            init[5], 
-            init[6], 
-            init[7]
-            )
-        )
-    {}
-
-
-    void Int256::save(std::array<int, 8>& dest) const{
-        _mm256_storeu_si256((__m256i*)dest.data(), v);
-    }
-
-            
-
-    void Int256::save(int* dest) const{
-        _mm256_storeu_si256((__m256i*)dest, v);
-    }
-
-
-    void Int256::saveAligned(int* dest) const{
-        _mm256_store_si256((__m256i*)dest, v);
     }
 
 
@@ -158,78 +90,12 @@ namespace avx {
     }
 
 
-    const int Int256::operator[](unsigned int index) const {
-        if(index > 7) {
-            std::string error_text = "Invalid index! Valid range is [0-7] (was ";
-            error_text += std::to_string(index);
-            error_text += ").";
-            throw std::out_of_range(error_text);
-        }
-        int* tmp = (int*)&v;
-        return tmp[index];
-    }
-
-
-    Int256 Int256::operator+(const Int256& b) const {
-        return Int256(_mm256_add_epi32(v, b.v));
-    }
-
-
-    Int256 Int256::operator+(const int& b) const{
-        return Int256(
-            _mm256_add_epi32(
-                v, 
-                _mm256_set1_epi32(b)
-            )
-        );
-    }
-
-
-    Int256 Int256::operator-(const Int256& b) const{
-        return Int256(
-            _mm256_sub_epi32(
-                v, 
-                b.v
-            )
-        );
-    }
-
-
-    Int256 Int256::operator-(const int& b) const{
-        return Int256(
-            _mm256_sub_epi32(
-                v, 
-                _mm256_set1_epi32(b)
-            )
-        );
-    }
-
-
-    Int256 Int256::operator*(const Int256& b) const{
-        return Int256(
-            _mm256_mullo_epi32(
-                v, 
-                b.v
-            )
-        );
-    }
-
-
-    Int256 Int256::operator*(const int& b) const{
-        return Int256(
-            _mm256_mullo_epi32(
-                v, 
-                _mm256_set1_epi32(b)
-            )
-        );
-    }
-
     Int256 Int256::operator/(const Int256& b) const {
 
         /*int* a = (int*)&v;
         int* bv = (int*)&b.v;
 
-        return Int256(
+        
             _mm256_set_epi32(
                 a[7] / bv[7],
                 a[6] / bv[6],
@@ -252,7 +118,7 @@ namespace avx {
 
         /*int* a = (int*)&v;
 
-        return Int256(
+        
             _mm256_set_epi32(
                 a[7] / b,
                 a[6] / b,
@@ -268,187 +134,6 @@ namespace avx {
         return _mm256_cvtps_epi32(
             _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
         );
-    }
-
-
-    Int256 Int256::operator%(const Int256& b) const{
-        int* a = (int*)&v;
-        int* bv = (int*)&b.v;
-
-        return Int256(
-            _mm256_set_epi32(
-                a[7] % bv[7],
-                a[6] % bv[6],
-                a[5] % bv[5],
-                a[4] % bv[4],
-                a[3] % bv[3],
-                a[2] % bv[2],
-                a[1] % bv[1],
-                a[0] % bv[0]
-            )
-        );
-    }
-
-
-    Int256 Int256::operator%(const int& b) const{
-        int* a = (int*)&v;
-
-        return Int256(
-            _mm256_set_epi32(
-                a[7] % b,
-                a[6] % b,
-                a[5] % b,
-                a[4] % b,
-                a[3] % b,
-                a[2] % b,
-                a[1] % b,
-                a[0] % b
-            )
-        );
-
-    }
-
-
-    Int256 Int256::operator^(const Int256& b) const{
-        return Int256(
-            _mm256_xor_si256(
-                v, 
-                b.v
-            )
-        );
-    }
-
-
-    Int256 Int256::operator^(const int& b) const{
-        return Int256(
-            _mm256_xor_si256(
-                v, 
-                _mm256_set1_epi32(b)
-            )
-        );
-    }
-
-
-    Int256 Int256::operator|(const Int256& b) const{
-        return Int256(
-            _mm256_or_si256(
-                v, 
-                b.v
-            )
-        );
-    }
-
-
-    Int256 Int256::operator|(const int& b) const{
-        return Int256(
-            _mm256_or_si256(
-                v, 
-                _mm256_set1_epi32(b)
-            )
-        );
-    }
-
-
-    Int256 Int256::operator&(const Int256& b) const{
-        return Int256(
-            _mm256_and_si256(
-                v, 
-                b.v
-            )
-        );
-    }
-
-
-    Int256 Int256::operator&(const int& b) const{
-        return Int256(
-            _mm256_and_si256(
-                v, 
-                _mm256_set1_epi32(b)
-            )
-        );
-    }
-
-
-    Int256 Int256::operator~() const {
-        return Int256(
-            _mm256_xor_si256(v, ones)
-        );
-    }
-
-
-    Int256 Int256::operator<<(const Int256& b) const {
-        return Int256(
-            _mm256_sllv_epi32(
-                v,
-                b.v
-            )
-        );
-    }
-    
-    
-    Int256 Int256::operator<<(const int& b) const {
-        return Int256(
-            _mm256_slli_epi32(
-                v,
-                b
-            )
-        );
-    }
-
-    
-    Int256 Int256::operator>>(const Int256& b) const {
-        return Int256(
-            _mm256_srav_epi32(
-                v,
-                b.v
-            )
-        );
-    }
-    
-    
-    Int256 Int256::operator>>(const int& b) const {
-        return Int256(
-            _mm256_srai_epi32(
-                v,
-                b
-            )
-        );
-    }
-
-
-    Int256& Int256::operator+=(const Int256& b) {
-        v = _mm256_add_epi32(v,b.v);
-        return *this;
-    }
-
-
-    Int256& Int256::operator+=(const int& b) {
-        v = _mm256_add_epi32(v, _mm256_set1_epi32(b));
-        return *this;
-    }
-
-
-    Int256& Int256::operator-=(const Int256& b) {
-        v = _mm256_sub_epi32(v,b.v);
-        return *this;
-    }
-
-
-    Int256& Int256::operator-=(const int& b) {
-        v = _mm256_sub_epi32(v, _mm256_set1_epi32(b));
-        return *this;
-    }
-
-
-    Int256& Int256::operator*=(const Int256& b){
-        v = _mm256_mullo_epi32(v, b.v);
-        return *this;
-    }
-
-
-    Int256& Int256::operator*=(const int& b){
-        v = _mm256_mullo_epi32(v, _mm256_set1_epi32(b));
-        return *this;
     }
 
 
@@ -493,113 +178,6 @@ namespace avx {
     }
 
 
-    Int256& Int256::operator%=(const Int256& b) {
-        int* a = (int*)&v;
-        int* bv = (int*)&b.v;
-
-        v = _mm256_set_epi32(
-            a[7] % bv[7],
-            a[6] % bv[6],
-            a[5] % bv[5],
-            a[4] % bv[4],
-            a[3] % bv[3],
-            a[2] % bv[2],
-            a[1] % bv[1],
-            a[0] % bv[0]
-        );
-        return *this;
-    }
-
-
-    Int256& Int256::operator%=(const int& b){
-        int* a = (int*)&v;
-
-        v = _mm256_set_epi32(
-                a[7] % b,
-                a[6] % b,
-                a[5] % b,
-                a[4] % b,
-                a[3] % b,
-                a[2] % b,
-                a[1] % b,
-                a[0] % b
-            );
-        return *this;
-    }
-
-
-    Int256& Int256::operator|=(const Int256& b){
-        v = _mm256_or_si256(v, b.v);
-        return *this;
-    }
-
-
-    Int256& Int256::operator|=(const int& b){
-        v = _mm256_or_si256(v, _mm256_set1_epi32(b));
-        return *this;
-    }
-
-
-    Int256& Int256::operator&=(const Int256& b){
-        v = _mm256_and_si256(v, b.v);
-        return *this;
-    }
-
-
-    Int256& Int256::operator&=(const int& b){
-        v = _mm256_and_si256(v, _mm256_set1_epi32(b));
-        return *this;
-    }
-
-
-    Int256& Int256::operator^=(const Int256& b){
-        v = _mm256_xor_si256(v, b.v);
-        return *this;
-    }
-
-
-    Int256& Int256::operator^=(const int& b){
-        v = _mm256_xor_si256(v, _mm256_set1_epi32(b));
-        return *this;
-    }
-
-
-    Int256& Int256::operator<<=(const Int256& b) {
-        v = _mm256_sllv_epi32(
-            v,
-            b.v
-        );
-        return *this;
-    }
-    
-    
-    Int256& Int256::operator<<=(const int& b) {
-        v = _mm256_slli_epi32(
-            v,
-            b
-        );
-        return *this;
-    }
-
-    
-    Int256& Int256::operator>>=(const Int256& b) {
-        v = _mm256_srav_epi32(
-            v,
-            b.v
-        );
-        return *this;
-    }
-    
-    
-    Int256& Int256::operator>>=(const int& b) {
-        v = _mm256_srai_epi32(
-            v,
-            b
-        );
-        return *this;
-    }
-
-
     std::string Int256::str() const{
         std::string result = "Int256(";
         int* iv = (int*)&v; 
@@ -617,7 +195,7 @@ namespace avx {
         for(const Int256& item : a)
             result = _mm256_add_epi32(result, item.v);
         
-        return Int256(result);
+        return result;
     }
 
 
@@ -626,6 +204,6 @@ namespace avx {
         for(const Int256& item : a)
             result = _mm256_add_epi32(result, item.v);
         
-        return Int256(result);
+        return result;
     }
 };
