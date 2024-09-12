@@ -109,7 +109,7 @@ namespace avx {
         );*/ 
         
         return _mm256_cvtps_epi32(
-            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
+            _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
         );
     }
 
@@ -132,7 +132,7 @@ namespace avx {
         );*/
 
         return _mm256_cvtps_epi32(
-            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
+            _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
         );
     }
 
@@ -152,7 +152,7 @@ namespace avx {
             a[0] / bv[0]
         );*/
         v = _mm256_cvtps_epi32(
-            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
+            _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
         );
         return *this;
     }
@@ -172,7 +172,7 @@ namespace avx {
         );*/
 
         v = _mm256_cvtps_epi32(
-            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
+            _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
         );
         return *this;
     }

@@ -6,6 +6,7 @@
 #include <random>
 #include <string>
 #include <chrono>
+#include <iostream>
 
 namespace testing
 {
@@ -184,9 +185,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
-        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+        S maxval{0}, randLit;
+        maxval |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
 
@@ -738,7 +739,7 @@ namespace testing
         std::random_device dev;
         std::mt19937 rng(dev());
         S randLit;
-        std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8);
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8 - 1); // -1 to avoid undefined behaviour.
 
         randLit = dist(rng);
 
@@ -848,7 +849,7 @@ namespace testing
         std::random_device dev;
         std::mt19937 rng(dev());
         S randLit;
-        std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8);
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8 - 1); // -1 to avoid undefined behaviour
 
         randLit = dist(rng);
 
@@ -957,9 +958,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
-        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+        S maxval{0}, randLit;
+        maxval |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
 
@@ -1068,9 +1069,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
-        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+        S maxval{0}, randLit;
+        maxval |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
 
@@ -1179,9 +1180,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
-        std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
+        S maxval{0}, randLit;
+        maxval |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
 
@@ -1266,6 +1267,60 @@ namespace testing
         if(result){
             std::cerr << "A: " << a.str() << " B: " << b.str() << " expected: " << expected.str() << '\n';
             std::cerr << "Literal: " << randLit << " expected: " << expectedLit.str() << '\n';
+        }
+
+        auto stop = std::chrono::steady_clock::now();
+
+        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+
+        return result;
+    }
+
+
+
+    /**
+     * Universal function for testing `^` and `^=` operator of integer types.
+     * Writes to `stderr` in case of failure.
+     * 
+     * @param size Elements count in type `T`.
+     * @return 0 on success or 1 on failure.
+     */
+    template <typename T, typename S>
+    int universal_test_not(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size), bV(size), resV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S maxval{0}, randLit;
+        maxval |= 0xFFFFFFFFFFFFFFFF;
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
+
+
+        for(unsigned int i = 0; i < size; ++i){
+            aV[i] = dist(rng);
+            resV[i] = aV[i] ^ maxval; // XOR because ~aV[i] may fail to compile for some integer types.
+        }
+
+        T a(aV.data()), c, expected(resV.data());
+        c = ~a;
+        if(c != expected){
+            // Fprintf bcz std::cout is pain in the 455.
+            fprintf(
+                stderr, 
+                "%s:%d Test %s (~%s) failed! Expected %s actual %s\n",
+                __FILE__, 
+                __LINE__, 
+                __func__, 
+                typeid(T).name(), 
+                expected.str().c_str(), 
+                c.str().c_str()
+            );
+            result = 1;
+        }
+
+        if(result){
+            std::cerr << "A: " << a.str() << " ~A: " << c.str() << " expected: " << expected.str() << '\n';
         }
 
         auto stop = std::chrono::steady_clock::now();

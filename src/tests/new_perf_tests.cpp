@@ -26,19 +26,19 @@ std::pair<double, std::string> universal_duration(int64_t ticks){
 bool verify_results(const std::vector<int> &results) {
     std::vector<int> buffer(1 * MB / sizeof(int)); // 1MB buffer
 
-    if(!std::filesystem::exists("result.bin") || !std::filesystem::is_regular_file("result.bin")){
-        std::cerr << "File result.bin does not exist or is not a regular file!\n";
+    if(!std::filesystem::exists("int_result.bin") || !std::filesystem::is_regular_file("int_result.bin")){
+        std::cerr << "File int_result.bin does not exist or is not a regular file!\n";
         return false;
     }
 
-    uintmax_t filesize = std::filesystem::file_size("result.bin");
+    uintmax_t filesize = std::filesystem::file_size("int_result.bin");
     if(filesize / sizeof(int) != results.size()){
         std::cerr << "File size mismatch with vector (" << filesize << " vs " << results.size() * sizeof(int) << ")\n";
         return false;
     }
 
     
-    std::ifstream resultFile("result.bin", std::ios_base::binary);
+    std::ifstream resultFile("int_result.bin", std::ios_base::binary);
     if(resultFile.good()){
         uint64_t index = 0;
         while(index < results.size()) {
@@ -49,7 +49,7 @@ bool verify_results(const std::vector<int> &results) {
             for(int64_t i{0}; i < items_count; ++i) {
 
                 if(buffer[i] != results[index + i]){
-                    fprintf(stderr, "[%lld] %d != %d\n", index, buffer[i], results[index + i]);
+                    fprintf(stderr, "[%llu] %d != %d\n", index, buffer[i], results[index + i]);
                     resultFile.close();
                     return false;
                 }
@@ -58,7 +58,7 @@ bool verify_results(const std::vector<int> &results) {
         }
         resultFile.close();
     } else {
-        std::cerr << "Unable to open file result.bin\n";
+        std::cerr << "Unable to open file int_result.bin\n";
         return false;
     }
 
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]){
     bool is_b = std::filesystem::exists("int_noise_b.bin") && std::filesystem::is_regular_file("int_noise_b.bin");
 
     // File to check results
-    bool is_c = std::filesystem::exists("result.bin") && std::filesystem::is_regular_file("result.bin");
+    bool is_c = std::filesystem::exists("int_result.bin") && std::filesystem::is_regular_file("int_result.bin");
 
     if(is_a && is_b){
         uintmax_t a_size = std::filesystem::file_size("int_noise_a.bin");
@@ -255,7 +255,7 @@ int main(int argc, char* argv[]){
     }
 
     if(!is_c){
-        std::ofstream cOut("result.bin", std::ios_base::binary);
+        std::ofstream cOut("int_result.bin", std::ios_base::binary);
         if(cOut.good()){
             cOut.write((char*)c.data(), c.size() * sizeof(int));
             if(cOut.fail())

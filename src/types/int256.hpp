@@ -46,8 +46,8 @@ namespace avx
         Int256(const int &init) : v(_mm256_set1_epi32(init)) {};
         Int256(const __m256i &init) : v(init) {};
         Int256(const Int256 &init) : v(init.v) {};
-        Int256(std::array<int, 8> init) : v(_mm256_loadu_si256((const __m256i *)init.data())) {};
-        Int256(std::array<short, 8> init) 
+        Int256(const std::array<int, 8> &init) : v(_mm256_loadu_si256((const __m256i *)init.data())) {};
+        Int256(const std::array<short, 8> &init) 
         : v(_mm256_set_epi32(
                 init[0],
                 init[1],
@@ -61,7 +61,7 @@ namespace avx
             )
         {}
 
-        Int256(std::array<char, 8> init) : v(_mm256_set_epi32(
+        Int256(const std::array<char, 8> &init) : v(_mm256_set_epi32(
                 init[0],
                 init[1],
                 init[2],
@@ -136,7 +136,7 @@ namespace avx
         // Division operators
         // TODO: Working division and modulo (no AVX2 native solution)
 
-        Int256 operator/(const Int256&) const;
+        Int256 operator/(const Int256 &) const;
         Int256 operator/(const int&) const;
 
         // Modulo operators
@@ -174,16 +174,16 @@ namespace avx
         }    
 
         // XOR operators
-        Int256 operator^(const Int256&b) const { return _mm256_xor_si256(v, b.v); }
-        Int256 operator^(const int& b) const { return _mm256_xor_si256(v, _mm256_set1_epi32(b)); }
+        Int256 operator^(const Int256 &b) const { return _mm256_xor_si256(v, b.v); }
+        Int256 operator^(const int &b) const { return _mm256_xor_si256(v, _mm256_set1_epi32(b)); }
 
         // OR operators
-        Int256 operator|(const Int256& b) const {return _mm256_or_si256(v, b.v);}
-        Int256 operator|(const int& b) const { return _mm256_or_si256(v, _mm256_set1_epi32(b)); }
+        Int256 operator|(const Int256 &b) const {return _mm256_or_si256(v, b.v);}
+        Int256 operator|(const int &b) const { return _mm256_or_si256(v, _mm256_set1_epi32(b)); }
 
         // AND operators
-        Int256 operator&(const Int256& b) const { return _mm256_and_si256(v, b.v);}
-        Int256 operator&(const int& b) const { return _mm256_and_si256(v, _mm256_set1_epi32(b)); }
+        Int256 operator&(const Int256 &b) const { return _mm256_and_si256(v, b.v);}
+        Int256 operator&(const int &b) const { return _mm256_and_si256(v, _mm256_set1_epi32(b)); }
 
         // NOT operators
         Int256 operator~() const { return _mm256_xor_si256(v, ones); }
@@ -192,11 +192,11 @@ namespace avx
         Int256 operator<<(const Int256 &b) const { return _mm256_sllv_epi32(v,b.v); }
         Int256 operator<<(const int &b) const { return _mm256_slli_epi32(v, b); }
 
-        Int256 operator>>(const Int256& b) const { return _mm256_srav_epi32(v, b.v); }
-        Int256 operator>>(const int& b) const { return _mm256_srai_epi32(v, b); }
+        Int256 operator>>(const Int256 &b) const { return _mm256_srav_epi32(v, b.v); }
+        Int256 operator>>(const int &b) const { return _mm256_srai_epi32(v, b); }
 
         // Calc and store operators
-        Int256 &operator+=(const Int256& b) {
+        Int256 &operator+=(const Int256 & b) {
             v = _mm256_add_epi32(v,b.v);
             return *this;
         }
@@ -205,7 +205,7 @@ namespace avx
             return *this;
         }
 
-        Int256 &operator-=(const Int256& b) {
+        Int256 &operator-=(const Int256 &b) {
             v = _mm256_sub_epi32(v, b.v);
             return *this;
         }
@@ -220,7 +220,7 @@ namespace avx
             return *this;
         }
 
-        Int256 &operator*=(const int& b)
+        Int256 &operator*=(const int &b)
         {
             v = _mm256_mullo_epi32(v, _mm256_set1_epi32(b));
             return *this;
@@ -262,19 +262,19 @@ namespace avx
             return *this;
         }
 
-        Int256& operator|=(const Int256& b){
+        Int256 & operator|=(const Int256 &b){
             v = _mm256_or_si256(v, b.v);
             return *this;
         }
 
 
-        Int256& operator|=(const int& b){
+        Int256 & operator|=(const int &b){
             v = _mm256_or_si256(v, _mm256_set1_epi32(b));
             return *this;
         }
 
 
-        Int256& operator&=(const Int256& b){
+        Int256 & operator&=(const Int256 &b){
             v = _mm256_and_si256(v, b.v);
             return *this;
         }
