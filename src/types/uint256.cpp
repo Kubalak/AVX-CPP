@@ -200,20 +200,6 @@ namespace avx {
         second = _mm256_slli_si256(second, sizeof(unsigned int));
 
         return UInt256(_mm256_or_si256(first, second));
-
-        // int* fp = (int*) &first;
-        // int* sp = (int*) &second;
-
-        // return UInt256(_mm256_set_epi32(
-        //     sp[6],
-        //     fp[6],
-        //     sp[4],
-        //     fp[4],
-        //     sp[2],
-        //     fp[2],
-        //     sp[0],
-        //     fp[0]
-        // ));
     }
 
 

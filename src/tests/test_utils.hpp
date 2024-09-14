@@ -738,7 +738,7 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S randLit;
+        unsigned int randLit;
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8 - 1); // -1 to avoid undefined behaviour.
 
         randLit = dist(rng);
@@ -848,7 +848,7 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S randLit;
+        unsigned int randLit;
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8 - 1); // -1 to avoid undefined behaviour
 
         randLit = dist(rng);
@@ -897,7 +897,7 @@ namespace testing
             result = 1;
         }
 
-        c = a >> randLit;
+        c = a >> (const unsigned int&)randLit;
         if(c != expectedLit){
             fprintf(
                 stderr, 
@@ -914,7 +914,7 @@ namespace testing
         }
 
         c = a;
-        c >>= randLit;
+        c >>= (const unsigned int&)randLit;
 
         if(c != expectedLit){
             fprintf(
@@ -1328,6 +1328,13 @@ namespace testing
         printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
 
         return result;
+    }
+
+    template <typename T, typename S>
+    int universal_test_limits(unsigned int size = T::size){
+        S ffs = UINT64_MAX;
+        S Offs = UINT64_MAX >> 1;
+        return 0;
     }
 };
 #endif

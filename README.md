@@ -35,8 +35,8 @@ Supported operators:<br/>
 - `+` `+=` - all types + scalars
 - `-` `-=` - all types + scalars
 - `*` `*=` - all types + scalars
-- `/` `/=` - all types (need to optimize) + scalars
-- `%` `%=` - integer types (need to optimize) + scalars
+- `/` `/=` - all types (need to optimize) + scalars [&#9888;&#65039;](#known-issues)
+- `%` `%=` - integer types (need to optimize) + scalars [&#9888;&#65039;](#known-issues)
 - `|` `|=` - integer types + integer scalars
 - `&` `&=` - integer types + integer scalars
 - `^` `^=` - integer types + integer scalars
@@ -77,7 +77,7 @@ Available building options are
 
 ## Known issues
 - Building binaries with MinGW on Windows may result in segfault (`ERROR_ACCESS_VIOLATION`) when running program for yet unknown reasons<br/>
-- `/` and `%` on integer types don't use AVX2 or use it scarcely due to lack of available AVX2 functions (type conversion may introduce more bugs).
+- &#9888;&#65039; `/` and `%` on integer types don't use AVX2 or use it scarcely due to lack of available AVX2 functions (type conversion may introduce more bugs).
 - Performance benefits need further testing
-- `CMakeLists.txt` doesn't currently support building tests when `BUILD_SHARED_LIBS` is `ON`.
+- ~~`CMakeLists.txt` doesn't currently support building tests when `BUILD_SHARED_LIBS` is `ON`.~~
 
