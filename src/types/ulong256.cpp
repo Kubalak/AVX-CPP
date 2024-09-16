@@ -2,6 +2,8 @@
 #include <stdexcept>
 namespace avx {
 
+    const __m256i ULong256::ones = _mm256_set1_epi64x(0xFFFFFFFFFFFFFFFF);
+
     ULong256::ULong256(const unsigned long long& init):
         v(_mm256_set1_epi64x(init))
     {}
@@ -302,8 +304,7 @@ namespace avx {
 
 
     ULong256 ULong256::operator~() const {
-        constexpr unsigned long long ones[] = {0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF,0xFFFFFFFFFFFFFFFF};
-        return _mm256_xor_si256(v, _mm256_lddqu_si256((const __m256i*)ones));
+        return _mm256_xor_si256(v, ones);
     }
 
 

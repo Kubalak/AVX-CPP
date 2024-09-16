@@ -169,37 +169,34 @@ namespace avx {
 
 
     Long256 Long256::operator*(const Long256& b) const{
-        long long* av = (long long*)&v, *bv = (long long*)&b.v;
-       return Long256(
-        _mm256_set_epi64x(
-            av[3] * bv[3],
-            av[2] * bv[2],
-            av[1] * bv[1],
-            av[0] * bv[0]
-        )
-       );
-        // return Long256(
-        //     _mm256_mullo_epi64(
-        //         v, 
-        //         b.v
-        //     )
-        // );
+        #if (defined __AVX512DQ__ && defined __AVX512VL__)
+            return _mm256_mullo_epi64(v, b.v);
+        #else
+            long long* av = (long long*)&v, *bv = (long long*)&b.v;
+            return Long256(
+                _mm256_set_epi64x(
+                    av[3] * bv[3],
+                    av[2] * bv[2],
+                    av[1] * bv[1],
+                    av[0] * bv[0]
+                )
+            );
+        #endif
     }
 
 
     Long256 Long256::operator*(const long long& b) const{
-
-        __m256d tmpa = _mm256_castsi256_pd(v);
-        __m256d c = _mm256_mul_pd(tmpa,_mm256_set1_pd(b));
-        return Long256(
-            _mm256_castpd_si256(c)
-        );
-        // return Long256(
-        //     _mm256_mullo_epi64(
-        //         v, 
-        //         _mm256_set1_epi64x(b)
-        //     )
-        // );
+        #if (defined __AVX512DQ__ && defined __AVX512VL__)
+            return _mm256_mullo_epi64(v, _mm256_set1_epi64x(b));
+        #else
+            long long* aP = (long long*)&v;
+            return _mm256_set_epi64x(
+                aP[3] * b,
+                aP[2] * b,
+                aP[1] * b,
+                aP[0] * b
+            );
+        #endif
     }
 
     // TODO: Optimize division and modulo.

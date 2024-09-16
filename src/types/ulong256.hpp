@@ -10,6 +10,7 @@ namespace avx {
     class ULong256 {
         private:
             __m256i v;
+            const static __m256i ones;
 
         public:
             static constexpr int size = 4;
