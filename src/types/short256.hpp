@@ -263,18 +263,96 @@ namespace avx {
             }
 
             Short256 operator%(const Short256& bV) const noexcept {
-                return v;
+                __m128i v_first_half = _mm256_extracti128_si256(v, 0);
+                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+
+                __m128i bv_first_half = _mm256_extracti128_si256(bV.v, 0);
+                __m128i bv_second_half = _mm256_extracti128_si256(bV.v, 1);
+                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
+                __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                
+                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
+                long long a2, b1, *vP;
+                vP = (long long*)&combinedres;
+                b1 = vP[1];
+                a2 = vP[2];
+                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
+                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
+                return _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, combinedres));
             }
 
             Short256 operator%(const short& b) noexcept {
-                return v;
+                __m128i v_first_half = _mm256_extracti128_si256(v, 0);
+                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
+
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+
+                __m256 bV = _mm256_set1_ps(b);
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                
+                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
+                long long a2, b1, *vP;
+                vP = (long long*)&combinedres;
+                b1 = vP[1];
+                a2 = vP[2];
+                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
+                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
+                return _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), combinedres));
             }
 
             Short256& operator%=(const Short256& bV) noexcept {
+                __m128i v_first_half = _mm256_extracti128_si256(v, 0);
+                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+
+                __m128i bv_first_half = _mm256_extracti128_si256(bV.v, 0);
+                __m128i bv_second_half = _mm256_extracti128_si256(bV.v, 1);
+                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
+                __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                
+                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
+                long long a2, b1, *vP;
+                vP = (long long*)&combinedres;
+                b1 = vP[1];
+                a2 = vP[2];
+                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
+                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
+                v = _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, combinedres));
                 return *this;
             }
 
             Short256& operator%=(const short& b) noexcept {
+                __m128i v_first_half = _mm256_extracti128_si256(v, 0);
+                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
+
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+
+                __m256 bV = _mm256_set1_ps(b);
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                
+                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
+                long long a2, b1, *vP;
+                vP = (long long*)&combinedres;
+                b1 = vP[1];
+                a2 = vP[2];
+                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
+                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
+                v = _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), combinedres));
                 return *this;
             }
 
