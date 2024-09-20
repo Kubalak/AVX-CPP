@@ -13,7 +13,7 @@ namespace avx {
 
         public:
             static constexpr int size = 8;
-            
+
             Float256() noexcept : v(_mm256_setzero_ps()){}
             Float256(const Float256 &init) noexcept : v(init.v){}
             Float256(const float value) noexcept : v(_mm256_set1_ps(value)){}
@@ -160,9 +160,9 @@ namespace avx {
                 return ((float*)&v)[index];
             }
 
-            std::string str() const {
+            std::string str() const noexcept {
                 std::string result = "Float256(";
-                short* iv = (short*)&v; 
+                float* iv = (float*)&v; 
                 for(unsigned i{0}; i < 7; ++i)
                     result += std::to_string(iv[i]) + ", ";
                 
