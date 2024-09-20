@@ -1,15 +1,30 @@
 #pragma once
 #ifndef _TEST_UTILS_HPP
 #define _TEST_UTILS_HPP
+#include <array>
 #include <vector>
 #include <functional>
 #include <random>
 #include <string>
 #include <chrono>
+#include <filesystem>
 #include <iostream>
+#include <fstream>
 
 namespace testing
-{
+{   
+
+    std::pair<double, std::string> universal_duration(int64_t ticks) {
+        static const std::array<std::string, 5> times{"ns", "us", "ms", "s", "m"};
+        unsigned int i = 0;
+        while(ticks / pow(1000., i) > 1000) ++i;
+
+        if(i > 4)
+            return {ticks / pow(1000., 4), "m"};
+
+        return {ticks / pow(1000., i), times[i]};
+    }
+
     /**
      * Applies a function on each pair of elements from vectors.
      * @param va First vector.
@@ -1330,11 +1345,120 @@ namespace testing
         return result;
     }
 
-    template <typename T, typename S>
+    /*template <typename T, typename S>
     int universal_test_limits(unsigned int size = T::size){
         S ffs = UINT64_MAX;
         S Offs = UINT64_MAX >> 1;
         return 0;
+    }*/
+
+   template<typename T, typename S>
+   int universal_test_perf_avx(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV) {
+    if(aV.size() != bV.size() || aV.size() != cV.size()){
+        std::cerr << "Vector sizes don't match!\n";
+        return 1;
     }
+
+    /* // Warmup code should go here
+    for(size_t i{0}; i < aV.size() / 4; ++i){
+
+    }*/
+    
+    auto start = std::chrono::high_resolution_clock::now();
+    size_t index = 0;
+    for(; index < aV.size() - T::size; index += T::size){
+        T a(aV.data() + index);
+        T b(bV.data() + index);
+        T c = a + b;
+        c += 3;
+        c *= 2;
+        c = c / 4;
+        c <<= 2;
+        c *= b;
+        c -= a;
+        c.save(cV.data() + index);
+    }
+
+    for(;index < aV.size(); ++index){
+        cV[index] = aV[index] + bV[index];
+        cV[index] += 3;
+        cV[index] *= 2;
+        cV[index] = cV[index] / 4;
+        cV[index] <<= 2;
+        cV[index] *= bV[index];
+        cV[index] -= aV[index];
+    } 
+
+
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
+    auto formatted_duration = universal_duration(duration);
+    std::cout << "Test " << __func__ << " finished in " << formatted_duration.first << ' ' << formatted_duration.second <<'\n';
+
+    return 0;
+   }
+
+    template<typename T, typename S>
+    int universal_test_perf_seq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV) {
+        if(aV.size() != bV.size() || aV.size() != cV.size()){
+            std::cerr << "Vector sizes don't match!\n";
+            return 1;
+        }
+
+        /* // Warmup code should go here
+        for(size_t i{0}; i < aV.size() / 4; ++i){
+
+        }*/
+        
+        auto start = std::chrono::high_resolution_clock::now();
+        const S *aP, *bP, *cP;
+        for(size_t index = 0;index < aV.size(); ++index){
+            cP[index] = aP[index] + bP[index];
+            cP[index] += 3;
+            cP[index] *= 2;
+            cP[index] = cP[index] / 4;
+            cP[index] <<= 2;
+            cP[index] *= bP[index];
+            cP[index] -= aP[index];
+        } 
+
+
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
+        auto formatted_duration = universal_duration(duration);
+        std::cout << "Test " << __func__ << " finished in " << formatted_duration.first << ' ' << formatted_duration.second <<'\n';
+
+        return 0;
+   }
+
+    bool file_exists(const std::string &filename){
+        return std::filesystem::exists(filename) && std::filesystem::is_regular_file(filename);
+    }
+
+    template <typename T>
+    bool read_file(const std::string &filename, std::vector<T> &dest) {
+        if(!file_exists(filename)) return false;
+        
+        uint64_t file_size = std::filesystem::file_size(filename);
+        if(!file_size) return false;
+
+        if(file_size / sizeof(T) != dest.size())
+            dest.resize(file_size / sizeof(T));
+
+        std::ifstream infile(filename, std::ios_base::binary);
+
+        if(!infile.good()) return false;
+
+        infile.read((char*)dest.data(), file_size);
+
+        auto bytes_read = infile.gcount();
+        
+        infile.close();
+        if(bytes_read != file_size) return false;
+        
+        return true;
+    }
+
+   
 };
 #endif

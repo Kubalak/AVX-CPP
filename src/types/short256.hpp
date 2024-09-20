@@ -17,14 +17,39 @@ namespace avx {
         
         public:
             static constexpr const int size = 16;
+
+            /**
+             * Default constructor. Sets zero to whole vector.
+             */
             Short256() noexcept : v(_mm256_setzero_si256()){}
 
+
+            /**
+             * Initializes vector with value from other vector.
+             * @param init Object which value will be copied.
+             */
             Short256(const Short256& init) noexcept : v(init.v){}
 
+
+            /**
+             * Initializes vector but using `__m256i` type.
+             * @param init Raw value to be set.
+             */
             Short256(const __m256i& init) noexcept : v(init){}
-    
+
+
+            /**
+             * Initialize vector with values read from an array.
+             * @param init Array from which values will be copied.
+             */
             Short256(const std::array<short, 16>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
+
+            /**
+             * Initialize vector with values using pointer.
+             * @param addr A valid address containing at least 16 `short` numbers.
+             * @throws If in debug mode and `addr` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown.
+             */
             explicit Short256(const short* addr) 
             #ifndef NDEBUG
                 {
@@ -35,8 +60,19 @@ namespace avx {
                 : v(_mm256_lddqu_si256((const __m256i*)addr)){}
             #endif
 
+
+            /**
+             * Initializes all vector fields with single value.
+             * @param b A literal value to be set.
+             */
             explicit Short256(const short b) noexcept : v(_mm256_set1_epi16(b)){}
 
+            
+            /**
+             * Saves data to destination in memory.
+             * @param dest A valid pointer to a memory of at least 16 `short` numbers (32 bytes).
+             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             */
             void save(short* dest) const {
                 #ifndef NDEBUG
                     if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
@@ -46,10 +82,22 @@ namespace avx {
                 #endif
             }
 
-            void save(std::array<short, 16>&dest) const {
+
+            /**
+             * Saves the data to passed array object.
+             * @param dest An array to which data will be saved.
+             */
+            void save(std::array<short, 16>&dest) const noexcept{
                 _mm256_storeu_si256((__m256i*)dest.data(), v);
             }
 
+            /**
+             * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param dest A valid pointer to a memory of at least 16 `short` numbers (32 bytes).
+             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             */
             void saveAligned(short* dest) const {
                 #ifndef NDEBUG
                     if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
@@ -61,17 +109,36 @@ namespace avx {
 
 
             /**
+             * Get the internal vector value.
+             * @returns The value of `__m256i` vector.
+             */
+            __m256i get() const noexcept{return v;}
+
+            /**
+             * Set the internal vector value.
+             * @param value New value to be set.
+             */
+            void set(const __m256i value) noexcept {v = value;}
+
+
+            /**
              * Indexing operator.
              * @param index Position of desired element between 0 and 15.
              * @return Value of underlying element.
              * @throws `std::out_of_range` If index is not within the correct range.
              */
-            const short operator[](const unsigned int& index) const {
+            short operator[](const unsigned int& index) const {
                 if(index > 15)
                     throw std::out_of_range("Range be within range 0-15! Got: " + std::to_string(index));
                 return ((short*)&v)[index];
             }
 
+
+            /**
+             * Compares with second vector for equality.
+             * @param bV Object to compare.
+             * @returns `true` if all elements are equal or `false` if not.
+             */
             bool operator==(const Short256 &bV) const noexcept {
                 short* v1,* v2;
                 v1 = (short*)&v;
@@ -84,6 +151,12 @@ namespace avx {
                 return true;
             }
 
+
+            /**
+             * Compares with value for equality.
+             * @param b Value to compare.
+             * @returns `true` if all elements are equal to passed value `false` if not.
+             */
             bool operator==(const short &b) const noexcept{
                 short* v1;
                 v1 = (short*)&v;
@@ -95,6 +168,12 @@ namespace avx {
                 return true;
             }
 
+
+            /**
+             * Compares with second vector for inequality.
+             * @param bV Object to compare.
+             * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
+             */
             bool operator!=(const Short256 &bV) const noexcept{
                 short* v1,* v2;
                 v1 = (short*)&v;
@@ -107,6 +186,12 @@ namespace avx {
                 return false;
             }
 
+
+            /**
+             * Compares with value for inequality.
+             * @param b Value
+             * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
+             */
             bool operator!=(const short &b) const noexcept{
                 short* v1;
                 v1 = (short*)&v;
@@ -172,6 +257,13 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Performs an integer division. 
+             * 
+             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result which has not been yet tested for performance.
+             * @param bV Divisors vector.
+             * @return Result of integer division with truncation.
+             */
             Short256 operator/(const Short256& bV) const noexcept {
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
@@ -195,6 +287,13 @@ namespace avx {
                 return _mm256_insert_epi64(combinedres, b1, 2);
             }
 
+             /**
+             * Performs an integer division. 
+             * 
+             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result which has not been yet tested for performance.
+             * @param bV Divisor value.
+             * @return Result of integer division with truncation.
+             */
             Short256 operator/(const short& b) const noexcept {
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
@@ -262,6 +361,13 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Performs a modulo operation.
+             * 
+             * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
+             * @param bV Divisors vector.
+             * @return Modulo result.
+             */
             Short256 operator%(const Short256& bV) const noexcept {
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
@@ -286,6 +392,14 @@ namespace avx {
                 return _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, combinedres));
             }
 
+
+            /**
+             * Performs a modulo operation.
+             * 
+             * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
+             * @param bV Divisor.
+             * @return Modulo result.
+             */
             Short256 operator%(const short& b) noexcept {
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
@@ -307,6 +421,7 @@ namespace avx {
                 combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
                 return _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), combinedres));
             }
+
 
             Short256& operator%=(const Short256& bV) noexcept {
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
