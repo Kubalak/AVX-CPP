@@ -419,114 +419,150 @@ namespace avx {
             }
 
             /**
-             * Performs a modulo operation.
+             * Performs a modulo operation. The implemented algorithm works as shown below:
+             * 
+             * mod(a, b) -> a - b * (a / b) where `/` is an integer division.
+             * Due to SIMD (AVX2) limitations values are casted to two float vectors and then divided.
              * 
              * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
-             * @param bV Divisors vector.
+             * @param bV Divisor.
              * @return Modulo result.
              */
             UShort256 operator%(const UShort256& bV) const noexcept {
-                /*__m128i v_first_half = _mm256_extracti128_si256(v, 0);
-                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
-                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
-                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+                __m256i v_first_half = _mm256_and_si256(v, crate);
+                v_first_half = _mm256_srli_si256(v_first_half, 2);
+                __m256i v_second_half = _mm256_and_si256(v, crate_inverse);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m128i bv_first_half = _mm256_extracti128_si256(bV.v, 0);
-                __m128i bv_second_half = _mm256_extracti128_si256(bV.v, 1);
-                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
-                __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
+                __m256i bv_first_half = _mm256_and_si256(bV.v, crate);
+                bv_first_half = _mm256_srli_si256(bv_first_half, 2);
+                __m256i bv_second_half = _mm256_and_si256(bV.v, crate_inverse);
+                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
+                __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+
+                fresult = _mm256_and_si256(fresult, crate_inverse);
+
+                sresult = _mm256_and_si256(sresult, crate_inverse);
+
+                fresult = _mm256_sub_epi32(v_first_half, _mm256_mullo_epi32(bv_first_half, fresult));
+                sresult = _mm256_sub_epi32(v_second_half, _mm256_mullo_epi32(bv_second_half, sresult));
                 
-                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
-                long long a2, b1, *vP;
-                vP = (long long*)&combinedres;
-                b1 = vP[1];
-                a2 = vP[2];
-                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
-                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
-                return _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, combinedres));*/
-                return v;
+                fresult = _mm256_slli_si256(fresult, 2);
+                
+                return _mm256_or_si256(fresult, sresult);
             }
 
 
             /**
-             * Performs a modulo operation.
+             * Performs a modulo operation. The implemented algorithm works as shown below:
+             * 
+             * mod(a, b) -> a - b * (a / b) where `/` is an integer division.
+             * Due to SIMD (AVX2) limitations values are casted to two float vectors and then divided.
              * 
              * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
              * @param bV Divisor.
              * @return Modulo result.
              */
             UShort256 operator%(const unsigned short& b) noexcept {
-                /*__m128i v_first_half = _mm256_extracti128_si256(v, 0);
-                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
+                __m256i v_first_half = _mm256_and_si256(v, crate);
+                v_first_half = _mm256_srli_si256(v_first_half, 2);
+                __m256i v_second_half = _mm256_and_si256(v, crate_inverse);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
-                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+                __m256i bV = _mm256_set_epi16(0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b);
+                __m256 bVf = _mm256_set1_ps(b);
 
-                __m256 bV = _mm256_set1_ps(b);
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_and_si256(fresult, crate_inverse);
+                sresult = _mm256_and_si256(sresult, crate_inverse);
+
+                fresult = _mm256_sub_epi32(v_first_half, _mm256_mullo_epi32(bV, fresult));
+                sresult = _mm256_sub_epi32(v_second_half, _mm256_mullo_epi32(bV, sresult));
                 
-                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
-                long long a2, b1, *vP;
-                vP = (long long*)&combinedres;
-                b1 = vP[1];
-                a2 = vP[2];
-                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
-                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
-                return _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), combinedres));*/
-                return v;
+                fresult = _mm256_slli_si256(fresult, 2);
+                
+                return _mm256_or_si256(fresult, sresult);
             }
 
-
+            /**
+             * Performs a modulo operation. The implemented algorithm works as shown below:
+             * 
+             * mod(a, b) -> a - b * (a / b) where `/` is an integer division.
+             * Due to SIMD (AVX2) limitations values are casted to two float vectors and then divided.
+             * 
+             * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
+             * @param bV Divisor.
+             * @return Reference to modified object.
+             */
             UShort256& operator%=(const UShort256& bV) noexcept {
-                /*__m128i v_first_half = _mm256_extracti128_si256(v, 0);
-                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
-                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
-                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+                __m256i v_first_half = _mm256_and_si256(v, crate);
+                v_first_half = _mm256_srli_si256(v_first_half, 2);
+                __m256i v_second_half = _mm256_and_si256(v, crate_inverse);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m128i bv_first_half = _mm256_extracti128_si256(bV.v, 0);
-                __m128i bv_second_half = _mm256_extracti128_si256(bV.v, 1);
-                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
-                __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
+                __m256i bv_first_half = _mm256_and_si256(bV.v, crate);
+                bv_first_half = _mm256_srli_si256(bv_first_half, 2);
+                __m256i bv_second_half = _mm256_and_si256(bV.v, crate_inverse);
+                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
+                __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+
+                fresult = _mm256_and_si256(fresult, crate_inverse);
+
+                sresult = _mm256_and_si256(sresult, crate_inverse);
+
+                fresult = _mm256_sub_epi32(v_first_half, _mm256_mullo_epi32(bv_first_half, fresult));
+                sresult = _mm256_sub_epi32(v_second_half, _mm256_mullo_epi32(bv_second_half, sresult));
                 
-                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
-                long long a2, b1, *vP;
-                vP = (long long*)&combinedres;
-                b1 = vP[1];
-                a2 = vP[2];
-                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
-                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
-                v = _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, combinedres));*/
+                fresult = _mm256_slli_si256(fresult, 2);
+                
+                v = _mm256_or_si256(fresult, sresult);
                 return *this;
             }
 
+            /**
+             * Performs a modulo operation. The implemented algorithm works as shown below:
+             * 
+             * mod(a, b) -> a - b * (a / b) where `/` is an integer division.
+             * Due to SIMD (AVX2) limitations values are casted to two float vectors and then divided.
+             * 
+             * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
+             * @param bV Divisor.
+             * @return Reference to modified object.
+             */
             UShort256& operator%=(const unsigned short& b) noexcept {
-                /*__m128i v_first_half = _mm256_extracti128_si256(v, 0);
-                __m128i v_second_half = _mm256_extracti128_si256(v, 1);
+                __m256i v_first_half = _mm256_and_si256(v, crate);
+                v_first_half = _mm256_srli_si256(v_first_half, 2);
+                __m256i v_second_half = _mm256_and_si256(v, crate_inverse);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
-                __m256 v_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_second_half));
+                __m256i bV = _mm256_set_epi16(0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b);
+                __m256 bVf = _mm256_set1_ps(b);
 
-                __m256 bV = _mm256_set1_ps(b);
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_and_si256(fresult, crate_inverse);
+
+                sresult = _mm256_and_si256(sresult, crate_inverse);
+
+                fresult = _mm256_sub_epi32(v_first_half, _mm256_mullo_epi32(bV, fresult));
+                sresult = _mm256_sub_epi32(v_second_half, _mm256_mullo_epi32(bV, sresult));
                 
-                __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
-                long long a2, b1, *vP;
-                vP = (long long*)&combinedres;
-                b1 = vP[1];
-                a2 = vP[2];
-                combinedres = _mm256_insert_epi64(combinedres, a2, 1);
-                combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
-                v = _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), combinedres));*/
+                fresult = _mm256_slli_si256(fresult, 2);
+                
+                v = _mm256_or_si256(fresult, sresult);
                 return *this;
             }
 
