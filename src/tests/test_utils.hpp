@@ -11,6 +11,8 @@
 #include <iostream>
 #include <fstream>
 
+constexpr const char path_regex[] = "^.+\\(?=src)";
+
 namespace testing
 {   
 
@@ -200,8 +202,12 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0}, randLit;
-        maxval |= 0xFFFFFFFFFFFFFFFF;
+        S maxval{0xFF}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            maxval <<= 8;
+            maxval |= 0xFF;
+        }
+
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
@@ -310,8 +316,11 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
+        S zero{0xFF}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            zero <<= 8;
+            zero |= 0xFF;
+        }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
         randLit = dist(rng);
@@ -421,8 +430,11 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
+        S zero{0xFF}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            zero <<= 8;
+            zero |= 0xFF;
+        }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
         randLit = dist(rng);
@@ -532,8 +544,12 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
+        S zero{0xFF}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            zero <<= 8;
+            zero |= 0xFF;
+        }
+        
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
         randLit = dist(rng);
@@ -642,8 +658,13 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0}, randLit;
-        zero |= 0xFFFFFFFFFFFFFFFF;
+        S zero{0xFF}, randLit;
+
+        for(unsigned i = 0; i < sizeof(S);++i){
+            zero <<= 8;
+            zero |= 0xFF;
+        }
+
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
         randLit = dist(rng);
@@ -973,8 +994,11 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0}, randLit;
-        maxval |= 0xFFFFFFFFFFFFFFFF;
+        S maxval{0xFF}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            maxval <<= 8;
+            maxval |= 0xFF;
+        }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
@@ -1085,7 +1109,10 @@ namespace testing
         std::random_device dev;
         std::mt19937 rng(dev());
         S maxval{0}, randLit;
-        maxval |= 0xFFFFFFFFFFFFFFFF;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            maxval <<= 8;
+            maxval |= 0xFF;
+        }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
@@ -1195,8 +1222,11 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0}, randLit;
-        maxval |= 0xFFFFFFFFFFFFFFFF;
+        S maxval{0xFF}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            maxval <<= 8;
+            maxval |= 0xFF;
+        }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
         randLit = dist(rng);
@@ -1307,8 +1337,11 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0}, randLit;
-        maxval |= 0xFFFFFFFFFFFFFFFF;
+        S maxval{0xFF}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i){
+            maxval <<= 8;
+            maxval |= 0xFF;
+        }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
 
@@ -1411,7 +1444,8 @@ namespace testing
         }*/
         
         auto start = std::chrono::high_resolution_clock::now();
-        const S *aP, *bP, *cP;
+        const S *aP = aV.data(), *bP = bV.data();
+        S *cP = cV.data();
         for(size_t index = 0;index < aV.size(); ++index){
             cP[index] = aP[index] + bP[index];
             cP[index] += 3;

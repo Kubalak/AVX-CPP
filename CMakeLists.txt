@@ -40,6 +40,7 @@ if(BUILD_TESTING)
     add_executable(long_arithmetic_test "${SOURCE_DIR}/tests/long_arithmetic_test.cpp")
     add_executable(ulong_arithmetic_test "${SOURCE_DIR}/tests/ulong_arithmetic_test.cpp")
     add_executable(short_arithmetic_test "${SOURCE_DIR}/tests/short_arithmetic_test.cpp")
+    add_executable(ushort_arithmetic_test "${SOURCE_DIR}/tests/ushort_arithmetic_test.cpp")
     add_executable(int_perf_tests "${SOURCE_DIR}/tests/int_perf_tests.cpp")
     add_executable(perf_tests "${SOURCE_DIR}/tests/new_perf_tests.cpp")
 
@@ -48,6 +49,7 @@ if(BUILD_TESTING)
     target_link_libraries(long_arithmetic_test PRIVATE avxcpp_s)
     target_link_libraries(ulong_arithmetic_test PRIVATE avxcpp_s)
     target_link_libraries(short_arithmetic_test PRIVATE avxcpp_s)
+    target_link_libraries(ushort_arithmetic_test PRIVATE avxcpp_s)
     target_link_libraries(int_perf_tests PRIVATE avxcpp_s)
     target_link_libraries(perf_tests PRIVATE avxcpp_s)
     include(CTest)
@@ -77,6 +79,11 @@ if(BUILD_TESTING)
     )
 
     add_test(
+        NAME ushort_arithmetic_test
+        COMMAND $<TARGET_FILE:ushort_arithmetic_test>
+    )
+
+    add_test(
         NAME int_perf_tests
         COMMAND $<TARGET_FILE:int_perf_tests> 1000000
     )
@@ -94,11 +101,12 @@ if(BUILD_SHARED_LIBS)
 endif()
 
 if(BUILD_TESTING)
-    target_compile_options(int_arithmetic_test PRIVATE )
+    target_compile_options(int_arithmetic_test PRIVATE ${OPTIMIZATION_OPTIONS})
     target_compile_options(uint_arithmetic_test PRIVATE ${OPTIMIZATION_OPTIONS})
     target_compile_options(long_arithmetic_test PRIVATE ${OPTIMIZATION_OPTIONS})
     target_compile_options(ulong_arithmetic_test PRIVATE ${OPTIMIZATION_OPTIONS})
     target_compile_options(short_arithmetic_test PRIVATE ${OPTIMIZATION_OPTIONS})
+    target_compile_options(ushort_arithmetic_test PRIVATE ${OPTIMIZATION_OPTIONS})
     target_compile_options(int_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
     if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
         target_compile_options(perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
