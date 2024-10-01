@@ -1,4 +1,3 @@
-#include <iostream>
 #include <types/short256.hpp>
 #include "test_utils.hpp"
 

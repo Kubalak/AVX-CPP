@@ -189,6 +189,19 @@ namespace testing
     }
 
     /**
+     Below are the functions for arithmetic testing. Each one of them tests one operator but using different types and assignement e.g.
+     universal_test_add tests + and += operator where arguments are -> corresponding SIMD declared class and literal e.g. Int256 and int.
+     So the order of testing is as follows (using universal_test_add with Int256 as an example):
+     
+     Int256 + Int256
+     Int256 += Int256
+     Int256 + int
+     Int256 += int
+
+     Those functions do not follow DRY principle as to not introduce fragmentation and due to the fact that it would complicate some things unnecessarily.
+     */
+
+    /**
      * Universal function for testing `+` and `+=` operator of integer types.
      * Writes to `stderr` in case of failure.
      * 
@@ -202,10 +215,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0xFF}, randLit;
+        S maxval{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            maxval <<= 8;
-            maxval |= 0xFF;
+            maxval = (maxval << 8) | static_cast<S>(0xFF);
         }
 
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
@@ -316,10 +328,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0xFF}, randLit;
+        S zero{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            zero <<= 8;
-            zero |= 0xFF;
+            zero = (zero << 8) | static_cast<S>(0xFF);
         }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
@@ -430,10 +441,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0xFF}, randLit;
+        S zero{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            zero <<= 8;
-            zero |= 0xFF;
+            zero = (zero << 8) | static_cast<S>(0xFF);
         }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
@@ -544,10 +554,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0xFF}, randLit;
+        S zero{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            zero <<= 8;
-            zero |= 0xFF;
+            zero = (zero << 8) | static_cast<S>(0xFF);
         }
         
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
@@ -658,11 +667,10 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S zero{0xFF}, randLit;
+        S zero{static_cast<S>(0xFF)}, randLit;
 
         for(unsigned i = 0; i < sizeof(S);++i){
-            zero <<= 8;
-            zero |= 0xFF;
+            zero = (zero << 8) | static_cast<S>(0xFF);
         }
 
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
@@ -994,10 +1002,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0xFF}, randLit;
+        S maxval{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            maxval <<= 8;
-            maxval |= 0xFF;
+            maxval = (maxval << 8) | static_cast<S>(0xFF);
         }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
@@ -1108,10 +1115,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0}, randLit;
+        S maxval{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            maxval <<= 8;
-            maxval |= 0xFF;
+            maxval = (maxval << 8) | static_cast<S>(0xFF);
         }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
@@ -1222,10 +1228,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0xFF}, randLit;
+        S maxval{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            maxval <<= 8;
-            maxval |= 0xFF;
+            maxval = (maxval << 8) | static_cast<S>(0xFF);
         }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
@@ -1337,10 +1342,9 @@ namespace testing
         std::vector<S> aV(size), bV(size), resV(size);
         std::random_device dev;
         std::mt19937 rng(dev());
-        S maxval{0xFF}, randLit;
+        S maxval{static_cast<S>(0xFF)}, randLit;
         for(unsigned i = 0; i < sizeof(S);++i){
-            maxval <<= 8;
-            maxval |= 0xFF;
+            maxval = (maxval << 8) | static_cast<S>(0xFF);
         }
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
 
