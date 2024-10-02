@@ -35,7 +35,7 @@ void test_division_avx_float(const avx::Int256& a, const avx::Int256& b, unsigne
     __m256i iresult;
 
     unsigned int i{0};
-    for(i; i < iters; ++i) {
+    for(; i < iters; ++i) {
         __m256 fv1 = _mm256_cvtepi32_ps(v1);
         __m256 fv2 = _mm256_cvtepi32_ps(v2);
         __m256 result = _mm256_div_ps(fv1, fv2);
@@ -158,7 +158,7 @@ void test_mod_avx_float(const avx::Int256& a, const avx::Int256& b, unsigned int
     __m256i iresult = _mm256_setzero_si256();
 
     unsigned int i{0};
-    for(i; i < iters; ++i){
+    for(; i < iters; ++i){
         __m256 fv1 = _mm256_cvtepi32_ps(v1);
         __m256 fv2 = _mm256_cvtepi32_ps(v2);
         __m256 result = _mm256_div_ps(fv1, fv2);

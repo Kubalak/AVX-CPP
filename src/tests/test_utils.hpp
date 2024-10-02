@@ -15,6 +15,67 @@ constexpr const char path_regex[] = "^.+\\(?=src)";
 
 namespace testing
 {   
+    constexpr const char* get_compiler_name() {
+        #if defined(__clang__)
+            return "Clang";
+        #elif defined(__GNUC__) || defined(__GNUG__)
+            return "GCC";
+        #elif defined(_MSC_VER)
+            return "MSVC";
+        #else
+            return "n/a";
+        #endif
+    }
+
+    constexpr int get_compiler_major() {
+        #if defined(__clang__)
+            return __clang_major__;
+        #elif defined(__GNUC__) || defined(__GNUG__)
+            return __GNUC__;
+        #elif defined(_MSC_VER)
+            return _MSC_VER / 100;
+        #else
+            return 0;
+        #endif
+    }
+
+    constexpr int get_compiler_minor() {
+        #if defined(__clang__)
+            return __clang_minor__;
+        #elif defined(__GNUC__) || defined(__GNUG__)
+            return __GNUC_MINOR__;
+        #elif defined(_MSC_VER)
+            return _MSC_VER % 100;
+        #else
+            return 0;
+        #endif
+    }
+
+    constexpr int get_compiler_patch_level() {
+        #if defined(__clang__)
+            return __clang_patchlevel__;
+        #elif defined(__GNUC__) || defined(__GNUG__)
+            return __GNUC_PATCHLEVEL__;
+        #elif defined(_MSC_VER)
+            return 0;
+        #else
+            return 0;
+        #endif
+    }
+
+    constexpr const char* get_platform() {
+        #if defined(_WIN32)
+            return "Windows";
+        #elif defined(__APPLE__) && defined(__MACH__)
+            return "macOS";
+        #elif defined(__linux__)
+            return "Linux";
+        #elif defined(__unix__)
+            return "Unix";
+        #else
+            return "Unknown Platform";
+        #endif
+    }
 
     std::pair<double, std::string> universal_duration(int64_t ticks) {
         static const std::array<std::string, 5> times{"ns", "us", "ms", "s", "m"};

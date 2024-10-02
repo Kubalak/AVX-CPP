@@ -91,14 +91,11 @@ namespace avx {
             }
 
             bool operator==(const Char256& bV) const noexcept {
-                char* v1,* v2;
-                v1 = (char*)&v;
-                v2 = (char*)&bV.v;
-
-                for(unsigned int i{0}; i < 32; ++i)
-                    if(v1[i] != v2[i])
+                __m256i eq = _mm256_cmpeq_epi8(v, bV.v);
+                unsigned long long* eqV = (unsigned long long*)&eq;
+                for(uint8_t i = 0; i < 4; ++i)
+                    if(eqV[i] != UINT64_MAX)
                         return false;
-
                 return true;
             }
 
@@ -114,14 +111,11 @@ namespace avx {
             }
 
             bool operator!=(const Char256& bV) const noexcept {
-                char* v1,* v2;
-                v1 = (char*)&v;
-                v2 = (char*)&bV.v;
-
-                for(unsigned int i{0}; i < 32; ++i)
-                    if(v1[i] != v2[i])
+                __m256i eq = _mm256_cmpeq_epi8(v, bV.v);
+                unsigned long long* eqV = (unsigned long long*)&eq;
+                for(uint8_t i = 0; i < 4; ++i)
+                    if(eqV[i] != UINT64_MAX)
                         return true;
-
                 return false;
             }
 

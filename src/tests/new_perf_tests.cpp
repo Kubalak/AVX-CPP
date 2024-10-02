@@ -49,7 +49,7 @@ bool verify_results(const std::vector<int> &results) {
             for(int64_t i{0}; i < items_count; ++i) {
 
                 if(buffer[i] != results[index + i]){
-                    fprintf(stderr, "[%llu] %d != %d\n", index, buffer[i], results[index + i]);
+                    fprintf(stderr, "[%lu] %d != %d\n", index, buffer[i], results[index + i]);
                     resultFile.close();
                     return false;
                 }
