@@ -3,6 +3,7 @@
 #define CHAR256_HPP__
 
 #include <array>
+#include <cstring>
 #include <string>
 #include <stdexcept>
 #include <immintrin.h>
@@ -43,7 +44,11 @@ namespace avx {
                     alignas(32) char initV[32];
                     printf("0x%p\n", initV);
                     memset(initV, 0, 32);
-                    strncpy_s(initV, 32, init.data(), init.size());
+                    #ifdef _MSC_VER
+                        strncpy_s(initV, 32, init.data(), init.size());
+                    #elif defined( __GNUC__)
+                        strncpy(initV, init.data(), init.size());
+                    #endif
                     v = _mm256_load_si256((const __m256i*) initV);
                 }
             }
