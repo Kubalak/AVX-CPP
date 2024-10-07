@@ -98,5 +98,6 @@ Building has been tested on compilers:
 - Building binaries with MinGW on Windows may result in segfault (`ERROR_ACCESS_VIOLATION`) when running program for yet unknown reasons<br/>
 - &#9888;&#65039; `/` and `%` on integer types don't use AVX2 or use it scarcely due to lack of available AVX2 functions. *SOME* of them are using `float` conversion vectors and then converting them back to integer types using truncation.<br/>
 - Performance benefits need further testing. 
+- `Char256` may trigger numerical exception in some situations (will be fixed soon).
 
 

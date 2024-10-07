@@ -1,5 +1,5 @@
 #include <types/short256.hpp>
-#include "test_utils.hpp"
+#include "../test_utils.hpp"
 
 
 int main(int argc, char* argv[]){

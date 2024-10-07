@@ -3,20 +3,46 @@
 #define CHAR256_HPP__
 
 #include <array>
+#include <utility>
 #include <cstring>
 #include <string>
 #include <stdexcept>
 #include <immintrin.h>
 namespace avx {
+
+    
+
     class Char256 {
         private:
 
             __m256i v;
 
+            // Contains all ones across all 256 bits. - 1111 11...11
             static const __m256i ones;
+            // This is crate for epi16 values where 8-bits are set to 1 - 0x00 0xFF 0x00 0xFF ... 0x00 0xFF
             static const __m256i epi16_crate;
+            // This is the same as `epi16_crate` but shifted by 8 bits.
             static const __m256i epi16_crate_shift_1;
+            // This is crate for epi32 values where 8 bits are set to 1 - 0x00 0x00 0x00 0xFF ... 0x00 0x00 0x00 0xFF
             static const __m256i epi32_crate;
+
+            /**
+             * Sign extend to two vectors containing 16 `short` values each.
+             * 
+             * @param vec Vector containing 32 `epi8` aka `char` values.
+             * @return Pair of sign extended `epi16` aka `short` values.
+             */
+            static std::pair<__m256i,__m256i> _sig_ext_epi8_epi16(const __m256i& vec) noexcept {
+                __m256i fhalf = _mm256_and_si256(vec, epi16_crate_shift_1);
+                __m256i shalf = _mm256_and_si256(vec, epi16_crate);
+                
+                fhalf = _mm256_srai_epi16(fhalf, 8);
+
+                shalf = _mm256_slli_si256(shalf, 1);
+                shalf = _mm256_srai_epi16(shalf, 8);
+
+                return {fhalf, shalf};
+            }
 
         public:
             
@@ -580,7 +606,35 @@ namespace avx {
 
 
             Char256 operator>>(const Char256& bV) {
-                return v;
+                __m256i q1_a = _mm256_and_si256(v, epi32_crate);
+                __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+
+                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+
+                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+
+                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
+                __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
+                __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
+                __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
+
+                q1_res = _mm256_and_si256(q1_res, epi32_crate);
+                q2_res = _mm256_and_si256(q2_res, epi32_crate);
+                q3_res = _mm256_and_si256(q3_res, epi32_crate);
+                q4_res = _mm256_and_si256(q4_res, epi32_crate);
+
+                q2_res = _mm256_slli_si256(q2_res, 1);
+                q3_res = _mm256_slli_si256(q3_res, 2);
+                q4_res = _mm256_slli_si256(q4_res, 3);
+                
+                q1_res = _mm256_or_si256(q1_res, q2_res);
+                q2_res = _mm256_or_si256(q3_res, q4_res);
+                return _mm256_or_si256(q1_res, q2_res);
             }
 
 
@@ -596,6 +650,35 @@ namespace avx {
 
 
             Char256& operator>>=(const Char256& bV) {
+                __m256i q1_a = _mm256_and_si256(v, epi32_crate);
+                __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+
+                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+
+                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+
+                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
+                __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
+                __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
+                __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
+
+                q1_res = _mm256_and_si256(q1_res, epi32_crate);
+                q2_res = _mm256_and_si256(q2_res, epi32_crate);
+                q3_res = _mm256_and_si256(q3_res, epi32_crate);
+                q4_res = _mm256_and_si256(q4_res, epi32_crate);
+
+                q2_res = _mm256_slli_si256(q2_res, 1);
+                q3_res = _mm256_slli_si256(q3_res, 2);
+                q4_res = _mm256_slli_si256(q4_res, 3);
+                
+                q1_res = _mm256_or_si256(q1_res, q2_res);
+                q2_res = _mm256_or_si256(q3_res, q4_res);
+                v = _mm256_or_si256(q1_res, q2_res);
                 return *this;
             }
 
@@ -614,6 +697,8 @@ namespace avx {
             Char256 operator~(){
                 return _mm256_xor_si256(v, ones);
             }
+
+            std::pair<__m256i, __m256i> as_epi16(){return _sig_ext_epi8_epi16(v);}
 
             std::string str() {
                 std::string result = "Char256(";
