@@ -1,5 +1,6 @@
 # AVX-CPP - AVX2 made easy in C++
 ![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg)
+
 AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides basic numeric types and math operations.
 
 **NOTE:** This is still in development state. Some features are not yet available!

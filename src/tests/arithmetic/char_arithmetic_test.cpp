@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
     result |= testing::universal_test_sub<avx::Char256, char>();
     result |= testing::universal_test_mul<avx::Char256, char>();
     result |= testing::universal_test_div<avx::Char256, char>();
-    //result |= testing::universal_test_mod<avx::Char256, char>();
+    result |= testing::universal_test_mod<avx::Char256, char>();
     result |= testing::universal_test_and<avx::Char256, char>();
     result |= testing::universal_test_or<avx::Char256, char>();
     result |= testing::universal_test_xor<avx::Char256, char>();
