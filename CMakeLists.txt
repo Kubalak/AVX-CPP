@@ -16,10 +16,16 @@ file(
     GLOB_RECURSE SOURCES "${SOURCE_DIR}/types/*.cpp" "${SOURCE_DIR}/types/*.hpp" "${SOURCE_DIR}/ops/*.cpp" "${SOURCE_DIR}/ops/*.hpp"
 )
 
+include(${CMAKE_SOURCE_DIR}/cmake/avx-detect.cmake)
+
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
     set(OPTIMIZATION_OPTIONS -mavx -mavx2)
 elseif(MSVC)
     set(OPTIMIZATION_OPTIONS /arch:AVX /arch:AVX2)
+endif()
+
+if(AVX512_SUPPORTED)
+    set(OPTIMIZATION_OPTIONS ${OPTIMIZATION_OPTIONS} ${AVX512_FLAGS})
 endif()
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
