@@ -1,6 +1,8 @@
 #pragma once
 #ifndef _TEST_UTILS_HPP
 #define _TEST_UTILS_HPP
+
+#include <regex>
 #include <array>
 #include <vector>
 #include <functional>
@@ -11,7 +13,11 @@
 #include <iostream>
 #include <fstream>
 
-constexpr const char path_regex[] = "^.+\\(?=src)";
+#ifdef _WIN32
+constexpr const char path_regex[] = "^.+\\\\(?=src)";
+#else 
+constexpr const char path_regex[] = "^.+//(?=src)";
+#endif
 
 namespace testing
 {   
@@ -75,6 +81,27 @@ namespace testing
         #else
             return "Unknown Platform";
         #endif
+    }
+
+    void print_test_failed(const char* filename, const int line, const char* func, const char* op, const char* type_a, const char* type_b, const std::string& expected, const std::string& actual) {
+        std::string tmp(filename);
+        std::smatch match;
+
+        if(std::regex_search(tmp, match, std::regex(path_regex)))
+            tmp = match.suffix().str();
+        
+        fprintf(
+            stderr,
+            "%s:%d Test %s (%s %s %s) failed! Expected %s actual %s\n",
+            tmp.c_str(),
+            line,
+            func, 
+            type_a,
+            op, 
+            type_b,
+            expected.c_str(),
+            actual.c_str()
+        );
     }
 
     std::pair<double, std::string> universal_duration(int64_t ticks) {
@@ -296,17 +323,15 @@ namespace testing
 
         c = a + b;
         if(c != expected){
-            // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s + %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "+", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -315,32 +340,30 @@ namespace testing
         c += b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s += %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "+=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a + randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s + %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "+", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -349,16 +372,15 @@ namespace testing
         c += randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s += %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "+=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -409,16 +431,15 @@ namespace testing
         c = a - b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s - %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "-", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -427,32 +448,30 @@ namespace testing
         c -= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s -= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "-=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a - randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s - %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "-", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -461,16 +480,15 @@ namespace testing
         c -= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s -= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "-=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -522,16 +540,15 @@ namespace testing
         c = a * b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s * %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "*", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -540,32 +557,30 @@ namespace testing
         c *= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s *= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "*=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a * randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s * %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "*", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -574,16 +589,15 @@ namespace testing
         c *= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s *= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "*=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -622,11 +636,11 @@ namespace testing
         
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
-        randLit = dist(rng);
-
+        while(!(randLit = dist(rng)));
+        
         for(unsigned int i = 0; i < size; ++i){
             aV[i] = dist(rng);
-            bV[i] = dist(rng);
+            while(!(bV[i] = dist(rng)));
             resV[i] = aV[i] / bV[i];
             litV[i] = aV[i] / randLit;
         }
@@ -636,16 +650,15 @@ namespace testing
         c = a / b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s / %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "/", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -654,32 +667,30 @@ namespace testing
         c /= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s /= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "/=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a / randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s / %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "/", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -688,16 +699,15 @@ namespace testing
         c /= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s /= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "/=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -736,11 +746,11 @@ namespace testing
 
         std::uniform_int_distribution<std::mt19937::result_type> dist(1, zero);
 
-        randLit = dist(rng);
+        while(!(randLit = dist(rng)));
 
         for(unsigned int i = 0; i < size; ++i){
             aV[i] = dist(rng);
-            bV[i] = dist(rng);
+            while(!(bV[i] = dist(rng)));
             resV[i] = aV[i] % bV[i];
             litV[i] = aV[i] % randLit;
         }
@@ -750,16 +760,15 @@ namespace testing
         c = a % b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s %% %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "%%", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -768,32 +777,30 @@ namespace testing
         c %= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s %%= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "%%=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a % randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s %% %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "%%", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -802,16 +809,15 @@ namespace testing
         c %= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s %%= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "%%=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -860,16 +866,15 @@ namespace testing
         c = a << b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s << %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "<<", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -878,32 +883,30 @@ namespace testing
         c <<= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s <<= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "<<=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a << randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s << %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "<<", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -912,16 +915,15 @@ namespace testing
         c <<= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s <<= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "<<=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -970,16 +972,15 @@ namespace testing
         c = a >> b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s >> %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                ">>", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -988,32 +989,30 @@ namespace testing
         c >>= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s >>= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                ">>=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a >> (const unsigned int&)randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s >> %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                ">>", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1022,16 +1021,15 @@ namespace testing
         c >>= (const unsigned int&)randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s >>= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                ">>=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1083,16 +1081,15 @@ namespace testing
         c = a | b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s | %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "|", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1101,32 +1098,30 @@ namespace testing
         c |= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s |= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "|=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a | randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s | %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "|", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1135,16 +1130,15 @@ namespace testing
         c |= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s |= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "|=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1196,16 +1190,15 @@ namespace testing
         c = a & b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s & %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "&", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1214,32 +1207,30 @@ namespace testing
         c &= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s &= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "&=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a & randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s & %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "&", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1248,16 +1239,15 @@ namespace testing
         c &= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s &= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "&=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1309,16 +1299,15 @@ namespace testing
         c = a ^ b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s ^ %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "^", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1327,32 +1316,30 @@ namespace testing
         c ^= b;
 
         if(c != expected){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s ^= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "^=", 
                 typeid(T).name(), 
                 typeid(T).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
 
         c = a ^ randLit;
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s ^ %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "^", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1361,16 +1348,15 @@ namespace testing
         c ^= randLit;
 
         if(c != expectedLit){
-            fprintf(
-                stderr, 
-                "%s:%d Test %s (%s ^= %s) failed! Expected %s actual %s\n",
+            print_test_failed(
                 __FILE__, 
                 __LINE__, 
-                __func__, 
+                __func__,
+                "^=", 
                 typeid(T).name(), 
                 typeid(S).name(),
-                expected.str().c_str(), 
-                c.str().c_str()
+                expected.str(), 
+                c.str()
             );
             result = 1;
         }
@@ -1417,12 +1403,17 @@ namespace testing
 
         T a(aV.data()), c, expected(resV.data());
         c = ~a;
+        std::string tmp(__FILE__);
+        std::smatch match;
+
+        if(std::regex_search(tmp, match, std::regex(path_regex)))
+            tmp = match.suffix().str();
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
             fprintf(
                 stderr, 
                 "%s:%d Test %s (~%s) failed! Expected %s actual %s\n",
-                __FILE__, 
+                tmp.c_str(), 
                 __LINE__, 
                 __func__, 
                 typeid(T).name(), 

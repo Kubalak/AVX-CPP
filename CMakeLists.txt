@@ -8,6 +8,8 @@ set(SOURCE_DIR
     "${CMAKE_SOURCE_DIR}/src"
 )
 
+set(UTILS_INCLUDE_DIR "${SOURCE_DIR}/tests/include")
+
 # TODO: Fix selecting build type.
 
 file(
@@ -44,6 +46,14 @@ if(BUILD_TESTING)
     add_executable(char_arithmetic_test "${SOURCE_DIR}/tests/arithmetic/char_arithmetic_test.cpp")
     add_executable(int_perf_tests "${SOURCE_DIR}/tests/int_perf_tests.cpp")
     add_executable(perf_tests "${SOURCE_DIR}/tests/new_perf_tests.cpp")
+
+    target_include_directories(int_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(uint_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(long_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(ulong_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(short_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(ushort_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(char_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
 
     target_link_libraries(int_arithmetic_test PRIVATE avxcpp_s)
     target_link_libraries(uint_arithmetic_test PRIVATE avxcpp_s)

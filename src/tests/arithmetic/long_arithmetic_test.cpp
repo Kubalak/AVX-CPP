@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array>
-#include "types/long256.hpp"
-#include "../test_utils.hpp"
+#include <types/long256.hpp>
+#include <test_utils.hpp>
 
 int data_load_save(){
     std::cout << "Starting test: " << __func__ << std::endl;

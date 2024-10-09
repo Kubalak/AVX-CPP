@@ -1,4 +1,4 @@
-#include "../test_utils.hpp"
+#include "test_utils.hpp"
 #include <types/char256.hpp>
 #include <types/short256.hpp>
 

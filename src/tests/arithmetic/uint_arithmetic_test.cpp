@@ -3,7 +3,7 @@
 #include <string>
 #include <climits>
 #include <types/uint256.hpp> 
-#include "../test_utils.hpp"
+#include <test_utils.hpp>
 
 int data_load_save(){
     std::cout << "Starting test: " << __func__ << std::endl;
