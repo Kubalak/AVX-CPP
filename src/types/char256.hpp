@@ -102,6 +102,22 @@ namespace avx {
 
             Char256(const std::array<char, 32>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
+            Char256(std::initializer_list<char> init) {
+                alignas(32) char init_v[32];
+                memset(init_v, 0, 32);
+                if(init.size() < 32){
+                    auto begin = init.begin();
+                    for(int i{0}; i < init.size(); ++i)
+                        init_v[i] = *begin++;
+                }
+                else {
+                    auto begin = init.begin();
+                    for(int i{0}; i < 32; ++i)
+                        init_v[i] = *begin++;
+                }
+                v = _mm256_load_si256((const __m256i*)init_v);
+            }
+
             /**
              * Saves data to destination in memory.
              * @param dest A valid pointer to a memory of at least 32 bytes (`char`).

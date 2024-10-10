@@ -73,8 +73,26 @@ namespace avx
                 )
             )
         {}
-        Int256(std::initializer_list<int> init);
+
+        Int256(std::initializer_list<int> init) {
+            alignas(32) int init_v[size];
+            memset(init_v, 0, 32);
+            if(init.size() < size){
+                auto begin = init.begin();
+                for(int i{0}; i < init.size(); ++i)
+                    init_v[i] = *begin++;
+            }
+            else {
+                auto begin = init.begin();
+                for(int i{0}; i < size; ++i)
+                    init_v[i] = *begin++;
+            }
+            v = _mm256_load_si256((const __m256i*)init_v);
+        }
+
         __m256i get() const { return v; }
+
+
         void set(__m256i val) { v = val; }
 
         /**
@@ -96,10 +114,49 @@ namespace avx
          */
         void saveAligned(int* dest) const {_mm256_store_si256((__m256i*)dest, v);};
 
-        bool operator==(const Int256 &) const;
-        bool operator==(const int &) const;
-        bool operator!=(const Int256 &) const;
-        bool operator!=(const int &) const;
+        bool operator==(const Int256 &b) const {
+            int* v1,* v2;
+            v1 = (int*)&v;
+            v2 = (int*)&b.v;
+
+            for(unsigned short i{0}; i < 8; ++i)
+                if(v1[i] != v2[i])
+                    return false;
+
+            return true;
+        }
+
+        bool operator==(const int &b) const {
+            int* v1 = (int*)&v;
+
+            for(unsigned short i{0}; i < 8; ++i)
+                if(v1[i] != b)
+                    return false;
+
+            return true;
+        }
+
+        bool operator!=(const Int256 &b) const {
+            int* v1,* v2;
+            v1 = (int*)&v;
+            v2 = (int*)&b.v;
+
+            for(unsigned short i{0}; i < 8; ++i)
+                if(v1[i] != v2[i])
+                    return true;
+
+            return false;
+        }
+
+        bool operator!=(const int &b) const {
+            int* v1 = (int*)&v;
+
+            for(unsigned short i{0}; i < 8; ++i)
+                if(v1[i] != b)
+                    return true;
+
+            return false;
+        }
 
         const int operator[](unsigned int &index) const {
             if(index > 7) {
@@ -136,8 +193,16 @@ namespace avx
         // Division operators
         // TODO: Working division and modulo (no AVX2 native solution)
 
-        Int256 operator/(const Int256 &) const;
-        Int256 operator/(const int&) const;
+        Int256 operator/(const Int256 &b) const {
+            return _mm256_cvtps_epi32(
+                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            );
+        }
+        Int256 operator/(const int&b) const {
+            return _mm256_cvtps_epi32(
+                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            );
+        }
 
         // Modulo operators
         Int256 operator%(const Int256 &b) const {
@@ -196,16 +261,17 @@ namespace avx
         Int256 operator>>(const int &b) const { return _mm256_srai_epi32(v, b); }
 
         // Calc and store operators
-        Int256 &operator+=(const Int256 & b) {
+        Int256& operator+=(const Int256 & b) {
             v = _mm256_add_epi32(v,b.v);
             return *this;
         }
-        Int256 &operator+=(const int& b) {
+        
+        Int256& operator+=(const int& b) {
             v = _mm256_add_epi32(v, _mm256_set1_epi32(b));
             return *this;
         }
 
-        Int256 &operator-=(const Int256 &b) {
+        Int256& operator-=(const Int256 &b) {
             v = _mm256_sub_epi32(v, b.v);
             return *this;
         }
@@ -226,8 +292,18 @@ namespace avx
             return *this;
         };
 
-        Int256 &operator/=(const Int256 &);
-        Int256 &operator/=(const int &);
+        Int256 &operator/=(const Int256 &b) {
+            v = _mm256_cvtps_epi32(
+                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            );
+            return *this;
+        }
+        Int256 &operator/=(const int &b) {
+            v = _mm256_cvtps_epi32(
+                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            );
+        return *this;
+        }
 
         Int256 &operator%=(const Int256 &b) {
             int* a = (int*)&v;
@@ -310,7 +386,16 @@ namespace avx
             return *this;
         }
 
-        std::string str() const;
+        std::string str() const {
+            std::string result = "Int256(";
+            int* iv = (int*)&v; 
+            for(unsigned i{0}; i < 7; ++i)
+                result += std::to_string(iv[i]) + ", ";
+            
+            result += std::to_string(iv[7]);
+            result += ")";
+            return result;
+        }
 
         friend Int256 sum(std::vector<Int256> &);
         friend Int256 sum(std::set<Int256> &);

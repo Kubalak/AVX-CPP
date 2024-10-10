@@ -45,6 +45,22 @@ namespace avx {
              */
             UShort256(const std::array<unsigned short, 16>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
+            UShort256(std::initializer_list<short> init) {
+                alignas(32) unsigned short init_v[size];
+                memset(init_v, 0, 32);
+                if(init.size() < size){
+                    auto begin = init.begin();
+                    for(int i{0}; i < init.size(); ++i)
+                        init_v[i] = *begin++;
+                }
+                else {
+                    auto begin = init.begin();
+                    for(int i{0}; i < size; ++i)
+                        init_v[i] = *begin++;
+                }
+                v = _mm256_load_si256((const __m256i*)init_v);
+            }
+
 
             /**
              * Initialize vector with values using pointer.

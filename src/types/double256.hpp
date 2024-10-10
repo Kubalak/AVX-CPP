@@ -37,6 +37,21 @@ namespace avx {
             noexcept : v(_mm256_loadu_pd(addr)){} 
             #endif
 
+            Double256(std::initializer_list<double> init) {
+                alignas(32) double init_v[size]{0.0, 0.0, 0.0, 0.0};
+                if(init.size() < size){
+                    auto begin = init.begin();
+                    for(int i{0}; i < init.size(); ++i)
+                        init_v[i] = *begin++;
+                }
+                else {
+                    auto begin = init.begin();
+                    for(int i{0}; i < size; ++i)
+                        init_v[i] = *begin++;
+                }
+                v = _mm256_load_pd(init_v);
+            }
+
             
             const __m256d get() const noexcept { return v;}
             void set(__m256d val) noexcept { v = val;}
