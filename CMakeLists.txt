@@ -10,8 +10,6 @@ set(SOURCE_DIR
 
 set(UTILS_INCLUDE_DIR "${SOURCE_DIR}/tests/include")
 
-# TODO: Fix selecting build type.
-
 file(
     GLOB_RECURSE SOURCES "${SOURCE_DIR}/types/*.cpp" "${SOURCE_DIR}/types/*.hpp" "${SOURCE_DIR}/ops/*.cpp" "${SOURCE_DIR}/ops/*.hpp"
 )
@@ -28,7 +26,7 @@ if(AVX512_SUPPORTED)
     set(OPTIMIZATION_OPTIONS ${OPTIMIZATION_OPTIONS} ${AVX512_FLAGS})
 endif()
 
-option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 option(BUILD_TESTING "Build tests" OFF)
 
 add_library(avxcpp_s STATIC ${SOURCES})
@@ -60,6 +58,8 @@ if(BUILD_TESTING)
     target_include_directories(short_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
     target_include_directories(ushort_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
     target_include_directories(char_arithmetic_test PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(int_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
+    target_include_directories(perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
 
     target_link_libraries(int_arithmetic_test PRIVATE avxcpp_s)
     target_link_libraries(uint_arithmetic_test PRIVATE avxcpp_s)

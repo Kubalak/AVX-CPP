@@ -3,6 +3,7 @@
 namespace avx {
     const __m256i UInt256::ones = _mm256_set1_epi8(0xFF);
     const __m256i UInt256::crate = _mm256_set_epi32(0, 0xFFFFFFFF, 0, 0xFFFFFFFF, 0, 0xFFFFFFFF, 0, 0xFFFFFFFF);
+    const __m256 UInt256::signbit = _mm256_castsi256_ps(_mm256_set1_epi32(0x7FFF'FFFF));
 
 
     
