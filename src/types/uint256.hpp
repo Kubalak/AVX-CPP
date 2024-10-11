@@ -39,7 +39,7 @@ namespace avx {
                 }
             #else 
             noexcept :
-                v(_mm256_lddqu_si256((const __m256i*)init);)
+                v(_mm256_lddqu_si256((const __m256i*)init))
             {}
             #endif
 
