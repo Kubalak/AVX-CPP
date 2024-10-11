@@ -4,6 +4,7 @@
 
 #include <array>
 #include <string>
+#include <cstring>
 #include <stdexcept>
 #include <immintrin.h>
 
@@ -66,6 +67,22 @@ namespace avx {
              * @param b A literal value to be set.
              */
             explicit Short256(const short b) noexcept : v(_mm256_set1_epi16(b)){}
+
+            Short256(std::initializer_list<short> init) {
+                alignas(32) short init_v[size];
+                std::memset(init_v, 0, 32);
+                if(init.size() < size){
+                    auto begin = init.begin();
+                    for(int i{0}; i < init.size(); ++i)
+                        init_v[i] = *begin++;
+                }
+                else {
+                    auto begin = init.begin();
+                    for(int i{0}; i < size; ++i)
+                        init_v[i] = *begin++;
+                }
+                v = _mm256_load_si256((const __m256i*)init_v);
+            }
 
             
             /**

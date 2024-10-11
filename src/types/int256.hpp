@@ -8,6 +8,7 @@
 #include <array>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <stdexcept>
 #include <immintrin.h>
 #include <unordered_set>
@@ -76,7 +77,7 @@ namespace avx
 
         Int256(std::initializer_list<int> init) {
             alignas(32) int init_v[size];
-            memset(init_v, 0, 32);
+            std::memset((char*)init_v, 0, 32);
             if(init.size() < size){
                 auto begin = init.begin();
                 for(int i{0}; i < init.size(); ++i)
