@@ -326,140 +326,109 @@ namespace avx {
 
 
             UInt256 operator/(const UInt256& b) const noexcept {
-                unsigned int* a = (unsigned int*)&v;
-                unsigned int* bv = (unsigned int*)&b.v;
+                alignas(32) unsigned int aV[size];
+                alignas(32) unsigned int bV[size];
+                
+                _mm256_store_si256((__m256i*)aV, v);
+                _mm256_store_si256((__m256i*)bV, b.v);
 
-                return UInt256(
-                    _mm256_set_epi32(
-                        a[7] / bv[7],
-                        a[6] / bv[6],
-                        a[5] / bv[5],
-                        a[4] / bv[4],
-                        a[3] / bv[3],
-                        a[2] / bv[2],
-                        a[1] / bv[1],
-                        a[0] / bv[0]
-                    )
-                );
+                for(unsigned int i{0}; i < 8; ++i)
+                    aV[i] = bV[i] ? aV[i] / bV[i] : 0;
+                
+                return _mm256_load_si256((const __m256i*)aV);
             }
 
             UInt256 operator/(const unsigned int& b) const noexcept {
-                unsigned int* a = (unsigned int*)&v;
-
-                return UInt256(
-                    _mm256_set_epi32(
-                        a[7] / b,
-                        a[6] / b,
-                        a[5] / b,
-                        a[4] / b,
-                        a[3] / b,
-                        a[2] / b,
-                        a[1] / b,
-                        a[0] / b
-                    )
-                );
+                alignas(32) unsigned int data[size];
+                if(b) {
+                    _mm256_store_si256((__m256i*)data, v);
+                    for(unsigned int i{0}; i < 8; ++i)
+                        data[i] /= b;
+                    return _mm256_load_si256((const __m256i*)data);
+                }
+                else 
+                    return _mm256_setzero_si256();
             }
 
             UInt256& operator/=(const UInt256& b) noexcept {
-                unsigned int* a = (unsigned int*)&v;
-                unsigned int* bv = (unsigned int*)&b.v;
+                alignas(32) unsigned int aV[size];
+                alignas(32) unsigned int bV[size];
 
-                v = _mm256_set_epi32(
-                    a[7] / bv[7],
-                    a[6] / bv[6],
-                    a[5] / bv[5],
-                    a[4] / bv[4],
-                    a[3] / bv[3],
-                    a[2] / bv[2],
-                    a[1] / bv[1],
-                    a[0] / bv[0]
-                );
+                _mm256_store_si256((__m256i*)aV, v);
+                _mm256_store_si256((__m256i*)bV, b.v);
+
+                for(unsigned int i{0}; i < 8; ++i)
+                    aV[i] = bV[i] ? aV[i] / bV[i] : 0;
+                
+                v = _mm256_load_si256((const __m256i*)aV);
                 return *this;
             }
 
-            UInt256& operator/=(const unsigned int& b) noexcept {
-                unsigned int* a = (unsigned int*)&v;
-                v = _mm256_set_epi32(
-                    a[7] / b,
-                    a[6] / b,
-                    a[5] / b,
-                    a[4] / b,
-                    a[3] / b,
-                    a[2] / b,
-                    a[1] / b,
-                    a[0] / b
-                );
+            UInt256& operator/=(const unsigned int b) noexcept {
+                alignas(32) unsigned int data[size];
+                if(b) {
+                    _mm256_store_si256((__m256i*)data, v);
+                    for(unsigned int i{0}; i < 8; ++i)
+                        data[i] /= b;
+                    v = _mm256_load_si256((const __m256i*)data);
+                }
+                else 
+                    v = _mm256_setzero_si256();
                 return *this;
             }
 
 
             UInt256 operator%(const UInt256& b) const noexcept {
-                unsigned int* a = (unsigned int*)&v;
-                unsigned int* bv = (unsigned int*)&b.v;
+                alignas(32) unsigned int aV[size];
+                alignas(32) unsigned int bV[size];
 
-                return UInt256(
-                    _mm256_set_epi32(
-                        a[7] % bv[7],
-                        a[6] % bv[6],
-                        a[5] % bv[5],
-                        a[4] % bv[4],
-                        a[3] % bv[3],
-                        a[2] % bv[2],
-                        a[1] % bv[1],
-                        a[0] % bv[0]
-                    )
-                );
+                _mm256_store_si256((__m256i*)aV, v);
+                _mm256_store_si256((__m256i*)bV, b.v);
+
+                for(unsigned int i{0}; i < 8; ++i)
+                    aV[i] = bV[i] ? aV[i] % bV[i] : 0;
+                
+                return _mm256_load_si256((const __m256i*)aV);
             }
 
             UInt256 operator%(const unsigned int& b) const noexcept {
-                unsigned int* a = (unsigned int*)&v;
-
-                return UInt256(
-                    _mm256_set_epi32(
-                        a[7] % b,
-                        a[6] % b,
-                        a[5] % b,
-                        a[4] % b,
-                        a[3] % b,
-                        a[2] % b,
-                        a[1] % b,
-                        a[0] % b
-                    )
-                );
+                alignas(32) unsigned int data[size];
+                if(b) {
+                    _mm256_store_si256((__m256i*)data, v);
+                    for(unsigned int i{0}; i < 8; ++i)
+                        data[i] %= b;
+                    return  _mm256_load_si256((const __m256i*)data);
+                }
+                else 
+                    return  _mm256_setzero_si256();
 
             }
 
 
             UInt256& operator%=(const UInt256& b) noexcept {
-                unsigned int* a = (unsigned int*)&v;
-                unsigned int* bv = (unsigned int*)&b.v;
+                alignas(32) unsigned int aV[size];
+                alignas(32) unsigned int bV[size];
 
-                v = _mm256_set_epi32(
-                    a[7] % bv[7],
-                    a[6] % bv[6],
-                    a[5] % bv[5],
-                    a[4] % bv[4],
-                    a[3] % bv[3],
-                    a[2] % bv[2],
-                    a[1] % bv[1],
-                    a[0] % bv[0]
-                );
+                _mm256_store_si256((__m256i*)aV, v);
+                _mm256_store_si256((__m256i*)bV, b.v);
+
+                for(unsigned int i{0}; i < 8; ++i)
+                    aV[i] = bV[i] ? aV[i] % bV[i] : 0;
+                
+                v = _mm256_load_si256((const __m256i*)aV);
                 return *this;
             }
 
             UInt256& operator%=(const unsigned int& b) noexcept {
-                unsigned int* a = (unsigned int*)&v;
-
-                v = _mm256_set_epi32(
-                        a[7] % b,
-                        a[6] % b,
-                        a[5] % b,
-                        a[4] % b,
-                        a[3] % b,
-                        a[2] % b,
-                        a[1] % b,
-                        a[0] % b
-                    );
+                alignas(32) unsigned int data[size];
+                if(b) {
+                    _mm256_store_si256((__m256i*)data, v);
+                    for(unsigned int i{0}; i < 8; ++i)
+                        data[i] %= b;
+                    v = _mm256_load_si256((const __m256i*)data);
+                }
+                else 
+                    v = _mm256_setzero_si256();
                 return *this;
             }
 

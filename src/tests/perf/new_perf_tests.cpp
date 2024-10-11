@@ -40,7 +40,7 @@ bool verify_results(const std::vector<int> &results) {
     
     std::ifstream resultFile("int_result.bin", std::ios_base::binary);
     if(resultFile.good()){
-        uint64_t index = 0;
+        unsigned long long index = 0;
         while(index < results.size()) {
 
             resultFile.read((char*)buffer.data(), buffer.size() * sizeof(int));

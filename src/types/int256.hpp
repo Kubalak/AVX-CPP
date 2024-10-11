@@ -207,36 +207,32 @@ namespace avx
 
         // Modulo operators
         Int256 operator%(const Int256 &b) const {
-            int* a = (int*)&v;
-            int* bv = (int*)&b.v;
+            __m256i divided = _mm256_cvtps_epi32(
+                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            );
 
-
-            return _mm256_set_epi32(
-                a[7] % bv[7],
-                a[6] % bv[6],
-                a[5] % bv[5],
-                a[4] % bv[4],
-                a[3] % bv[3],
-                a[2] % bv[2],
-                a[1] % bv[1],
-                a[0] % bv[0]  
+            return _mm256_sub_epi32(
+                v,
+                _mm256_mullo_epi32(b.v, divided)
             );
         }
 
         
         Int256 operator%(const int &b) const {
-            int* a = (int*)&v;
+            if(b) {
+                __m256i divisor = _mm256_set1_epi32(b);
 
-            return _mm256_set_epi32(
-                a[7] % b,
-                a[6] % b,
-                a[5] % b,
-                a[4] % b,
-                a[3] % b,
-                a[2] % b,
-                a[1] % b,
-                a[0] % b
-            );
+                __m256i divided = _mm256_cvtps_epi32(
+                    _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(divisor)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+                );
+
+                return _mm256_sub_epi32(
+                    v,
+                    _mm256_mullo_epi32(divisor, divided)
+                );
+            }
+            else 
+                return _mm256_setzero_si256();
         }    
 
         // XOR operators
@@ -307,35 +303,32 @@ namespace avx
         }
 
         Int256 &operator%=(const Int256 &b) {
-            int* a = (int*)&v;
-            int* bv = (int*)&b.v;
+            __m256i divided = _mm256_cvtps_epi32(
+                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            );
 
-            v = _mm256_set_epi32(
-                a[7] % bv[7],
-                a[6] % bv[6],
-                a[5] % bv[5],
-                a[4] % bv[4],
-                a[3] % bv[3],
-                a[2] % bv[2],
-                a[1] % bv[1],
-                a[0] % bv[0]
+            v = _mm256_sub_epi32(
+                v,
+                _mm256_mullo_epi32(b.v, divided)
             );
             return *this;
         }
 
         Int256 &operator%=(const int &b){
-            int* a = (int*)&v;
+            if(b) {
+                __m256i divisor = _mm256_set1_epi32(b);
 
-            v = _mm256_set_epi32(
-                a[7] % b,
-                a[6] % b,
-                a[5] % b,
-                a[4] % b,
-                a[3] % b,
-                a[2] % b,
-                a[1] % b,
-                a[0] % b
-            );
+                __m256i divided = _mm256_cvtps_epi32(
+                    _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(divisor)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+                );
+
+                v = _mm256_sub_epi32(
+                    v,
+                    _mm256_mullo_epi32(divisor, divided)
+                );
+            }
+            else 
+                v = _mm256_setzero_si256();
             return *this;
         }
 
