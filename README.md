@@ -1,5 +1,5 @@
 # AVX-CPP - AVX2 made easy in C++
-![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg)
+![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg) [![LICENSE](https://img.shields.io/badge/LICENSE-GNU_GPL--3.0-royalblue?logo=github&logoColor=lightgray)](LICENSE)
 
 AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides basic numeric types and math operations.
 
@@ -15,8 +15,8 @@ Library provides both integer and floating-point types (&#x2705; shows currently
   - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`) &#x2705;<br/>
   - `Short256` - Vector containing 16 signed 16-bit integers (`__m256i`) &#x2705;<br/>
   - `Ushort256` - Vector containing 16 unsigned 16-bit integers (`__m256i`) &#x2705;<br/>
-  - `Char256` - Vector containing 32 signed 8-bit integers (`__m256i`) [&#9888;&#65039;](#known-issues)<br/>
-  - `Uchar256` - Vector containing 32 unsigned 8-bit integers (`__m256i`)<br/>
+  - `Char256` - Vector containing 32 signed 8-bit integers (`__m256i`) [&#9888;&#65039;](#known-issues) &rarr; &#x2705;<br/>
+  - `Uchar256` - Vector containing 32 unsigned 8-bit integers (`__m256i`) [&#9888;&#65039;](#known-issues)<br/>
 - Floating-point types:<br/>
   - `Float256` - Vector containing 8 floats (`__m256`) &#x2705;<br/>
   - `Double256` - Vector containing 4 doubles (`__m256d`) &#x2705;<br/>
@@ -91,14 +91,13 @@ Available building options are
 | BUILD_TESTING | BOOLEAN | OFF | Build tests when building library |
 
 Building has been tested on compilers:
-- GCC 11.4.0-1ubuntu1~22.04
-- Clang 14.0.0-1ubuntu1.1
-- MSVC 19.29.30154
+- GCC 11.4.0-1ubuntu1~22.04 &#x2705;
+- Clang 14.0.0-1ubuntu1.1 &#x2705;
+- MSVC 19.29.30154 &#x2705;
 
 ## Known issues
 - Building binaries with MinGW on Windows may result in segfault (`ERROR_ACCESS_VIOLATION`) when running program for yet unknown reasons<br/>
 - &#9888;&#65039; `/` and `%` on integer types don't use AVX2 or use it scarcely due to lack of available AVX2 functions. *SOME* of them are using `float` conversion vectors and then converting them back to integer types using truncation.<br/>
-- Performance benefits need further testing. 
-- `Char256` may trigger numerical exception in some situations (will be fixed soon).
+- Performance benefits need further testing (I will provide perf test table here). 
 
 

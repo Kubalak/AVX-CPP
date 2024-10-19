@@ -7,12 +7,11 @@
 #include <ostream>
 #include <stdexcept>
 #include <immintrin.h>
+#include "constants.hpp"
 
 namespace avx {
     class UChar256{
 
-        // Contains all ones across all 256 bits. - 1111 11...11
-        static const __m256i ones;
         // This is crate for epi16 values where 8-bits are set to 1 - 0x00 0xFF 0x00 0xFF ... 0x00 0xFF
         static const __m256i epi16_crate;
         // Same as epi16_crate but shifted one byte left - 0xFF 0x00 0xFF 0x00...
@@ -313,7 +312,6 @@ namespace avx {
 
 
             UChar256 operator/(const UChar256& bV) const noexcept {
-
                 __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
                 __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
@@ -474,9 +472,477 @@ namespace avx {
             }
 
 
+            UChar256 operator%(const UChar256& bV) const noexcept {
+                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                __m256i bv_first_half = _mm256_and_si256(bV.v, epi32_crate);
+                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
+                __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 1);
+
+                __m256i half_res = _mm256_or_si256(fresult, sresult);
+
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
+                bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
+
+                fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
+                sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                fresult = _mm256_slli_si256(fresult, 2);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 3);
+
+                __m256i shalf_res = _mm256_or_si256(fresult, sresult);
+
+                return _mm256_or_si256(half_res, shalf_res);
+            }
+
+            UChar256 operator%(const unsigned char b) const noexcept {
+                if(!b) return _mm256_setzero_si256();
+
+                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                __m256 bV = _mm256_set1_ps(static_cast<float>(b));
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 1);
+
+                __m256i half_res = _mm256_or_si256(fresult, sresult);
+
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                fresult = _mm256_slli_si256(fresult, 2);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 3);
+
+                __m256i shalf_res = _mm256_or_si256(fresult, sresult);
+
+                return _mm256_or_si256(half_res, shalf_res);
+            }
+
+            UChar256 operator%=(const UChar256& bV) noexcept {
+                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                __m256i bv_first_half = _mm256_and_si256(bV.v, epi32_crate);
+                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
+                __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 1);
+
+                __m256i half_res = _mm256_or_si256(fresult, sresult);
+
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
+                bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
+
+                fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
+                sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                fresult = _mm256_slli_si256(fresult, 2);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 3);
+
+                __m256i shalf_res = _mm256_or_si256(fresult, sresult);
+
+                v = _mm256_or_si256(half_res, shalf_res);
+                return *this;
+            }
 
 
 
+
+            UChar256 operator%=(const unsigned char b) noexcept {
+                if(!b) {
+                    v = _mm256_setzero_si256();
+                    return *this;
+                }
+
+                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                __m256 bV = _mm256_set1_ps(static_cast<float>(b));
+
+                __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 1);
+
+                __m256i half_res = _mm256_or_si256(fresult, sresult);
+
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+
+                fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
+                
+                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_sub_epi8(v_first_half, fresult);
+                fresult = _mm256_slli_si256(fresult, 2);
+                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_sub_epi8(v_second_half, sresult);
+                sresult = _mm256_slli_si256(sresult, 3);
+
+                __m256i shalf_res = _mm256_or_si256(fresult, sresult);
+
+                v = _mm256_or_si256(half_res, shalf_res);
+                return *this;
+            }
+
+
+            UChar256 operator&(const UChar256& bV) const noexcept {
+                return _mm256_and_si256(v, bV.v);
+            }
+
+
+            UChar256 operator&(const unsigned char& b) const noexcept {
+                return _mm256_and_si256(v, _mm256_set1_epi8(b));
+            }
+
+
+            UChar256& operator&=(const UChar256& bV) noexcept {
+                v = _mm256_and_si256(v, bV.v);
+                return *this;
+            }
+
+
+            UChar256& operator&=(const unsigned char& b) noexcept {
+                v = _mm256_and_si256(v, _mm256_set1_epi8(b));
+                return *this;
+            }
+
+
+            UChar256 operator|(const UChar256& bV) const noexcept {
+                return _mm256_or_si256(v, bV.v);
+            }
+
+
+            UChar256 operator|(const unsigned char& b) const noexcept {
+                return _mm256_or_si256(v, _mm256_set1_epi8(b));
+            }
+
+
+            UChar256& operator|=(const UChar256& bV) noexcept {
+                v = _mm256_or_si256(v, bV.v);
+                return *this;
+            }
+
+
+            UChar256& operator|=(const unsigned char& b) noexcept {
+                v = _mm256_or_si256(v, _mm256_set1_epi8(b));
+                return *this;
+            }
+
+
+            UChar256 operator^(const UChar256& bV) const noexcept {
+                return _mm256_xor_si256(v, bV.v);
+            }
+
+
+            UChar256 operator^(const unsigned char& b) const noexcept {
+                return _mm256_xor_si256(v, _mm256_set1_epi8(b));
+            }
+
+
+            UChar256& operator^=(const UChar256& bV) noexcept {
+                v = _mm256_xor_si256(v, bV.v);
+                return *this;
+            }
+
+
+            UChar256& operator^=(const unsigned char& b) noexcept {
+                v = _mm256_xor_si256(v, _mm256_set1_epi8(b));
+                return *this;
+            }
+
+
+            UChar256 operator<<(const UChar256& bV) const noexcept {
+                #ifdef __AVX512VL__
+                    __m128i a_lo = _mm256_castsi256_si128(v);           // Pierwsze 128 bitów
+                    __m128i a_hi = _mm256_extracti128_si256(v, 1);      // Drugie 128 bitów
+
+                    __m128i b_lo = _mm256_castsi256_si128(bV.v);           // Pierwsze 128 bitów (shift values)
+                    __m128i b_hi = _mm256_extracti128_si256(bV.v, 1);      // Drugie 128 bitów (shift values)
+
+                    // Operacja przesunięcia bitowego dla dolnych 128 bitów
+                    __m128i result_lo = _mm_sllv_epi16(a_lo, b_lo);     // SSE2/SSE3: zmienne przesunięcia
+
+                    // Operacja przesunięcia bitowego dla górnych 128 bitów
+                    __m128i result_hi = _mm_sllv_epi16(a_hi, b_hi);     // SSE2/SSE3: zmienne przesunięcia
+
+                    // Łączymy wynik z powrotem w jeden wektor 256-bitowy
+                    return _mm256_set_m128i(result_hi, result_lo);
+                #else
+                    __m256i q1_a = _mm256_and_si256(v, epi32_crate);
+                    __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+
+                    __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                    __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+
+                    __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                    __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+
+                    __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                    __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                    __m256i q1_res = _mm256_sllv_epi32(q1_a, q1_b);
+                    __m256i q2_res = _mm256_sllv_epi32(q2_a, q2_b);
+                    __m256i q3_res = _mm256_sllv_epi32(q3_a, q3_b);
+                    __m256i q4_res = _mm256_sllv_epi32(q4_a, q4_b);
+
+                    q1_res = _mm256_and_si256(q1_res, epi32_crate);
+                    q2_res = _mm256_and_si256(q2_res, epi32_crate);
+                    q3_res = _mm256_and_si256(q3_res, epi32_crate);
+                    q4_res = _mm256_and_si256(q4_res, epi32_crate);
+
+                    q2_res = _mm256_slli_si256(q2_res, 1);
+                    q3_res = _mm256_slli_si256(q3_res, 2);
+                    q4_res = _mm256_slli_si256(q4_res, 3);
+                    
+                    q1_res = _mm256_or_si256(q1_res, q2_res);
+                    q2_res = _mm256_or_si256(q3_res, q4_res);
+                    return _mm256_or_si256(q1_res, q2_res);
+                #endif
+            }
+
+
+            UChar256 operator<<(const unsigned int& b) const noexcept {
+                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
+                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                fhalf = _mm256_slli_epi16(fhalf, b);
+                shalf = _mm256_slli_epi16(shalf, b);
+                fhalf = _mm256_and_si256(fhalf, epi16_crate);
+                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                return _mm256_or_si256(fhalf, shalf);
+            }
+
+
+            UChar256& operator<<=(const UChar256& bV) noexcept {
+                #ifdef __AVX512VL__
+                    __m128i a_lo = _mm256_castsi256_si128(v);           // Pierwsze 128 bitów
+                    __m128i a_hi = _mm256_extracti128_si256(v, 1);      // Drugie 128 bitów
+
+                    __m128i b_lo = _mm256_castsi256_si128(bV.v);           // Pierwsze 128 bitów (shift values)
+                    __m128i b_hi = _mm256_extracti128_si256(bV.v, 1);      // Drugie 128 bitów (shift values)
+
+                    // Operacja przesunięcia bitowego dla dolnych 128 bitów
+                    __m128i result_lo = _mm_sllv_epi16(a_lo, b_lo);     // SSE2/SSE3: zmienne przesunięcia
+
+                    // Operacja przesunięcia bitowego dla górnych 128 bitów
+                    __m128i result_hi = _mm_sllv_epi16(a_hi, b_hi);     // SSE2/SSE3: zmienne przesunięcia
+
+                    // Łączymy wynik z powrotem w jeden wektor 256-bitowy
+                    return _mm256_set_m128i(result_hi, result_lo);
+                #else
+                    __m256i q1_a = _mm256_and_si256(v, epi32_crate);
+                    __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+
+                    __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                    __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+
+                    __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                    __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+
+                    __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                    __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                    __m256i q1_res = _mm256_sllv_epi32(q1_a, q1_b);
+                    __m256i q2_res = _mm256_sllv_epi32(q2_a, q2_b);
+                    __m256i q3_res = _mm256_sllv_epi32(q3_a, q3_b);
+                    __m256i q4_res = _mm256_sllv_epi32(q4_a, q4_b);
+
+                    q1_res = _mm256_and_si256(q1_res, epi32_crate);
+                    q2_res = _mm256_and_si256(q2_res, epi32_crate);
+                    q3_res = _mm256_and_si256(q3_res, epi32_crate);
+                    q4_res = _mm256_and_si256(q4_res, epi32_crate);
+
+                    q2_res = _mm256_slli_si256(q2_res, 1);
+                    q3_res = _mm256_slli_si256(q3_res, 2);
+                    q4_res = _mm256_slli_si256(q4_res, 3);
+                    
+                    q1_res = _mm256_or_si256(q1_res, q2_res);
+                    q2_res = _mm256_or_si256(q3_res, q4_res);
+                    v = _mm256_or_si256(q1_res, q2_res);
+                #endif
+                return *this;
+            }
+
+
+            UChar256& operator<<=(const unsigned int& b) noexcept {
+                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
+                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                fhalf = _mm256_slli_epi16(fhalf, b);
+                shalf = _mm256_slli_epi16(shalf, b);
+                fhalf = _mm256_and_si256(fhalf, epi16_crate);
+                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                v = _mm256_or_si256(fhalf, shalf);
+                return *this;
+            }
+
+
+            UChar256 operator>>(const UChar256& bV) const noexcept {
+                __m256i q1_a = _mm256_and_si256(v, epi32_crate);
+                __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+
+                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+
+                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+
+                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
+                __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
+                __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
+                __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
+
+                q1_res = _mm256_and_si256(q1_res, epi32_crate);
+                q2_res = _mm256_and_si256(q2_res, epi32_crate);
+                q3_res = _mm256_and_si256(q3_res, epi32_crate);
+                q4_res = _mm256_and_si256(q4_res, epi32_crate);
+
+                q2_res = _mm256_slli_si256(q2_res, 1);
+                q3_res = _mm256_slli_si256(q3_res, 2);
+                q4_res = _mm256_slli_si256(q4_res, 3);
+                
+                q1_res = _mm256_or_si256(q1_res, q2_res);
+                q2_res = _mm256_or_si256(q3_res, q4_res);
+                return _mm256_or_si256(q1_res, q2_res);
+            }
+
+
+            UChar256 operator>>(const unsigned int& b) const noexcept {
+                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
+                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                fhalf = _mm256_srli_epi16(fhalf, b);
+                shalf = _mm256_srli_epi16(shalf, b);
+                fhalf = _mm256_and_si256(fhalf, epi16_crate);
+                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                return _mm256_or_si256(fhalf, shalf);
+            }
+
+
+            UChar256& operator>>=(const UChar256& bV) noexcept {
+                __m256i q1_a = _mm256_and_si256(v, epi32_crate);
+                __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+
+                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+
+                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
+                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+
+                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+
+                __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
+                __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
+                __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
+                __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
+
+                q1_res = _mm256_and_si256(q1_res, epi32_crate);
+                q2_res = _mm256_and_si256(q2_res, epi32_crate);
+                q3_res = _mm256_and_si256(q3_res, epi32_crate);
+                q4_res = _mm256_and_si256(q4_res, epi32_crate);
+
+                q2_res = _mm256_slli_si256(q2_res, 1);
+                q3_res = _mm256_slli_si256(q3_res, 2);
+                q4_res = _mm256_slli_si256(q4_res, 3);
+                
+                q1_res = _mm256_or_si256(q1_res, q2_res);
+                q2_res = _mm256_or_si256(q3_res, q4_res);
+                v = _mm256_or_si256(q1_res, q2_res);
+                return *this;
+            }
+
+
+            UChar256& operator>>=(const unsigned int& b) noexcept {
+                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
+                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                fhalf = _mm256_srli_epi16(fhalf, b);
+                shalf = _mm256_srli_epi16(shalf, b);
+                fhalf = _mm256_and_si256(fhalf, epi16_crate);
+                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                v = _mm256_or_si256(fhalf, shalf);
+                return *this;
+            }
+
+
+
+            UChar256 operator~() const noexcept {
+                return _mm256_xor_si256(v, constants::ONES);
+            }
 
             std::string str() const noexcept {
                 std::string result = "UChar256(";
