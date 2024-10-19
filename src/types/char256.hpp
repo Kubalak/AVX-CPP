@@ -74,6 +74,8 @@ namespace avx {
 
             Char256(const __m256i& init) noexcept : v(init){}
 
+            Char256(const Char256& init) noexcept : v(init.v){}
+
             explicit Char256(const char* addr)
             #ifndef NDEBUG
                 {
@@ -196,7 +198,7 @@ namespace avx {
                 char* v1,* v2;
                 v1 = (char*)&v;
 
-                for(unsigned int i{0}; i < 32; ++i)
+                for(unsigned int i{0}; i < size; ++i)
                     if(v1[i] != b)
                         return false;
 
@@ -216,7 +218,7 @@ namespace avx {
                 char* v1,* v2;
                 v1 = (char*)&v;
 
-                for(unsigned int i{0}; i < 32; ++i)
+                for(unsigned int i{0}; i < size; ++i)
                     if(v1[i] != b)
                         return true;
 
@@ -350,12 +352,12 @@ namespace avx {
 
 
             Char256 operator/(const Char256& bV) const noexcept {
-                /*alignas(32) char vP[32];
-                alignas(32) char bP[32];
+                /*alignas(32) char vP[size];
+                alignas(32) char bP[size];
 
                 _mm256_store_si256((__m256i*)vP, v);
 
-                for(unsigned int i = 0; i < 32; ++i)
+                for(unsigned int i = 0; i < size; ++i)
                     vP[i] = bP[i] ? vP[i] / bP[i] : 0;
 
                 return _mm256_load_si256((const __m256i*)vP);
@@ -571,7 +573,7 @@ namespace avx {
 
 
             Char256 operator%(const char& b) const noexcept {
-                /*alignas(32) char vP[32];
+                /*alignas(32) char vP[size];
 
                 _mm256_store_si256((__m256i*)vP, v);
 
