@@ -5,6 +5,7 @@
 #include <array>
 #include <string>
 #include <ostream>
+#include <cstring>
 #include <stdexcept>
 #include <immintrin.h>
 #include "constants.hpp"
