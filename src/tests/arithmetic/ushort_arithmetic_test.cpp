@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
     result |= testing::universal_test_not<avx::UShort256, unsigned short>();
     result |= testing::universal_test_lshift<avx::UShort256, unsigned short>();
     result |= testing::universal_test_rshift<avx::UShort256, unsigned short>();
+    result |= testing::universal_test_indexing<avx::UShort256, unsigned short>();
 
     return result;
 }

@@ -1446,7 +1446,7 @@ namespace testing
         return result;
     }
 
-    /*template<typename T, typename S>
+    template<typename T, typename S>
     int universal_test_indexing(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -1505,8 +1505,12 @@ namespace testing
             }
         #endif
 
+        auto stop = std::chrono::steady_clock::now();
+
+        print_test_duration(__func__, start, stop);
+
         return result;
-    }*/
+    }
 
     /*template <typename T, typename S>
     int universal_test_limits(unsigned int size = T::size){

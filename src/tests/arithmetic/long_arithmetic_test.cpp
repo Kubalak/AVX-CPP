@@ -68,11 +68,13 @@ int main(int argc, char* argv[]) {
     result |= testing::universal_test_mul<avx::Long256, long long>();
     result |= testing::universal_test_div<avx::Long256, long long>();
     result |= testing::universal_test_mod<avx::Long256, long long>();
-    result |= testing::universal_test_lshift<avx::Long256, long long>();
-    result |= testing::universal_test_rshift<avx::Long256, long long>();
     result |= testing::universal_test_and<avx::Long256, long long>();
     result |= testing::universal_test_or<avx::Long256, long long>();
     result |= testing::universal_test_xor<avx::Long256, long long>();
+    result |= testing::universal_test_not<avx::Long256, long long>();
+    result |= testing::universal_test_lshift<avx::Long256, long long>();
+    result |= testing::universal_test_rshift<avx::Long256, long long>();
+    result |= testing::universal_test_indexing<avx::Long256, long long>();
     
     result |= data_load_save();
     result |= data_load_save_aligned();

@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
     result |= testing::universal_test_not<avx::UChar256, unsigned char>();
     result |= testing::universal_test_rshift<avx::UChar256, unsigned char>();
     result |= testing::universal_test_lshift<avx::UChar256, unsigned char>();
+    result |= testing::universal_test_indexing<avx::UChar256, unsigned char>();
     
     
     return result;

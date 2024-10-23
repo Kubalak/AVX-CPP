@@ -93,6 +93,7 @@ int main(int argc, char* argv[]) {
     result |= testing::universal_test_not<avx::UInt256, unsigned int>();
     result |= testing::universal_test_lshift<avx::UInt256, unsigned int>();
     result |= testing::universal_test_rshift<avx::UInt256, unsigned int>();
+    result |= testing::universal_test_indexing<avx::UInt256, unsigned int>();
 
     result |= data_load_save();
     result |= data_load_save_aligned();
