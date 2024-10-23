@@ -168,7 +168,7 @@ namespace avx
                 return ((int*)&v)[index];
             }
         #else
-            noexcept { return return ((int*)&v)[index & 7];}
+            noexcept { return ((int*)&v)[index & 7];}
         #endif 
 
         // Plus operators

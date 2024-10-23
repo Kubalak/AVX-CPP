@@ -32,7 +32,11 @@ namespace avx {
             bool operator==(const long long&) const;
             bool operator!=(const Long256&) const;
             bool operator!=(const long long&) const;
-            long long operator[](unsigned long long) const;
+            long long operator[](unsigned long long) const
+            #ifdef NDEBUG
+                noexcept
+            #endif
+            ;
 
 
 // Plus operators

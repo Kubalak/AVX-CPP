@@ -176,7 +176,7 @@ namespace avx {
                     return ((char*)&v)[index];
                 }
             #else
-                noexcept { return return ((char*)&v)[index & 31]; }
+                noexcept { return ((char*)&v)[index & 31]; }
             #endif 
 
             bool operator==(const Char256& bV) const noexcept {
