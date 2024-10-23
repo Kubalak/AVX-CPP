@@ -3,8 +3,7 @@
 #include <stdexcept>
 
 namespace avx {
-    const __m256i Long256::ones = _mm256_set1_epi8(0xFF);
-
+    
     Long256::Long256(const long long* init):
         v(_mm256_lddqu_si256((const __m256i*)init))
     {}
@@ -121,16 +120,17 @@ namespace avx {
     }
 
 
-    const long long Long256::operator[](unsigned long long index) const {
-        if(index > 4) {
-            std::string error_text = "Invalid index! Valid range is [0-7] (was ";
-            error_text += std::to_string(index);
-            error_text += ").";
-            throw std::out_of_range(error_text);
+    long long Long256::operator[](unsigned long long index) const 
+    #ifndef NDEBUG
+        {
+            if(index > 4)
+                throw std::out_of_range("Range be within range 0-3! Got: " + std::to_string(index));
+
+            return ((long long*)&v)[index];
         }
-        long long* tmp = (long long*)&v;
-        return tmp[index];
-    }
+    #else
+        noexcept { return ((long long*)&v)[index & 3]; }
+    #endif
 
 
     Long256 Long256::operator+(const Long256& b) const {
@@ -323,7 +323,7 @@ namespace avx {
 
     Long256 Long256::operator~() const {
         return Long256(
-            _mm256_xor_si256(v, ones)
+            _mm256_xor_si256(v, constants::ONES)
         );
     }
 

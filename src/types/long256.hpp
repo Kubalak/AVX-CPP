@@ -6,12 +6,11 @@
 #include <vector>
 #include <string>
 #include <immintrin.h>
-
+#include "constants.hpp"
 namespace avx {
     class Long256 {
         private:
             __m256i v;
-            const static __m256i ones; 
         
         public:
             static constexpr int size = 4;
@@ -33,7 +32,7 @@ namespace avx {
             bool operator==(const long long&) const;
             bool operator!=(const Long256&) const;
             bool operator!=(const long long&) const;
-            const long long operator[](unsigned long long) const;
+            long long operator[](unsigned long long) const;
 
 
 // Plus operators

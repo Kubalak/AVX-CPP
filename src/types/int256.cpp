@@ -4,7 +4,6 @@
 
 namespace avx {
     static_assert(sizeof(int) == 4, "You are compiling to 32-bit. Please switch to x64 to avoid undefined behaviour.");
-    const __m256i Int256::ones = _mm256_set1_epi8(0xFF);
 
     
     Int256 sum(std::vector<Int256>& a){

@@ -12,13 +12,6 @@
 
 namespace avx {
     class UChar256{
-
-        // This is crate for epi16 values where 8-bits are set to 1 - 0x00 0xFF 0x00 0xFF ... 0x00 0xFF
-        static const __m256i epi16_crate;
-        // Same as epi16_crate but shifted one byte left - 0xFF 0x00 0xFF 0x00...
-        static const __m256i epi16_crate_shift_1;
-
-        static const __m256i epi32_crate;
         // Internal vector containing stored values.
         __m256i v;
 
@@ -135,11 +128,16 @@ namespace avx {
              * @return Value of underlying element.
              * @throws `std::out_of_range` If index is not within the correct range.
              */
-            unsigned char operator[](const unsigned int& index) const {
-                if(index > 31)
-                    throw std::out_of_range("Range be within range 0-31! Got: " + std::to_string(index));
-                return ((unsigned char*)&v)[index];
-            }
+            unsigned char operator[](const unsigned int& index) const 
+            #ifndef NDEBUG
+                {
+                    if(index > 31)
+                        throw std::out_of_range("Range be within range 0-31! Got: " + std::to_string(index));
+                    return ((unsigned char*)&v)[index];
+                }
+            #else
+                noexcept { return ((unsigned char*)&v)[index & 31]; }
+            #endif
 
 
             bool operator==(const UChar256& bV) const noexcept {
@@ -231,20 +229,20 @@ namespace avx {
 
 
             UChar256 operator*(const UChar256& bV) const noexcept {
-                __m256i fhalf_a = _mm256_and_si256(v, epi16_crate);
-                __m256i fhalf_b = _mm256_and_si256(bV.v, epi16_crate);
+                __m256i fhalf_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                __m256i fhalf_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI16);
 
-                __m256i shalf_a = _mm256_and_si256(v, epi16_crate_shift_1);
-                __m256i shalf_b = _mm256_and_si256(bV.v, epi16_crate_shift_1);
+                __m256i shalf_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
+                __m256i shalf_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI16_INVERSE);
 
                 shalf_a = _mm256_srli_si256(shalf_a, 1);
                 shalf_b = _mm256_srli_si256(shalf_b, 1);
 
                 __m256i fresult = _mm256_mullo_epi16(fhalf_a, fhalf_b);
-                fresult = _mm256_and_si256(fresult, epi16_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI16);
 
                 __m256i sresult = _mm256_mullo_epi16(shalf_a, shalf_b);
-                sresult = _mm256_and_si256(sresult, epi16_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI16);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 return _mm256_or_si256(fresult, sresult);
@@ -252,18 +250,18 @@ namespace avx {
 
 
             UChar256 operator*(const char& b) const noexcept {
-                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
+                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 __m256i bV = _mm256_set1_epi16(b); 
 
-                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
 
                 shalf = _mm256_srli_si256(shalf, 1);
 
                 __m256i fresult = _mm256_mullo_epi16(fhalf, bV);
-                fresult = _mm256_and_si256(fresult, epi16_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI16);
 
                 __m256i sresult = _mm256_mullo_epi16(shalf, bV);
-                sresult = _mm256_and_si256(sresult, epi16_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI16);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 return _mm256_or_si256(fresult, sresult);
@@ -271,20 +269,20 @@ namespace avx {
 
 
             UChar256& operator*=(const UChar256& bV) noexcept {
-                __m256i fhalf_a = _mm256_and_si256(v, epi16_crate);
-                __m256i fhalf_b = _mm256_and_si256(bV.v, epi16_crate);
+                __m256i fhalf_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                __m256i fhalf_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI16);
 
-                __m256i shalf_a = _mm256_and_si256(v, epi16_crate_shift_1);
-                __m256i shalf_b = _mm256_and_si256(bV.v, epi16_crate_shift_1);
+                __m256i shalf_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
+                __m256i shalf_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI16_INVERSE);
 
                 shalf_a = _mm256_srli_si256(shalf_a, 1);
                 shalf_b = _mm256_srli_si256(shalf_b, 1);
 
                 __m256i fresult = _mm256_mullo_epi16(fhalf_a, fhalf_b);
-                fresult = _mm256_and_si256(fresult, epi16_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI16);
 
                 __m256i sresult = _mm256_mullo_epi16(shalf_a, shalf_b);
-                sresult = _mm256_and_si256(sresult, epi16_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI16);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 v = _mm256_or_si256(fresult, sresult);
@@ -293,18 +291,18 @@ namespace avx {
 
 
             UChar256& operator*=(const char& b) noexcept {
-                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
+                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 __m256i bV = _mm256_set1_epi16(b); 
 
-                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
 
                 shalf = _mm256_srli_si256(shalf, 1);
 
                 __m256i fresult = _mm256_mullo_epi16(fhalf, bV);
-                fresult = _mm256_and_si256(fresult, epi16_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI16);
 
                 __m256i sresult = _mm256_mullo_epi16(shalf, bV);
-                sresult = _mm256_and_si256(sresult, epi16_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI16);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 v = _mm256_or_si256(fresult, sresult);
@@ -313,32 +311,32 @@ namespace avx {
 
 
             UChar256 operator/(const UChar256& bV) const noexcept {
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i bv_first_half = _mm256_and_si256(bV.v, epi32_crate);
-                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256i bv_first_half = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
+                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
-                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
+                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
@@ -346,9 +344,9 @@ namespace avx {
                 fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 3);
 
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
@@ -357,8 +355,8 @@ namespace avx {
             }
 
             UChar256 operator/(const unsigned char b) const noexcept {
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
@@ -367,23 +365,23 @@ namespace avx {
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
                 fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 3);
 
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
@@ -392,32 +390,32 @@ namespace avx {
             }
 
             UChar256 operator/=(const UChar256& bV) noexcept {
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i bv_first_half = _mm256_and_si256(bV.v, epi32_crate);
-                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256i bv_first_half = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
+                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
-                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
+                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
@@ -425,9 +423,9 @@ namespace avx {
                 fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 3);
 
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
@@ -437,8 +435,8 @@ namespace avx {
             }
 
             UChar256 operator/=(const unsigned char b) noexcept {
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
@@ -447,23 +445,23 @@ namespace avx {
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
                 fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_slli_si256(sresult, 3);
 
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
@@ -474,34 +472,34 @@ namespace avx {
 
 
             UChar256 operator%(const UChar256& bV) const noexcept {
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i bv_first_half = _mm256_and_si256(bV.v, epi32_crate);
-                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256i bv_first_half = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
+                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
-                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
+                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
@@ -509,10 +507,10 @@ namespace avx {
                 fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
                 sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 3);
 
@@ -524,8 +522,8 @@ namespace avx {
             UChar256 operator%(const unsigned char b) const noexcept {
                 if(!b) return _mm256_setzero_si256();
 
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
@@ -534,26 +532,26 @@ namespace avx {
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
                 fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 3);
 
@@ -563,34 +561,34 @@ namespace avx {
             }
 
             UChar256 operator%=(const UChar256& bV) noexcept {
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i bv_first_half = _mm256_and_si256(bV.v, epi32_crate);
-                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256i bv_first_half = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
+                __m256i bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
-                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                bv_first_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
+                bv_second_half = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
@@ -598,10 +596,10 @@ namespace avx {
                 fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_fhalf_f));
                 sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bv_shalf_f));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 3);
 
@@ -620,8 +618,8 @@ namespace avx {
                     return *this;
                 }
 
-                __m256i v_first_half = _mm256_and_si256(v, epi32_crate);
-                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
+                __m256i v_first_half = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
@@ -630,26 +628,26 @@ namespace avx {
                 __m256i fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 __m256i sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 1);
 
                 __m256i half_res = _mm256_or_si256(fresult, sresult);
 
-                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
+                v_first_half = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                v_second_half = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
                 fresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 sresult = _mm256_cvtps_epi32(_mm256_mul_ps(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC), bV));
                 
-                fresult = _mm256_and_si256(fresult, epi32_crate);
+                fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_sub_epi8(v_first_half, fresult);
                 fresult = _mm256_slli_si256(fresult, 2);
-                sresult = _mm256_and_si256(sresult, epi32_crate);
+                sresult = _mm256_and_si256(sresult, constants::EPI8_CRATE_EPI32);
                 sresult = _mm256_sub_epi8(v_second_half, sresult);
                 sresult = _mm256_slli_si256(sresult, 3);
 
@@ -743,27 +741,27 @@ namespace avx {
                     // Łączymy wynik z powrotem w jeden wektor 256-bitowy
                     return _mm256_set_m128i(result_hi, result_lo);
                 #else
-                    __m256i q1_a = _mm256_and_si256(v, epi32_crate);
-                    __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+                    __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                    __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
 
-                    __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
-                    __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                    __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
+                    __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
 
-                    __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                    __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+                    __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                    __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
 
-                    __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
-                    __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                    __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
+                    __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                     __m256i q1_res = _mm256_sllv_epi32(q1_a, q1_b);
                     __m256i q2_res = _mm256_sllv_epi32(q2_a, q2_b);
                     __m256i q3_res = _mm256_sllv_epi32(q3_a, q3_b);
                     __m256i q4_res = _mm256_sllv_epi32(q4_a, q4_b);
 
-                    q1_res = _mm256_and_si256(q1_res, epi32_crate);
-                    q2_res = _mm256_and_si256(q2_res, epi32_crate);
-                    q3_res = _mm256_and_si256(q3_res, epi32_crate);
-                    q4_res = _mm256_and_si256(q4_res, epi32_crate);
+                    q1_res = _mm256_and_si256(q1_res, constants::EPI8_CRATE_EPI32);
+                    q2_res = _mm256_and_si256(q2_res, constants::EPI8_CRATE_EPI32);
+                    q3_res = _mm256_and_si256(q3_res, constants::EPI8_CRATE_EPI32);
+                    q4_res = _mm256_and_si256(q4_res, constants::EPI8_CRATE_EPI32);
 
                     q2_res = _mm256_slli_si256(q2_res, 1);
                     q3_res = _mm256_slli_si256(q3_res, 2);
@@ -777,12 +775,12 @@ namespace avx {
 
 
             UChar256 operator<<(const unsigned int& b) const noexcept {
-                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
-                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
                 fhalf = _mm256_slli_epi16(fhalf, b);
                 shalf = _mm256_slli_epi16(shalf, b);
-                fhalf = _mm256_and_si256(fhalf, epi16_crate);
-                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
+                shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 return _mm256_or_si256(fhalf, shalf);
             }
 
@@ -804,27 +802,27 @@ namespace avx {
                     // Łączymy wynik z powrotem w jeden wektor 256-bitowy
                     return _mm256_set_m128i(result_hi, result_lo);
                 #else
-                    __m256i q1_a = _mm256_and_si256(v, epi32_crate);
-                    __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+                    __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                    __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
 
-                    __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
-                    __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                    __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
+                    __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
 
-                    __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                    __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+                    __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                    __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
 
-                    __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
-                    __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                    __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
+                    __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                     __m256i q1_res = _mm256_sllv_epi32(q1_a, q1_b);
                     __m256i q2_res = _mm256_sllv_epi32(q2_a, q2_b);
                     __m256i q3_res = _mm256_sllv_epi32(q3_a, q3_b);
                     __m256i q4_res = _mm256_sllv_epi32(q4_a, q4_b);
 
-                    q1_res = _mm256_and_si256(q1_res, epi32_crate);
-                    q2_res = _mm256_and_si256(q2_res, epi32_crate);
-                    q3_res = _mm256_and_si256(q3_res, epi32_crate);
-                    q4_res = _mm256_and_si256(q4_res, epi32_crate);
+                    q1_res = _mm256_and_si256(q1_res, constants::EPI8_CRATE_EPI32);
+                    q2_res = _mm256_and_si256(q2_res, constants::EPI8_CRATE_EPI32);
+                    q3_res = _mm256_and_si256(q3_res, constants::EPI8_CRATE_EPI32);
+                    q4_res = _mm256_and_si256(q4_res, constants::EPI8_CRATE_EPI32);
 
                     q2_res = _mm256_slli_si256(q2_res, 1);
                     q3_res = _mm256_slli_si256(q3_res, 2);
@@ -839,39 +837,39 @@ namespace avx {
 
 
             UChar256& operator<<=(const unsigned int& b) noexcept {
-                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
-                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
                 fhalf = _mm256_slli_epi16(fhalf, b);
                 shalf = _mm256_slli_epi16(shalf, b);
-                fhalf = _mm256_and_si256(fhalf, epi16_crate);
-                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
+                shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 v = _mm256_or_si256(fhalf, shalf);
                 return *this;
             }
 
 
             UChar256 operator>>(const UChar256& bV) const noexcept {
-                __m256i q1_a = _mm256_and_si256(v, epi32_crate);
-                __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+                __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
 
-                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
-                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
+                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
 
-                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
 
-                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
-                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
+                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                 __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
                 __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
                 __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
                 __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
 
-                q1_res = _mm256_and_si256(q1_res, epi32_crate);
-                q2_res = _mm256_and_si256(q2_res, epi32_crate);
-                q3_res = _mm256_and_si256(q3_res, epi32_crate);
-                q4_res = _mm256_and_si256(q4_res, epi32_crate);
+                q1_res = _mm256_and_si256(q1_res, constants::EPI8_CRATE_EPI32);
+                q2_res = _mm256_and_si256(q2_res, constants::EPI8_CRATE_EPI32);
+                q3_res = _mm256_and_si256(q3_res, constants::EPI8_CRATE_EPI32);
+                q4_res = _mm256_and_si256(q4_res, constants::EPI8_CRATE_EPI32);
 
                 q2_res = _mm256_slli_si256(q2_res, 1);
                 q3_res = _mm256_slli_si256(q3_res, 2);
@@ -884,38 +882,38 @@ namespace avx {
 
 
             UChar256 operator>>(const unsigned int& b) const noexcept {
-                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
-                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
                 fhalf = _mm256_srli_epi16(fhalf, b);
                 shalf = _mm256_srli_epi16(shalf, b);
-                fhalf = _mm256_and_si256(fhalf, epi16_crate);
-                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
+                shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 return _mm256_or_si256(fhalf, shalf);
             }
 
 
             UChar256& operator>>=(const UChar256& bV) noexcept {
-                __m256i q1_a = _mm256_and_si256(v, epi32_crate);
-                __m256i q1_b = _mm256_and_si256(bV.v, epi32_crate);
+                __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
 
-                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), epi32_crate);
-                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), epi32_crate);
+                __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
+                __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
 
-                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), epi32_crate);
-                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), epi32_crate);
+                __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
 
-                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), epi32_crate);
-                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), epi32_crate);
+                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
+                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
 
                 __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
                 __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
                 __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
                 __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
 
-                q1_res = _mm256_and_si256(q1_res, epi32_crate);
-                q2_res = _mm256_and_si256(q2_res, epi32_crate);
-                q3_res = _mm256_and_si256(q3_res, epi32_crate);
-                q4_res = _mm256_and_si256(q4_res, epi32_crate);
+                q1_res = _mm256_and_si256(q1_res, constants::EPI8_CRATE_EPI32);
+                q2_res = _mm256_and_si256(q2_res, constants::EPI8_CRATE_EPI32);
+                q3_res = _mm256_and_si256(q3_res, constants::EPI8_CRATE_EPI32);
+                q4_res = _mm256_and_si256(q4_res, constants::EPI8_CRATE_EPI32);
 
                 q2_res = _mm256_slli_si256(q2_res, 1);
                 q3_res = _mm256_slli_si256(q3_res, 2);
@@ -929,12 +927,12 @@ namespace avx {
 
 
             UChar256& operator>>=(const unsigned int& b) noexcept {
-                __m256i fhalf = _mm256_and_si256(v, epi16_crate);
-                __m256i shalf = _mm256_and_si256(v, epi16_crate_shift_1);
+                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
                 fhalf = _mm256_srli_epi16(fhalf, b);
                 shalf = _mm256_srli_epi16(shalf, b);
-                fhalf = _mm256_and_si256(fhalf, epi16_crate);
-                shalf = _mm256_and_si256(shalf, epi16_crate_shift_1);
+                fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
+                shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 v = _mm256_or_si256(fhalf, shalf);
                 return *this;
             }

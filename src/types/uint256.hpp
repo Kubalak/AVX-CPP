@@ -9,15 +9,13 @@
 #include <cstring>
 #include <stdexcept>
 #include <immintrin.h>
+#include "constants.hpp"
 
 #define UINT256_SIZE 8
 namespace avx {
     class UInt256 {
         private:
-            __m256i v;
-            const static __m256i ones; 
-            const static __m256i crate;
-            const static __m256 signbit;
+            __m256i v; 
         
         public:
 
@@ -226,16 +224,17 @@ namespace avx {
                 return false;
             }
 
-            unsigned int operator[](unsigned int index) const {
-                if(index > 7) {
-                    std::string error_text = "Invalid index! Valid range is [0-7] (was ";
-                    error_text += std::to_string(index);
-                    error_text += ").";
-                    throw std::out_of_range(error_text);
+            unsigned int operator[](unsigned int index) const 
+            #ifndef NDEBUG
+                {
+                    if(index > 7) 
+                        throw std::out_of_range("Range be within range 0-7! Got: " + std::to_string(index));
+                    
+                    return ((unsigned int*)&v)[index];
                 }
-                unsigned int* tmp = (unsigned int*)&v;
-                return tmp[index];
-            }
+            #else
+                noexcept { return ((unsigned int*)&v)[index & 7]; }
+            #endif
 
 
 
@@ -273,8 +272,8 @@ namespace avx {
                 __m256i second = _mm256_mul_epu32(av, bv);
 
                 // Full AVX version
-                second = _mm256_and_si256(second, crate);
-                first = _mm256_and_si256(first, crate);
+                second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                 second = _mm256_slli_si256(second, sizeof(unsigned int));
 
                 return _mm256_or_si256(first, second);
@@ -286,8 +285,8 @@ namespace avx {
                 __m256i av = _mm256_srli_si256(v, sizeof(unsigned int));
                 __m256i second = _mm256_mul_epu32(av, bv);
 
-                second = _mm256_and_si256(second, crate);
-                first = _mm256_and_si256(first, crate);
+                second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                 second = _mm256_slli_si256(second, sizeof(unsigned int));
 
 
@@ -301,8 +300,8 @@ namespace avx {
                 __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
                 __m256i second = _mm256_mul_epu32(v, bv);
 
-                second = _mm256_and_si256(second, crate);
-                first = _mm256_and_si256(first, crate);
+                second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                 second = _mm256_slli_si256(second, sizeof(unsigned int));
 
                 v =_mm256_or_si256(first, second);
@@ -316,8 +315,8 @@ namespace avx {
                 v = _mm256_srli_si256(v, sizeof(unsigned int));
                 __m256i second = _mm256_mul_epu32(v, bv);
 
-                second = _mm256_and_si256(second, crate);
-                first = _mm256_and_si256(first, crate);
+                second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                 second = _mm256_slli_si256(second, sizeof(unsigned int));
                 
                 v =_mm256_or_si256(first, second);
@@ -428,8 +427,8 @@ namespace avx {
                     __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
                     __m256i second = _mm256_mul_epu32(divisor, bv);
 
-                    second = _mm256_and_si256(second, crate);
-                    first = _mm256_and_si256(first, crate);
+                    second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                    first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                     second = _mm256_slli_si256(second, sizeof(unsigned int));
 
                     __m256i multiplied = _mm256_or_si256(first, second);
@@ -463,8 +462,8 @@ namespace avx {
                         
                         __m256i second = _mm256_mul_epu32(divisor, bV);
 
-                        second = _mm256_and_si256(second, crate);
-                        first = _mm256_and_si256(first, crate);
+                        second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                        first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                         second = _mm256_slli_si256(second, sizeof(unsigned int));
 
                         __m256i multiplied = _mm256_or_si256(first, second);
@@ -499,8 +498,8 @@ namespace avx {
                     __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
                     __m256i second = _mm256_mul_epu32(divisor, bv);
 
-                    second = _mm256_and_si256(second, crate);
-                    first = _mm256_and_si256(first, crate);
+                    second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                    first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                     second = _mm256_slli_si256(second, sizeof(unsigned int));
 
                     __m256i multiplied = _mm256_or_si256(first, second);
@@ -535,8 +534,8 @@ namespace avx {
                         
                         __m256i second = _mm256_mul_epu32(divisor, bV);
 
-                        second = _mm256_and_si256(second, crate);
-                        first = _mm256_and_si256(first, crate);
+                        second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
+                        first = _mm256_and_si256(first, constants::EPI32_CRATE_EPI64);
                         second = _mm256_slli_si256(second, sizeof(unsigned int));
 
                         __m256i multiplied = _mm256_or_si256(first, second);
@@ -647,7 +646,7 @@ namespace avx {
                 return *this;
             }
             
-            UInt256 operator~() const noexcept { return _mm256_xor_si256(v, ones);}
+            UInt256 operator~() const noexcept { return _mm256_xor_si256(v, constants::ONES);}
 
 
             /**

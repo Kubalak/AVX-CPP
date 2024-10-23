@@ -12,6 +12,7 @@
 #include <stdexcept>
 #include <immintrin.h>
 #include <unordered_set>
+#include "constants.hpp"
 
 /**
  * Namespace containing type definitions and basic functions.
@@ -25,7 +26,6 @@ namespace avx
     {
     private:
         __m256i v;
-        const static __m256i ones;
 
     public:
         static constexpr int size = 8;
@@ -159,16 +159,17 @@ namespace avx
             return false;
         }
 
-        const int operator[](unsigned int &index) const {
-            if(index > 7) {
-                std::string error_text = "Invalid index! Valid range is [0-7] (was ";
-                error_text += std::to_string(index);
-                error_text += ").";
-                throw std::out_of_range(error_text);
+        int operator[](unsigned int &index) const 
+        #ifndef NDEBUG
+            {
+                if(index > 7) 
+                    throw std::out_of_range("Range be within range 0-7! Got: " + std::to_string(index));
+
+                return ((int*)&v)[index];
             }
-            int* tmp = (int*)&v;
-            return tmp[index];
-        }
+        #else
+            noexcept { return return ((int*)&v)[index & 7];}
+        #endif 
 
         // Plus operators
         /**
@@ -248,7 +249,7 @@ namespace avx
         Int256 operator&(const int &b) const { return _mm256_and_si256(v, _mm256_set1_epi32(b)); }
 
         // NOT operators
-        Int256 operator~() const { return _mm256_xor_si256(v, ones); }
+        Int256 operator~() const { return _mm256_xor_si256(v, constants::ONES); }
 
         // Bitwise shift operations
         Int256 operator<<(const Int256 &b) const { return _mm256_sllv_epi32(v,b.v); }

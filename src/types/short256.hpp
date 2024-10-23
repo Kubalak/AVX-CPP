@@ -7,15 +7,13 @@
 #include <cstring>
 #include <stdexcept>
 #include <immintrin.h>
+#include "constants.hpp"
 
 namespace avx {
     class Short256 {
         private:
             __m256i v;
-            const static __m256i ones;
-            const static __m256i crate;
-            const static __m256i crate_inverse;
-        
+       
         public:
             static constexpr const int size = 16;
 
@@ -144,11 +142,16 @@ namespace avx {
              * @return Value of underlying element.
              * @throws `std::out_of_range` If index is not within the correct range.
              */
-            short operator[](const unsigned int& index) const {
-                if(index > 15)
-                    throw std::out_of_range("Range be within range 0-15! Got: " + std::to_string(index));
-                return ((short*)&v)[index];
-            }
+            short operator[](const unsigned int& index) const 
+            #ifndef NDEBUG
+                {
+                    if(index > 15)
+                        throw std::out_of_range("Range be within range 0-15! Got: " + std::to_string(index));
+                    return ((short*)&v)[index];
+                }
+            #else
+                noexcept { return ((short*)&v)[index & 15]; }
+            #endif
 
 
             /**
@@ -553,20 +556,20 @@ namespace avx {
                     return _mm256_sllv_epi16(v, bV.v);
                 #else
                     // Perform bitwise left on first half of elements.
-                    __m256i halves = _mm256_and_si256(v, crate_inverse);
-                    __m256i bhalves = _mm256_and_si256(bV.v, crate_inverse);
+                    __m256i halves = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
+                    __m256i bhalves = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32);
 
                     __m256i first_res = _mm256_sllv_epi32(halves, bhalves);
                     // AND is used to get rid of unwanted bits that may happen as 32-bit mode is used.
-                    first_res = _mm256_and_si256(first_res, crate_inverse);
+                    first_res = _mm256_and_si256(first_res, constants::EPI16_CRATE_EPI32);
 
                     // Performs AND operation on the rest of values and shifts to right place.
-                    halves = _mm256_srli_si256(_mm256_and_si256(v, crate), 2);
-                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, crate), 2);
+                    halves = _mm256_srli_si256(_mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
+                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
 
                     // Performs the same operation as in first scenario
                     __m256i second_res = _mm256_sllv_epi32(halves, bhalves);
-                    second_res = _mm256_and_si256(second_res, crate_inverse);
+                    second_res = _mm256_and_si256(second_res, constants::EPI16_CRATE_EPI32);
                     second_res = _mm256_slli_si256(second_res, 2);
 
                     // Joins results together.
@@ -582,17 +585,17 @@ namespace avx {
                 #if (defined __AVX512BW__ && defined __AVX512VL__)
                     v = _mm256_sllv_epi16(v, bV.v);
                 #else
-                    __m256i halves = _mm256_and_si256(v, crate_inverse);
-                    __m256i bhalves = _mm256_and_si256(bV.v, crate_inverse);
+                    __m256i halves = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
+                    __m256i bhalves = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32);
 
                     __m256i first_res = _mm256_sllv_epi32(halves, bhalves);
-                    first_res = _mm256_and_si256(first_res, crate_inverse);
+                    first_res = _mm256_and_si256(first_res, constants::EPI16_CRATE_EPI32);
 
-                    halves = _mm256_srli_si256(_mm256_and_si256(v, crate), 2);
-                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, crate), 2);
+                    halves = _mm256_srli_si256(_mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
+                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
 
                     __m256i second_res = _mm256_sllv_epi32(halves, bhalves);
-                    second_res = _mm256_and_si256(second_res, crate_inverse);
+                    second_res = _mm256_and_si256(second_res, constants::EPI16_CRATE_EPI32);
                     second_res = _mm256_slli_si256(second_res, 2);
 
                     v = _mm256_or_si256(first_res, second_res);
@@ -609,17 +612,17 @@ namespace avx {
                 #if (defined __AVX512BW__ && defined __AVX512VL__)
                     return _mm256_srlv_epi16(v, bV.v);
                 #else
-                    __m256i halves = _mm256_and_si256(v, crate_inverse);
-                    __m256i bhalves = _mm256_and_si256(bV.v, crate_inverse);
+                    __m256i halves = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
+                    __m256i bhalves = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32);
 
                     __m256i first_res = _mm256_srlv_epi32(halves, bhalves);
-                    first_res = _mm256_and_si256(first_res, crate_inverse);
+                    first_res = _mm256_and_si256(first_res, constants::EPI16_CRATE_EPI32);
 
-                    halves = _mm256_srli_si256(_mm256_and_si256(v, crate), 2);
-                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, crate), 2);
+                    halves = _mm256_srli_si256(_mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
+                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
 
                     __m256i second_res = _mm256_srlv_epi32(halves, bhalves);
-                    second_res = _mm256_and_si256(second_res, crate_inverse);
+                    second_res = _mm256_and_si256(second_res, constants::EPI16_CRATE_EPI32);
                     second_res = _mm256_slli_si256(second_res, 2);
 
                     return _mm256_or_si256(first_res, second_res);
@@ -634,17 +637,17 @@ namespace avx {
                 #if (defined __AVX512BW__ && defined __AVX512VL__)
                     v = _mm256_srlv_epi16(v, bV.v);
                 #else
-                    __m256i halves = _mm256_and_si256(v, crate_inverse);
-                    __m256i bhalves = _mm256_and_si256(bV.v, crate_inverse);
+                    __m256i halves = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
+                    __m256i bhalves = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32);
 
                     __m256i first_res = _mm256_srlv_epi32(halves, bhalves);
-                    first_res = _mm256_and_si256(first_res, crate_inverse);
+                    first_res = _mm256_and_si256(first_res, constants::EPI16_CRATE_EPI32);
 
-                    halves = _mm256_srli_si256(_mm256_and_si256(v, crate), 2);
-                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, crate), 2);
+                    halves = _mm256_srli_si256(_mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
+                    bhalves = _mm256_srli_si256(_mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32_INVERSE), 2);
 
                     __m256i second_res = _mm256_srlv_epi32(halves, bhalves);
-                    second_res = _mm256_and_si256(second_res, crate_inverse);
+                    second_res = _mm256_and_si256(second_res, constants::EPI16_CRATE_EPI32);
                     second_res = _mm256_slli_si256(second_res, 2);
 
                     v = _mm256_or_si256(first_res, second_res);
@@ -658,7 +661,7 @@ namespace avx {
             }
 
             Short256 operator~() const noexcept{
-                return _mm256_xor_si256(v, ones);
+                return _mm256_xor_si256(v, constants::ONES);
             }
 
             std::string str() const noexcept {

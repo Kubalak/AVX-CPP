@@ -2,8 +2,6 @@
 #include <stdexcept>
 namespace avx {
 
-    const __m256i ULong256::ones = _mm256_set1_epi64x(0xFFFFFFFFFFFFFFFF);
-
     ULong256::ULong256(const unsigned long long& init):
         v(_mm256_set1_epi64x(init))
     {}
@@ -137,15 +135,11 @@ namespace avx {
     }
 
 
-    const unsigned long long ULong256::operator[](unsigned int index) const {
-        if(index > 4) {
-            std::string error_text = "Invalid index! Valid range is [0-7] (was ";
-            error_text += std::to_string(index);
-            error_text += ").";
-            throw std::out_of_range(error_text);
-        }
-        unsigned long long* tmp = (unsigned long long*)&v;
-        return tmp[index];
+    unsigned long long ULong256::operator[](unsigned int index) const {
+        if(index > 4)
+            throw std::out_of_range("Range be within range 0-3! Got: " + std::to_string(index));
+            
+        return ((unsigned long long*)&v)[index];
     }
 
 
@@ -304,7 +298,7 @@ namespace avx {
 
 
     ULong256 ULong256::operator~() const {
-        return _mm256_xor_si256(v, ones);
+        return _mm256_xor_si256(v, constants::ONES);
     }
 
 

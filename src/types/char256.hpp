@@ -11,6 +11,7 @@
 #include <stdexcept>
 #include <immintrin.h>
 #include "constants.hpp"
+
 namespace avx {
     class Char256 {
         private:
@@ -167,11 +168,16 @@ namespace avx {
              * @return Value of underlying element.
              * @throws `std::out_of_range` If index is not within the correct range.
              */
-            char operator[](const unsigned int& index) const {
-                if(index > 31)
-                    throw std::out_of_range("Range be within range 0-31! Got: " + std::to_string(index));
-                return ((char*)&v)[index];
-            }
+            char operator[](const unsigned int& index) const 
+            #ifndef NDEBUG
+                {
+                    if(index > 31)
+                        throw std::out_of_range("Range be within range 0-31! Got: " + std::to_string(index));
+                    return ((char*)&v)[index];
+                }
+            #else
+                noexcept { return return ((char*)&v)[index & 31]; }
+            #endif 
 
             bool operator==(const Char256& bV) const noexcept {
                 __m256i eq = _mm256_cmpeq_epi8(v, bV.v);

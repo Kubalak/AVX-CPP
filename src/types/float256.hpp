@@ -154,11 +154,16 @@ namespace avx {
                 return *this;
             }
 
-            float operator[](const unsigned int index) const {
-                if(index > 7)
-                    throw std::invalid_argument("Invalid index! Index should be within 0-7, passed: " + std::to_string(index));
-                return ((float*)&v)[index];
-            }
+            float operator[](const unsigned int index) const 
+            #ifndef NDEBUG 
+                {
+                    if(index > 7)
+                        throw std::invalid_argument("Invalid index! Index should be within 0-7, passed: " + std::to_string(index));
+                    return ((float*)&v)[index];
+                }
+            #else 
+                noexcept { return ((float*)&v)[index & 7]; }
+            #endif
 
             std::string str() const noexcept {
                 std::string result = "Float256(";

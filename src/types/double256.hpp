@@ -176,11 +176,16 @@ namespace avx {
                 return *this;
             }
 
-            double operator[](const unsigned int index) const {
-                if(index > 3)
-                    throw std::invalid_argument("Invalid index! Index should be within 0-3, passed: " + std::to_string(index));
-                return ((double*)&v)[index];
-            }
+            double operator[](const unsigned int index) const 
+            #ifndef NDEBUG
+                {
+                    if(index > 3)
+                        throw std::invalid_argument("Invalid index! Index should be within 0-3, passed: " + std::to_string(index));
+                    return ((double*)&v)[index];
+                }
+            #else
+                noexcept { return ((double*)&v)[index & 3]; }
+            #endif 
 
             std::string str() const noexcept {
                 std::string result = "Double256(";

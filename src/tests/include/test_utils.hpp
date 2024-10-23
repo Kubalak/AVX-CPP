@@ -9,6 +9,7 @@
 #include <random>
 #include <string>
 #include <chrono>
+#include <stdexcept>
 #include <filesystem>
 #include <iostream>
 #include <fstream>
@@ -113,6 +114,17 @@ namespace testing
             return {ticks / pow(1000., 4), "m"};
 
         return {ticks / pow(1000., i), times[i]};
+    }
+
+    void print_test_duration(const char* func, std::chrono::steady_clock::time_point start, std::chrono::steady_clock::time_point stop) {
+        std::pair<double, std::string> duration = universal_duration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+
+        if(duration.second == "ns")
+            printf("Test %s finished in %ld %s\n", func, static_cast<long int>(duration.first), duration.second.c_str());
+        else if(duration.second == "us")
+            printf("Test %s finished in %.2lf %s\n", func, duration.first, duration.second.c_str());
+        else 
+            printf("Test %s finished in %.4lf %s\n", func, duration.first, duration.second.c_str());
     }
 
     /**
@@ -392,7 +404,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -500,7 +512,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -609,7 +621,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -719,7 +731,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -829,7 +841,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -935,7 +947,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -1041,7 +1053,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -1150,7 +1162,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -1259,7 +1271,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -1368,7 +1380,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
@@ -1429,10 +1441,72 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        printf("Test %s finished in %.4lf us\n", __func__, std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count()/1000.f);
+        print_test_duration(__func__, start, stop);
 
         return result;
     }
+
+    /*template<typename T, typename S>
+    int universal_test_indexing(const unsigned int size = T::size) {
+        int result = 0;
+        auto start = std::chrono::steady_clock::now();
+        std::vector<S> aV(size);
+        std::random_device dev;
+        std::mt19937 rng(dev());
+        S maxval{static_cast<S>(0xFF)}, randLit;
+        for(unsigned i = 0; i < sizeof(S);++i)
+            maxval = (maxval << 8) | static_cast<S>(0xFF);
+        
+        std::uniform_int_distribution<std::mt19937::result_type> dist(1, maxval);
+
+        for(unsigned int i{0}; i < size; ++i)
+            aV[i] = dist(rng);
+        
+        T a(aV.data());
+
+        std::string tmp(__FILE__);
+        std::smatch match;
+
+        if(std::regex_search(tmp, match, std::regex(path_regex)))
+            tmp = match.suffix().str();
+
+        #ifndef NDEBUG
+                for(unsigned int i{0}; i < size; ++i)
+                {
+                    try{
+                        if(a[i] != aV[i]) { 
+                            // std::cerr cause different argument types to avoid wrong values display.
+                            std::cerr << tmp << ':' << __LINE__ << " Test " << __func__ << " (" << typeid(T).name() << "[" << i << "]) failed! Expected " << aV[i] << " actual " << a[i] << '\n',
+                            result = 1;    
+                        }
+                    } catch (std::out_of_range& e){
+                        fprintf(
+                            stderr,
+                            "%s:%d Test %s: Exception std::out_of_range %s[%d] -> %s\n",
+                            tmp.c_str(),
+                            __LINE__,
+                            __func__,
+                            typeid(T).name(),
+                            i,
+                            e.what()
+                        );
+                        result = 1;
+                        break;
+                        
+                    }
+                }
+        #else
+            for(unsigned int i{0}; i < size; ++i) {
+                if(a[i] != aV[i]) {
+                    // std::cerr cause different argument types to avoid wrong values display.
+                    std::cerr << tmp << ':' << __LINE__ << " Test " << __func__ << " (" << typeid(T).name() << "[" << i << "]) failed! Expected " << aV[i] << " actual " << a[i] << '\n',
+                    result = 1;    
+                }
+            }
+        #endif
+
+        return result;
+    }*/
 
     /*template <typename T, typename S>
     int universal_test_limits(unsigned int size = T::size){
@@ -1547,8 +1621,6 @@ namespace testing
         if(bytes_read != file_size) return false;
         
         return true;
-    }
-
-   
+    }   
 };
 #endif
