@@ -53,17 +53,25 @@ if(BUILD_TESTING)
 
     if(BUILD_PERFORMANCE_TESTS)
         add_executable(int_perf_tests "${SOURCE_DIR}/tests/perf/int_perf_tests.cpp")
+        add_executable(uint_perf_tests "${SOURCE_DIR}/tests/perf/uint_perf_tests.cpp")
         add_executable(perf_tests "${SOURCE_DIR}/tests/perf/new_perf_tests.cpp")
 
         target_include_directories(int_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
+        target_include_directories(uint_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
         target_include_directories(perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
 
         target_link_libraries(int_perf_tests PRIVATE avxcpp_s)
+        target_link_libraries(uint_perf_tests PRIVATE avxcpp_s)
         target_link_libraries(perf_tests PRIVATE avxcpp_s)
 
         add_test(
             NAME int_perf_tests
             COMMAND $<TARGET_FILE:int_perf_tests> 1000000
+        )
+
+        add_test(
+            NAME uint_perf_tests
+            COMMAND $<TARGET_FILE:uint_perf_tests>
         )
 
         add_test(
@@ -151,6 +159,7 @@ if(BUILD_TESTING)
 
     if(BUILD_PERFORMANCE_TESTS)
         target_compile_options(int_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
+        target_compile_options(uint_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
         if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
             target_compile_options(perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
         elseif(MSVC)

@@ -1,18 +1,21 @@
 #pragma once
-#ifndef _TEST_UTILS_HPP
-#define _TEST_UTILS_HPP
+#ifndef _AVXCPP_TEST_UTILS_HPP
+#define _AVXCPP_TEST_UTILS_HPP
 
 #include <regex>
 #include <array>
 #include <vector>
-#include <functional>
 #include <random>
 #include <string>
 #include <chrono>
+#include <cstdio>
+#include <memory>
+#include <fstream>
+#include <iostream>
 #include <stdexcept>
 #include <filesystem>
-#include <iostream>
-#include <fstream>
+#include <functional>
+#include <immintrin.h>
 
 #ifdef _WIN32
 constexpr const char path_regex[] = "^.+\\\\(?=src)";

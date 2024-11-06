@@ -56,6 +56,7 @@ namespace avx {
         public:
             
             static constexpr int size = 32;
+            using storedType = char;
 
             Char256() noexcept : v(_mm256_setzero_si256()){}
 

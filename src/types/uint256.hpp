@@ -20,6 +20,7 @@ namespace avx {
         public:
 
             static constexpr int size = 8;
+            using storedType = unsigned int;
 
             /**
              * Default constructor.
@@ -475,7 +476,7 @@ namespace avx {
                         _mm256_store_si256((__m256i*)aV, v);
                     
                         for(unsigned int i{0}; i < 8; ++i)
-                        aV[i] %= b;
+                            aV[i] %= b;
                     
                         return _mm256_load_si256((const __m256i*)aV);
                     #endif 
@@ -547,7 +548,7 @@ namespace avx {
                         _mm256_store_si256((__m256i*)aV, v);
                     
                         for(unsigned int i{0}; i < 8; ++i)
-                        aV[i] %= b;
+                            aV[i] %= b;
                     
                         v = _mm256_load_si256((const __m256i*)aV);
                     #endif
