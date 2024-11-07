@@ -60,7 +60,7 @@ namespace testing{
             
             if(!silent) {
                 stop = std::chrono::steady_clock::now();
-                auto [value, unit] = universal_duration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+                auto [value, unit] = universalDuration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
                 std::printf("CPU warmup finished in %.4lf %s\n", value, unit.c_str());
             }
         }
@@ -74,7 +74,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = T::storedType>
         int64_t testAddAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -122,7 +122,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testAddSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -159,7 +159,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = T::storedType>
         int64_t testSubAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -207,7 +207,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testSubSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -244,7 +244,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = T::storedType>
         int64_t testMulAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -292,7 +292,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testMulSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -329,7 +329,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = T::storedType>
         int64_t testDivAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -377,7 +377,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testDivSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -414,7 +414,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = T::storedType>
         int64_t testModAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -462,7 +462,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testModSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -499,7 +499,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = T::storedType>
         int64_t testAndAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -547,7 +547,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testAndSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -584,7 +584,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = T::storedType>
         int64_t testLshiftAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -631,7 +631,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testLshiftSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){

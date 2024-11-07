@@ -27,7 +27,7 @@ int64_t perf_test_add_raw_avx(const std::vector<unsigned int>& aV, const std::ve
     
     auto stop = std::chrono::steady_clock::now();
     if(print)
-        testing::print_test_duration(__func__, start, stop);
+        testing::printTestDuration(__func__, start, stop);
     
     return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
 }
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
     }
     auto stop = std::chrono::steady_clock::now();
 
-    auto[value, unit] = testing::universal_duration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count());
+    auto[value, unit] = testing::universalDuration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count());
 
     std::cout << "Preparation took: " << value << ' ' << unit << '\n';
 
@@ -64,31 +64,31 @@ int main(int argc, char* argv[]) {
     times[9] = testing::perf::testLshiftAVX<avx::UInt256>(aV, bV, cV, false);
     times[10] = testing::perf::testLshiftSeq<unsigned int>(aV, bV, cV, false);
 
-    auto duration = testing::universal_duration(times[0]);
+    auto duration = testing::universalDuration(times[0]);
     printf("%-20s %.4lf %s\n", "Test add raw AVX2:", duration.first, duration.second.c_str());
-    duration = testing::universal_duration(times[1]);
+    duration = testing::universalDuration(times[1]);
     printf("%-20s %.4lf %s\n", "Test add AVX2:", duration.first, duration.second.c_str());
-    duration = testing::universal_duration(times[2]);
+    duration = testing::universalDuration(times[2]);
     printf("%-20s %.4lf %s\n", "Test add seq:", duration.first, duration.second.c_str());
 
-    duration = testing::universal_duration(times[3]);
+    duration = testing::universalDuration(times[3]);
     printf("%-20s %.4lf %s\n", "Test mul AVX2:", duration.first, duration.second.c_str());
-    duration = testing::universal_duration(times[4]);
+    duration = testing::universalDuration(times[4]);
     printf("%-20s %.4lf %s\n", "Test mul seq:", duration.first, duration.second.c_str());
 
-    duration = testing::universal_duration(times[5]);
+    duration = testing::universalDuration(times[5]);
     printf("%-20s %.4lf %s\n", "Test div AVX2:", duration.first, duration.second.c_str());
-    duration = testing::universal_duration(times[6]);
+    duration = testing::universalDuration(times[6]);
     printf("%-20s %.4lf %s\n", "Test div seq:", duration.first, duration.second.c_str());
 
-    duration = testing::universal_duration(times[7]);
+    duration = testing::universalDuration(times[7]);
     printf("%-20s %.4lf %s\n", "Test mod AVX2:", duration.first, duration.second.c_str());
-    duration = testing::universal_duration(times[8]);
+    duration = testing::universalDuration(times[8]);
     printf("%-20s %.4lf %s\n", "Test mod seq:", duration.first, duration.second.c_str());
 
-    duration = testing::universal_duration(times[9]);
+    duration = testing::universalDuration(times[9]);
     printf("%-20s %.4lf %s\n", "Test lshift AVX2:", duration.first, duration.second.c_str());
-    duration = testing::universal_duration(times[10]);
+    duration = testing::universalDuration(times[10]);
     printf("%-20s %.4lf %s\n", "Test lshift seq:", duration.first, duration.second.c_str());
 
     return 0;

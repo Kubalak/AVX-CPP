@@ -29,6 +29,7 @@ namespace avx
 
     public:
         static constexpr int size = 8;
+        using storedType = int;
 
         /**
          * Default constructor. Initializes vector with zeros.

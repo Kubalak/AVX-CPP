@@ -16,6 +16,7 @@ namespace avx {
         
         public:
             static constexpr int size = 4;
+            using storedType = long long;
 
             Long256() noexcept :v(_mm256_setzero_si256()){};
 

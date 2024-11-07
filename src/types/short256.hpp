@@ -16,6 +16,7 @@ namespace avx {
        
         public:
             static constexpr const int size = 16;
+            using storedType = short;
 
             /**
              * Default constructor. Sets zero to whole vector.

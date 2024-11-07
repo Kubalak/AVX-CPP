@@ -5,18 +5,19 @@
 
 int main(int argc, char* argv[]) {
 
-    int result = testing::universal_test_add<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_sub<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_mul<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_div<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_mod<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_and<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_or<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_xor<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_not<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_lshift<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_rshift<avx::ULong256, unsigned long long>();
-    result |= testing::universal_test_indexing<avx::ULong256, unsigned long long>();
+    int result = 0;
+    result |= testing::universalTestAdd<avx::ULong256>();
+    result |= testing::universalTestSub<avx::ULong256>();
+    result |= testing::universalTestMul<avx::ULong256>();
+    result |= testing::universalTestDiv<avx::ULong256>();
+    result |= testing::universalTestMod<avx::ULong256>();
+    result |= testing::universalTestAND<avx::ULong256>();
+    result |= testing::universalTestOR<avx::ULong256>();
+    result |= testing::universalTestXOR<avx::ULong256>();
+    result |= testing::universalTestNOT<avx::ULong256>();
+    result |= testing::universalTestLshift<avx::ULong256>();
+    result |= testing::universalTestRshift<avx::ULong256>();
+    result |= testing::universalTestIndexing<avx::ULong256>();
 
     return result;
 }
