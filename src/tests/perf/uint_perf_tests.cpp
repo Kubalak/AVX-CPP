@@ -90,7 +90,7 @@ int main(int argc, char* argv[]) {
 
     auto duration = testing::universal_duration(times[0]);
     
-    printf("%-20s %8.4lf %3s\n", "Test add raw AVX2:", duration.first, duration.second.c_str());
+    printf("%-20s %8.4lf %-3s\n", "Test add raw AVX2:", duration.first, duration.second.c_str());
     
     duration = testing::universal_duration(times[1]);
     

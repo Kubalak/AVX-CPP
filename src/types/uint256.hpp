@@ -498,7 +498,7 @@ namespace avx {
                         __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), bV);
                         __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), bV);
                         
-                        return _mm256_set_m128i(hires, lores);
+                        v = _mm256_set_m128i(hires, lores);
                     #else
                         if(b < 2)
                             return *this;
