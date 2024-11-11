@@ -1,6 +1,6 @@
 #include "test_utils.hpp"
 #include <types/char256.hpp>
-#include <types/short256.hpp>
+#include <ops/avxmath.hpp>
 
 
 int main(int argc, char* argv[]) {

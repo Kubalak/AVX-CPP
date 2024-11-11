@@ -17,6 +17,10 @@ namespace avx {
         static inline const __m256i EPI16_CRATE_EPI32 = _mm256_set1_epi32(0xFFFF);
         static inline const __m256i EPI16_CRATE_EPI32_INVERSE = _mm256_set1_epi32(0xFFFF0000);
         static inline const __m256i EPI32_CRATE_EPI64 = _mm256_set1_epi64x(0xFFFFFFFF);
+        static inline const __m256i EPI32_SIGN = _mm256_set1_epi32(0x8000'0000);
+        static inline const __m256i EPI32_ONE = _mm256_set1_epi32(1);
+        static inline const __m256d DOUBLE_NO_SIGN = _mm256_castsi256_pd(_mm256_set1_epi64x(0x7FFF'FFFF'FFFF'FFFF));
+        static inline const __m256 FLOAT_NO_SIGN = _mm256_castsi256_ps(_mm256_set1_epi32(0x7FFF'FFFF));
     }
 }
 

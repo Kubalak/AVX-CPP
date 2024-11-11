@@ -10,14 +10,30 @@ namespace testing{
         void printCPUDetails() {
             std::array<char, 128> buff;
             std::string cpu_info;
-            FILE* pipe = _popen("wmic cpu get name,numberofcores,numberoflogicalprocessors /FORMAT:list", "r");
+            
+            #ifdef _MSC_VER
+                FILE* pipe = _popen("wmic cpu get name,numberofcores,numberoflogicalprocessors /FORMAT:list", "r");
+            #else
+                #ifdef _WIN32
+                    FILE* pipe = popen("wmic cpu get name,numberofcores,numberoflogicalprocessors /FORMAT:list", "r");
+                #elif __linux__
+                    FILE* pipe = popen("cat /proc/cpuinfo | grep -e 'model name' -e 'cpu cores' | head -n 2", "r");
+                #else
+                    FILE* pipe = popen("echo 'This platform CPU info not yet supported!'", "r");
+                #endif
+            #endif
+
             if(pipe){
                 while(!feof(pipe))
                 {
                     if(fgets(buff.data(), buff.size(), pipe) != NULL)
                         cpu_info += buff.data();
                 }
-                _pclose(pipe);
+                #ifdef _MSC_VER
+                    _pclose(pipe);
+                #else
+                    pclose(pipe);
+                #endif
 
                 std::cout << "CPU info: \n\"" << cpu_info << "\"\n";
                 #ifndef NDEBUG
@@ -151,6 +167,246 @@ namespace testing{
         }
 
         /**
+         * Verifies results of adding `aV` and `bV` comparing it with `cV`.
+         * 
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        int64_t verifyAdd(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return -2;
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) + *(bV.data() + pos);
+                temp += d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                    
+                    return pos;
+                }
+            }
+
+            return -1;
+        }
+
+        /**
+         * Verifies results of substracting `bV` from `aV` comparing it with `cV`.
+         * 
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        int64_t verifySub(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return -2;
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) - *(bV.data() + pos);
+                temp -= d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                    
+                    return pos;
+                }
+            }
+
+            return -1;
+        }
+
+        /**
+         * Verifies results of multiplying `aV`and `bV` comparing it with `cV`.
+         * 
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        int64_t verifyMul(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return -2;
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) * *(bV.data() + pos);
+                temp *= d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                    
+                    return pos;
+                }
+            }
+
+            return -1;
+        }
+
+        /**
+         * Verifies results of dividing `aV` by `bV` comparing it with `cV`.
+         * 
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        int64_t verifyDiv(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return -2;
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) / *(bV.data() + pos);
+                temp /= d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                    
+                    return pos;
+                }
+            }
+
+            return -1;
+        }
+
+        /**
+         * Verifies results of modulo between `aV` and `bV` comparing it with `cV`.
+         * 
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        int64_t verifyMod(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return -2;
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) % *(bV.data() + pos);
+                temp %= d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                    
+                    return pos;
+                }
+            }
+
+            return -1;
+        }
+
+        /**
+         * Verifies results of AND between `aV` and `bV` comparing it with `cV`.
+         * 
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        int64_t verifyAnd(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return -2;
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) & *(bV.data() + pos);
+                temp &= d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                    
+                    return pos;
+                }
+            }
+
+            return -1;
+        }
+
+        /**
+         * Verifies results of left shift between `aV` and `bV` comparing it with `cV`.
+         * 
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        int64_t verifyLshift(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return -2;
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) << *(bV.data() + pos);
+                temp <<= d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                    
+                    return pos;
+                }
+            }
+
+            return -1;
+        }
+
+        
+
+        /**
          * Performs a performance test of - and -= operator on types from `avx` namespace. Loads data from `aV` and `bV` and performs + operation.
          * 
          * Disclaimer - due to small loop size they introduce some overhead on results.
@@ -168,7 +424,7 @@ namespace testing{
                 return -1;
             }
             if(aV.size() != cV.size())
-                 cV.resize(aV.size());
+                cV.resize(aV.size());
 
             auto start = std::chrono::steady_clock::now();
             T c;
@@ -423,7 +679,7 @@ namespace testing{
                 return -1;
             }
             if(aV.size() != cV.size())
-                 cV.resize(aV.size());
+                cV.resize(aV.size());
 
             auto start = std::chrono::steady_clock::now();
             T c;
@@ -508,7 +764,7 @@ namespace testing{
                 return -1;
             }
             if(aV.size() != cV.size())
-                 cV.resize(aV.size());
+                cV.resize(aV.size());
 
             auto start = std::chrono::steady_clock::now();
             T c;
@@ -593,7 +849,7 @@ namespace testing{
                 return -1;
             }
             if(aV.size() != cV.size())
-                 cV.resize(aV.size());
+                cV.resize(aV.size());
 
             auto start = std::chrono::steady_clock::now();
             T c;
@@ -610,7 +866,7 @@ namespace testing{
             }
 
             while(pos < aV.size()){
-                cV[pos] = aV[pos] & bV[pos];
+                cV[pos] = aV[pos] << bV[pos];
                 cV[pos] <<= dLit;
                 ++pos;
             }

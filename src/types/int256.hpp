@@ -192,24 +192,22 @@ namespace avx
         Int256 operator*(const Int256 &b) const { return _mm256_mullo_epi32(v, b.v); }
         Int256 operator*(const int &b) const { return _mm256_mullo_epi32(v,_mm256_set1_epi32(b)); }
 
-        // Division operators
-        // TODO: Working division and modulo (no AVX2 native solution)
 
         Int256 operator/(const Int256 &b) const {
-            return _mm256_cvtps_epi32(
-                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            return _mm256_cvttps_epi32(
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
             );
         }
         Int256 operator/(const int&b) const {
-            return _mm256_cvtps_epi32(
-                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            return _mm256_cvttps_epi32(
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
             );
         }
 
         // Modulo operators
         Int256 operator%(const Int256 &b) const {
-            __m256i divided = _mm256_cvtps_epi32(
-                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            __m256i divided = _mm256_cvttps_epi32(
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
             );
 
             return _mm256_sub_epi32(
@@ -223,8 +221,8 @@ namespace avx
             if(b) {
                 __m256i divisor = _mm256_set1_epi32(b);
 
-                __m256i divided = _mm256_cvtps_epi32(
-                    _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(divisor)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+                __m256i divided = _mm256_cvttps_epi32(
+                    _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(divisor))
                 );
 
                 return _mm256_sub_epi32(
@@ -291,21 +289,21 @@ namespace avx
         };
 
         Int256 &operator/=(const Int256 &b) {
-            v = _mm256_cvtps_epi32(
-                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            v = _mm256_cvttps_epi32(
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
             );
             return *this;
         }
         Int256 &operator/=(const int &b) {
-            v = _mm256_cvtps_epi32(
-                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            v = _mm256_cvttps_epi32(
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
             );
         return *this;
         }
 
         Int256 &operator%=(const Int256 &b) {
-            __m256i divided = _mm256_cvtps_epi32(
-                _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+            __m256i divided = _mm256_cvttps_epi32(
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
             );
 
             v = _mm256_sub_epi32(
@@ -319,8 +317,8 @@ namespace avx
             if(b) {
                 __m256i divisor = _mm256_set1_epi32(b);
 
-                __m256i divided = _mm256_cvtps_epi32(
-                    _mm256_round_ps(_mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(divisor)), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC)
+                __m256i divided = _mm256_cvttps_epi32(
+                    _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(divisor))
                 );
 
                 v = _mm256_sub_epi32(

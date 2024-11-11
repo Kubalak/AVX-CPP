@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 #include <cstring>
+#include <cstdio>
 #include <stdexcept>
 #include <immintrin.h>
 #include "constants.hpp"
@@ -327,22 +328,60 @@ namespace avx {
 
 
             UInt256 operator/(const UInt256& b) const noexcept {
+                /*if(_mm256_testz_si256(b.v, constants::EPI32_SIGN)) {
+
+                    __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                    __m256i restVal = _mm256_xor_si256(v, msbVal);
+
+                    __m256 divisor = _mm256_cvtepi32_ps(b.v);
+
+                    __m256 result = _mm256_add_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor));
+
+                    return _mm256_cvtps_epi32(_mm256_floor_ps(result));
+                }*/
+
                 #ifdef _MSC_VER
                     __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), _mm256_extracti128_si256(b.v, 0));
                     __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), _mm256_extracti128_si256(b.v, 1));
 
                     return _mm256_set_m128i(hires, lores);
                 #else
-                    alignas(32) unsigned int aV[size];
-                    alignas(32) unsigned int bV[size];
-                    
-                    _mm256_store_si256((__m256i*)aV, v);
-                    _mm256_store_si256((__m256i*)bV, b.v);
+                    int div_lt_limit = _mm256_testz_si256(b.v, constants::EPI32_SIGN); // b.v AND 0b1000'0000...0b1000'0000 == 0
+                    int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
+                    switch((num_lt_limit << 1) | div_lt_limit) {
+                        case 0b00:
+                            
+                        case 0b01:
+                            {
+                                alignas(32) unsigned int aV[size];
+                                alignas(32) unsigned int bV[size];
+                                
+                                _mm256_store_si256((__m256i*)aV, v);
+                                _mm256_store_si256((__m256i*)bV, b.v);
 
-                    for(unsigned int i{0}; i < 8; ++i)
-                        aV[i] = bV[i] ? aV[i] / bV[i] : 0;
-                    
-                    return _mm256_load_si256((const __m256i*)aV);
+                                for(unsigned int i{0}; i < 8; ++i)
+                                    aV[i] = bV[i] ? aV[i] / bV[i] : 0;
+                                
+                                return _mm256_load_si256((const __m256i*)aV);
+                            }
+                        case 0b10:
+                            {
+                                __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                                __m256i restVal = _mm256_xor_si256(v, msbVal);
+
+                                __m256 divisor = _mm256_cvtepi32_ps(b.v);
+
+                                __m256 result = _mm256_add_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor));
+
+                                return _mm256_cvttps_epi32(result);
+                            }
+                        case 0b11:
+                            return _mm256_cvttps_epi32(
+                                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
+                            );
+                    }
+
+                    return _mm256_setzero_si256();
                 #endif
             }
 
@@ -355,18 +394,52 @@ namespace avx {
                         
                         return _mm256_set_m128i(hires, lores);
                     #else
-                        alignas(32) unsigned int aV[size];
-                        
-                        _mm256_store_si256((__m256i*)aV, v);
+                        if(b < 2)
+                            return v;
 
-                        for(unsigned int i{0}; i < 8; ++i)
-                            aV[i] /= b;
-                        
-                        return _mm256_load_si256((const __m256i*)aV);
+                        unsigned int div_lt_limit = (b < 0x8000'0000) ? 1 : 0;
+                        unsigned int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
+                        switch((num_lt_limit << 1) | div_lt_limit) {
+                            case 0b00:
+                                {
+                                    alignas(32) unsigned int aV[size];
+                            
+                                    _mm256_store_si256((__m256i*)aV, v);
+
+                                    for(unsigned int i{0}; i < 8; ++i)
+                                        aV[i] /= b;
+                                    
+                                    return _mm256_load_si256((const __m256i*)aV);
+                                    break;
+                                }
+                            case 0b01:
+                                {  
+                                    __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                                    __m256i restVal = _mm256_xor_si256(v, msbVal);
+
+                                    __m256 divisor = _mm256_set1_ps(b);
+
+                                    __m256 result = _mm256_add_ps(
+                                        _mm256_and_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), constants::FLOAT_NO_SIGN), 
+                                        _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor)
+                                    );
+
+                                    return _mm256_cvttps_epi32(result);
+                                    break;
+                                }
+                            case 0b10:
+                                return _mm256_setzero_si256();
+                                break;
+                            case 0b11:
+                                return _mm256_cvttps_epi32(
+                                    _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
+                                );
+                                break;
+                        }
                     #endif
                 }
-                else 
-                    return _mm256_setzero_si256();
+                
+                return _mm256_setzero_si256();
             }
 
             UInt256& operator/=(const UInt256& b) noexcept {
@@ -376,37 +449,99 @@ namespace avx {
 
                     v = _mm256_set_m128i(hires, lores);
                 #else
-                    alignas(32) unsigned int aV[size];
-                    alignas(32) unsigned int bV[size];
-                    
-                    _mm256_store_si256((__m256i*)aV, v);
-                    _mm256_store_si256((__m256i*)bV, b.v);
+                    int div_lt_limit = _mm256_testz_si256(b.v, constants::EPI32_SIGN); // b.v AND 0b1000'0000...0b1000'0000 == 0
+                    int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
+                    switch((num_lt_limit << 1) | div_lt_limit) {
+                        case 0b00:
+                            {
+                                alignas(32) unsigned int aV[size];
+                                alignas(32) unsigned int bV[size];
+                                
+                                _mm256_store_si256((__m256i*)aV, v);
+                                _mm256_store_si256((__m256i*)bV, b.v);
 
-                    for(unsigned int i{0}; i < 8; ++i)
-                        aV[i] = bV[i] ? aV[i] / bV[i] : 0;
-                    
-                    v = _mm256_load_si256((const __m256i*)aV);
+                                for(unsigned int i{0}; i < 8; ++i)
+                                    aV[i] = bV[i] ? aV[i] / bV[i] : 0;
+                                
+                                v = _mm256_load_si256((const __m256i*)aV);
+                                break;
+                            }
+                        case 0b01:
+                            v = _mm256_setzero_si256();
+                            break;
+                        case 0b10:
+                            {
+                                __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                                __m256i restVal = _mm256_xor_si256(v, msbVal);
+
+                                __m256 divisor = _mm256_cvtepi32_ps(b.v);
+
+                                __m256 result = _mm256_add_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor));
+
+                                v = _mm256_cvttps_epi32(result);
+                                break;
+                            }
+                        case 0b11:
+                            v = _mm256_cvttps_epi32(
+                                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
+                            );
+                            break;
+                    }
                 #endif
                 return *this;
             }
 
             UInt256& operator/=(const unsigned int b) noexcept {
                 if(b) {
-                   #ifdef _MSC_VER
+                    #ifdef _MSC_VER
                         __m128i bV = _mm_set1_epi32(b);
                         __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), bV);
                         __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), bV);
                         
-                        v = _mm256_set_m128i(hires, lores);
+                        return _mm256_set_m128i(hires, lores);
                     #else
-                        alignas(32) unsigned int aV[size];
-                        
-                        _mm256_store_si256((__m256i*)aV, v);
+                        if(b < 2)
+                            return *this;
 
-                        for(unsigned int i{0}; i < 8; ++i)
-                            aV[i] /= b;
-                        
-                        v = _mm256_load_si256((const __m256i*)aV);
+                        unsigned int div_lt_limit = (b < 0x8000'0000) ? 1 : 0;
+                        unsigned int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
+                        switch((num_lt_limit << 1) | div_lt_limit) {
+                            case 0b00:
+                                {
+                                    alignas(32) unsigned int aV[size];
+                            
+                                    _mm256_store_si256((__m256i*)aV, v);
+
+                                    for(unsigned int i{0}; i < 8; ++i)
+                                        aV[i] /= b;
+                                    
+                                    v = _mm256_load_si256((const __m256i*)aV);
+                                    break;
+                                }
+                            case 0b01:
+                                {  
+                                    __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                                    __m256i restVal = _mm256_xor_si256(v, msbVal);
+
+                                    __m256 divisor = _mm256_set1_ps(b);
+
+                                    __m256 result = _mm256_add_ps(
+                                        _mm256_and_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), constants::FLOAT_NO_SIGN), 
+                                        _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor)
+                                    );
+
+                                    v = _mm256_cvttps_epi32(result);
+                                    break;
+                                }
+                            case 0b10:
+                                v = _mm256_setzero_si256();
+                                break;
+                            case 0b11:
+                                v =  _mm256_cvttps_epi32(
+                                    _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
+                                );
+                                break;
+                        }
                     #endif
                 }
                 else 
@@ -450,7 +585,7 @@ namespace avx {
             }
 
             UInt256 operator%(const unsigned int& b) const noexcept {
-                if(b) {
+                if(b > 1) {
                     #ifdef _MSC_VER
                         __m256i bV = _mm256_set1_epi32(b);
                         __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), _mm256_castsi256_si128(bV));
@@ -471,18 +606,59 @@ namespace avx {
 
                         return _mm256_sub_epi32(v, multiplied);
                     #else
-                        alignas(32) unsigned int aV[size];
-                    
-                        _mm256_store_si256((__m256i*)aV, v);
-                    
-                        for(unsigned int i{0}; i < 8; ++i)
-                            aV[i] %= b;
-                    
-                        return _mm256_load_si256((const __m256i*)aV);
+                        if(b == 2)
+                            return _mm256_and_si256(v, constants::EPI32_ONE);
+
+                        unsigned int div_lt_limit = (b < 0x8000'0000) ? 1 : 0;
+                        unsigned int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
+                        switch((num_lt_limit << 1) | div_lt_limit) {
+                            case 0b00:
+                                
+                            case 0b01:
+                                /*{  
+                                    //TODO: FINISH AND TEST
+                                    __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                                    __m256i restVal = _mm256_xor_si256(v, msbVal);
+
+                                    __m256 msbF = _mm256_and_ps(_mm256_cvtepi32_ps(msbVal), constants::FLOAT_NO_SIGN);
+                                    __m256 restF = _mm256_cvtepi32_ps(restVal);
+
+                                    __m256 divisor = _mm256_set1_ps(b);
+
+                                    __m256 fval = _mm256_div_ps(msbF, divisor);
+                                    __m256 sval = _mm256_div_ps(restF, divisor);
+
+                                    
+                                    break; 
+                                }*/
+                            case 0b10:
+                                //return _mm256_setzero_si256();
+                                {
+                                    alignas(32) unsigned int aV[size];
+                            
+                                    _mm256_store_si256((__m256i*)aV, v);
+
+                                    for(unsigned int i{0}; i < 8; ++i)
+                                        aV[i] %= b;
+                                    
+                                    return _mm256_load_si256((const __m256i*)aV);
+                                    break;
+                                }
+                                break;
+                            case 0b11:
+                                {   __m256 vPs = _mm256_cvtepi32_ps(v);
+                                    __m256 bPs = _mm256_set1_ps(b);
+                                    __m256 divided = _mm256_floor_ps(_mm256_div_ps(vPs, bPs));
+
+                                    bPs = _mm256_sub_ps(vPs, _mm256_mul_ps(bPs, divided));
+                                    return _mm256_cvtps_epi32(bPs);
+                                }
+                                break;
+                        }
                     #endif 
                 }
-                else 
-                    return  _mm256_setzero_si256();
+                
+                return  _mm256_setzero_si256();
             }
 
 

@@ -17,6 +17,10 @@
 #include <functional>
 #include <immintrin.h>
 
+#ifdef __GNUG__
+    #include <cxxabi.h>
+#endif
+
 #ifdef _WIN32
 constexpr const char path_regex[] = "^.+\\\\(?=src)";
 #else 
@@ -84,6 +88,21 @@ namespace testing
             return "Unix";
         #else
             return "Unknown Platform";
+        #endif
+    }
+
+    std::string demangle(const char* name) {
+        #ifdef __GNUG__
+            std::string res;
+            int status;
+            char* realname = abi::__cxa_demangle(name, 0, 0, &status);
+            if(realname){
+                res.assign(realname) ;
+                free(realname);
+            }
+            return res;
+        #else
+            return std::string(name);
         #endif
     }
 
@@ -343,8 +362,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "+", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -360,8 +379,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "+=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -375,8 +394,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "+", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -392,8 +411,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "+=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -451,8 +470,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "-", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -468,8 +487,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "-=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -483,8 +502,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "-", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -500,8 +519,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "-=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -560,8 +579,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "*", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -577,8 +596,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "*=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -592,8 +611,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "*", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -609,8 +628,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "*=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -670,8 +689,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "/", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -687,8 +706,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "/=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -702,8 +721,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "/", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -719,8 +738,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "/=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -780,8 +799,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "%", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -797,8 +816,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "%=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -812,8 +831,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "%", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -829,8 +848,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "%=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -886,8 +905,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "<<", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -903,8 +922,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "<<=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -918,8 +937,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "<<", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -935,8 +954,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "<<=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -992,8 +1011,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 ">>", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1009,8 +1028,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 ">>=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1024,8 +1043,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 ">>", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1041,8 +1060,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 ">>=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1101,8 +1120,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "|", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1118,8 +1137,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "|=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1133,8 +1152,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "|", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1150,8 +1169,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "|=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1210,8 +1229,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "&", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1227,8 +1246,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "&=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1242,8 +1261,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "&", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1259,8 +1278,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "&=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1319,8 +1338,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "^", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1336,8 +1355,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "^=", 
-                typeid(T).name(), 
-                typeid(T).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1351,8 +1370,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "^", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1368,8 +1387,8 @@ namespace testing
                 __LINE__, 
                 __func__,
                 "^=", 
-                typeid(T).name(), 
-                typeid(S).name(),
+                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
             );
@@ -1431,7 +1450,7 @@ namespace testing
                 tmp.c_str(), 
                 __LINE__, 
                 __func__, 
-                typeid(T).name(), 
+                demangle(typeid(T).name()).c_str(), 
                 expected.str().c_str(), 
                 c.str().c_str()
             );
@@ -1479,7 +1498,7 @@ namespace testing
                     try{
                         if(a[i] != aV[i]) { 
                             // std::cerr cause different argument types to avoid wrong values display.
-                            std::cerr << tmp << ':' << __LINE__ << " Test " << __func__ << " (" << typeid(T).name() << "[" << i << "]) failed! Expected " << aV[i] << " actual " << a[i] << '\n',
+                            std::cerr << tmp << ':' << __LINE__ << " Test " << __func__ << " (" << demangle(typeid(T).name()).c_str() << "[" << i << "]) failed! Expected " << aV[i] << " actual " << a[i] << '\n',
                             result = 1;    
                         }
                     } catch (std::out_of_range& e){
@@ -1489,7 +1508,7 @@ namespace testing
                             tmp.c_str(),
                             __LINE__,
                             __func__,
-                            typeid(T).name(),
+                            demangle(typeid(T).name()).c_str(),
                             i,
                             e.what()
                         );
@@ -1502,7 +1521,7 @@ namespace testing
             for(unsigned int i{0}; i < size; ++i) {
                 if(a[i] != aV[i]) {
                     // std::cerr cause different argument types to avoid wrong values display.
-                    std::cerr << tmp << ':' << __LINE__ << " Test " << __func__ << " (" << typeid(T).name() << "[" << i << "]) failed! Expected " << aV[i] << " actual " << a[i] << '\n',
+                    std::cerr << tmp << ':' << __LINE__ << " Test " << __func__ << " (" << demangle(typeid(T).name()).c_str() << "[" << i << "]) failed! Expected " << aV[i] << " actual " << a[i] << '\n',
                     result = 1;    
                 }
             }
