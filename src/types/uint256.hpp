@@ -226,7 +226,7 @@ namespace avx {
                 return false;
             }
 
-            unsigned int operator[](unsigned int index) const 
+            unsigned int operator[](const unsigned int index) const 
             #ifndef NDEBUG
                 {
                     if(index > 7) 

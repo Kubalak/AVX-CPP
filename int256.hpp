@@ -159,7 +159,7 @@ namespace avx
             return false;
         }
 
-        int operator[](const unsigned int index) const 
+        int operator[](unsigned int &index) const 
         #ifndef NDEBUG
             {
                 if(index > 7) 
@@ -243,13 +243,10 @@ namespace avx
         // TODO: Fix float value limit resulting in wrong mod values.        
         Int256 operator%(const int &b) const {
             if(b) {
-                __m256i bV = _mm256_set1_epi32(b);
-                __m256i sub_zero = _mm256_and_si256(v, bV);
-                sub_zero = _mm256_and_si256(sub_zero, constants::EPI32_SIGN);
-                __m256i one = _mm256_srli_epi32(sub_zero, 31);
-                sub_zero = _mm256_srai_epi32(sub_zero, 31);
+                __m256i sub_zero = _mm256_and_si256(v, (b < 0) ? constants::EPI32_ONE : _mm256_setzero_si256());
+                __m256i one =  (b < 0) ? constants::ONES : _mm256_setzero_si256();
 
-                __m256i safeb = _mm256_add_epi32(_mm256_xor_si256(bV, sub_zero), one);
+                __m256i safeb = _mm256_set1_epi32((b < 0) ? -b : b);
                 __m256i safev = _mm256_add_epi32(_mm256_xor_si256(v, sub_zero), one);
 
                 __m256i divided = _mm256_cvttps_epi32(
@@ -382,13 +379,10 @@ namespace avx
 
         Int256 &operator%=(const int &b){
             if(b) {
-                __m256i bV = _mm256_set1_epi32(b);
-                __m256i sub_zero = _mm256_and_si256(v, bV);
-                sub_zero = _mm256_and_si256(sub_zero, constants::EPI32_SIGN);
-                __m256i one = _mm256_srli_epi32(sub_zero, 31);
-                sub_zero = _mm256_srai_epi32(sub_zero, 31);
+                __m256i sub_zero = (b < 0) ? constants::EPI32_ONE : _mm256_setzero_si256();
+                __m256i one =  (b < 0) ? constants::ONES : _mm256_setzero_si256();
 
-                __m256i safeb = _mm256_add_epi32(_mm256_xor_si256(bV, sub_zero), one);
+                __m256i safeb = _mm256_set1_epi32((b < 0) ? -b : b);
                 __m256i safev = _mm256_add_epi32(_mm256_xor_si256(v, sub_zero), one);
 
                 __m256i divided = _mm256_cvttps_epi32(

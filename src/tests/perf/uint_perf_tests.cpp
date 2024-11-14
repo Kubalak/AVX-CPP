@@ -32,11 +32,6 @@ int64_t perf_test_add_raw_avx(const std::vector<unsigned int>& aV, const std::ve
     return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
 }
 
-std::string validationToStr(int64_t retcode){
-    if(retcode == -2) return "E_INVAL_SIZE";
-    if(retcode == -1) return "OK";
-    return "[" + std::to_string(retcode) + "]";
-}
 
 
 int main(int argc, char* argv[]) {
@@ -61,7 +56,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Testing performance of: " << testing::demangle(typeid(avx::UInt256).name()) <<'\n';
 
     uint64_t times[11];
-    int64_t validations[10];
+    std::tuple<int64_t, unsigned int, unsigned int> validations[10];
     testing::perf::doCPUWarmup(100, true);
 
     times[0] = perf_test_add_raw_avx(aV, bV, cV, false);
@@ -94,29 +89,29 @@ int main(int argc, char* argv[]) {
     
     duration = testing::universal_duration(times[1]);
     
-    printf("%-20s %8.4lf %-3s%s\n", "Test add AVX2:", duration.first, duration.second.c_str(), validationToStr(validations[0]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test add AVX2:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[0]).c_str());
     duration = testing::universal_duration(times[2]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test add seq:", duration.first, duration.second.c_str(), validationToStr(validations[1]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test add seq:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[1]).c_str());
 
     duration = testing::universal_duration(times[3]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test mul AVX2:", duration.first, duration.second.c_str(), validationToStr(validations[2]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test mul AVX2:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[2]).c_str());
     duration = testing::universal_duration(times[4]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test mul seq:", duration.first, duration.second.c_str(), validationToStr(validations[3]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test mul seq:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[3]).c_str());
 
     duration = testing::universal_duration(times[5]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test div AVX2:", duration.first, duration.second.c_str(), validationToStr(validations[4]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test div AVX2:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[4]).c_str());
     duration = testing::universal_duration(times[6]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test div seq:", duration.first, duration.second.c_str(), validationToStr(validations[5]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test div seq:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[5]).c_str());
 
     duration = testing::universal_duration(times[7]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2:", duration.first, duration.second.c_str(), validationToStr(validations[6]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[6]).c_str());
     duration = testing::universal_duration(times[8]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test mod seq:", duration.first, duration.second.c_str(), validationToStr(validations[7]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test mod seq:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[7]).c_str());
 
     duration = testing::universal_duration(times[9]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2:", duration.first, duration.second.c_str(), validationToStr(validations[8]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[8]).c_str());
     duration = testing::universal_duration(times[10]);
-    printf("%-20s %8.4lf %-3s%s\n", "Test lshift seq:", duration.first, duration.second.c_str(), validationToStr(validations[9]).c_str());
+    printf("%-20s %8.4lf %-3s%s\n", "Test lshift seq:", duration.first, duration.second.c_str(), testing::perf::validationToStr(validations[9]).c_str());
 
     return 0;
 }
