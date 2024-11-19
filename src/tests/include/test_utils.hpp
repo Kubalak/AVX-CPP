@@ -170,7 +170,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestAdd(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -278,7 +278,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestSub(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -387,7 +387,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestMul(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -496,7 +496,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestDiv(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -605,7 +605,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestMod(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -716,7 +716,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestLshift(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -822,7 +822,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestRshift(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -928,7 +928,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestOR(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -1037,7 +1037,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestAND(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -1146,7 +1146,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestXOR(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -1256,7 +1256,7 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S = T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestNOT(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
@@ -1308,7 +1308,7 @@ namespace testing
         return result;
     }
 
-    template<typename T, typename S = T::storedType>
+    template<typename T, typename S = typename T::storedType>
     int universalTestIndexing(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
