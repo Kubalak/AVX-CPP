@@ -16,6 +16,7 @@ namespace avx {
         public:
 
             static constexpr int size = 4;
+            using storedType = double;
 
             Double256() noexcept : v(_mm256_setzero_pd()){}
 

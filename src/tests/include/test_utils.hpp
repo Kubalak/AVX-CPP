@@ -29,7 +29,7 @@ constexpr const char path_regex[] = "^.+//(?=src)";
 
 namespace testing
 {   
-    constexpr const char* get_compiler_name() {
+    constexpr const char* getCompilerName() {
         #if defined(__clang__)
             return "Clang";
         #elif defined(__GNUC__) || defined(__GNUG__)
@@ -41,7 +41,7 @@ namespace testing
         #endif
     }
 
-    constexpr int get_compiler_major() {
+    constexpr int getCompilerMajor() {
         #if defined(__clang__)
             return __clang_major__;
         #elif defined(__GNUC__) || defined(__GNUG__)
@@ -53,7 +53,7 @@ namespace testing
         #endif
     }
 
-    constexpr int get_compiler_minor() {
+    constexpr int getCompilerMinor() {
         #if defined(__clang__)
             return __clang_minor__;
         #elif defined(__GNUC__) || defined(__GNUG__)
@@ -65,7 +65,7 @@ namespace testing
         #endif
     }
 
-    constexpr int get_compiler_patch_level() {
+    constexpr int getCompilerPatchLevel() {
         #if defined(__clang__)
             return __clang_patchlevel__;
         #elif defined(__GNUC__) || defined(__GNUG__)
@@ -77,7 +77,7 @@ namespace testing
         #endif
     }
 
-    constexpr const char* get_platform() {
+    constexpr const char* getPlatform() {
         #if defined(_WIN32)
             return "Windows";
         #elif defined(__APPLE__) && defined(__MACH__)
@@ -107,6 +107,7 @@ namespace testing
     }
 
     void print_test_failed(const char* filename, const int line, const char* func, const char* op, const char* type_a, const char* type_b, const std::string& expected, const std::string& actual) {
+    void printTestFailed(const char* filename, const int line, const char* func, const char* op, const char* type_a, const char* type_b, const std::string& expected, const std::string& actual) {
         std::string tmp(filename);
         std::smatch match;
 
@@ -127,7 +128,7 @@ namespace testing
         );
     }
 
-    std::pair<double, std::string> universal_duration(int64_t ticks) {
+    std::pair<double, std::string> universalDuration(int64_t ticks) {
         static const std::array<std::string, 5> times{"ns", "us", "ms", "s", "m"};
         unsigned int i = 0;
         while(ticks / pow(1000., i) > 1000) ++i;
@@ -138,8 +139,8 @@ namespace testing
         return {ticks / pow(1000., i), times[i]};
     }
 
-    void print_test_duration(const char* func, std::chrono::steady_clock::time_point start, std::chrono::steady_clock::time_point stop) {
-        std::pair<double, std::string> duration = universal_duration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+    void printTestDuration(const char* func, std::chrono::steady_clock::time_point start, std::chrono::steady_clock::time_point stop) {
+        std::pair<double, std::string> duration = universalDuration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
 
         if(duration.second == "ns")
             printf("Test %s finished in %ld %s\n", func, static_cast<long int>(duration.first), duration.second.c_str());
@@ -149,171 +150,11 @@ namespace testing
             printf("Test %s finished in %.4lf %s\n", func, duration.first, duration.second.c_str());
     }
 
-    /**
-     * Applies a function on each pair of elements from vectors.
-     * @param va First vector.
-     * @param vb Second vector.
-     * @param f Function to be applied.
-     * @return Vector of same size containing results of f(va[n], vb[n]) or vector of size 0 if sizes don't match.
-     */
-    template <typename T, typename Func>
-    std::vector<T> apply_seq(const std::vector<T> &va, const std::vector<T> &vb, Func f)
-    {
-        static_assert(std::is_invocable_r_v<T, Func, T, T>, "Passed function needs to have 2 arguments!");
-
-        if (va.size() != vb.size())
-            return {};
-        std::vector<T> result(va.size());
-
-        for (size_t i = 0; i < va.size(); ++i)
-            result[i] = f(va[i], vb[i]);
-
-        return result;
-    }
-
-    /**
-     * Applies a function on each elemnt of va and literal b.
-     * @param va Vector.
-     * @param b Literal.
-     * @param f Function to be applied.
-     * @return Vector of same size containing results of f(va[n], b).
-     */
-    template <typename T, typename Func>
-    std::vector<T> apply_lit(const std::vector<T> &va, const T &b, Func f)
-    {
-        static_assert(std::is_invocable_r_v<T, Func, T, T>, "Passed function needs to have 2 arguments!");
-        std::vector<T> result(va.size());
-
-        for (size_t i = 0; i < va.size(); ++i)
-            result[i] = f(va[i], b);
-
-        return result;
-    }
-
-    /**
-     * Adds a to b.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a + b.
-     */
-    template <typename T>
-    T add(const T &a, const T &b)
-    {
-        return a + b;
-    }
-
-    /**
-     * Subs b from a.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a - b.
-     */
-    template <typename T>
-    T sub(const T &a, const T &b)
-    {
-        return a - b;
-    }
-
-    /**
-     * Multiplys a by b.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a * b.
-     */
-    template <typename T>
-    T mul(const T &a, const T &b)
-    {
-        return a * b;
-    }
-
-    /**
-     * Divides a by b.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a / b.
-     */
-    template <typename T>
-    T div(const T &a, const T &b)
-    {
-        return a / b;
-    }
-
-    /**
-     * Performs a modulo division.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a % b.
-     */
-    template <typename T>
-    T mod(const T &a, const T &b)
-    {
-        return a % b;
-    }
-
-    /**
-     * Bitwise OR.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a | b.
-     */
-    template <typename T>
-    T b_or(const T &a, const T &b)
-    {
-        return a | b;
-    }
-
-    /**
-     * Bitwise AND.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a & b.
-     */
-    template <typename T>
-    T b_and(const T &a, const T &b)
-    {
-        return a & b;
-    }
-
-    /**
-     * Bitwise XOR.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a ^ b.
-     */
-    template <typename T>
-    T b_xor(const T &a, const T &b)
-    {
-        return a ^ b;
-    }
-
-    /**
-     * Left bits shift.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a << b.
-     */
-    template <typename T>
-    T lshift(const T &a, const T &b)
-    {
-        return a << b;
-    }
-
-    /**
-     * Right bits shift.
-     * @param a First argument.
-     * @param b Second argument.
-     * @return The result of a >> b.
-     */
-    template <typename T>
-    T rshift(const T &a, const T &b)
-    {
-        return a >> b;
-    }
 
     /**
      Below are the functions for arithmetic testing. Each one of them tests one operator but using different types and assignement e.g.
-     universal_test_add tests + and += operator where arguments are -> corresponding SIMD declared class and literal e.g. Int256 and int.
-     So the order of testing is as follows (using universal_test_add with Int256 as an example):
+     universalTest_add tests + and += operator where arguments are -> corresponding SIMD declared class and literal e.g. Int256 and int.
+     So the order of testing is as follows (using universalTest_add with Int256 as an example):
      
      Int256 + Int256
      Int256 += Int256
@@ -330,8 +171,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_add(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestAdd(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -357,12 +198,12 @@ namespace testing
 
         c = a + b;
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "+", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -374,12 +215,12 @@ namespace testing
         c += b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "+=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -389,12 +230,12 @@ namespace testing
 
         c = a + randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "+", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -406,12 +247,12 @@ namespace testing
         c += randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "+=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -426,7 +267,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -438,8 +279,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_sub(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestSub(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -465,12 +306,12 @@ namespace testing
         c = a - b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "-", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -482,12 +323,12 @@ namespace testing
         c -= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "-=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -497,12 +338,12 @@ namespace testing
 
         c = a - randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "-", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -514,12 +355,12 @@ namespace testing
         c -= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "-=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -534,7 +375,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -547,8 +388,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_mul(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestMul(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -574,12 +415,12 @@ namespace testing
         c = a * b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "*", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -591,12 +432,12 @@ namespace testing
         c *= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "*=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -606,12 +447,12 @@ namespace testing
 
         c = a * randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "*", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -623,12 +464,12 @@ namespace testing
         c *= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "*=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -643,7 +484,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -656,8 +497,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_div(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestDiv(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -684,12 +525,12 @@ namespace testing
         c = a / b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "/", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -701,12 +542,12 @@ namespace testing
         c /= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "/=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -716,12 +557,12 @@ namespace testing
 
         c = a / randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "/", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -733,12 +574,12 @@ namespace testing
         c /= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "/=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -753,7 +594,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -765,8 +606,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_mod(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestMod(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -794,12 +635,12 @@ namespace testing
         c = a % b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "%", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -811,12 +652,12 @@ namespace testing
         c %= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "%=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -826,12 +667,12 @@ namespace testing
 
         c = a % randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "%", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -843,12 +684,12 @@ namespace testing
         c %= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "%=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -863,7 +704,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -876,8 +717,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_lshift(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestLshift(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -900,12 +741,12 @@ namespace testing
         c = a << b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "<<", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -917,12 +758,12 @@ namespace testing
         c <<= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "<<=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -932,12 +773,12 @@ namespace testing
 
         c = a << randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "<<", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -949,12 +790,12 @@ namespace testing
         c <<= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "<<=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -969,7 +810,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -982,8 +823,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_rshift(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestRshift(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -1006,12 +847,12 @@ namespace testing
         c = a >> b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 ">>", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1023,12 +864,12 @@ namespace testing
         c >>= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 ">>=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1038,12 +879,12 @@ namespace testing
 
         c = a >> (const unsigned int&)randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 ">>", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1055,12 +896,12 @@ namespace testing
         c >>= (const unsigned int&)randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 ">>=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1075,7 +916,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -1088,8 +929,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_or(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestOR(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -1115,12 +956,12 @@ namespace testing
         c = a | b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "|", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1132,12 +973,12 @@ namespace testing
         c |= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "|=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1147,12 +988,12 @@ namespace testing
 
         c = a | randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "|", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1164,12 +1005,12 @@ namespace testing
         c |= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "|=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1184,7 +1025,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -1197,8 +1038,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_and(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestAND(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -1224,12 +1065,12 @@ namespace testing
         c = a & b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "&", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1241,12 +1082,12 @@ namespace testing
         c &= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "&=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1256,12 +1097,12 @@ namespace testing
 
         c = a & randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "&", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1273,12 +1114,12 @@ namespace testing
         c &= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "&=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1293,7 +1134,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -1306,8 +1147,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_xor(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestXOR(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size), litV(size);
@@ -1333,12 +1174,12 @@ namespace testing
         c = a ^ b;
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "^", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1350,12 +1191,12 @@ namespace testing
         c ^= b;
 
         if(c != expected){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "^=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(T).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1365,12 +1206,12 @@ namespace testing
 
         c = a ^ randLit;
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "^", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1382,12 +1223,12 @@ namespace testing
         c ^= randLit;
 
         if(c != expectedLit){
-            print_test_failed(
+            printTestFailed(
                 __FILE__, 
                 __LINE__, 
                 __func__,
                 "^=", 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
                 expected.str(), 
                 c.str()
@@ -1402,7 +1243,7 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
@@ -1416,8 +1257,8 @@ namespace testing
      * @param size Elements count in type `T`.
      * @return 0 on success or 1 on failure.
      */
-    template <typename T, typename S>
-    int universal_test_not(const unsigned int size = T::size) {
+    template <typename T, typename S = T::storedType>
+    int universalTestNOT(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size), bV(size), resV(size);
@@ -1450,7 +1291,7 @@ namespace testing
                 tmp.c_str(), 
                 __LINE__, 
                 __func__, 
-                demangle(typeid(T).name()).c_str(), 
+                demangle(typeid(T).name()).c_str(),
                 expected.str().c_str(), 
                 c.str().c_str()
             );
@@ -1463,13 +1304,13 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
 
-    template<typename T, typename S>
-    int universal_test_indexing(const unsigned int size = T::size) {
+    template<typename T, typename S = T::storedType>
+    int universalTestIndexing(const unsigned int size = T::size) {
         int result = 0;
         auto start = std::chrono::steady_clock::now();
         std::vector<S> aV(size);
@@ -1529,105 +1370,18 @@ namespace testing
 
         auto stop = std::chrono::steady_clock::now();
 
-        print_test_duration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);
 
         return result;
     }
 
-    /*template <typename T, typename S>
-    int universal_test_limits(unsigned int size = T::size){
-        S ffs = UINT64_MAX;
-        S Offs = UINT64_MAX >> 1;
-        return 0;
-    }*/
-
-   template<typename T, typename S>
-   int universal_test_perf_avx(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV) {
-    if(aV.size() != bV.size() || aV.size() != cV.size()){
-        std::cerr << "Vector sizes don't match!\n";
-        return 1;
-    }
-
-    /* // Warmup code should go here
-    for(size_t i{0}; i < aV.size() / 4; ++i){
-
-    }*/
-    
-    auto start = std::chrono::high_resolution_clock::now();
-    size_t index = 0;
-    for(; index < aV.size() - T::size; index += T::size){
-        T a(aV.data() + index);
-        T b(bV.data() + index);
-        T c = a + b;
-        c += 3;
-        c *= 2;
-        c = c / 4;
-        c <<= 2;
-        c *= b;
-        c -= a;
-        c.save(cV.data() + index);
-    }
-
-    for(;index < aV.size(); ++index){
-        cV[index] = aV[index] + bV[index];
-        cV[index] += 3;
-        cV[index] *= 2;
-        cV[index] = cV[index] / 4;
-        cV[index] <<= 2;
-        cV[index] *= bV[index];
-        cV[index] -= aV[index];
-    } 
-
-
-    auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
-    auto formatted_duration = universal_duration(duration);
-    std::cout << "Test " << __func__ << " finished in " << formatted_duration.first << ' ' << formatted_duration.second <<'\n';
-
-    return 0;
-   }
-
-    template<typename T, typename S>
-    int universal_test_perf_seq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV) {
-        if(aV.size() != bV.size() || aV.size() != cV.size()){
-            std::cerr << "Vector sizes don't match!\n";
-            return 1;
-        }
-
-        /* // Warmup code should go here
-        for(size_t i{0}; i < aV.size() / 4; ++i){
-
-        }*/
-        
-        auto start = std::chrono::high_resolution_clock::now();
-        const S *aP = aV.data(), *bP = bV.data();
-        S *cP = cV.data();
-        for(size_t index = 0;index < aV.size(); ++index){
-            cP[index] = aP[index] + bP[index];
-            cP[index] += 3;
-            cP[index] *= 2;
-            cP[index] = cP[index] / 4;
-            cP[index] <<= 2;
-            cP[index] *= bP[index];
-            cP[index] -= aP[index];
-        } 
-
-
-        auto stop = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
-        auto formatted_duration = universal_duration(duration);
-        std::cout << "Test " << __func__ << " finished in " << formatted_duration.first << ' ' << formatted_duration.second <<'\n';
-
-        return 0;
-   }
-
-    bool file_exists(const std::string &filename){
+    bool fileExists(const std::string &filename){
         return std::filesystem::exists(filename) && std::filesystem::is_regular_file(filename);
     }
 
     template <typename T>
-    bool read_file(const std::string &filename, std::vector<T> &dest) {
-        if(!file_exists(filename)) return false;
+    bool readFile(const std::string &filename, std::vector<T> &dest) {
+        if(!fileExists(filename)) return false;
         
         uint64_t file_size = std::filesystem::file_size(filename);
         if(!file_size) return false;

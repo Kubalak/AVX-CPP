@@ -18,7 +18,7 @@ namespace testing{
         void printCPUDetails() {
             std::array<char, 128> buff;
             std::string cpu_info;
-            
+
             #ifdef _MSC_VER
                 FILE* pipe = _popen("wmic cpu get name,numberofcores,numberoflogicalprocessors /FORMAT:list", "r");
             #else
@@ -84,22 +84,22 @@ namespace testing{
             
             if(!silent) {
                 stop = std::chrono::steady_clock::now();
-                auto [value, unit] = universal_duration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+                auto [value, unit] = universalDuration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
                 std::printf("CPU warmup finished in %.4lf %s\n", value, unit.c_str());
             }
         }
 
         template<typename S>
-        std::string validationToStr(const std::tuple<int64_t, S, S>& retVal){            
+        std::string validationToStr(const std::tuple<int64_t, S, S>& retVal){
             if(std::get<0>(retVal) == -2) return "E_INVAL_SIZE";
             if(std::get<0>(retVal) == -1) return "OK";
             return "[" + std::to_string(std::get<0>(retVal)) + "] -> " + std::to_string(std::get<1>(retVal)) + " vs " + std::to_string(std::get<2>(retVal));
         }
-        
+
 
         /**
          * Verifies results of adding `aV` and `bV` comparing it with `cV`.
-         * 
+         *
          * @param aV First vector
          * @param bV Second vector
          * @param cV Results vector
@@ -123,7 +123,7 @@ namespace testing{
 
                     if(print)
                         std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
-                    
+
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
@@ -133,7 +133,7 @@ namespace testing{
 
         /**
          * Verifies results of substracting `bV` from `aV` comparing it with `cV`.
-         * 
+         *
          * @param aV First vector
          * @param bV Second vector
          * @param cV Results vector
@@ -157,7 +157,7 @@ namespace testing{
 
                     if(print)
                         std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
-                    
+
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
@@ -167,7 +167,7 @@ namespace testing{
 
         /**
          * Verifies results of multiplying `aV`and `bV` comparing it with `cV`.
-         * 
+         *
          * @param aV First vector
          * @param bV Second vector
          * @param cV Results vector
@@ -191,7 +191,7 @@ namespace testing{
 
                     if(print)
                         std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
-                    
+
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
@@ -201,7 +201,7 @@ namespace testing{
 
         /**
          * Verifies results of dividing `aV` by `bV` comparing it with `cV`.
-         * 
+         *
          * @param aV First vector
          * @param bV Second vector
          * @param cV Results vector
@@ -225,7 +225,7 @@ namespace testing{
 
                     if(print)
                         std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
-                    
+
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
@@ -235,7 +235,7 @@ namespace testing{
 
         /**
          * Verifies results of modulo between `aV` and `bV` comparing it with `cV`.
-         * 
+         *
          * @param aV First vector
          * @param bV Second vector
          * @param cV Results vector
@@ -259,7 +259,7 @@ namespace testing{
 
                     if(print)
                         std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
-                    
+
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
@@ -269,7 +269,7 @@ namespace testing{
 
         /**
          * Verifies results of AND between `aV` and `bV` comparing it with `cV`.
-         * 
+         *
          * @param aV First vector
          * @param bV Second vector
          * @param cV Results vector
@@ -293,7 +293,7 @@ namespace testing{
 
                     if(print)
                         std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
-                    
+
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
@@ -303,7 +303,7 @@ namespace testing{
 
         /**
          * Verifies results of left shift between `aV` and `bV` comparing it with `cV`.
-         * 
+         *
          * @param aV First vector
          * @param bV Second vector
          * @param cV Results vector
@@ -327,7 +327,7 @@ namespace testing{
 
                     if(print)
                         std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
-                    
+
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
@@ -344,7 +344,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = typename T::storedType>
         int64_t testAddAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -393,6 +393,8 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testAddSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -420,7 +422,6 @@ namespace testing{
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
 
-        
         /**
          * Performs a performance test of - and -= operator on types from `avx` namespace. Loads data from `aV` and `bV` and performs + operation.
          * 
@@ -430,7 +431,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = typename T::storedType>
         int64_t testSubAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -477,6 +478,8 @@ namespace testing{
          * @param aV First vector with data.
          * @param bV Second vector with data.
          * @param cV Results vector.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
          */
@@ -515,7 +518,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = typename T::storedType>
         int64_t testMulAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -562,8 +565,8 @@ namespace testing{
          * @param aV First vector with data.
          * @param bV Second vector with data.
          * @param cV Results vector.
-         * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testMulSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -600,7 +603,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = typename T::storedType>
         int64_t testDivAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -647,8 +650,8 @@ namespace testing{
          * @param aV First vector with data.
          * @param bV Second vector with data.
          * @param cV Results vector.
-         * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testDivSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -685,7 +688,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = typename T::storedType>
         int64_t testModAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -732,8 +735,8 @@ namespace testing{
          * @param aV First vector with data.
          * @param bV Second vector with data.
          * @param cV Results vector.
-         * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testModSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -770,7 +773,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = typename T::storedType>
         int64_t testAndAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -817,8 +820,8 @@ namespace testing{
          * @param aV First vector with data.
          * @param bV Second vector with data.
          * @param cV Results vector.
-         * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testAndSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -855,7 +858,7 @@ namespace testing{
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
          * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename T, typename S = typename T::storedType>
         int64_t testLshiftAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
@@ -901,8 +904,8 @@ namespace testing{
          * @param aV First vector with data.
          * @param bV Second vector with data.
          * @param cV Results vector.
-         * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testLshiftSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -937,7 +940,7 @@ namespace testing{
          * @param cV Vector to store results. Also used for verification purposes.
          * @param config Tests configuration struct.
          * @param itemsCount By default set to `-1`. When value is greater than `0 `adjusts `aV`, `bV` and `cV` sizes to passed value.
-         * @returns `int` of which corresponding bit is set to 1 if verification test has failed. Otherwise set to `0`. Bits are set according to tests order in logs. 
+         * @returns `int` of which corresponding bit is set to 1 if verification test has failed. Otherwise set to `0`. Bits are set according to tests order in logs.
          */
         template<typename T, typename S = typename T::storedType>
         int allPerfTest(std::vector<S> &aV, std::vector<S> &bV, std::vector<S> &cV, const TestConfig &config, int64_t itemsCount = -1) {
@@ -957,7 +960,7 @@ namespace testing{
 
             if(config.printCPUInfo)
                 printCPUDetails();
-            
+
             auto start = std::chrono::steady_clock::now();
 
             std::srand(config.randomSeed);
@@ -997,7 +1000,7 @@ namespace testing{
             times[1] = testing::perf::testAddSeq<S>(aV, bV, cV, false);
             if(config.verifyValues)
                 validations[1] = testing::perf::verifyAdd(aV, bV, cV, false);
-                
+
             times[2] = testing::perf::testMulAVX<T>(aV, bV, cV, false);
             if(config.verifyValues)
                 validations[2] = testing::perf::verifyMul(aV, bV, cV, false);
@@ -1029,32 +1032,32 @@ namespace testing{
             times[9] = testing::perf::testLshiftSeq<S>(aV, bV, cV, false);
             if(config.verifyValues)
                 validations[9] = testing::perf::verifyLshift(aV, bV, cV, false);
-            
+
             std::string validationRes = "";
 
-            auto duration = testing::universal_duration(times[0]);            
+            auto duration = testing::universal_duration(times[0]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[0]);
             printf("%-20s %8.4lf %-3s%s\n", "Test add AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[1]);            
+            duration = testing::universal_duration(times[1]);
             if(config.verifyValues)
-                validationRes = validationToStr(validations[1]);            
+                validationRes = validationToStr(validations[1]);
             printf("%-20s %8.4lf %-3s%s\n", "Test add seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
             duration = testing::universal_duration(times[2]);
             if(config.verifyValues)
-                validationRes = validationToStr(validations[2]);            
+                validationRes = validationToStr(validations[2]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mul AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[3]);            
+            duration = testing::universal_duration(times[3]);
             if(config.verifyValues)
-                validationRes = validationToStr(validations[3]);            
+                validationRes = validationToStr(validations[3]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mul seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[4]);            
+            duration = testing::universal_duration(times[4]);
             if(config.verifyValues)
-                validationRes = validationToStr(validations[4]);            
+                validationRes = validationToStr(validations[4]);
             printf("%-20s %8.4lf %-3s%s\n", "Test div AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
             duration = testing::universal_duration(times[5]);

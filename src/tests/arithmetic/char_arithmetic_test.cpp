@@ -4,18 +4,18 @@
 
 
 int main(int argc, char* argv[]) {
-    int result = testing::universal_test_add<avx::Char256, char>();
-    result |= testing::universal_test_sub<avx::Char256, char>();
-    result |= testing::universal_test_mul<avx::Char256, char>();
-    result |= testing::universal_test_div<avx::Char256, char>();
-    result |= testing::universal_test_mod<avx::Char256, char>();
-    result |= testing::universal_test_and<avx::Char256, char>();
-    result |= testing::universal_test_or<avx::Char256, char>();
-    result |= testing::universal_test_xor<avx::Char256, char>();
-    result |= testing::universal_test_not<avx::Char256, char>();
-    result |= testing::universal_test_rshift<avx::Char256, char>();
-    result |= testing::universal_test_lshift<avx::Char256, char>();
-    result |= testing::universal_test_indexing<avx::Char256, char>();
+    int result = testing::universalTestAdd<avx::Char256>();
+    result |= testing::universalTestSub<avx::Char256>();
+    result |= testing::universalTestMul<avx::Char256>();
+    result |= testing::universalTestDiv<avx::Char256>();
+    result |= testing::universalTestMod<avx::Char256>();
+    result |= testing::universalTestAND<avx::Char256>();
+    result |= testing::universalTestOR<avx::Char256>();
+    result |= testing::universalTestXOR<avx::Char256>();
+    result |= testing::universalTestNOT<avx::Char256>();
+    result |= testing::universalTestRshift<avx::Char256>();
+    result |= testing::universalTestLshift<avx::Char256>();
+    result |= testing::universalTestIndexing<avx::Char256>();
 
     return result;
 }

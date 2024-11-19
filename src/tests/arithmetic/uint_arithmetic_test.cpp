@@ -74,26 +74,26 @@ int main(int argc, char* argv[]) {
     #endif
 
     printf("Compiler %s %d.%d.%d, build date: %s %s on %s\n", 
-        testing::get_compiler_name(), 
-        testing::get_compiler_major(),
-        testing::get_compiler_minor(), 
-        testing::get_compiler_patch_level(), 
+        testing::getCompilerName(), 
+        testing::getCompilerMajor(),
+        testing::getCompilerMinor(), 
+        testing::getCompilerPatchLevel(), 
         __DATE__, __TIME__, 
-        testing::get_platform()
+        testing::getPlatform()
     );
 
-    result |= testing::universal_test_add<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_sub<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_mul<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_div<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_mod<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_and<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_or<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_xor<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_not<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_lshift<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_rshift<avx::UInt256, unsigned int>();
-    result |= testing::universal_test_indexing<avx::UInt256, unsigned int>();
+    result |= testing::universalTestAdd<avx::UInt256>();
+    result |= testing::universalTestSub<avx::UInt256>();
+    result |= testing::universalTestMul<avx::UInt256>();
+    result |= testing::universalTestDiv<avx::UInt256>();
+    result |= testing::universalTestMod<avx::UInt256>();
+    result |= testing::universalTestAND<avx::UInt256>();
+    result |= testing::universalTestOR<avx::UInt256>();
+    result |= testing::universalTestXOR<avx::UInt256>();
+    result |= testing::universalTestNOT<avx::UInt256>();
+    result |= testing::universalTestLshift<avx::UInt256>();
+    result |= testing::universalTestRshift<avx::UInt256>();
+    result |= testing::universalTestIndexing<avx::UInt256>();
 
     result |= data_load_save();
     result |= data_load_save_aligned();

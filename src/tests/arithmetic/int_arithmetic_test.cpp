@@ -64,18 +64,18 @@ int data_load_save_aligned(){
 int main(int argc, char* argv[]) {
     int result = 0;
     
-    result |= testing::universal_test_add<avx::Int256, int>();
-    result |= testing::universal_test_sub<avx::Int256, int>();
-    result |= testing::universal_test_mul<avx::Int256, int>();
-    result |= testing::universal_test_div<avx::Int256, int>();
-    result |= testing::universal_test_mod<avx::Int256, int>();
-    result |= testing::universal_test_and<avx::Int256, int>();
-    result |= testing::universal_test_or<avx::Int256, int>();
-    result |= testing::universal_test_xor<avx::Int256, int>();
-    result |= testing::universal_test_not<avx::Int256, int>();
-    result |= testing::universal_test_lshift<avx::Int256, int>();
-    result |= testing::universal_test_rshift<avx::Int256, int>();
-    result |= testing::universal_test_indexing<avx::Int256, int>();
+    result |= testing::universalTestAdd<avx::Int256>();
+    result |= testing::universalTestSub<avx::Int256>();
+    result |= testing::universalTestMul<avx::Int256>();
+    result |= testing::universalTestDiv<avx::Int256>();
+    result |= testing::universalTestMod<avx::Int256>();
+    result |= testing::universalTestAND<avx::Int256>();
+    result |= testing::universalTestOR<avx::Int256>();
+    result |= testing::universalTestXOR<avx::Int256>();
+    result |= testing::universalTestNOT<avx::Int256>();
+    result |= testing::universalTestLshift<avx::Int256>();
+    result |= testing::universalTestRshift<avx::Int256>();
+    result |= testing::universalTestIndexing<avx::Int256>();
 
     result |= data_load_save();
     result |= data_load_save_aligned();

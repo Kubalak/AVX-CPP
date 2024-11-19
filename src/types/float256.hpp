@@ -13,6 +13,7 @@ namespace avx {
 
         public:
             static constexpr int size = 8;
+            using storedType = float;
 
             Float256() noexcept : v(_mm256_setzero_ps()){}
             Float256(const Float256 &init) noexcept : v(init.v){}

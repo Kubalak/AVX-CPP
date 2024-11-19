@@ -27,7 +27,7 @@ int64_t perf_test_add_raw_avx(const std::vector<unsigned int>& aV, const std::ve
     
     auto stop = std::chrono::steady_clock::now();
     if(print)
-        testing::print_test_duration(__func__, start, stop);
+        testing::printTestDuration(__func__, start, stop);
     
     return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
 }
