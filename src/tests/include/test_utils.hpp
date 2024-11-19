@@ -106,7 +106,6 @@ namespace testing
         #endif
     }
 
-    void print_test_failed(const char* filename, const int line, const char* func, const char* op, const char* type_a, const char* type_b, const std::string& expected, const std::string& actual) {
     void printTestFailed(const char* filename, const int line, const char* func, const char* op, const char* type_a, const char* type_b, const std::string& expected, const std::string& actual) {
         std::string tmp(filename);
         std::smatch match;

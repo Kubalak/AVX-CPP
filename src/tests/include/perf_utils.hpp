@@ -379,7 +379,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -392,7 +392,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          * @param print If set to `false` function produces no output to stdout.
          * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
@@ -417,7 +417,7 @@ namespace testing{
             
             auto stop = std::chrono::steady_clock::now();
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -466,7 +466,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -481,7 +481,7 @@ namespace testing{
          * @param print If set to `false` function produces no output to stdout.
          * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universal_duration` to get human-readable values.
+         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testSubSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -504,7 +504,7 @@ namespace testing{
             
             auto stop = std::chrono::steady_clock::now();
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -553,7 +553,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -589,7 +589,7 @@ namespace testing{
             
             auto stop = std::chrono::steady_clock::now();
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -638,7 +638,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -674,7 +674,7 @@ namespace testing{
             
             auto stop = std::chrono::steady_clock::now();
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -723,7 +723,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -759,7 +759,7 @@ namespace testing{
             
             auto stop = std::chrono::steady_clock::now();
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -808,7 +808,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -844,7 +844,7 @@ namespace testing{
             
             auto stop = std::chrono::steady_clock::now();
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -892,7 +892,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -928,7 +928,7 @@ namespace testing{
             
             auto stop = std::chrono::steady_clock::now();
             if(print)
-                print_test_duration(__func__, start, stop);
+                printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
@@ -955,7 +955,7 @@ namespace testing{
                 return -1;
             }
 
-            printf("All performance tests for %s{%s}. \nCompiled using %s %d.%d.%d on %s at %s\n", demangle(typeid(T).name()).c_str(), demangle(typeid(S).name()).c_str(), get_compiler_name(), get_compiler_major(), get_compiler_minor(), get_compiler_patch_level(), get_platform(), __DATE__);
+            printf("All performance tests for %s{%s}. \nCompiled using %s %d.%d.%d on %s at %s\n", demangle(typeid(T).name()).c_str(), demangle(typeid(S).name()).c_str(), getCompilerName(), getCompilerMajor(), getCompilerMinor(), getCompilerPatchLevel(), getPlatform(), __DATE__);
             printf("Testing with vector size of %zu\n", aV.size());
 
             if(config.printCPUInfo)
@@ -984,7 +984,7 @@ namespace testing{
             auto stop = std::chrono::steady_clock::now();
 
             if(config.printPreparationTime){
-                auto[value, unit] = testing::universal_duration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count());
+                auto[value, unit] = testing::universalDuration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count());
                 printf("%-20s %8.4lf %s\n",  "Preparation took: ", value, unit.c_str());
             }
 
@@ -1035,59 +1035,59 @@ namespace testing{
 
             std::string validationRes = "";
 
-            auto duration = testing::universal_duration(times[0]);
+            auto duration = testing::universalDuration(times[0]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[0]);
             printf("%-20s %8.4lf %-3s%s\n", "Test add AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[1]);
+            duration = testing::universalDuration(times[1]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[1]);
             printf("%-20s %8.4lf %-3s%s\n", "Test add seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[2]);
+            duration = testing::universalDuration(times[2]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[2]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mul AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[3]);
+            duration = testing::universalDuration(times[3]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[3]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mul seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[4]);
+            duration = testing::universalDuration(times[4]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[4]);
             printf("%-20s %8.4lf %-3s%s\n", "Test div AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[5]);
+            duration = testing::universalDuration(times[5]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[5]);
             printf("%-20s %8.4lf %-3s%s\n", "Test div seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[6]);
+            duration = testing::universalDuration(times[6]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[6]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[7]);
+            duration = testing::universalDuration(times[7]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[7]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mod seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[8]);
+            duration = testing::universalDuration(times[8]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[8]);
             printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universal_duration(times[9]);
+            duration = testing::universalDuration(times[9]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[9]);
             printf("%-20s %8.4lf %-3s%s\n", "Test lshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
             stop = std::chrono::steady_clock::now();
 
-            duration = universal_duration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
+            duration = universalDuration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
 
             int result = 0;
             if(config.verifyValues)
