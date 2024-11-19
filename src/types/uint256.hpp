@@ -327,25 +327,7 @@ namespace avx {
             }
 
 
-            UInt256 operator/(const UInt256& b) const noexcept {
-                /*if(_mm256_testz_si256(b.v, constants::EPI32_SIGN)) {
-
-                    __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
-                    __m256i restVal = _mm256_xor_si256(v, msbVal);
-
-                    __m256 divisor = _mm256_cvtepi32_ps(b.v);
-
-                    __m256 result = _mm256_add_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor));
-
-                    return _mm256_cvtps_epi32(_mm256_floor_ps(result));
-                }*/
-
-                #ifdef _MSC_VER
-                    __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), _mm256_extracti128_si256(b.v, 0));
-                    __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), _mm256_extracti128_si256(b.v, 1));
-
-                    return _mm256_set_m128i(hires, lores);
-                #else
+            UInt256 operator/(const UInt256& b) const noexcept {             
                     int div_lt_limit = _mm256_testz_si256(b.v, constants::EPI32_SIGN); // b.v AND 0b1000'0000...0b1000'0000 == 0
                     int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
                     switch((num_lt_limit << 1) | div_lt_limit) {
@@ -353,16 +335,23 @@ namespace avx {
                             
                         case 0b01:
                             {
-                                alignas(32) unsigned int aV[size];
-                                alignas(32) unsigned int bV[size];
-                                
-                                _mm256_store_si256((__m256i*)aV, v);
-                                _mm256_store_si256((__m256i*)bV, b.v);
+                                #ifdef _MSC_VER
+                                    __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), _mm256_extracti128_si256(b.v, 0));
+                                    __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), _mm256_extracti128_si256(b.v, 1));
 
-                                for(unsigned int i{0}; i < 8; ++i)
-                                    aV[i] = bV[i] ? aV[i] / bV[i] : 0;
-                                
-                                return _mm256_load_si256((const __m256i*)aV);
+                                    return _mm256_set_m128i(hires, lores);
+                                #else
+                                    alignas(32) unsigned int aV[size];
+                                    alignas(32) unsigned int bV[size];
+                                    
+                                    _mm256_store_si256((__m256i*)aV, v);
+                                    _mm256_store_si256((__m256i*)bV, b.v);
+
+                                    for(unsigned int i{0}; i < 8; ++i)
+                                        aV[i] = bV[i] ? aV[i] / bV[i] : 0;
+                                    
+                                    return _mm256_load_si256((const __m256i*)aV);
+                                #endif
                             }
                         case 0b10:
                             {
@@ -381,19 +370,11 @@ namespace avx {
                             );
                     }
 
-                    return _mm256_setzero_si256();
-                #endif
+                return _mm256_setzero_si256();
             }
 
             UInt256 operator/(const unsigned int& b) const noexcept {
                 if(b) {
-                    #ifdef _MSC_VER
-                        __m128i bV = _mm_set1_epi32(b);
-                        __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), bV);
-                        __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), bV);
-                        
-                        return _mm256_set_m128i(hires, lores);
-                    #else
                         if(b < 2)
                             return v;
 
@@ -402,14 +383,22 @@ namespace avx {
                         switch((num_lt_limit << 1) | div_lt_limit) {
                             case 0b00:
                                 {
-                                    alignas(32) unsigned int aV[size];
-                            
-                                    _mm256_store_si256((__m256i*)aV, v);
+                                    #ifdef _MSC_VER
+                                        __m128i bV = _mm_set1_epi32(b);
+                                        __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), bV);
+                                        __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), bV);
+                                        
+                                        return _mm256_set_m128i(hires, lores);
+                                    #else
+                                        alignas(32) unsigned int aV[size];
+                                
+                                        _mm256_store_si256((__m256i*)aV, v);
 
-                                    for(unsigned int i{0}; i < 8; ++i)
-                                        aV[i] /= b;
-                                    
-                                    return _mm256_load_si256((const __m256i*)aV);
+                                        for(unsigned int i{0}; i < 8; ++i)
+                                            aV[i] /= b;
+                                        
+                                        return _mm256_load_si256((const __m256i*)aV);
+                                    #endif
                                     break;
                                 }
                             case 0b01:
@@ -435,25 +424,25 @@ namespace avx {
                                     _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
                                 );
                                 break;
-                        }
-                    #endif
+                    }
                 }
                 
                 return _mm256_setzero_si256();
             }
 
             UInt256& operator/=(const UInt256& b) noexcept {
-                #ifdef _MSC_VER
-                    __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), _mm256_extracti128_si256(b.v, 0));
-                    __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), _mm256_extracti128_si256(b.v, 1));
+                
+                int div_lt_limit = _mm256_testz_si256(b.v, constants::EPI32_SIGN); // b.v AND 0b1000'0000...0b1000'0000 == 0
+                int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
+                switch((num_lt_limit << 1) | div_lt_limit) {
+                    case 0b00:
+                        {
+                            #ifdef _MSC_VER
+                                __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), _mm256_extracti128_si256(b.v, 0));
+                                __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), _mm256_extracti128_si256(b.v, 1));
 
-                    v = _mm256_set_m128i(hires, lores);
-                #else
-                    int div_lt_limit = _mm256_testz_si256(b.v, constants::EPI32_SIGN); // b.v AND 0b1000'0000...0b1000'0000 == 0
-                    int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
-                    switch((num_lt_limit << 1) | div_lt_limit) {
-                        case 0b00:
-                            {
+                                v = _mm256_set_m128i(hires, lores);
+                            #else
                                 alignas(32) unsigned int aV[size];
                                 alignas(32) unsigned int bV[size];
                                 
@@ -464,50 +453,51 @@ namespace avx {
                                     aV[i] = bV[i] ? aV[i] / bV[i] : 0;
                                 
                                 v = _mm256_load_si256((const __m256i*)aV);
-                                break;
-                            }
-                        case 0b01:
-                            v = _mm256_setzero_si256();
+                            #endif
                             break;
-                        case 0b10:
-                            {
-                                __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
-                                __m256i restVal = _mm256_xor_si256(v, msbVal);
+                        }
+                    case 0b01:
+                        v = _mm256_setzero_si256();
+                        break;
+                    case 0b10:
+                        {
+                            __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                            __m256i restVal = _mm256_xor_si256(v, msbVal);
 
-                                __m256 divisor = _mm256_cvtepi32_ps(b.v);
+                            __m256 divisor = _mm256_cvtepi32_ps(b.v);
 
-                                __m256 result = _mm256_add_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor));
+                            __m256 result = _mm256_add_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor));
 
-                                v = _mm256_cvttps_epi32(result);
-                                break;
-                            }
-                        case 0b11:
-                            v = _mm256_cvttps_epi32(
-                                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
-                            );
+                            v = _mm256_cvttps_epi32(result);
                             break;
-                    }
-                #endif
+                        }
+                    case 0b11:
+                        v = _mm256_cvttps_epi32(
+                            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
+                        );
+                        break;
+                }
                 return *this;
             }
 
             UInt256& operator/=(const unsigned int b) noexcept {
                 if(b) {
-                    #ifdef _MSC_VER
-                        __m128i bV = _mm_set1_epi32(b);
-                        __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), bV);
-                        __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), bV);
-                        
-                        v = _mm256_set_m128i(hires, lores);
-                    #else
-                        if(b < 2)
-                            return *this;
+                    
+                    if(b < 2)
+                        return *this;
 
-                        unsigned int div_lt_limit = (b < 0x8000'0000) ? 1 : 0;
-                        unsigned int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
-                        switch((num_lt_limit << 1) | div_lt_limit) {
-                            case 0b00:
-                                {
+                    unsigned int div_lt_limit = (b < 0x8000'0000) ? 1 : 0;
+                    unsigned int num_lt_limit = _mm256_testz_si256(v, constants::EPI32_SIGN);
+                    switch((num_lt_limit << 1) | div_lt_limit) {
+                        case 0b00:
+                            {
+                                #ifdef _MSC_VER
+                                    __m128i bV = _mm_set1_epi32(b);
+                                    __m128i lores = _mm_div_epu32(_mm256_extracti128_si256(v, 0), bV);
+                                    __m128i hires = _mm_div_epu32(_mm256_extracti128_si256(v, 1), bV);
+                                    
+                                    v = _mm256_set_m128i(hires, lores);
+                                #else
                                     alignas(32) unsigned int aV[size];
                             
                                     _mm256_store_si256((__m256i*)aV, v);
@@ -516,33 +506,33 @@ namespace avx {
                                         aV[i] /= b;
                                     
                                     v = _mm256_load_si256((const __m256i*)aV);
-                                    break;
-                                }
-                            case 0b01:
-                                {  
-                                    __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
-                                    __m256i restVal = _mm256_xor_si256(v, msbVal);
-
-                                    __m256 divisor = _mm256_set1_ps(b);
-
-                                    __m256 result = _mm256_add_ps(
-                                        _mm256_and_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), constants::FLOAT_NO_SIGN), 
-                                        _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor)
-                                    );
-
-                                    v = _mm256_cvttps_epi32(result);
-                                    break;
-                                }
-                            case 0b10:
-                                v = _mm256_setzero_si256();
+                                #endif
                                 break;
-                            case 0b11:
-                                v =  _mm256_cvttps_epi32(
-                                    _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
+                            }
+                        case 0b01:
+                            {  
+                                __m256i msbVal = _mm256_and_si256(v, constants::EPI32_SIGN);
+                                __m256i restVal = _mm256_xor_si256(v, msbVal);
+
+                                __m256 divisor = _mm256_set1_ps(b);
+
+                                __m256 result = _mm256_add_ps(
+                                    _mm256_and_ps(_mm256_div_ps(_mm256_cvtepi32_ps(msbVal), divisor), constants::FLOAT_NO_SIGN), 
+                                    _mm256_div_ps(_mm256_cvtepi32_ps(restVal), divisor)
                                 );
+
+                                v = _mm256_cvttps_epi32(result);
                                 break;
-                        }
-                    #endif
+                            }
+                        case 0b10:
+                            v = _mm256_setzero_si256();
+                            break;
+                        case 0b11:
+                            v =  _mm256_cvttps_epi32(
+                                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
+                            );
+                            break;
+                    }
                 }
                 else 
                     v = _mm256_setzero_si256();

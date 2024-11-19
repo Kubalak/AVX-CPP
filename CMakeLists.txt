@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(AVX-CPP VERSION 0.2.1 LANGUAGES C CXX)
+project(AVX-CPP VERSION 0.3.2 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
@@ -54,18 +54,24 @@ if(BUILD_TESTING)
     if(BUILD_PERFORMANCE_TESTS)
         add_executable(int_perf_tests "${SOURCE_DIR}/tests/perf/int_perf_tests.cpp")
         add_executable(uint_perf_tests "${SOURCE_DIR}/tests/perf/uint_perf_tests.cpp")
+        add_executable(short_perf_tests "${SOURCE_DIR}/tests/perf/short_perf_tests.cpp")
+        add_executable(ushort_perf_tests "${SOURCE_DIR}/tests/perf/ushort_perf_tests.cpp")
         add_executable(char_perf_tests "${SOURCE_DIR}/tests/perf/char_perf_tests.cpp")
-        add_executable(perf_tests "${SOURCE_DIR}/tests/perf/new_perf_tests.cpp")
+        add_executable(uchar_perf_tests "${SOURCE_DIR}/tests/perf/uchar_perf_tests.cpp")
 
         target_include_directories(int_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
         target_include_directories(uint_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
+        target_include_directories(short_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
+        target_include_directories(ushort_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
         target_include_directories(char_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
-        target_include_directories(perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
+        target_include_directories(uchar_perf_tests PRIVATE ${UTILS_INCLUDE_DIR})
 
         target_link_libraries(int_perf_tests PRIVATE avxcpp_s)
         target_link_libraries(uint_perf_tests PRIVATE avxcpp_s)
+        target_link_libraries(short_perf_tests PRIVATE avxcpp_s)
+        target_link_libraries(ushort_perf_tests PRIVATE avxcpp_s)
         target_link_libraries(char_perf_tests PRIVATE avxcpp_s)
-        target_link_libraries(perf_tests PRIVATE avxcpp_s)
+        target_link_libraries(uchar_perf_tests PRIVATE avxcpp_s)
 
         add_test(
             NAME int_perf_tests
@@ -78,13 +84,23 @@ if(BUILD_TESTING)
         )
 
         add_test(
+            NAME short_perf_tests
+            COMMAND $<TARGET_FILE:short_perf_tests>
+        )
+
+        add_test(
+            NAME ushort_perf_tests
+            COMMAND $<TARGET_FILE:ushort_perf_tests>
+        )
+
+        add_test(
             NAME char_perf_tests
             COMMAND $<TARGET_FILE:char_perf_tests>
         )
 
         add_test(
-            NAME perf_tests
-            COMMAND $<TARGET_FILE:perf_tests>
+            NAME uchar_perf_tests
+            COMMAND $<TARGET_FILE:uchar_perf_tests>
         )
     endif()
 
@@ -166,15 +182,20 @@ if(BUILD_TESTING)
     target_compile_options(uchar_arithmetic_test PRIVATE ${OPTIMIZATION_OPTIONS})
 
     if(BUILD_PERFORMANCE_TESTS)
-        target_compile_options(int_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
         if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
-            target_compile_options(perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
+        target_compile_options(int_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
             target_compile_options(uint_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
+            target_compile_options(short_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
+            target_compile_options(ushort_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
             target_compile_options(char_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
+            target_compile_options(uchar_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS} -fno-tree-vectorize)
         elseif(MSVC)
-            target_compile_options(perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
+            target_compile_options(int_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
             target_compile_options(uint_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
+            target_compile_options(short_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
+            target_compile_options(ushort_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
             target_compile_options(char_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
+            target_compile_options(uchar_perf_tests PRIVATE ${OPTIMIZATION_OPTIONS})
         endif()
     endif()
 endif()

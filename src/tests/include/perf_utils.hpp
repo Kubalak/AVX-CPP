@@ -930,6 +930,15 @@ namespace testing{
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
 
+        /**
+         * Performs all (template) testing for given type. Returns an `int` with according bits set.
+         * @param aV Vector containing first argument when testing operators e.g. `aV[i] / bV[i]`.
+         * @param bV Vector containing second argument for operators.
+         * @param cV Vector to store results. Also used for verification purposes.
+         * @param config Tests configuration struct.
+         * @param itemsCount By default set to `-1`. When value is greater than `0 `adjusts `aV`, `bV` and `cV` sizes to passed value.
+         * @returns `int` of which corresponding bit is set to 1 if verification test has failed. Otherwise set to `0`. Bits are set according to tests order in logs. 
+         */
         template<typename T, typename S = typename T::storedType>
         int allPerfTest(std::vector<S> &aV, std::vector<S> &bV, std::vector<S> &cV, const TestConfig &config, int64_t itemsCount = -1) {
 
@@ -1080,7 +1089,7 @@ namespace testing{
             int result = 0;
             if(config.verifyValues)
                 for(unsigned int i = 0; i < 10; ++i)
-                    result |= (std::get<0>(validations[i]) != -1);
+                    result |= (std::get<0>(validations[i]) != -1) << i;
 
             printf("%-20s %8.4lf %s\n","Tests finished in:", duration.first, duration.second.c_str());
 
