@@ -514,7 +514,7 @@ namespace avx {
                 return _mm256_sllv_epi64(v, bV.v);
             }
 
-            ULong256 operator<<(const unsigned long long& b) const noexcept {
+            ULong256 operator<<(const unsigned int b) const noexcept {
                 return _mm256_slli_epi64(v, b);
             }
 
@@ -523,7 +523,7 @@ namespace avx {
                 return *this;
             }
 
-            ULong256& operator<<=(const unsigned long long& b) noexcept {
+            ULong256& operator<<=(const unsigned int b) noexcept {
                 v = _mm256_slli_epi64(v, b);
                 return *this;
             }
@@ -532,7 +532,7 @@ namespace avx {
                 return _mm256_srlv_epi64(v, bV.v);
             }
 
-            ULong256 operator>>(const unsigned long long& b) const noexcept {
+            ULong256 operator>>(const unsigned int b) const noexcept {
                 return _mm256_srli_epi64(v, b);
             }
 
@@ -541,7 +541,7 @@ namespace avx {
                 return *this;
             }
 
-            ULong256& operator>>=(const unsigned char& b) noexcept {
+            ULong256& operator>>=(const unsigned int b) noexcept {
                 v = _mm256_srli_epi64(v, b);
                 return *this;
             }

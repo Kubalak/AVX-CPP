@@ -7,13 +7,149 @@
 namespace testing{
     namespace perf{
 
+        template<typename S>
+        struct RawAVXFuncs{
+            /**
+             * Function to perform addition of two vectors using raw AVX2 code. \n
+             * Code the function should perform:
+             * 
+             * 1. Load data from `aV` to temporary vector (`a`) \n
+             * 2. Load data from `bV` to temporary vector (`b`) \n
+             * 3. Add `a` and `b` -> `c` \n
+             * 4. Add `b[b.size() / 2]` to `c`. \n
+             * 5. Save `c` to `cV` according to index.
+             * 
+             * Or following Python way of doing things `cV = (aV + bV) + bV[bV.size() / 2]`
+             * 
+             * Params in order from first to last.
+             * @param aV First vector.
+             * @param bV Second vector.
+             * @param cV Results vector.
+             * @param print Whether to print info or not. 
+             * @returns Time taken by the test in nanoseconds.
+             */
+            std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> addRaw;
+
+            /**
+             * Function to perform substraction of two vectors using raw AVX2 code. \n
+             * Code the function should perform:
+             * 
+             * 1. Load data from `aV` to temporary vector (`a`) \n
+             * 2. Load data from `bV` to temporary vector (`b`) \n
+             * 3. Substract `a` and `b` -> `c` \n
+             * 4. Substract `b[b.size() / 2]` from `c`. \n
+             * 5. Save `c` to `cV` according to index.
+             * 
+             * Or following Python way of doing things `cV = (aV - bV) - bV[bV.size() / 2]`
+             * 
+             * Params in order from first to last.
+             * @param aV First vector.
+             * @param bV Second vector.
+             * @param cV Results vector.
+             * @param print Whether to print info or not. 
+             * @returns Time taken by the test in nanoseconds.
+             */
+            std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> subRaw;
+
+            /**
+             * Function to perform multiplication of two vectors using raw AVX2 code. \n
+             * Code the function should perform:
+             * 
+             * 1. Load data from aV to temporary vector (`a`) \n
+             * 2. Load data from bV to temporary vector (`b`) \n
+             * 3. Multiply `a` by `b` -> `c` \n
+             * 4. Multiply `c` by `b[b.size() / 2]`. \n
+             * 5. Save `c` to `cV` according to index.
+             * 
+             * Or following Python way of doing things `cV = (aV * bV) * bV[bV.size() / 2]`
+             * 
+             * Params in order from first to last.
+             * @param aV First vector.
+             * @param bV Second vector.
+             * @param cV Results vector.
+             * @param print Whether to print info or not. 
+             * @returns Time taken by the test in nanoseconds.
+             */
+            std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> mulRaw;
+
+            /**
+             * Function to perform division of two vectors using raw AVX2 code. \n
+             * Code the function should perform:
+             * 
+             * 1. Load data from `aV` to temporary vector (`a`) \n
+             * 2. Load data from `bV` to temporary vector (`b`) \n
+             * 3. Divide `a` by `b` -> `c` \n
+             * 4. Divide `c` by `b[b.size() / 2]`. \n
+             * 5. Save `c` to `cV` according to index.
+             * 
+             * Or following Python way of doing things `cV = (aV / bV) / bV[bV.size() / 2]`
+             * 
+             * Params in order from first to last.
+             * @param aV First vector.
+             * @param bV Second vector.
+             * @param cV Results vector.
+             * @param print Whether to print info or not. 
+             * @returns Time taken by the test in nanoseconds.
+             */
+            std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> divRaw;
+
+            /**
+             * Function to perform modulo of two vectors using raw AVX2 code. \n
+             * Code the function should perform:
+             * 
+             * 1. Load data from `aV` to temporary vector (`a`) \n
+             * 2. Load data from `bV` to temporary vector (`b`) \n
+             * 3. Mod `a` by `b` -> `c` \n
+             * 4. Mod `c` by `b[b.size() / 2]`. \n
+             * 5. Save `c` to `cV` according to index.
+             * 
+             * Or following Python way of doing things `cV = (aV % bV) % bV[bV.size() / 2]`
+             * 
+             * Params in order from first to last.
+             * @param aV First vector.
+             * @param bV Second vector.
+             * @param cV Results vector.
+             * @param print Whether to print info or not. 
+             * @returns Time taken by the test in nanoseconds.
+             */
+            std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> modRaw;
+
+            /**
+             * Function to perform left shifting of two vectors using raw AVX2 code. \n
+             * Code the function should perform:
+             * 
+             * 1. Load data from `aV` to temporary vector (`a`) \n
+             * 2. Load data from `bV` to temporary vector (`b`) \n
+             * 3. Left shift `a` by `b` -> `c` \n
+             * 4. Left shift `c` by `b[b.size() / 2]`. \n
+             * 5. Save `c` to `cV` according to index.
+             * 
+             * Or following Python way of doing things `cV = (aV << bV) << bV[bV.size() / 2]`
+             * 
+             * Params in order from first to last.
+             * @param aV First vector.
+             * @param bV Second vector.
+             * @param cV Results vector.
+             * @param print Whether to print info or not. 
+             * @returns Time taken by the test in nanoseconds.
+             */
+            std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> lshRaw;
+        };
+
+        template <typename S>
         struct TestConfig {
             int randomSeed = 42;
+            bool verifyValues = true;
             bool printCPUInfo = true;
             bool printWarmupInfo = true;
             bool printPreparationTime = true;
-            bool verifyValues = true;
+            bool printTestFailed = false;
+            bool printVerificationFailed = false;
+            // Stores raw AVX functions for performance comparison
+            RawAVXFuncs<S> avxFuncs;
         };
+
+        
 
         void printCPUDetails() {
             std::array<char, 128> buff;
@@ -122,7 +258,7 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
@@ -156,7 +292,7 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
@@ -190,7 +326,7 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
@@ -224,7 +360,7 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
@@ -258,7 +394,7 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
@@ -292,7 +428,7 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
@@ -326,7 +462,7 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "] expected: " << cV[pos] << " got: " << temp << '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
@@ -943,7 +1079,7 @@ namespace testing{
          * @returns `int` of which corresponding bit is set to 1 if verification test has failed. Otherwise set to `0`. Bits are set according to tests order in logs.
          */
         template<typename T, typename S = typename T::storedType>
-        int allPerfTest(std::vector<S> &aV, std::vector<S> &bV, std::vector<S> &cV, const TestConfig &config, int64_t itemsCount = -1) {
+        int allPerfTest(std::vector<S> &aV, std::vector<S> &bV, std::vector<S> &cV, const TestConfig<S> &config, int64_t itemsCount = -1) {
 
             if(itemsCount > 0){
                 aV.resize(itemsCount);
@@ -988,54 +1124,102 @@ namespace testing{
                 printf("%-20s %8.4lf %s\n",  "Preparation took: ", value, unit.c_str());
             }
 
-            int64_t times[10];
-            std::tuple<int64_t, int, int> validations[10];
+            int64_t times[18];
+            std::tuple<int64_t, S, S> validations[18];
 
             start = std::chrono::steady_clock::now();
 
-            times[0] = testing::perf::testAddAVX<T>(aV, bV, cV, false);
-            if(config.verifyValues)
-                validations[0] = testing::perf::verifyAdd(aV, bV, cV, false);
+            // THIS IS SH*T IK
 
-            times[1] = testing::perf::testAddSeq<S>(aV, bV, cV, false);
-            if(config.verifyValues)
-                validations[1] = testing::perf::verifyAdd(aV, bV, cV, false);
+            if(config.avxFuncs.addRaw){
+                times[12] = config.avxFuncs.addRaw(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[12] = testing::perf::verifyAdd(aV, bV, cV, config.printVerificationFailed);
+            }
 
-            times[2] = testing::perf::testMulAVX<T>(aV, bV, cV, false);
-            if(config.verifyValues)
-                validations[2] = testing::perf::verifyMul(aV, bV, cV, false);
+            if(config.avxFuncs.subRaw){
+                times[13] = config.avxFuncs.subRaw(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[13] = testing::perf::verifySub(aV, bV, cV, config.printVerificationFailed);
+            }
 
-            times[3] = testing::perf::testMulSeq<S>(aV, bV, cV, false);
-            if(config.verifyValues)
-                validations[3] = testing::perf::verifyMul(aV, bV, cV, false);
+            if(config.avxFuncs.mulRaw){
+                times[14] = config.avxFuncs.mulRaw(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[14] = testing::perf::verifyMul(aV, bV, cV, config.printVerificationFailed);
+            }
 
-            times[4] = testing::perf::testDivAVX<T>(aV, bV, cV, false);
-            if(config.verifyValues)
-                validations[4] = testing::perf::verifyDiv(aV, bV, cV, false);
+            if(config.avxFuncs.divRaw){
+                times[15] = config.avxFuncs.divRaw(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[15] = testing::perf::verifyDiv(aV, bV, cV, config.printVerificationFailed);
+            }
 
-            times[5] = testing::perf::testDivSeq<S>(aV, bV, cV, false);
-            if(config.verifyValues)
-                validations[5] = testing::perf::verifyDiv(aV, bV, cV, false);
+            if(config.avxFuncs.modRaw){
+                times[16] = config.avxFuncs.addRaw(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[16] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
+            }
 
-            times[6] = testing::perf::testModAVX<T>(aV, bV, cV, false);
-            if(config.verifyValues)
-                validations[6] = testing::perf::verifyMod(aV, bV, cV, false);
+            if(config.avxFuncs.lshRaw){
+                times[17] = config.avxFuncs.lshRaw(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[17] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+            }
 
-            times[7] = testing::perf::testModSeq<S>(aV, bV, cV, false);
+            times[0] = testing::perf::testAddAVX<T>(aV, bV, cV, config.printTestFailed);
             if(config.verifyValues)
-                validations[7] = testing::perf::verifyMod(aV, bV, cV, false);
+                validations[0] = testing::perf::verifyAdd(aV, bV, cV, config.printVerificationFailed);
 
-            times[8] = testing::perf::testLshiftAVX<T>(aV, bV, cV, false);
+            times[1] = testing::perf::testAddSeq<S>(aV, bV, cV, config.printTestFailed);
             if(config.verifyValues)
-                validations[8] = testing::perf::verifyLshift(aV, bV, cV, false);
+                validations[1] = testing::perf::verifyAdd(aV, bV, cV, config.printVerificationFailed);
 
-            times[9] = testing::perf::testLshiftSeq<S>(aV, bV, cV, false);
+            times[2] = testing::perf::testMulAVX<T>(aV, bV, cV, config.printTestFailed);
             if(config.verifyValues)
-                validations[9] = testing::perf::verifyLshift(aV, bV, cV, false);
+                validations[2] = testing::perf::verifyMul(aV, bV, cV, config.printVerificationFailed);
+
+            times[3] = testing::perf::testMulSeq<S>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[3] = testing::perf::verifyMul(aV, bV, cV, config.printVerificationFailed);
+
+            times[4] = testing::perf::testDivAVX<T>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[4] = testing::perf::verifyDiv(aV, bV, cV, config.printVerificationFailed);
+
+            times[5] = testing::perf::testDivSeq<S>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[5] = testing::perf::verifyDiv(aV, bV, cV, config.printVerificationFailed);
+
+            times[6] = testing::perf::testModAVX<T>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[6] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
+
+            times[7] = testing::perf::testModSeq<S>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[7] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
+
+            times[8] = testing::perf::testLshiftAVX<T>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[8] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+
+            times[9] = testing::perf::testLshiftSeq<S>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[9] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
 
             std::string validationRes = "";
+            std::pair<double, std::string> duration;
 
-            auto duration = testing::universalDuration(times[0]);
+            if(config.avxFuncs.addRaw){
+                duration = testing::universalDuration(times[12]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[12]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test add AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+            }
+            else 
+                printf("Test add AVX2 raw:       skipped...\n");
+            
+            duration = testing::universalDuration(times[0]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[0]);
             printf("%-20s %8.4lf %-3s%s\n", "Test add AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
@@ -1044,6 +1228,15 @@ namespace testing{
             if(config.verifyValues)
                 validationRes = validationToStr(validations[1]);
             printf("%-20s %8.4lf %-3s%s\n", "Test add seq:", duration.first, duration.second.c_str(), validationRes.c_str());
+
+            if(config.avxFuncs.mulRaw){
+                duration = testing::universalDuration(times[14]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[14]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test mul AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+            }
+            else
+                printf("Test mul AVX2 raw:       skipped...\n");
 
             duration = testing::universalDuration(times[2]);
             if(config.verifyValues)
@@ -1055,6 +1248,15 @@ namespace testing{
                 validationRes = validationToStr(validations[3]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mul seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
+            if(config.avxFuncs.divRaw){
+                duration = testing::universalDuration(times[15]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[15]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test div AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+            }
+            else 
+                printf("Test div AVX2 raw:       skipped...\n");
+
             duration = testing::universalDuration(times[4]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[4]);
@@ -1065,6 +1267,15 @@ namespace testing{
                 validationRes = validationToStr(validations[5]);
             printf("%-20s %8.4lf %-3s%s\n", "Test div seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
+            if(config.avxFuncs.modRaw){
+                duration = testing::universalDuration(times[16]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[16]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+            }
+            else
+                printf("Test mod AVX2 raw:       skipped...\n");
+
             duration = testing::universalDuration(times[6]);
             if(config.verifyValues)
                 validationRes = validationToStr(validations[6]);
@@ -1074,6 +1285,15 @@ namespace testing{
             if(config.verifyValues)
                 validationRes = validationToStr(validations[7]);
             printf("%-20s %8.4lf %-3s%s\n", "Test mod seq:", duration.first, duration.second.c_str(), validationRes.c_str());
+
+            if(config.avxFuncs.lshRaw){
+                duration = testing::universalDuration(times[17]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[17]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+            }
+            else 
+                printf("Test lshift AVX2 raw:    skipped...\n");
 
             duration = testing::universalDuration(times[8]);
             if(config.verifyValues)

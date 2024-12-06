@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[]) {
     std::vector<int> aV(268'435'456), bV(268'435'456), cV(268'435'456);
-    testing::perf::TestConfig config;
+    testing::perf::TestConfig<int> config;
     int result = testing::perf::allPerfTest<avx::Int256>(aV, bV, cV, config);
     // TODO: Fix mod operators
     // Applied mask to ignore failed mod test.
