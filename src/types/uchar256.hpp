@@ -60,13 +60,17 @@ namespace avx {
                 memset(init_v, 0, 32);
                 if(init.size() < 32){
                     auto begin = init.begin();
-                    for(int i{0}; i < init.size(); ++i)
-                        init_v[i] = *begin++;
+                    for(int i{0}; i < init.size(); ++i) {
+                        init_v[i] = *begin;
+                        begin++;
+                    }
                 }
                 else {
                     auto begin = init.begin();
-                    for(int i{0}; i < 32; ++i)
-                        init_v[i] = *begin++;
+                    for(int i{0}; i < 32; ++i) {
+                        init_v[i] = *begin;
+                        begin++;
+                    }
                 }
                 v = _mm256_load_si256((const __m256i*)init_v);
             }

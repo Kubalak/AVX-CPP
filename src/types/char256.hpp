@@ -99,13 +99,17 @@ namespace avx {
                 memset(init_v, 0, 32);
                 if(init.size() < 32){
                     auto begin = init.begin();
-                    for(int i{0}; i < init.size(); ++i)
-                        init_v[i] = *begin++;
+                    for(int i{0}; i < init.size(); ++i){
+                        init_v[i] = *begin;
+                        begin++;
+                    }
                 }
                 else {
                     auto begin = init.begin();
-                    for(int i{0}; i < 32; ++i)
-                        init_v[i] = *begin++;
+                    for(int i{0}; i < 32; ++i){
+                        init_v[i] = *begin;
+                        begin++;
+                    }
                 }
                 v = _mm256_load_si256((const __m256i*)init_v);
             }
@@ -181,43 +185,25 @@ namespace avx {
             #endif 
 
             bool operator==(const Char256& bV) const noexcept {
-                __m256i eq = _mm256_cmpeq_epi8(v, bV.v);
-                unsigned long long* eqV = (unsigned long long*)&eq;
-                for(uint8_t i = 0; i < 4; ++i)
-                    if(eqV[i] != UINT64_MAX)
-                        return false;
-                return true;
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) != 0;
             }
 
             bool operator==(const char b) const noexcept {
-                char* v1,* v2;
-                v1 = (char*)&v;
-
-                for(unsigned int i{0}; i < size; ++i)
-                    if(v1[i] != b)
-                        return false;
-
-                return true;
+                __m256i bV = _mm256_set1_epi8(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) != 0;
             }
 
             bool operator!=(const Char256& bV) const noexcept {
-                __m256i eq = _mm256_cmpeq_epi8(v, bV.v);
-                unsigned long long* eqV = (unsigned long long*)&eq;
-                for(uint8_t i = 0; i < 4; ++i)
-                    if(eqV[i] != UINT64_MAX)
-                        return true;
-                return false;
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) == 0;
             }
 
             bool operator!=(const char b) const noexcept {
-                char* v1,* v2;
-                v1 = (char*)&v;
-
-                for(unsigned int i{0}; i < size; ++i)
-                    if(v1[i] != b)
-                        return true;
-
-                return false;
+                __m256i bV = _mm256_set1_epi8(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) == 0;
             }
 
             Char256 operator+(const Char256& bV) const noexcept {

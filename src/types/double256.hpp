@@ -42,13 +42,17 @@ namespace avx {
                 alignas(32) double init_v[size]{0.0, 0.0, 0.0, 0.0};
                 if(init.size() < size){
                     auto begin = init.begin();
-                    for(int i{0}; i < init.size(); ++i)
-                        init_v[i] = *begin++;
+                    for(int i{0}; i < init.size(); ++i){
+                        init_v[i] = *begin;
+                        begin++;
+                    }
                 }
                 else {
                     auto begin = init.begin();
-                    for(int i{0}; i < size; ++i)
-                        init_v[i] = *begin++;
+                    for(int i{0}; i < size; ++i){
+                        init_v[i] = *begin;
+                        begin++;
+                    }
                 }
                 v = _mm256_load_pd(init_v);
             }
