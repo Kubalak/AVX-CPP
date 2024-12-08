@@ -23,6 +23,7 @@ namespace avx {
         static inline const __m256i EPI32_SIGN = _mm256_set1_epi32(0x8000'0000);
         static inline const __m256i EPI32_ONE = _mm256_set1_epi32(1);
         static inline const __m256i EPI64_ONE = _mm256_set1_epi64x(1);
+        static inline const __m256i EPI64_SIGN = _mm256_set1_epi64x(0x8000'0000'0000'0000);
         static inline const __m256d DOUBLE_NO_SIGN = _mm256_castsi256_pd(_mm256_set1_epi64x(0x7FFF'FFFF'FFFF'FFFF));
         static inline const __m256 FLOAT_NO_SIGN = _mm256_castsi256_ps(_mm256_set1_epi32(0x7FFF'FFFF));
         static inline const __m256d DOUBLE_ONE = _mm256_set1_pd(1.0);

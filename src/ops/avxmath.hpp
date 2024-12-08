@@ -187,7 +187,12 @@ namespace avx {
     }
 
     Long256 abs(const Long256& bV) {
-        __m256i toAbs = _mm256_srai_epi64(bV.get(), 63);
+        #if defined(__AVX512F__) && defined(__AVX512VL__)
+            __m256i toAbs = _mm256_srai_epi64(bV.get(), 63);
+        #else
+            __m256i toAbs = _mm256_and_si256(bV.get(), constants::EPI64_SIGN);
+            toAbs = _mm256_cmpeq_epi64(toAbs, constants::EPI64_SIGN);
+        #endif
         __m256i absVal = _mm256_xor_si256(bV.get(), toAbs);
         return _mm256_add_epi64(_mm256_and_si256(toAbs, constants::EPI64_ONE), absVal);
     }
