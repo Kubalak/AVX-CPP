@@ -1,4 +1,6 @@
 #include "avxmath.hpp"
 
-using namespace avx;
+namespace avx {
+    
+}
     

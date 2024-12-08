@@ -9,7 +9,7 @@ AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides
 
 Library provides both integer and floating-point types:<br/>
 - Integer types:<br/>
-    - `Int256` - Vector containing 8 signed 32-bit integers (`__m256i`) &#x2705;<br/>
+  - `Int256` - Vector containing 8 signed 32-bit integers (`__m256i`) &#x2705;<br/>
   - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`) &#x2705;<br/>
   - `Short256` - Vector containing 16 signed 16-bit integers (`__m256i`) &#x2705;<br/>
   - `Ushort256` - Vector containing 16 unsigned 16-bit integers (`__m256i`) &#x2705;<br/>
@@ -22,7 +22,7 @@ Library provides both integer and floating-point types:<br/>
   - `Double256` - Vector containing 4 doubles (`__m256d`) &#x2705;<br/>
 
 Supported math functions:<br/>
-- Trigonometric functions `Double256` and `Float256` &#x1F6A7; <br/>
+- Trigonometric functions `Double256` and `Float256` &#x1F6A7; (on MSVC)
 - Inverse trigonometric functions `Double256` and `Float256` &#x1F6A7;<br/>
 - Hyperbolic functions `Double256` and `Float256` &#x1F6A7;<br/>
 - Inverse hyperbolic functions `Double256` and `Float256` &#x1F6A7;<br/>
@@ -37,14 +37,14 @@ Supported operators:<br/>
 - `+` `+=` - all types + scalars <br/>
 - `-` `-=` - all types + scalars <br/>
 - `*` `*=` - all types + scalars <br/>
-- `/` `/=` - all types (need to optimize) + scalars [&#9888;&#65039;](#known-issues) <br/>
-- `%` `%=` - integer types (need to optimize) + scalars [&#9888;&#65039;](#known-issues) <br/>
+- `/` `/=` - all types + scalars [&#9888;&#65039;](#known-issues) <br/>
+- `%` `%=` - integer types + integer scalars [&#9888;&#65039;](#known-issues) <br/>
 - `|` `|=` - integer types + integer scalars <br/>
 - `&` `&=` - integer types + integer scalars <br/>
 - `^` `^=` - integer types + integer scalars <br/>
 - `<<` `<<=` - integer types + integer scala <br/>
 - `>>` `>>=` - integer types + integer scala <br/>
-- `[]` - all types (gets underlying value from vector) <br/>
+- `[]` - all types, assignment is not possible <br/>
 - `~` - integer types <br/>
 
 Other than that all types support initialization using:<br/>
@@ -62,20 +62,20 @@ Elements from vectors can be extracted using following methods:
 <!--
 # AVX-CPP is fast!
 
-Here is the table comparing runtime between non-AVX2 algorithm, raw AVX2 and the one using AVX-CPP library. To see how performance is tested go [here](src/tests/perf)
+Here is the table comparing runtime between non-AVX2 algorithm, raw AVX2 and the one using AVX-CPP library. To see how performance is tested go [here](src/tests/perf). Table below shows testing results on Windows 10 using MSVC. Selected vectors of size 1GiB for all tests.
 
-| Tested type | Non-AVX2 | Raw AVX2 | AVX-CPP |
-| --- | --- | --- | --- |
-| [Int256](src/types/int256.hpp) | - | - | - |
-| [UInt256](src/types/uint256.hpp) | - | - | - |
-| [Short256](src/types/short256.hpp) | - | - | - |
-| [UShort256](src/types/ushort256.hpp) | - | - | - |
-| [Char256](src/types/char256.hpp) | - | - | - |
-| [UChar256](src/types/uchar256.hpp) | - | - | - |
-| [Long256](src/types/long256.hpp) | - | - | - |
-| [ULong256](src/types/ulong256.hpp) | - | - | - |
-| [Float256](src/types/float256.hpp) | - | - | - |
-| [Double256](src/types/double256.hpp) | - | - | - |-->
+| Tested type | Operator `+`, `+=` (SEQ/AVXCPP/AVX) | `-`, `-=` | `*`, `*=` | `/`, `/=` | `%`, `%=` | 
+| --- | --- | --- | --- | --- | --- |
+| [Int256](src/types/int256.hpp) | 558.8 / 262 / 266 ms | - | - | - | - |
+| [UInt256](src/types/uint256.hpp) | - | - | - | - | - |
+| [Short256](src/types/short256.hpp) | - | - | - | - | - |
+| [UShort256](src/types/ushort256.hpp) | - | - | - | - | - |
+| [Char256](src/types/char256.hpp) | - | - | - | - | - |
+| [UChar256](src/types/uchar256.hpp) | - | - | - | - | - |
+| [Long256](src/types/long256.hpp) | - | - | - | - | - |
+| [ULong256](src/types/ulong256.hpp) | - | - | - | - | - |
+| [Float256](src/types/float256.hpp) | - | - | - | - | - |
+| [Double256](src/types/double256.hpp) | - | - | - | - | - |-->
 
 
 ## Sample usage 
@@ -109,18 +109,18 @@ Available building options are
 | BUILD_TESTING | BOOLEAN | OFF | Build tests when building library |
 | BUILD_PERFORMANCE_TESTS | BOOLEAN | OFF | Build performance tests |
 
-Building has been tested on compilers:
-- GCC 11.4.0-1ubuntu1~22.04 &#x2705;
-- Clang 14.0.0-1ubuntu1.1 &#x2705;
-- MSVC 19.29.30154 &#x2705;
+Building has been tested on following compilers (build and run):
+- GCC 11.4.0-1ubuntu1~22.04
+- Clang 14.0.0-1ubuntu1.1
+- MSVC 19.29.30154
 
 ## &#x1F6A7; Documentation
 Under construction...
 
 ## Known issues
-- Building binaries with MinGW on Windows may result in segfault (`ERROR_ACCESS_VIOLATION`) when running program for yet unknown reasons<br/>
-- &#9888;&#65039; `/` and `%` on integer types don't use AVX2 or use it scarcely due to lack of available AVX2 functions. *SOME* of them are using `float` conversion vectors and then converting them back to integer types using truncation.<br/>
+- &#9888;&#65039; `/` and `%` might not always use SIMD instructions to calculate results due to instruction set restrictions. Some types use casting to `float` to perform those operations.<br/>
 - &#x1F6A9; `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
 - Performance benefits need further testing (I will provide perf test table here). 
+- `Int256` division and modulo might produce inaccurate results for larger values.
 
 

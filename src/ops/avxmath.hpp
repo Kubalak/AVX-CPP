@@ -13,69 +13,117 @@
 namespace avx {
 
     Double256 sin(const Double256& bV) {
-        return _mm256_sin_pd(bV.get());
+        #ifdef _MSC_VER
+            return _mm256_sin_pd(bV.get());
+        #else 
+            return bV;
+        #endif
     }
 
     Double256 cos(const Double256& bV) {
-        return _mm256_cos_pd(bV.get());
+        #ifdef _MSC_VER
+            return _mm256_cos_pd(bV.get());
+        #else
+            return bV;
+        #endif
     }
 
     Double256 tan(const Double256& bV) {
-        return _mm256_tan_pd(bV.get());
+        #ifdef _MSC_VER
+            return _mm256_tan_pd(bV.get());
+        #else
+            return bV;
+        #endif
     }
 
     Double256 ctg(const Double256& bV) {
-        return _mm256_div_pd(
-            constants::DOUBLE_ONE, 
-            _mm256_tan_pd(bV.get())
-        );
+        #ifdef _MSC_VER
+            return _mm256_div_pd(
+                constants::DOUBLE_ONE, 
+                _mm256_tan_pd(bV.get())
+            );
+        #else
+            return bV;
+        #endif
     }
 
     Double256 sec(const Double256& bV) {
-        return _mm256_div_pd(
-            constants::DOUBLE_ONE, 
-            _mm256_cos_pd(bV.get())
-        ); 
+        #ifdef _MSC_VER
+            return _mm256_div_pd(
+                constants::DOUBLE_ONE, 
+                _mm256_cos_pd(bV.get())
+            ); 
+        #else
+            return bV;
+        #endif
     }
 
     Double256 cosec(const Double256& bV) {
-        return _mm256_div_pd(
-            constants::DOUBLE_ONE, 
-            _mm256_sin_pd(bV.get())
-        );
+        #ifdef _MSC_VER
+            return _mm256_div_pd(
+                constants::DOUBLE_ONE, 
+                _mm256_sin_pd(bV.get())
+            );
+        #else
+            return bV;
+        #endif
     }
 
     Float256 sin(const Float256& bV) {
-        return _mm256_sin_ps(bV.get());
+        #ifdef _MSC_VER
+            return _mm256_sin_ps(bV.get());
+        #else
+            return bV;
+        #endif
     }
 
     Float256 cos(const Float256& bV) {
-        return _mm256_cos_ps(bV.get());
+        #ifdef _MSC_VER
+            return _mm256_cos_ps(bV.get());
+        #else
+            return bV;
+        #endif
     }
 
     Float256 tan(const Float256& bV) {
-        return _mm256_tan_ps(bV.get());
+        #ifdef _MSC_VER
+            return _mm256_tan_ps(bV.get());
+        #else
+            return bV;
+        #endif
     }
 
     Float256 ctg(const Float256& bV) {
-        return _mm256_div_ps(
-            constants::FLOAT_ONE, 
-            _mm256_tan_ps(bV.get())
-        );
+        #ifdef _MSC_VER
+            return _mm256_div_ps(
+                constants::FLOAT_ONE, 
+                _mm256_tan_ps(bV.get())
+            );
+        #else
+            return bV;
+        #endif
     }
     
     Float256 sec(const Float256& bV) {
-        return _mm256_div_ps(
-            constants::FLOAT_ONE, 
-            _mm256_cos_ps(bV.get())
-        );
+        #ifdef _MSC_VER
+            return _mm256_div_ps(
+                constants::FLOAT_ONE, 
+                _mm256_cos_ps(bV.get())
+            );
+        #else
+            return bV;
+        #endif
     }
 
     Float256 cosec(const Float256& bV) {
-        return _mm256_div_ps(
-            constants::FLOAT_ONE, 
-            _mm256_sin_ps(bV.get())
-        );
+        #ifdef _MSC_VER
+            return _mm256_div_ps(
+                constants::FLOAT_ONE, 
+                _mm256_sin_ps(bV.get())
+            );
+        #else
+            return bV;
+        #endif
     }
 
 // Inverse trigonometric functions
