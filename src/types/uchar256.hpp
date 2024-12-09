@@ -75,6 +75,14 @@ namespace avx {
                 v = _mm256_load_si256((const __m256i*)init_v);
             }
 
+            /**
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * @param sP Pointer to memory from which to load data.
+             */
+            void load(const unsigned char *sP) {
+                if(sP != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            }
 
             /**
              * Saves data to destination in memory.
@@ -146,46 +154,25 @@ namespace avx {
 
 
             bool operator==(const UChar256& bV) const noexcept {
-                __m256i eq = _mm256_cmpeq_epi8(v, bV.v);
-                unsigned long long* eqV = (unsigned long long*)&eq;
-                for(uint8_t i = 0; i < 4; ++i)
-                    if(eqV[i] != UINT64_MAX)
-                        return false;
-                return true;
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) != 0;
             }
 
-
-            bool operator==(const unsigned char b) const noexcept {
-                unsigned char* v1,* v2;
-                v1 = (unsigned char*)&v;
-
-                for(unsigned int i{0}; i < size; ++i)
-                    if(v1[i] != b)
-                        return false;
-
-                return true;
+            bool operator==(const char b) const noexcept {
+                __m256i bV = _mm256_set1_epi8(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) != 0;
             }
-
 
             bool operator!=(const UChar256& bV) const noexcept {
-                __m256i eq = _mm256_cmpeq_epi8(v, bV.v);
-                unsigned long long* eqV = (unsigned long long*)&eq;
-                for(uint8_t i = 0; i < 4; ++i)
-                    if(eqV[i] != UINT64_MAX)
-                        return true;
-                return false;
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) == 0;
             }
 
-
-            bool operator!=(const unsigned char b) const noexcept {
-                unsigned char* v1,* v2;
-                v1 = (unsigned char*)&v;
-
-                for(unsigned int i{0}; i < size; ++i)
-                    if(v1[i] != b)
-                        return true;
-
-                return false;
+            bool operator!=(const char b) const noexcept {
+                __m256i bV = _mm256_set1_epi8(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) == 0;
             }
 
 
@@ -805,7 +792,7 @@ namespace avx {
                     __m128i result_hi = _mm_sllv_epi16(a_hi, b_hi);     // SSE2/SSE3: zmienne przesunięcia
 
                     // Łączymy wynik z powrotem w jeden wektor 256-bitowy
-                    return _mm256_set_m128i(result_hi, result_lo);
+                    v = _mm256_set_m128i(result_hi, result_lo);
                 #else
                     __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
                     __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);

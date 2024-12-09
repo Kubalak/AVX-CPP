@@ -76,6 +76,7 @@ int main(int argc, char* argv[]) {
     result |= testing::universalTestLshift<avx::Int256>();
     result |= testing::universalTestRshift<avx::Int256>();
     result |= testing::universalTestIndexing<avx::Int256>();
+    result |= testing::universalTestCompare<avx::Int256>();
 
     result |= data_load_save();
     result |= data_load_save_aligned();

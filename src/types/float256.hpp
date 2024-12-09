@@ -25,6 +25,15 @@ namespace avx {
             const __m256 get() const noexcept { return v;}
             void set(__m256 val) noexcept { v = val;}
 
+            /**
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * @param sP Pointer to memory from which to load data.
+             */
+            void load(const float *sP) {
+                if(sP != nullptr)
+                    v = _mm256_loadu_ps(sP);
+            }
+
             void save(float *dest) const {
                 _mm256_storeu_ps(dest, v);
             }

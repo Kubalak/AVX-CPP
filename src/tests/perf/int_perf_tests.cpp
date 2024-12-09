@@ -14,16 +14,19 @@ int64_t perf_test_add_raw_avx(const std::vector<int>& aV, const std::vector<int>
 
     uint64_t pos = 0;
     int cLit = bV[bV.size() / 2];
-    __m256i c = _mm256_set1_epi32(cLit);
+    __m256i a, b, c;
+    __m256i d = _mm256_set1_epi32(cLit);
+    
     while(pos + 8 < aV.size()){
-        __m256i a = _mm256_lddqu_si256((const __m256i*)(aV.data() + pos));
-        __m256i b = _mm256_lddqu_si256((const __m256i*)(bV.data() + pos));
-        _mm256_storeu_si256((__m256i*)(cV.data() + pos), _mm256_add_epi32(_mm256_add_epi32(a,b), c));
+        a = _mm256_lddqu_si256((const __m256i*)(aV.data() + pos));
+        b = _mm256_lddqu_si256((const __m256i*)(bV.data() + pos));
+        c = _mm256_add_epi32(a, b);
+        _mm256_storeu_si256((__m256i*)(cV.data() + pos), _mm256_add_epi32(c, d));
         pos += 8;
     }
 
     while(pos < aV.size()){
-        cV[pos] = aV[pos] + bV[pos];
+        cV[pos] = *(aV.data()+ pos) + *(bV.data() + pos);
         cV[pos] += cLit;
         ++pos;
     }
@@ -41,8 +44,9 @@ int main(int argc, char* argv[]) {
     std::vector<int> aV(268'435'456), bV(268'435'456), cV(268'435'456);
     testing::perf::TestConfig<int> config;
     config.avxFuncs.addRaw = perf_test_add_raw_avx;
+    config.doWarmup = true;
+    config.warmupDuration = 20;
+    config.printWarmupInfo = true;
     int result = testing::perf::allPerfTest<avx::Int256>(aV, bV, cV, config);
-    // TODO: Fix mod operators
-    // Applied mask to ignore failed mod test.
-    return (result & 0xEBF) != 0; // Ignore Lshift errors as SIMD behaves differently when crossing size of stored type.
+    return (result & _AVX_IGNORE_LSH) != 0; // Ignore Lshift errors as SIMD behaves differently when crossing size of stored type.
 }

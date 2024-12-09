@@ -10,6 +10,7 @@
 #include <stdexcept>
 #include <immintrin.h>
 #include "constants.hpp"
+
 namespace avx {
     class ULong256 {
         private:
@@ -91,6 +92,15 @@ namespace avx {
             void set(__m256i val) noexcept {v = val;}
 
             /**
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * @param sP Pointer to memory from which to load data.
+             */
+            void load(const unsigned long long *sP) {
+                if(sP != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            }
+
+            /**
              * Saves vector data into an array.
              * @param dest Destination array.
              */
@@ -138,50 +148,6 @@ namespace avx {
                 }
             #endif
 
-            bool operator==(const ULong256& bV) const noexcept  {
-                unsigned long long* v1,* v2;
-                v1 = (unsigned long long*)&v;
-                v2 = (unsigned long long*)&bV.v;
-
-                for(unsigned short i{0}; i < 4; ++i)
-                    if(v1[i] != v2[i])
-                        return false;
-
-                return true;
-            }
-
-            bool operator==(const unsigned long long& b) const noexcept {
-                unsigned long long* v1 = (unsigned long long*)&v;
-
-                for(unsigned short i{0}; i < 4; ++i)
-                    if(v1[i] != b)
-                        return false;
-
-                return true;
-            }
-
-            bool operator!=(const ULong256& bV) const noexcept {
-                unsigned long long* v1,* v2;
-                v1 = (unsigned long long*)&v;
-                v2 = (unsigned long long*)&bV.v;
-
-                for(unsigned short i{0}; i < 4; ++i)
-                    if(v1[i] != v2[i])
-                        return true;
-
-                return false;
-            }
-
-            bool operator!=(const unsigned long long& b) const noexcept {
-                unsigned long long* v1 = (unsigned long long*)&v;
-
-                for(unsigned short i{0}; i < 4; ++i)
-                    if(v1[i] != b)
-                        return true;
-
-                return false;
-            }
-
             unsigned long long operator[](unsigned int index) const
             #ifndef NDEBUG
                 {
@@ -195,6 +161,51 @@ namespace avx {
                 return ((unsigned long long*)&v)[index & 3];
             }
             #endif
+
+            /**
+             * Compares with second vector for equality.
+             * @param bV Object to compare.
+             * @returns `true` if all elements are equal or `false` if not.
+             */
+            bool operator==(const ULong256 &bV) const noexcept {
+                __m256i eq = _mm256_xor_si256(v, bV.v); // Doing XOR. If all bits are the same then resulting vector should be all 0s.
+                return _mm256_testz_si256(eq, eq) != 0; // Returns 1 if AND of eq and eq yields 0 (equal vectors).
+            }
+
+
+            /**
+             * Compares with value for equality.
+             * @param b Value to compare.
+             * @returns `true` if all elements are equal to passed value `false` if not.
+             */
+            bool operator==(const unsigned long long b) const noexcept{
+                __m256i bV = _mm256_set1_epi64x(b);
+                __m256i eq = _mm256_xor_si256(v, bV); 
+                return _mm256_testz_si256(eq, eq) != 0;
+            }
+
+
+            /**
+             * Compares with second vector for inequality.
+             * @param bV Object to compare.
+             * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
+             */
+            bool operator!=(const ULong256 &bV) const noexcept{
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) == 0;
+            }
+
+
+            /**
+             * Compares with value for inequality.
+             * @param b Value
+             * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
+             */
+            bool operator!=(const unsigned long long b) const noexcept{
+                __m256i bV = _mm256_set1_epi64x(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) == 0;
+            }
 
 
             /**
@@ -260,7 +271,7 @@ namespace avx {
 
             ULong256 operator*(const ULong256& bV) const noexcept{
                 #if defined(__AVX512DQ__) && defined(__AVX512VL__)
-                    return _mm256_mullo_epi64(v, b.v);
+                    return _mm256_mullo_epi64(v, bV.v);
                 #else
                     unsigned long long* aP = (unsigned long long*)&v;
                     unsigned long long* bP = (unsigned long long*)&bV.v;

@@ -102,6 +102,15 @@ namespace avx
         void set(__m256i val) { v = val; }
 
         /**
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * @param sP Pointer to memory from which to load data.
+             */
+            void load(const int *sP) {
+                if(sP != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            }
+
+        /**
          * Saves vector data into an array.
          * @param dest Destination array.
          */
@@ -120,48 +129,26 @@ namespace avx
          */
         void saveAligned(int* dest) const {_mm256_store_si256((__m256i*)dest, v);};
 
-        bool operator==(const Int256 &b) const {
-            int* v1,* v2;
-            v1 = (int*)&v;
-            v2 = (int*)&b.v;
-
-            for(unsigned short i{0}; i < 8; ++i)
-                if(v1[i] != v2[i])
-                    return false;
-
-            return true;
+        bool operator==(const Int256 &bV) const {
+            __m256i eq = _mm256_xor_si256(v, bV.v);
+            return _mm256_testz_si256(eq, eq) != 0;
         }
 
         bool operator==(const int &b) const {
-            int* v1 = (int*)&v;
-
-            for(unsigned short i{0}; i < 8; ++i)
-                if(v1[i] != b)
-                    return false;
-
-            return true;
+            __m256i bV = _mm256_set1_epi32(b);
+            __m256i eq = _mm256_xor_si256(v, bV);
+            return _mm256_testz_si256(eq, eq) != 0;
         }
 
-        bool operator!=(const Int256 &b) const {
-            int* v1,* v2;
-            v1 = (int*)&v;
-            v2 = (int*)&b.v;
-
-            for(unsigned short i{0}; i < 8; ++i)
-                if(v1[i] != v2[i])
-                    return true;
-
-            return false;
+        bool operator!=(const Int256 &bV) const {
+            __m256i eq = _mm256_xor_si256(v, bV.v);
+            return _mm256_testz_si256(eq, eq) == 0;
         }
 
         bool operator!=(const int &b) const {
-            int* v1 = (int*)&v;
-
-            for(unsigned short i{0}; i < 8; ++i)
-                if(v1[i] != b)
-                    return true;
-
-            return false;
+            __m256i bV = _mm256_set1_epi32(b);
+            __m256i eq = _mm256_xor_si256(v, bV);
+            return _mm256_testz_si256(eq, eq) == 0;
         }
 
         int operator[](const unsigned int index) const 

@@ -88,6 +88,15 @@ namespace avx {
              */
             explicit UShort256(const unsigned short b) noexcept : v(_mm256_set1_epi16(b)){}
 
+            /**
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * @param sP Pointer to memory from which to load data.
+             */
+            void load(const unsigned short* sP) {
+                if(sP != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            }
+
             
             /**
              * Saves data to destination in memory.
@@ -166,15 +175,8 @@ namespace avx {
              * @returns `true` if all elements are equal or `false` if not.
              */
             bool operator==(const UShort256 &bV) const noexcept {
-                unsigned short* v1,* v2;
-                v1 = (unsigned short*)&v;
-                v2 = (unsigned short*)&bV.v;
-
-                for(unsigned int i{0}; i < 16; ++i)
-                    if(v1[i] != v2[i])
-                        return false;
-
-                return true;
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) != 0;
             }
 
 
@@ -184,14 +186,9 @@ namespace avx {
              * @returns `true` if all elements are equal to passed value `false` if not.
              */
             bool operator==(const unsigned short &b) const noexcept{
-                unsigned short* v1;
-                v1 = (unsigned short*)&v;
-
-                for(unsigned int i{0}; i < 16; ++i)
-                    if(v1[i] != b)
-                        return false;
-
-                return true;
+                __m256i bV = _mm256_set1_epi16(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) != 0;
             }
 
 
@@ -201,15 +198,8 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const UShort256 &bV) const noexcept{
-                unsigned short* v1,* v2;
-                v1 = (unsigned short*)&v;
-                v2 = (unsigned short*)&bV.v;
-
-                for(unsigned int i{0}; i < 16; ++i)
-                    if(v1[i] != v2[i])
-                        return true;
-
-                return false;
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) == 0;
             }
 
 
@@ -219,14 +209,9 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const unsigned short &b) const noexcept{
-                unsigned short* v1;
-                v1 = (unsigned short*)&v;
-
-                for(unsigned int i{0}; i < 16; ++i)
-                    if(v1[i] != b)
-                        return true;
-
-                return false;
+                __m256i bV = _mm256_set1_epi16(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) == 0;
             }
             
             UShort256 operator+(const UShort256& bV) const noexcept{

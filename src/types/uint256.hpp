@@ -155,6 +155,15 @@ namespace avx {
             void set(__m256i val) noexcept {v = val;}
 
             /**
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * @param sP Pointer to memory from which to load data.
+             */
+            void load(const unsigned int *sP) {
+                if(sP != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            }
+
+            /**
              * Saves vector data into an array.
              * @param dest Destination array.
              */
@@ -186,49 +195,27 @@ namespace avx {
                 _mm256_store_si256((__m256i*)dest, v);
             }
 
-            bool operator==(const UInt256& b) const noexcept{
-                unsigned int* v1,* v2;
-                v1 = (unsigned int*)&v;
-                v2 = (unsigned int*)&b.v;
+            bool operator==(const UInt256 &bV) const {
+            __m256i eq = _mm256_xor_si256(v, bV.v);
+            return _mm256_testz_si256(eq, eq) != 0;
+        }
 
-                for(unsigned short i{0}; i < 8; ++i)
-                    if(v1[i] != v2[i])
-                        return false;
+        bool operator==(const int b) const {
+            __m256i bV = _mm256_set1_epi32(b);
+            __m256i eq = _mm256_xor_si256(v, bV);
+            return _mm256_testz_si256(eq, eq) != 0;
+        }
 
-                return true;
-            }
+        bool operator!=(const UInt256 &bV) const {
+            __m256i eq = _mm256_xor_si256(v, bV.v);
+            return _mm256_testz_si256(eq, eq) == 0;
+        }
 
-            bool operator==(const unsigned int& b) const noexcept{
-                unsigned int* v1 = (unsigned int*)&v;
-
-                for(unsigned short i{0}; i < 8; ++i)
-                    if(v1[i] != b)
-                        return false;
-
-                return true;
-            }
-
-            bool operator!=(const UInt256& b) const {
-                unsigned int* v1,* v2;
-                v1 = (unsigned int*)&v;
-                v2 = (unsigned int*)&b.v;
-
-                for(unsigned short i{0}; i < 8; ++i)
-                    if(v1[i] != v2[i])
-                        return true;
-
-                return false;
-            }
-
-            bool operator!=(const unsigned int&b) const {
-                unsigned int* v1 = (unsigned int*)&v;
-
-                for(unsigned short i{0}; i < 8; ++i)
-                    if(v1[i] != b)
-                        return true;
-
-                return false;
-            }
+        bool operator!=(const int b) const {
+            __m256i bV = _mm256_set1_epi32(b);
+            __m256i eq = _mm256_xor_si256(v, bV);
+            return _mm256_testz_si256(eq, eq) == 0;
+        }
 
             unsigned int operator[](const unsigned int index) const 
             #ifndef NDEBUG
@@ -241,7 +228,6 @@ namespace avx {
             #else
                 noexcept { return ((unsigned int*)&v)[index & 7]; }
             #endif
-
 
 
             UInt256 operator+(const UInt256& b) const noexcept {return _mm256_add_epi32(v, b.v);}

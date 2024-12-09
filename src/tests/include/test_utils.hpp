@@ -1374,6 +1374,100 @@ namespace testing
         return result;
     }
 
+
+    template<typename T, typename S = typename T::storedType>
+    int universalTestCompare(const unsigned int size = T::size) {
+        auto start = std::chrono::steady_clock::now();
+        
+        int result = 0;
+        T a, b;
+
+        if(!(a == b)) {
+            result |= 1;
+            printTestFailed(
+                __FILE__, 
+                __LINE__, 
+                __func__,
+                "==", 
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(T).name()).c_str(),
+                "true", 
+                "false"
+            );
+        }
+
+        if(!(a == 0)) {
+            result |= 1;
+            printTestFailed(
+                __FILE__, 
+                __LINE__, 
+                __func__,
+                "==", 
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(S).name()).c_str(),
+                "true", 
+                "false"
+            );
+        }
+
+        S values[size];
+        for(int i=0;i<size;++i)
+            values[i] = i + 1;
+        a.load(values);
+        values[size - 1] += 1;
+        b.load(values);
+
+        if(!(a != b)) {
+            result |= 1;
+            printTestFailed(
+                __FILE__, 
+                __LINE__, 
+                __func__,
+                "!=", 
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(T).name()).c_str(),
+                "true", 
+                "false"
+            );
+        }
+
+        if(!(b != 1)) {
+            result |= 1;
+            printTestFailed(
+                __FILE__, 
+                __LINE__, 
+                __func__,
+                "!=", 
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(S).name()).c_str(),
+                "true", 
+                "false"
+            );
+        }
+
+        a.load(values);
+
+        if(!(a == b)) {
+            result |= 1;
+            printTestFailed(
+                __FILE__, 
+                __LINE__, 
+                __func__,
+                "==", 
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(T).name()).c_str(),
+                "true", 
+                "false"
+            );
+        }
+        
+        auto stop = std::chrono::steady_clock::now();
+
+        printTestDuration(__func__, start, stop);
+
+        return result;
+    }
+
     bool fileExists(const std::string &filename){
         return std::filesystem::exists(filename) && std::filesystem::is_regular_file(filename);
     }

@@ -1,0 +1,6 @@
+v0.5.0
+
+- Added load() method to load data from memory into vectors.
+- Optimized ==, != operators for integer types.
+- Added new universal test to validate == and != operators.
+- Organized performance tests and added #define to check which validation failed.

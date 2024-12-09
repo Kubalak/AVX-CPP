@@ -18,6 +18,7 @@ int main(int argc, char* argv[]) {
     result |= testing::universalTestLshift<avx::UChar256>();
     result |= testing::universalTestRshift<avx::UChar256>();
     result |= testing::universalTestIndexing<avx::UChar256>();
+    result |= testing::universalTestCompare<avx::UChar256>();
     
     
     return result;

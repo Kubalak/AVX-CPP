@@ -115,6 +115,15 @@ namespace avx {
             }
 
             /**
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * @param sP Pointer to memory from which to load data.
+             */
+            void load(const char *sP) {
+                if(sP != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            }
+
+            /**
              * Saves data to destination in memory.
              * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
              * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
@@ -850,7 +859,7 @@ namespace avx {
                     __m128i result_hi = _mm_sllv_epi16(a_hi, b_hi);     // SSE2/SSE3: zmienne przesunięcia
 
                     // Łączymy wynik z powrotem w jeden wektor 256-bitowy
-                    return _mm256_set_m128i(result_hi, result_lo);
+                    v = _mm256_set_m128i(result_hi, result_lo);
                 #else
                     __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
                     __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
