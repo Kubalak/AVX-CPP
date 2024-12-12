@@ -20,6 +20,5 @@ int main(int argc, char* argv[]) {
     result |= testing::universalTestIndexing<avx::UChar256>();
     result |= testing::universalTestCompare<avx::UChar256>();
     
-    
     return result;
 }

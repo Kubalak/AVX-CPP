@@ -1285,7 +1285,7 @@ namespace testing
         if(c != expected){
             // Fprintf bcz std::cout is pain in the 455.
             fprintf(
-                stderr, 
+                stderr,
                 "%s:%d Test %s (~%s) failed! Expected %s actual %s\n",
                 tmp.c_str(), 
                 __LINE__, 
@@ -1410,12 +1410,12 @@ namespace testing
             );
         }
 
-        S values[size];
-        for(int i=0;i<size;++i)
+        std::vector<S> values(size);
+        for(int i = 0; i < size; ++i)
             values[i] = i + 1;
-        a.load(values);
+        a.load(values.data());
         values[size - 1] += 1;
-        b.load(values);
+        b.load(values.data());
 
         if(!(a != b)) {
             result |= 1;
@@ -1445,7 +1445,7 @@ namespace testing
             );
         }
 
-        a.load(values);
+        a.load(values.data());
 
         if(!(a == b)) {
             result |= 1;

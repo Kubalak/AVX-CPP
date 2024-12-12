@@ -43,3 +43,7 @@
 # Test project dir
 out/
 build/
+
+
+external-libs/*
+!/external-libs/.gitkeep

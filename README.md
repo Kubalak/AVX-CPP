@@ -113,7 +113,7 @@ Available building options are
 
 | Option | Type | Defualt | Description |
 | --- | --- | --- | ---|
-| BUILD_SHARED_LIBS | BOOLEAN| ON | Build shared libraries (*.dll or *.so) |
+| BUILD_SHARED_LIBS | BOOLEAN| ON | Build shared libraries (\*.dll or \*.so) |
 | BUILD_TESTING | BOOLEAN | OFF | Build tests when building library |
 | BUILD_PERFORMANCE_TESTS | BOOLEAN | OFF | Build performance tests |
 
@@ -131,5 +131,5 @@ Under construction...
 
 - &#9888;&#65039; `/` and `%` might not always use SIMD instructions to calculate results due to instruction set restrictions. Some types use casting to `float` to perform those operations.
 - &#x1F6A9; `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
-- Performance benefits need further testing (I will provide perf test table here). 
+- Performance benefits need further testing (I will provide perf test table here).
 - `Int256` division and modulo might produce inaccurate results for larger values.
