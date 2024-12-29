@@ -116,6 +116,7 @@ Available building options are
 | BUILD_SHARED_LIBS | BOOLEAN| ON | Build shared libraries (\*.dll or \*.so) |
 | BUILD_TESTING | BOOLEAN | OFF | Build tests when building library |
 | BUILD_PERFORMANCE_TESTS | BOOLEAN | OFF | Build performance tests |
+| BUILD_DEEP_TESTS | BOOLEAN | OFF | Build types deep testing (brute force testing for all possible values) |
 
 Building has been tested on following compilers (build and run):
 

@@ -12,7 +12,7 @@
 
 int main(int argc, char* argv[]) {
 
-    Logger logger("int-log.log", DEBUG);
+    Logger logger("short-log.log", DEBUG);
     char logBuf[128];
     key_t key = ftok("/tmp", 65);
     if(key == -1){
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 
     logger.info("Queue created successfully! Attemping to create range slices...");
 
-    TestLimits limits = getLimits<avx::Int256::storedType>();
+    TestLimits limits = getLimits<avx::Short256::storedType>();
     auto slices = equalDistribute(limits, 3);
     std::vector<int> procIds;
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
             return EXIT_FAILURE;
         }
         else if(procid == 0){
-            divisionWorker<avx::Int256, int>(msgid, slices[i]);
+            divisionWorker<avx::Short256, short>(msgid, slices[i]);
             return 0;
         }
         else {
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
     QueueMessage msg;
     int status;
     pid_t ret_pid;
-    std::ofstream csvFile("mismatch_int.csv", std::ios_base::trunc);
+    std::ofstream csvFile("mismatch_short.csv", std::ios_base::trunc);
     unsigned long long totalBytes = 0;
     if(csvFile.is_open())
         csvFile << "Type_name;Operator;First_value;Second_value;Expected_value;Actual_value\n";

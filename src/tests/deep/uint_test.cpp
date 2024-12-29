@@ -3,9 +3,7 @@
 #include <fstream>
 #include <thread>
 #include <deep_tests.hpp>
-#include <types/char256.hpp>
-#include <types/int256.hpp>
-#include <types/short256.hpp>
+#include <types/uint256.hpp>
 #include <unistd.h>
 #include <sys/wait.h>
 
@@ -29,7 +27,7 @@ int main(int argc, char* argv[]) {
 
     logger.info("Queue created successfully! Attemping to create range slices...");
 
-    TestLimits limits = getLimits<avx::Int256::storedType>();
+    TestLimits limits = getLimits<avx::UInt256::storedType>();
     auto slices = equalDistribute(limits, 3);
     std::vector<int> procIds;
 
@@ -41,7 +39,7 @@ int main(int argc, char* argv[]) {
             return EXIT_FAILURE;
         }
         else if(procid == 0){
-            divisionWorker<avx::Int256, int>(msgid, slices[i]);
+            divisionWorker<avx::UInt256, unsigned int>(msgid, slices[i]);
             return 0;
         }
         else {

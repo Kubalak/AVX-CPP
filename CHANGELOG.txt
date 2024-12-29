@@ -1,3 +1,13 @@
+v0.5.2
+- Fixed avx::Uchar256 using wrong pointer type in saveAligned method.
+- Created deep test utility for testing division of AVX2 vectors.
+- Following types have been verified against non SIMD counterparts in division:
+  - avx::Char256 (verified OK)
+  - avx::UChar256 (verified OK)
+  - avx::Short256 (verified OK)
+  - avx::UShort (verified OK)
+
+
 v0.5.0
 
 - Added load() method to load data from memory into vectors.

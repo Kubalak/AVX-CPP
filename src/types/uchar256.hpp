@@ -115,7 +115,7 @@ namespace avx {
              * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
              * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
              */
-            void saveAligned(char* dest) const {
+            void saveAligned(unsigned char* dest) const {
                 #ifndef NDEBUG
                     if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
                 #endif
