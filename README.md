@@ -134,3 +134,4 @@ Under construction...
 - &#x1F6A9; `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
 - Performance benefits need further testing (I will provide perf test table here).
 - `Int256` division and modulo might produce inaccurate results for larger values.
+- `Long256` and `ULong256` don't use AVX/AVX2 for `*`, `/` and `%` due to lack available SIMD instructions. In AVX512 mode they might use some SIMD instructions (which will be checked once getting access to CPU supporting AVX512).

@@ -1,3 +1,8 @@
+v0.6.0
+- avx::UInt256 division has been fixed (verification in progress).
+- Fixed reporting issue in test utils which displayed wrong object for literal verification.
+- Minor changes to deep tests.
+
 v0.5.2
 - Fixed avx::Uchar256 using wrong pointer type in saveAligned method.
 - Created deep test utility for testing division of AVX2 vectors.

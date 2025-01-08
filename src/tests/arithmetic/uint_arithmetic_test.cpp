@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
         __DATE__, __TIME__, 
         testing::getPlatform()
     );
-
+    
     result |= testing::universalTestAdd<avx::UInt256>();
     result |= testing::universalTestSub<avx::UInt256>();
     result |= testing::universalTestMul<avx::UInt256>();
@@ -95,6 +95,9 @@ int main(int argc, char* argv[]) {
     result |= testing::universalTestRshift<avx::UInt256>();
     result |= testing::universalTestIndexing<avx::UInt256>();
     result |= testing::universalTestCompare<avx::UInt256>();
+
+
+
 
     result |= data_load_save();
     result |= data_load_save_aligned();

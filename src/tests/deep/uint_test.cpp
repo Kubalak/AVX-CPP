@@ -4,13 +4,37 @@
 #include <thread>
 #include <deep_tests.hpp>
 #include <types/uint256.hpp>
-#include <unistd.h>
 #include <sys/wait.h>
+#include <signal.h>
+#include <unistd.h>
+
+static void sig_handler(int signum) {
+    puts("Attempting to remove queue...");
+    key_t key = ftok("/tmp", 65);
+    if(key == -1){
+        printf("SINAL - Key error %d: %s", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    int msgid = msgget(key, 0600 | IPC_CREAT);
+    if(msgid == -1){
+        printf( "SIGNAL - queue error %d: %s", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    if(msgctl(msgid, IPC_RMID, nullptr) == -1){
+        printf( "SIGNAL - Error %d:%s", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    puts("Successfully removed queue\nExiting...");
+    exit(0);
+}
 
 
 int main(int argc, char* argv[]) {
 
-    Logger logger("int-log.log", DEBUG);
+    Logger logger("uint-log.log", DEBUG);
     char logBuf[128];
     key_t key = ftok("/tmp", 65);
     if(key == -1){
@@ -25,14 +49,15 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     }
 
+
     logger.info("Queue created successfully! Attemping to create range slices...");
 
     TestLimits limits = getLimits<avx::UInt256::storedType>();
-    auto slices = equalDistribute(limits, 3);
+    auto slices = equalDistribute(limits, std::thread::hardware_concurrency());
     std::vector<int> procIds;
 
     
-    for(int i = 0; i < std::thread::hardware_concurrency() - 1; ++i){
+    for(int i = 0; i < slices.size(); ++i){
         pid_t procid = fork();
         if(procid < 0){
             logger.error("Fork has failed!");
@@ -49,12 +74,20 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    struct sigaction sa;
+    sa.sa_handler = sig_handler;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = SA_RESTART; 
+
+    if(sigaction(SIGINT, &sa, NULL) == -1)
+    logger.error("Could not register signal handler. Workers may not finish...");
+
     logger.info("Waiting for children to finish...");
 
     QueueMessage msg;
     int status;
     pid_t ret_pid;
-    std::ofstream csvFile("mismatch_int.csv", std::ios_base::trunc);
+    std::ofstream csvFile("mismatch_uint.csv", std::ios_base::trunc);
     unsigned long long totalBytes = 0;
     if(csvFile.is_open())
         csvFile << "Type_name;Operator;First_value;Second_value;Expected_value;Actual_value\n";

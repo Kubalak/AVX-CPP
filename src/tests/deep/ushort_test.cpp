@@ -28,11 +28,11 @@ int main(int argc, char* argv[]) {
     logger.info("Queue created successfully! Attemping to create range slices...");
 
     TestLimits limits = getLimits<avx::UShort256::storedType>();
-    auto slices = equalDistribute(limits, 3);
+    auto slices = equalDistribute(limits, std::thread::hardware_concurrency());
     std::vector<int> procIds;
 
     
-    for(int i = 0; i < std::thread::hardware_concurrency() - 1; ++i){
+    for(int i = 0; i < slices.size(); ++i){
         pid_t procid = fork();
         if(procid < 0){
             logger.error("Fork has failed!");

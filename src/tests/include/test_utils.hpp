@@ -24,7 +24,7 @@
 #ifdef _WIN32
 constexpr const char path_regex[] = "^.+\\\\(?=src)";
 #else 
-constexpr const char path_regex[] = "^.+//(?=src)";
+constexpr const char path_regex[] = "^.+\\/(?=src)";
 #endif
 
 namespace testing
@@ -236,7 +236,7 @@ namespace testing
                 "+", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -253,7 +253,7 @@ namespace testing
                 "+=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -344,7 +344,7 @@ namespace testing
                 "-", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -361,7 +361,7 @@ namespace testing
                 "-=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -453,7 +453,7 @@ namespace testing
                 "*", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -470,7 +470,7 @@ namespace testing
                 "*=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -563,7 +563,7 @@ namespace testing
                 "/", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -580,7 +580,7 @@ namespace testing
                 "/=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -673,7 +673,7 @@ namespace testing
                 "%", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -690,7 +690,7 @@ namespace testing
                 "%=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -779,7 +779,7 @@ namespace testing
                 "<<", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -796,7 +796,7 @@ namespace testing
                 "<<=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -885,7 +885,7 @@ namespace testing
                 ">>", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -902,7 +902,7 @@ namespace testing
                 ">>=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -994,7 +994,7 @@ namespace testing
                 "|", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -1011,7 +1011,7 @@ namespace testing
                 "|=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -1103,7 +1103,7 @@ namespace testing
                 "&", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -1120,7 +1120,7 @@ namespace testing
                 "&=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -1212,7 +1212,7 @@ namespace testing
                 "^", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;
@@ -1229,7 +1229,7 @@ namespace testing
                 "^=", 
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                expected.str(), 
+                expectedLit.str(), 
                 c.str()
             );
             result = 1;

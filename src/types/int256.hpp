@@ -127,7 +127,7 @@ namespace avx
          * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
          * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
          */
-        void saveAligned(int* dest) const {_mm256_store_si256((__m256i*)dest, v);};
+        void saveAligned(int *dest) const {_mm256_store_si256((__m256i*)dest, v);};
 
         bool operator==(const Int256 &bV) const {
             __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -168,7 +168,7 @@ namespace avx
          * Adds values from other vector and returns new vector.
          * @return New vector being a sum of this vector and `bv`.
          */
-        Int256 operator+(const Int256 &b) const { return _mm256_add_epi32(v, b.v); };
+        Int256 operator+(const Int256 &bV) const { return _mm256_add_epi32(v, bV.v); };
 
         /**
          * Adds single value across all vector fields.
@@ -177,17 +177,17 @@ namespace avx
         Int256 operator+(const int &b) const { return _mm256_add_epi32(v, _mm256_set1_epi32(b)); }
 
         // Minus operators
-        Int256 operator-(const Int256 &b) const { return _mm256_sub_epi32(v, b.v); };
+        Int256 operator-(const Int256 &bV) const { return _mm256_sub_epi32(v, bV.v); };
         Int256 operator-(const int &b) const { return _mm256_sub_epi32(v, _mm256_set1_epi32(b)); }
 
         // Multiplication operators
-        Int256 operator*(const Int256 &b) const { return _mm256_mullo_epi32(v, b.v); }
+        Int256 operator*(const Int256 &bV) const { return _mm256_mullo_epi32(v, bV.v); }
         Int256 operator*(const int &b) const { return _mm256_mullo_epi32(v,_mm256_set1_epi32(b)); }
 
 
-        Int256 operator/(const Int256 &b) const {
+        Int256 operator/(const Int256 &bV) const {
             return _mm256_cvttps_epi32(
-                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
             );
         }
         Int256 operator/(const int&b) const {
@@ -197,14 +197,14 @@ namespace avx
         }
 
         // Modulo operators
-        Int256 operator%(const Int256 &b) const {
+        Int256 operator%(const Int256 &bV) const {
 
-            __m256i sub_zero = _mm256_and_si256(v, b.v);
+            __m256i sub_zero = _mm256_and_si256(v, bV.v);
             sub_zero = _mm256_and_si256(sub_zero, constants::EPI32_SIGN);
             __m256i one = _mm256_srli_epi32(sub_zero, 31);
             sub_zero = _mm256_srai_epi32(sub_zero, 31);
 
-            __m256i safeb = _mm256_add_epi32(_mm256_xor_si256(b.v, sub_zero), one);
+            __m256i safeb = _mm256_add_epi32(_mm256_xor_si256(bV.v, sub_zero), one);
             __m256i safev = _mm256_add_epi32(_mm256_xor_si256(v, sub_zero), one);
 
             __m256i divided = _mm256_cvttps_epi32(
@@ -272,30 +272,30 @@ namespace avx
         }    
 
         // XOR operators
-        Int256 operator^(const Int256 &b) const { return _mm256_xor_si256(v, b.v); }
+        Int256 operator^(const Int256 &bV) const { return _mm256_xor_si256(v, bV.v); }
         Int256 operator^(const int &b) const { return _mm256_xor_si256(v, _mm256_set1_epi32(b)); }
 
         // OR operators
-        Int256 operator|(const Int256 &b) const {return _mm256_or_si256(v, b.v);}
+        Int256 operator|(const Int256 &bV) const {return _mm256_or_si256(v, bV.v);}
         Int256 operator|(const int &b) const { return _mm256_or_si256(v, _mm256_set1_epi32(b)); }
 
         // AND operators
-        Int256 operator&(const Int256 &b) const { return _mm256_and_si256(v, b.v);}
+        Int256 operator&(const Int256 &bV) const { return _mm256_and_si256(v, bV.v);}
         Int256 operator&(const int &b) const { return _mm256_and_si256(v, _mm256_set1_epi32(b)); }
 
         // NOT operators
         Int256 operator~() const { return _mm256_xor_si256(v, constants::ONES); }
 
         // Bitwise shift operations
-        Int256 operator<<(const Int256 &b) const { return _mm256_sllv_epi32(v,b.v); }
+        Int256 operator<<(const Int256 &bV) const { return _mm256_sllv_epi32(v,bV.v); }
         Int256 operator<<(const int &b) const { return _mm256_slli_epi32(v, b); }
 
-        Int256 operator>>(const Int256 &b) const { return _mm256_srav_epi32(v, b.v); }
+        Int256 operator>>(const Int256 &bV) const { return _mm256_srav_epi32(v, bV.v); }
         Int256 operator>>(const int &b) const { return _mm256_srai_epi32(v, b); }
 
         // Calc and store operators
-        Int256& operator+=(const Int256 & b) {
-            v = _mm256_add_epi32(v,b.v);
+        Int256& operator+=(const Int256 &bV) {
+            v = _mm256_add_epi32(v, bV.v);
             return *this;
         }
         
@@ -304,8 +304,8 @@ namespace avx
             return *this;
         }
 
-        Int256& operator-=(const Int256 &b) {
-            v = _mm256_sub_epi32(v, b.v);
+        Int256& operator-=(const Int256 &bV) {
+            v = _mm256_sub_epi32(v, bV.v);
             return *this;
         }
 
@@ -314,8 +314,8 @@ namespace avx
             return *this;
         }
 
-        Int256 &operator*=(const Int256 &b) {
-            v = _mm256_mullo_epi32(v, b.v);
+        Int256 &operator*=(const Int256 &bV) {
+            v = _mm256_mullo_epi32(v, bV.v);
             return *this;
         }
 
@@ -325,9 +325,9 @@ namespace avx
             return *this;
         };
 
-        Int256 &operator/=(const Int256 &b) {
+        Int256 &operator/=(const Int256 &bV) {
             v = _mm256_cvttps_epi32(
-                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(b.v))
+                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
             );
             return *this;
         }
@@ -338,13 +338,13 @@ namespace avx
         return *this;
         }
 
-        Int256 &operator%=(const Int256 &b) {
-            __m256i sub_zero = _mm256_and_si256(v, b.v);
+        Int256 &operator%=(const Int256 &bV) {
+            __m256i sub_zero = _mm256_and_si256(v, bV.v);
             sub_zero = _mm256_and_si256(sub_zero, constants::EPI32_SIGN);
             __m256i one = _mm256_srli_epi32(sub_zero, 31);
             sub_zero = _mm256_srai_epi32(sub_zero, 31);
 
-            __m256i safeb = _mm256_add_epi32(_mm256_xor_si256(b.v, sub_zero), one);
+            __m256i safeb = _mm256_add_epi32(_mm256_xor_si256(bV.v, sub_zero), one);
             __m256i safev = _mm256_add_epi32(_mm256_xor_si256(v, sub_zero), one);
 
             __m256i divided = _mm256_cvttps_epi32(
@@ -411,8 +411,8 @@ namespace avx
             return *this;
         }
 
-        Int256 & operator|=(const Int256 &b){
-            v = _mm256_or_si256(v, b.v);
+        Int256 & operator|=(const Int256 &bV){
+            v = _mm256_or_si256(v, bV.v);
             return *this;
         }
 
@@ -423,13 +423,13 @@ namespace avx
         }
 
 
-        Int256 & operator&=(const Int256 &b){
-            v = _mm256_and_si256(v, b.v);
+        Int256 & operator&=(const Int256 &bV){
+            v = _mm256_and_si256(v, bV.v);
             return *this;
         }
 
-        Int256 &operator^=(const Int256 &b){
-            v = _mm256_xor_si256(v, b.v);
+        Int256 &operator^=(const Int256 &bV){
+            v = _mm256_xor_si256(v, bV.v);
             return *this;
         }
 
@@ -439,8 +439,8 @@ namespace avx
             return *this;
         }
 
-        Int256 &operator<<=(const Int256 &b) {
-            v = _mm256_sllv_epi32(v, b.v);
+        Int256 &operator<<=(const Int256 &bV) {
+            v = _mm256_sllv_epi32(v, bV.v);
             return *this;
         }
 
@@ -449,8 +449,8 @@ namespace avx
             return *this;
         }
 
-        Int256 &operator>>=(const Int256 &b) {
-            v = _mm256_srav_epi32(v, b.v);
+        Int256 &operator>>=(const Int256 &bV) {
+            v = _mm256_srav_epi32(v, bV.v);
             return *this;
         }
 
