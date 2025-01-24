@@ -41,6 +41,19 @@ int main(int argc, char* argv[]) {
     std::vector<unsigned int> aV(268'435'456), bV(268'435'456), cV(268'435'456);
     testing::perf::TestConfig<unsigned int> config;
     config.avxFuncs.addRaw = perf_test_add_raw_avx;
+    /*std::srand(config.randomSeed);
+    for(size_t i = 0; i < aV.size(); ++i){               
+        aV[i] = std::rand();
+        bV[i] = std::rand() | 1;
+    }
+    std::cout << "Items count: " << aV.size() << '\n';
+    std::cout << avx::UInt256(aV.data() + 5544480).str() << " / " << avx::UInt256(bV.data() + 5544480).str() << " = \033[31m" << (avx::UInt256(aV.data() + 5544480) / avx::UInt256(bV.data() + 5544480)).str() << "\033[0m\n";
+    printf("As unsigned: %u / %u = \033[0;32m%u\033[0m\n", 1472234252u, 5057u, 1472234252u /5057u);
+    printf("As float:    %f / %f = %f\n", 1472234252.f, 5057.f, 1472234252.f / 5057.f);
+    printf("As double:   %lf / %lf = %lf\n", 1472234252., 5057., 1472234252. / 5057.);
+    testing::perf::testModAVX<avx::UInt256>(aV, bV, cV);
+    printf("%u %% %u = %u (valid = %u)\n", aV[5544480], bV[5544480], cV[5544480], aV[5544480] % bV[5544480]);
+    return 0;8*/
     int result = testing::perf::allPerfTest<avx::UInt256>(aV, bV, cV, config);
     return (result & 0xEFF) != 0; // Ignore Lshift errors as SIMD behaves differently when crossing size of stored type.
 }

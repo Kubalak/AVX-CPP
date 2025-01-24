@@ -186,9 +186,33 @@ namespace avx
 
 
         Int256 operator/(const Int256 &bV) const {
+            /**
+            // Version giving correct answer everytime but no perf boost.
+            __m128i result = _mm256_cvtpd_epi32(
+                _mm256_round_pd(
+                    _mm256_div_pd(
+                        _mm256_cvtepi32_pd(_mm256_castsi256_si128(v)), 
+                        _mm256_cvtepi32_pd(_mm256_castsi256_si128(bV.v))
+                    ),
+                    _MM_FROUND_TO_ZERO |_MM_FROUND_NO_EXC
+                )
+            );
+
+            __m128i resultHigh = _mm256_cvtpd_epi32(
+                _mm256_round_pd(
+                    _mm256_div_pd(
+                        _mm256_cvtepi32_pd(_mm256_extracti128_si256(v, 1)), 
+                        _mm256_cvtepi32_pd(_mm256_extracti128_si256(bV.v, 1))
+                    ),
+                    _MM_FROUND_TO_ZERO |_MM_FROUND_NO_EXC
+                )
+            );
+            return _mm256_set_m128i(resultHigh, result);
+            */
             return _mm256_cvttps_epi32(
                 _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
             );
+            
         }
         Int256 operator/(const int&b) const {
             return _mm256_cvttps_epi32(
