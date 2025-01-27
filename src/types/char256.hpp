@@ -55,11 +55,26 @@ namespace avx {
 
         public:
             
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr int size = 32;
+            
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = char;
 
+            /**
+             * Creates object and fills with 0.
+             */
             Char256() noexcept : v(_mm256_setzero_si256()){}
 
+            /**
+             * Initializes object with provided value.
+             * 
+             * @param init Value to be broadcasted to vector content.
+             */
             Char256(const char init) noexcept : v(_mm256_set1_epi8(init)){}
 
             Char256(const __m256i& init) noexcept : v(init){}
@@ -1020,6 +1035,11 @@ namespace avx {
                 return std::string(tmp);
             }
 
+            /**
+             * Prints content of vector as raw string.
+             * @param os Output stream, to which content will be written.
+             * @param a Vector, whose value will be written to stream.
+             */
             friend std::ostream& operator<<(std::ostream& os, const Char256& a);
 
     };

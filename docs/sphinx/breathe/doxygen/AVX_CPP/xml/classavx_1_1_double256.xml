@@ -1,0 +1,638 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classavx_1_1_double256" kind="class" language="C++" prot="public">
+    <compoundname>avx::Double256</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classavx_1_1_double256_1ad11d9d79e4e4792cbfc769426c0e04ef" prot="public" static="no">
+        <type>double</type>
+        <definition>using avx::Double256::storedType =  double</definition>
+        <argsstring></argsstring>
+        <name>storedType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="19" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classavx_1_1_double256_1ad5db417b36283d016b7a3cddceefb5a3" prot="private" static="no" mutable="no">
+        <type>__m256d</type>
+        <definition>__m256d avx::Double256::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="14" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classavx_1_1_double256_1ab3ed72ed44e5b9a366ce15ec002cd4dd" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int avx::Double256::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="18" column="34" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classavx_1_1_double256_1a68b3446b519207ed2b61df20d230c8ed" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Double256::Double256</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Double256</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="21" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a0ab0ae7fc1ec3b6dfeb602d6e6a83a83" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Double256::Double256</definition>
+        <argsstring>(const double val) noexcept</argsstring>
+        <name>Double256</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="23" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a29faa27746bbd551a89f5b02c2a49b1c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Double256::Double256</definition>
+        <argsstring>(const __m256d init) noexcept</argsstring>
+        <name>Double256</name>
+        <param>
+          <type>const __m256d</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="25" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a324980571e72f5aff187b2f0b2833534" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Double256::Double256</definition>
+        <argsstring>(const Double256 &amp;init) noexcept</argsstring>
+        <name>Double256</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="27" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a11138d06d78517916f2d70ec4f0e34c8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Double256::Double256</definition>
+        <argsstring>(const std::array&lt; double, 4 &gt; &amp;init) noexcept</argsstring>
+        <name>Double256</name>
+        <param>
+          <type>const std::array&lt; double, 4 &gt; &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="29" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a0735727783e8c022117084604ddee91f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Double256::Double256</definition>
+        <argsstring>(const double *addr)</argsstring>
+        <name>Double256</name>
+        <param>
+          <type>const double *</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="31" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a11312f2812dcad4b0321c5d9a053a9da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Double256::Double256</definition>
+        <argsstring>(std::initializer_list&lt; double &gt; init)</argsstring>
+        <name>Double256</name>
+        <param>
+          <type>std::initializer_list&lt; double &gt;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="41" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="41" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a41395b4a3ec898af20736e915acdc125" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Double256::load</definition>
+        <argsstring>(const double *sP)</argsstring>
+        <name>load</name>
+        <param>
+          <type>const double *</type>
+          <declname>sP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn&apos;t need to be aligned to any specific boundary. If <computeroutput>sP</computeroutput> is <computeroutput>nullptr</computeroutput> this method has no effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory from which to load data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="64" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1add8f59e988fdc70c5639e22c8cfca230" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const __m256d</type>
+        <definition>const __m256d avx::Double256::get</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="70" column="27" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1ac6f41ace61804089518d2c89cdabd864" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Double256::set</definition>
+        <argsstring>(__m256d val) noexcept</argsstring>
+        <name>set</name>
+        <param>
+          <type>__m256d</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="71" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a8293f21316ea531711bac47a9ec0699b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Double256::operator==</definition>
+        <argsstring>(const Double256 &amp;bV)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="74" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="74" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1aa547541d8dbe8e7cfdeefc7357f05065" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Double256::operator==</definition>
+        <argsstring>(const double b)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="86" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="86" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a77c3aaccf7a7270a0e1e4d835af75cf1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Double256::operator!=</definition>
+        <argsstring>(const Double256 &amp;bV)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="97" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="97" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a29c628531416a02c5fb1d82cf59fb3f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Double256::operator!=</definition>
+        <argsstring>(const double b)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="109" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="109" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1aa0fe34c8e8232d29121c0baba152f457" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator+</definition>
+        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="121" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="121" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1aff7ad0961dd4adc4a265094ab9a95997" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator+</definition>
+        <argsstring>(const double val) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="125" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="125" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1ae744fb1e28983eede8642f01fc4728e8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator+=</definition>
+        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="129" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a33cb1e510644804c5388a46ce413a372" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator+=</definition>
+        <argsstring>(const double val) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="134" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a130b0f40d279fbef58d05f47902f84f5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator-</definition>
+        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="139" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="139" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1ad2e4bc47a901e578a5757e31d08ffd6b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator-</definition>
+        <argsstring>(const double val) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="143" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="143" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a38978927d6cbbabfd85ce324ffa46c5d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator-=</definition>
+        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="147" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="147" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a5e4f3c09e8de1b3cff112feea3fff405" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator-=</definition>
+        <argsstring>(const double val) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="152" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a45465e7079338a409a2ae102fe0dfe36" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator*</definition>
+        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="157" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="157" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a1b3d921ec6cdc768642b45539e6e8a02" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator*</definition>
+        <argsstring>(const double val) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="161" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="161" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1aab1e119af71f177bede8ab6fcdfddfb1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator*=</definition>
+        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="165" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="165" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a4897a4e8bcd37e3457b63cf16539a05e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator*=</definition>
+        <argsstring>(const double val) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="170" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="170" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a31aaa1e75e086a3e0238a3f8dcc838bc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator/</definition>
+        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="175" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="175" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a90d976b16c5bf7276f44438d016ae35f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 avx::Double256::operator/</definition>
+        <argsstring>(const double val) const noexcept</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="179" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="179" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a9b0901c03cafb98c3b6cea5de1c93605" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator/=</definition>
+        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="183" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="183" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1a8b2b50ea99626a673be48787a1f19120" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+        <definition>Double256&amp; avx::Double256::operator/=</definition>
+        <argsstring>(const double val) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="188" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="188" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1aa0dd0364633c34e87ac3fae731ebc7ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double avx::Double256::operator[]</definition>
+        <argsstring>(const unsigned int index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="193" column="20" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="193" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_double256_1ad7c754f07ede8d94c5c2e9e42aeacb09" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string avx::Double256::str</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="204" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="204" bodyend="213"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" line="11" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp" bodystart="11" bodyend="215"/>
+    <listofallmembers>
+      <member refid="classavx_1_1_double256_1a68b3446b519207ed2b61df20d230c8ed" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1a0ab0ae7fc1ec3b6dfeb602d6e6a83a83" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1a29faa27746bbd551a89f5b02c2a49b1c" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1a324980571e72f5aff187b2f0b2833534" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1a11138d06d78517916f2d70ec4f0e34c8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1a0735727783e8c022117084604ddee91f" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1a11312f2812dcad4b0321c5d9a053a9da" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1add8f59e988fdc70c5639e22c8cfca230" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>get</name></member>
+      <member refid="classavx_1_1_double256_1a41395b4a3ec898af20736e915acdc125" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>load</name></member>
+      <member refid="classavx_1_1_double256_1a77c3aaccf7a7270a0e1e4d835af75cf1" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_double256_1a29c628531416a02c5fb1d82cf59fb3f8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_double256_1a45465e7079338a409a2ae102fe0dfe36" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_double256_1a1b3d921ec6cdc768642b45539e6e8a02" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_double256_1aab1e119af71f177bede8ab6fcdfddfb1" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_double256_1a4897a4e8bcd37e3457b63cf16539a05e" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_double256_1aa0fe34c8e8232d29121c0baba152f457" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_double256_1aff7ad0961dd4adc4a265094ab9a95997" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_double256_1ae744fb1e28983eede8642f01fc4728e8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_double256_1a33cb1e510644804c5388a46ce413a372" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_double256_1a130b0f40d279fbef58d05f47902f84f5" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_double256_1ad2e4bc47a901e578a5757e31d08ffd6b" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_double256_1a38978927d6cbbabfd85ce324ffa46c5d" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_double256_1a5e4f3c09e8de1b3cff112feea3fff405" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_double256_1a31aaa1e75e086a3e0238a3f8dcc838bc" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_double256_1a90d976b16c5bf7276f44438d016ae35f" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_double256_1a9b0901c03cafb98c3b6cea5de1c93605" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_double256_1a8b2b50ea99626a673be48787a1f19120" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_double256_1a8293f21316ea531711bac47a9ec0699b" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_double256_1aa547541d8dbe8e7cfdeefc7357f05065" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_double256_1aa0dd0364633c34e87ac3fae731ebc7ed" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator[]</name></member>
+      <member refid="classavx_1_1_double256_1ac6f41ace61804089518d2c89cdabd864" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>set</name></member>
+      <member refid="classavx_1_1_double256_1ab3ed72ed44e5b9a366ce15ec002cd4dd" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>size</name></member>
+      <member refid="classavx_1_1_double256_1ad11d9d79e4e4792cbfc769426c0e04ef" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>storedType</name></member>
+      <member refid="classavx_1_1_double256_1ad7c754f07ede8d94c5c2e9e42aeacb09" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>str</name></member>
+      <member refid="classavx_1_1_double256_1ad5db417b36283d016b7a3cddceefb5a3" prot="private" virt="non-virtual"><scope>avx::Double256</scope><name>v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

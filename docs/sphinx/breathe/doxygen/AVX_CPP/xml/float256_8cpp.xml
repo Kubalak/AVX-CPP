@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="float256_8cpp" kind="file" language="C++">
+    <compoundname>float256.cpp</compoundname>
+    <includes refid="float256_8hpp" local="yes">float256.hpp</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>float256.hpp</label>
+        <link refid="float256_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>immintrin.h</label>
+      </node>
+      <node id="5">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>array</label>
+      </node>
+      <node id="1">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/float256.cpp</label>
+        <link refid="float256_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;float256.hpp&quot;</highlight></codeline>
+    </programlisting>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.cpp"/>
+  </compounddef>
+</doxygen>

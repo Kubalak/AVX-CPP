@@ -1,0 +1,1393 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classavx_1_1_short256" kind="class" language="C++" prot="public">
+    <compoundname>avx::Short256</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classavx_1_1_short256_1a3058175057294365c11239ac1356d9b7" prot="public" static="no">
+        <type>short</type>
+        <definition>using avx::Short256::storedType =  short</definition>
+        <argsstring></argsstring>
+        <name>storedType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="19" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classavx_1_1_short256_1a16999fea2aeac54782f794dbe7491e53" prot="private" static="no" mutable="no">
+        <type>__m256i</type>
+        <definition>__m256i avx::Short256::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="15" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classavx_1_1_short256_1a3429f1a13db6db5efa6c306857e1bcb3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const int</type>
+        <definition>constexpr const int avx::Short256::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="18" column="40" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classavx_1_1_short256_1aa128c6af282c522e85bc802e61a7ef1b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Short256::Short256</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Short256</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. Sets zero to whole vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="24" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1afcc1efe51771b44867eee4ec50e5b080" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Short256::Short256</definition>
+        <argsstring>(const Short256 &amp;init) noexcept</argsstring>
+        <name>Short256</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes vector with value from other vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object which value will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="31" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a3c9fec9b43963b7634b385872cdbd042" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Short256::Short256</definition>
+        <argsstring>(const __m256i &amp;init) noexcept</argsstring>
+        <name>Short256</name>
+        <param>
+          <type>const __m256i &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes vector but using <computeroutput>__m256i</computeroutput> type. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="38" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a9df1fdd1af31460fea0d7f934e7a1ca7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Short256::Short256</definition>
+        <argsstring>(const std::array&lt; short, 16 &gt; &amp;init) noexcept</argsstring>
+        <name>Short256</name>
+        <param>
+          <type>const std::array&lt; short, 16 &gt; &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize vector with values read from an array. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array from which values will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="45" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1abb83e0884c5f50fd1f67fb697a40b954" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Short256::Short256</definition>
+        <argsstring>(const short *addr)</argsstring>
+        <name>Short256</name>
+        <param>
+          <type>const short *</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize vector with values using pointer. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A valid address containing at least 16 <computeroutput>short</computeroutput> numbers. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>If</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in debug mode and <computeroutput>addr</computeroutput> is <computeroutput>nullptr</computeroutput> throws <computeroutput>std::invalid_argument</computeroutput>. Otherwise no exception will be thrown. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="53" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="53" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a0949aa3dd019d5dd3d8c2d6f98778507" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Short256::Short256</definition>
+        <argsstring>(const short b) noexcept</argsstring>
+        <name>Short256</name>
+        <param>
+          <type>const short</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes all vector fields with single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A literal value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="68" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a2fb405c56cbdd2b8dde56c88e713107c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Short256::Short256</definition>
+        <argsstring>(std::initializer_list&lt; short &gt; init)</argsstring>
+        <name>Short256</name>
+        <param>
+          <type>std::initializer_list&lt; short &gt;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="70" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="70" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a5a7ed398d8a5831f54e76161301822c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Short256::load</definition>
+        <argsstring>(const short *sP)</argsstring>
+        <name>load</name>
+        <param>
+          <type>const short *</type>
+          <declname>sP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn&apos;t need to be aligned to any specific boundary. If <computeroutput>sP</computeroutput> is <computeroutput>nullptr</computeroutput> this method has no effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory from which to load data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="94" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="94" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a698711af041528f37fbe449979d98028" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Short256::save</definition>
+        <argsstring>(short *dest) const</argsstring>
+        <name>save</name>
+        <param>
+          <type>short *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves data to destination in memory. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A valid pointer to a memory of at least 16 <computeroutput>short</computeroutput> numbers (32 bytes). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>If</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in debug mode and <computeroutput>dest</computeroutput> is <computeroutput>nullptr</computeroutput> throws <computeroutput>std::invalid_argument</computeroutput>. Otherwise no exception will be thrown. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="104" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="104" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a34543cb7eb1e5ff70afd1295f293ace8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Short256::save</definition>
+        <argsstring>(std::array&lt; short, 16 &gt; &amp;dest) const noexcept</argsstring>
+        <name>save</name>
+        <param>
+          <type>std::array&lt; short, 16 &gt; &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves the data to passed array object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An array to which data will be saved. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="118" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="118" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a586b8a515dbb686bfb1310fb19c4d479" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Short256::saveAligned</definition>
+        <argsstring>(short *dest) const</argsstring>
+        <name>saveAligned</name>
+        <param>
+          <type>short *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves data to destination in memory. The memory must be aligned at 32-byte boundary.</para>
+<para>See <ulink url="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</ulink> for more details. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A valid pointer to a memory of at least 16 <computeroutput>short</computeroutput> numbers (32 bytes). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>If</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in debug mode and <computeroutput>dest</computeroutput> is <computeroutput>nullptr</computeroutput> throws <computeroutput>std::invalid_argument</computeroutput>. Otherwise no exception will be thrown. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="129" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="129" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ae72ae89bf693753229f57fa8d15223a7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>__m256i</type>
+        <definition>__m256i avx::Short256::get</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the internal vector value. <simplesect kind="return"><para>The value of <computeroutput>__m256i</computeroutput> vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="143" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="143" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a2b2b1d77009c1998f7d497ac8d714212" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Short256::set</definition>
+        <argsstring>(const __m256i value) noexcept</argsstring>
+        <name>set</name>
+        <param>
+          <type>const __m256i</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the internal vector value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="149" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1aed471999bc6221584be97499496a95f8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>short</type>
+        <definition>short avx::Short256::operator[]</definition>
+        <argsstring>(const unsigned int &amp;index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indexing operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position of desired element between 0 and 15. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value of underlying element. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;tt&gt;std::out_of_range&lt;/tt&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If index is not within the correct range. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="158" column="19" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="158" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ae0daa7cf99adb8efa6a7991c893fd05d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Short256::operator==</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares with second vector for equality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if all elements are equal or <computeroutput>false</computeroutput> if not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="175" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a80ee1427f2f381c909f99c9bfb3a270c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Short256::operator==</definition>
+        <argsstring>(const short b) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const short</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares with value for equality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if all elements are equal to passed value <computeroutput>false</computeroutput> if not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="186" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="186" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ae50ac2925a95842c60e0c16a30e3acd1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Short256::operator!=</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares with second vector for inequality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if any alement is not equal to corresponding element in <computeroutput>bV</computeroutput> otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="198" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1abd66e8e1a42167959eb0823dbd8665fb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Short256::operator!=</definition>
+        <argsstring>(const short b) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const short</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares with value for inequality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if any alement is not equal to corresponding element in <computeroutput>bV</computeroutput> otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="209" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="209" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ae14348eb7ddcb22bf7ff1e4fc279f451" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator+</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="215" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="215" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a1c3faa6e766509540ff14d0227e801be" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator+</definition>
+        <argsstring>(const short &amp;b) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="219" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="219" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1af8bab9dd55bccd9e4fa148c9bbc37388" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator+=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="223" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="223" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a08b1ef62be6b2327e2e0d9faeb6f6567" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator+=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="228" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="228" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a206411e499aeeb14a22b99cbc7c7c644" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator-</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="233" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="233" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a388e8d614c2fe69303cc3aa6220bcfb3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator-</definition>
+        <argsstring>(const short &amp;b) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="237" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="237" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1aec2217e53440d5ac52e2e998fbaa9c0a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator-=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="241" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="241" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ad5fd9c2cce2c19fa4e45a24e49044982" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator-=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="246" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="246" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a5501a5b8e81e6e071aba659380146b5d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator*</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="251" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="251" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a9440a32753b5aa4f403abb76208cc703" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator*</definition>
+        <argsstring>(const short &amp;b) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="255" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="255" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ab1c0240832a5e0330fc01e30219e008a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator*=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="259" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="259" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ae93ae15b1fc6bbe4ae2b588537f12f54" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator*=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="264" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="264" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a73de1d8dbbf220f75c2413bb8da6bc34" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator/</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs an integer division.</para>
+<para>NOTE: Value is first casted to <computeroutput>int</computeroutput> and then to <computeroutput>float</computeroutput> and inverse to return integer result which has not been yet tested for performance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Divisors vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of integer division with truncation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="276" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="276" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a0647a2bbb6512b947cd3aebe72f351e6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator/</definition>
+        <argsstring>(const short &amp;b) const noexcept</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs an integer division.</para>
+<para>NOTE: Value is first casted to <computeroutput>int</computeroutput> and then to <computeroutput>float</computeroutput> and inverse to return integer result which has not been yet tested for performance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Divisor value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of integer division with truncation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="306" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="306" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1afdb35bd008ffdc97d482fc3b0435e227" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator/=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="327" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="327" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a41bdadc4c25cdba5261be3c954775fa7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator/=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="351" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="351" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a3989f754aa831fb59788b6f8ad817158" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator%</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator%</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a modulo operation.</para>
+<para>NOTE: Analogously as in <computeroutput>/</computeroutput> and <computeroutput>/=</computeroutput> operators values are casted before performing a division. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Divisors vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Modulo result. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="380" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="380" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a7dca86199384be723d69c3f6452d645c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator%</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator%</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a modulo operation.</para>
+<para>NOTE: Analogously as in <computeroutput>/</computeroutput> and <computeroutput>/=</computeroutput> operators values are casted before performing a division. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Divisor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Modulo result. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="412" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="412" bodyend="432"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ac638716d2dadca18916e8dec4a269574" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator%=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator%=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="435" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="435" bodyend="458"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ab3cb62dea8e11dc44ad12eb6073be1b0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator%=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator%=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="460" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="460" bodyend="481"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1afdf954919c07e577522ab7d913ccb67e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator|</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator|</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="483" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="483" bodyend="485"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a7056e0693fd5399a08775e356c7f1292" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator|</definition>
+        <argsstring>(const short &amp;b) const noexcept</argsstring>
+        <name>operator|</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="487" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="487" bodyend="489"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a1455cd1e1a87d025e2241d2d49e4896d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator|=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator|=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="491" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="491" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1aedea5f7e6c8f9d2a680e82a4ea3e480c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator|=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator|=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="496" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="496" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a2644e68f65eae7de70b1ca07bc213cb9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator&amp;</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator&amp;</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="501" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="501" bodyend="503"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1af19a60e9a45cbfaa856e9eecff27fd0f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator&amp;</definition>
+        <argsstring>(const short &amp;b) const noexcept</argsstring>
+        <name>operator&amp;</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="505" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="505" bodyend="507"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ab6939a2bba8652081f81c23cfb9428c6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator&amp;=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator&amp;=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="509" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="509" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1ac7f934135749530971584c2e0264dc92" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator&amp;=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator&amp;=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="514" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="514" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a2cc8e60eeee17c03f6c32392af06e076" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator^</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator^</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="519" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="519" bodyend="521"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a197b9d9cdffadb4d91021c900aec2627" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator^</definition>
+        <argsstring>(const short &amp;b) const noexcept</argsstring>
+        <name>operator^</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="523" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="523" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a07c3348575ab383e62e9d3385fd5f79d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator^=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator^=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="527" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="527" bodyend="530"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a9de4752dd41185fc05960e89113f08fc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator^=</definition>
+        <argsstring>(const short &amp;b) noexcept</argsstring>
+        <name>operator^=</name>
+        <param>
+          <type>const short &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="532" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="532" bodyend="535"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a34c2ccf9977b9ad83cf985c373aaf4f2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator&lt;&lt;</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs left bitwise shift of corresponding values. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector that specifies number of bits to shift (for each 16-bit value). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New value of <computeroutput>v</computeroutput> shifted by number of bits specfied in <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="542" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="542" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a357077bcb5fa9153cbcd320420888f99" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator&lt;&lt;</definition>
+        <argsstring>(const unsigned int &amp;shift) const noexcept</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>shift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="569" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="569" bodyend="571"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a1ad2e5988e9809078904b1a719b41ea1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator&lt;&lt;=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator&lt;&lt;=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="573" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="573" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a7f23c5d2569b99d696d7f57cc3b8f26a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator&lt;&lt;=</definition>
+        <argsstring>(const unsigned int &amp;shift) noexcept</argsstring>
+        <name>operator&lt;&lt;=</name>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>shift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="595" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="595" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1aa57a940e70fca4d3205539c2fe459398" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator&gt;&gt;</definition>
+        <argsstring>(const Short256 &amp;bV) const noexcept</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="600" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="600" bodyend="619"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1aa17751f8eaca804461c844b60bcf6f68" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator&gt;&gt;</definition>
+        <argsstring>(const unsigned int &amp;shift) const noexcept</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>shift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="621" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="621" bodyend="623"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a97e29915fd77806d30fcfad8785a95d8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator&gt;&gt;=</definition>
+        <argsstring>(const Short256 &amp;bV) noexcept</argsstring>
+        <name>operator&gt;&gt;=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="625" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="625" bodyend="645"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a18ef64e18b0fd877bcfadc51bb737ad4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
+        <definition>Short256&amp; avx::Short256::operator&gt;&gt;=</definition>
+        <argsstring>(const unsigned int &amp;shift) noexcept</argsstring>
+        <name>operator&gt;&gt;=</name>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>shift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="647" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="647" bodyend="650"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a63cc935bd0562b8e654a60972874da30" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
+        <definition>Short256 avx::Short256::operator~</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator~</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="652" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="652" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_short256_1a14d416aaac181668ab59e5676d8654cf" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string avx::Short256::str</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="656" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="656" bodyend="665"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" line="13" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp" bodystart="13" bodyend="666"/>
+    <listofallmembers>
+      <member refid="classavx_1_1_short256_1ae72ae89bf693753229f57fa8d15223a7" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>get</name></member>
+      <member refid="classavx_1_1_short256_1a5a7ed398d8a5831f54e76161301822c3" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>load</name></member>
+      <member refid="classavx_1_1_short256_1ae50ac2925a95842c60e0c16a30e3acd1" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_short256_1abd66e8e1a42167959eb0823dbd8665fb" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_short256_1a3989f754aa831fb59788b6f8ad817158" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator%</name></member>
+      <member refid="classavx_1_1_short256_1a7dca86199384be723d69c3f6452d645c" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator%</name></member>
+      <member refid="classavx_1_1_short256_1ac638716d2dadca18916e8dec4a269574" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_short256_1ab3cb62dea8e11dc44ad12eb6073be1b0" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_short256_1a2644e68f65eae7de70b1ca07bc213cb9" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&amp;</name></member>
+      <member refid="classavx_1_1_short256_1af19a60e9a45cbfaa856e9eecff27fd0f" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&amp;</name></member>
+      <member refid="classavx_1_1_short256_1ab6939a2bba8652081f81c23cfb9428c6" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_short256_1ac7f934135749530971584c2e0264dc92" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_short256_1a5501a5b8e81e6e071aba659380146b5d" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_short256_1a9440a32753b5aa4f403abb76208cc703" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_short256_1ab1c0240832a5e0330fc01e30219e008a" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_short256_1ae93ae15b1fc6bbe4ae2b588537f12f54" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_short256_1ae14348eb7ddcb22bf7ff1e4fc279f451" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_short256_1a1c3faa6e766509540ff14d0227e801be" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_short256_1af8bab9dd55bccd9e4fa148c9bbc37388" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_short256_1a08b1ef62be6b2327e2e0d9faeb6f6567" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_short256_1a206411e499aeeb14a22b99cbc7c7c644" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_short256_1a388e8d614c2fe69303cc3aa6220bcfb3" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_short256_1aec2217e53440d5ac52e2e998fbaa9c0a" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_short256_1ad5fd9c2cce2c19fa4e45a24e49044982" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_short256_1a73de1d8dbbf220f75c2413bb8da6bc34" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_short256_1a0647a2bbb6512b947cd3aebe72f351e6" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_short256_1afdb35bd008ffdc97d482fc3b0435e227" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_short256_1a41bdadc4c25cdba5261be3c954775fa7" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_short256_1a34c2ccf9977b9ad83cf985c373aaf4f2" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classavx_1_1_short256_1a357077bcb5fa9153cbcd320420888f99" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classavx_1_1_short256_1a1ad2e5988e9809078904b1a719b41ea1" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_short256_1a7f23c5d2569b99d696d7f57cc3b8f26a" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_short256_1ae0daa7cf99adb8efa6a7991c893fd05d" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_short256_1a80ee1427f2f381c909f99c9bfb3a270c" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_short256_1aa57a940e70fca4d3205539c2fe459398" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classavx_1_1_short256_1aa17751f8eaca804461c844b60bcf6f68" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classavx_1_1_short256_1a97e29915fd77806d30fcfad8785a95d8" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_short256_1a18ef64e18b0fd877bcfadc51bb737ad4" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_short256_1aed471999bc6221584be97499496a95f8" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator[]</name></member>
+      <member refid="classavx_1_1_short256_1a2cc8e60eeee17c03f6c32392af06e076" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator^</name></member>
+      <member refid="classavx_1_1_short256_1a197b9d9cdffadb4d91021c900aec2627" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator^</name></member>
+      <member refid="classavx_1_1_short256_1a07c3348575ab383e62e9d3385fd5f79d" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_short256_1a9de4752dd41185fc05960e89113f08fc" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_short256_1afdf954919c07e577522ab7d913ccb67e" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator|</name></member>
+      <member refid="classavx_1_1_short256_1a7056e0693fd5399a08775e356c7f1292" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator|</name></member>
+      <member refid="classavx_1_1_short256_1a1455cd1e1a87d025e2241d2d49e4896d" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_short256_1aedea5f7e6c8f9d2a680e82a4ea3e480c" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_short256_1a63cc935bd0562b8e654a60972874da30" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>operator~</name></member>
+      <member refid="classavx_1_1_short256_1a698711af041528f37fbe449979d98028" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>save</name></member>
+      <member refid="classavx_1_1_short256_1a34543cb7eb1e5ff70afd1295f293ace8" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>save</name></member>
+      <member refid="classavx_1_1_short256_1a586b8a515dbb686bfb1310fb19c4d479" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>saveAligned</name></member>
+      <member refid="classavx_1_1_short256_1a2b2b1d77009c1998f7d497ac8d714212" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>set</name></member>
+      <member refid="classavx_1_1_short256_1aa128c6af282c522e85bc802e61a7ef1b" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>Short256</name></member>
+      <member refid="classavx_1_1_short256_1afcc1efe51771b44867eee4ec50e5b080" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>Short256</name></member>
+      <member refid="classavx_1_1_short256_1a3c9fec9b43963b7634b385872cdbd042" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>Short256</name></member>
+      <member refid="classavx_1_1_short256_1a9df1fdd1af31460fea0d7f934e7a1ca7" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>Short256</name></member>
+      <member refid="classavx_1_1_short256_1abb83e0884c5f50fd1f67fb697a40b954" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>Short256</name></member>
+      <member refid="classavx_1_1_short256_1a0949aa3dd019d5dd3d8c2d6f98778507" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>Short256</name></member>
+      <member refid="classavx_1_1_short256_1a2fb405c56cbdd2b8dde56c88e713107c" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>Short256</name></member>
+      <member refid="classavx_1_1_short256_1a3429f1a13db6db5efa6c306857e1bcb3" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>size</name></member>
+      <member refid="classavx_1_1_short256_1a3058175057294365c11239ac1356d9b7" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>storedType</name></member>
+      <member refid="classavx_1_1_short256_1a14d416aaac181668ab59e5676d8654cf" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>str</name></member>
+      <member refid="classavx_1_1_short256_1a16999fea2aeac54782f794dbe7491e53" prot="private" virt="non-virtual"><scope>avx::Short256</scope><name>v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

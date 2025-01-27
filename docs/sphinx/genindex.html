@@ -1,0 +1,978 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 --><title>Index - AVX CPP documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">AVX CPP  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">AVX CPP  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="about.html">About AVX CPP</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of About AVX CPP</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="quickstart.html">Quickstart</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Quickstart</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="char256/index.html">avx::Char256</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of avx::Char256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="char256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="uchar256/index.html">avx::UChar256</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of avx::UChar256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="uchar256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="short256/index.html">avx::Short256</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of avx::Short256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="short256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/short256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ushort256/index.html">avx::UShort256</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of avx::UShort256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ushort256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/ushort256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="int256/index.html">avx::Int256</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of avx::Int256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="int256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/int256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="uint256/index.html">avx::UInt256</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of avx::UInt256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="uint256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="long256/index.html">avx::Long256</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of avx::Long256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="long256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/long256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ulong256/index.html">avx::ULong256</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of avx::ULong256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ulong256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/ulong256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="float256/index.html">avx::Float256</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of avx::Float256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="float256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="double256/index.html">avx::Double256</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of avx::Double256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="double256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256E">avx::Char256 (C++ class)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char2567Char256EKc">avx::Char256::Char256 (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char2567Char256ENSt16initializer_listIcEE">[1]</a>, <a href="char256/index.html#_CPPv4N3avx7Char2567Char256EPKc">[2]</a>, <a href="char256/index.html#_CPPv4N3avx7Char2567Char256ERK7Char256">[3]</a>, <a href="char256/index.html#_CPPv4N3avx7Char2567Char256ERK7__m256i">[4]</a>, <a href="char256/index.html#_CPPv4N3avx7Char2567Char256ERKNSt5arrayIcXL32EEEE">[5]</a>, <a href="char256/index.html#_CPPv4N3avx7Char2567Char256ERKNSt6stringE">[6]</a>, <a href="char256/index.html#_CPPv4N3avx7Char2567Char256Ev">[7]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char2563getEv">avx::Char256::get (C++ function)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char2564loadEPKc">avx::Char256::load (C++ function)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256neEKc">avx::Char256::operator!= (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256neERK7Char256">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256rmERK7Char256">avx::Char256::operator% (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256rmERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256rMERK7Char256">avx::Char256::operator%= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256rMERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256anERK7Char256">avx::Char256::operator&amp; (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256anERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256aNERK7Char256">avx::Char256::operator&amp;= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256aNERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256mlERK7Char256">avx::Char256::operator* (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256mlERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256mLERK7Char256">avx::Char256::operator*= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256mLERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256plERK7Char256">avx::Char256::operator+ (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256plERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256pLERK7Char256">avx::Char256::operator+= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256pLERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256miERK7Char256">avx::Char256::operator- (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256miERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256mIERK7Char256">avx::Char256::operator-= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256mIERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256dvERK7Char256">avx::Char256::operator/ (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256dvERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256dVERK7Char256">avx::Char256::operator/= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256dVERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256lsERNSt7ostreamERK7Char256">avx::Char256::operator&lt;&lt; (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256lsERK7Char256">[1]</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256lsERKj">[2]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256lSERK7Char256">avx::Char256::operator&lt;&lt;= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256lSERKj">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256eqEKc">avx::Char256::operator== (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256eqERK7Char256">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256rsERK7Char256">avx::Char256::operator&gt;&gt; (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256rsERKj">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256rSERK7Char256">avx::Char256::operator&gt;&gt;= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256rSERKj">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256ixERKj">avx::Char256::operator[] (C++ function)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256eoERK7Char256">avx::Char256::operator^ (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256eoERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256eOERK7Char256">avx::Char256::operator^= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256eOERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256orERK7Char256">avx::Char256::operator| (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char256orERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char256oRERK7Char256">avx::Char256::operator|= (C++ function)</a>, <a href="char256/index.html#_CPPv4N3avx7Char256oRERKc">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char256coEv">avx::Char256::operator~ (C++ function)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char2564saveEPc">avx::Char256::save (C++ function)</a>, <a href="char256/index.html#_CPPv4NK3avx7Char2564saveERNSt5arrayIcXL32EEEE">[1]</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char25611saveAlignedEPc">avx::Char256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char2563setEK7__m256i">avx::Char256::set (C++ function)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char2564sizeE">avx::Char256::size (C++ member)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4N3avx7Char25610storedTypeE">avx::Char256::storedType (C++ type)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char2563strEv">avx::Char256::str (C++ function)</a>
+</li>
+        <li><a href="char256/index.html#_CPPv4NK3avx7Char2568toStringEv">avx::Char256::toString (C++ function)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double256E">avx::Double256 (C++ class)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double2569Double256EK7__m256d">avx::Double256::Double256 (C++ function)</a>, <a href="double256/index.html#_CPPv4N3avx9Double2569Double256EKd">[1]</a>, <a href="double256/index.html#_CPPv4N3avx9Double2569Double256ENSt16initializer_listIdEE">[2]</a>, <a href="double256/index.html#_CPPv4N3avx9Double2569Double256EPKd">[3]</a>, <a href="double256/index.html#_CPPv4N3avx9Double2569Double256ERK9Double256">[4]</a>, <a href="double256/index.html#_CPPv4N3avx9Double2569Double256ERKNSt5arrayIdXL4EEEE">[5]</a>, <a href="double256/index.html#_CPPv4N3avx9Double2569Double256Ev">[6]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4NK3avx9Double2563getEv">avx::Double256::get (C++ function)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double2564loadEPKd">avx::Double256::load (C++ function)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double256neEKd">avx::Double256::operator!= (C++ function)</a>, <a href="double256/index.html#_CPPv4N3avx9Double256neERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4NK3avx9Double256mlEKd">avx::Double256::operator* (C++ function)</a>, <a href="double256/index.html#_CPPv4NK3avx9Double256mlERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double256mLEKd">avx::Double256::operator*= (C++ function)</a>, <a href="double256/index.html#_CPPv4N3avx9Double256mLERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4NK3avx9Double256plEKd">avx::Double256::operator+ (C++ function)</a>, <a href="double256/index.html#_CPPv4NK3avx9Double256plERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double256pLEKd">avx::Double256::operator+= (C++ function)</a>, <a href="double256/index.html#_CPPv4N3avx9Double256pLERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4NK3avx9Double256miEKd">avx::Double256::operator- (C++ function)</a>, <a href="double256/index.html#_CPPv4NK3avx9Double256miERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double256mIEKd">avx::Double256::operator-= (C++ function)</a>, <a href="double256/index.html#_CPPv4N3avx9Double256mIERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4NK3avx9Double256dvEKd">avx::Double256::operator/ (C++ function)</a>, <a href="double256/index.html#_CPPv4NK3avx9Double256dvERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double256dVEKd">avx::Double256::operator/= (C++ function)</a>, <a href="double256/index.html#_CPPv4N3avx9Double256dVERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double256eqEKd">avx::Double256::operator== (C++ function)</a>, <a href="double256/index.html#_CPPv4N3avx9Double256eqERK9Double256">[1]</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4NK3avx9Double256ixEKj">avx::Double256::operator[] (C++ function)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double2563setE7__m256d">avx::Double256::set (C++ function)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double2564sizeE">avx::Double256::size (C++ member)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4N3avx9Double25610storedTypeE">avx::Double256::storedType (C++ type)</a>
+</li>
+        <li><a href="double256/index.html#_CPPv4NK3avx9Double2563strEv">avx::Double256::str (C++ function)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float256E">avx::Float256 (C++ class)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float2568Float256EK6__m256">avx::Float256::Float256 (C++ function)</a>, <a href="float256/index.html#_CPPv4N3avx8Float2568Float256EKf">[1]</a>, <a href="float256/index.html#_CPPv4N3avx8Float2568Float256EPKf">[2]</a>, <a href="float256/index.html#_CPPv4N3avx8Float2568Float256ERK8Float256">[3]</a>, <a href="float256/index.html#_CPPv4N3avx8Float2568Float256ERKNSt5arrayIfXL8EEEE">[4]</a>, <a href="float256/index.html#_CPPv4N3avx8Float2568Float256Ev">[5]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float2563getEv">avx::Float256::get (C++ function)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float2564loadEPKf">avx::Float256::load (C++ function)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float256neEKf">avx::Float256::operator!= (C++ function)</a>, <a href="float256/index.html#_CPPv4N3avx8Float256neERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float256mlEKf">avx::Float256::operator* (C++ function)</a>, <a href="float256/index.html#_CPPv4NK3avx8Float256mlERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float256mLEKf">avx::Float256::operator*= (C++ function)</a>, <a href="float256/index.html#_CPPv4N3avx8Float256mLERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float256plEKf">avx::Float256::operator+ (C++ function)</a>, <a href="float256/index.html#_CPPv4NK3avx8Float256plERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float256pLEKf">avx::Float256::operator+= (C++ function)</a>, <a href="float256/index.html#_CPPv4N3avx8Float256pLERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float256miEKf">avx::Float256::operator- (C++ function)</a>, <a href="float256/index.html#_CPPv4NK3avx8Float256miERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float256mIEKf">avx::Float256::operator-= (C++ function)</a>, <a href="float256/index.html#_CPPv4N3avx8Float256mIERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float256dvEKf">avx::Float256::operator/ (C++ function)</a>, <a href="float256/index.html#_CPPv4NK3avx8Float256dvERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float256dVEKf">avx::Float256::operator/= (C++ function)</a>, <a href="float256/index.html#_CPPv4N3avx8Float256dVERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float256eqEKf">avx::Float256::operator== (C++ function)</a>, <a href="float256/index.html#_CPPv4N3avx8Float256eqERK8Float256">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float256ixEKj">avx::Float256::operator[] (C++ function)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float2564saveEPf">avx::Float256::save (C++ function)</a>, <a href="float256/index.html#_CPPv4NK3avx8Float2564saveERNSt5arrayIfXL8EEEE">[1]</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float25611saveAlignedEPf">avx::Float256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float2563setE6__m256">avx::Float256::set (C++ function)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float2564sizeE">avx::Float256::size (C++ member)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4N3avx8Float25610storedTypeE">avx::Float256::storedType (C++ type)</a>
+</li>
+        <li><a href="float256/index.html#_CPPv4NK3avx8Float2563strEv">avx::Float256::str (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256E">avx::Int256 (C++ class)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int2563getEv">avx::Int256::get (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int2566Int256ENSt16initializer_listIiEE">avx::Int256::Int256 (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256EPKi">[1]</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256ERK6Int256">[2]</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256ERK7__m256i">[3]</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256ERKNSt5arrayIcXL8EEEE">[4]</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256ERKNSt5arrayIiXL8EEEE">[5]</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256ERKNSt5arrayIsXL8EEEE">[6]</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256ERKi">[7]</a>, <a href="int256/index.html#_CPPv4N3avx6Int2566Int256Ev">[8]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int2564loadEPKi">avx::Int256::load (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256neERK6Int256">avx::Int256::operator!= (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256neERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256rmERK6Int256">avx::Int256::operator% (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256rmERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256rMERK6Int256">avx::Int256::operator%= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256rMERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256anERK6Int256">avx::Int256::operator&amp; (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256anERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256aNERK6Int256">avx::Int256::operator&amp;= (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256mlERK6Int256">avx::Int256::operator* (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256mlERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256mLERK6Int256">avx::Int256::operator*= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256mLERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256plERK6Int256">avx::Int256::operator+ (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256plERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256pLERK6Int256">avx::Int256::operator+= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256pLERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256miERK6Int256">avx::Int256::operator- (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256miERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256mIERK6Int256">avx::Int256::operator-= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256mIERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256dvERK6Int256">avx::Int256::operator/ (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256dvERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256dVERK6Int256">avx::Int256::operator/= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256dVERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256lsERK6Int256">avx::Int256::operator&lt;&lt; (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256lsERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256lSERK6Int256">avx::Int256::operator&lt;&lt;= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256lSERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256eqERK6Int256">avx::Int256::operator== (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256eqERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256rsERK6Int256">avx::Int256::operator&gt;&gt; (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256rsERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256rSERK6Int256">avx::Int256::operator&gt;&gt;= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256rSERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256ixEKj">avx::Int256::operator[] (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256eoERK6Int256">avx::Int256::operator^ (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256eoERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256eOERK6Int256">avx::Int256::operator^= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256eOERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256orERK6Int256">avx::Int256::operator| (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int256orERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int256oRERK6Int256">avx::Int256::operator|= (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int256oRERKi">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int256coEv">avx::Int256::operator~ (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int2564saveEPi">avx::Int256::save (C++ function)</a>, <a href="int256/index.html#_CPPv4NK3avx6Int2564saveERNSt5arrayIiXL8EEEE">[1]</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int25611saveAlignedEPi">avx::Int256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int2563setE7__m256i">avx::Int256::set (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int2564sizeE">avx::Int256::size (C++ member)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int25610storedTypeE">avx::Int256::storedType (C++ type)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4NK3avx6Int2563strEv">avx::Int256::str (C++ function)</a>
+</li>
+        <li><a href="int256/index.html#_CPPv4N3avx6Int2563sumERNSt3setI6Int256EE">avx::Int256::sum (C++ function)</a>, <a href="int256/index.html#_CPPv4N3avx6Int2563sumERNSt6vectorI6Int256EE">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256E">avx::Long256 (C++ class)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long2563getEv">avx::Long256::get (C++ function)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long2564loadEPKx">avx::Long256::load (C++ function)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long2567Long256E7__m256i">avx::Long256::Long256 (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ENSt16initializer_listIxEE">[1]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256EPKx">[2]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ER7Long256">[3]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ERK7Long256">[4]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIcXL4EEEE">[5]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIiXL4EEEE">[6]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIsXL4EEEE">[7]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIxXL4EEEE">[8]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256ERKx">[9]</a>, <a href="long256/index.html#_CPPv4N3avx7Long2567Long256Ev">[10]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256neEKx">avx::Long256::operator!= (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256neERK7Long256">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256rmERK7Long256">avx::Long256::operator% (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256rmERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256rMERK7Long256">avx::Long256::operator%= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256rMERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256anERK7Long256">avx::Long256::operator&amp; (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256anERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256aNERK7Long256">avx::Long256::operator&amp;= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256aNERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256mlERK7Long256">avx::Long256::operator* (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256mlERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256mLERK7Long256">avx::Long256::operator*= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256mLERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256plERK7Long256">avx::Long256::operator+ (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256plERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256pLERK7Long256">avx::Long256::operator+= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256pLERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256miERK7Long256">avx::Long256::operator- (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256miERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256mIERK7Long256">avx::Long256::operator-= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256mIERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256dvERK7Long256">avx::Long256::operator/ (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256dvERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256dVERK7Long256">avx::Long256::operator/= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256dVERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256lsERK7Long256">avx::Long256::operator&lt;&lt; (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256lsERKj">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256lSERK7Long256">avx::Long256::operator&lt;&lt;= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256lSERKj">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256eqEKx">avx::Long256::operator== (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256eqERK7Long256">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256rsERK7Long256">avx::Long256::operator&gt;&gt; (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256rsERKj">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256rSERK7Long256">avx::Long256::operator&gt;&gt;= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256rSERKj">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256ixEj">avx::Long256::operator[] (C++ function)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256eoERK7Long256">avx::Long256::operator^ (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256eoERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256eOERK7Long256">avx::Long256::operator^= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256eOERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256orERK7Long256">avx::Long256::operator| (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long256orERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long256oRERK7Long256">avx::Long256::operator|= (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long256oRERKx">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long256coEv">avx::Long256::operator~ (C++ function)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long2564saveEPKx">avx::Long256::save (C++ function)</a>, <a href="long256/index.html#_CPPv4NK3avx7Long2564saveERNSt5arrayIxXL4EEEE">[1]</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long25611saveAlignedEPKx">avx::Long256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long2563setE7__m256i">avx::Long256::set (C++ function)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long2564sizeE">avx::Long256::size (C++ member)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long25610storedTypeE">avx::Long256::storedType (C++ type)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4NK3avx7Long2563strEv">avx::Long256::str (C++ function)</a>
+</li>
+        <li><a href="long256/index.html#_CPPv4N3avx7Long2563sumERNSt3setI7Long256EE">avx::Long256::sum (C++ function)</a>, <a href="long256/index.html#_CPPv4N3avx7Long2563sumERNSt6vectorI7Long256EE">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256E">avx::Short256 (C++ class)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short2563getEv">avx::Short256::get (C++ function)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short2564loadEPKs">avx::Short256::load (C++ function)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256neEKs">avx::Short256::operator!= (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256neERK8Short256">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256rmERKs">avx::Short256::operator% (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256rmERK8Short256">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256rMERK8Short256">avx::Short256::operator%= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256rMERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256anERK8Short256">avx::Short256::operator&amp; (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256anERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256aNERK8Short256">avx::Short256::operator&amp;= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256aNERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256mlERK8Short256">avx::Short256::operator* (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256mlERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256mLERK8Short256">avx::Short256::operator*= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256mLERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256plERK8Short256">avx::Short256::operator+ (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256plERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256pLERK8Short256">avx::Short256::operator+= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256pLERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256miERK8Short256">avx::Short256::operator- (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256miERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256mIERK8Short256">avx::Short256::operator-= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256mIERKs">[1]</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256dvERK8Short256">avx::Short256::operator/ (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256dvERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256dVERK8Short256">avx::Short256::operator/= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256dVERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256lsERK8Short256">avx::Short256::operator&lt;&lt; (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256lsERKj">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256lSERK8Short256">avx::Short256::operator&lt;&lt;= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256lSERKj">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256eqEKs">avx::Short256::operator== (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256eqERK8Short256">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256rsERK8Short256">avx::Short256::operator&gt;&gt; (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256rsERKj">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256rSERK8Short256">avx::Short256::operator&gt;&gt;= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256rSERKj">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256ixERKj">avx::Short256::operator[] (C++ function)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256eoERK8Short256">avx::Short256::operator^ (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256eoERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256eOERK8Short256">avx::Short256::operator^= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256eOERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256orERK8Short256">avx::Short256::operator| (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short256orERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short256oRERK8Short256">avx::Short256::operator|= (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short256oRERKs">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short256coEv">avx::Short256::operator~ (C++ function)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short2564saveEPs">avx::Short256::save (C++ function)</a>, <a href="short256/index.html#_CPPv4NK3avx8Short2564saveERNSt5arrayIsXL16EEEE">[1]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short25611saveAlignedEPs">avx::Short256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short2563setEK7__m256i">avx::Short256::set (C++ function)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short2568Short256EKs">avx::Short256::Short256 (C++ function)</a>, <a href="short256/index.html#_CPPv4N3avx8Short2568Short256ENSt16initializer_listIsEE">[1]</a>, <a href="short256/index.html#_CPPv4N3avx8Short2568Short256EPKs">[2]</a>, <a href="short256/index.html#_CPPv4N3avx8Short2568Short256ERK7__m256i">[3]</a>, <a href="short256/index.html#_CPPv4N3avx8Short2568Short256ERK8Short256">[4]</a>, <a href="short256/index.html#_CPPv4N3avx8Short2568Short256ERKNSt5arrayIsXL16EEEE">[5]</a>, <a href="short256/index.html#_CPPv4N3avx8Short2568Short256Ev">[6]</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short2564sizeE">avx::Short256::size (C++ member)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4N3avx8Short25610storedTypeE">avx::Short256::storedType (C++ type)</a>
+</li>
+        <li><a href="short256/index.html#_CPPv4NK3avx8Short2563strEv">avx::Short256::str (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256E">avx::UChar256 (C++ class)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar2563getEv">avx::UChar256::get (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar2564loadEPKh">avx::UChar256::load (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256neEKc">avx::UChar256::operator!= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256neERK8UChar256">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256rmEKh">avx::UChar256::operator% (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256rmERK8UChar256">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256rMEKh">avx::UChar256::operator%= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256rMERK8UChar256">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256anERK8UChar256">avx::UChar256::operator&amp; (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256anERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256aNERK8UChar256">avx::UChar256::operator&amp;= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256aNERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256mlERK8UChar256">avx::UChar256::operator* (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256mlERKc">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256mLERK8UChar256">avx::UChar256::operator*= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256mLERKc">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256plERK8UChar256">avx::UChar256::operator+ (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256plERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256pLERK8UChar256">avx::UChar256::operator+= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256pLERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256miERK8UChar256">avx::UChar256::operator- (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256miERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256mIERK8UChar256">avx::UChar256::operator-= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256mIERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256dvEKh">avx::UChar256::operator/ (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256dvERK8UChar256">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256dVEKh">avx::UChar256::operator/= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256dVERK8UChar256">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256lsERNSt7ostreamERK8UChar256">avx::UChar256::operator&lt;&lt; (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256lsERK8UChar256">[1]</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256lsERKj">[2]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256lSERK8UChar256">avx::UChar256::operator&lt;&lt;= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256lSERKj">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256eqEKc">avx::UChar256::operator== (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256eqERK8UChar256">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256rsERK8UChar256">avx::UChar256::operator&gt;&gt; (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256rsERKj">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256rSERK8UChar256">avx::UChar256::operator&gt;&gt;= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256rSERKj">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256ixERKj">avx::UChar256::operator[] (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256eoERK8UChar256">avx::UChar256::operator^ (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256eoERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256eOERK8UChar256">avx::UChar256::operator^= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256eOERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256orERK8UChar256">avx::UChar256::operator| (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar256orERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar256oRERK8UChar256">avx::UChar256::operator|= (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar256oRERKh">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar256coEv">avx::UChar256::operator~ (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar2564saveEPh">avx::UChar256::save (C++ function)</a>, <a href="uchar256/index.html#_CPPv4NK3avx8UChar2564saveERNSt5arrayIhXL32EEEE">[1]</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar25611saveAlignedEPh">avx::UChar256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar2563setEK7__m256i">avx::UChar256::set (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar2564sizeE">avx::UChar256::size (C++ member)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar25610storedTypeE">avx::UChar256::storedType (C++ type)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar2563strEv">avx::UChar256::str (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4NK3avx8UChar2568toStringEv">avx::UChar256::toString (C++ function)</a>
+</li>
+        <li><a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256EKh">avx::UChar256::UChar256 (C++ function)</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256ENSt16initializer_listIhEE">[1]</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256EPKh">[2]</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256ERK7__m256i">[3]</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256ERK8UChar256">[4]</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE">[5]</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256ERKNSt6stringE">[6]</a>, <a href="uchar256/index.html#_CPPv4N3avx8UChar2568UChar256Ev">[7]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256E">avx::UInt256 (C++ class)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt2563getEv">avx::UInt256::get (C++ function)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt2564loadEPKj">avx::UInt256::load (C++ function)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256neEKi">avx::UInt256::operator!= (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256neERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256rmEKj">avx::UInt256::operator% (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256rmERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256rMEKj">avx::UInt256::operator%= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256rMERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256anEKj">avx::UInt256::operator&amp; (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256anERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256aNEKj">avx::UInt256::operator&amp;= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256aNERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256mlEKj">avx::UInt256::operator* (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256mlERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256mLEKj">avx::UInt256::operator*= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256mLERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256plEKj">avx::UInt256::operator+ (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256plERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256pLEKj">avx::UInt256::operator+= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256pLERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256miEKj">avx::UInt256::operator- (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256miERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256mIEKj">avx::UInt256::operator-= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256mIERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256dvEKj">avx::UInt256::operator/ (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256dvERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256dVEKj">avx::UInt256::operator/= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256dVERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256lsEKj">avx::UInt256::operator&lt;&lt; (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256lsERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256lSEKj">avx::UInt256::operator&lt;&lt;= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256lSERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256eqEKi">avx::UInt256::operator== (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256eqERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256rsEKj">avx::UInt256::operator&gt;&gt; (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256rsERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256rSEKj">avx::UInt256::operator&gt;&gt;= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256rSERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256ixEKj">avx::UInt256::operator[] (C++ function)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256eoEKj">avx::UInt256::operator^ (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256eoERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256eOEKj">avx::UInt256::operator^= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256eOERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256orEKj">avx::UInt256::operator| (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt256orERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt256oREKj">avx::UInt256::operator|= (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt256oRERK7UInt256">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt256coEv">avx::UInt256::operator~ (C++ function)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt2564saveEPj">avx::UInt256::save (C++ function)</a>, <a href="uint256/index.html#_CPPv4NK3avx7UInt2564saveERNSt5arrayIjXL8EEEE">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt25611saveAlignedEPj">avx::UInt256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt2563setE7__m256i">avx::UInt256::set (C++ function)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt2564sizeE">avx::UInt256::size (C++ member)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt25610storedTypeE">avx::UInt256::storedType (C++ type)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4NK3avx7UInt2563strEv">avx::UInt256::str (C++ function)</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt2563sumERNSt3setI7UInt256EE">avx::UInt256::sum (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2563sumERNSt6vectorI7UInt256EE">[1]</a>
+</li>
+        <li><a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256E7__m256i">avx::UInt256::UInt256 (C++ function)</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256EKj">[1]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256ENSt16initializer_listIjEE">[2]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256ENSt5arrayIhXL8EEEE">[3]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256ENSt5arrayIjXL8EEEE">[4]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256ENSt5arrayItXL8EEEE">[5]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256EPKj">[6]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256ER7UInt256">[7]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256ERK7UInt256">[8]</a>, <a href="uint256/index.html#_CPPv4N3avx7UInt2567UInt256Ev">[9]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256E">avx::ULong256 (C++ class)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong2563getEv">avx::ULong256::get (C++ function)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong2564loadEPKy">avx::ULong256::load (C++ function)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256neEKy">avx::ULong256::operator!= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256neERK8ULong256">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256rmERK8ULong256">avx::ULong256::operator% (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256rmERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256rMERK8ULong256">avx::ULong256::operator%= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256rMERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256anERK8ULong256">avx::ULong256::operator&amp; (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256anERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256aNERK8ULong256">avx::ULong256::operator&amp;= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256aNERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256mlERK8ULong256">avx::ULong256::operator* (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256mlERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256mLERK8ULong256">avx::ULong256::operator*= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256mLERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256plERK8ULong256">avx::ULong256::operator+ (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256plERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256pLERK8ULong256">avx::ULong256::operator+= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256pLERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256miERK8ULong256">avx::ULong256::operator- (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256miERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256mIERK8ULong256">avx::ULong256::operator-= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256mIERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256dvERK8ULong256">avx::ULong256::operator/ (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256dvERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256dVERK8ULong256">avx::ULong256::operator/= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256dVERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256lsEKj">avx::ULong256::operator&lt;&lt; (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256lsERK8ULong256">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256lSEKj">avx::ULong256::operator&lt;&lt;= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256lSERK8ULong256">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256eqEKy">avx::ULong256::operator== (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256eqERK8ULong256">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256rsEKj">avx::ULong256::operator&gt;&gt; (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256rsERK8ULong256">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256rSEKj">avx::ULong256::operator&gt;&gt;= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256rSERK8ULong256">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256ixEj">avx::ULong256::operator[] (C++ function)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256eoERK8ULong256">avx::ULong256::operator^ (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256eoERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256eOERK8ULong256">avx::ULong256::operator^= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256eOERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256orERK8ULong256">avx::ULong256::operator| (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong256orERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong256oRERK8ULong256">avx::ULong256::operator|= (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong256oRERKy">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong256coEv">avx::ULong256::operator~ (C++ function)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong2564saveEPy">avx::ULong256::save (C++ function)</a>, <a href="ulong256/index.html#_CPPv4NK3avx8ULong2564saveERNSt5arrayIyXL4EEEE">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong25611saveAlignedEPy">avx::ULong256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong2563setE7__m256i">avx::ULong256::set (C++ function)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong2564sizeE">avx::ULong256::size (C++ member)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong25610storedTypeE">avx::ULong256::storedType (C++ type)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4NK3avx8ULong2563strEv">avx::ULong256::str (C++ function)</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong2563sumERKNSt3setI8ULong256EE">avx::ULong256::sum (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2563sumERKNSt6vectorI8ULong256EE">[1]</a>
+</li>
+        <li><a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256E7__m256i">avx::ULong256::ULong256 (C++ function)</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256ENSt16initializer_listIyEE">[1]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256EPKy">[2]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256ERK8ULong256">[3]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256ERKNSt5arrayIhXL4EEEE">[4]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256ERKNSt5arrayIjXL4EEEE">[5]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256ERKNSt5arrayItXL4EEEE">[6]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256ERKNSt5arrayIyXL4EEEE">[7]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256ERKy">[8]</a>, <a href="ulong256/index.html#_CPPv4N3avx8ULong2568ULong256Ev">[9]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256E">avx::UShort256 (C++ class)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort2563getEv">avx::UShort256::get (C++ function)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort2564loadEPKt">avx::UShort256::load (C++ function)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256neERK9UShort256">avx::UShort256::operator!= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256neERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256rmERKt">avx::UShort256::operator% (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256rmERK9UShort256">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256rMERK9UShort256">avx::UShort256::operator%= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256rMERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256anERK9UShort256">avx::UShort256::operator&amp; (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256anERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256aNERK9UShort256">avx::UShort256::operator&amp;= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256aNERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256mlERK9UShort256">avx::UShort256::operator* (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256mlERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256mLERK9UShort256">avx::UShort256::operator*= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256mLERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256plERK9UShort256">avx::UShort256::operator+ (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256plERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256pLERK9UShort256">avx::UShort256::operator+= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256pLERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256miERK9UShort256">avx::UShort256::operator- (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256miERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256mIERK9UShort256">avx::UShort256::operator-= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256mIERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256dvERK9UShort256">avx::UShort256::operator/ (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256dvERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256dVERK9UShort256">avx::UShort256::operator/= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256dVERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256lsERK9UShort256">avx::UShort256::operator&lt;&lt; (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256lsERKj">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256lSERK9UShort256">avx::UShort256::operator&lt;&lt;= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256lSERKj">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256eqERK9UShort256">avx::UShort256::operator== (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256eqERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256rsERK9UShort256">avx::UShort256::operator&gt;&gt; (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256rsERKj">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256rSERK9UShort256">avx::UShort256::operator&gt;&gt;= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256rSERKj">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256ixERKj">avx::UShort256::operator[] (C++ function)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256eoERK9UShort256">avx::UShort256::operator^ (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256eoERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256eOERK9UShort256">avx::UShort256::operator^= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256eOERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256orERK9UShort256">avx::UShort256::operator| (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort256orERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort256oRERK9UShort256">avx::UShort256::operator|= (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort256oRERKt">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort256coEv">avx::UShort256::operator~ (C++ function)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort2564saveEPt">avx::UShort256::save (C++ function)</a>, <a href="ushort256/index.html#_CPPv4NK3avx9UShort2564saveERNSt5arrayItXL16EEEE">[1]</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort25611saveAlignedEPt">avx::UShort256::saveAligned (C++ function)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort2563setEK7__m256i">avx::UShort256::set (C++ function)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort2564sizeE">avx::UShort256::size (C++ member)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort25610storedTypeE">avx::UShort256::storedType (C++ type)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4NK3avx9UShort2563strEv">avx::UShort256::str (C++ function)</a>
+</li>
+        <li><a href="ushort256/index.html#_CPPv4N3avx9UShort2569UShort256EKt">avx::UShort256::UShort256 (C++ function)</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort2569UShort256ENSt16initializer_listItEE">[1]</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort2569UShort256EPKt">[2]</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort2569UShort256ERK7__m256i">[3]</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort2569UShort256ERK9UShort256">[4]</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort2569UShort256ERKNSt5arrayItXL16EEEE">[5]</a>, <a href="ushort256/index.html#_CPPv4N3avx9UShort2569UShort256Ev">[6]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024-2025, Kubalak
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>

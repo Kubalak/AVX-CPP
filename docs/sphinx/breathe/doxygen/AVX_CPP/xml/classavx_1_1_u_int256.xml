@@ -1,0 +1,1402 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classavx_1_1_u_int256" kind="class" language="C++" prot="public">
+    <compoundname>avx::UInt256</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classavx_1_1_u_int256_1a7ee63936cafe3c597438fb2ad27586fe" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>using avx::UInt256::storedType =  unsigned int</definition>
+        <argsstring></argsstring>
+        <name>storedType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="24" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classavx_1_1_u_int256_1a82935ef5a60a80f7a06d1d86612f9ec7" prot="private" static="no" mutable="no">
+        <type>__m256i</type>
+        <definition>__m256i avx::UInt256::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="19" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classavx_1_1_u_int256_1a177b92e32574f6c3005b365bba3f66d5" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int avx::UInt256::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="23" column="34" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ac753ef5ca6f34474a13e0105e4c5ed2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>()</argsstring>
+        <name>UInt256</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. Initializes vector with zeros using <computeroutput>_mm256_setzero_si256()</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="30" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a03950b132833c021a393a589665e50ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(const unsigned int *init)</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>const unsigned int *</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes vector by loading data from memory (via <computeroutput>_mm256_lddq_si256</computeroutput>). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valid memory addres of minimal size of 256-bits (32 bytes). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="35" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="35" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1af99a354c80149e087911932a3c574349" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(const unsigned int init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fills vector with passed value using <computeroutput>_mm256_set1_epi32()</computeroutput>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="51" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="51" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1aa8a26fa662126e8ca44cfd386d6f029c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(__m256i init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>__m256i</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Just sets vector value using passed <computeroutput>__m256i</computeroutput>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="58" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="58" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a207fe1a439cc9ad5caf76372093cd2c4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(UInt256 &amp;init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set value using reference. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to object which value will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="65" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="65" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a9bd15821985f2cc18463e91cc8a449a9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(const UInt256 &amp;init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set value using const reference. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Const reference to object which value will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="72" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1aaec9ef7e78c95c58cd717966aa543915" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(std::array&lt; unsigned int, 8 &gt; init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>std::array&lt; unsigned int, 8 &gt;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets vector values using array of unsigned integers.</para>
+<para>When accessing vector fields using <computeroutput>[]</computeroutput> order of values will be inversed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of unsigned integers which values will be assigned to vector fields. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="79" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="79" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a72d4105ef66c0c8de8c4c545d5a177fb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(std::array&lt; unsigned short, 8 &gt; init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>std::array&lt; unsigned short, 8 &gt;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets vector values using array of unsigned shorts. When accessing vector fields using <computeroutput>[]</computeroutput> order of values will be inversed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of unsigned shorts which values will be assigned to vector fields. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="87" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="87" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1adb02d7b5e37dba13c9faab9dc5bef758" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(std::array&lt; unsigned char, 8 &gt; init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>std::array&lt; unsigned char, 8 &gt;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets vector values using array of unsigned chars. When accessing vector fields using <computeroutput>[]</computeroutput> order of values will be inversed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of unsigned chars which values will be assigned to vector fields. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="105" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="105" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a1b40e38b0a34608884b79d45a1323812" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::UInt256::UInt256</definition>
+        <argsstring>(std::initializer_list&lt; unsigned int &gt; init) noexcept</argsstring>
+        <name>UInt256</name>
+        <param>
+          <type>std::initializer_list&lt; unsigned int &gt;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets vector values using array of unsigned integers. If list is longer than 8 other values will be ignored. When accessing vector fields using <computeroutput>[]</computeroutput> order of values will be inversed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initlizer list containing unsigned integers which values will be assigned to vector fields. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;tt&gt;std::invalid_argument&lt;/tt&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>When initializer list length is lower than 8. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="125" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="125" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a6ff53befe5246ecb787aa3c07f6520fc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>__m256i</type>
+        <definition>__m256i avx::UInt256::get</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get underlying <computeroutput>__m256i</computeroutput> vector. <simplesect kind="return"><para>Copy of internal <computeroutput>__m256i</computeroutput> vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="149" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1aacc8a795160ec08a8a9ea64bbe69ed45" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::UInt256::set</definition>
+        <argsstring>(__m256i val) noexcept</argsstring>
+        <name>set</name>
+        <param>
+          <type>__m256i</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set underlying <computeroutput>__m256i</computeroutput> vector value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which value will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="155" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="155" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a3c10da956af56025f253b538e9f3a3d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::UInt256::load</definition>
+        <argsstring>(const unsigned int *sP)</argsstring>
+        <name>load</name>
+        <param>
+          <type>const unsigned int *</type>
+          <declname>sP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn&apos;t need to be aligned to any specific boundary. If <computeroutput>sP</computeroutput> is <computeroutput>nullptr</computeroutput> this method has no effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory from which to load data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="161" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a75786e337bf88b92541dbc537e70acb0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::UInt256::save</definition>
+        <argsstring>(std::array&lt; unsigned int, 8 &gt; &amp;dest) const noexcept</argsstring>
+        <name>save</name>
+        <param>
+          <type>std::array&lt; unsigned int, 8 &gt; &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves vector data into an array. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="170" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="170" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a281167e2e355718e56ff75834a9443f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::UInt256::save</definition>
+        <argsstring>(unsigned int *dest) const</argsstring>
+        <name>save</name>
+        <param>
+          <type>unsigned int *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves data into given memory address. Memory doesn&apos;t need to be aligned to any specific boundary. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A valid (non-nullptr) memory address with size of at least 32 bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="179" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="179" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1acf45659ce19dab78d9ff29dff91ab99a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::UInt256::saveAligned</definition>
+        <argsstring>(unsigned int *dest) const</argsstring>
+        <name>saveAligned</name>
+        <param>
+          <type>unsigned int *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary. See <ulink url="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html">https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html</ulink> for more details. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A valid (non-NULL) memory address aligned to 32-byte boundary. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="191" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="191" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a91246a76efe5fe9667bb9ae460213e2f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::UInt256::operator==</definition>
+        <argsstring>(const UInt256 &amp;bV) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="198" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a46a960e5849d13d3dfa9eec4624531bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::UInt256::operator==</definition>
+        <argsstring>(const int b) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="203" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="203" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ab8833fc39c5f3edb1370b54afac50f9b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::UInt256::operator!=</definition>
+        <argsstring>(const UInt256 &amp;bV) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="209" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="209" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a42968a7813f88d204ed26f5eeca4f5ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::UInt256::operator!=</definition>
+        <argsstring>(const int b) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="214" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="214" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a33197e864f6c9a5ebe2802807b570ae1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int avx::UInt256::operator[]</definition>
+        <argsstring>(const unsigned int index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="220" column="26" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="220" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a6e877d9714a04183088b3c94e68ae5ee" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator+</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="233" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="233" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ae8cb011343eb25ddae5cdc30c7684717" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator+</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="235" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="235" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a1958d645cc71f837e8ca2fef2dd4ee72" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator+=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="237" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="237" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a7d5bc04bc735b1938b1114892978912b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator+=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="242" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="242" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a62acde2136d9212c61b5647e26f8a487" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator-</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="247" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="247" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a5fb2dd2ee473b262ef823cd0c752ae28" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator-</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="249" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="249" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1adbc3576006ea691e5ecf5abd76e4295a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator-=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="251" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="251" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a61bf28384a84c0945f9c548402490d47" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator-=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="255" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="255" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a78f383f14b337c5a6ed2760a8fe39b48" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator*</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="260" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="260" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a635d7c2c42eea7c097ae7b6094f087df" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator*</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="274" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="274" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1add39d677786e03279a26a0b5f5128ca7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator*=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="288" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="288" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ad9830c57dfa8940c261aadd22e9b0bf3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator*=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="303" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="303" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ae5b3dbd9bd85f15c0566fa1229e2cda0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator/</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="320" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="320" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ac3612aafa749b612898b844629c6bb75" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator/</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="369" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="369" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1add99cdff1ab94c29fc4fefe46807e530" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator/=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="411" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="411" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a63a90de064ad79d6f7c08360cc66efb3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator/=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="462" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="462" bodyend="507"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a071c9ae7c9c9ba7a5c9180741e404412" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator%</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator%</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="510" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="510" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a7c0596f3bd926305357f61da3e31464b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator%</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator%</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="541" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="541" bodyend="613"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a5d191cadc1f3a2f4dd94081c698dc01d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator%=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator%=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="616" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="616" bodyend="646"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1aad96262a0979494fe5ac67a4d2f9454f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator%=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator%=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="648" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="648" bodyend="680"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a1614997484398e488fa9b74ab5d0dd50" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator^</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator^</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="682" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="682" bodyend="684"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a8d21f860548bae1b3650db69d6211dc4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator^</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator^</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="686" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="686" bodyend="688"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1aaa37e0a01c6df7a8659dcd4f69835c13" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator^=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator^=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="690" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="690" bodyend="693"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a03901d00bce5aa529e434acfbabf4a6f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator^=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator^=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="695" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="695" bodyend="698"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a48c9302da22239bb985fe0a5ec58ea46" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator|</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator|</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="700" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="700" bodyend="702"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a0cca97b36d413c1b6a5bc915767c7799" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator|</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator|</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="704" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="704" bodyend="706"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ace0f4e384c2c4a004c7c4df5c8e920dc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator|=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator|=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="708" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="708" bodyend="711"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a240c07e04956028eaaf8cd53e7b22721" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator|=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator|=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="713" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="713" bodyend="716"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a5ea778c96c9d943ab4600b6bde398111" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator&amp;</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator&amp;</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="718" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="718" bodyend="720"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a16f10431889cb0de90269873a10e3a04" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator&amp;</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator&amp;</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="722" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="722" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a3c76986682ae01401f4a5f3d29664542" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator&amp;=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator&amp;=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="726" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="726" bodyend="729"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a3db50c96bd5e0d3d09e9322a517ae112" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator&amp;=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator&amp;=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="731" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="731" bodyend="734"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a7f6ae48ff04b5590252c88498959e5c3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator&lt;&lt;</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="736" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="736" bodyend="738"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a977ba1a1001a3a5cd96b749ca994428b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator&lt;&lt;</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="740" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="740" bodyend="742"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a5354486e42620c6d4451b70196f3b2b4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator&lt;&lt;=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator&lt;&lt;=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="744" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="744" bodyend="747"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ad6c5bc2feb3738213882e4a4ea3cb13d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator&lt;&lt;=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator&lt;&lt;=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="749" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="749" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a082aa11928c56fb56c2124d6d0c8dacb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator&gt;&gt;</definition>
+        <argsstring>(const UInt256 &amp;b) const noexcept</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="754" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="754" bodyend="756"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1ab0b95b63b539dc7100cdd06fdc069b34" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator&gt;&gt;</definition>
+        <argsstring>(const unsigned int b) const noexcept</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="758" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="758" bodyend="760"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a8961658cacec08b2a0cb0bb0aaa09afd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator&gt;&gt;=</definition>
+        <argsstring>(const UInt256 &amp;b) noexcept</argsstring>
+        <name>operator&gt;&gt;=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="762" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="762" bodyend="765"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a833f7eb0825a5fa948e4d75ace70e85d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
+        <definition>UInt256&amp; avx::UInt256::operator&gt;&gt;=</definition>
+        <argsstring>(const unsigned int b) noexcept</argsstring>
+        <name>operator&gt;&gt;=</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="766" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="766" bodyend="769"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a036d4a7f4eb7da2a778d2afd3377b296" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::UInt256::operator~</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator~</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="771" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="771" bodyend="771"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_u_int256_1a31f7ab89dac52246334cd796ed63b878" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string avx::UInt256::str</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return string representation of vector.</para>
+<para><simplesect kind="return"><para>String representation of vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="779" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="779" bodyend="788"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classavx_1_1_u_int256_1a23bfbfda6030a6330c8b31087cc8d2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 sum</definition>
+        <argsstring>(std::vector&lt; UInt256 &gt; &amp;b)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sums all elements in vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing <computeroutput><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></computeroutput> values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Sum of all elements in vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="797" column="28" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.cpp" bodystart="5" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="friend" id="classavx_1_1_u_int256_1a4e8ebd6581ea606dc395d2627aaee6a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 sum</definition>
+        <argsstring>(std::set&lt; UInt256 &gt; &amp;b)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::set&lt; <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sums all elements in set. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set containing <computeroutput><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></computeroutput> values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Sum of all elements in set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="805" column="28" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.cpp" bodystart="14" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" line="17" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp" bodystart="17" bodyend="807"/>
+    <listofallmembers>
+      <member refid="classavx_1_1_u_int256_1a6ff53befe5246ecb787aa3c07f6520fc" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>get</name></member>
+      <member refid="classavx_1_1_u_int256_1a3c10da956af56025f253b538e9f3a3d4" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>load</name></member>
+      <member refid="classavx_1_1_u_int256_1ab8833fc39c5f3edb1370b54afac50f9b" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_u_int256_1a42968a7813f88d204ed26f5eeca4f5ad" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_u_int256_1a071c9ae7c9c9ba7a5c9180741e404412" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator%</name></member>
+      <member refid="classavx_1_1_u_int256_1a7c0596f3bd926305357f61da3e31464b" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator%</name></member>
+      <member refid="classavx_1_1_u_int256_1a5d191cadc1f3a2f4dd94081c698dc01d" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_u_int256_1aad96262a0979494fe5ac67a4d2f9454f" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_u_int256_1a5ea778c96c9d943ab4600b6bde398111" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&amp;</name></member>
+      <member refid="classavx_1_1_u_int256_1a16f10431889cb0de90269873a10e3a04" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&amp;</name></member>
+      <member refid="classavx_1_1_u_int256_1a3c76986682ae01401f4a5f3d29664542" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_u_int256_1a3db50c96bd5e0d3d09e9322a517ae112" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_u_int256_1a78f383f14b337c5a6ed2760a8fe39b48" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_u_int256_1a635d7c2c42eea7c097ae7b6094f087df" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_u_int256_1add39d677786e03279a26a0b5f5128ca7" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_u_int256_1ad9830c57dfa8940c261aadd22e9b0bf3" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_u_int256_1a6e877d9714a04183088b3c94e68ae5ee" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_u_int256_1ae8cb011343eb25ddae5cdc30c7684717" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_u_int256_1a1958d645cc71f837e8ca2fef2dd4ee72" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_u_int256_1a7d5bc04bc735b1938b1114892978912b" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_u_int256_1a62acde2136d9212c61b5647e26f8a487" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_u_int256_1a5fb2dd2ee473b262ef823cd0c752ae28" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_u_int256_1adbc3576006ea691e5ecf5abd76e4295a" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_u_int256_1a61bf28384a84c0945f9c548402490d47" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_u_int256_1ae5b3dbd9bd85f15c0566fa1229e2cda0" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_u_int256_1ac3612aafa749b612898b844629c6bb75" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_u_int256_1add99cdff1ab94c29fc4fefe46807e530" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_u_int256_1a63a90de064ad79d6f7c08360cc66efb3" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_u_int256_1a7f6ae48ff04b5590252c88498959e5c3" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classavx_1_1_u_int256_1a977ba1a1001a3a5cd96b749ca994428b" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classavx_1_1_u_int256_1a5354486e42620c6d4451b70196f3b2b4" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_u_int256_1ad6c5bc2feb3738213882e4a4ea3cb13d" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_u_int256_1a91246a76efe5fe9667bb9ae460213e2f" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_u_int256_1a46a960e5849d13d3dfa9eec4624531bd" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_u_int256_1a082aa11928c56fb56c2124d6d0c8dacb" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classavx_1_1_u_int256_1ab0b95b63b539dc7100cdd06fdc069b34" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classavx_1_1_u_int256_1a8961658cacec08b2a0cb0bb0aaa09afd" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_u_int256_1a833f7eb0825a5fa948e4d75ace70e85d" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_u_int256_1a33197e864f6c9a5ebe2802807b570ae1" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator[]</name></member>
+      <member refid="classavx_1_1_u_int256_1a1614997484398e488fa9b74ab5d0dd50" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator^</name></member>
+      <member refid="classavx_1_1_u_int256_1a8d21f860548bae1b3650db69d6211dc4" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator^</name></member>
+      <member refid="classavx_1_1_u_int256_1aaa37e0a01c6df7a8659dcd4f69835c13" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_u_int256_1a03901d00bce5aa529e434acfbabf4a6f" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_u_int256_1a48c9302da22239bb985fe0a5ec58ea46" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator|</name></member>
+      <member refid="classavx_1_1_u_int256_1a0cca97b36d413c1b6a5bc915767c7799" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator|</name></member>
+      <member refid="classavx_1_1_u_int256_1ace0f4e384c2c4a004c7c4df5c8e920dc" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_u_int256_1a240c07e04956028eaaf8cd53e7b22721" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_u_int256_1a036d4a7f4eb7da2a778d2afd3377b296" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>operator~</name></member>
+      <member refid="classavx_1_1_u_int256_1a75786e337bf88b92541dbc537e70acb0" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>save</name></member>
+      <member refid="classavx_1_1_u_int256_1a281167e2e355718e56ff75834a9443f0" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>save</name></member>
+      <member refid="classavx_1_1_u_int256_1acf45659ce19dab78d9ff29dff91ab99a" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>saveAligned</name></member>
+      <member refid="classavx_1_1_u_int256_1aacc8a795160ec08a8a9ea64bbe69ed45" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>set</name></member>
+      <member refid="classavx_1_1_u_int256_1a177b92e32574f6c3005b365bba3f66d5" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>size</name></member>
+      <member refid="classavx_1_1_u_int256_1a7ee63936cafe3c597438fb2ad27586fe" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>storedType</name></member>
+      <member refid="classavx_1_1_u_int256_1a31f7ab89dac52246334cd796ed63b878" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>str</name></member>
+      <member refid="classavx_1_1_u_int256_1a23bfbfda6030a6330c8b31087cc8d2b2" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>sum</name></member>
+      <member refid="classavx_1_1_u_int256_1a4e8ebd6581ea606dc395d2627aaee6a6" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>sum</name></member>
+      <member refid="classavx_1_1_u_int256_1ac753ef5ca6f34474a13e0105e4c5ed2c" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1a03950b132833c021a393a589665e50ae" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1af99a354c80149e087911932a3c574349" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1aa8a26fa662126e8ca44cfd386d6f029c" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1a207fe1a439cc9ad5caf76372093cd2c4" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1a9bd15821985f2cc18463e91cc8a449a9" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1aaec9ef7e78c95c58cd717966aa543915" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1a72d4105ef66c0c8de8c4c545d5a177fb" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1adb02d7b5e37dba13c9faab9dc5bef758" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1a1b40e38b0a34608884b79d45a1323812" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>UInt256</name></member>
+      <member refid="classavx_1_1_u_int256_1a82935ef5a60a80f7a06d1d86612f9ec7" prot="private" virt="non-virtual"><scope>avx::UInt256</scope><name>v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

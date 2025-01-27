@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="constants_8hpp" kind="file" language="C++">
+    <compoundname>constants.hpp</compoundname>
+    <includes local="no">immintrin.h</includes>
+    <includedby refid="char256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp</includedby>
+    <includedby refid="int256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp</includedby>
+    <includedby refid="long256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/long256.hpp</includedby>
+    <includedby refid="short256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp</includedby>
+    <includedby refid="uchar256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp</includedby>
+    <includedby refid="uint256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp</includedby>
+    <includedby refid="ulong256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp</includedby>
+    <includedby refid="ushort256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/ushort256.hpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>immintrin.h</label>
+      </node>
+      <node id="1">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp</label>
+        <link refid="constants_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp</label>
+        <link refid="ulong256_8hpp_source"/>
+      </node>
+      <node id="6">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp</label>
+        <link refid="uchar256_8hpp_source"/>
+      </node>
+      <node id="5">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp</label>
+        <link refid="short256_8hpp_source"/>
+      </node>
+      <node id="4">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/long256.hpp</label>
+        <link refid="long256_8hpp_source"/>
+      </node>
+      <node id="2">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp</label>
+        <link refid="char256_8hpp_source"/>
+      </node>
+      <node id="7">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp</label>
+        <link refid="uint256_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp</label>
+        <link refid="constants_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp</label>
+        <link refid="int256_8hpp_source"/>
+      </node>
+      <node id="9">
+        <label>/home/jakub/Publiczny/AVX-CPP/src/types/ushort256.hpp</label>
+        <link refid="ushort256_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceavx">avx</innernamespace>
+    <innernamespace refid="namespaceavx_1_1constants">avx::constants</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="constants_8hpp_1a42c0943f2f88eaff5a2b25319b69453c" prot="public" static="no">
+        <name>__AVX_CONSTANTS_HPP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="3" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__AVX_CONSTANTS_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__AVX_CONSTANTS_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;immintrin.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceavx" kindref="compound">avx</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Namespace<sp/>containing<sp/>constants<sp/>shared<sp/>across<sp/>all<sp/>types.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">constants{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>ONES<sp/>=<sp/>_mm256_set1_epi8(0xFF);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_ONE<sp/>=<sp/>_mm256_set1_epi8(1);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_CRATE_EPI16<sp/>=<sp/>_mm256_set1_epi16(0xFF);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_CRATE_EPI16_INVERSE<sp/>=<sp/>_mm256_set1_epi16(0xFF00);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_CRATE_EPI32<sp/>=<sp/>_mm256_set1_epi32(0xFF);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_CRATE_EPI32_SHIFT_I<sp/>=<sp/>_mm256_set1_epi32(0xFF00);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_CRATE_EPI32_SHIFT_II<sp/>=<sp/>_mm256_set1_epi32(0xFF0000);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_CRATE_EPI32_SHIFT_III<sp/>=<sp/>_mm256_set1_epi32(0xFF000000);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI16_ONE<sp/>=<sp/>_mm256_set1_epi16(1);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI16_CRATE_EPI32<sp/>=<sp/>_mm256_set1_epi32(0xFFFF);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI16_CRATE_EPI32_INVERSE<sp/>=<sp/>_mm256_set1_epi32(0xFFFF0000);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI32_CRATE_EPI64<sp/>=<sp/>_mm256_set1_epi64x(0xFFFFFFFF);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI32_SIGN<sp/>=<sp/>_mm256_set1_epi32(0x8000&apos;0000);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI32_ONE<sp/>=<sp/>_mm256_set1_epi32(1);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI64_ONE<sp/>=<sp/>_mm256_set1_epi64x(1);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI64_SIGN<sp/>=<sp/>_mm256_set1_epi64x(0x8000&apos;0000&apos;0000&apos;0000);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256d<sp/>DOUBLE_NO_SIGN<sp/>=<sp/>_mm256_castsi256_pd(_mm256_set1_epi64x(0x7FFF&apos;FFFF&apos;FFFF&apos;FFFF));</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256<sp/>FLOAT_NO_SIGN<sp/>=<sp/>_mm256_castsi256_ps(_mm256_set1_epi32(0x7FFF&apos;FFFF));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256d<sp/>DOUBLE_ONE<sp/>=<sp/>_mm256_set1_pd(1.0);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256<sp/>FLOAT_ONE<sp/>=<sp/>_mm256_set1_ps(1.0f);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp"/>
+  </compounddef>
+</doxygen>

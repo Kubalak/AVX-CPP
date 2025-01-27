@@ -1,0 +1,847 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="author" title="About these documents" href="../about.html" /><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Examples" href="examples.html" /><link rel="prev" title="Examples" href="../char256/examples.html" />
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
+        <title>avx::UChar256 - AVX CPP documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">AVX CPP  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">AVX CPP  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../about.html">About AVX CPP</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of About AVX CPP</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quickstart.html">Quickstart</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Quickstart</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../char256/index.html">avx::Char256</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of avx::Char256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../char256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">avx::UChar256</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of avx::UChar256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../short256/index.html">avx::Short256</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of avx::Short256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../short256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/short256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ushort256/index.html">avx::UShort256</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of avx::UShort256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ushort256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/ushort256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../int256/index.html">avx::Int256</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of avx::Int256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../int256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/int256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../uint256/index.html">avx::UInt256</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of avx::UInt256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../uint256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../long256/index.html">avx::Long256</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of avx::Long256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../long256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/long256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ulong256/index.html">avx::ULong256</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of avx::ULong256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ulong256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/ulong256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../float256/index.html">avx::Float256</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of avx::Float256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../float256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../double256/index.html">avx::Double256</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of avx::Double256</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../double256/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/uchar256/index.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="avx-uchar256">
+<h1>avx::UChar256<a class="headerlink" href="#avx-uchar256" title="Link to this heading">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256E">
+<span id="_CPPv3N3avx8UChar256E"></span><span id="_CPPv2N3avx8UChar256E"></span><span id="avx::UChar256"></span><span class="target" id="classavx_1_1_u_char256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256E" title="Link to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar25610storedTypeE">
+<span id="_CPPv3N3avx8UChar25610storedTypeE"></span><span id="_CPPv2N3avx8UChar25610storedTypeE"></span><span class="target" id="classavx_1_1_u_char256_1a4507caf14293893eebbcb9903373d634"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">storedType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar25610storedTypeE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256Ev">
+<span id="_CPPv3N3avx8UChar2568UChar256Ev"></span><span id="_CPPv2N3avx8UChar2568UChar256Ev"></span><span id="avx::UChar256::UChar256"></span><span class="target" id="classavx_1_1_u_char256_1ad65831d82cf9fa0bf09d316014e216cc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256Ev" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256EKh">
+<span id="_CPPv3N3avx8UChar2568UChar256EKh"></span><span id="_CPPv2N3avx8UChar2568UChar256EKh"></span><span id="avx::UChar256::UChar256__unsigned-cC"></span><span class="target" id="classavx_1_1_u_char256_1a88e2884c653674de4e8e24d1540b3e08"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256EKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERK7__m256i">
+<span id="_CPPv3N3avx8UChar2568UChar256ERK7__m256i"></span><span id="_CPPv2N3avx8UChar2568UChar256ERK7__m256i"></span><span id="avx::UChar256::UChar256____m256iCR"></span><span class="target" id="classavx_1_1_u_char256_1aad3251db80eb55be631bcd48898b8111"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERK7__m256i" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERK8UChar256">
+<span id="_CPPv3N3avx8UChar2568UChar256ERK8UChar256"></span><span id="_CPPv2N3avx8UChar2568UChar256ERK8UChar256"></span><span id="avx::UChar256::UChar256__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1a7daa5793dd933c16b925e580ba71b36d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERK8UChar256" title="avx::UChar256::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256EPKh">
+<span id="_CPPv3N3avx8UChar2568UChar256EPKh"></span><span id="_CPPv2N3avx8UChar2568UChar256EPKh"></span><span id="avx::UChar256::UChar256__unsigned-cCP"></span><span class="target" id="classavx_1_1_u_char256_1a89d80228fb41775e9a331c42236413e6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256EPKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERKNSt6stringE">
+<span id="_CPPv3N3avx8UChar2568UChar256ERKNSt6stringE"></span><span id="_CPPv2N3avx8UChar2568UChar256ERKNSt6stringE"></span><span id="avx::UChar256::UChar256__ssCR"></span><span class="target" id="classavx_1_1_u_char256_1adc354d94f11fb25d4d618ea25d168124"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt6stringE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE">
+<span id="_CPPv3N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE"></span><span id="_CPPv2N3avx8UChar2568UChar256ERKNSt5arrayIhX32EEE"></span><span id="avx::UChar256::UChar256__std::array:unsigned-c.32:CR"></span><span class="target" id="classavx_1_1_u_char256_1a1a0403deb56f30f22304d515e7f3eb14"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ENSt16initializer_listIhEE">
+<span id="_CPPv3N3avx8UChar2568UChar256ENSt16initializer_listIhEE"></span><span id="_CPPv2N3avx8UChar2568UChar256ENSt16initializer_listIhEE"></span><span id="avx::UChar256::UChar256__std::initializer_list:unsigned-c:"></span><span class="target" id="classavx_1_1_u_char256_1a50f88c529af5de5603a165b4a46d0baa"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ENSt16initializer_listIhEE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2564loadEPKh">
+<span id="_CPPv3N3avx8UChar2564loadEPKh"></span><span id="_CPPv2N3avx8UChar2564loadEPKh"></span><span id="avx::UChar256::load__unsigned-cCP"></span><span class="target" id="classavx_1_1_u_char256_1aa2d3b6ff594fad4d2b10e38c90190d93"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sP</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8UChar2564loadEPKh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn’t need to be aligned to any specific boundary. If <code class="docutils literal notranslate"><span class="pre">sP</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this method has no effect. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sP</strong> – Pointer to memory from which to load data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar2564saveERNSt5arrayIhXL32EEEE">
+<span id="_CPPv3NK3avx8UChar2564saveERNSt5arrayIhXL32EEEE"></span><span id="_CPPv2NK3avx8UChar2564saveERNSt5arrayIhX32EEE"></span><span id="avx::UChar256::save__std::array:unsigned-c.32:RC"></span><span class="target" id="classavx_1_1_u_char256_1a8557877a9e0767505ff3450bf15e65d3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar2564saveERNSt5arrayIhXL32EEEE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Saves data to destination in memory. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dest</strong> – A valid pointer to a memory of at least 32 bytes (<code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in debug mode and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar2564saveEPh">
+<span id="_CPPv3NK3avx8UChar2564saveEPh"></span><span id="_CPPv2NK3avx8UChar2564saveEPh"></span><span id="avx::UChar256::save__unsigned-cPC"></span><span class="target" id="classavx_1_1_u_char256_1a135bc7e358aead47d710628cf3152fab"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar2564saveEPh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Saves data to destination in memory. The memory doesn’t have to be aligned to any specific boundary.</p>
+<p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dest</strong> – A valid pointer to a memory of at least 32 bytes (<code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in debug mode and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar25611saveAlignedEPh">
+<span id="_CPPv3NK3avx8UChar25611saveAlignedEPh"></span><span id="_CPPv2NK3avx8UChar25611saveAlignedEPh"></span><span id="avx::UChar256::saveAligned__unsigned-cPC"></span><span class="target" id="classavx_1_1_u_char256_1a113908544e8fdbd44aa3dd9afd8116e0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar25611saveAlignedEPh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Saves data to destination in memory. The memory must be aligned at 32-byte boundary.</p>
+<p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dest</strong> – A valid pointer to a memory of at least 32 bytes (<code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in debug mode and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar2563getEv">
+<span id="_CPPv3NK3avx8UChar2563getEv"></span><span id="_CPPv2NK3avx8UChar2563getEv"></span><span id="avx::UChar256::getC"></span><span class="target" id="classavx_1_1_u_char256_1af77f33fd2def1940b8db9760d7acb218"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar2563getEv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the internal vector value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of <code class="docutils literal notranslate"><span class="pre">__m256i</span></code> vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2563setEK7__m256i">
+<span id="_CPPv3N3avx8UChar2563setEK7__m256i"></span><span id="_CPPv2N3avx8UChar2563setEK7__m256i"></span><span id="avx::UChar256::set____m256iC"></span><span class="target" id="classavx_1_1_u_char256_1a2e2d59825a4e30db333857a757847599"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2563setEK7__m256i" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set the internal vector value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – New value to be set. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256ixERKj">
+<span id="_CPPv3NK3avx8UChar256ixERKj"></span><span id="_CPPv2NK3avx8UChar256ixERKj"></span><span id="avx::UChar256::subscript-operator__unsigned-iCRC"></span><span class="target" id="classavx_1_1_u_char256_1af40bd631875be9dc639c23e76f1f6c13"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256ixERKj" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Indexing operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 31. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp">&lt;tt&gt;std::out_of_range&lt;/tt&gt;</span></span> – If index is not within the correct range. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value of underlying element. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256eqERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256eqERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256eqERK8UChar256"></span><span id="avx::UChar256::eq-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1ac7e6197e1fa16108f72aa98f5ee0ced9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256eqERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256eqEKc">
+<span id="_CPPv3NK3avx8UChar256eqEKc"></span><span id="_CPPv2NK3avx8UChar256eqEKc"></span><span id="avx::UChar256::eq-operator__cCC"></span><span class="target" id="classavx_1_1_u_char256_1a6f9bb6e6f09921c6eabbf68417a7388b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256eqEKc" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256neERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256neERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256neERK8UChar256"></span><span id="avx::UChar256::neq-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1a4317f7ab6ac388d1f1b80fdbf43a089e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256neERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256neEKc">
+<span id="_CPPv3NK3avx8UChar256neEKc"></span><span id="_CPPv2NK3avx8UChar256neEKc"></span><span id="avx::UChar256::neq-operator__cCC"></span><span class="target" id="classavx_1_1_u_char256_1a3d1cd299a66d4e5af24df150a622989d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256neEKc" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256plERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256plERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256plERK8UChar256"></span><span id="avx::UChar256::add-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1ad85b21b8d384a3a1aa33b8845f9ec40a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256plERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256plERKh">
+<span id="_CPPv3NK3avx8UChar256plERKh"></span><span id="_CPPv2NK3avx8UChar256plERKh"></span><span id="avx::UChar256::add-operator__unsigned-cCRC"></span><span class="target" id="classavx_1_1_u_char256_1a2aabaaee8893908160e17632d99ce488"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256plERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256pLERK8UChar256">
+<span id="_CPPv3N3avx8UChar256pLERK8UChar256"></span><span id="_CPPv2N3avx8UChar256pLERK8UChar256"></span><span id="avx::UChar256::add-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1ae3efa5c8d6649cc55c8836fc4d87a7e0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256pLERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256pLERKh">
+<span id="_CPPv3N3avx8UChar256pLERKh"></span><span id="_CPPv2N3avx8UChar256pLERKh"></span><span id="avx::UChar256::add-assign-operator__unsigned-cCR"></span><span class="target" id="classavx_1_1_u_char256_1a9ccb35e11c4674b57adac6c104186a25"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256pLERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256miERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256miERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256miERK8UChar256"></span><span id="avx::UChar256::sub-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1a8d5097fb10c0bb84530fd9cd3a627f47"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256miERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256miERKh">
+<span id="_CPPv3NK3avx8UChar256miERKh"></span><span id="_CPPv2NK3avx8UChar256miERKh"></span><span id="avx::UChar256::sub-operator__unsigned-cCRC"></span><span class="target" id="classavx_1_1_u_char256_1a1189bee75387139468599a2b10d150a7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256miERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256mIERK8UChar256">
+<span id="_CPPv3N3avx8UChar256mIERK8UChar256"></span><span id="_CPPv2N3avx8UChar256mIERK8UChar256"></span><span id="avx::UChar256::sub-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1ad1d113e33ea13b2234f2a899db862c8f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256mIERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256mIERKh">
+<span id="_CPPv3N3avx8UChar256mIERKh"></span><span id="_CPPv2N3avx8UChar256mIERKh"></span><span id="avx::UChar256::sub-assign-operator__unsigned-cCR"></span><span class="target" id="classavx_1_1_u_char256_1a54b3972f9f9e8fdaf83ac603ff5fd3cd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256mIERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256mlERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256mlERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256mlERK8UChar256"></span><span id="avx::UChar256::mul-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1ae470ba307493dde9ace0d7ac822325dc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256mlERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256mlERKc">
+<span id="_CPPv3NK3avx8UChar256mlERKc"></span><span id="_CPPv2NK3avx8UChar256mlERKc"></span><span id="avx::UChar256::mul-operator__cCRC"></span><span class="target" id="classavx_1_1_u_char256_1a2fea06e449a30e4b55e0a49a5af1b312"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256mlERKc" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256mLERK8UChar256">
+<span id="_CPPv3N3avx8UChar256mLERK8UChar256"></span><span id="_CPPv2N3avx8UChar256mLERK8UChar256"></span><span id="avx::UChar256::mul-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1a2b3849c5b7a792851661ca463c220ffc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256mLERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256mLERKc">
+<span id="_CPPv3N3avx8UChar256mLERKc"></span><span id="_CPPv2N3avx8UChar256mLERKc"></span><span id="avx::UChar256::mul-assign-operator__cCR"></span><span class="target" id="classavx_1_1_u_char256_1a1dd73f3279f163675243656cf9d156e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256mLERKc" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256dvERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256dvERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256dvERK8UChar256"></span><span id="avx::UChar256::div-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1ad0f1d5abbfaa4dbb06116bec632a60c2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256dvERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256dvEKh">
+<span id="_CPPv3NK3avx8UChar256dvEKh"></span><span id="_CPPv2NK3avx8UChar256dvEKh"></span><span id="avx::UChar256::div-operator__unsigned-cCC"></span><span class="target" id="classavx_1_1_u_char256_1a321a8b008f5a948f3363234ea7784ffb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256dvEKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256dVERK8UChar256">
+<span id="_CPPv3N3avx8UChar256dVERK8UChar256"></span><span id="_CPPv2N3avx8UChar256dVERK8UChar256"></span><span id="avx::UChar256::div-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1aded81e2ab36dcfd21eeaefea39dd6e9b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256dVERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256dVEKh">
+<span id="_CPPv3N3avx8UChar256dVEKh"></span><span id="_CPPv2N3avx8UChar256dVEKh"></span><span id="avx::UChar256::div-assign-operator__unsigned-cC"></span><span class="target" id="classavx_1_1_u_char256_1a9a25f5cba78089f19ad5f8d5654a35fa"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256dVEKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256rmERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256rmERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256rmERK8UChar256"></span><span id="avx::UChar256::mod-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1a481f6ea0e3b1b374a1a142352303491d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256rmERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256rmEKh">
+<span id="_CPPv3NK3avx8UChar256rmEKh"></span><span id="_CPPv2NK3avx8UChar256rmEKh"></span><span id="avx::UChar256::mod-operator__unsigned-cCC"></span><span class="target" id="classavx_1_1_u_char256_1a6922dd2edd5a972f0cab870f4e9d5b83"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256rmEKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256rMERK8UChar256">
+<span id="_CPPv3N3avx8UChar256rMERK8UChar256"></span><span id="_CPPv2N3avx8UChar256rMERK8UChar256"></span><span id="avx::UChar256::mod-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1ab6c063e25a4c35bfdd02f3a2141c1802"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256rMERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256rMEKh">
+<span id="_CPPv3N3avx8UChar256rMEKh"></span><span id="_CPPv2N3avx8UChar256rMEKh"></span><span id="avx::UChar256::mod-assign-operator__unsigned-cC"></span><span class="target" id="classavx_1_1_u_char256_1a06c7665e116da3bffd40994efb604c14"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256rMEKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256anERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256anERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256anERK8UChar256"></span><span id="avx::UChar256::and-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1ad6c864a6400529e7e670c6b97d55014f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256anERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256anERKh">
+<span id="_CPPv3NK3avx8UChar256anERKh"></span><span id="_CPPv2NK3avx8UChar256anERKh"></span><span id="avx::UChar256::and-operator__unsigned-cCRC"></span><span class="target" id="classavx_1_1_u_char256_1a47afea3952c84e987647d305e84d926c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256anERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256aNERK8UChar256">
+<span id="_CPPv3N3avx8UChar256aNERK8UChar256"></span><span id="_CPPv2N3avx8UChar256aNERK8UChar256"></span><span id="avx::UChar256::and-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1ab92fec899219b222a6db8a04f54184bc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256aNERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256aNERKh">
+<span id="_CPPv3N3avx8UChar256aNERKh"></span><span id="_CPPv2N3avx8UChar256aNERKh"></span><span id="avx::UChar256::and-assign-operator__unsigned-cCR"></span><span class="target" id="classavx_1_1_u_char256_1a9c9be4f926e153c45ea59773822f2377"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256aNERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256orERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256orERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256orERK8UChar256"></span><span id="avx::UChar256::or-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1a03eb09f835ed374f0b20441c421dba57"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256orERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256orERKh">
+<span id="_CPPv3NK3avx8UChar256orERKh"></span><span id="_CPPv2NK3avx8UChar256orERKh"></span><span id="avx::UChar256::or-operator__unsigned-cCRC"></span><span class="target" id="classavx_1_1_u_char256_1a2f26df773bef07723fe6572fe3fe2206"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256orERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256oRERK8UChar256">
+<span id="_CPPv3N3avx8UChar256oRERK8UChar256"></span><span id="_CPPv2N3avx8UChar256oRERK8UChar256"></span><span id="avx::UChar256::or-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1ad68f9c5dd3c30bef3ee984ef1a079c04"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256oRERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256oRERKh">
+<span id="_CPPv3N3avx8UChar256oRERKh"></span><span id="_CPPv2N3avx8UChar256oRERKh"></span><span id="avx::UChar256::or-assign-operator__unsigned-cCR"></span><span class="target" id="classavx_1_1_u_char256_1af45a660c17989f783ad19b341e2e7b7f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256oRERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256eoERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256eoERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256eoERK8UChar256"></span><span id="avx::UChar256::xor-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1aeb1a020148f8cd332a350af91fad3de2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256eoERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256eoERKh">
+<span id="_CPPv3NK3avx8UChar256eoERKh"></span><span id="_CPPv2NK3avx8UChar256eoERKh"></span><span id="avx::UChar256::xor-operator__unsigned-cCRC"></span><span class="target" id="classavx_1_1_u_char256_1a61021c51ba4a8aba59f0ba866972f14e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256eoERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256eOERK8UChar256">
+<span id="_CPPv3N3avx8UChar256eOERK8UChar256"></span><span id="_CPPv2N3avx8UChar256eOERK8UChar256"></span><span id="avx::UChar256::xor-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1a531af26697f320a10158608bda4103a9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256eOERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256eOERKh">
+<span id="_CPPv3N3avx8UChar256eOERKh"></span><span id="_CPPv2N3avx8UChar256eOERKh"></span><span id="avx::UChar256::xor-assign-operator__unsigned-cCR"></span><span class="target" id="classavx_1_1_u_char256_1a1ea648716576111d2d60090ef899129d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256eOERKh" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256lsERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256lsERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256lsERK8UChar256"></span><span id="avx::UChar256::lshift-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1af315d01c5355d0f4ed4d2023e3008a81"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256lsERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256lsERKj">
+<span id="_CPPv3NK3avx8UChar256lsERKj"></span><span id="_CPPv2NK3avx8UChar256lsERKj"></span><span id="avx::UChar256::lshift-operator__unsigned-iCRC"></span><span class="target" id="classavx_1_1_u_char256_1ae862868b1b73665ee359961d7203055b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256lsERKj" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256lSERK8UChar256">
+<span id="_CPPv3N3avx8UChar256lSERK8UChar256"></span><span id="_CPPv2N3avx8UChar256lSERK8UChar256"></span><span id="avx::UChar256::lshift-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1a67674552f08709e0e175ca728416a71e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256lSERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256lSERKj">
+<span id="_CPPv3N3avx8UChar256lSERKj"></span><span id="_CPPv2N3avx8UChar256lSERKj"></span><span id="avx::UChar256::lshift-assign-operator__unsigned-iCR"></span><span class="target" id="classavx_1_1_u_char256_1a46120985f60d7b61b8f1ff96570269d6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256lSERKj" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256rsERK8UChar256">
+<span id="_CPPv3NK3avx8UChar256rsERK8UChar256"></span><span id="_CPPv2NK3avx8UChar256rsERK8UChar256"></span><span id="avx::UChar256::rshift-operator__UChar256CRC"></span><span class="target" id="classavx_1_1_u_char256_1a4d33ac11841a57623ca3e1612be85133"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256rsERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256rsERKj">
+<span id="_CPPv3NK3avx8UChar256rsERKj"></span><span id="_CPPv2NK3avx8UChar256rsERKj"></span><span id="avx::UChar256::rshift-operator__unsigned-iCRC"></span><span class="target" id="classavx_1_1_u_char256_1a9d49f2203f5bd3dbedf23bdcda5c4129"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256rsERKj" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256rSERK8UChar256">
+<span id="_CPPv3N3avx8UChar256rSERK8UChar256"></span><span id="_CPPv2N3avx8UChar256rSERK8UChar256"></span><span id="avx::UChar256::rshift-assign-operator__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1aa52c3c73b913e875795b268a4efdf8ab"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256rSERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256rSERKj">
+<span id="_CPPv3N3avx8UChar256rSERKj"></span><span id="_CPPv2N3avx8UChar256rSERKj"></span><span id="avx::UChar256::rshift-assign-operator__unsigned-iCR"></span><span class="target" id="classavx_1_1_u_char256_1adc6abdff0bb6b2979aa46e180f152f10"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256rSERKj" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar256coEv">
+<span id="_CPPv3NK3avx8UChar256coEv"></span><span id="_CPPv2NK3avx8UChar256coEv"></span><span id="avx::UChar256::inv-operatorC"></span><span class="target" id="classavx_1_1_u_char256_1ae0b8856818164e400f93ef8549485c1b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">~</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar256coEv" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar2563strEv">
+<span id="_CPPv3NK3avx8UChar2563strEv"></span><span id="_CPPv2NK3avx8UChar2563strEv"></span><span id="avx::UChar256::strC"></span><span class="target" id="classavx_1_1_u_char256_1ab3017afc90d57f773d44b94fd352b675"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">str</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar2563strEv" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar2568toStringEv">
+<span id="_CPPv3NK3avx8UChar2568toStringEv"></span><span id="_CPPv2NK3avx8UChar2568toStringEv"></span><span id="avx::UChar256::toStringC"></span><span class="target" id="classavx_1_1_u_char256_1a55e8e99c9c95b89cc97bfdfa87df9014"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">toString</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar2568toStringEv" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2564sizeE">
+<span id="_CPPv3N3avx8UChar2564sizeE"></span><span id="_CPPv2N3avx8UChar2564sizeE"></span><span id="avx::UChar256::size__i"></span><span class="target" id="classavx_1_1_u_char256_1a2d93ebc50ecfc5a00839532013091cf4"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2564sizeE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256lsERNSt7ostreamERK8UChar256">
+<span id="_CPPv3N3avx8UChar256lsERNSt7ostreamERK8UChar256"></span><span id="_CPPv2N3avx8UChar256lsERNSt7ostreamERK8UChar256"></span><span id="avx::UChar256::lshift-operator__osR.UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1a38ee55d314f8287fb615baf6299b52c9"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar256E" title="avx::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8UChar256lsERNSt7ostreamERK8UChar256" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="examples.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Examples</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../char256/examples.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Examples</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024-2025, Kubalak
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">avx::UChar256</a><ul>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256E"><code class="docutils literal notranslate"><span class="pre">UChar256</span></code></a><ul>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar25610storedTypeE"><code class="docutils literal notranslate"><span class="pre">UChar256::storedType</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256Ev"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256EKh"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERK7__m256i"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256EPKh"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ENSt16initializer_listIhEE"><code class="docutils literal notranslate"><span class="pre">UChar256::UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2564loadEPKh"><code class="docutils literal notranslate"><span class="pre">UChar256::load()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar2564saveERNSt5arrayIhXL32EEEE"><code class="docutils literal notranslate"><span class="pre">UChar256::save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar2564saveEPh"><code class="docutils literal notranslate"><span class="pre">UChar256::save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar25611saveAlignedEPh"><code class="docutils literal notranslate"><span class="pre">UChar256::saveAligned()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar2563getEv"><code class="docutils literal notranslate"><span class="pre">UChar256::get()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2563setEK7__m256i"><code class="docutils literal notranslate"><span class="pre">UChar256::set()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256ixERKj"><code class="docutils literal notranslate"><span class="pre">UChar256::operator[]()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256eqERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator==()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256eqEKc"><code class="docutils literal notranslate"><span class="pre">UChar256::operator==()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256neERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator!=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256neEKc"><code class="docutils literal notranslate"><span class="pre">UChar256::operator!=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256plERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator+()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256plERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator+()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256pLERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator+=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256pLERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator+=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256miERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator-()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256miERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator-()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256mIERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator-=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256mIERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator-=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256mlERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator*()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256mlERKc"><code class="docutils literal notranslate"><span class="pre">UChar256::operator*()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256mLERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator*=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256mLERKc"><code class="docutils literal notranslate"><span class="pre">UChar256::operator*=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256dvERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator/()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256dvEKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator/()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256dVERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator/=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256dVEKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator/=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256rmERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator%()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256rmEKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator%()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256rMERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator%=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256rMEKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator%=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256anERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&amp;()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256anERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&amp;()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256aNERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&amp;=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256aNERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&amp;=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256orERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator|()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256orERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator|()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256oRERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator|=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256oRERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator|=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256eoERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator^()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256eoERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator^()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256eOERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator^=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256eOERKh"><code class="docutils literal notranslate"><span class="pre">UChar256::operator^=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256lsERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&lt;&lt;()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256lsERKj"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&lt;&lt;()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256lSERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&lt;&lt;=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256lSERKj"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&lt;&lt;=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256rsERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&gt;&gt;()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256rsERKj"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&gt;&gt;()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256rSERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&gt;&gt;=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256rSERKj"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&gt;&gt;=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar256coEv"><code class="docutils literal notranslate"><span class="pre">UChar256::operator~()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar2563strEv"><code class="docutils literal notranslate"><span class="pre">UChar256::str()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar2568toStringEv"><code class="docutils literal notranslate"><span class="pre">UChar256::toString()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2564sizeE"><code class="docutils literal notranslate"><span class="pre">UChar256::size</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar256lsERNSt7ostreamERK8UChar256"><code class="docutils literal notranslate"><span class="pre">UChar256::operator&lt;&lt;()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>

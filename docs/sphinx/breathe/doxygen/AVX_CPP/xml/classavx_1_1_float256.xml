@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classavx_1_1_float256" kind="class" language="C++" prot="public">
+    <compoundname>avx::Float256</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classavx_1_1_float256_1a1af5c742978243cce3b7869f4e4c47de" prot="public" static="no">
+        <type>float</type>
+        <definition>using avx::Float256::storedType =  float</definition>
+        <argsstring></argsstring>
+        <name>storedType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="16" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classavx_1_1_float256_1a807f6126b6f82c9866f1b4754c052fe9" prot="private" static="no" mutable="no">
+        <type>__m256</type>
+        <definition>__m256 avx::Float256::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="12" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classavx_1_1_float256_1af1a301e331306ac1ef47bb67feaacd51" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int avx::Float256::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="15" column="34" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classavx_1_1_float256_1aaf79eeaf2622f82dfec790eea4cc54a9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Float256::Float256</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Float256</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="18" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a933268afcc37f0a7f475933b8cbe8ddf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Float256::Float256</definition>
+        <argsstring>(const Float256 &amp;init) noexcept</argsstring>
+        <name>Float256</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="19" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a86589f56e127e08937446b56d0d379d1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Float256::Float256</definition>
+        <argsstring>(const float value) noexcept</argsstring>
+        <name>Float256</name>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="20" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1aa4c9a94de6d70094fb3a9ede6e65a4d5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Float256::Float256</definition>
+        <argsstring>(const __m256 init) noexcept</argsstring>
+        <name>Float256</name>
+        <param>
+          <type>const __m256</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="21" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1aa7ae3a7c2c9b794e4ba39878bd750af3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Float256::Float256</definition>
+        <argsstring>(const std::array&lt; float, 8 &gt; &amp;init) noexcept</argsstring>
+        <name>Float256</name>
+        <param>
+          <type>const std::array&lt; float, 8 &gt; &amp;</type>
+          <declname>init</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="22" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a8f4a5bd3e01da2126f483c0eb457d135" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>avx::Float256::Float256</definition>
+        <argsstring>(const float *addr)</argsstring>
+        <name>Float256</name>
+        <param>
+          <type>const float *</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="23" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1abe90ea496b0b2c8573c1f5e33efcf878" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const __m256</type>
+        <definition>const __m256 avx::Float256::get</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="25" column="26" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a11ad422c06fc456499fbdad71e88a4fb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Float256::set</definition>
+        <argsstring>(__m256 val) noexcept</argsstring>
+        <name>set</name>
+        <param>
+          <type>__m256</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="26" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a8af8ae7bbe4b002a15a473ed21e75789" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Float256::load</definition>
+        <argsstring>(const float *sP)</argsstring>
+        <name>load</name>
+        <param>
+          <type>const float *</type>
+          <declname>sP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn&apos;t need to be aligned to any specific boundary. If <computeroutput>sP</computeroutput> is <computeroutput>nullptr</computeroutput> this method has no effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to memory from which to load data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="32" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1ae40055cba0cba4192a007236226eec79" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Float256::save</definition>
+        <argsstring>(float *dest) const</argsstring>
+        <name>save</name>
+        <param>
+          <type>float *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="37" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a1c836a6f30e03e48414adb1f8f223fea" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Float256::save</definition>
+        <argsstring>(std::array&lt; float, 8 &gt; &amp;dest) const noexcept</argsstring>
+        <name>save</name>
+        <param>
+          <type>std::array&lt; float, 8 &gt; &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="41" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1ad3136f9cbe502e28ac5b472e39c43c0e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void avx::Float256::saveAligned</definition>
+        <argsstring>(float *dest) const</argsstring>
+        <name>saveAligned</name>
+        <param>
+          <type>float *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="45" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1ae1496dee50bec0487a0085a145671786" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Float256::operator==</definition>
+        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="49" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="49" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1ab578a1c38df13f1b07dc23788bbfef83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Float256::operator==</definition>
+        <argsstring>(const float b)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="61" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="61" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a07a0f2fdddbe88828844799e8ca159f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Float256::operator!=</definition>
+        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="72" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="72" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a6265ed5e6545d82bac595edad19ea8e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool avx::Float256::operator!=</definition>
+        <argsstring>(const float b)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="84" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="84" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a20bcd485318006ead8b11f3b2ac33d8d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator+</definition>
+        <argsstring>(const Float256 &amp;bV) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="95" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a3f59fea160b9e7ee724cb05ca108eaf6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator+</definition>
+        <argsstring>(const float b) const</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="99" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="99" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a0abf3963afe5f0dd88c18c442c7cebec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator+=</definition>
+        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="103" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1afa1e5b54a3b542c12bcc344a987417eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator+=</definition>
+        <argsstring>(const float b)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="108" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="108" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a308e53a2d94cf1f65181b705093a6bba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator-</definition>
+        <argsstring>(const Float256 &amp;bV) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="113" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="113" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1ab30061ffe75d5d21b2002a164e9290c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator-</definition>
+        <argsstring>(const float b) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="117" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="117" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a38cf906f465a2b8f865169c7ae0b2b6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator-=</definition>
+        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="121" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1acb6def11fd530792d02da63621309ce7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator-=</definition>
+        <argsstring>(const float b)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="126" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a4597a6f234902d62a216850ccf90e79a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator*</definition>
+        <argsstring>(const Float256 &amp;bV) const</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="131" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1aa526a29c2d6a6c879e7c87c2c56bfd4c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator*</definition>
+        <argsstring>(const float b) const</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="135" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="135" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a87722e3c68df2c33cb4f6d9aa26ececd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator*=</definition>
+        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="139" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a23be8f2a6ee7682809842c4b77817b1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator*=</definition>
+        <argsstring>(const float b)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="144" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="144" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1af168a23c01e2a76483a1d3a343cf95da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator/</definition>
+        <argsstring>(const Float256 &amp;bV) const</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="149" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="149" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1aed7e0cdd4977b96b0be87742ef8a932a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 avx::Float256::operator/</definition>
+        <argsstring>(const float b) const</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="153" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="153" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a1736e460d24bb0db6f8b81611f24b859" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator/=</definition>
+        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="157" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1aad2face90745e0062fa33ab2ab871670" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+        <definition>Float256&amp; avx::Float256::operator/=</definition>
+        <argsstring>(const float b)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const float</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="162" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a1cb1fb731d5d7224ff18878b1bf4725f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float avx::Float256::operator[]</definition>
+        <argsstring>(const unsigned int index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="167" column="19" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="167" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classavx_1_1_float256_1a905330b7b986cb226f76dad566996e9e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string avx::Float256::str</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="178" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="178" bodyend="187"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" line="10" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp" bodystart="10" bodyend="189"/>
+    <listofallmembers>
+      <member refid="classavx_1_1_float256_1aaf79eeaf2622f82dfec790eea4cc54a9" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
+      <member refid="classavx_1_1_float256_1a933268afcc37f0a7f475933b8cbe8ddf" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
+      <member refid="classavx_1_1_float256_1a86589f56e127e08937446b56d0d379d1" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
+      <member refid="classavx_1_1_float256_1aa4c9a94de6d70094fb3a9ede6e65a4d5" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
+      <member refid="classavx_1_1_float256_1aa7ae3a7c2c9b794e4ba39878bd750af3" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
+      <member refid="classavx_1_1_float256_1a8f4a5bd3e01da2126f483c0eb457d135" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
+      <member refid="classavx_1_1_float256_1abe90ea496b0b2c8573c1f5e33efcf878" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>get</name></member>
+      <member refid="classavx_1_1_float256_1a8af8ae7bbe4b002a15a473ed21e75789" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>load</name></member>
+      <member refid="classavx_1_1_float256_1a07a0f2fdddbe88828844799e8ca159f6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_float256_1a6265ed5e6545d82bac595edad19ea8e6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator!=</name></member>
+      <member refid="classavx_1_1_float256_1a4597a6f234902d62a216850ccf90e79a" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_float256_1aa526a29c2d6a6c879e7c87c2c56bfd4c" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_float256_1a87722e3c68df2c33cb4f6d9aa26ececd" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_float256_1a23be8f2a6ee7682809842c4b77817b1e" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_float256_1a20bcd485318006ead8b11f3b2ac33d8d" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_float256_1a3f59fea160b9e7ee724cb05ca108eaf6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_float256_1a0abf3963afe5f0dd88c18c442c7cebec" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_float256_1afa1e5b54a3b542c12bcc344a987417eb" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_float256_1a308e53a2d94cf1f65181b705093a6bba" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_float256_1ab30061ffe75d5d21b2002a164e9290c8" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_float256_1a38cf906f465a2b8f865169c7ae0b2b6c" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_float256_1acb6def11fd530792d02da63621309ce7" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_float256_1af168a23c01e2a76483a1d3a343cf95da" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_float256_1aed7e0cdd4977b96b0be87742ef8a932a" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_float256_1a1736e460d24bb0db6f8b81611f24b859" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_float256_1aad2face90745e0062fa33ab2ab871670" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_float256_1ae1496dee50bec0487a0085a145671786" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_float256_1ab578a1c38df13f1b07dc23788bbfef83" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator==</name></member>
+      <member refid="classavx_1_1_float256_1a1cb1fb731d5d7224ff18878b1bf4725f" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator[]</name></member>
+      <member refid="classavx_1_1_float256_1ae40055cba0cba4192a007236226eec79" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>save</name></member>
+      <member refid="classavx_1_1_float256_1a1c836a6f30e03e48414adb1f8f223fea" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>save</name></member>
+      <member refid="classavx_1_1_float256_1ad3136f9cbe502e28ac5b472e39c43c0e" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>saveAligned</name></member>
+      <member refid="classavx_1_1_float256_1a11ad422c06fc456499fbdad71e88a4fb" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>set</name></member>
+      <member refid="classavx_1_1_float256_1af1a301e331306ac1ef47bb67feaacd51" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>size</name></member>
+      <member refid="classavx_1_1_float256_1a1af5c742978243cce3b7869f4e4c47de" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>storedType</name></member>
+      <member refid="classavx_1_1_float256_1a905330b7b986cb226f76dad566996e9e" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>str</name></member>
+      <member refid="classavx_1_1_float256_1a807f6126b6f82c9866f1b4754c052fe9" prot="private" virt="non-virtual"><scope>avx::Float256</scope><name>v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

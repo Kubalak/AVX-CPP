@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceavx" kind="namespace" language="C++">
+    <compoundname>avx</compoundname>
+    <innerclass refid="classavx_1_1_char256" prot="public">avx::Char256</innerclass>
+    <innerclass refid="classavx_1_1_double256" prot="public">avx::Double256</innerclass>
+    <innerclass refid="classavx_1_1_float256" prot="public">avx::Float256</innerclass>
+    <innerclass refid="classavx_1_1_int256" prot="public">avx::Int256</innerclass>
+    <innerclass refid="classavx_1_1_long256" prot="public">avx::Long256</innerclass>
+    <innerclass refid="classavx_1_1_short256" prot="public">avx::Short256</innerclass>
+    <innerclass refid="classavx_1_1_u_char256" prot="public">avx::UChar256</innerclass>
+    <innerclass refid="classavx_1_1_u_int256" prot="public">avx::UInt256</innerclass>
+    <innerclass refid="classavx_1_1_u_long256" prot="public">avx::ULong256</innerclass>
+    <innerclass refid="classavx_1_1_u_short256" prot="public">avx::UShort256</innerclass>
+    <innernamespace refid="namespaceavx_1_1constants">avx::constants</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceavx_1a8b907971ec6edea3f729a38ebcb92752" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; avx::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const Char256 &amp;a)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints content of vector as raw string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>os</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output stream, to which content will be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector, whose value will be written to stream. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.cpp" line="4" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.cpp" bodystart="4" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a070990c1c40d2e4d358920c2c75c8f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
+        <definition>Int256 avx::sum</definition>
+        <argsstring>(std::vector&lt; Int256 &gt; &amp;a)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" line="9" column="12" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="9" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a91f23ecf4fac1d56e27d7240f5db2b27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
+        <definition>Int256 avx::sum</definition>
+        <argsstring>(std::set&lt; Int256 &gt; &amp;a)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::set&lt; <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" line="18" column="12" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="18" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a92f3b09489fa35d1ab4185a49bb8c9e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
+        <definition>Long256 avx::sum</definition>
+        <argsstring>(std::vector&lt; Long256 &gt; &amp;a)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/long256.cpp" line="5" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/long256.cpp" bodystart="5" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a76f1c23daff481a2bd9ed4c02c760e0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
+        <definition>Long256 avx::sum</definition>
+        <argsstring>(std::set&lt; Long256 &gt; &amp;a)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::set&lt; <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/long256.cpp" line="14" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/long256.cpp" bodystart="14" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a0423bc5195a243edf0060e58bb00563f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; avx::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const UChar256 &amp;a)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.cpp" line="6" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.cpp" bodystart="6" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a4210dc5174276fce458db54d8f4f2308" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::sum</definition>
+        <argsstring>(std::vector&lt; UInt256 &gt; &amp;items)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &gt; &amp;</type>
+          <declname>items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sums all elements in vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing <computeroutput><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></computeroutput> values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Sum of all elements in vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.cpp" line="5" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.cpp" bodystart="5" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a559aad5e972f31dff9fc73d9b6aadfc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
+        <definition>UInt256 avx::sum</definition>
+        <argsstring>(std::set&lt; UInt256 &gt; &amp;items)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>std::set&lt; <ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &gt; &amp;</type>
+          <declname>items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sums all elements in set. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set containing <computeroutput><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></computeroutput> values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Sum of all elements in set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.cpp" line="14" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uint256.cpp" bodystart="14" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a97a9dfc5cbc7127ae4b3132c591a8420" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
+        <definition>ULong256 avx::sum</definition>
+        <argsstring>(const std::vector&lt; ULong256 &gt; &amp;ulongs) noexcept</argsstring>
+        <name>sum</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &gt; &amp;</type>
+          <declname>ulongs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.cpp" line="5" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.cpp" bodystart="5" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceavx_1a7801a34c7fd9a2222014186a002bad6e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
+        <definition>ULong256 avx::sum</definition>
+        <argsstring>(const std::set&lt; ULong256 &gt; &amp;ulongs) noexcept</argsstring>
+        <name>sum</name>
+        <param>
+          <type>const std::set&lt; <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &gt; &amp;</type>
+          <declname>ulongs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.cpp" line="13" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.cpp" bodystart="13" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Jakub Jach (c) 2024 Namespace containing type definitions and basic functions. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.cpp" line="3" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_0c0c9fa8a58db41e576adc3ce68c5ee9" kind="dir">
+    <compoundname>/home/jakub/Publiczny/AVX-CPP/src/types</compoundname>
+    <innerfile refid="char256_8cpp">char256.cpp</innerfile>
+    <innerfile refid="char256_8hpp">char256.hpp</innerfile>
+    <innerfile refid="constants_8hpp">constants.hpp</innerfile>
+    <innerfile refid="double256_8cpp">double256.cpp</innerfile>
+    <innerfile refid="double256_8hpp">double256.hpp</innerfile>
+    <innerfile refid="float256_8cpp">float256.cpp</innerfile>
+    <innerfile refid="float256_8hpp">float256.hpp</innerfile>
+    <innerfile refid="int256_8cpp">int256.cpp</innerfile>
+    <innerfile refid="int256_8hpp">int256.hpp</innerfile>
+    <innerfile refid="long256_8cpp">long256.cpp</innerfile>
+    <innerfile refid="long256_8hpp">long256.hpp</innerfile>
+    <innerfile refid="short256_8cpp">short256.cpp</innerfile>
+    <innerfile refid="short256_8hpp">short256.hpp</innerfile>
+    <innerfile refid="uchar256_8cpp">uchar256.cpp</innerfile>
+    <innerfile refid="uchar256_8hpp">uchar256.hpp</innerfile>
+    <innerfile refid="uint256_8cpp">uint256.cpp</innerfile>
+    <innerfile refid="uint256_8hpp">uint256.hpp</innerfile>
+    <innerfile refid="ulong256_8cpp">ulong256.cpp</innerfile>
+    <innerfile refid="ulong256_8hpp">ulong256.hpp</innerfile>
+    <innerfile refid="ushort256_8cpp">ushort256.cpp</innerfile>
+    <innerfile refid="ushort256_8hpp">ushort256.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceavx_1_1constants" kind="namespace" language="C++">
+    <compoundname>avx::constants</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="constants_8hpp_1a3f5680987301f20b1d9a594d79c70827" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::ONES</definition>
+        <argsstring></argsstring>
+        <name>ONES</name>
+        <initializer>= _mm256_set1_epi8(0xFF)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="11" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1ab397c5a7122f89fb5a454d35b432bab3" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI8_ONE</definition>
+        <argsstring></argsstring>
+        <name>EPI8_ONE</name>
+        <initializer>= _mm256_set1_epi8(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="12" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a383d4fdbbad3c259ef6bf78518a61725" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI8_CRATE_EPI16</definition>
+        <argsstring></argsstring>
+        <name>EPI8_CRATE_EPI16</name>
+        <initializer>= _mm256_set1_epi16(0xFF)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="13" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a773337a353b118922a7fea8c21471d5e" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI8_CRATE_EPI16_INVERSE</definition>
+        <argsstring></argsstring>
+        <name>EPI8_CRATE_EPI16_INVERSE</name>
+        <initializer>= _mm256_set1_epi16(0xFF00)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="14" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1ac5c55e62168e08b8ce915145063fc815" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI8_CRATE_EPI32</definition>
+        <argsstring></argsstring>
+        <name>EPI8_CRATE_EPI32</name>
+        <initializer>= _mm256_set1_epi32(0xFF)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="15" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1af441eb9f1aba10d96e83babaca6e67f4" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI8_CRATE_EPI32_SHIFT_I</definition>
+        <argsstring></argsstring>
+        <name>EPI8_CRATE_EPI32_SHIFT_I</name>
+        <initializer>= _mm256_set1_epi32(0xFF00)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="16" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1add5e75515f24bb729a381d8212892edf" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI8_CRATE_EPI32_SHIFT_II</definition>
+        <argsstring></argsstring>
+        <name>EPI8_CRATE_EPI32_SHIFT_II</name>
+        <initializer>= _mm256_set1_epi32(0xFF0000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="17" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a5f11df355d70dffb695a142453d2dfcf" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI8_CRATE_EPI32_SHIFT_III</definition>
+        <argsstring></argsstring>
+        <name>EPI8_CRATE_EPI32_SHIFT_III</name>
+        <initializer>= _mm256_set1_epi32(0xFF000000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="18" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a8d9856e86a2fe198a92d6860d3b22bf9" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI16_ONE</definition>
+        <argsstring></argsstring>
+        <name>EPI16_ONE</name>
+        <initializer>= _mm256_set1_epi16(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="19" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a141f350d38327de2926ca64673bfe8f1" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI16_CRATE_EPI32</definition>
+        <argsstring></argsstring>
+        <name>EPI16_CRATE_EPI32</name>
+        <initializer>= _mm256_set1_epi32(0xFFFF)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="20" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a9165f0517c3ddab536f959ff753c7cde" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI16_CRATE_EPI32_INVERSE</definition>
+        <argsstring></argsstring>
+        <name>EPI16_CRATE_EPI32_INVERSE</name>
+        <initializer>= _mm256_set1_epi32(0xFFFF0000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="21" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1ac1152fce4fac2aa92f039ace3e79a908" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI32_CRATE_EPI64</definition>
+        <argsstring></argsstring>
+        <name>EPI32_CRATE_EPI64</name>
+        <initializer>= _mm256_set1_epi64x(0xFFFFFFFF)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="22" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a255eb1f57cf82d6cb4fb2562d1bc9c9a" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI32_SIGN</definition>
+        <argsstring></argsstring>
+        <name>EPI32_SIGN</name>
+        <initializer>= _mm256_set1_epi32(0x8000&apos;0000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="23" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a2165f5e19b0a9f71787d10d03da4c1a3" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI32_ONE</definition>
+        <argsstring></argsstring>
+        <name>EPI32_ONE</name>
+        <initializer>= _mm256_set1_epi32(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="24" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a9d8b9d46ca22d2022022164c771a0b42" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI64_ONE</definition>
+        <argsstring></argsstring>
+        <name>EPI64_ONE</name>
+        <initializer>= _mm256_set1_epi64x(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="25" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a12c0b91367073bab868d23800d3b30bd" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::EPI64_SIGN</definition>
+        <argsstring></argsstring>
+        <name>EPI64_SIGN</name>
+        <initializer>= _mm256_set1_epi64x(0x8000&apos;0000&apos;0000&apos;0000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="26" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a730c7f620e0947cc68d4ebedeb3f10f0" prot="public" static="yes" mutable="no">
+        <type>const __m256d</type>
+        <definition>const __m256d avx::constants::DOUBLE_NO_SIGN</definition>
+        <argsstring></argsstring>
+        <name>DOUBLE_NO_SIGN</name>
+        <initializer>= _mm256_castsi256_pd(_mm256_set1_epi64x(0x7FFF&apos;FFFF&apos;FFFF&apos;FFFF))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="27" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1abc94e2b8b64ff2965d6c8f420bf7ef79" prot="public" static="yes" mutable="no">
+        <type>const __m256</type>
+        <definition>const __m256 avx::constants::FLOAT_NO_SIGN</definition>
+        <argsstring></argsstring>
+        <name>FLOAT_NO_SIGN</name>
+        <initializer>= _mm256_castsi256_ps(_mm256_set1_epi32(0x7FFF&apos;FFFF))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="28" column="36" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1ab5be15cec272baeb1e08edc517b8cc39" prot="public" static="yes" mutable="no">
+        <type>const __m256d</type>
+        <definition>const __m256d avx::constants::DOUBLE_ONE</definition>
+        <argsstring></argsstring>
+        <name>DOUBLE_ONE</name>
+        <initializer>= _mm256_set1_pd(1.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="29" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a9b1cca554d88045b5239d244040db840" prot="public" static="yes" mutable="no">
+        <type>const __m256</type>
+        <definition>const __m256 avx::constants::FLOAT_ONE</definition>
+        <argsstring></argsstring>
+        <name>FLOAT_ONE</name>
+        <initializer>= _mm256_set1_ps(1.0f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="30" column="36" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="9" column="5"/>
+  </compounddef>
+</doxygen>
