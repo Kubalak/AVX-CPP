@@ -60,11 +60,11 @@ Other than that all types support initialization using:
 
 Elements from vectors can be extracted using following methods:
 
-- `[]` returns a value from selected index.
+- `[]` returns a value from selected index. In debug builds providing inaccurate index raises an `std::invalid_argument` exception. For release builds invalid index is suppresed by using `index & (size - 1)` formula.
 - `load(*sP)` loads data from memory using `_mm256_lddqu_si256`/`_mm256_loadu_pd`/`_mm256_loadu_ps` according to stored type.
 - `save(std::array&)` saves data to array using `_mm256_storeu_si256` function.
-- `save(*addr)` saves data to memory pointed by `addr` using `_mm256_storeu_si256` function.
-- `saveAligned(*addr)` saves data to memory pointed by `addr` for memory that is aligned on 32 byte boundary using `_mm256_store_si256`.
+- `save(*addr)` saves data to memory pointed by `addr` using `_mm256_storeu_si256` or `_mm256_storeu_ps/pd` function.
+- `saveAligned(*addr)` saves data to memory pointed by `addr` for memory that is aligned on 32 byte boundary using `_mm256_store_si256` or `_mm256_store_ps/pd`.
 
 <!--
 # AVX-CPP is fast!
@@ -125,15 +125,17 @@ Building has been tested on following compilers (build and run):
 - Clang 14.0.0-1ubuntu1.1
 - MSVC 19.29.30154
 
-## &#x1F6A7; Documentation
+## Documentation
 
-Under construction...
+Documentation is available here: [https://kubalak.github.io/AVX-CPP/](https://kubalak.github.io/AVX-CPP/)
+
+If you want to read documentation offline go to [docs/sphinx](docs/sphinx).
 
 ## Known issues
 
-- &#9888;&#65039; `/` and `%` might not always use SIMD instructions to calculate results due to instruction set restrictions. Some types use casting to `float` to perform those operations.
+- &#9888;&#65039; - `/` and `%` might not always use SIMD instructions to calculate results due to instruction set restrictions. Some types use casting to `float` to perform those operations.
 - &#x2757; For `Int256` and `UInt256` the underlying type used in division and modulo is `float` which might cause rounding to occur which will yield inaccurate results. Please refer to [this](https://en.wikipedia.org/wiki/IEEE_754) document about `float` type structure.
-- &#x1F6A9; `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
+- &#x1F6A9; - `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
 - Performance benefits need further testing (I will provide perf test table here).
 - `Int256` division and modulo might produce inaccurate results for larger values.
 - `Long256` and `ULong256` don't use AVX/AVX2 for `*`, `/` and `%` due to lack available SIMD instructions. In AVX512 mode they might use some SIMD instructions (which will be checked once getting access to CPU supporting AVX512).

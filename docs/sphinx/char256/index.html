@@ -336,32 +336,71 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2567Char256ERK7__m256i">
 <span id="_CPPv3N3avx7Char2567Char256ERK7__m256i"></span><span id="_CPPv2N3avx7Char2567Char256ERK7__m256i"></span><span id="avx::Char256::Char256____m256iCR"></span><span class="target" id="classavx_1_1_char256_1a1d6781466d32005fd644c029f2dd8424"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char2567Char256ERK7__m256i" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes object with <code class="docutils literal notranslate"><span class="pre">__m256i</span></code> vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Vector from which values will be copied. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2567Char256ERK7Char256">
 <span id="_CPPv3N3avx7Char2567Char256ERK7Char256"></span><span id="_CPPv2N3avx7Char2567Char256ERK7Char256"></span><span id="avx::Char256::Char256__Char256CR"></span><span class="target" id="classavx_1_1_char256_1a01d04381cab2fd2f52e36613e0960c11"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char2567Char256ERK7Char256" title="avx::Char256::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char2567Char256ERK7Char256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes object with another object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Object which content will be copied. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2567Char256EPKc">
 <span id="_CPPv3N3avx7Char2567Char256EPKc"></span><span id="_CPPv2N3avx7Char2567Char256EPKc"></span><span id="avx::Char256::Char256__cCP"></span><span class="target" id="classavx_1_1_char256_1a5f957d0c4d1a30573c460ab219d0b17e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Char2567Char256EPKc" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes object with first 32 bytes of data stored under <code class="docutils literal notranslate"><span class="pre">addr</span></code>. Data does not need to be aligned to a 32 byte boundary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>addr</strong> – Memory holding data (minimum 32 bytes). </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – used in debug mode if <code class="docutils literal notranslate"><span class="pre">addr</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> then <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code> will be thrown. Otherwise if <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is passed it will initialize vector with 0s. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2567Char256ERKNSt6stringE">
 <span id="_CPPv3N3avx7Char2567Char256ERKNSt6stringE"></span><span id="_CPPv2N3avx7Char2567Char256ERKNSt6stringE"></span><span id="avx::Char256::Char256__ssCR"></span><span class="target" id="classavx_1_1_char256_1ac0a493c55bd68578ba5aeed59a936fe9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char2567Char256ERKNSt6stringE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes with first 32 bytes read from string. If <code class="docutils literal notranslate"><span class="pre">init</span></code> is less than 32 bytes long missing values will be set to 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – String containing initial data. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2567Char256ERKNSt5arrayIcXL32EEEE">
 <span id="_CPPv3N3avx7Char2567Char256ERKNSt5arrayIcXL32EEEE"></span><span id="_CPPv2N3avx7Char2567Char256ERKNSt5arrayIcX32EEE"></span><span id="avx::Char256::Char256__std::array:c.32:CR"></span><span class="target" id="classavx_1_1_char256_1a8f149f4031fbe4bd18b48e59d7f5c2d7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char2567Char256ERKNSt5arrayIcXL32EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes object with array of 32 bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array containing initial data. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2567Char256ENSt16initializer_listIcEE">
 <span id="_CPPv3N3avx7Char2567Char256ENSt16initializer_listIcEE"></span><span id="_CPPv2N3avx7Char2567Char256ENSt16initializer_listIcEE"></span><span id="avx::Char256::Char256__std::initializer_list:c:"></span><span class="target" id="classavx_1_1_char256_1a465dc1e3a5588e72c94c264214fe678a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Char2567Char256ENSt16initializer_listIcEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes object using initializer list. The number of elements in list is not limited but only a maximum of first 32 will be used. If size of list is less than 32 bytes missing values will be set to 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Initializer list of values to assign. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2564loadEPKc">
@@ -449,7 +488,7 @@
 <dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 31. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp">&lt;tt&gt;std::out_of_range&lt;/tt&gt;</span></span> – If index is not within the correct range. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – index is not within the correct range and build type is debug <code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code> will be thrown. Otherwise bitwise AND will prevent index to be out of range. </p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Value of underlying element. </p>
@@ -460,42 +499,114 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256eqERK7Char256">
 <span id="_CPPv3NK3avx7Char256eqERK7Char256"></span><span id="_CPPv2NK3avx7Char256eqERK7Char256"></span><span id="avx::Char256::eq-operator__Char256CRC"></span><span class="target" id="classavx_1_1_char256_1a23886b5455d62cddde9d40f911870baf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char256eqERK7Char256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compare with other vector for equality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second object to compare. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If ALL values are the same then it will return <code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256eqEKc">
 <span id="_CPPv3NK3avx7Char256eqEKc"></span><span id="_CPPv2NK3avx7Char256eqEKc"></span><span id="avx::Char256::eq-operator__cCC"></span><span class="target" id="classavx_1_1_char256_1a822e927d9af3595666e641687ab73538"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char256eqEKc" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compare if ALL values in vector are the same as provided in <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar value to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If ALL values in vector are equal to <code class="docutils literal notranslate"><span class="pre">b</span></code> then will return <code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code> will be returned. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256neERK7Char256">
 <span id="_CPPv3NK3avx7Char256neERK7Char256"></span><span id="_CPPv2NK3avx7Char256neERK7Char256"></span><span id="avx::Char256::neq-operator__Char256CRC"></span><span class="target" id="classavx_1_1_char256_1a6d5950c4ee5b9f22d1184f02e5252ea5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char256neERK7Char256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares vectors for inequality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If ANY value doesn’t match then <code class="docutils literal notranslate"><span class="pre">true</span></code> will be returned. Otherwise will return <code class="docutils literal notranslate"><span class="pre">false</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256neEKc">
 <span id="_CPPv3NK3avx7Char256neEKc"></span><span id="_CPPv2NK3avx7Char256neEKc"></span><span id="avx::Char256::neq-operator__cCC"></span><span class="target" id="classavx_1_1_char256_1ad5d9eb23bcd8523ba8b05bfba3b56cde"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char256neEKc" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares vector with scalar for inequality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If ANY value doesn’t match with <code class="docutils literal notranslate"><span class="pre">b</span></code> then <code class="docutils literal notranslate"><span class="pre">true</span></code> will be returned. Otherwise will return <code class="docutils literal notranslate"><span class="pre">false</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256plERK7Char256">
 <span id="_CPPv3NK3avx7Char256plERK7Char256"></span><span id="_CPPv2NK3avx7Char256plERK7Char256"></span><span id="avx::Char256::add-operator__Char256CRC"></span><span class="target" id="classavx_1_1_char256_1ad560ca2459ef6736c30d3c579c182a62"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char256plERK7Char256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds two vectors. Simple call to <code class="docutils literal notranslate"><span class="pre">_mm256_add_epi8</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector to add. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New object being a result of addition of vectors. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256plERKc">
 <span id="_CPPv3NK3avx7Char256plERKc"></span><span id="_CPPv2NK3avx7Char256plERKc"></span><span id="avx::Char256::add-operator__cCRC"></span><span class="target" id="classavx_1_1_char256_1a2cbbdd8321ff53ff5c8d027e00289fb3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char256plERKc" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds a scalar to vector. Similar to one using <a class="reference internal" href="#classavx_1_1_char256"><span class="std std-ref">Char256</span></a> but creates intermediate vector filled with value of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to add. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New object being a result of adding value of <code class="docutils literal notranslate"><span class="pre">b</span></code> to vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char256pLERK7Char256">
 <span id="_CPPv3N3avx7Char256pLERK7Char256"></span><span id="_CPPv2N3avx7Char256pLERK7Char256"></span><span id="avx::Char256::add-assign-operator__Char256CR"></span><span class="target" id="classavx_1_1_char256_1a8821d5763fad9e2ef192b71118c6303b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char256pLERK7Char256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds second vector and returns reference to existing vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector to add. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the same object after performing addition (<code class="docutils literal notranslate"><span class="pre">*this</span></code>). </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char256pLERKc">
 <span id="_CPPv3N3avx7Char256pLERKc"></span><span id="_CPPv2N3avx7Char256pLERKc"></span><span id="avx::Char256::add-assign-operator__cCR"></span><span class="target" id="classavx_1_1_char256_1abf47cd855adf2f2574ee937e32b8e79b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char256pLERKc" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds a scalar to vector and returns reference to existing vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to add. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the same object after performing addition (<code class="docutils literal notranslate"><span class="pre">*this</span></code>). </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256miERK7Char256">
@@ -680,17 +791,35 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char256coEv">
 <span id="_CPPv3NK3avx7Char256coEv"></span><span id="_CPPv2NK3avx7Char256coEv"></span><span id="avx::Char256::inv-operatorC"></span><span class="target" id="classavx_1_1_char256_1ad7a80a687dd4bd0a39196d066d608419"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">~</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char256coEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise NOT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New object with negated bits. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char2563strEv">
 <span id="_CPPv3NK3avx7Char2563strEv"></span><span id="_CPPv2NK3avx7Char2563strEv"></span><span id="avx::Char256::strC"></span><span class="target" id="classavx_1_1_char256_1ab4548801ba655542992f25e8d6351b78"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">str</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char2563strEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>A string representation of internal vector contents. All 32 stored values will be printed out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String in the following format (for default constructor): “Char256(0, 0, […], 0)” </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char2568toStringEv">
 <span id="_CPPv3NK3avx7Char2568toStringEv"></span><span id="_CPPv2NK3avx7Char2568toStringEv"></span><span id="avx::Char256::toStringC"></span><span class="target" id="classavx_1_1_char256_1a3d1da06fe493ad0846fc8730a42c8fa9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">toString</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char2568toStringEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Creates a string from internal vector. This function is safe even if data is not null-terminated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String filled with contents of internal vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -714,6 +843,9 @@
 <li><p><strong>os</strong> – Output stream, to which content will be written. </p></li>
 <li><p><strong>a</strong> – Vector, whose value will be written to stream. </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to <code class="docutils literal notranslate"><span class="pre">os</span></code>. </p>
 </dd>
 </dl>
 </dd></dl>

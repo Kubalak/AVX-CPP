@@ -167,10 +167,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes object with <computeroutput>__m256i</computeroutput> vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector from which values will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="80" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="80" bodyend="80"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="84" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="84" bodyend="84"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a01d04381cab2fd2f52e36613e0960c11" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -184,10 +194,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes object with another object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object which content will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="82" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="82" bodyend="82"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="90" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="90" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a5f957d0c4d1a30573c460ab219d0b17e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -201,10 +221,30 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes object with first 32 bytes of data stored under <computeroutput>addr</computeroutput>. Data does not need to be aligned to a 32 byte boundary.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory holding data (minimum 32 bytes). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>If</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>used in debug mode if <computeroutput>addr</computeroutput> is <computeroutput>nullptr</computeroutput> then <computeroutput>std::invalid_argument</computeroutput> will be thrown. Otherwise if <computeroutput>nullptr</computeroutput> is passed it will initialize vector with 0s. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="84" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="84" bodyend="89"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="99" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="99" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1ac0a493c55bd68578ba5aeed59a936fe9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -218,10 +258,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes with first 32 bytes read from string. If <computeroutput>init</computeroutput> is less than 32 bytes long missing values will be set to 0.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String containing initial data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="94" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="94" bodyend="107"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="119" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="119" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a8f149f4031fbe4bd18b48e59d7f5c2d7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -235,10 +286,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes object with array of 32 bytes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array containing initial data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="110" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="110" bodyend="110"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="139" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="139" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a465dc1e3a5588e72c94c264214fe678a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -252,10 +314,21 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes object using initializer list. The number of elements in list is not limited but only a maximum of first 32 will be used. If size of list is less than 32 bytes missing values will be set to 0.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initializer list of values to assign. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="112" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="112" bodyend="130"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="147" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="147" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1adee2613f7bf97d2d64959d7d78801ff0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -282,7 +355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="136" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="136" bodyend="139"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="171" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="171" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a044739d626c9130df9b0db5485d4d21e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -318,7 +391,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="146" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="146" bodyend="148"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="181" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="181" bodyend="183"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a5921eed92553ee42d4082de23de39dec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -355,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="157" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="157" bodyend="164"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="192" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="192" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a4f2ca39c3d3549bf0723558815041e25" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -392,7 +465,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="173" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="173" bodyend="180"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="208" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="208" bodyend="215"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a458a653a43d298050f783368c24c383b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
@@ -408,7 +481,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="186" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="186" bodyend="186"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="221" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="221" bodyend="221"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a1246ed93b8ed8b02dbb31d431ccbdd26" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -435,7 +508,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="192" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="192" bodyend="192"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="227" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="227" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a2d54457a200cd29d8517ef30bbf9b88b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>char</type>
@@ -462,10 +535,10 @@
 </simplesect>
 <parameterlist kind="exception"><parameteritem>
 <parameternamelist>
-<parametername>&lt;tt&gt;std::out_of_range&lt;/tt&gt;</parametername>
+<parametername>If</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>If index is not within the correct range. </para>
+<para>index is not within the correct range and build type is debug <computeroutput>std::out_of_range</computeroutput> will be thrown. Otherwise bitwise AND will prevent index to be out of range. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -473,7 +546,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="200" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="200" bodyend="206"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="235" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="235" bodyend="241"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a23886b5455d62cddde9d40f911870baf" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -487,10 +560,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compare with other vector for equality.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second object to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If ALL values are the same then it will return <computeroutput>true</computeroutput>, otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="211" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="211" bodyend="214"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="252" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="252" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a822e927d9af3595666e641687ab73538" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -504,10 +590,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compare if ALL values in vector are the same as provided in <computeroutput>b</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to compare with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If ALL values in vector are equal to <computeroutput>b</computeroutput> then will return <computeroutput>true</computeroutput>, otherwise <computeroutput>false</computeroutput> will be returned. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="216" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="216" bodyend="220"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="263" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="263" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a6d5950c4ee5b9f22d1184f02e5252ea5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -521,10 +620,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vectors for inequality.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to compare with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If ANY value doesn&apos;t match then <computeroutput>true</computeroutput> will be returned. Otherwise will return <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="222" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="222" bodyend="225"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="275" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="275" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1ad5d9eb23bcd8523ba8b05bfba3b56cde" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -538,10 +650,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vector with scalar for inequality.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to compare with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If ANY value doesn&apos;t match with <computeroutput>b</computeroutput> then <computeroutput>true</computeroutput> will be returned. Otherwise will return <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="227" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="227" bodyend="231"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="286" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="286" bodyend="290"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1ad560ca2459ef6736c30d3c579c182a62" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -555,10 +680,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors. Simple call to <computeroutput>_mm256_add_epi8</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New object being a result of addition of vectors. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="233" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="233" bodyend="235"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="298" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="298" bodyend="300"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a2cbbdd8321ff53ff5c8d027e00289fb3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -572,10 +710,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds a scalar to vector. Similar to one using <ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> but creates intermediate vector filled with value of <computeroutput>b</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New object being a result of adding value of <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="238" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="238" bodyend="240"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="308" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="308" bodyend="310"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a8821d5763fad9e2ef192b71118c6303b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -589,10 +740,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds second vector and returns reference to existing vector.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the same object after performing addition (<computeroutput>*this</computeroutput>). </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="243" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="243" bodyend="246"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="318" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="318" bodyend="321"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1abf47cd855adf2f2574ee937e32b8e79b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -606,10 +770,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds a scalar to vector and returns reference to existing vector.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the same object after performing addition (<computeroutput>*this</computeroutput>). </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="249" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="249" bodyend="252"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="330" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="330" bodyend="333"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a47c27ad04bca6ee18f1d302302ac4898" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -626,7 +803,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="255" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="255" bodyend="257"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="336" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="336" bodyend="338"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1aac39a191268be9849ce85be1b7b60bf5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -643,7 +820,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="260" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="260" bodyend="262"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="341" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="341" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a15b21072dadc85ee261fbab821f7eac0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -660,7 +837,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="265" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="265" bodyend="268"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="346" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="346" bodyend="349"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1ae181ebad903936a7fc3e80fb3bc0995c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -677,7 +854,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="271" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="271" bodyend="274"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="352" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="352" bodyend="355"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a23e0cbfd2d8e7939dccd3f82e4c156db" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -694,7 +871,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="277" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="277" bodyend="295"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="358" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="358" bodyend="376"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a7f965fbbbffa7c5cd7e5511d0ef53405" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -711,7 +888,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="298" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="298" bodyend="314"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="379" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="379" bodyend="395"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a54206f22c2aa21c6ce6a6052297434ec" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -728,7 +905,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="317" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="317" bodyend="336"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="398" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="398" bodyend="417"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a5bc6fc4155f3f1c08cdb3e2fedb30893" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -745,7 +922,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="339" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="339" bodyend="356"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="420" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="420" bodyend="437"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1acf9fe3fa7b243f448130b98e30eebad8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -762,7 +939,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="359" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="359" bodyend="410"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="440" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="440" bodyend="491"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a792b000aa862ebe929fd61f5482bfbb1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -779,7 +956,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="413" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="413" bodyend="445"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="494" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="494" bodyend="526"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a9d89ecd0bae573b83a0713b02faf7c83" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -796,7 +973,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="448" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="448" bodyend="489"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="529" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="529" bodyend="570"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a6d80c8950bb03b6d4a514ca2f6e6f1da" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -813,7 +990,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="492" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="492" bodyend="525"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="573" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="573" bodyend="606"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a4fa9f866ae390072f7f422450f440e33" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -830,7 +1007,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="528" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="528" bodyend="577"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="609" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="609" bodyend="658"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a9f3c6adb3316e6098cc5ad0b7631759f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -847,7 +1024,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="580" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="580" bodyend="632"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="661" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="661" bodyend="713"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a2830b8d87c348c372e82e2eb03328ec2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -864,7 +1041,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="635" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="635" bodyend="685"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="716" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="716" bodyend="766"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1adf12e5f1fcc8c64c6ded455443f61df7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -881,7 +1058,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="688" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="688" bodyend="732"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="769" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="769" bodyend="813"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1af22e568d0dabd72f3c585f850f1c503d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -898,7 +1075,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="735" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="735" bodyend="737"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="816" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="816" bodyend="818"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a9d52e1aaa05f44abab150264e40c66d5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -915,7 +1092,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="740" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="740" bodyend="742"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="821" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="821" bodyend="823"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1acae664f5340f9a935e2b3e49d7305318" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -932,7 +1109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="745" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="745" bodyend="748"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="826" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="826" bodyend="829"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1abbf1255096bc1ada6437ad38c1464fdb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -949,7 +1126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="751" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="751" bodyend="754"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="832" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="832" bodyend="835"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a237773844c230f7d24fc88377dc2f893" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -966,7 +1143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="757" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="757" bodyend="759"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="838" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="838" bodyend="840"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1adae77942add3ce1cac335d5d3f0c4807" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -983,7 +1160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="762" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="762" bodyend="764"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="843" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="843" bodyend="845"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a0dd61ca0e7c42cc58a3bd430c93ecd46" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1000,7 +1177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="767" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="767" bodyend="770"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="848" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="848" bodyend="851"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a38872079c1e6bc264b494e8df15780c9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1017,7 +1194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="773" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="773" bodyend="776"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="854" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="854" bodyend="857"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a633a69a24427b02221ea77e8d99cd026" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -1034,7 +1211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="779" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="779" bodyend="781"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="860" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="860" bodyend="862"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1af5d929550bd9830cf5e5b42d0e7aa2f2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -1051,7 +1228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="784" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="784" bodyend="786"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="865" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="865" bodyend="867"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a111865ac3f0b8a4a7b576e95822eb792" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1068,7 +1245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="789" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="789" bodyend="792"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="870" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="870" bodyend="873"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1aa67a0cb7e1865544c3e5e72b9d32d4de" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1085,7 +1262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="795" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="795" bodyend="798"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="876" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="876" bodyend="879"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1aeef62e39f0ef06d436cee0243705df53" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -1102,7 +1279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="801" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="801" bodyend="848"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="882" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="882" bodyend="929"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1adf1bb05a792b453f55f848ac88b8c704" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -1119,7 +1296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="851" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="851" bodyend="859"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="932" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="932" bodyend="940"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a679637193aae801ffbc461f1f1705753" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1136,7 +1313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="862" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="862" bodyend="910"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="943" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="943" bodyend="991"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a77fd687c448c4722468fef379de9b960" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1153,7 +1330,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="913" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="913" bodyend="922"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="994" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="994" bodyend="1003"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a2229c81d5e1240ffdf6aac02324e3de0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -1170,7 +1347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="925" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="925" bodyend="955"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1006" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1006" bodyend="1036"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a157c85e68e7094335acdb41e3825b735" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -1187,7 +1364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="958" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="958" bodyend="966"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1039" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1039" bodyend="1047"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1ab274018b3c85d0c2c9a61caa89cf0279" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1204,7 +1381,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="969" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="969" bodyend="1000"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1050" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1050" bodyend="1081"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a311776540e74a97243d44c224ab14ef4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
@@ -1221,7 +1398,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1003" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1003" bodyend="1012"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1084" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1084" bodyend="1093"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1ad7a80a687dd4bd0a39196d066d608419" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_char256" kindref="compound">Char256</ref></type>
@@ -1231,10 +1408,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise NOT.</para>
+<para><simplesect kind="return"><para>New object with negated bits. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1014" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1014" bodyend="1016"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1100" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1100" bodyend="1102"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1ab4548801ba655542992f25e8d6351b78" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1244,10 +1425,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>A string representation of internal vector contents. All 32 stored values will be printed out.</para>
+<para><simplesect kind="return"><para>String in the following format (for default constructor): &quot;Char256(0, 0, [...], 0)&quot; </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1018" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1018" bodyend="1027"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1109" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1109" bodyend="1118"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_char256_1a3d1da06fe493ad0846fc8730a42c8fa9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1257,10 +1442,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Creates a string from internal vector. This function is safe even if data is not null-terminated.</para>
+<para><simplesect kind="return"><para>String filled with contents of internal vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1029" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1029" bodyend="1036"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1126" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="1126" bodyend="1133"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -1297,18 +1486,20 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
+<simplesect kind="return"><para>Reference to <computeroutput>os</computeroutput>. </para>
+</simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1043" column="20" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.cpp" bodystart="4" bodyend="12"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="1141" column="20" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.cpp" bodystart="4" bodyend="12"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="16" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="16" bodyend="1045"/>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" line="16" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp" bodystart="16" bodyend="1143"/>
     <listofallmembers>
       <member refid="classavx_1_1_char256_1abb04f58a7a8efb411d9a395f94cbf9b3" prot="private" virt="non-virtual"><scope>avx::Char256</scope><name>_sig_ext_epi16_epi32</name></member>
       <member refid="classavx_1_1_char256_1a424d725e3619a89e2566c28a41fb4966" prot="private" virt="non-virtual"><scope>avx::Char256</scope><name>_sig_ext_epi8_epi16</name></member>

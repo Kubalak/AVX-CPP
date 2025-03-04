@@ -1,3 +1,7 @@
+v0.6.1
+- Extending documentation
+- Changed CMakeLists.txt to use custom output folder for libraries and binaries
+
 v0.6.0
 - avx::UInt256 division has been fixed (verification in progress).
 - Fixed reporting issue in test utils which displayed wrong object for literal verification.

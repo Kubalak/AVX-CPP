@@ -47,6 +47,8 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
+<simplesect kind="return"><para>Reference to <computeroutput>os</computeroutput>. </para>
+</simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>

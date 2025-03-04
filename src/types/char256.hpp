@@ -77,10 +77,25 @@ namespace avx {
              */
             Char256(const char init) noexcept : v(_mm256_set1_epi8(init)){}
 
+            /**
+             * Initializes object with `__m256i` vector.
+             * @param init Vector from which values will be copied.
+             */
             Char256(const __m256i& init) noexcept : v(init){}
 
+            /**
+             * Initializes object with another object.
+             * @param init Object which content will be copied.
+             */
             Char256(const Char256& init) noexcept : v(init.v){}
 
+            /**
+             * Initializes object with first 32 bytes of data stored under `addr`.
+             * Data does not need to be aligned to a 32 byte boundary. 
+             * 
+             * @param addr Memory holding data (minimum 32 bytes).
+             * @throw If used in debug mode if `addr` is `nullptr` then `std::invalid_argument` will be thrown. Otherwise if `nullptr` is passed it will initialize vector with 0s.
+             */
             explicit Char256(const char* addr)
             #ifndef NDEBUG
                 {
@@ -88,9 +103,19 @@ namespace avx {
                     v = _mm256_lddqu_si256((const __m256i*)addr);
                 }
             #else
-                : v(_mm256_lddqu_si256((const __m256i*)addr)){}
+                noexcept{
+                    if(addr != nullptr) 
+                        v = _mm256_lddqu_si256((const __m256i*)addr);
+                    else
+                        v = _mm256_setzero_si256();
+                }
             #endif
 
+            /**
+             * Initializes with first 32 bytes read from string. If `init` is less than 32 bytes long missing values will be set to 0.
+             * 
+             * @param init String containing initial data.
+             */
             Char256(const std::string& init) noexcept {
                 if(init.size() >= 32)
                     v = _mm256_lddqu_si256((const __m256i*)init.data());
@@ -106,9 +131,19 @@ namespace avx {
                 }
             }
 
-
+            /**
+             * Initializes object with array of 32 bytes.
+             * 
+             * @param init Array containing initial data.
+             */
             Char256(const std::array<char, 32>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
+            /**
+             * Initializes object using initializer list. The number of elements in list is not limited but only a maximum of first 32 will be used.
+             * If size of list is less than 32 bytes missing values will be set to 0.
+             * 
+             * @param init Initializer list of values to assign.
+             */
             Char256(std::initializer_list<char> init) {
                 alignas(32) char init_v[32];
                 memset(init_v, 0, 32);
@@ -195,7 +230,7 @@ namespace avx {
              * Indexing operator.
              * @param index Position of desired element between 0 and 31.
              * @return Value of underlying element.
-             * @throws `std::out_of_range` If index is not within the correct range.
+             * @throws If index is not within the correct range and build type is debug `std::out_of_range` will be thrown. Otherwise bitwise AND will prevent index to be out of range.
              */
             char operator[](const unsigned int& index) const 
             #ifndef NDEBUG
@@ -208,44 +243,90 @@ namespace avx {
                 noexcept { return ((char*)&v)[index & 31]; }
             #endif 
 
+            /**
+             * Compare with other vector for equality.
+             * 
+             * @param bV Second object to compare.
+             * @return If ALL values are the same then it will return `true`, otherwise `false`.
+             */
             bool operator==(const Char256& bV) const noexcept {
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
 
+            /**
+             * Compare if ALL values in vector are the same as provided in `b`.
+             * 
+             * @param b Scalar value to compare with.
+             * @return If ALL values in vector are equal to `b` then will return `true`, otherwise `false` will be returned.
+             */
             bool operator==(const char b) const noexcept {
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
 
+            /**
+             * Compares vectors for inequality.
+             * 
+             * @param bV Vector to compare with.
+             * @return If ANY value doesn't match then `true` will be returned. Otherwise will return `false`.
+             */
             bool operator!=(const Char256& bV) const noexcept {
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
 
+            /**
+             * Compares vector with scalar for inequality.
+             * 
+             * @param b Scalar to compare with.
+             * @return If ANY value doesn't match with `b` then `true` will be returned. Otherwise will return `false`.
+             */
             bool operator!=(const char b) const noexcept {
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
 
+            /**
+             * Adds two vectors. Simple call to `_mm256_add_epi8`.
+             * 
+             * @param bV Vector to add.
+             * @return New object being a result of addition of vectors.
+             */
             Char256 operator+(const Char256& bV) const noexcept {
                 return _mm256_add_epi8(v, bV.v);
             }
 
-
+            /**
+             * Adds a scalar to vector. Similar to one using Char256 but creates intermediate vector filled with value of `b`.
+             * 
+             * @param b Scalar to add.
+             * @return New object being a result of adding value of `b` to vector.
+             */
             Char256 operator+(const char& b) const noexcept{
                 return _mm256_add_epi8(v, _mm256_set1_epi8(b));
             }
 
-
+            /**
+             * Adds second vector and returns reference to existing vector.
+             * 
+             * @param bV Vector to add.
+             * @return Reference to the same object after performing addition (`*this`).
+             */
             Char256& operator+=(const Char256& bV) noexcept {
                 v = _mm256_add_epi8(v, bV.v);
                 return *this;
             }
 
 
+            /**
+             * Adds a scalar to vector and returns reference to existing vector.
+             * 
+             * @param b Scalar to add.
+             * @return Reference to the same object after performing addition (`*this`).
+             */
             Char256& operator+=(const char& b) noexcept {
                 v =_mm256_add_epi8(v, _mm256_set1_epi8(b));
                 return *this;
@@ -1011,21 +1092,37 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Bitwise NOT.
+             * 
+             * @return New object with negated bits.
+             */
             Char256 operator~() const noexcept {
                 return _mm256_xor_si256(v, constants::ONES);
             }
 
+            /**
+             * A string representation of internal vector contents. All 32 stored values will be printed out.
+             * 
+             * @return String in the following format (for default constructor): "Char256(0, 0, [...], 0)"
+             */
             std::string str() const noexcept {
                 std::string result = "Char256(";
                 char* iv = (char*)&v; 
                 for(unsigned i{0}; i < 31; ++i)
-                    result += std::to_string(static_cast<int>(iv[i])) + ", ";
+                    result += std::to_string(static_cast<short>(iv[i])) + ", ";
                 
-                result += std::to_string(static_cast<int>(iv[31]));
+                result += std::to_string(static_cast<short>(iv[31]));
                 result += ")";
                 return result;
             }
 
+            /**
+             * Creates a string from internal vector.
+             * This function is safe even if data is not null-terminated. 
+             * 
+             * @return String filled with contents of internal vector.
+             */
             std::string toString() const noexcept {
                 alignas(32) char tmp[33];
                 tmp[32] = '\0';
@@ -1039,6 +1136,7 @@ namespace avx {
              * Prints content of vector as raw string.
              * @param os Output stream, to which content will be written.
              * @param a Vector, whose value will be written to stream.
+             * @return Reference to `os`.
              */
             friend std::ostream& operator<<(std::ostream& os, const Char256& a);
 
