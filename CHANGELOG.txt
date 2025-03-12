@@ -1,3 +1,7 @@
+v0.7.0
+- Fixed Int256 modulo operator
+- Enhanced performance of modulo for Int256
+
 v0.6.1
 - Extending documentation
 - Changed CMakeLists.txt to use custom output folder for libraries and binaries

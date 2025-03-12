@@ -656,6 +656,8 @@
     <member refid="constants_8hpp_1abc94e2b8b64ff2965d6c8f420bf7ef79" kind="variable"><name>FLOAT_NO_SIGN</name></member>
     <member refid="constants_8hpp_1ab5be15cec272baeb1e08edc517b8cc39" kind="variable"><name>DOUBLE_ONE</name></member>
     <member refid="constants_8hpp_1a9b1cca554d88045b5239d244040db840" kind="variable"><name>FLOAT_ONE</name></member>
+    <member refid="constants_8hpp_1acb88b7523b809f737d9153e4e2f3af18" kind="variable"><name>FLOAT_LIMIT</name></member>
+    <member refid="constants_8hpp_1a3bdf66ca76d2eb83bfd5d8498e020cd4" kind="variable"><name>INT2FLOAT_LIMIT</name></member>
   </compound>
   <compound refid="char256_8cpp" kind="file"><name>char256.cpp</name>
   </compound>

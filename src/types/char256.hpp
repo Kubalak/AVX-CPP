@@ -121,12 +121,12 @@ namespace avx {
                     v = _mm256_lddqu_si256((const __m256i*)init.data());
                 else {
                     alignas(32) char initV[32];
-                    memset(initV, 0, 32);
                     #ifdef _MSC_VER
-                        strncpy_s(initV, 32, init.data(), init.size());
+                        memcpy_s(initV, 32, init.data(), init.size());
                     #elif defined( __GNUC__)
-                        strncpy(initV, init.data(), init.size());
+                        memcpy(initV, init.data(), init.size());
                     #endif
+                    memset(initV + init.size(), 0, 32 - init.size()); // To make sure all other bytes are set to 0.
                     v = _mm256_load_si256((const __m256i*) initV);
                 }
             }

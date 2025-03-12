@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="11" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="11" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="12" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1ab397c5a7122f89fb5a454d35b432bab3" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="12" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="12" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="14" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a383d4fdbbad3c259ef6bf78518a61725" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="13" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="13" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="16" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a773337a353b118922a7fea8c21471d5e" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="14" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="14" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="18" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1ac5c55e62168e08b8ce915145063fc815" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="15" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="15" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="20" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1af441eb9f1aba10d96e83babaca6e67f4" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="16" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="16" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="22" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1add5e75515f24bb729a381d8212892edf" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="17" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="17" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="24" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a5f11df355d70dffb695a142453d2dfcf" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="18" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="18" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="26" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a8d9856e86a2fe198a92d6860d3b22bf9" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="19" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="19" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="28" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a141f350d38327de2926ca64673bfe8f1" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -141,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="20" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="20" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="30" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a9165f0517c3ddab536f959ff753c7cde" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="21" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="21" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="32" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1ac1152fce4fac2aa92f039ace3e79a908" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -169,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="22" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="22" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="34" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a255eb1f57cf82d6cb4fb2562d1bc9c9a" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="23" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="23" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="36" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a2165f5e19b0a9f71787d10d03da4c1a3" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -197,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="24" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="24" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="38" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a9d8b9d46ca22d2022022164c771a0b42" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -211,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="25" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="25" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="40" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a12c0b91367073bab868d23800d3b30bd" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -225,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="26" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="26" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="42" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a730c7f620e0947cc68d4ebedeb3f10f0" prot="public" static="yes" mutable="no">
         <type>const __m256d</type>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="27" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="27" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="44" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1abc94e2b8b64ff2965d6c8f420bf7ef79" prot="public" static="yes" mutable="no">
         <type>const __m256</type>
@@ -253,7 +253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="28" column="36" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="28" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="46" column="36" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1ab5be15cec272baeb1e08edc517b8cc39" prot="public" static="yes" mutable="no">
         <type>const __m256d</type>
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="29" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="29" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="48" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="constants_8hpp_1a9b1cca554d88045b5239d244040db840" prot="public" static="yes" mutable="no">
         <type>const __m256</type>
@@ -281,7 +281,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="30" column="36" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="30" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="50" column="36" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1acb88b7523b809f737d9153e4e2f3af18" prot="public" static="yes" mutable="no">
+        <type>const __m256i</type>
+        <definition>const __m256i avx::constants::FLOAT_LIMIT</definition>
+        <argsstring></argsstring>
+        <name>FLOAT_LIMIT</name>
+        <initializer>= _mm256_set1_epi32(0x0100&apos;0000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="52" column="37" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="constants_8hpp_1a3bdf66ca76d2eb83bfd5d8498e020cd4" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int avx::constants::INT2FLOAT_LIMIT</definition>
+        <argsstring></argsstring>
+        <name>INT2FLOAT_LIMIT</name>
+        <initializer>= 0x0100&apos;0000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="55" column="30" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

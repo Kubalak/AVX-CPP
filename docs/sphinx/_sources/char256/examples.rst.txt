@@ -17,6 +17,8 @@ Example of initializing avx::Char256
         avx::Char256 b(3); // Initialize vector with value 3.
         avx::Char256 c(std::string("Hello")); // Initialize vector with string "Hello".
         avx::Char256 d({1, 2, 3, 4, 5}); // Initializing using initializer list.
+
+        avx::Char256 e{"Lorem ipsum"}; // <-- This will produce undefined behaviour (in current version) as constructor assumes argument contains at least 32 bytes.
         return 0;
     }
 
@@ -66,7 +68,7 @@ However if we want to just add the same value across the vector we can do it lik
 
 .. code:: cpp
     
-    auto d = a + c; // d will have values 6, 7, 8, 9, 10
+    auto d = a + c; // d will have values 6, 7, 8, 9, 10, 0 ... 0
 
 or
 
@@ -105,6 +107,38 @@ List of supported operators
 | ~                |                                  |
 +------------------+----------------------------------+
 
+
+Char256 specific metods
+=======================
+
+``std::string avx::Char256::toString()`` - this method will produce a string representation of vector contents. 
+Unlike ``std::string avx::Char256::str()`` method it will put the exact vector content into the string.
+Below code example shows difference between these two methods:
+
+.. code:: CPP
+
+    #include <types/char256.hpp>
+    #include <iostream>
+
+    int main(int argc, char* argv[]) {
+
+    avx::Char256 a{std::string("Lorem ipsum")};
+
+    std::cout << a.str() << '\n'; // Will print "Char256(76, 111, 114, 101, 109, 32, 105, 112, 115, 117, 109, 0, ... 0, 0)"
+    std::cout << a.toString() << '\n'; // Will print "Lorem ipsum"
+    
+    return 0;
+
+.. note::
+    
+    Even if vector contains binary data using ``std::string avx::Char256::toString()`` will not result in undefined behaviour.
+    Intermediate array allocates **33** bytes for data and sets 33-rd byte to ``'\0'`` thus resulting string will always be null-terminated.
+
+| ``avx::Char256`` supports printing to stream by using ``std::ostream &avx::operator<<(std::ostream &os, const avx::Char256 &a)``.
+| It works similarly to ``std::string avx::Char256::toString()`` but instead of returning a string it will print data out to the ``ostream``.
+
+
+-------------------
 
 .. [1] Returns ``true`` only if all values are equal (using bitwise XOR).
 

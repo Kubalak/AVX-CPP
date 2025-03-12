@@ -608,7 +608,16 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256rMERK6Int256">
 <span id="_CPPv3N3avx6Int256rMERK6Int256"></span><span id="_CPPv2N3avx6Int256rMERK6Int256"></span><span id="avx::Int256::mod-assign-operator__Int256CR"></span><span class="target" id="classavx_1_1_int256_1a6f388fb0e7c1d6cd6fd0d5d06e938d6c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256rMERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Performs integer division. IMPORTANT: Does not work for 0x8000’0000 aka -2 147 483 648 </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second modulo operand (divisor) </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of modulo operation. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256rMERKi">

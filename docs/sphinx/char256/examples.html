@@ -308,6 +308,8 @@
 <span class="w">    </span><span class="n">avx</span><span class="o">::</span><span class="n">Char256</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// Initialize vector with value 3.</span>
 <span class="w">    </span><span class="n">avx</span><span class="o">::</span><span class="n">Char256</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// Initialize vector with string &quot;Hello&quot;.</span>
 <span class="w">    </span><span class="n">avx</span><span class="o">::</span><span class="n">Char256</span><span class="w"> </span><span class="n">d</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">});</span><span class="w"> </span><span class="c1">// Initializing using initializer list.</span>
+
+<span class="w">    </span><span class="n">avx</span><span class="o">::</span><span class="n">Char256</span><span class="w"> </span><span class="n">e</span><span class="p">{</span><span class="s">&quot;Lorem ipsum&quot;</span><span class="p">};</span><span class="w"> </span><span class="c1">// &lt;-- This will produce undefined behaviour (in current version) as constructor assumes argument contains at least 32 bytes.</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -348,7 +350,7 @@ Let’s assume we have created variables:</p>
 </pre></div>
 </div>
 <p>However if we want to just add the same value across the vector we can do it like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// d will have values 6, 7, 8, 9, 10</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// d will have values 6, 7, 8, 9, 10, 0 ... 0</span>
 </pre></div>
 </div>
 <p>or</p>
@@ -405,6 +407,35 @@ Let’s assume we have created variables:</p>
 </tbody>
 </table>
 </div>
+</section>
+<section id="char256-specific-metods">
+<h2>Char256 specific metods<a class="headerlink" href="#char256-specific-metods" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">avx::Char256::toString()</span></code> - this method will produce a string representation of vector contents.
+Unlike <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">avx::Char256::str()</span></code> method it will put the exact vector content into the string.
+Below code example shows difference between these two methods:</p>
+<div class="highlight-CPP notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;types/char256.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+
+<span class="n">avx</span><span class="o">::</span><span class="n">Char256</span><span class="w"> </span><span class="n">a</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;Lorem ipsum&quot;</span><span class="p">)};</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Will print &quot;Char256(76, 111, 114, 101, 109, 32, 105, 112, 115, 117, 109, 0, ... 0, 0)&quot;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Will print &quot;Lorem ipsum&quot;</span>
+
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even if vector contains binary data using <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">avx::Char256::toString()</span></code> will not result in undefined behaviour.
+Intermediate array allocates <strong>33</strong> bytes for data and sets 33-rd byte to <code class="docutils literal notranslate"><span class="pre">'\0'</span></code> thus resulting string will always be null-terminated.</p>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">avx::Char256</span></code> supports printing to stream by using <code class="docutils literal notranslate"><span class="pre">std::ostream</span> <span class="pre">&amp;avx::operator&lt;&lt;(std::ostream</span> <span class="pre">&amp;os,</span> <span class="pre">const</span> <span class="pre">avx::Char256</span> <span class="pre">&amp;a)</span></code>.</div>
+<div class="line">It works similarly to <code class="docutils literal notranslate"><span class="pre">std::string</span> <span class="pre">avx::Char256::toString()</span></code> but instead of returning a string it will print data out to the <code class="docutils literal notranslate"><span class="pre">ostream</span></code>.</div>
+</div>
+<hr class="docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
@@ -486,6 +517,7 @@ Let’s assume we have created variables:</p>
 <li><a class="reference internal" href="#example-of-initializing-avx-char256">Example of initializing avx::Char256</a></li>
 <li><a class="reference internal" href="#using-basic-arithmetic-operators">Using basic arithmetic operators</a></li>
 <li><a class="reference internal" href="#list-of-supported-operators">List of supported operators</a></li>
+<li><a class="reference internal" href="#char256-specific-metods">Char256 specific metods</a></li>
 </ul>
 </li>
 </ul>
