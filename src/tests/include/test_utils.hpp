@@ -91,6 +91,14 @@ namespace testing
         #endif
     }
 
+    template <typename T>
+    constexpr T getMaxBits(){
+        T val = 0xFF;
+        for(int i{0}; i < sizeof(T); ++i)
+            val = (val<<8)|(static_cast<T>(0xFF));
+        return val;
+    }
+
     std::string demangle(const char* name) {
         #ifdef __GNUG__
             std::string res;
@@ -1375,95 +1383,117 @@ namespace testing
     }
 
 
-    template<typename T, typename S = typename T::storedType>
+    template <typename T, typename S = typename T::storedType>
     int universalTestCompare(const unsigned int size = T::size) {
-        auto start = std::chrono::steady_clock::now();
-        
         int result = 0;
-        T a, b;
+        auto start = std::chrono::steady_clock::now();
 
-        if(!(a == b)) {
-            result |= 1;
-            printTestFailed(
-                __FILE__, 
-                __LINE__, 
-                __func__,
-                "==", 
-                demangle(typeid(T).name()).c_str(),
-                demangle(typeid(T).name()).c_str(),
-                "true", 
-                "false"
-            );
+        const std::string excpected = "true";
+        const std::string actual = "false";
+
+        std::vector<S> eqTest(size);
+        std::vector<S> neqTest(size);
+        std::vector<S> constVal(size);
+        std::vector<S> zeros(size, 0) ;
+        std::vector<S> ones(size, getMaxBits<S>());
+
+        for(int i{0};i < size; ++i){
+            eqTest[i] = i;
+            neqTest[i] = i;
+            constVal[i] = 3;
         }
 
-        if(!(a == 0)) {
-            result |= 1;
+        neqTest[size - 1] += 1;
+
+        T a(eqTest.data()), b(neqTest.data()), c(zeros.data()), d(ones.data()), f(constVal.data());
+
+        if(!(a == a)){
             printTestFailed(
-                __FILE__, 
-                __LINE__, 
+                __FILE__,
+                __LINE__,
                 __func__,
-                "==", 
+                "==",
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(T).name()).c_str(),
+                excpected,
+                actual
+            );
+            result = 1;
+        }
+
+        if(!(a != b)){
+            printTestFailed(
+                __FILE__,
+                __LINE__,
+                __func__,
+                "!=",
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(T).name()).c_str(),
+                excpected,
+                actual
+            );
+            result = 1;
+        }
+
+        if(!(c == c)){
+            printTestFailed(
+                __FILE__,
+                __LINE__,
+                __func__,
+                "== (0)",
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(T).name()).c_str(),
+                excpected,
+                actual
+            );
+            result = 1;
+        }
+
+        if(!(d == d)){
+            printTestFailed(
+                __FILE__,
+                __LINE__,
+                __func__,
+                "== (MAX)",
+                demangle(typeid(T).name()).c_str(),
+                demangle(typeid(T).name()).c_str(),
+                excpected,
+                actual
+            );
+            result = 1;
+        }
+
+        if(!(f == 3)){
+            printTestFailed(
+                __FILE__,
+                __LINE__,
+                __func__,
+                "==",
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                "true", 
-                "false"
+                excpected,
+                actual
             );
+            result = 1;
         }
 
-        std::vector<S> values(size);
-        for(int i = 0; i < size; ++i)
-            values[i] = i + 1;
-        a.load(values.data());
-        values[size - 1] += 1;
-        b.load(values.data());
-
-        if(!(a != b)) {
-            result |= 1;
+        if(!(f != 4)){
             printTestFailed(
-                __FILE__, 
-                __LINE__, 
+                __FILE__,
+                __LINE__,
                 __func__,
-                "!=", 
-                demangle(typeid(T).name()).c_str(),
-                demangle(typeid(T).name()).c_str(),
-                "true", 
-                "false"
-            );
-        }
-
-        if(!(b != 1)) {
-            result |= 1;
-            printTestFailed(
-                __FILE__, 
-                __LINE__, 
-                __func__,
-                "!=", 
+                "!=",
                 demangle(typeid(T).name()).c_str(),
                 demangle(typeid(S).name()).c_str(),
-                "true", 
-                "false"
+                excpected,
+                actual
             );
+            result = 1;
         }
 
-        a.load(values.data());
-
-        if(!(a == b)) {
-            result |= 1;
-            printTestFailed(
-                __FILE__, 
-                __LINE__, 
-                __func__,
-                "==", 
-                demangle(typeid(T).name()).c_str(),
-                demangle(typeid(T).name()).c_str(),
-                "true", 
-                "false"
-            );
-        }
-        
         auto stop = std::chrono::steady_clock::now();
 
-        printTestDuration(__func__, start, stop);
+        printTestDuration(__func__, start, stop);        
 
         return result;
     }

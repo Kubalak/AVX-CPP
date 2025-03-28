@@ -12,6 +12,12 @@
 #include "constants.hpp"
 
 namespace avx {
+    /**
+     * Class providing vectorized version of `unsigned long long` aka `uint64_t`.
+     * Can hold 4 individual `unsigned long long` values.
+     * Provides arithmetic and bitwise operators.
+     * Provides comparison operators == !=.
+     */
     class ULong256 {
         private:
             __m256i v;

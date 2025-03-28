@@ -11,6 +11,13 @@
 #include "constants.hpp"
 
 namespace avx {
+    /**
+     * Class representing vectorized version of `unsigned char`.
+     * It can hold 32 individual `unsigned char` variables.
+     * Provides support for arithmetic and bitwise operators.
+     * `str()` method returns stored data as string.
+     * Supports printing directly to stream (cout).
+     */
     class UChar256{
         // Internal vector containing stored values.
         __m256i v;

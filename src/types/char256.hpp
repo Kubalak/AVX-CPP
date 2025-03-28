@@ -13,6 +13,13 @@
 #include "constants.hpp"
 
 namespace avx {
+    /**
+     * Class representing vectorized version of `char`.
+     * It can hold 32 individual `char` variables.
+     * Provides support for arithmetic and bitwise operators.
+     * `str()` method returns stored data as string.
+     * Supports printing directly to stream (cout).
+     */
     class Char256 {
         private:
 

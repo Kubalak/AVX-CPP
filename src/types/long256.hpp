@@ -11,6 +11,12 @@
 #include "constants.hpp"
 
 namespace avx {
+    /**
+     * Class providing vectorized version of `long long` aka `int64_t`.
+     * Can hold 4 individual `long long` values.
+     * Provides arithmetic and bitwise operators.
+     * Provides comparison operators == !=.
+     */
     class Long256 {
         private:
             __m256i v;

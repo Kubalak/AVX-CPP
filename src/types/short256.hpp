@@ -10,6 +10,12 @@
 #include "constants.hpp"
 
 namespace avx {
+    /**
+     * Class providing vectorized version of `short`.
+     * Can hold 16 individual `short` values.
+     * Provides arithmetic and bitwise operators.
+     * Provides comparison operators == !=.
+     */
     class Short256 {
         private:
             __m256i v;
