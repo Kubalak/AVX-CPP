@@ -25,6 +25,10 @@ namespace avx
      * Can hold 8 individual `int` values.
      * Provides arithmetic and bitwise operators.
      * Provides comparison operators == !=.
+     * Class providing vectorized version of `int`.
+     * Can hold 8 individual `int` values.
+     * Provides arithmetic and bitwise operators.
+     * Provides comparison operators == !=.
      */
     class Int256
     {

@@ -19,6 +19,12 @@ namespace avx {
      * Supports arithmetic and bitwise operators.
      * Provides comparison operators == !=. 
      */
+    /**
+     * Class providing vectorized version of `unsigned int`.
+     * It can hold 8 individual values.
+     * Supports arithmetic and bitwise operators.
+     * Provides comparison operators == !=. 
+     */
     class UInt256 {
         private:
             __m256i v; 

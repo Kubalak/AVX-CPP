@@ -15,6 +15,12 @@ namespace avx {
      * Provides arithmetic operators.
      * * Provides comparison operators == != (optimization on the way).
      */
+    /**
+     * Class providing vectorized version of `float`.
+     * Can hold 8 individual `float` values.
+     * Provides arithmetic operators.
+     * * Provides comparison operators == != (optimization on the way).
+     */
     class Float256 {
         private:
         __m256 v;
