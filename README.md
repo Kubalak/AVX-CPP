@@ -11,7 +11,7 @@ AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides
 Library provides both integer and floating-point types:
 
 - Integer types:
-  - `Int256` - Vector containing 8 signed 32-bit integers (`__m256i`) &#x2705; 
+  - `Int256` - Vector containing 8 signed 32-bit integers (`__m256i`) &#x2705;
   - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`) &#x2705;[&#x2757;](#known-issues)
   - `Short256` - Vector containing 16 signed 16-bit integers (`__m256i`) &#x2705;
   - `Ushort256` - Vector containing 16 unsigned 16-bit integers (`__m256i`) &#x2705;

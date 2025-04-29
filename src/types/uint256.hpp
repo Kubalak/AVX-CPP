@@ -12,8 +12,13 @@
 #include <immintrin.h>
 #include "constants.hpp"
 
-#define UINT256_SIZE 8
 namespace avx {
+    /**
+     * Class providing vectorized version of `unsigned int`.
+     * It can hold 8 individual values.
+     * Supports arithmetic and bitwise operators.
+     * Provides comparison operators == !=. 
+     */
     class UInt256 {
         private:
             __m256i v; 
@@ -30,17 +35,17 @@ namespace avx {
             UInt256():v(_mm256_setzero_si256()){}
 
             /** Initializes vector by loading data from memory (via `_mm256_lddq_si256`). 
-             * @param init Valid memory addres of minimal size of 256-bits (32 bytes).
+             * @param pSrc Valid memory addres of minimal size of 256-bits (32 bytes).
             */
-            UInt256(const unsigned int* init) 
+            UInt256(const unsigned int* pSrc) 
             #ifndef NDEBUG
                 {
-                    if(init == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                    v = _mm256_lddqu_si256((const __m256i*)init);
+                    if(pSrc == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
                 }
             #else 
             noexcept :
-                v(_mm256_lddqu_si256((const __m256i*)init))
+                v(_mm256_lddqu_si256((const __m256i*)pSrc))
             {}
             #endif
 
@@ -156,11 +161,11 @@ namespace avx {
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
+             * @param pSrc Pointer to memory from which to load data.
              */
-            void load(const unsigned int *sP) {
-                if(sP != nullptr)
-                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            void load(const unsigned int *pSrc) {
+                if(pSrc != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
 
             /**
@@ -174,48 +179,48 @@ namespace avx {
             
             /**
              * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
-             * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
+             * @param pDest A valid (non-nullptr) memory address with size of at least 32 bytes.
              */
-            void save(unsigned int* dest) const {
+            void save(unsigned int* pDest) const {
             #ifndef NDEBUG
-                if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
             #endif 
-                _mm256_storeu_si256((__m256i*)dest, v);
+                _mm256_storeu_si256((__m256i*)pDest, v);
             }
 
             /**
              * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
              * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
-             * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
+             * @param pDest A valid (non-NULL) memory address aligned to 32-byte boundary.
              */
-            void saveAligned(unsigned int* dest) const {
+            void saveAligned(unsigned int* pDest) const {
             #ifndef NDEBUG
-                if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
             #endif
-                _mm256_store_si256((__m256i*)dest, v);
+                _mm256_store_si256((__m256i*)pDest, v);
             }
 
             bool operator==(const UInt256 &bV) const {
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) != 0;
-        }
+            }
 
-        bool operator==(const int b) const {
-            __m256i bV = _mm256_set1_epi32(b);
-            __m256i eq = _mm256_xor_si256(v, bV);
-            return _mm256_testz_si256(eq, eq) != 0;
-        }
+            bool operator==(const int b) const {
+                __m256i bV = _mm256_set1_epi32(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) != 0;
+            }
 
-        bool operator!=(const UInt256 &bV) const {
-            __m256i eq = _mm256_xor_si256(v, bV.v);
-            return _mm256_testz_si256(eq, eq) == 0;
-        }
+            bool operator!=(const UInt256 &bV) const {
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) == 0;
+            }
 
-        bool operator!=(const int b) const {
-            __m256i bV = _mm256_set1_epi32(b);
-            __m256i eq = _mm256_xor_si256(v, bV);
-            return _mm256_testz_si256(eq, eq) == 0;
-        }
+            bool operator!=(const int b) const {
+                __m256i bV = _mm256_set1_epi32(b);
+                __m256i eq = _mm256_xor_si256(v, bV);
+                return _mm256_testz_si256(eq, eq) == 0;
+            }
 
             unsigned int operator[](const unsigned int index) const 
             #ifndef NDEBUG
@@ -252,6 +257,7 @@ namespace avx {
                 v = _mm256_sub_epi32(v,b.v);
                 return *this;
             }
+
             UInt256& operator-=(const unsigned int b) noexcept {
                 v = _mm256_sub_epi32(v, _mm256_set1_epi32(b));
                 return *this;
@@ -315,7 +321,6 @@ namespace avx {
 
                 return *this;
             }
-
 
             UInt256 operator/(const UInt256& b) const noexcept {             
                     int div_lt_limit = _mm256_testz_si256(b.v, constants::EPI32_SIGN); // b.v AND 0b1000'0000...0b1000'0000 == 0

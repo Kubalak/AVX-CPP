@@ -21,7 +21,10 @@
 namespace avx
 {
     /**
-     * Vector containing 8 signed 32-bit integers.
+     * Class providing vectorized version of `int`.
+     * Can hold 8 individual `int` values.
+     * Provides arithmetic and bitwise operators.
+     * Provides comparison operators == !=.
      */
     class Int256
     {
@@ -229,6 +232,7 @@ namespace avx
                 _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
             );
         }
+        
         Int256 operator/(const int&b) const {
 
             if(!b) return _mm256_setzero_si256();

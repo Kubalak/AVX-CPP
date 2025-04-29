@@ -255,6 +255,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../constants/index.html">avx::constants</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of avx::constants</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -300,7 +304,11 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float256E">
 <span id="_CPPv3N3avx8Float256E"></span><span id="_CPPv2N3avx8Float256E"></span><span id="avx::Float256"></span><span class="target" id="classavx_1_1_float256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><a class="headerlink" href="#_CPPv4N3avx8Float256E" title="Link to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">float</span></code>. Can hold 8 individual <code class="docutils literal notranslate"><span class="pre">float</span></code> values. Provides arithmetic operators.<ul class="simple">
+<li><p>Provides comparison operators == != (optimization on the way). </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float25610storedTypeE">
@@ -336,8 +344,13 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256ENSt16initializer_listIfEE">
+<span id="_CPPv3N3avx8Float2568Float256ENSt16initializer_listIfEE"></span><span id="_CPPv2N3avx8Float2568Float256ENSt16initializer_listIfEE"></span><span id="avx::Float256::Float256__std::initializer_list:float:"></span><span class="target" id="classavx_1_1_float256_1af7891223c869a8e30fa52e64cc45579d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256ENSt16initializer_listIfEE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256EPKf">
-<span id="_CPPv3N3avx8Float2568Float256EPKf"></span><span id="_CPPv2N3avx8Float2568Float256EPKf"></span><span id="avx::Float256::Float256__floatCP"></span><span class="target" id="classavx_1_1_float256_1a8f4a5bd3e01da2126f483c0eb457d135"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256EPKf" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3N3avx8Float2568Float256EPKf"></span><span id="_CPPv2N3avx8Float2568Float256EPKf"></span><span id="avx::Float256::Float256__floatCP"></span><span class="target" id="classavx_1_1_float256_1a713fce05ff701807106ce98f34f9ad93"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256EPKf" title="Link to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -352,18 +365,18 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2564loadEPKf">
-<span id="_CPPv3N3avx8Float2564loadEPKf"></span><span id="_CPPv2N3avx8Float2564loadEPKf"></span><span id="avx::Float256::load__floatCP"></span><span class="target" id="classavx_1_1_float256_1a8af8ae7bbe4b002a15a473ed21e75789"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sP</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float2564loadEPKf" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3N3avx8Float2564loadEPKf"></span><span id="_CPPv2N3avx8Float2564loadEPKf"></span><span id="avx::Float256::load__floatCP"></span><span class="target" id="classavx_1_1_float256_1ad55bae898da176a5b58b9caaa650affc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float2564loadEPKf" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn’t need to be aligned to any specific boundary. If <code class="docutils literal notranslate"><span class="pre">sP</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this method has no effect. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>sP</strong> – Pointer to memory from which to load data. </p>
+<dd class="field-odd"><p><strong>pSrc</strong> – Pointer to memory from which to load data. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Float2564saveEPf">
-<span id="_CPPv3NK3avx8Float2564saveEPf"></span><span id="_CPPv2NK3avx8Float2564saveEPf"></span><span id="avx::Float256::save__floatPC"></span><span class="target" id="classavx_1_1_float256_1ae40055cba0cba4192a007236226eec79"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8Float2564saveEPf" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK3avx8Float2564saveEPf"></span><span id="_CPPv2NK3avx8Float2564saveEPf"></span><span id="avx::Float256::save__floatPC"></span><span class="target" id="classavx_1_1_float256_1a84a67554fe5aeea85273662849841dec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8Float2564saveEPf" title="Link to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -379,22 +392,58 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float256eqERK8Float256">
 <span id="_CPPv3N3avx8Float256eqERK8Float256"></span><span id="_CPPv2N3avx8Float256eqERK8Float256"></span><span id="avx::Float256::eq-operator__Float256CR"></span><span class="target" id="classavx_1_1_float256_1ae1496dee50bec0487a0085a145671786"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Float256E" title="avx::Float256"><span class="n"><span class="pre">Float256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float256eqERK8Float256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares with second vector for equality. This method is secured to return true when comparing 0.0f with -0.0f. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector to compare. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if all fields in both vectors have the same value, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float256eqEKf">
 <span id="_CPPv3N3avx8Float256eqEKf"></span><span id="_CPPv2N3avx8Float256eqEKf"></span><span id="avx::Float256::eq-operator__floatC"></span><span class="target" id="classavx_1_1_float256_1ab578a1c38df13f1b07dc23788bbfef83"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float256eqEKf" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares with value for equality. This method is secured to return true when comparing 0.0f with -0.0f. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if all fields in vectors have the same value as b, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float256neERK8Float256">
 <span id="_CPPv3N3avx8Float256neERK8Float256"></span><span id="_CPPv2N3avx8Float256neERK8Float256"></span><span id="avx::Float256::neq-operator__Float256CR"></span><span class="target" id="classavx_1_1_float256_1a07a0f2fdddbe88828844799e8ca159f6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Float256E" title="avx::Float256"><span class="n"><span class="pre">Float256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float256neERK8Float256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares with second vector for equality. This method is secured to return true when comparing 0.0f with -0.0f. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector to compare. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if ANY field in one vector has different value than one in scond vector, <code class="docutils literal notranslate"><span class="pre">false</span></code> if vector are equal. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float256neEKf">
 <span id="_CPPv3N3avx8Float256neEKf"></span><span id="_CPPv2N3avx8Float256neEKf"></span><span id="avx::Float256::neq-operator__floatC"></span><span class="target" id="classavx_1_1_float256_1a6265ed5e6545d82bac595edad19ea8e6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float256neEKf" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares with second vector for equality. This method is secured to return true when comparing 0.0f with -0.0f. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to compare with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if ANY field in vector has different value than passed value, <code class="docutils literal notranslate"><span class="pre">false</span></code> if vector are equal. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Float256plERK8Float256">
@@ -566,6 +615,7 @@
 <li><a class="reference internal" href="#_CPPv4N3avx8Float2568Float256EKf"><code class="docutils literal notranslate"><span class="pre">Float256::Float256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8Float2568Float256EK6__m256"><code class="docutils literal notranslate"><span class="pre">Float256::Float256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8Float2568Float256ERKNSt5arrayIfXL8EEEE"><code class="docutils literal notranslate"><span class="pre">Float256::Float256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8Float2568Float256ENSt16initializer_listIfEE"><code class="docutils literal notranslate"><span class="pre">Float256::Float256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8Float2568Float256EPKf"><code class="docutils literal notranslate"><span class="pre">Float256::Float256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx8Float2563getEv"><code class="docutils literal notranslate"><span class="pre">Float256::get()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8Float2563setE6__m256"><code class="docutils literal notranslate"><span class="pre">Float256::set()</span></code></a></li>

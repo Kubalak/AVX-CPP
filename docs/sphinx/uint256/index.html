@@ -255,6 +255,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../constants/index.html">avx::constants</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of avx::constants</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -300,7 +304,8 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt256E">
 <span id="_CPPv3N3avx7UInt256E"></span><span id="_CPPv2N3avx7UInt256E"></span><span id="avx::UInt256"></span><span class="target" id="classavx_1_1_u_int256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UInt256</span></span></span><a class="headerlink" href="#_CPPv4N3avx7UInt256E" title="Link to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>. It can hold 8 individual values. Supports arithmetic and bitwise operators. Provides comparison operators == !=. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt25610storedTypeE">
@@ -318,11 +323,11 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt2567UInt256EPKj">
-<span id="_CPPv3N3avx7UInt2567UInt256EPKj"></span><span id="_CPPv2N3avx7UInt2567UInt256EPKj"></span><span id="avx::UInt256::UInt256__unsigned-iCP"></span><span class="target" id="classavx_1_1_u_int256_1a03950b132833c021a393a589665e50ae"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UInt256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7UInt2567UInt256EPKj" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3N3avx7UInt2567UInt256EPKj"></span><span id="_CPPv2N3avx7UInt2567UInt256EPKj"></span><span id="avx::UInt256::UInt256__unsigned-iCP"></span><span class="target" id="classavx_1_1_u_int256_1a0b1ea482aa659154d5487576f8be4a0c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UInt256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7UInt2567UInt256EPKj" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Initializes vector by loading data from memory (via <code class="docutils literal notranslate"><span class="pre">_mm256_lddq_si256</span></code>). </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>init</strong> – Valid memory addres of minimal size of 256-bits (32 bytes). </p>
+<dd class="field-odd"><p><strong>pSrc</strong> – Valid memory addres of minimal size of 256-bits (32 bytes). </p>
 </dd>
 </dl>
 </dd></dl>
@@ -443,11 +448,11 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt2564loadEPKj">
-<span id="_CPPv3N3avx7UInt2564loadEPKj"></span><span id="_CPPv2N3avx7UInt2564loadEPKj"></span><span id="avx::UInt256::load__unsigned-iCP"></span><span class="target" id="classavx_1_1_u_int256_1a3c10da956af56025f253b538e9f3a3d4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sP</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7UInt2564loadEPKj" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3N3avx7UInt2564loadEPKj"></span><span id="_CPPv2N3avx7UInt2564loadEPKj"></span><span id="avx::UInt256::load__unsigned-iCP"></span><span class="target" id="classavx_1_1_u_int256_1a104020fc63dd4ad528777941b557ae2d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7UInt2564loadEPKj" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn’t need to be aligned to any specific boundary. If <code class="docutils literal notranslate"><span class="pre">sP</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this method has no effect. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>sP</strong> – Pointer to memory from which to load data. </p>
+<dd class="field-odd"><p><strong>pSrc</strong> – Pointer to memory from which to load data. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -465,22 +470,22 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7UInt2564saveEPj">
-<span id="_CPPv3NK3avx7UInt2564saveEPj"></span><span id="_CPPv2NK3avx7UInt2564saveEPj"></span><span id="avx::UInt256::save__unsigned-iPC"></span><span class="target" id="classavx_1_1_u_int256_1a281167e2e355718e56ff75834a9443f0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7UInt2564saveEPj" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK3avx7UInt2564saveEPj"></span><span id="_CPPv2NK3avx7UInt2564saveEPj"></span><span id="avx::UInt256::save__unsigned-iPC"></span><span class="target" id="classavx_1_1_u_int256_1ae1e63104f6021a95b1258acee4cedbe2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7UInt2564saveEPj" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data into given memory address. Memory doesn’t need to be aligned to any specific boundary. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dest</strong> – A valid (non-nullptr) memory address with size of at least 32 bytes. </p>
+<dd class="field-odd"><p><strong>pDest</strong> – A valid (non-nullptr) memory address with size of at least 32 bytes. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7UInt25611saveAlignedEPj">
-<span id="_CPPv3NK3avx7UInt25611saveAlignedEPj"></span><span id="_CPPv2NK3avx7UInt25611saveAlignedEPj"></span><span id="avx::UInt256::saveAligned__unsigned-iPC"></span><span class="target" id="classavx_1_1_u_int256_1acf45659ce19dab78d9ff29dff91ab99a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7UInt25611saveAlignedEPj" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK3avx7UInt25611saveAlignedEPj"></span><span id="_CPPv2NK3avx7UInt25611saveAlignedEPj"></span><span id="avx::UInt256::saveAligned__unsigned-iPC"></span><span class="target" id="classavx_1_1_u_int256_1a8bdb64a951121d6964b4b0551c69941d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7UInt25611saveAlignedEPj" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary. See <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html">https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html</a> for more details. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dest</strong> – A valid (non-NULL) memory address aligned to 32-byte boundary. </p>
+<dd class="field-odd"><p><strong>pDest</strong> – A valid (non-NULL) memory address aligned to 32-byte boundary. </p>
 </dd>
 </dl>
 </dd></dl>

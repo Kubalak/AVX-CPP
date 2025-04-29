@@ -10,14 +10,14 @@
     <member refid="classavx_1_1_char256_1a7be047a1dd459e7e6946f9cffd883933" kind="function"><name>Char256</name></member>
     <member refid="classavx_1_1_char256_1a1d6781466d32005fd644c029f2dd8424" kind="function"><name>Char256</name></member>
     <member refid="classavx_1_1_char256_1a01d04381cab2fd2f52e36613e0960c11" kind="function"><name>Char256</name></member>
-    <member refid="classavx_1_1_char256_1a5f957d0c4d1a30573c460ab219d0b17e" kind="function"><name>Char256</name></member>
+    <member refid="classavx_1_1_char256_1a658e49c48b392023eca1ff090a033f30" kind="function"><name>Char256</name></member>
     <member refid="classavx_1_1_char256_1ac0a493c55bd68578ba5aeed59a936fe9" kind="function"><name>Char256</name></member>
     <member refid="classavx_1_1_char256_1a8f149f4031fbe4bd18b48e59d7f5c2d7" kind="function"><name>Char256</name></member>
     <member refid="classavx_1_1_char256_1a465dc1e3a5588e72c94c264214fe678a" kind="function"><name>Char256</name></member>
-    <member refid="classavx_1_1_char256_1adee2613f7bf97d2d64959d7d78801ff0" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_char256_1a88ee0bc85f72a8788905151b42e175c2" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_char256_1a044739d626c9130df9b0db5485d4d21e" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_char256_1a5921eed92553ee42d4082de23de39dec" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_char256_1a4f2ca39c3d3549bf0723558815041e25" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_char256_1a8578ef8fb1342c195de0a7b45ccb4e74" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_char256_1a9963cc73beb54f8b8ccfb60cb2bfcbd5" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_char256_1a458a653a43d298050f783368c24c383b" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_char256_1a1246ed93b8ed8b02dbb31d431ccbdd26" kind="function"><name>set</name></member>
     <member refid="classavx_1_1_char256_1a2d54457a200cd29d8517ef30bbf9b88b" kind="function"><name>operator[]</name></member>
@@ -116,11 +116,12 @@
     <member refid="classavx_1_1_float256_1a86589f56e127e08937446b56d0d379d1" kind="function"><name>Float256</name></member>
     <member refid="classavx_1_1_float256_1aa4c9a94de6d70094fb3a9ede6e65a4d5" kind="function"><name>Float256</name></member>
     <member refid="classavx_1_1_float256_1aa7ae3a7c2c9b794e4ba39878bd750af3" kind="function"><name>Float256</name></member>
-    <member refid="classavx_1_1_float256_1a8f4a5bd3e01da2126f483c0eb457d135" kind="function"><name>Float256</name></member>
+    <member refid="classavx_1_1_float256_1af7891223c869a8e30fa52e64cc45579d" kind="function"><name>Float256</name></member>
+    <member refid="classavx_1_1_float256_1a713fce05ff701807106ce98f34f9ad93" kind="function"><name>Float256</name></member>
     <member refid="classavx_1_1_float256_1abe90ea496b0b2c8573c1f5e33efcf878" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_float256_1a11ad422c06fc456499fbdad71e88a4fb" kind="function"><name>set</name></member>
-    <member refid="classavx_1_1_float256_1a8af8ae7bbe4b002a15a473ed21e75789" kind="function"><name>load</name></member>
-    <member refid="classavx_1_1_float256_1ae40055cba0cba4192a007236226eec79" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_float256_1ad55bae898da176a5b58b9caaa650affc" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_float256_1a84a67554fe5aeea85273662849841dec" kind="function"><name>save</name></member>
     <member refid="classavx_1_1_float256_1a1c836a6f30e03e48414adb1f8f223fea" kind="function"><name>save</name></member>
     <member refid="classavx_1_1_float256_1ad3136f9cbe502e28ac5b472e39c43c0e" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_float256_1ae1496dee50bec0487a0085a145671786" kind="function"><name>operator==</name></member>
@@ -358,7 +359,7 @@
     <member refid="classavx_1_1_u_char256_1a88e2884c653674de4e8e24d1540b3e08" kind="function"><name>UChar256</name></member>
     <member refid="classavx_1_1_u_char256_1aad3251db80eb55be631bcd48898b8111" kind="function"><name>UChar256</name></member>
     <member refid="classavx_1_1_u_char256_1a7daa5793dd933c16b925e580ba71b36d" kind="function"><name>UChar256</name></member>
-    <member refid="classavx_1_1_u_char256_1a89d80228fb41775e9a331c42236413e6" kind="function"><name>UChar256</name></member>
+    <member refid="classavx_1_1_u_char256_1aedd2eb8d019cc2dbc78bc767aee1efc7" kind="function"><name>UChar256</name></member>
     <member refid="classavx_1_1_u_char256_1adc354d94f11fb25d4d618ea25d168124" kind="function"><name>UChar256</name></member>
     <member refid="classavx_1_1_u_char256_1a1a0403deb56f30f22304d515e7f3eb14" kind="function"><name>UChar256</name></member>
     <member refid="classavx_1_1_u_char256_1a50f88c529af5de5603a165b4a46d0baa" kind="function"><name>UChar256</name></member>
@@ -423,7 +424,7 @@
     <member refid="classavx_1_1_u_int256_1a82935ef5a60a80f7a06d1d86612f9ec7" kind="variable"><name>v</name></member>
     <member refid="classavx_1_1_u_int256_1a177b92e32574f6c3005b365bba3f66d5" kind="variable"><name>size</name></member>
     <member refid="classavx_1_1_u_int256_1ac753ef5ca6f34474a13e0105e4c5ed2c" kind="function"><name>UInt256</name></member>
-    <member refid="classavx_1_1_u_int256_1a03950b132833c021a393a589665e50ae" kind="function"><name>UInt256</name></member>
+    <member refid="classavx_1_1_u_int256_1a0b1ea482aa659154d5487576f8be4a0c" kind="function"><name>UInt256</name></member>
     <member refid="classavx_1_1_u_int256_1af99a354c80149e087911932a3c574349" kind="function"><name>UInt256</name></member>
     <member refid="classavx_1_1_u_int256_1aa8a26fa662126e8ca44cfd386d6f029c" kind="function"><name>UInt256</name></member>
     <member refid="classavx_1_1_u_int256_1a207fe1a439cc9ad5caf76372093cd2c4" kind="function"><name>UInt256</name></member>
@@ -434,10 +435,10 @@
     <member refid="classavx_1_1_u_int256_1a1b40e38b0a34608884b79d45a1323812" kind="function"><name>UInt256</name></member>
     <member refid="classavx_1_1_u_int256_1a6ff53befe5246ecb787aa3c07f6520fc" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_u_int256_1aacc8a795160ec08a8a9ea64bbe69ed45" kind="function"><name>set</name></member>
-    <member refid="classavx_1_1_u_int256_1a3c10da956af56025f253b538e9f3a3d4" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_u_int256_1a104020fc63dd4ad528777941b557ae2d" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_u_int256_1a75786e337bf88b92541dbc537e70acb0" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_int256_1a281167e2e355718e56ff75834a9443f0" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_int256_1acf45659ce19dab78d9ff29dff91ab99a" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_u_int256_1ae1e63104f6021a95b1258acee4cedbe2" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_u_int256_1a8bdb64a951121d6964b4b0551c69941d" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_u_int256_1a91246a76efe5fe9667bb9ae460213e2f" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_u_int256_1a46a960e5849d13d3dfa9eec4624531bd" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_u_int256_1ab8833fc39c5f3edb1370b54afac50f9b" kind="function"><name>operator!=</name></member>
@@ -636,28 +637,29 @@
     <member refid="namespaceavx_1a7801a34c7fd9a2222014186a002bad6e" kind="function"><name>sum</name></member>
   </compound>
   <compound refid="namespaceavx_1_1constants" kind="namespace"><name>avx::constants</name>
-    <member refid="constants_8hpp_1a3f5680987301f20b1d9a594d79c70827" kind="variable"><name>ONES</name></member>
-    <member refid="constants_8hpp_1ab397c5a7122f89fb5a454d35b432bab3" kind="variable"><name>EPI8_ONE</name></member>
-    <member refid="constants_8hpp_1a383d4fdbbad3c259ef6bf78518a61725" kind="variable"><name>EPI8_CRATE_EPI16</name></member>
-    <member refid="constants_8hpp_1a773337a353b118922a7fea8c21471d5e" kind="variable"><name>EPI8_CRATE_EPI16_INVERSE</name></member>
-    <member refid="constants_8hpp_1ac5c55e62168e08b8ce915145063fc815" kind="variable"><name>EPI8_CRATE_EPI32</name></member>
-    <member refid="constants_8hpp_1af441eb9f1aba10d96e83babaca6e67f4" kind="variable"><name>EPI8_CRATE_EPI32_SHIFT_I</name></member>
-    <member refid="constants_8hpp_1add5e75515f24bb729a381d8212892edf" kind="variable"><name>EPI8_CRATE_EPI32_SHIFT_II</name></member>
-    <member refid="constants_8hpp_1a5f11df355d70dffb695a142453d2dfcf" kind="variable"><name>EPI8_CRATE_EPI32_SHIFT_III</name></member>
-    <member refid="constants_8hpp_1a8d9856e86a2fe198a92d6860d3b22bf9" kind="variable"><name>EPI16_ONE</name></member>
-    <member refid="constants_8hpp_1a141f350d38327de2926ca64673bfe8f1" kind="variable"><name>EPI16_CRATE_EPI32</name></member>
-    <member refid="constants_8hpp_1a9165f0517c3ddab536f959ff753c7cde" kind="variable"><name>EPI16_CRATE_EPI32_INVERSE</name></member>
-    <member refid="constants_8hpp_1ac1152fce4fac2aa92f039ace3e79a908" kind="variable"><name>EPI32_CRATE_EPI64</name></member>
-    <member refid="constants_8hpp_1a255eb1f57cf82d6cb4fb2562d1bc9c9a" kind="variable"><name>EPI32_SIGN</name></member>
-    <member refid="constants_8hpp_1a2165f5e19b0a9f71787d10d03da4c1a3" kind="variable"><name>EPI32_ONE</name></member>
-    <member refid="constants_8hpp_1a9d8b9d46ca22d2022022164c771a0b42" kind="variable"><name>EPI64_ONE</name></member>
-    <member refid="constants_8hpp_1a12c0b91367073bab868d23800d3b30bd" kind="variable"><name>EPI64_SIGN</name></member>
-    <member refid="constants_8hpp_1a730c7f620e0947cc68d4ebedeb3f10f0" kind="variable"><name>DOUBLE_NO_SIGN</name></member>
-    <member refid="constants_8hpp_1abc94e2b8b64ff2965d6c8f420bf7ef79" kind="variable"><name>FLOAT_NO_SIGN</name></member>
-    <member refid="constants_8hpp_1ab5be15cec272baeb1e08edc517b8cc39" kind="variable"><name>DOUBLE_ONE</name></member>
-    <member refid="constants_8hpp_1a9b1cca554d88045b5239d244040db840" kind="variable"><name>FLOAT_ONE</name></member>
-    <member refid="constants_8hpp_1acb88b7523b809f737d9153e4e2f3af18" kind="variable"><name>FLOAT_LIMIT</name></member>
-    <member refid="constants_8hpp_1a3bdf66ca76d2eb83bfd5d8498e020cd4" kind="variable"><name>INT2FLOAT_LIMIT</name></member>
+    <member refid="namespaceavx_1_1constants_1a3f5680987301f20b1d9a594d79c70827" kind="variable"><name>ONES</name></member>
+    <member refid="namespaceavx_1_1constants_1ab397c5a7122f89fb5a454d35b432bab3" kind="variable"><name>EPI8_ONE</name></member>
+    <member refid="namespaceavx_1_1constants_1a383d4fdbbad3c259ef6bf78518a61725" kind="variable"><name>EPI8_CRATE_EPI16</name></member>
+    <member refid="namespaceavx_1_1constants_1a773337a353b118922a7fea8c21471d5e" kind="variable"><name>EPI8_CRATE_EPI16_INVERSE</name></member>
+    <member refid="namespaceavx_1_1constants_1ac5c55e62168e08b8ce915145063fc815" kind="variable"><name>EPI8_CRATE_EPI32</name></member>
+    <member refid="namespaceavx_1_1constants_1af441eb9f1aba10d96e83babaca6e67f4" kind="variable"><name>EPI8_CRATE_EPI32_SHIFT_I</name></member>
+    <member refid="namespaceavx_1_1constants_1add5e75515f24bb729a381d8212892edf" kind="variable"><name>EPI8_CRATE_EPI32_SHIFT_II</name></member>
+    <member refid="namespaceavx_1_1constants_1a5f11df355d70dffb695a142453d2dfcf" kind="variable"><name>EPI8_CRATE_EPI32_SHIFT_III</name></member>
+    <member refid="namespaceavx_1_1constants_1a8d9856e86a2fe198a92d6860d3b22bf9" kind="variable"><name>EPI16_ONE</name></member>
+    <member refid="namespaceavx_1_1constants_1a141f350d38327de2926ca64673bfe8f1" kind="variable"><name>EPI16_CRATE_EPI32</name></member>
+    <member refid="namespaceavx_1_1constants_1a9165f0517c3ddab536f959ff753c7cde" kind="variable"><name>EPI16_CRATE_EPI32_INVERSE</name></member>
+    <member refid="namespaceavx_1_1constants_1ac1152fce4fac2aa92f039ace3e79a908" kind="variable"><name>EPI32_CRATE_EPI64</name></member>
+    <member refid="namespaceavx_1_1constants_1a255eb1f57cf82d6cb4fb2562d1bc9c9a" kind="variable"><name>EPI32_SIGN</name></member>
+    <member refid="namespaceavx_1_1constants_1a2165f5e19b0a9f71787d10d03da4c1a3" kind="variable"><name>EPI32_ONE</name></member>
+    <member refid="namespaceavx_1_1constants_1a9d8b9d46ca22d2022022164c771a0b42" kind="variable"><name>EPI64_ONE</name></member>
+    <member refid="namespaceavx_1_1constants_1a12c0b91367073bab868d23800d3b30bd" kind="variable"><name>EPI64_SIGN</name></member>
+    <member refid="namespaceavx_1_1constants_1a730c7f620e0947cc68d4ebedeb3f10f0" kind="variable"><name>DOUBLE_NO_SIGN</name></member>
+    <member refid="namespaceavx_1_1constants_1abc94e2b8b64ff2965d6c8f420bf7ef79" kind="variable"><name>FLOAT_NO_SIGN</name></member>
+    <member refid="namespaceavx_1_1constants_1ab5be15cec272baeb1e08edc517b8cc39" kind="variable"><name>DOUBLE_ONE</name></member>
+    <member refid="namespaceavx_1_1constants_1a9b1cca554d88045b5239d244040db840" kind="variable"><name>FLOAT_ONE</name></member>
+    <member refid="namespaceavx_1_1constants_1acb88b7523b809f737d9153e4e2f3af18" kind="variable"><name>FLOAT_LIMIT</name></member>
+    <member refid="namespaceavx_1_1constants_1aea7d44ff29404b78e595a332d1930c7a" kind="variable"><name>EPI32_SLOWEST</name></member>
+    <member refid="namespaceavx_1_1constants_1a3bdf66ca76d2eb83bfd5d8498e020cd4" kind="variable"><name>INT2FLOAT_LIMIT</name></member>
   </compound>
   <compound refid="char256_8cpp" kind="file"><name>char256.cpp</name>
   </compound>
@@ -701,7 +703,6 @@
   </compound>
   <compound refid="uint256_8hpp" kind="file"><name>uint256.hpp</name>
     <member refid="uint256_8hpp_1ac977df8cc50763e735bd705d2437e7c8" kind="define"><name>UINT256_HPP__</name></member>
-    <member refid="uint256_8hpp_1aafbc9a90a767e31b21f5805e877248bb" kind="define"><name>UINT256_SIZE</name></member>
   </compound>
   <compound refid="ulong256_8cpp" kind="file"><name>ulong256.cpp</name>
   </compound>

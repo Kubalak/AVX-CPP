@@ -13,6 +13,13 @@
 #include "constants.hpp"
 
 namespace avx {
+    /**
+     * Class representing vectorized version of `char`.
+     * It can hold 32 individual `char` variables.
+     * Provides support for arithmetic and bitwise operators.
+     * `str()` method returns stored data as string.
+     * Supports printing directly to stream (cout).
+     */
     class Char256 {
         private:
 
@@ -93,19 +100,19 @@ namespace avx {
              * Initializes object with first 32 bytes of data stored under `addr`.
              * Data does not need to be aligned to a 32 byte boundary. 
              * 
-             * @param addr Memory holding data (minimum 32 bytes).
+             * @param pSrc Memory holding data (minimum 32 bytes).
              * @throw If used in debug mode if `addr` is `nullptr` then `std::invalid_argument` will be thrown. Otherwise if `nullptr` is passed it will initialize vector with 0s.
              */
-            explicit Char256(const char* addr)
+            explicit Char256(const char* pSrc)
             #ifndef NDEBUG
                 {
-                    if(addr == nullptr)throw std::invalid_argument("Passed address is nullptr!");
-                    v = _mm256_lddqu_si256((const __m256i*)addr);
+                    if(pSrc == nullptr)throw std::invalid_argument("Passed address is nullptr!");
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
                 }
             #else
                 noexcept{
-                    if(addr != nullptr) 
-                        v = _mm256_lddqu_si256((const __m256i*)addr);
+                    if(pSrc != nullptr) 
+                        v = _mm256_lddqu_si256((const __m256i*)pSrc);
                     else
                         v = _mm256_setzero_si256();
                 }
@@ -166,17 +173,16 @@ namespace avx {
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
+             * @param pSrc Pointer to memory from which to load data.
              */
-            void load(const char *sP) {
-                if(sP != nullptr)
-                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            void load(const char *pSrc) {
+                if(pSrc != nullptr)
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
 
             /**
              * Saves data to destination in memory.
-             * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
              */
             void save(std::array<char, 32>& dest) const {
                 _mm256_storeu_si256((__m256i*)dest.data(), v);
@@ -186,15 +192,15 @@ namespace avx {
              * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
-             * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @param pDest A valid pointer to a memory of at least 32 bytes (`char`).
+             * @throws If in debug mode and `pDest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
              */
-            void save(char* dest) const {
+            void save(char* pDest) const {
                 #ifndef NDEBUG
-                    if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                    _mm256_storeu_si256((__m256i*)dest, v);
+                    if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                    _mm256_storeu_si256((__m256i*)pDest, v);
                 #else
-                    _mm256_storeu_si256((__m256i*)dest, v);
+                    _mm256_storeu_si256((__m256i*)pDest, v);
                 #endif
             }
 
@@ -202,15 +208,15 @@ namespace avx {
              * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
-             * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @param pDest A valid pointer to a memory of at least 32 bytes (`char`).
+             * @throws If in debug mode and `pDest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
              */
-            void saveAligned(char* dest) const {
+            void saveAligned(char* pDest) const {
                 #ifndef NDEBUG
-                    if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                    _mm256_store_si256((__m256i*)dest, v);
+                    if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                    _mm256_store_si256((__m256i*)pDest, v);
                 #else
-                    _mm256_store_si256((__m256i*)dest, v);
+                    _mm256_store_si256((__m256i*)pDest, v);
                 #endif
             }
 
@@ -230,7 +236,7 @@ namespace avx {
              * Indexing operator.
              * @param index Position of desired element between 0 and 31.
              * @return Value of underlying element.
-             * @throws If index is not within the correct range and build type is debug `std::out_of_range` will be thrown. Otherwise bitwise AND will prevent index to be out of range.
+             * @throws If index is not within the correct range and build type is debug `std::out_of_range` will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that in case of out of index it will behave like `index % 32`.
              */
             char operator[](const unsigned int& index) const 
             #ifndef NDEBUG
@@ -438,17 +444,6 @@ namespace avx {
 
 
             Char256 operator/(const Char256& bV) const noexcept {
-                /*alignas(32) char vP[size];
-                alignas(32) char bP[size];
-
-                _mm256_store_si256((__m256i*)vP, v);
-
-                for(unsigned int i = 0; i < size; ++i)
-                    vP[i] = bP[i] ? vP[i] / bP[i] : 0;
-
-                return _mm256_load_si256((const __m256i*)vP);
-                */
-
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
                 auto [b_fhalf_epi16, b_shalf_epi16] = _sig_ext_epi8_epi16(bV.v);
 
@@ -659,15 +654,6 @@ namespace avx {
 
 
             Char256 operator%(const char& b) const noexcept {
-                /*alignas(32) char vP[size];
-
-                _mm256_store_si256((__m256i*)vP, v);
-
-                for(unsigned int i = 0; i < 32; ++i)
-                    vP[i] = b ? vP[i] % b : 0;
-
-                return _mm256_load_si256((const __m256i*)vP);*/
-
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
 
                 __m256 bV = _mm256_set1_ps(static_cast<float>(b));

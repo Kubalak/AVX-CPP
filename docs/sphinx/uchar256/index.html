@@ -255,6 +255,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/char256.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../constants/index.html">avx::constants</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of avx::constants</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -332,13 +336,28 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256EPKh">
-<span id="_CPPv3N3avx8UChar2568UChar256EPKh"></span><span id="_CPPv2N3avx8UChar2568UChar256EPKh"></span><span id="avx::UChar256::UChar256__unsigned-cCP"></span><span class="target" id="classavx_1_1_u_char256_1a89d80228fb41775e9a331c42236413e6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256EPKh" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<span id="_CPPv3N3avx8UChar2568UChar256EPKh"></span><span id="_CPPv2N3avx8UChar2568UChar256EPKh"></span><span id="avx::UChar256::UChar256__unsigned-cCP"></span><span class="target" id="classavx_1_1_u_char256_1aedd2eb8d019cc2dbc78bc767aee1efc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256EPKh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Initializes object with first 32 bytes of data stored under <code class="docutils literal notranslate"><span class="pre">addr</span></code>. Data does not need to be aligned to any specific boundary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pSrc</strong> – Memory holding data (minimum 32 bytes). </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – used in debug mode if <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> then <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code> will be thrown. Otherwise if <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is passed it will initialize vector with 0s. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERKNSt6stringE">
 <span id="_CPPv3N3avx8UChar2568UChar256ERKNSt6stringE"></span><span id="_CPPv2N3avx8UChar2568UChar256ERKNSt6stringE"></span><span id="avx::UChar256::UChar256__ssCR"></span><span class="target" id="classavx_1_1_u_char256_1adc354d94f11fb25d4d618ea25d168124"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt6stringE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes with first 32 bytes read from string. If <code class="docutils literal notranslate"><span class="pre">init</span></code> is less than 32 bytes long missing values will be set to 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – String containing initial data. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE">

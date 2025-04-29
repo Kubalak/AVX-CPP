@@ -23,4 +23,5 @@ Documented classes
     ulong256/index
     float256/index
     double256/index
+    constants/index
 
