@@ -50,8 +50,8 @@ namespace avx {
                 }
             #else
                 noexcept{
-                    if(addr != nullptr) 
-                        v = _mm256_lddqu_si256((const __m256i*)addr);
+                    if(pSrc != nullptr) 
+                        v = _mm256_lddqu_si256((const __m256i*)pSrc);
                     else
                         v = _mm256_setzero_si256();
                 }
