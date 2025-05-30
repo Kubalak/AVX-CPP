@@ -140,7 +140,15 @@ namespace avx {
     }
 
     Long256 abs(const Long256& bV) {
-        return _mm256_abs_epi64(bV.get());
+        #if defined(__AVX512F__) && defined(__AVX512VL__)
+            return _mm256_abs_epi64(bV.get());
+        #else
+            __m256i sign = _mm256_and_si256(bV.get(), constants::EPI64_SIGN);
+            sign = _mm256_cmpgt_epi64(_mm256_setzero_si256(), sign);
+            __m256i abs = _mm256_xor_si256(bV.get(), sign);
+            return _mm256_add_epi64(abs, _mm256_and_si256(constants::EPI64_ONE, sign));
+        #endif
+
     }
 
     Char256 abs(const Char256& bV) {

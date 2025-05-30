@@ -30,7 +30,10 @@ option(BUILD_PERFORMANCE_TESTS "Build performance tests" OFF)
 option(BUILD_USE_AVX512 "Use AVX512 when building binaries" ${AVX512_SUPPORTED})
 option(BUILD_DEEP_TESTS "Build deep types tests (not recommended)" OFF)
 
-if(AVX512_SUPPORTED OR BUILD_USE_AVX512)
+if(BUILD_USE_AVX512)
+    if(not AVX512_SUPPORTED)
+        message(WARNING "AVX512 is not supported on this system. Some tests may fail on runtime.")
+    endif()
     set(OPTIMIZATION_OPTIONS ${OPTIMIZATION_OPTIONS} ${AVX512_FLAGS})
 endif()
 
