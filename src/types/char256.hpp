@@ -1118,10 +1118,10 @@ namespace avx {
              */
             std::string toString() const noexcept {
                 alignas(32) char tmp[33];
-                tmp[32] = '\0';
-
+                
                 _mm256_store_si256((__m256i*)tmp, v);
-
+                
+                tmp[32] = '\0';
                 return std::string(tmp);
             }
 

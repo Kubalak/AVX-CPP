@@ -1120,7 +1120,7 @@ namespace testing{
             }
 
             printf("All performance tests for %s{%s}. \nCompiled using %s %d.%d.%d on %s at %s\n", demangle(typeid(T).name()).c_str(), demangle(typeid(S).name()).c_str(), getCompilerName(), getCompilerMajor(), getCompilerMinor(), getCompilerPatchLevel(), getPlatform(), __DATE__);
-            printf("Testing with vector size of %zu\n", aV.size());
+            printf("Testing with vector size of %zu (%zu bytes)\n", aV.size(), aV.size() * sizeof(S));
 
             if(config.printCPUInfo)
                 printCPUDetails();
@@ -1377,6 +1377,19 @@ namespace testing{
             printf("%-20s %8.4lf %s\n","Tests finished in:", duration.first, duration.second.c_str());
 
             return result;
+        }
+
+        /**
+         * Returns the time of function execution in nanoseconds.
+         * @param f Function to be executed.
+         * @param args Arguments to be passed to the function.
+         */
+        template<typename S, typename ...args>
+        uint64_t funcTime(S f, args&& ...params) {
+            auto start = std::chrono::steady_clock::now();
+            f(std::forward<args>(params)...);
+            auto stop = std::chrono::steady_clock::now();
+            return std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
         }
 
     }

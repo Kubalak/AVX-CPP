@@ -3,9 +3,14 @@
 #define MATH_HPP_
 
 #include "types/long256.hpp"
+#include "types/ulong256.hpp"
 #include "types/int256.hpp"
+#include "types/uint256.hpp"
 #include "types/short256.hpp"
+#include "types/ushort256.hpp"
+#include "types/uint256.hpp"
 #include "types/char256.hpp"
+#include "types/uchar256.hpp"
 #include "types/double256.hpp"
 #include "types/float256.hpp"
 #include <set>
@@ -126,6 +131,136 @@ namespace avx {
         #endif
     }
 
+    Int256 abs(const Int256& bV) {
+        return _mm256_abs_epi32(bV.get());
+    }
+
+    Short256 abs(const Short256& bV) {
+        return _mm256_abs_epi16(bV.get());
+    }
+
+    Long256 abs(const Long256& bV) {
+        return _mm256_abs_epi64(bV.get());
+    }
+
+    Char256 abs(const Char256& bV) {
+        return _mm256_abs_epi8(bV.get());
+    }
+
+    Double256 abs(const Double256& bV) {
+        return _mm256_and_pd(bV.get(), constants::DOUBLE_NO_SIGN);
+    }
+
+    Float256 abs(const Float256& bV) {
+        return _mm256_and_ps(bV.get(), constants::FLOAT_NO_SIGN);
+    }
+
+    int accumulate(const std::vector<int>& data, int initVal) {
+        #ifdef __AVX512F__
+            __m512i result = _mm512_setzero_si512();
+            uint64_t i{0};
+            for(; i + 16 < data.size(); i += 16)
+                result = _mm512_add_epi32(result, _mm512_loadu_si512((const __m512i*)(data.data() + i)));
+            
+            for(uint8_t j{0}; j < 16; ++j)
+                initVal += ((int*)&result)[j];
+        #else
+            __m256i result = _mm256_setzero_si256();
+            uint64_t i{0};
+            for(; i + 8 < data.size(); i += 8)
+                result = _mm256_add_epi32(result, _mm256_lddqu_si256((const __m256i*)(data.data() + i)));
+            
+            for(uint8_t j{0}; j < 8; ++j)
+                initVal += ((int*)&result)[j];
+        #endif
+
+        for(;i<data.size(); ++i)
+            initVal += data[i];
+
+        return initVal;
+    }
+
+    float accumulate(const std::vector<float>& data, float initVal) {
+        #ifdef __AVX512F__
+            __m512 result = _mm512_setzero_ps();
+            uint64_t i{0};
+            for(; i + 16 < data.size(); i += 16)
+                result = _mm512_add_ps(result, _mm512_loadu_ps((data.data() + i)));
+            
+            for(uint8_t j{0}; j < 16; ++j)
+                initVal += ((float*)&result)[j];
+        #else
+            __m256 result = _mm256_setzero_ps();
+            uint64_t i{0};
+            for(; i + 8 < data.size(); i += 8)
+                result = _mm256_add_ps(result, _mm256_loadu_ps((data.data() + i)));
+            
+            for(uint8_t j{0}; j < 8; ++j)
+                initVal += ((float*)&result)[j];
+        #endif
+
+        for(;i<data.size(); ++i)
+            initVal += data[i];
+
+        return initVal;
+    }
+
+    int64_t accumulate(const std::vector<int64_t>& data, int64_t initVal) {
+        #ifdef __AVX512F__
+            __m512i result = _mm512_setzero_si512();
+            uint64_t i{0};
+            for(; i + 8 < data.size(); i += 8)
+                result = _mm512_add_epi64(result, _mm512_loadu_si512((const __m512i*)(data.data() + i)));
+            
+            for(uint8_t j{0}; j < 8; ++j)
+                initVal += ((int64_t*)&result)[j];
+        #else
+            __m256i result = _mm256_setzero_si256();
+            uint64_t i{0};
+            for(; i + 4 < data.size(); i += 4)
+                result = _mm256_add_epi64(result, _mm256_lddqu_si256((const __m256i*)(data.data() + i)));
+            
+            for(uint8_t j{0}; j < 4; ++j)
+                initVal += ((int64_t*)&result)[j];
+        #endif
+        
+        for(;i<data.size(); ++i)
+            initVal += data[i];
+
+        return initVal;
+    }
+
+    double accumulate(const std::vector<double>& data, double initVal) {
+        #ifdef __AVX512F__
+            __m512d result = _mm512_setzero_pd();
+            uint64_t i{0};
+            for(; i + 8 < data.size(); i += 8)
+                result = _mm512_add_pd(result, _mm512_loadu_pd((data.data() + i)));
+            
+            for(uint8_t j{0}; j < 8; ++j)
+                initVal += ((double*)&result)[j];
+        #else
+            __m256d result = _mm256_setzero_pd();
+            uint64_t i{0};
+            for(; i + 4 < data.size(); i += 4)
+                result = _mm256_add_pd(result, _mm256_loadu_pd((data.data() + i)));
+            
+            for(uint8_t j{0}; j < 4; ++j)
+                initVal += ((double*)&result)[j];
+        #endif
+        
+        for(;i<data.size(); ++i)
+            initVal += data[i];
+
+        return initVal;
+    }
+
+
+};
+
+/**
+ * TODO: Implement inverse and hyperbolic trigonometric functions.
+
 // Inverse trigonometric functions
 
     Double256 asin(const Double256& bV);
@@ -174,59 +309,6 @@ namespace avx {
     Float256 acsch(const Float256& bV);
     Float256 asech(const Float256& bV);
 
-    Int256 abs(const Int256& bV) {
-        __m256i toAbs = _mm256_srai_epi32(bV.get(), 31);
-        __m256i absVal = _mm256_xor_si256(bV.get(), toAbs);
-        return _mm256_add_epi32(_mm256_and_si256(toAbs, constants::EPI32_ONE), absVal);
-    }
-
-    Short256 abs(const Short256& bV) {
-        __m256i toAbs = _mm256_srai_epi16(bV.get(), 15);
-        __m256i absVal = _mm256_xor_si256(bV.get(), toAbs);
-        return _mm256_add_epi16(_mm256_and_si256(toAbs, constants::EPI16_ONE), absVal);
-    }
-
-    Long256 abs(const Long256& bV) {
-        #if defined(__AVX512F__) && defined(__AVX512VL__)
-            __m256i toAbs = _mm256_srai_epi64(bV.get(), 63);
-        #else
-            __m256i toAbs = _mm256_and_si256(bV.get(), constants::EPI64_SIGN);
-            toAbs = _mm256_cmpeq_epi64(toAbs, constants::EPI64_SIGN);
-        #endif
-        __m256i absVal = _mm256_xor_si256(bV.get(), toAbs);
-        return _mm256_add_epi64(_mm256_and_si256(toAbs, constants::EPI64_ONE), absVal);
-    }
-
-    Char256 abs(const Char256& bV) {
-        __m256i toAbs = _mm256_cmpgt_epi8(_mm256_setzero_si256(), bV.get());
-        __m256i absVal = _mm256_xor_si256(bV.get(), toAbs);
-        return _mm256_add_epi8(_mm256_and_si256(toAbs, constants::EPI8_ONE), absVal);
-    }
-
-    Double256 abs(const Double256& bV) {
-        return _mm256_and_pd(bV.get(), constants::DOUBLE_NO_SIGN);
-    }
-
-    Float256 abs(const Float256& bV) {
-        return _mm256_and_ps(bV.get(), constants::FLOAT_NO_SIGN);
-    }
-
-    /**
-     * Generic sum algorithm.
-     * @param begin Start of container iterator.
-     * @param end End of container iterator.
-     * @returns Sum of elements.
-     */
-    template<typename T, typename Iter>
-    T sum(Iter begin, Iter end) {
-        T result;
-        while(begin != end){
-            result += *begin;
-            ++begin;
-        }
-        return result;
-    }
-
-};
+*/
 
 #endif

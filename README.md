@@ -69,13 +69,19 @@ Elements from vectors can be extracted using following methods:
 <!--
 # AVX-CPP is fast!
 
-Here is the table comparing runtime between non-AVX2 algorithm, raw AVX2 and the one using AVX-CPP library. To see how performance is tested go [here](src/tests/perf). Table below shows testing results on Windows 10 using MSVC. Selected vectors of size 1GiB for all tests.-->
+Here is the table comparing runtime between non-AVX2 algorithm, raw AVX2 and the one using AVX-CPP library. To see how performance is tested go [here](src/tests/perf). Table below shows operations time for 1GB of data.
+
+Benchmark details (this is to show best-case scenario as MSVC does not optimize for SIMD by default as GCC does):
+- CPU: AMD Ryzen 9950X3D
+- OS: Win 11 Pro
+- Compiler: MSVC v19.43.34810
+- Flags: /arch:AVX /arch:AVX2
 
 | Tested type | Operator `+`, `+=` (SEQ/AVXCPP/AVX) | `-`, `-=` | `*`, `*=` | `/`, `/=` | `%`, `%=` |
 | --- | ---------- | ---------- | ---------- | ---------- | ---------- |
 | [Char256](src/types/char256.hpp) | 1.61 s / 287.76 ms / - | 1.62 s / 286.86 ms / - | 1.85 s / 305.68 ms / - | 5.73 s / 1.57 s / - | 5.14 s / 1.65 s / - |
 | [UChar256](src/types/uchar256.hpp) | 1.64 s / 271.11 ms / - | 1.64 s / 271.44 ms / - | 1.86 s / 298.45 ms / - | 6.04 s / 1.55 s / - | 6.03 s / 1.63 s / - |
-<!--| [Int256](src/types/int256.hpp) | 558.8 / 262 / 266 ms | - | - | - | - |
+| [Int256](src/types/int256.hpp) | 558.8 / 262 / 266 ms | - | - | - | - |
 | [UInt256](src/types/uint256.hpp) | - | - | - | - | - |
 | [Short256](src/types/short256.hpp) | - | - | - | - | - |
 | [UShort256](src/types/ushort256.hpp) | - | - | - | - | - |-->
