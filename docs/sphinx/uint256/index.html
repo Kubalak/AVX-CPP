@@ -304,7 +304,7 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt256E">
 <span id="_CPPv3N3avx7UInt256E"></span><span id="_CPPv2N3avx7UInt256E"></span><span id="avx::UInt256"></span><span class="target" id="classavx_1_1_u_int256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UInt256</span></span></span><a class="headerlink" href="#_CPPv4N3avx7UInt256E" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>. It can hold 8 individual values. Supports arithmetic and bitwise operators. Provides comparison operators == !=. </p>
+<dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>. It can hold 8 individual values. Supports arithmetic and bitwise operators. Provides comparison operators == !=. Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>. It can hold 8 individual values. Supports arithmetic and bitwise operators. Provides comparison operators == !=. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
@@ -413,13 +413,10 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt2567UInt256ENSt16initializer_listIjEE">
 <span id="_CPPv3N3avx7UInt2567UInt256ENSt16initializer_listIjEE"></span><span id="_CPPv2N3avx7UInt2567UInt256ENSt16initializer_listIjEE"></span><span id="avx::UInt256::UInt256__std::initializer_list:unsigned-i:"></span><span class="target" id="classavx_1_1_u_int256_1a1b40e38b0a34608884b79d45a1323812"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UInt256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7UInt2567UInt256ENSt16initializer_listIjEE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Sets vector values using array of unsigned integers. If list is longer than 8 other values will be ignored. When accessing vector fields using <code class="docutils literal notranslate"><span class="pre">[]</span></code> order of values will be inversed. </p>
+<dd><p>Sets vector values using array of unsigned integers. If list is longer than 8 other values will be ignored. If the list contains fewer than 8 elements other vector fields will be set to 0. When accessing vector fields using <code class="docutils literal notranslate"><span class="pre">[]</span></code> order of values will be inversed. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>init</strong> – Initlizer list containing unsigned integers which values will be assigned to vector fields. </p>
-</dd>
-<dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp">&lt;tt&gt;std::invalid_argument&lt;/tt&gt;</span></span> – When initializer list length is lower than 8. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -476,6 +473,9 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pDest</strong> – A valid (non-nullptr) memory address with size of at least 32 bytes. </p>
 </dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – When in debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. Otherwise if <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this function has no effect. </p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -486,6 +486,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pDest</strong> – A valid (non-NULL) memory address aligned to 32-byte boundary. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – When in debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. Otherwise if <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this function has no effect. </p>
 </dd>
 </dl>
 </dd></dl>

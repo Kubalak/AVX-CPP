@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(AVX-CPP VERSION 0.7.2 LANGUAGES C CXX)
+project(AVX-CPP VERSION 0.8.1 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
@@ -10,10 +10,15 @@ set(SOURCE_DIR
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
-set(UTILS_INCLUDE_DIR "${SOURCE_DIR}/tests/include")
+set(UTILS_INCLUDE_DIR "${SOURCE_DIR}/tests/include" "${SOURCE_DIR}/misc/")
 
 file(
-    GLOB_RECURSE SOURCES "${SOURCE_DIR}/types/*.cpp" "${SOURCE_DIR}/types/*.hpp" "${SOURCE_DIR}/ops/*.cpp" "${SOURCE_DIR}/ops/*.hpp" "${SOURCE_DIR}/tests/include/*.cpp"
+    GLOB_RECURSE SOURCES 
+    "${SOURCE_DIR}/types/*.hpp"
+    "${SOURCE_DIR}/types/*.cpp"
+    "${SOURCE_DIR}/ops/*.hpp" 
+    "${SOURCE_DIR}/ops/*.cpp" 
+    "${SOURCE_DIR}/tests/include/*.cpp"
 )
 
 include(${CMAKE_SOURCE_DIR}/cmake/avx-detect.cmake)
@@ -50,6 +55,31 @@ set_target_properties(avxcpp-s PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION $
 target_include_directories(avxcpp-s PUBLIC ${SOURCE_DIR})
 
 target_compile_options(avxcpp-s PRIVATE ${OPTIMIZATION_OPTIONS})
+
+set(TESTS_LINKED_LIBS avxcpp-s)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
+
+    file(GLOB_RECURSE MISC_SRC 
+        "${SOURCE_DIR}/misc/*.c"
+        "${SOURCE_DIR}/misc/*.h"
+        "${SOURCE_DIR}/misc/*.cpp"
+        "${SOURCE_DIR}/misc/*.hpp"
+    )
+
+    add_library(misc STATIC ${MISC_SRC})
+    target_compile_options(misc PRIVATE ${OPTIMIZATION_OPTIONS})
+
+    set_target_properties(misc PROPERTIES 
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
+    )
+
+    target_link_libraries(avxcpp-s PRIVATE misc)
+    target_link_libraries(avxcpp PRIVATE misc)
+
+    set(TESTS_LINKED_LIBS avxcpp-s misc)
+endif()
 
 if(BUILD_PERFORMANCE_TESTS OR BUILD_TESTING)
     include(CTest)

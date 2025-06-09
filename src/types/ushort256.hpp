@@ -74,7 +74,7 @@ namespace avx {
             /**
              * Initialize vector with values using pointer.
              * @param addr A valid address containing at least 16 `unsigned short` numbers.
-             * @throws If in debug mode and `addr` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown.
+             * @throws std::invalid_argument If in debug mode and `addr` is `nullptr`. Otherwise if `addr` is nullptr vector will be filled with 0's.
              */
             explicit UShort256(const unsigned short* addr) 
             #ifndef NDEBUG
@@ -83,7 +83,12 @@ namespace avx {
                     v = _mm256_lddqu_si256((const __m256i*)addr);
                 }
             #else
-                : v(_mm256_lddqu_si256((const __m256i*)addr)){}
+                {
+                    if(addr)
+                        v = _mm256_lddqu_si256((const __m256i*)addr);
+                    else 
+                        v = _mm256_setzero_si256();
+                }
             #endif
 
 
@@ -106,14 +111,15 @@ namespace avx {
             /**
              * Saves data to destination in memory.
              * @param dest A valid pointer to a memory of at least 16 `unsigned short` numbers (32 bytes).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @throws std::invalid_argument If in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect. 
              */
-            void save(unsigned short* dest) const {
+            void save(unsigned short* pDest) const {
                 #ifndef NDEBUG
-                    if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                    _mm256_storeu_si256((__m256i*)dest, v);
+                    if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                    _mm256_storeu_si256((__m256i*)pDest, v);
                 #else
-                    _mm256_storeu_si256((__m256i*)dest, v);
+                    if(pDest)
+                        _mm256_storeu_si256((__m256i*)pDest, v);
                 #endif
             }
 
@@ -131,14 +137,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param dest A valid pointer to a memory of at least 16 `unsigned short` numbers (32 bytes).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @throws std::invalid_argument If in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect. 
              */
-            void saveAligned(unsigned short* dest) const {
+            void saveAligned(unsigned short* pDest) const {
                 #ifndef NDEBUG
-                    if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                    _mm256_store_si256((__m256i*)dest, v);
+                    if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                    _mm256_store_si256((__m256i*)pDest, v);
                 #else
-                    _mm256_store_si256((__m256i*)dest, v);
+                    if(pDest)
+                        _mm256_store_si256((__m256i*)pDest, v);
                 #endif
             }
 
@@ -160,7 +167,7 @@ namespace avx {
              * Indexing operator.
              * @param index Position of desired element between 0 and 15.
              * @return Value of underlying element.
-             * @throws `std::out_of_range` If index is not within the correct range.
+             * @throws std::out_of_range If index is not within the correct range.
              */
             unsigned short operator[](const unsigned int& index) const 
             #ifndef NDEBUG

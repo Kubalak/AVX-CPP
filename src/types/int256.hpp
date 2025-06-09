@@ -13,6 +13,11 @@
 #include <immintrin.h>
 #include <unordered_set>
 #include <chrono>
+
+#ifndef _MSC_VER
+    #include "../misc/simd_ext_gcc.h"
+#endif
+
 #include "constants.hpp"
 
 /**
@@ -54,9 +59,31 @@ namespace avx
          * @param init Value to be set.
          */
         Int256(const int &init) : v(_mm256_set1_epi32(init)) {};
+
+        /**
+         * Initializes vector from __m256i value.
+         * @param init Value of type __m256i to initialize the vector.
+         */
         Int256(const __m256i &init) : v(init) {};
+
+        /**
+         * Copy constructor.
+         * Initializes vector from another Int256 vector.
+         * @param init Another Int256 vector to copy from.
+         */
         Int256(const Int256 &init) : v(init.v) {};
+
+        /**
+         * Initializes vector from std::array of 8 int values.
+         * @param init Array of 8 int values to initialize the vector.
+         */
         Int256(const std::array<int, 8> &init) : v(_mm256_loadu_si256((const __m256i *)init.data())) {};
+
+        /**
+         * Initializes vector from std::array of 8 short values.
+         * Each short value is promoted to int.
+         * @param init Array of 8 short values to initialize the vector.
+         */
         Int256(const std::array<short, 8> &init) 
         : v(_mm256_set_epi32(
                 init[0],
@@ -71,6 +98,11 @@ namespace avx
             )
         {}
 
+        /**
+         * Initializes vector from std::array of 8 char values.
+         * Each char value is promoted to int.
+         * @param init Array of 8 char values to initialize the vector.
+         */
         Int256(const std::array<char, 8> &init) : v(_mm256_set_epi32(
                 init[0],
                 init[1],
@@ -84,6 +116,12 @@ namespace avx
             )
         {}
 
+        /**
+         * Initializes vector from initializer_list of int values.
+         * If the list contains fewer than 8 elements, remaining elements are set to zero.
+         * If the list contains more than 8 elements, only the first 8 are used.
+         * @param init Initializer list of int values.
+         */
         Int256(std::initializer_list<int> init) {
             alignas(32) int init_v[size];
             std::memset((char*)init_v, 0, 32);
@@ -127,15 +165,29 @@ namespace avx
         /**
          * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
          * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
+         * @throw std::invalid_argument When in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect.
          */
-        void save(int *dest) const { _mm256_storeu_si256((__m256i *)dest, v); };
+        void save(int *pDest) const {
+            #ifndef NDEBUG
+                if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+            #endif
+            if(pDest) 
+                _mm256_storeu_si256((__m256i *)pDest, v); 
+        };
 
         /**
          * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
          * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
          * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
+         * @throw std::invalid_argument When in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect.
          */
-        void saveAligned(int *dest) const {_mm256_store_si256((__m256i*)dest, v);};
+        void saveAligned(int *pDest) const {
+            #ifndef NDEBUG
+                if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+            #endif
+            if(pDest) 
+                _mm256_store_si256((__m256i*)pDest, v);
+        };
 
         bool operator==(const Int256 &bV) const {
             __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -193,57 +245,16 @@ namespace avx
         Int256 operator*(const int &b) const { return _mm256_mullo_epi32(v,_mm256_set1_epi32(b)); }
 
 
-        Int256 operator/(const Int256 &bV) const {
-            // Last number that can be represented by float without approx: 16777216 -> 0x100'0000
-            // RIP to all who were victims of this ≽^•⩊•^≼
-            __m256i vGLimit = _mm256_cmpgt_epi32(_mm256_abs_epi32(v), constants::FLOAT_LIMIT);
-            __m256i bGLimit = _mm256_cmpgt_epi32(_mm256_abs_epi32(bV.v), constants::FLOAT_LIMIT);
-            bGLimit = _mm256_or_si256(bGLimit, vGLimit); // Optimized for speed (see: _mm256_testz_si256)
-
-            if(!_mm256_testz_si256(bGLimit, bGLimit)){
-                #ifdef _MSC_VER
-                    return _mm256_div_epi32(v, bV.v);
-                #elif defined(__GNUC__)
-                    /*
-                    TODO: Implement faster divider - SVML not available for GCC/Clang
-                    alignas(32) int result[8];
-
-                    _mm256_store_si256(
-                        (__m256i*)result, 
-                        _mm256_cvttps_epi32(
-                            _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
-                        )
-                    );
-
-                    for(int i{0}; i < 32; i+=4){
-                        unsigned char index = i >> 2;
-                        if(((unsigned char*)&bGLimit)[i])
-                            result[index] = (((int*)&v)[index] / ((int*)&bV.v)[index]);
-                    }
-
-                    return _mm256_load_si256((const __m256i*)result);
-                    */
-
-                    return _mm256_cvttps_epi32(
-                        _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
-                    );
-                #else
-                    static_assert(false, "Functionality for this compiler is not implemented! Verify if GNU solution works correctly!");
-                #endif
-            }
-            
-            return _mm256_cvttps_epi32(
-                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
-            );
+        Int256 operator/(const Int256 &bV) const { 
+            // ASM goes brrr ≽^•⩊•^≼
+            return _mm256_div_epi32(v, bV.v); 
         }
         
         Int256 operator/(const int&b) const {
 
             if(!b) return _mm256_setzero_si256();
 
-            return _mm256_cvttps_epi32(
-                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
-            );
+            return _mm256_div_epi32(v, _mm256_set1_epi32(b));
         }
 
         // Modulo operators
@@ -253,12 +264,7 @@ namespace avx
             __m256i absV = _mm256_abs_epi32(v);
             __m256i absVB = _mm256_abs_epi32(bV.v);
 
-            __m256i divided = _mm256_cvttps_epi32(
-                _mm256_div_ps(
-                    _mm256_cvtepi32_ps(absV),
-                    _mm256_cvtepi32_ps(absVB)
-                )
-            );
+            __m256i divided = _mm256_div_epi32(absV, absVB);
 
             absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
 
@@ -289,12 +295,7 @@ namespace avx
                 __m256i absV = _mm256_abs_epi32(v);
                 __m256i absVB = _mm256_abs_epi32(_mm256_set1_epi32(b));
     
-                __m256i divided = _mm256_cvttps_epi32(
-                    _mm256_div_ps(
-                        _mm256_cvtepi32_ps(absV),
-                        _mm256_cvtepi32_ps(absVB)
-                    )
-                );
+                __m256i divided = _mm256_div_epi32(absV, absVB);
     
                 absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
                 
@@ -374,32 +375,13 @@ namespace avx
         };
 
         Int256 &operator/=(const Int256 &bV) {
-            __m256i vGLimit = _mm256_cmpgt_epi32(_mm256_abs_epi32(v), constants::FLOAT_LIMIT);
-            __m256i bGLimit = _mm256_cmpgt_epi32(_mm256_abs_epi32(bV.v), constants::FLOAT_LIMIT);
-            bGLimit = _mm256_or_si256(bGLimit, vGLimit); // Optimized for speed (see: _mm256_testz_si256)
-
-            if(!_mm256_testz_si256(bGLimit, bGLimit)){
-                #ifdef _MSC_VER
-                    v = _mm256_div_epi32(v, bV.v);
-                #elif defined(__GNUC__)
-                    v = _mm256_cvttps_epi32(
-                        _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
-                    );
-                #else
-                    static_assert(false, "Functionality for this compiler is not implemented! Verify if GNU solution works correctly!");
-                #endif
-            }
-            else  
-                v = _mm256_cvttps_epi32(
-                    _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_cvtepi32_ps(bV.v))
-                );
+            v = _mm256_div_epi32(v, bV.v);
             return *this;
         }
+
         Int256 &operator/=(const int &b) {
-            v = _mm256_cvttps_epi32(
-                _mm256_div_ps(_mm256_cvtepi32_ps(v), _mm256_set1_ps(b))
-            );
-        return *this;
+            v = _mm256_div_epi32(v, _mm256_set1_epi32(b));
+            return *this;
         }
 
 
@@ -449,12 +431,7 @@ namespace avx
             __m256i absV = _mm256_abs_epi32(v);
             __m256i absVB = _mm256_abs_epi32(bV.v);
 
-            __m256i divided = _mm256_cvttps_epi32(
-                _mm256_div_ps(
-                    _mm256_cvtepi32_ps(absV),
-                    _mm256_cvtepi32_ps(absVB)
-                )
-            );
+            __m256i divided = _mm256_div_epi32(absV, absVB);
 
             absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
             
@@ -485,12 +462,7 @@ namespace avx
                 __m256i absV = _mm256_abs_epi32(v);
                 __m256i absVB = _mm256_abs_epi32(_mm256_set1_epi32(b));
     
-                __m256i divided = _mm256_cvttps_epi32(
-                    _mm256_div_ps(
-                        _mm256_cvtepi32_ps(absV),
-                        _mm256_cvtepi32_ps(absVB)
-                    )
-                );
+                __m256i divided = _mm256_div_epi32(absV, absVB);
     
                 absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
                 

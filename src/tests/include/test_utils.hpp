@@ -1498,32 +1498,10 @@ namespace testing
         return result;
     }
 
-    bool fileExists(const std::string &filename){
-        return std::filesystem::exists(filename) && std::filesystem::is_regular_file(filename);
+    std::string testResultToColoredStrint(bool result) {
+        if(result)
+            return "[\033[32mOK\033[0m]";
+        return "[\033[31mFAIL\033[0m]";
     }
-
-    template <typename T>
-    bool readFile(const std::string &filename, std::vector<T> &dest) {
-        if(!fileExists(filename)) return false;
-        
-        uint64_t file_size = std::filesystem::file_size(filename);
-        if(!file_size) return false;
-
-        if(file_size / sizeof(T) != dest.size())
-            dest.resize(file_size / sizeof(T));
-
-        std::ifstream infile(filename, std::ios_base::binary);
-
-        if(!infile.good()) return false;
-
-        infile.read((char*)dest.data(), file_size);
-
-        auto bytes_read = infile.gcount();
-        
-        infile.close();
-        if(bytes_read != file_size) return false;
-        
-        return true;
-    }   
 };
 #endif

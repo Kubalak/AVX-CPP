@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="36" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="36" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="45" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="45" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="32" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="32" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="41" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="35" column="30" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="35" bodyend="-1"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="44" column="30" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="44" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="41" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="41" bodyend="41"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="50" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="50" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a273ee075b5d7d86d9271ea5e591803f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="46" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="46" bodyend="46"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="55" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a3831640a2a0bc431a28e7761f4790ac9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="52" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="52" bodyend="52"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="61" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="61" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a237a4aedff1d91067a1390e038c3ce00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -130,10 +130,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from __m256i value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of type __m256i to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="53" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="53" bodyend="53"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="67" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="67" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a162d22b1c369840124b0d3321a27e653" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -147,10 +157,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Copy constructor. Initializes vector from another <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> vector to copy from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="54" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="54" bodyend="54"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="74" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="74" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a16a88e9ca75ecb004d3c31ea550f9848" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -164,10 +184,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from std::array of 8 int values. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of 8 int values to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="55" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="55" bodyend="55"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="80" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="80" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a2473772a2259a70fc23036bf64ea3d8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -181,10 +211,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from std::array of 8 short values. Each short value is promoted to int. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of 8 short values to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="56" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="56" bodyend="68"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="87" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="87" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae37492d0058931f5b2585bbd8f081ea3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -198,10 +238,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from std::array of 8 char values. Each char value is promoted to int. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of 8 char values to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="70" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="70" bodyend="81"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="106" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="106" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a1e55fe9d67971f364e3dc49b543452a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -215,10 +265,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from initializer_list of int values. If the list contains fewer than 8 elements, remaining elements are set to zero. If the list contains more than 8 elements, only the first 8 are used. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initializer list of int values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="83" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="83" bodyend="101"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="125" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="125" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a472f0584182166f7b62a9b1cbfdf54e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>__m256i</type>
@@ -231,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="103" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="103" bodyend="103"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="145" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="145" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a67b671bc8184ddba13cbae4ba89b0df3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -248,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="106" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="106" bodyend="106"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="148" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="148" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1aa163ed57cb857b96412e6c475ea7ca77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -275,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="112" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="112" bodyend="115"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="154" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="154" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a82c3016f23324d426067ff969d06f266" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -302,16 +362,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="121" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="121" bodyend="121"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="163" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="163" bodyend="163"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1ab6add638e106a704c457fe431b3dfac4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1acf842cb23ae4b372dbda30f5bd9b4a51" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Int256::save</definition>
-        <argsstring>(int *dest) const</argsstring>
+        <argsstring>(int *pDest) const</argsstring>
         <name>save</name>
         <param>
           <type>int *</type>
-          <declname>dest</declname>
+          <declname>pDest</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -325,20 +385,29 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::invalid_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>When in debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. Otherwise if <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput> this function has no effect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="127" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="127" bodyend="127"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="170" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="170" bodyend="176"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a19690f93ef3bece16ba820224f233bcc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a7b6e265c8697eb04ef077455723fb391" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Int256::saveAligned</definition>
-        <argsstring>(int *dest) const</argsstring>
+        <argsstring>(int *pDest) const</argsstring>
         <name>saveAligned</name>
         <param>
           <type>int *</type>
-          <declname>dest</declname>
+          <declname>pDest</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -352,11 +421,20 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::invalid_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>When in debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. Otherwise if <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput> this function has no effect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="134" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="134" bodyend="134"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="184" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="184" bodyend="190"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae0613d3870ed36959b32f07d8d0426e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -373,7 +451,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="136" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="136" bodyend="139"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="192" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="192" bodyend="195"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a0ea7beaa72ea9e4642045763d50c797d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -390,7 +468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="141" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="141" bodyend="145"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="197" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="197" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a8eaf278d22cdfca7d5f53f8e3ce01617" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -407,7 +485,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="147" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="147" bodyend="150"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="203" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="203" bodyend="206"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a484a7c58a6d5e0135c9b1eccbbe56fb5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -424,7 +502,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="152" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="152" bodyend="156"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="208" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="208" bodyend="212"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1acf6d2fd3b7c3555942361cef0da15779" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -441,7 +519,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="158" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="158" bodyend="165"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="214" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="214" bodyend="221"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a9dc99d4b3cd4fd0a80112cb3b5afc676" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -461,7 +539,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="175" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="175" bodyend="175"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="231" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="231" bodyend="231"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae2f0dcdd4039161ee75849b8d5010107" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -481,7 +559,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="181" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="181" bodyend="181"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="237" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="237" bodyend="237"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a9ae55f05b711ccbcfbaad366eb92ff62" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -498,7 +576,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="184" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="184" bodyend="184"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="240" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="240" bodyend="240"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a749797664e4d1c4bcc2203f120127c4f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -515,7 +593,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="185" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="185" bodyend="185"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="241" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="241" bodyend="241"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a75f74c5f579250db23a284a37ed3410c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -532,7 +610,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="188" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="188" bodyend="188"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="244" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="244" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a020c2946c0ba73528999480d8865e110" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -549,7 +627,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="189" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="189" bodyend="189"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="245" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="245" bodyend="245"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a578115211790bf40f4c2d6946c9b9952" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -566,7 +644,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="192" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="192" bodyend="234"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="248" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="248" bodyend="251"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a6dd388da037927cf03607e3b9c562910" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -583,7 +661,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="236" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="236" bodyend="243"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="253" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="253" bodyend="258"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a44b60faab269e7542888d11d168383f5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -600,7 +678,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="246" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="246" bodyend="277"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="261" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="261" bodyend="287"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a854860ec8f28bb894dc6bcf45d9646d1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -617,7 +695,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="281" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="281" bodyend="316"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="291" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="291" bodyend="321"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a6812eb236caedd3887e34735f65c947c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -634,7 +712,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="319" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="319" bodyend="319"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="324" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="324" bodyend="324"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a94372beac04e031922df4c418c63fa56" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -651,7 +729,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="320" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="320" bodyend="320"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="325" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="325" bodyend="325"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a80dfa615ff20758550d7060c44defb89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -668,7 +746,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="323" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="323" bodyend="323"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="328" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="328" bodyend="328"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a5e66bd7c42556ef2e4ec5ed34376033d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -685,7 +763,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="324" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="324" bodyend="324"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="329" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="329" bodyend="329"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1afdea7c0eb55f376be77e68661099fa69" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -702,7 +780,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="327" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="327" bodyend="327"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="332" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="332" bodyend="332"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a504811450a1af1cdddb3a383134b69da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -719,7 +797,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="328" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="328" bodyend="328"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="333" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="333" bodyend="333"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1aa52424c26f3ec87e764e5c208f618d71" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -732,7 +810,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="331" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="331" bodyend="331"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="336" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="336" bodyend="336"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae06cc8c901f0c09dcb86663cc57b8b88" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -749,7 +827,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="334" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="334" bodyend="334"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="339" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="339" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae0ca0a4659e18f67736d615bd0cd5e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -766,7 +844,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="335" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="335" bodyend="335"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="340" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="340" bodyend="340"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a79165029fb3c1811c1cb41fec62f696b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -783,7 +861,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="337" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="337" bodyend="337"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="342" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="342" bodyend="342"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1af9ca007c21ffbda42ec0cf48998cec1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -800,7 +878,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="338" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="338" bodyend="338"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="343" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="343" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a8ecf534a0e9cb5254f19d203b56b4048" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -817,7 +895,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="341" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="341" bodyend="344"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="346" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="346" bodyend="349"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae195f1531ac791acf02b3c8a94990861" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -834,7 +912,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="346" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="346" bodyend="349"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="351" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="351" bodyend="354"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae409c34c6e2fc5f262fc3c5fc5269bbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -851,7 +929,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="351" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="351" bodyend="354"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="356" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="356" bodyend="359"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a40063c04fa7362631900946d71afb238" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -868,7 +946,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="356" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="356" bodyend="359"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="361" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="361" bodyend="364"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a6660624b8d278d3087258d5114abb218" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -885,7 +963,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="361" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="361" bodyend="364"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="366" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="366" bodyend="369"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a6a8ebe39a9c8d39f01ede942af4f4d57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -902,7 +980,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="366" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="366" bodyend="370"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="371" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="371" bodyend="375"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1addd1d62fd15be146b0d36a2cf2f624f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -919,7 +997,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="372" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="372" bodyend="393"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="377" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="377" bodyend="380"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a77fe8c2acc2ecedd58a7476f5b0e4cf9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -936,7 +1014,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="394" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="394" bodyend="399"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="382" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="382" bodyend="385"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a6f388fb0e7c1d6cd6fd0d5d06e938d6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -965,7 +1043,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="442" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="442" bodyend="475"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="428" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="428" bodyend="456"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a348a1a8eebdd0dd9227590a11166a6db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -982,7 +1060,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="477" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="477" bodyend="513"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="458" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="458" bodyend="489"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a59265e3efd2ba3ed941fd49a4025c7aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -999,7 +1077,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="515" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="515" bodyend="518"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="491" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="491" bodyend="494"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a9822efa17bcdb01768d0d4c33e9a5dcc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1016,7 +1094,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="521" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="521" bodyend="524"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="497" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="497" bodyend="500"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a8f39b3b605ef4dd04ec32abb9833cd23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1033,7 +1111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="527" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="527" bodyend="530"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="503" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="503" bodyend="506"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a84e4692c78001c6dcf5a7765a92d875e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1050,7 +1128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="532" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="532" bodyend="535"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="508" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="508" bodyend="511"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ac5db90d4c93b44c6eb1d2341f9ec25fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1067,7 +1145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="538" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="538" bodyend="541"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="514" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="514" bodyend="517"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ac1c995041506a9d12264f9f4027df53e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1084,7 +1162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="543" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="543" bodyend="546"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="519" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="519" bodyend="522"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1af947f7331aab9b8bd0b9baf2c2820039" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1101,7 +1179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="548" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="548" bodyend="551"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="524" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="524" bodyend="527"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a7e41957b0356534d4ce45c7c6528a976" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1118,7 +1196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="553" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="553" bodyend="556"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="529" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="529" bodyend="532"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1aa8843b605ff31975c1d6c27244093511" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
@@ -1135,7 +1213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="558" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="558" bodyend="561"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="534" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="534" bodyend="537"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1acc816d00ced8fc6291364d276c8dcfa1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1148,7 +1226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="563" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="563" bodyend="572"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="539" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="539" bodyend="548"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -1167,7 +1245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="574" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="9" bodyend="15"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="550" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="9" bodyend="15"/>
       </memberdef>
       <memberdef kind="friend" id="classavx_1_1_int256_1a48f6526a6b585065e4a0aa44d041b6bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
@@ -1184,15 +1262,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="575" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="18" bodyend="24"/>
+        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="551" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="18" bodyend="24"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Class providing vectorized version of <computeroutput>int</computeroutput>. Can hold 8 individual <computeroutput>int</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
+<para>Class providing vectorized version of <computeroutput>int</computeroutput>. Can hold 8 individual <computeroutput>int</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. Class providing vectorized version of <computeroutput>int</computeroutput>. Can hold 8 individual <computeroutput>int</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="29" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="30" bodyend="576"/>
+    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="38" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="39" bodyend="552"/>
     <listofallmembers>
       <member refid="classavx_1_1_int256_1a472f0584182166f7b62a9b1cbfdf54e8" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>get</name></member>
       <member refid="classavx_1_1_int256_1a8f3cb7b950f4a633d07281f63fbcee7f" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>Int256</name></member>
@@ -1251,8 +1329,8 @@
       <member refid="classavx_1_1_int256_1a9822efa17bcdb01768d0d4c33e9a5dcc" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator|=</name></member>
       <member refid="classavx_1_1_int256_1aa52424c26f3ec87e764e5c208f618d71" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator~</name></member>
       <member refid="classavx_1_1_int256_1a82c3016f23324d426067ff969d06f266" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>save</name></member>
-      <member refid="classavx_1_1_int256_1ab6add638e106a704c457fe431b3dfac4" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>save</name></member>
-      <member refid="classavx_1_1_int256_1a19690f93ef3bece16ba820224f233bcc" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>saveAligned</name></member>
+      <member refid="classavx_1_1_int256_1acf842cb23ae4b372dbda30f5bd9b4a51" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>save</name></member>
+      <member refid="classavx_1_1_int256_1a7b6e265c8697eb04ef077455723fb391" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>saveAligned</name></member>
       <member refid="classavx_1_1_int256_1a67b671bc8184ddba13cbae4ba89b0df3" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>set</name></member>
       <member refid="classavx_1_1_int256_1a0d87051c05a25923c0c570956c29b783" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>size</name></member>
       <member refid="classavx_1_1_int256_1a96d8b359a100f18d16a97db104d77bbc" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>storedType</name></member>

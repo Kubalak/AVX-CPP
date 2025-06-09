@@ -123,14 +123,14 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @throws std::invalid argument If in Debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown (if nullptr is passed and not in Debug mode this function has no effect). 
              */
             void save(unsigned char* dest) const {
+                if(dest)
+                    _mm256_storeu_si256((__m256i*)dest, v);
                 #ifndef NDEBUG
-                    if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+                    else throw std::invalid_argument("Passed address is nullptr!");
                 #endif
-
-                _mm256_storeu_si256((__m256i*)dest, v);
             }
 
             /**
@@ -138,14 +138,14 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @throws If in Debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown (if nullptr is passed and not in Debug mode this function has no effect). 
              */
             void saveAligned(unsigned char* dest) const {
+                if(dest)
+                    _mm256_store_si256((__m256i*)dest, v);
                 #ifndef NDEBUG
-                    if(dest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                #endif
-
-                _mm256_store_si256((__m256i*)dest, v);
+                    else throw std::invalid_argument("Passed address is nullptr!");
+                #endif  
             }
 
             /**
@@ -164,7 +164,7 @@ namespace avx {
              * Indexing operator.
              * @param index Position of desired element between 0 and 31.
              * @return Value of underlying element.
-             * @throws `std::out_of_range` If index is not within the correct range.
+             * @throws std::out_of_range If index is not within the correct range and using Debug mode. If not in Debug mode no exception will be thrown (bitwise AND ensures index stays withing bounds 0-31).
              */
             unsigned char operator[](const unsigned int& index) const 
             #ifndef NDEBUG

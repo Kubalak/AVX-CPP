@@ -159,7 +159,7 @@ namespace avx {
              * Indexing operator.
              * @param index Position of desired element between 0 and 15.
              * @return Value of underlying element.
-             * @throws `std::out_of_range` If index is not within the correct range.
+             * @throws std::out_of_range If index is not within the correct range.
              */
             short operator[](const unsigned int& index) const 
             #ifndef NDEBUG

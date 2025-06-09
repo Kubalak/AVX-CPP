@@ -1,3 +1,8 @@
+v 0.8.1
+- Added _mm256_div_epi32 function to provide division for int32_t vectors using AVX2.
+- Changes avxmath.hpp so that all trigonometric functions will return valid results, though on GCC and Clang it will be sequential (this will be changed in future versions)
+- (At least for now) removed: inverse, hyperbolic and inverse hyperbolic trigonometric functions 
+
 v0.7.2
 - Argument names refactor
 - Optimized == operator for Float256 and verified double zero comp (-0.0f == 0.0f).

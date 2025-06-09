@@ -304,7 +304,7 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256E">
 <span id="_CPPv3N3avx6Int256E"></span><span id="_CPPv2N3avx6Int256E"></span><span id="avx::Int256"></span><span class="target" id="classavx_1_1_int256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int256</span></span></span><a class="headerlink" href="#_CPPv4N3avx6Int256E" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">int</span></code>. Can hold 8 individual <code class="docutils literal notranslate"><span class="pre">int</span></code> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </p>
+<dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">int</span></code>. Can hold 8 individual <code class="docutils literal notranslate"><span class="pre">int</span></code> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">int</span></code>. Can hold 8 individual <code class="docutils literal notranslate"><span class="pre">int</span></code> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
@@ -346,32 +346,68 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2566Int256ERK7__m256i">
 <span id="_CPPv3N3avx6Int2566Int256ERK7__m256i"></span><span id="_CPPv2N3avx6Int2566Int256ERK7__m256i"></span><span id="avx::Int256::Int256____m256iCR"></span><span class="target" id="classavx_1_1_int256_1a237a4aedff1d91067a1390e038c3ce00"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2566Int256ERK7__m256i" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from __m256i value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Value of type __m256i to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2566Int256ERK6Int256">
 <span id="_CPPv3N3avx6Int2566Int256ERK6Int256"></span><span id="_CPPv2N3avx6Int2566Int256ERK6Int256"></span><span id="avx::Int256::Int256__Int256CR"></span><span class="target" id="classavx_1_1_int256_1a162d22b1c369840124b0d3321a27e653"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int2566Int256ERK6Int256" title="avx::Int256::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2566Int256ERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Copy constructor. Initializes vector from another <a class="reference internal" href="#classavx_1_1_int256"><span class="std std-ref">Int256</span></a> vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Another <a class="reference internal" href="#classavx_1_1_int256"><span class="std std-ref">Int256</span></a> vector to copy from. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2566Int256ERKNSt5arrayIiXL8EEEE">
 <span id="_CPPv3N3avx6Int2566Int256ERKNSt5arrayIiXL8EEEE"></span><span id="_CPPv2N3avx6Int2566Int256ERKNSt5arrayIiX8EEE"></span><span id="avx::Int256::Int256__std::array:i.8:CR"></span><span class="target" id="classavx_1_1_int256_1a16a88e9ca75ecb004d3c31ea550f9848"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2566Int256ERKNSt5arrayIiXL8EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 8 int values. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 8 int values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2566Int256ERKNSt5arrayIsXL8EEEE">
 <span id="_CPPv3N3avx6Int2566Int256ERKNSt5arrayIsXL8EEEE"></span><span id="_CPPv2N3avx6Int2566Int256ERKNSt5arrayIsX8EEE"></span><span id="avx::Int256::Int256__std::array:short.8:CR"></span><span class="target" id="classavx_1_1_int256_1a2473772a2259a70fc23036bf64ea3d8d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">short</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2566Int256ERKNSt5arrayIsXL8EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 8 short values. Each short value is promoted to int. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 8 short values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2566Int256ERKNSt5arrayIcXL8EEEE">
 <span id="_CPPv3N3avx6Int2566Int256ERKNSt5arrayIcXL8EEEE"></span><span id="_CPPv2N3avx6Int2566Int256ERKNSt5arrayIcX8EEE"></span><span id="avx::Int256::Int256__std::array:c.8:CR"></span><span class="target" id="classavx_1_1_int256_1ae37492d0058931f5b2585bbd8f081ea3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2566Int256ERKNSt5arrayIcXL8EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 8 char values. Each char value is promoted to int. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 8 char values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2566Int256ENSt16initializer_listIiEE">
 <span id="_CPPv3N3avx6Int2566Int256ENSt16initializer_listIiEE"></span><span id="_CPPv2N3avx6Int2566Int256ENSt16initializer_listIiEE"></span><span id="avx::Int256::Int256__std::initializer_list:i:"></span><span class="target" id="classavx_1_1_int256_1a1e55fe9d67971f364e3dc49b543452a6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Int256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2566Int256ENSt16initializer_listIiEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from initializer_list of int values. If the list contains fewer than 8 elements, remaining elements are set to zero. If the list contains more than 8 elements, only the first 8 are used. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Initializer list of int values. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int2563getEv">
@@ -407,22 +443,28 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int2564saveEPi">
-<span id="_CPPv3NK3avx6Int2564saveEPi"></span><span id="_CPPv2NK3avx6Int2564saveEPi"></span><span id="avx::Int256::save__iPC"></span><span class="target" id="classavx_1_1_int256_1ab6add638e106a704c457fe431b3dfac4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int2564saveEPi" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK3avx6Int2564saveEPi"></span><span id="_CPPv2NK3avx6Int2564saveEPi"></span><span id="avx::Int256::save__iPC"></span><span class="target" id="classavx_1_1_int256_1acf842cb23ae4b372dbda30f5bd9b4a51"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int2564saveEPi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data into given memory address. Memory doesn’t need to be aligned to any specific boundary. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dest</strong> – A valid (non-nullptr) memory address with size of at least 32 bytes. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – When in debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. Otherwise if <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this function has no effect. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int25611saveAlignedEPi">
-<span id="_CPPv3NK3avx6Int25611saveAlignedEPi"></span><span id="_CPPv2NK3avx6Int25611saveAlignedEPi"></span><span id="avx::Int256::saveAligned__iPC"></span><span class="target" id="classavx_1_1_int256_1a19690f93ef3bece16ba820224f233bcc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int25611saveAlignedEPi" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK3avx6Int25611saveAlignedEPi"></span><span id="_CPPv2NK3avx6Int25611saveAlignedEPi"></span><span id="avx::Int256::saveAligned__iPC"></span><span class="target" id="classavx_1_1_int256_1a7b6e265c8697eb04ef077455723fb391"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int25611saveAlignedEPi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary. See <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html">https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html</a> for more details. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dest</strong> – A valid (non-NULL) memory address aligned to 32-byte boundary. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – When in debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. Otherwise if <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this function has no effect. </p>
 </dd>
 </dl>
 </dd></dl>

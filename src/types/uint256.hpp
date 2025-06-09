@@ -129,9 +129,9 @@ namespace avx {
 
             /** Sets vector values using array of unsigned integers.
              * If list is longer than 8 other values will be ignored.
+             * If the list contains fewer than 8 elements other vector fields will be set to 0.
              * When accessing vector fields using `[]` order of values will be inversed.
              * @param init Initlizer list containing unsigned integers which values will be assigned to vector fields.
-             * @throws `std::invalid_argument` When initializer list length is lower than 8.
              */
             UInt256(std::initializer_list<unsigned int> init) noexcept {
                 alignas(32) unsigned int init_v[size];
@@ -186,29 +186,33 @@ namespace avx {
             /**
              * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
              * @param pDest A valid (non-nullptr) memory address with size of at least 32 bytes.
+             * @throw std::invalid_argument When in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect.
              */
             void save(unsigned int* pDest) const {
             #ifndef NDEBUG
                 if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-            #endif 
-                _mm256_storeu_si256((__m256i*)pDest, v);
+            #endif
+                if(pDest)
+                    _mm256_storeu_si256((__m256i*)pDest, v);
             }
 
             /**
              * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
              * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
              * @param pDest A valid (non-NULL) memory address aligned to 32-byte boundary.
+             * @throw std::invalid_argument When in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect.
              */
             void saveAligned(unsigned int* pDest) const {
             #ifndef NDEBUG
                 if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
             #endif
-                _mm256_store_si256((__m256i*)pDest, v);
+                if(pDest)
+                    _mm256_store_si256((__m256i*)pDest, v);
             }
 
             bool operator==(const UInt256 &bV) const {
-            __m256i eq = _mm256_xor_si256(v, bV.v);
-            return _mm256_testz_si256(eq, eq) != 0;
+                __m256i eq = _mm256_xor_si256(v, bV.v);
+                return _mm256_testz_si256(eq, eq) != 0;
             }
 
             bool operator==(const int b) const {

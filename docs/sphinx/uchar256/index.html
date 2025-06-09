@@ -304,7 +304,8 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar256E">
 <span id="_CPPv3N3avx8UChar256E"></span><span id="_CPPv2N3avx8UChar256E"></span><span id="avx::UChar256"></span><span class="target" id="classavx_1_1_u_char256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><a class="headerlink" href="#_CPPv4N3avx8UChar256E" title="Link to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>Class representing vectorized version of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code>. It can hold 32 individual <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code> variables. Provides support for arithmetic and bitwise operators. <code class="docutils literal notranslate"><span class="pre">str()</span></code> method returns stored data as string. Supports printing directly to stream (cout). </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar25610storedTypeE">
@@ -404,7 +405,7 @@
 <dd class="field-odd"><p><strong>dest</strong> – A valid pointer to a memory of at least 32 bytes (<code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in debug mode and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid</span></span></span> – argument If in Debug mode and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown (if nullptr is passed and not in Debug mode this function has no effect). </p>
 </dd>
 </dl>
 </dd></dl>
@@ -419,7 +420,7 @@
 <dd class="field-odd"><p><strong>dest</strong> – A valid pointer to a memory of at least 32 bytes (<code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in debug mode and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in Debug mode and <code class="docutils literal notranslate"><span class="pre">dest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown (if nullptr is passed and not in Debug mode this function has no effect). </p>
 </dd>
 </dl>
 </dd></dl>
@@ -455,7 +456,7 @@
 <dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 31. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp">&lt;tt&gt;std::out_of_range&lt;/tt&gt;</span></span> – If index is not within the correct range. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – If index is not within the correct range and using Debug mode. If not in Debug mode no exception will be thrown (bitwise AND ensures index stays withing bounds 0-31). </p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Value of underlying element. </p>
