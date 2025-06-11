@@ -2,6 +2,7 @@
 #ifndef _AVXCPP_PERF_UTILS_HPP
 #define _AVXCPP_PERF_UTILS_HPP
 #include "test_utils.hpp"
+#include "cpuinfo.hpp"
 #include <utility>
 
 #define _AVX_ADD_RAW    1 // Use to check if verification failed e.g. `(testing::perf::allPerfTest() & _AVX_ADD_RAW) != 0;`
@@ -180,43 +181,7 @@ namespace testing{
         
 
         void printCPUDetails() {
-            std::array<char, 128> buff;
-            std::string cpu_info;
-
-            #ifdef _MSC_VER
-                FILE* pipe = _popen("wmic cpu get name,numberofcores,numberoflogicalprocessors /FORMAT:list", "r");
-            #else
-                #ifdef _WIN32
-                    FILE* pipe = popen("wmic cpu get name,numberofcores,numberoflogicalprocessors /FORMAT:list", "r");
-                #elif __linux__
-                    FILE* pipe = popen("cat /proc/cpuinfo | grep -e 'model name' -e 'cpu cores' | head -n 2", "r");
-                #else
-                    FILE* pipe = popen("echo 'This platform CPU info not yet supported!'", "r");
-                #endif
-            #endif
-
-            if(pipe){
-                while(!feof(pipe))
-                {
-                    if(fgets(buff.data(), buff.size(), pipe) != NULL)
-                        cpu_info += buff.data();
-                }
-                #ifdef _MSC_VER
-                    _pclose(pipe);
-                #else
-                    pclose(pipe);
-                #endif
-
-                std::cout << "CPU info: \n" << cpu_info << '\n';
-                #ifndef NDEBUG
-                    std::ofstream procinfo("procinfo.txt", std::ios_base::out | std::ios_base::trunc | std::ios_base::binary);
-                    if(procinfo.good()){
-                        procinfo.write(cpu_info.data(), cpu_info.size());
-                        procinfo.close();
-                    }
-                #endif
-                
-            }
+            std::cout << "CPU name: " << cpuinfo::getCPUName() << '\n';
         }
 
         /**
@@ -1119,7 +1084,7 @@ namespace testing{
                 return -1;
             }
 
-            printf("All performance tests for %s{%s}. \nCompiled using %s %d.%d.%d on %s at %s\n", demangle(typeid(T).name()).c_str(), demangle(typeid(S).name()).c_str(), getCompilerName(), getCompilerMajor(), getCompilerMinor(), getCompilerPatchLevel(), getPlatform(), __DATE__);
+            printf("All performance tests for %s {%s x%d}. \nCompiled using %s %d.%d.%d on %s at %s %s\n", demangle(typeid(T).name()).c_str(), demangle(typeid(S).name()).c_str(), T::size, getCompilerName(), getCompilerMajor(), getCompilerMinor(), getCompilerPatchLevel(), getPlatform(), __DATE__, __TIME__);
             printf("Testing with vector size of %zu (%zu bytes)\n", aV.size(), aV.size() * sizeof(S));
 
             if(config.printCPUInfo)

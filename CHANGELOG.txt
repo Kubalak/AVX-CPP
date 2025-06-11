@@ -1,4 +1,10 @@
-v 0.8.1
+v0.8.1.1
+- Added CPU name and features check using CPUID. Replaced popen with compiler and OS agnostic method.
+- Some methods of Char256 are using AVX512 when selected in CMake options.
+- Fixed << and <<= operator for Char256 when using AVX512.
+- Changed Int256 / and /= operator to use AVX512 when selected in CMake options.
+
+v0.8.1
 - Added _mm256_div_epi32 function to provide division for int32_t vectors using AVX2.
 - Changes avxmath.hpp so that all trigonometric functions will return valid results, though on GCC and Clang it will be sequential (this will be changed in future versions)
 - (At least for now) removed: inverse, hyperbolic and inverse hyperbolic trigonometric functions 
@@ -30,9 +36,7 @@ v0.5.2
   - avx::Short256 (verified OK)
   - avx::UShort (verified OK)
 
-
 v0.5.0
-
 - Added load() method to load data from memory into vectors.
 - Optimized ==, != operators for integer types.
 - Added new universal test to validate == and != operators.

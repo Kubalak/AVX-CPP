@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(AVX-CPP VERSION 0.8.1 LANGUAGES C CXX)
+project(AVX-CPP VERSION 0.8.1.1 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
@@ -19,6 +19,7 @@ file(
     "${SOURCE_DIR}/ops/*.hpp" 
     "${SOURCE_DIR}/ops/*.cpp" 
     "${SOURCE_DIR}/tests/include/*.cpp"
+    "${SOURCE_DIR}/tests/include/*.hpp"
 )
 
 include(${CMAKE_SOURCE_DIR}/cmake/avx-detect.cmake)
@@ -36,7 +37,7 @@ option(BUILD_USE_AVX512 "Use AVX512 when building binaries" ${AVX512_SUPPORTED})
 option(BUILD_DEEP_TESTS "Build deep types tests (not recommended)" OFF)
 
 if(BUILD_USE_AVX512)
-    if(not AVX512_SUPPORTED)
+    if(NOT AVX512_SUPPORTED)
         message(WARNING "AVX512 is not supported on this system. Some tests may fail on runtime.")
     endif()
     set(OPTIMIZATION_OPTIONS ${OPTIMIZATION_OPTIONS} ${AVX512_FLAGS})
@@ -76,7 +77,10 @@ if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
     )
 
     target_link_libraries(avxcpp-s PRIVATE misc)
-    target_link_libraries(avxcpp PRIVATE misc)
+
+    if(BUILD_SHARED_LIBS)
+        target_link_libraries(avxcpp PRIVATE misc)
+    endif()
 
     set(TESTS_LINKED_LIBS avxcpp-s misc)
 endif()
