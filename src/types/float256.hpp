@@ -63,22 +63,55 @@ namespace avx {
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
              * @param pSrc Pointer to memory from which to load data.
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void load(const float *pSrc) {
-                if(pSrc != nullptr)
+            void load(const float *pSrc) N_THROW_REL {
+                if(pSrc)
                     v = _mm256_loadu_ps(pSrc);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
-            void save(float *pDest) const {
-                _mm256_storeu_ps(pDest, v);
-            }
-
-            void save(std::array<float, 8> &dest) const noexcept{
+            /**
+             * Saves data to destination in memory.
+             * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
+             */
+            void save(std::array<float, 8>& dest) const noexcept {
                 _mm256_storeu_ps(dest.data(), v);
             }
 
-            void saveAligned(float* dest) const {
-                _mm256_store_ps(dest, v);
+            /**
+             * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (8x `float`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             */
+            void save(float *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_storeu_ps(pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
+            }
+
+            /**
+             * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (8x `float`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             */
+            void saveAligned(float *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_store_ps(pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
             
 

@@ -101,37 +101,56 @@ namespace avx {
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
+             * @param pSrc Pointer to memory from which to load data.
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void load(const long long *sP) {
-                if(sP != nullptr)
-                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            void load(const long long *pSrc) N_THROW_REL {
+                if(pSrc)
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             /**
-             * Saves vector data into an array.
-             * @param dest Destination array.
+             * Saves data to destination in memory.
+             * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
              */
             void save(std::array<long long, 4>& dest) const noexcept {
                 _mm256_storeu_si256((__m256i*)dest.data(), v);
             }
 
-            
             /**
-             * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
-             * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
+             * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (4x `long long`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void save(const long long* dest) const {
-                _mm256_storeu_si256((__m256i*)dest, v);
+            void save(long long *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_storeu_si256((__m256i*)pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             /**
-             * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
-             * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
-             * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
+             * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (4x `long long`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void saveAligned(const long long* dest) const {
-                _mm256_store_si256((__m256i*)dest, v);
+            void saveAligned(long long *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_store_si256((__m256i*)pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             long long operator[](unsigned int index) const

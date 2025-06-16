@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __SVML_GCC_H
-#define __SVML_GCC_H
+#ifndef __SIMD_EXT_GCC_H
+#define __SIMD_EXT_GCC_H
 
 #include <immintrin.h>
 
@@ -19,4 +19,4 @@ extern "C" {
 #endif
 
 #endif // _MSC_VER
-#endif // __SVML_GCC_H
+#endif // __SIMD_EXT_GCC_H

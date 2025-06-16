@@ -13,7 +13,6 @@
 __m256i _mm256_div_epi32(__m256i a, __m256i b) {
 
     __asm__ (
-        "nop\n\t"
         "vmovdqa %[a], %%ymm0\n\t"
         "vmovdqa %[b], %%ymm6\n\t"
         "vcvtdq2ps %%ymm6, %%ymm2\n\t"
@@ -56,7 +55,6 @@ __m256i _mm256_div_epi32(__m256i a, __m256i b) {
         "vcvttpd2dq %%ymm1, %%xmm1\n\t"
         "vinserti128 $1, %%xmm1, %%ymm0, %%ymm0\n\t"
         "vmovdqa %%ymm0, %[a]\n\t"
-        "nop\n\t"
 
         : [a] "+x" (a), 
           [b] "+x" (b)

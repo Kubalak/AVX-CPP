@@ -100,53 +100,56 @@ namespace avx {
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
+             * @param pSrc Pointer to memory from which to load data.
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void load(const unsigned short* sP) {
-                if(sP != nullptr)
-                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            void load(const unsigned short *pSrc) N_THROW_REL {
+                if(pSrc)
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
-            
             /**
              * Saves data to destination in memory.
-             * @param dest A valid pointer to a memory of at least 16 `unsigned short` numbers (32 bytes).
-             * @throws std::invalid_argument If in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect. 
+             * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
              */
-            void save(unsigned short* pDest) const {
-                #ifndef NDEBUG
-                    if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                    _mm256_storeu_si256((__m256i*)pDest, v);
-                #else
-                    if(pDest)
-                        _mm256_storeu_si256((__m256i*)pDest, v);
-                #endif
+            void save(std::array<unsigned short, 16>& dest) const noexcept {
+                _mm256_storeu_si256((__m256i*)dest.data(), v);
             }
 
-
             /**
-             * Saves the data to passed array object.
-             * @param dest An array to which data will be saved.
+             * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (16x `unsigned short`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void save(std::array<unsigned short, 16>&dest) const noexcept{
-                _mm256_storeu_si256((__m256i*)dest.data(), v);
+            void save(unsigned short *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_storeu_si256((__m256i*)pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             /**
              * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
-             * @param dest A valid pointer to a memory of at least 16 `unsigned short` numbers (32 bytes).
-             * @throws std::invalid_argument If in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect. 
+             * @param pDest A valid pointer to a memory of at least 32 bytes (16x `unsigned short`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void saveAligned(unsigned short* pDest) const {
-                #ifndef NDEBUG
-                    if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
+            void saveAligned(unsigned short *pDest) const N_THROW_REL {
+                if(pDest)
                     _mm256_store_si256((__m256i*)pDest, v);
-                #else
-                    if(pDest)
-                        _mm256_store_si256((__m256i*)pDest, v);
-                #endif
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
 

@@ -1,3 +1,8 @@
+v0.8.1.2
+- Fixed load, save and saveAligned methods for some types. They are all expected to behave the same way.
+- Fixed << and <<= operator for Uchar256 when using AVX512.
+- Minor changes to debug exception messages.
+
 v0.8.1.1
 - Added CPU name and features check using CPUID. Replaced popen with compiler and OS agnostic method.
 - Some methods of Char256 are using AVX512 when selected in CMake options.

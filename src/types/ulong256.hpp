@@ -99,60 +99,57 @@ namespace avx {
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
+             * @param pSrc Pointer to memory from which to load data.
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void load(const unsigned long long *sP) {
-                if(sP != nullptr)
-                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            void load(const unsigned long long *pSrc) N_THROW_REL {
+                if(pSrc)
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             /**
-             * Saves vector data into an array.
-             * @param dest Destination array.
+             * Saves data to destination in memory.
+             * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
              */
             void save(std::array<unsigned long long, 4>& dest) const noexcept {
-                _mm256_storeu_si256((__m256i *)dest.data(), v);
+                _mm256_storeu_si256((__m256i*)dest.data(), v);
             }
 
-            
             /**
-             * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
-             * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
+             * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (4x `unsigned long long`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void save(unsigned long long* dest) const 
+            void save(unsigned long long *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_storeu_si256((__m256i*)pDest, v);
             #ifndef NDEBUG
-                {
-                    if(dest == nullptr)
-                        throw std::invalid_argument("Passed address is nullptr!");
-                    
-                    _mm256_storeu_si256((__m256i *)dest, v);
-                }
-            #else
-                noexcept {
-                    if(dest != nullptr)
-                        _mm256_storeu_si256((__m256i *)dest, v);
-                }
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
             #endif
+            }
 
             /**
-             * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
-             * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
-             * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
+             * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (4x `unsigned long long`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void saveAligned(unsigned long long* dest) const
+            void saveAligned(unsigned long long *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_store_si256((__m256i*)pDest, v);
             #ifndef NDEBUG
-                {
-                    if(dest == nullptr)
-                        throw std::invalid_argument("Passed address is nullptr!");
-                    
-                    _mm256_store_si256((__m256i *)dest, v);
-                }
-            #else
-                noexcept {
-                    if(dest != nullptr)
-                        _mm256_store_si256((__m256i *)dest, v);
-                }
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
             #endif
+            }
 
             unsigned long long operator[](unsigned int index) const
             #ifndef NDEBUG
@@ -347,7 +344,7 @@ namespace avx {
 
             ULong256 operator/(const ULong256& bV) const noexcept {
                 #ifdef _MSC_VER
-                    return _mm256_div_epi64(v, bV.v);
+                    return _mm256_div_epu64(v, bV.v);
                 #else
                     unsigned long long* aP = (unsigned long long*)&v;
                     unsigned long long* bP = (unsigned long long*)&bV.v;
@@ -363,20 +360,23 @@ namespace avx {
             }
 
             ULong256 operator/(const unsigned long long& b) const noexcept {
-                unsigned long long* aP = (unsigned long long*)&v;
-                unsigned long long result[] = {
-                    aP[0] / b,
-                    aP[1] / b,
-                    aP[2] / b,
-                    aP[3] / b
-                };
-                
-                return result;
+                #ifdef _MSC_VER
+                    return _mm256_div_epu64(v, _mm256_set1_epi64x(b));
+                #else
+                    unsigned long long* aP = (unsigned long long*)&v;
+                    unsigned long long result[] = {
+                        aP[0] / b,
+                        aP[1] / b,
+                        aP[2] / b,
+                        aP[3] / b
+                    };
+                    return result;
+                #endif 
             }
 
             ULong256& operator/=(const ULong256& bV) noexcept {
                 #ifdef _MSC_VER
-                    v = _mm256_div_epi64(v, bV.v);
+                    v = _mm256_div_epu64(v, bV.v);
                 #else
                     unsigned long long* aP = (unsigned long long*)&v;
                     unsigned long long* bP = (unsigned long long*)&bV.v;
@@ -393,14 +393,18 @@ namespace avx {
             }
 
             ULong256& operator/=(const unsigned long long& b) noexcept {
-                unsigned long long* aP = (unsigned long long*)&v;
-                alignas(32) unsigned long long result[] = {
-                    aP[0] / b,
-                    aP[1] / b,
-                    aP[2] / b,
-                    aP[3] / b
-                };
-                v = _mm256_load_si256((const __m256i*)result);
+                #ifdef _MSC_VER
+                    v = _mm256_div_epu64(v, _mm256_set1_epi64x(b));
+                #else
+                    unsigned long long* aP = (unsigned long long*)&v;
+                    alignas(32) unsigned long long result[] = {
+                        aP[0] / b,
+                        aP[1] / b,
+                        aP[2] / b,
+                        aP[3] / b
+                    };
+                    v = _mm256_load_si256((__m256i*)result);
+                #endif 
 
                 return *this;
             }
@@ -568,7 +572,7 @@ namespace avx {
             }
 
             std::string str() const noexcept { 
-                std::string result = "Long256(";
+                std::string result = "ULong256(";
                 unsigned long long* iv = (unsigned long long*)&v; 
                 for(unsigned i{0}; i < 3; ++i)
                     result += std::to_string(iv[i]) + ", ";

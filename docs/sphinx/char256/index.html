@@ -408,19 +408,22 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx7Char2564loadEPKc">
-<span id="_CPPv3N3avx7Char2564loadEPKc"></span><span id="_CPPv2N3avx7Char2564loadEPKc"></span><span id="avx::Char256::load__cCP"></span><span class="target" id="classavx_1_1_char256_1a88ee0bc85f72a8788905151b42e175c2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Char2564loadEPKc" title="Link to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp">
+<span class="target" id="classavx_1_1_char256_1afd859d164ff1212fc145809b6fdcb4e5"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">load</span> <span class="pre">(const</span> <span class="pre">char</span> <span class="pre">*pSrc)</span> <span class="pre">N_THROW_REL</span></span></dt>
 <dd><p>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn’t need to be aligned to any specific boundary. If <code class="docutils literal notranslate"><span class="pre">sP</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this method has no effect. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pSrc</strong> – Pointer to memory from which to load data. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char2564saveERNSt5arrayIcXL32EEEE">
-<span id="_CPPv3NK3avx7Char2564saveERNSt5arrayIcXL32EEEE"></span><span id="_CPPv2NK3avx7Char2564saveERNSt5arrayIcX32EEE"></span><span id="avx::Char256::save__std::array:c.32:RC"></span><span class="target" id="classavx_1_1_char256_1a044739d626c9130df9b0db5485d4d21e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char2564saveERNSt5arrayIcXL32EEEE" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK3avx7Char2564saveERNSt5arrayIcXL32EEEE"></span><span id="_CPPv2NK3avx7Char2564saveERNSt5arrayIcX32EEE"></span><span id="avx::Char256::save__std::array:c.32:RC"></span><span class="target" id="classavx_1_1_char256_1a0c00f3b507899e47274126acf21f006f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char2564saveERNSt5arrayIcXL32EEEE" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data to destination in memory. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -430,31 +433,31 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char2564saveEPc">
-<span id="_CPPv3NK3avx7Char2564saveEPc"></span><span id="_CPPv2NK3avx7Char2564saveEPc"></span><span id="avx::Char256::save__cPC"></span><span class="target" id="classavx_1_1_char256_1a8578ef8fb1342c195de0a7b45ccb4e74"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char2564saveEPc" title="Link to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp">
+<span class="target" id="classavx_1_1_char256_1a26cb526b1d2931b956bcf08e138b246c"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">save</span> <span class="pre">(char</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
 <dd><p>Saves data to destination in memory. The memory doesn’t have to be aligned to any specific boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (<code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
+<dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (32x <code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK3avx7Char25611saveAlignedEPc">
-<span id="_CPPv3NK3avx7Char25611saveAlignedEPc"></span><span id="_CPPv2NK3avx7Char25611saveAlignedEPc"></span><span id="avx::Char256::saveAligned__cPC"></span><span class="target" id="classavx_1_1_char256_1a9963cc73beb54f8b8ccfb60cb2bfcbd5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7Char25611saveAlignedEPc" title="Link to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp">
+<span class="target" id="classavx_1_1_char256_1a1c1de6483ddad6b40e4b30beb2db74af"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">saveAligned</span> <span class="pre">(char</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
 <dd><p>Saves data to destination in memory. The memory must be aligned at 32-byte boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (<code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
+<dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (32x <code class="docutils literal notranslate"><span class="pre">char</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – in debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> throws <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code>. Otherwise no exception will be thrown. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
 </dd>
 </dl>
 </dd></dl>
@@ -927,10 +930,7 @@
 <li><a class="reference internal" href="#_CPPv4N3avx7Char2567Char256ERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">Char256::Char256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx7Char2567Char256ERKNSt5arrayIcXL32EEEE"><code class="docutils literal notranslate"><span class="pre">Char256::Char256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx7Char2567Char256ENSt16initializer_listIcEE"><code class="docutils literal notranslate"><span class="pre">Char256::Char256()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx7Char2564loadEPKc"><code class="docutils literal notranslate"><span class="pre">Char256::load()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Char2564saveERNSt5arrayIcXL32EEEE"><code class="docutils literal notranslate"><span class="pre">Char256::save()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4NK3avx7Char2564saveEPc"><code class="docutils literal notranslate"><span class="pre">Char256::save()</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4NK3avx7Char25611saveAlignedEPc"><code class="docutils literal notranslate"><span class="pre">Char256::saveAligned()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Char2563getEv"><code class="docutils literal notranslate"><span class="pre">Char256::get()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx7Char2563setEK7__m256i"><code class="docutils literal notranslate"><span class="pre">Char256::set()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Char256ixERKj"><code class="docutils literal notranslate"><span class="pre">Char256::operator[]()</span></code></a></li>

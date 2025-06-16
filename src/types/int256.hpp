@@ -148,46 +148,58 @@ namespace avx
         void set(__m256i val) { v = val; }
 
         /**
-             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
-             */
-            void load(const int *sP) {
-                if(sP != nullptr)
-                    v = _mm256_lddqu_si256((const __m256i*)sP);
-            }
+         * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+         * @param pSrc Pointer to memory from which to load data.
+         * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+         */
+        void load(const int *pSrc) N_THROW_REL {
+            if(pSrc)
+                v = _mm256_lddqu_si256((const __m256i*)pSrc);
+        #ifndef NDEBUG
+            else
+                throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+        #endif
+        }
 
         /**
-         * Saves vector data into an array.
-         * @param dest Destination array.
+         * Saves data to destination in memory.
+         * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
          */
-        void save(std::array<int, 8> &dest) const { _mm256_storeu_si256((__m256i *)dest.data(), v); };
+        void save(std::array<int, 8>& dest) const noexcept {
+            _mm256_storeu_si256((__m256i*)dest.data(), v);
+        }
 
         /**
-         * Saves data into given memory address. Memory doesn't need to be aligned to any specific boundary.
-         * @param dest A valid (non-nullptr) memory address with size of at least 32 bytes.
-         * @throw std::invalid_argument When in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect.
+         * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
+         * 
+         * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+         * @param pDest A valid pointer to a memory of at least 32 bytes (8x `int`).
+         * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
          */
-        void save(int *pDest) const {
-            #ifndef NDEBUG
-                if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-            #endif
-            if(pDest) 
-                _mm256_storeu_si256((__m256i *)pDest, v); 
-        };
+        void save(int *pDest) const N_THROW_REL {
+            if(pDest)
+                _mm256_storeu_si256((__m256i*)pDest, v);
+        #ifndef NDEBUG
+            else
+                throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+        #endif
+        }
 
         /**
-         * Saves data from vector into given memory address. Memory needs to be aligned on 32 byte boundary.
-         * See https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html for more details.
-         * @param dest A valid (non-NULL) memory address aligned to 32-byte boundary.
-         * @throw std::invalid_argument When in debug mode and `pDest` is `nullptr`. Otherwise if `pDest` is `nullptr` this function has no effect.
+         * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
+         * 
+         * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+         * @param pDest A valid pointer to a memory of at least 32 bytes (8x `int`).
+         * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
          */
-        void saveAligned(int *pDest) const {
-            #ifndef NDEBUG
-                if(pDest == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-            #endif
-            if(pDest) 
+        void saveAligned(int *pDest) const N_THROW_REL{
+            if(pDest)
                 _mm256_store_si256((__m256i*)pDest, v);
-        };
+        #ifndef NDEBUG
+            else
+                throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+        #endif
+        }
 
         bool operator==(const Int256 &bV) const {
             __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -450,7 +462,7 @@ namespace avx
          * @param bV Second modulo operand (divisor)
          * @return Result of modulo operation.
          */
-        Int256 &operator%=(const Int256 &bV) {
+        Int256& operator%=(const Int256 &bV) {
             __m256i sub_zero = _mm256_cmpgt_epi32(_mm256_setzero_si256(), v);
 
             __m256i absV = _mm256_abs_epi32(v);
@@ -489,7 +501,7 @@ namespace avx
             return *this;
         }
 
-        Int256 &operator%=(const int &b){
+        Int256& operator%=(const int &b){
             if(!b) {
                 v = _mm256_setzero_si256();
                 return *this;

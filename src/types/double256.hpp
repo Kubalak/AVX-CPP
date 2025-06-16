@@ -6,6 +6,7 @@
 #include <string>
 #include <stdexcept>
 #include <immintrin.h>
+#include "constants.hpp"
 
 namespace avx {
     /**
@@ -34,15 +35,14 @@ namespace avx {
 
             Double256(const std::array<double, 4> &init) noexcept : v(_mm256_loadu_pd(init.data())){}
 
-            Double256(const double* addr)
+            Double256(const double* addr) N_THROW_REL {
+                if(addr)
+                    v = _mm256_loadu_pd(addr);
             #ifndef NDEBUG
-            {
-                if(addr == nullptr)throw std::invalid_argument("Passed address is nullptr!");
-                v = _mm256_loadu_pd(addr);
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif    
             }
-            #else
-            noexcept : v(_mm256_loadu_pd(addr)){} 
-            #endif
 
             Double256(std::initializer_list<double> init) {
                 alignas(32) double init_v[size]{0.0, 0.0, 0.0, 0.0};
@@ -65,11 +65,56 @@ namespace avx {
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
+             * @param pSrc Pointer to memory from which to load data.
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void load(const double *sP) {
-                if(sP != nullptr)
-                    v = _mm256_loadu_pd(sP);
+            void load(const double *pSrc) N_THROW_REL {
+                if(pSrc)
+                    v = _mm256_loadu_pd(pSrc);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
+            }
+
+            /**
+             * Saves data to destination in memory.
+             * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
+             */
+            void save(std::array<double, 4>& dest) const noexcept {
+                _mm256_storeu_pd(dest.data(), v);
+            }
+
+            /**
+             * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (4x `double`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             */
+            void save(double *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_storeu_pd(pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
+            }
+
+            /**
+             * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
+             * 
+             * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
+             * @param pDest A valid pointer to a memory of at least 32 bytes (4x `double`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             */
+            void saveAligned(double *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_store_pd(pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             

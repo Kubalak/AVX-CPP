@@ -30,6 +30,8 @@ int main(int argc, char* argv[]) {
     logger.info("Queue created successfully! Attemping to create range slices...");
 
     TestLimits limits = getLimits<avx::Int256::storedType>();
+    limits.minVal++;
+    limits.testStartVal++;
     auto slices = equalDistribute(limits, std::thread::hardware_concurrency());
     std::vector<int> procIds;
 

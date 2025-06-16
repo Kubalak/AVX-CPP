@@ -22,10 +22,21 @@
 #endif
 
 #ifdef _WIN32
-constexpr const char path_regex[] = "^.+\\\\(?=src)";
+    constexpr const char path_regex[] = "^.+\\\\(?=src)";
 #else 
-constexpr const char path_regex[] = "^.+\\/(?=src)";
+    constexpr const char path_regex[] = "^.+\\/(?=src)";
 #endif
+
+/** 
+* #define is used for getting correct __LINE__ and __FILE__ macros as well as __func__
+* Prints values of test variables to stderr.
+* @param first First variable.
+* @param second Second variable.
+*/
+#define printTestVariables(first, second) std::cerr << __FILE__  << ':' << __LINE__ << testing::demangle(__func__) << '(' << first << ", " << second << ")\n";
+
+#define testFailed(op, typeA, typeB, expectedVal, actualVal) \
+    testing::printTestFailed(__FILE__, __LINE__, testing::demangle(__func__).c_str(), op, testing::demangle(typeid(typeA).name()).c_str(), testing::demangle(typeid(typeB).name()).c_str(), expectedVal, actualVal)
 
 namespace testing
 {   
@@ -1498,10 +1509,33 @@ namespace testing
         return result;
     }
 
-    std::string testResultToColoredStrint(bool result) {
+    std::string testResultToColoredStrint(const bool &result) {
         if(result)
             return "[\033[32mOK\033[0m]";
         return "[\033[31mFAIL\033[0m]";
+    }
+
+    template<typename T, typename S = typename T::storedType>
+    int universalTestBorderVal(S minval, S maxval, const unsigned int size = T::size) {
+        T a, b, expected;
+        S tmp;
+        std::vector<S> buffer(size), results(size);
+        int returnVal = 1;
+
+        if(minval) {
+            for(S i{0}; i < size; ++i) {
+                buffer[i] = minval + i;
+                results[i] = buffer[i] / 2;
+            }
+
+            a.load(buffer.data());
+            b.load(buffer.data());
+
+            if(a != b) 
+                testFailed("/", T, T, b.str(), a.str());
+        }
+
+        return returnVal;
     }
 };
 #endif

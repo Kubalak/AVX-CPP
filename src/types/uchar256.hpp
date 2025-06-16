@@ -102,19 +102,23 @@ namespace avx {
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
-             * @param sP Pointer to memory from which to load data.
+             * @param pSrc Pointer to memory from which to load data.
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void load(const unsigned char *sP) {
-                if(sP != nullptr)
-                    v = _mm256_lddqu_si256((const __m256i*)sP);
+            void load(const unsigned char *pSrc) N_THROW_REL {
+                if(pSrc)
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             /**
              * Saves data to destination in memory.
-             * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws If in debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown. 
+             * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
              */
-            void save(std::array<unsigned char, 32>& dest) const {
+            void save(std::array<unsigned char, 32>& dest) const noexcept {
                 _mm256_storeu_si256((__m256i*)dest.data(), v);
             }
 
@@ -122,30 +126,32 @@ namespace avx {
              * Saves data to destination in memory. The memory doesn't have to be aligned to any specific boundary.
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
-             * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws std::invalid argument If in Debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown (if nullptr is passed and not in Debug mode this function has no effect). 
+             * @param pDest A valid pointer to a memory of at least 32 bytes (32x `unsigned char`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void save(unsigned char* dest) const {
-                if(dest)
-                    _mm256_storeu_si256((__m256i*)dest, v);
-                #ifndef NDEBUG
-                    else throw std::invalid_argument("Passed address is nullptr!");
-                #endif
+            void save(unsigned char *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_storeu_si256((__m256i*)pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             /**
              * Saves data to destination in memory. The memory must be aligned at 32-byte boundary.
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
-             * @param dest A valid pointer to a memory of at least 32 bytes (`char`).
-             * @throws If in Debug mode and `dest` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown (if nullptr is passed and not in Debug mode this function has no effect). 
+             * @param pDest A valid pointer to a memory of at least 32 bytes (32x `unsigned char`).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void saveAligned(unsigned char* dest) const {
-                if(dest)
-                    _mm256_store_si256((__m256i*)dest, v);
-                #ifndef NDEBUG
-                    else throw std::invalid_argument("Passed address is nullptr!");
-                #endif  
+            void saveAligned(unsigned char *pDest) const N_THROW_REL {
+                if(pDest)
+                    _mm256_store_si256((__m256i*)pDest, v);
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            #endif
             }
 
             /**
@@ -742,21 +748,10 @@ namespace avx {
 
 
             UChar256 operator<<(const UChar256& bV) const noexcept {
-                #ifdef __AVX512VL__
-                    __m128i a_lo = _mm256_castsi256_si128(v);           // Pierwsze 128 bitów
-                    __m128i a_hi = _mm256_extracti128_si256(v, 1);      // Drugie 128 bitów
-
-                    __m128i b_lo = _mm256_castsi256_si128(bV.v);           // Pierwsze 128 bitów (shift values)
-                    __m128i b_hi = _mm256_extracti128_si256(bV.v, 1);      // Drugie 128 bitów (shift values)
-
-                    // Operacja przesunięcia bitowego dla dolnych 128 bitów
-                    __m128i result_lo = _mm_sllv_epi16(a_lo, b_lo);     // SSE2/SSE3: zmienne przesunięcia
-
-                    // Operacja przesunięcia bitowego dla górnych 128 bitów
-                    __m128i result_hi = _mm_sllv_epi16(a_hi, b_hi);     // SSE2/SSE3: zmienne przesunięcia
-
-                    // Łączymy wynik z powrotem w jeden wektor 256-bitowy
-                    return _mm256_set_m128i(result_hi, result_lo);
+                 #ifdef __AVX512BW__
+                    __m512i fV = _mm512_cvtepi8_epi16(v);
+                    __m512i sV = _mm512_cvtepi8_epi16(bV.v);
+                    return _mm512_cvtepi16_epi8(_mm512_sllv_epi16(fV, sV));
                 #else
                     __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
                     __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
@@ -792,32 +787,26 @@ namespace avx {
 
 
             UChar256 operator<<(const unsigned int& b) const noexcept {
-                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
-                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
-                fhalf = _mm256_slli_epi16(fhalf, b);
-                shalf = _mm256_slli_epi16(shalf, b);
-                fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
-                shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
-                return _mm256_or_si256(fhalf, shalf);
+                #ifdef __AVX512BW__
+                    __m512i fV = _mm512_cvtepi8_epi16(v);
+                    return _mm512_cvtepi16_epi8(_mm512_slli_epi16(fV, static_cast<short>(b)));
+                #else
+                    __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                    __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
+                    fhalf = _mm256_slli_epi16(fhalf, b);
+                    shalf = _mm256_slli_epi16(shalf, b);
+                    fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
+                    shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
+                    return _mm256_or_si256(fhalf, shalf);
+                #endif
             }
 
 
             UChar256& operator<<=(const UChar256& bV) noexcept {
-                #ifdef __AVX512VL__
-                    __m128i a_lo = _mm256_castsi256_si128(v);           // Pierwsze 128 bitów
-                    __m128i a_hi = _mm256_extracti128_si256(v, 1);      // Drugie 128 bitów
-
-                    __m128i b_lo = _mm256_castsi256_si128(bV.v);           // Pierwsze 128 bitów (shift values)
-                    __m128i b_hi = _mm256_extracti128_si256(bV.v, 1);      // Drugie 128 bitów (shift values)
-
-                    // Operacja przesunięcia bitowego dla dolnych 128 bitów
-                    __m128i result_lo = _mm_sllv_epi16(a_lo, b_lo);     // SSE2/SSE3: zmienne przesunięcia
-
-                    // Operacja przesunięcia bitowego dla górnych 128 bitów
-                    __m128i result_hi = _mm_sllv_epi16(a_hi, b_hi);     // SSE2/SSE3: zmienne przesunięcia
-
-                    // Łączymy wynik z powrotem w jeden wektor 256-bitowy
-                    v = _mm256_set_m128i(result_hi, result_lo);
+                 #ifdef __AVX512BW__
+                    __m512i fV = _mm512_cvtepi8_epi16(v);
+                    __m512i sV = _mm512_cvtepi8_epi16(bV.v);
+                    v = _mm512_cvtepi16_epi8(_mm512_sllv_epi16(fV, sV));
                 #else
                     __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
                     __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
@@ -854,13 +843,18 @@ namespace avx {
 
 
             UChar256& operator<<=(const unsigned int& b) noexcept {
-                __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
-                __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
-                fhalf = _mm256_slli_epi16(fhalf, b);
-                shalf = _mm256_slli_epi16(shalf, b);
-                fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
-                shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
-                v = _mm256_or_si256(fhalf, shalf);
+                #ifdef __AVX512BW__
+                    __m512i fV = _mm512_cvtepi8_epi16(v);
+                    v = _mm512_cvtepi16_epi8(_mm512_slli_epi16(fV, static_cast<short>(b)));
+                #else
+                    __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                    __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
+                    fhalf = _mm256_slli_epi16(fhalf, b);
+                    shalf = _mm256_slli_epi16(shalf, b);
+                    fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
+                    shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
+                    v = _mm256_or_si256(fhalf, shalf);
+                #endif
                 return *this;
             }
 
