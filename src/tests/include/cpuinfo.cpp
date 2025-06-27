@@ -381,8 +381,8 @@ namespace cpuinfo {
         mExtensions["3DNOWEXT"] = amdInfo.reg.edx & __BIT_30;
         mExtensions["3DNOW"] = amdInfo.reg.edx & __BIT_31;
 
-        mCpuName = getCPUName();
-        mManufactID = getManufactID();
+        mCpuName = cpuinfo::getCPUName();
+        mManufactID = cpuinfo::getManufactID();
     }
 
     bool CPUDetails::supportsFeature(std::string sFeatureName) {
@@ -429,7 +429,7 @@ namespace cpuinfo {
             __cpuid(0x80000002, regs[0], regs[1], regs[2], regs[3]);
             __cpuid(0x80000003, regs[4], regs[5], regs[6], regs[7]);
             __cpuid(0x80000004, regs[8], regs[9], regs[10], regs[11]);
-            memcpy(nameStr, regs, sizeof(nameStr));
+            memcpy(nameStr, regs, sizeof(regs));
         #endif
 
         

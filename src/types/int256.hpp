@@ -296,40 +296,18 @@ namespace avx
 
         // Modulo operators
         Int256 operator%(const Int256 &bV) const {
-            __m256i sub_zero = _mm256_cmpgt_epi32(_mm256_setzero_si256(), v);
-
-            __m256i absV = _mm256_abs_epi32(v);
-            __m256i absVB = _mm256_abs_epi32(bV.v);
-
             #ifdef __AVX512F__
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
-                        _mm512_cvtepi32_pd(absV), 
-                        _mm512_cvtepi32_pd(absVB)
+                        _mm512_cvtepi32_pd(v), 
+                        _mm512_cvtepi32_pd(bV.v)
                     )
                 );
             #else
-                __m256i divided = _mm256_div_epi32(absV, absVB);
+                __m256i divided = _mm256_div_epi32(v, bV.v);
             #endif
-
-            absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
-
-            // Correction if division returns too high number
-            __m256i mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_add_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            }
             
-            // Correction if division returns too small number
-            mask = _mm256_cmpgt_epi32(absV, absVB);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_sub_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(absV, absVB);
-            }
-
-            absV = _mm256_xor_si256(absV, sub_zero);
-            return _mm256_add_epi32(absV, _mm256_and_si256(sub_zero, constants::EPI32_ONE));
+            return _mm256_sub_epi32(v, _mm256_mullo_epi32(bV.v, divided));
         }
 
 
@@ -337,41 +315,20 @@ namespace avx
         Int256 operator%(const int &b) const {
             if(!b) return _mm256_setzero_si256();
 
-            __m256i sub_zero = _mm256_cmpgt_epi32(_mm256_setzero_si256(), v);
+            __m256i bV = _mm256_set1_epi32(b);
 
-            __m256i absV = _mm256_abs_epi32(v);
-            __m256i absVB = _mm256_abs_epi32(_mm256_set1_epi32(b));
-    
             #ifdef __AVX512F__
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
-                        _mm512_cvtepi32_pd(absV), 
-                        _mm512_cvtepi32_pd(absVB)
+                        _mm512_cvtepi32_pd(v), 
+                        _mm512_cvtepi32_pd(bV.v)
                     )
                 );
             #else
-                __m256i divided = _mm256_div_epi32(absV, absVB);
+                __m256i divided = _mm256_div_epi32(v, bV);
             #endif
-    
-            absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
             
-            // Correction if division returns too high number
-            __m256i mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_add_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            }
-            
-            // Correction if division returns too small number
-            mask = _mm256_cmpgt_epi32(absV, absVB);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_sub_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(absV, absVB);
-            }
-
-            absV = _mm256_xor_si256(absV, sub_zero);
-            return _mm256_add_epi32(absV, _mm256_and_si256(sub_zero, constants::EPI32_ONE));
-            
+            return _mm256_sub_epi32(v, _mm256_mullo_epi32(bV, divided));
         }    
 
         // XOR operators
@@ -463,40 +420,18 @@ namespace avx
          * @return Result of modulo operation.
          */
         Int256& operator%=(const Int256 &bV) {
-            __m256i sub_zero = _mm256_cmpgt_epi32(_mm256_setzero_si256(), v);
-
-            __m256i absV = _mm256_abs_epi32(v);
-            __m256i absVB = _mm256_abs_epi32(bV.v);
-
             #ifdef __AVX512F__
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
-                        _mm512_cvtepi32_pd(absV), 
-                        _mm512_cvtepi32_pd(absVB)
+                        _mm512_cvtepi32_pd(v), 
+                        _mm512_cvtepi32_pd(bV.v)
                     )
                 );
             #else
-                __m256i divided = _mm256_div_epi32(absV, absVB);
+                __m256i divided = _mm256_div_epi32(v, bV.v);
             #endif
-
-            absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
             
-            // Correction if division returns too high number
-            __m256i mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_add_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            }
-            
-            // Correction if division returns too small number
-            mask = _mm256_cmpgt_epi32(absV, absVB);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_sub_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(absV, absVB);
-            }
-
-            absV = _mm256_xor_si256(absV, sub_zero);
-            v = _mm256_add_epi32(absV, _mm256_and_si256(sub_zero, constants::EPI32_ONE));
+            v = _mm256_sub_epi32(v, _mm256_mullo_epi32(bV.v, divided));
             
             return *this;
         }
@@ -507,40 +442,20 @@ namespace avx
                 return *this;
             }
             
-            __m256i sub_zero = _mm256_cmpgt_epi32(_mm256_setzero_si256(), v);
+            __m256i bV = _mm256_set1_epi32(b);
 
-            __m256i absV = _mm256_abs_epi32(v);
-            __m256i absVB = _mm256_abs_epi32(_mm256_set1_epi32(b));
-    
             #ifdef __AVX512F__
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
-                        _mm512_cvtepi32_pd(absV), 
-                        _mm512_cvtepi32_pd(absVB)
+                        _mm512_cvtepi32_pd(v), 
+                        _mm512_cvtepi32_pd(bV.v)
                     )
                 );
             #else
-                __m256i divided = _mm256_div_epi32(absV, absVB);
+                __m256i divided = _mm256_div_epi32(v, bV);
             #endif
-    
-            absV = _mm256_sub_epi32(absV, _mm256_mullo_epi32(absVB, divided));
             
-            // Correction if division returns too high number
-            __m256i mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_add_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(_mm256_setzero_si256(), absV);
-            }
-            
-            // Correction if division returns too small number
-            mask = _mm256_cmpgt_epi32(absV, absVB);
-            while(!_mm256_testz_si256(mask, mask)){
-                absV = _mm256_sub_epi32(absV, _mm256_and_si256(absVB, mask));
-                mask = _mm256_cmpgt_epi32(absV, absVB);
-            }
-
-            absV = _mm256_xor_si256(absV, sub_zero);
-            v = _mm256_add_epi32(absV, _mm256_and_si256(sub_zero, constants::EPI32_ONE));
+            v = _mm256_sub_epi32(v, _mm256_mullo_epi32(bV, divided));
             
             return *this;
         }

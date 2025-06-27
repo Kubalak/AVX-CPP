@@ -10,7 +10,7 @@ set(SOURCE_DIR
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
-set(UTILS_INCLUDE_DIR "${SOURCE_DIR}/tests/include" "${SOURCE_DIR}/misc/")
+set(UTILS_INCLUDE_DIR "${SOURCE_DIR}/tests/include")
 
 file(
     GLOB_RECURSE SOURCES 
@@ -20,6 +20,8 @@ file(
     "${SOURCE_DIR}/ops/*.cpp" 
     "${SOURCE_DIR}/tests/include/*.cpp"
     "${SOURCE_DIR}/tests/include/*.hpp"
+    "${SOURCE_DIR}/misc/*.c"
+    "${SOURCE_DIR}/misc/*.h"
 )
 
 include(${CMAKE_SOURCE_DIR}/cmake/avx-detect.cmake)
@@ -58,32 +60,6 @@ target_include_directories(avxcpp-s PUBLIC ${SOURCE_DIR})
 target_compile_options(avxcpp-s PRIVATE ${OPTIMIZATION_OPTIONS})
 
 set(TESTS_LINKED_LIBS avxcpp-s)
-
-if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
-
-    file(GLOB_RECURSE MISC_SRC 
-        "${SOURCE_DIR}/misc/*.c"
-        "${SOURCE_DIR}/misc/*.h"
-        "${SOURCE_DIR}/misc/*.cpp"
-        "${SOURCE_DIR}/misc/*.hpp"
-    )
-
-    add_library(misc STATIC ${MISC_SRC})
-    target_compile_options(misc PRIVATE ${OPTIMIZATION_OPTIONS})
-
-    set_target_properties(misc PROPERTIES 
-        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/"
-    )
-
-    target_link_libraries(avxcpp-s PRIVATE misc)
-
-    if(BUILD_SHARED_LIBS)
-        target_link_libraries(avxcpp PRIVATE misc)
-    endif()
-
-    set(TESTS_LINKED_LIBS avxcpp-s misc)
-endif()
 
 if(BUILD_PERFORMANCE_TESTS OR BUILD_TESTING)
     include(CTest)

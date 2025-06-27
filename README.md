@@ -37,7 +37,7 @@ Supported math functions:
 - -->
 Supported operators:
 
-- `==` `!=` - all types + scalars
+- `==` `!=` - all types + scalars [*](#details)
 - `+` `+=` - all types + scalars
 - `-` `-=` - all types + scalars
 - `*` `*=` - all types + scalars
@@ -46,8 +46,8 @@ Supported operators:
 - `|` `|=` - integer types + integer scalars
 - `&` `&=` - integer types + integer scalars
 - `^` `^=` - integer types + integer scalars
-- `<<` `<<=` - integer types + integer scala
-- `>>` `>>=` - integer types + integer scala
+- `<<` `<<=` - integer types + integer scalars
+- `>>` `>>=` - integer types + integer scalars
 - `[]` - all types, read only
 - `~` - integer types
 
@@ -61,10 +61,12 @@ Other than that all types support initialization using:
 Elements from vectors can be extracted using following methods:
 
 - `[]` returns a value from selected index. In debug builds providing inaccurate index raises an `std::invalid_argument` exception. For release builds invalid index is suppresed by using `index & (size - 1)` formula.
-- `load(*sP)` loads data from memory using `_mm256_lddqu_si256`/`_mm256_loadu_pd`/`_mm256_loadu_ps` according to stored type.
+- `load(*pSrc)` loads data from memory using `_mm256_lddqu_si256`/`_mm256_loadu_pd`/`_mm256_loadu_ps` according to stored type.
 - `save(std::array&)` saves data to array using `_mm256_storeu_si256` function.
-- `save(*addr)` saves data to memory pointed by `addr` using `_mm256_storeu_si256` or `_mm256_storeu_ps/pd` function.
-- `saveAligned(*addr)` saves data to memory pointed by `addr` for memory that is aligned on 32 byte boundary using `_mm256_store_si256` or `_mm256_store_ps/pd`.
+- `save(*pDest)` saves data to memory pointed by `pDest` using `_mm256_storeu_si256` or `_mm256_storeu_ps/pd` function.
+- `saveAligned(*pDest)` saves data to memory pointed by `pDest` for memory that is aligned on 32 byte boundary using `_mm256_store_si256` or `_mm256_store_ps/pd`.
+
+<span id="details">* For `Float256` and `Double256` `0` and `-0` are considered equal.</span>
 
 <!--
 # AVX-CPP is fast!
@@ -100,13 +102,23 @@ Benchmark details (this is to show best-case scenario as MSVC does not optimize 
 int main(int argc, char* argv[]) {
 
     avx::Int256 a({1, 2, 3, 4, 5, 6, 7, 8}); // Initialize vector values
-    avx::Int256 b(std::array<int,8>{0, 43, 5, 8, 7, 9, 2, 12})
+    avx::Int256 b(std::array<int,8>{0, 43, 5, 8, 7, 9, 2, 12});
+    avx::Int256 c(5); // Will initialize vector with 5 (5, 5, 5..5).
 
     // The code below will print "Int256(13, 12, 11, 10, 9, 8, 7, 6)"
     std::cout << (a + 5).str() << '\n'; 
 
     // The code below will print "Int256(20, 9, 15, 12, 12, 8, 45, 1)"
-    std::cout << (a + b).str() << '\n'; 
+    std::cout << (a + b).str() << '\n';
+
+    if(c == 5) // Compare with scalar. Returns true only if all fields are equal.
+      std::cout << "All c vector fields are equal to 5.\n";
+
+    if(a != b) // Compare with other vector. Returns true if ANY field is different between vectors.
+      std::cout << "Not all values in a and b vectors are equal\n";
+    
+    a *= 2; 
+    std::cout << a.str() << '\n'; // Will print "Int256(2, 4, 6, 8, 10, 12, 14, 16)"
 
     return 0;
 }
@@ -123,13 +135,14 @@ Available building options are
 | BUILD_SHARED_LIBS | BOOLEAN| ON | Build shared libraries (\*.dll or \*.so) |
 | BUILD_TESTING | BOOLEAN | OFF | Build tests when building library |
 | BUILD_PERFORMANCE_TESTS | BOOLEAN | OFF | Build performance tests |
-| BUILD_DEEP_TESTS | BOOLEAN | OFF | Build types deep testing (brute force testing for all possible values) |
+| BUILD_DEEP_TESTS | BOOLEAN | OFF | Build types deep testing (brute force testing for all possible values, doesn't work on Windows) |
+| BUILD_USE_AVX512 | BOOLEAN | [CPU Support](cmake/avx-detect.cmake) | Use AVX512 when generatring binaries |
 
 Building has been tested on following compilers (build and run):
 
 - GCC 11.4.0-1ubuntu1~22.04
 - Clang 14.0.0-1ubuntu1.1
-- MSVC 19.29.30154
+- MSVC 19.44.35209 (VS 2022)
 
 ## Documentation
 
@@ -140,7 +153,6 @@ If you want to read documentation offline go to [docs/sphinx](docs/sphinx).
 ## Known issues
 
 - &#9888;&#65039; - `/` and `%` might not always use SIMD instructions to calculate results due to instruction set restrictions. Some types use casting to `float` to perform those operations.
-- Division operator for `Int256` will produce inaccurate results for values exceeding $2^{24}$ due to internal casting to `float`.
-- &#x2757; For `Int256` and `UInt256` the underlying type used in division and modulo is `float` which might cause rounding to occur which will yield inaccurate results. Please refer to [this](https://en.wikipedia.org/wiki/IEEE_754) document about `float` type structure.
+- &#x2757; For `UInt256` the underlying type used in division and modulo is `float` which might cause rounding to occur which will yield inaccurate results. Please refer to [this](https://en.wikipedia.org/wiki/IEEE_754) document about `float` type structure.
 - &#x1F6A9; - `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
 - `Long256` and `ULong256` don't use AVX/AVX2 for `*`, `/` and `%` due to lack available SIMD instructions. In AVX512 mode they might use some SIMD instructions (which will be checked once getting access to CPU supporting AVX512).
