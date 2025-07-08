@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(AVX-CPP VERSION 0.8.1.2 LANGUAGES C CXX)
+project(AVX-CPP VERSION 0.8.1.3 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
@@ -37,6 +37,11 @@ option(BUILD_TESTING "Build tests" OFF)
 option(BUILD_PERFORMANCE_TESTS "Build performance tests" OFF)
 option(BUILD_USE_AVX512 "Use AVX512 when building binaries" ${AVX512_SUPPORTED})
 option(BUILD_DEEP_TESTS "Build deep types tests (not recommended)" OFF)
+option(_FORCE_AVX2 "Force AVX2 for int64_t and uint64_t types" OFF)
+
+if(_FORCE_AVX2)
+    add_compile_definitions(__FORCE_AVX2_)
+endif()
 
 if(BUILD_USE_AVX512)
     if(NOT AVX512_SUPPORTED)

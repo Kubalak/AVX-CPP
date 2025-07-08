@@ -1,3 +1,6 @@
+v0.8.1.3
+- Ported _mm256_div_epi64 to GCC and Clang. Disclaimer: during testing the function appeared to be slower than handwritten "naive" solution.
+
 v0.8.1.2
 - Fixed load, save and saveAligned methods for some types. They are all expected to behave the same way.
 - Fixed << and <<= operator for Uchar256 when using AVX512.

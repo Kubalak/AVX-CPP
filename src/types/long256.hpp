@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <immintrin.h>
 #include "constants.hpp"
+#include "../misc/simd_ext_gcc.h"
 
 namespace avx {
     /**
@@ -326,66 +327,62 @@ namespace avx {
                 return *this;
             }
 
-            Long256 operator/(const Long256& bV) const noexcept {
-                #ifdef _MSC_VER
+            Long256 operator/(const Long256& bV) const noexcept {    
+                #ifdef __FORCE_AVX2_           
                     return _mm256_div_epi64(v, bV.v);
                 #else
-                    long long* a = (long long*)&v;
-                    long long* bv = (long long*)&bV.v;
-
+                    long long* aP = (long long*)&v;
+                    long long* bP = (long long*)&bV.v;
                     return _mm256_set_epi64x(
-                        a[3] / bv[3],
-                        a[2] / bv[2],
-                        a[1] / bv[1],
-                        a[0] / bv[0]
-                    );
+                            aP[3] / bP[3],
+                            aP[2] / bP[2],
+                            aP[1] / bP[1],
+                            aP[0] / bP[0]
+                        );
                 #endif
             }
 
             Long256 operator/(const long long& b) const noexcept {
-                 #ifdef _MSC_VER
+                #ifdef __FORCE_AVX2_
                     return _mm256_div_epi64(v, _mm256_set1_epi64x(b));
-                #else
-                    long long* a = (long long*)&v;
-
+                #else 
+                    long long* aP = (long long*)&v;
                     return _mm256_set_epi64x(
-                        a[3] / b,
-                        a[2] / b,
-                        a[1] / b,
-                        a[0] / b
-                    );
+                            aP[3] / b,
+                            aP[2] / b,
+                            aP[1] / b,
+                            aP[0] / b
+                        );
                 #endif
             }
 
             Long256& operator/=(const Long256& bV) noexcept {
-                #ifdef _MSC_VER
-                    v = _mm256_div_epi64(v, bV.v);
+                #ifdef __FORCE_AVX2_
+                    v = _mm256_div_epi64(v, bV.v);            
                 #else
-                    long long* a = (long long*)&v;
-                    long long* bv = (long long*)&bV.v;
-
+                    long long* aP = (long long*)&v;
+                    long long* bP = (long long*)&bV.v;
                     v = _mm256_set_epi64x(
-                        a[3] / bv[3],
-                        a[2] / bv[2],
-                        a[1] / bv[1],
-                        a[0] / bv[0]
-                    );
+                            aP[3] / bP[3],
+                            aP[2] / bP[2],
+                            aP[1] / bP[1],
+                            aP[0] / bP[0]
+                        );
                 #endif
                 return *this;
             }
 
             Long256& operator/=(const long long& b) noexcept {
-                #ifdef _MSC_VER
+                #ifdef __FORCE_AVX2_
                     v = _mm256_div_epi64(v, _mm256_set1_epi64x(b));
                 #else
-                    long long* a = (long long*)&v;
-
+                    long long* aP = (long long*)&v;
                     v = _mm256_set_epi64x(
-                        a[3] / b,
-                        a[2] / b,
-                        a[1] / b,
-                        a[0] / b
-                    );
+                            aP[3] / b,
+                            aP[2] / b,
+                            aP[1] / b,
+                            aP[0] / b
+                        );
                 #endif
                 return *this;
             }
