@@ -108,7 +108,7 @@ namespace avx {
              * Data does not need to be aligned to a 32 byte boundary. 
              * 
              * @param pSrc Memory holding data (minimum 32 bytes).
-             * @throw If used in debug mode if `addr` is `nullptr` then `std::invalid_argument` will be thrown. Otherwise if `nullptr` is passed it will initialize vector with 0s.
+             * @throw If used in debug mode if `addr` is `nullptr` then `std::invalid_argument` will be thrown. Otherwise if `nullptr` is passed it will initialize vector with 0's.
              */
             explicit Char256(const char* pSrc)
             #ifndef NDEBUG
@@ -124,6 +124,35 @@ namespace avx {
                         v = _mm256_setzero_si256();
                 }
             #endif
+            
+            /**
+             * Initializes object using first `count` bytes from `pSrc` or 32 bytes if `count` > 32.
+             * Data does not need to be aligned to 32 byte boundary.
+             * 
+             * @param pSrc Valid pointer from which data will be loaded.
+             * @param count Number of bytes held by `pSrc`. For less than 32 remaining bytes will be filled with 0's. Otherwise first 32 bytes will be used.
+             * @throws std::invalid_argument If in debug mode and `pSrc` is nullptr. If not in debug mode and `nullptr` is passed, then vector will be loaded with 0's.
+            */
+            Char256(const char* pSrc, unsigned int count) {
+                if(pSrc) {
+                    if(count >= 32)
+                        v = _mm256_lddqu_si256((const __m256i*)pSrc);
+                    else if(count < 32) {
+                        char tmp[32];
+                        #if defined(_MSC_VER) || defined(__STDC_WANT_LIB_EXT1__)
+                            memcpy_s(tmp, sizeof(tmp), pSrc, count);
+                        #else
+                            memcpy(tmp, pSrc, count);
+                        #endif
+                        memset(tmp + count, 0, 32 - count);
+                        v = _mm256_lddqu_si256((const __m256i*)tmp);
+                    }
+                }
+                #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                #endif
+            }
 
             /**
              * Initializes with first 32 bytes read from string. If `init` is less than 32 bytes long missing values will be set to 0.
