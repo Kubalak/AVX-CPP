@@ -1,44 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="classavx_1_1_u_char256" kind="class" language="C++" prot="public">
     <compoundname>avx::UChar256</compoundname>
     <includes refid="uchar256_8hpp" local="no">uchar256.hpp</includes>
-      <sectiondef kind="public-type">
+    <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classavx_1_1_u_char256_1a4507caf14293893eebbcb9903373d634" prot="public" static="no">
         <type>unsigned char</type>
         <definition>using avx::UChar256::storedType =  unsigned char</definition>
         <argsstring></argsstring>
         <name>storedType</name>
+        <qualifiedname>avx::UChar256::storedType</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="28" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="28" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="28" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-attrib">
+    </sectiondef>
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classavx_1_1_u_char256_1a98bfb70355aa4c583c502ea1239680eb" prot="private" static="no" mutable="no">
         <type>__m256i</type>
         <definition>__m256i avx::UChar256::v</definition>
         <argsstring></argsstring>
         <name>v</name>
+        <qualifiedname>avx::UChar256::v</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="23" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="23" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="23" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-attrib">
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="classavx_1_1_u_char256_1a2d93ebc50ecfc5a00839532013091cf4" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr int</type>
-        <definition>constexpr int avx::UChar256::size</definition>
+        <type>int</type>
+        <definition>int avx::UChar256::size</definition>
         <argsstring></argsstring>
         <name>size</name>
+        <qualifiedname>avx::UChar256::size</qualifiedname>
         <initializer>= 32</initializer>
         <briefdescription>
         </briefdescription>
@@ -46,28 +49,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="27" column="34" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="27" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="27" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="27" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad65831d82cf9fa0bf09d316014e216cc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>() noexcept</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="30" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="30" bodyend="30"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="30" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="30" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a88e2884c653674de4e8e24d1540b3e08" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>(const unsigned char init) noexcept</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <param>
           <type>const unsigned char</type>
           <declname>init</declname>
@@ -78,13 +83,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="32" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="32" bodyend="32"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="32" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="32" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aad3251db80eb55be631bcd48898b8111" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>(const __m256i &amp;init) noexcept</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <param>
           <type>const __m256i &amp;</type>
           <declname>init</declname>
@@ -95,13 +101,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="34" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="34" bodyend="34"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="34" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="34" bodyend="34"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a7daa5793dd933c16b925e580ba71b36d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>(const UChar256 &amp;init) noexcept</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>init</declname>
@@ -112,13 +119,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="36" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="36" bodyend="36"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="36" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="36" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aedd2eb8d019cc2dbc78bc767aee1efc7" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>(const unsigned char *pSrc)</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <param>
           <type>const unsigned char *</type>
           <declname>pSrc</declname>
@@ -149,13 +157,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="45" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="45" bodyend="50"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="45" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="45" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1adc354d94f11fb25d4d618ea25d168124" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>(const std::string &amp;init) noexcept</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <param>
           <type>const std::string &amp;</type>
           <declname>init</declname>
@@ -177,13 +186,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="65" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="65" bodyend="79"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="65" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="65" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a1a0403deb56f30f22304d515e7f3eb14" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>(const std::array&lt; unsigned char, 32 &gt; &amp;init) noexcept</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <param>
           <type>const std::array&lt; unsigned char, 32 &gt; &amp;</type>
           <declname>init</declname>
@@ -194,13 +204,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="81" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="81" bodyend="81"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="81" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="81" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a50f88c529af5de5603a165b4a46d0baa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::UChar256::UChar256</definition>
         <argsstring>(std::initializer_list&lt; unsigned char &gt; init)</argsstring>
         <name>UChar256</name>
+        <qualifiedname>avx::UChar256::UChar256</qualifiedname>
         <param>
           <type>std::initializer_list&lt; unsigned char &gt;</type>
           <declname>init</declname>
@@ -211,13 +222,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="83" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="83" bodyend="101"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="83" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="83" bodyend="101"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad3c2ae53c8dbe7fe8bc54dae56bcdd08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::UChar256::load</definition>
         <argsstring>(const unsigned char *pSrc) N_THROW_REL</argsstring>
         <name>load</name>
+        <qualifiedname>avx::UChar256::load</qualifiedname>
         <param>
           <type>const unsigned char *</type>
           <declname>pSrc</declname>
@@ -247,13 +259,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="108" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="108" bodyend="115"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="108" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="108" bodyend="115"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a1c3f349b32726616faa25ea575e9f6ac" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::UChar256::save</definition>
         <argsstring>(std::array&lt; unsigned char, 32 &gt; &amp;dest) const noexcept</argsstring>
         <name>save</name>
+        <qualifiedname>avx::UChar256::save</qualifiedname>
         <param>
           <type>std::array&lt; unsigned char, 32 &gt; &amp;</type>
           <declname>dest</declname>
@@ -274,13 +287,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="121" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="121" bodyend="123"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="121" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="121" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a0aae3ce6e38d06d8ebc24915c8a2cf72" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::UChar256::save</definition>
         <argsstring>(unsigned char *pDest) const N_THROW_REL</argsstring>
         <name>save</name>
+        <qualifiedname>avx::UChar256::save</qualifiedname>
         <param>
           <type>unsigned char *</type>
           <declname>pDest</declname>
@@ -311,13 +325,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="132" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="132" bodyend="139"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="132" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="132" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ab0abe7c67029f6f86ccfa4e525c4d0e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::UChar256::saveAligned</definition>
         <argsstring>(unsigned char *pDest) const N_THROW_REL</argsstring>
         <name>saveAligned</name>
+        <qualifiedname>avx::UChar256::saveAligned</qualifiedname>
         <param>
           <type>unsigned char *</type>
           <declname>pDest</declname>
@@ -348,13 +363,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="148" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="148" bodyend="155"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="148" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="148" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1af77f33fd2def1940b8db9760d7acb218" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
         <definition>__m256i avx::UChar256::get</definition>
         <argsstring>() const noexcept</argsstring>
         <name>get</name>
+        <qualifiedname>avx::UChar256::get</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -364,13 +380,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="161" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="161" bodyend="161"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="161" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="161" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2e2d59825a4e30db333857a757847599" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::UChar256::set</definition>
         <argsstring>(const __m256i value) noexcept</argsstring>
         <name>set</name>
+        <qualifiedname>avx::UChar256::set</qualifiedname>
         <param>
           <type>const __m256i</type>
           <declname>value</declname>
@@ -391,13 +408,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="167" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="167" bodyend="167"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="167" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="167" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1af40bd631875be9dc639c23e76f1f6c13" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>unsigned char</type>
         <definition>unsigned char avx::UChar256::operator[]</definition>
         <argsstring>(const unsigned int &amp;index) const</argsstring>
         <name>operator[]</name>
+        <qualifiedname>avx::UChar256::operator[]</qualifiedname>
         <param>
           <type>const unsigned int &amp;</type>
           <declname>index</declname>
@@ -429,13 +447,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="175" column="27" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="175" bodyend="181"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="175" column="27" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="175" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ac7e6197e1fa16108f72aa98f5ee0ced9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::UChar256::operator==</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator==</name>
+        <qualifiedname>avx::UChar256::operator==</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -446,13 +465,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="187" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="187" bodyend="190"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="187" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="187" bodyend="190"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a6f9bb6e6f09921c6eabbf68417a7388b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::UChar256::operator==</definition>
         <argsstring>(const char b) const noexcept</argsstring>
         <name>operator==</name>
+        <qualifiedname>avx::UChar256::operator==</qualifiedname>
         <param>
           <type>const char</type>
           <declname>b</declname>
@@ -463,13 +483,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="192" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="192" bodyend="196"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="192" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="192" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a4317f7ab6ac388d1f1b80fdbf43a089e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::UChar256::operator!=</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator!=</name>
+        <qualifiedname>avx::UChar256::operator!=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -480,13 +501,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="198" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="198" bodyend="201"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="198" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="198" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a3d1cd299a66d4e5af24df150a622989d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::UChar256::operator!=</definition>
         <argsstring>(const char b) const noexcept</argsstring>
         <name>operator!=</name>
+        <qualifiedname>avx::UChar256::operator!=</qualifiedname>
         <param>
           <type>const char</type>
           <declname>b</declname>
@@ -497,13 +519,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="203" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="203" bodyend="207"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="203" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="203" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad85b21b8d384a3a1aa33b8845f9ec40a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator+</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator+</name>
+        <qualifiedname>avx::UChar256::operator+</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -514,13 +537,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="210" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="210" bodyend="212"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="210" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="210" bodyend="212"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2aabaaee8893908160e17632d99ce488" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator+</definition>
         <argsstring>(const unsigned char &amp;b) const noexcept</argsstring>
         <name>operator+</name>
+        <qualifiedname>avx::UChar256::operator+</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -531,13 +555,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="215" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="215" bodyend="217"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="215" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="215" bodyend="217"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1ae3efa5c8d6649cc55c8836fc4d87a7e0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1abcf357a7b5b67c81d643f13a30c2c766" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator+=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator+=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator+=</name>
+        <qualifiedname>avx::UChar256::operator+=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -548,13 +573,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="220" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="220" bodyend="223"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="220" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="220" bodyend="223"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a9ccb35e11c4674b57adac6c104186a25" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a1b681e9d03b36ba47fb0f5600313f484" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator+=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator+=</definition>
         <argsstring>(const unsigned char &amp;b) noexcept</argsstring>
         <name>operator+=</name>
+        <qualifiedname>avx::UChar256::operator+=</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -565,13 +591,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="226" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="226" bodyend="229"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="226" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="226" bodyend="229"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a8d5097fb10c0bb84530fd9cd3a627f47" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator-</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator-</name>
+        <qualifiedname>avx::UChar256::operator-</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -582,13 +609,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="232" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="232" bodyend="234"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="232" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="232" bodyend="234"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a1189bee75387139468599a2b10d150a7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator-</definition>
         <argsstring>(const unsigned char &amp;b) const noexcept</argsstring>
         <name>operator-</name>
+        <qualifiedname>avx::UChar256::operator-</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -599,13 +627,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="237" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="237" bodyend="239"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="237" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="237" bodyend="239"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1ad1d113e33ea13b2234f2a899db862c8f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1aef0afa28ddef275288fe9b66944871aa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator-=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator-=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator-=</name>
+        <qualifiedname>avx::UChar256::operator-=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -616,13 +645,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="242" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="242" bodyend="245"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="242" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="242" bodyend="245"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a54b3972f9f9e8fdaf83ac603ff5fd3cd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a8b2eb9b899c980c7b4f5a1f3e2c6aa1a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator-=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator-=</definition>
         <argsstring>(const unsigned char &amp;b) noexcept</argsstring>
         <name>operator-=</name>
+        <qualifiedname>avx::UChar256::operator-=</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -633,13 +663,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="248" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="248" bodyend="251"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="248" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="248" bodyend="251"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ae470ba307493dde9ace0d7ac822325dc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator*</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator*</name>
+        <qualifiedname>avx::UChar256::operator*</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -650,13 +681,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="254" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="254" bodyend="272"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="254" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="254" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2fea06e449a30e4b55e0a49a5af1b312" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator*</definition>
         <argsstring>(const char &amp;b) const noexcept</argsstring>
         <name>operator*</name>
+        <qualifiedname>avx::UChar256::operator*</qualifiedname>
         <param>
           <type>const char &amp;</type>
           <declname>b</declname>
@@ -667,13 +699,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="275" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="275" bodyend="291"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="275" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="275" bodyend="291"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a2b3849c5b7a792851661ca463c220ffc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1aafaf69ff9c21d0a65e0071cc9968206b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator*=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator*=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator*=</name>
+        <qualifiedname>avx::UChar256::operator*=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -684,13 +717,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="294" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="294" bodyend="313"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="294" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="294" bodyend="313"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a1dd73f3279f163675243656cf9d156e7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1ab7bc239fe1d952ed53550c4f1df93af0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator*=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator*=</definition>
         <argsstring>(const char &amp;b) noexcept</argsstring>
         <name>operator*=</name>
+        <qualifiedname>avx::UChar256::operator*=</qualifiedname>
         <param>
           <type>const char &amp;</type>
           <declname>b</declname>
@@ -701,13 +735,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="316" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="316" bodyend="333"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="316" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="316" bodyend="333"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad0f1d5abbfaa4dbb06116bec632a60c2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator/</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator/</name>
+        <qualifiedname>avx::UChar256::operator/</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -718,13 +753,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="336" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="336" bodyend="378"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="336" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="336" bodyend="378"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a321a8b008f5a948f3363234ea7784ffb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator/</definition>
         <argsstring>(const unsigned char b) const noexcept</argsstring>
         <name>operator/</name>
+        <qualifiedname>avx::UChar256::operator/</qualifiedname>
         <param>
           <type>const unsigned char</type>
           <declname>b</declname>
@@ -735,13 +771,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="380" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="380" bodyend="413"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="380" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="380" bodyend="413"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aded81e2ab36dcfd21eeaefea39dd6e9b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator/=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator/=</name>
+        <qualifiedname>avx::UChar256::operator/=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -752,13 +789,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="415" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="415" bodyend="458"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="415" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="415" bodyend="458"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a9a25f5cba78089f19ad5f8d5654a35fa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator/=</definition>
         <argsstring>(const unsigned char b) noexcept</argsstring>
         <name>operator/=</name>
+        <qualifiedname>avx::UChar256::operator/=</qualifiedname>
         <param>
           <type>const unsigned char</type>
           <declname>b</declname>
@@ -769,13 +807,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="460" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="460" bodyend="494"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="460" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="460" bodyend="494"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a481f6ea0e3b1b374a1a142352303491d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator%</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator%</name>
+        <qualifiedname>avx::UChar256::operator%</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -786,13 +825,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="497" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="497" bodyend="543"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="497" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="497" bodyend="543"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a6922dd2edd5a972f0cab870f4e9d5b83" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator%</definition>
         <argsstring>(const unsigned char b) const noexcept</argsstring>
         <name>operator%</name>
+        <qualifiedname>avx::UChar256::operator%</qualifiedname>
         <param>
           <type>const unsigned char</type>
           <declname>b</declname>
@@ -803,13 +843,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="545" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="545" bodyend="584"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="545" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="545" bodyend="584"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ab6c063e25a4c35bfdd02f3a2141c1802" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator%=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator%=</name>
+        <qualifiedname>avx::UChar256::operator%=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -820,13 +861,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="586" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="586" bodyend="633"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="586" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="586" bodyend="633"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a06c7665e116da3bffd40994efb604c14" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator%=</definition>
         <argsstring>(const unsigned char b) noexcept</argsstring>
         <name>operator%=</name>
+        <qualifiedname>avx::UChar256::operator%=</qualifiedname>
         <param>
           <type>const unsigned char</type>
           <declname>b</declname>
@@ -837,13 +879,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="638" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="638" bodyend="681"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="638" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="638" bodyend="681"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad6c864a6400529e7e670c6b97d55014f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator&amp;</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator&amp;</name>
+        <qualifiedname>avx::UChar256::operator&amp;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -854,13 +897,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="684" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="684" bodyend="686"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="684" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="684" bodyend="686"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a47afea3952c84e987647d305e84d926c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator&amp;</definition>
         <argsstring>(const unsigned char &amp;b) const noexcept</argsstring>
         <name>operator&amp;</name>
+        <qualifiedname>avx::UChar256::operator&amp;</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -871,13 +915,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="689" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="689" bodyend="691"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="689" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="689" bodyend="691"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1ab92fec899219b222a6db8a04f54184bc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1aa87bd398ed2bc04d1b88aba5b3cd9950" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator&amp;=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator&amp;=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator&amp;=</name>
+        <qualifiedname>avx::UChar256::operator&amp;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -888,13 +933,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="694" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="694" bodyend="697"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="694" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="694" bodyend="697"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a9c9be4f926e153c45ea59773822f2377" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a3bef6b11b1d0f7d7da26d65f60a72dcf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator&amp;=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator&amp;=</definition>
         <argsstring>(const unsigned char &amp;b) noexcept</argsstring>
         <name>operator&amp;=</name>
+        <qualifiedname>avx::UChar256::operator&amp;=</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -905,13 +951,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="700" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="700" bodyend="703"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="700" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="700" bodyend="703"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a03eb09f835ed374f0b20441c421dba57" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator|</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator|</name>
+        <qualifiedname>avx::UChar256::operator|</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -922,13 +969,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="706" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="706" bodyend="708"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="706" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="706" bodyend="708"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2f26df773bef07723fe6572fe3fe2206" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator|</definition>
         <argsstring>(const unsigned char &amp;b) const noexcept</argsstring>
         <name>operator|</name>
+        <qualifiedname>avx::UChar256::operator|</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -939,13 +987,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="711" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="711" bodyend="713"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="711" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="711" bodyend="713"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1ad68f9c5dd3c30bef3ee984ef1a079c04" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a4a5650d4ae97edbbe871bdfc688c4e49" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator|=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator|=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator|=</name>
+        <qualifiedname>avx::UChar256::operator|=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -956,13 +1005,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="716" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="716" bodyend="719"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="716" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="716" bodyend="719"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1af45a660c17989f783ad19b341e2e7b7f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1ab3df386f51f879cae4ef7eedb58a2c40" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator|=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator|=</definition>
         <argsstring>(const unsigned char &amp;b) noexcept</argsstring>
         <name>operator|=</name>
+        <qualifiedname>avx::UChar256::operator|=</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -973,13 +1023,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="722" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="722" bodyend="725"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="722" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="722" bodyend="725"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aeb1a020148f8cd332a350af91fad3de2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator^</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator^</name>
+        <qualifiedname>avx::UChar256::operator^</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -990,13 +1041,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="728" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="728" bodyend="730"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="728" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="728" bodyend="730"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a61021c51ba4a8aba59f0ba866972f14e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator^</definition>
         <argsstring>(const unsigned char &amp;b) const noexcept</argsstring>
         <name>operator^</name>
+        <qualifiedname>avx::UChar256::operator^</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -1007,13 +1059,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="733" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="733" bodyend="735"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="733" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="733" bodyend="735"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a531af26697f320a10158608bda4103a9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a8f3ddbf3f712accc542900eff6066977" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator^=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator^=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator^=</name>
+        <qualifiedname>avx::UChar256::operator^=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1024,13 +1077,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="738" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="738" bodyend="741"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="738" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="738" bodyend="741"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a1ea648716576111d2d60090ef899129d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a0c7f955b5b81e8cf79912cb419c48c09" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator^=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator^=</definition>
         <argsstring>(const unsigned char &amp;b) noexcept</argsstring>
         <name>operator^=</name>
+        <qualifiedname>avx::UChar256::operator^=</qualifiedname>
         <param>
           <type>const unsigned char &amp;</type>
           <declname>b</declname>
@@ -1041,13 +1095,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="744" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="744" bodyend="747"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="744" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="744" bodyend="747"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1af315d01c5355d0f4ed4d2023e3008a81" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator&lt;&lt;</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator&lt;&lt;</name>
+        <qualifiedname>avx::UChar256::operator&lt;&lt;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1058,13 +1113,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="750" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="750" bodyend="786"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="750" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="750" bodyend="786"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ae862868b1b73665ee359961d7203055b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator&lt;&lt;</definition>
         <argsstring>(const unsigned int &amp;b) const noexcept</argsstring>
         <name>operator&lt;&lt;</name>
+        <qualifiedname>avx::UChar256::operator&lt;&lt;</qualifiedname>
         <param>
           <type>const unsigned int &amp;</type>
           <declname>b</declname>
@@ -1075,13 +1131,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="789" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="789" bodyend="802"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="789" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="789" bodyend="802"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a67674552f08709e0e175ca728416a71e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a95f458c17c1b5e0285473e5524716867" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator&lt;&lt;=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator&lt;&lt;=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator&lt;&lt;=</name>
+        <qualifiedname>avx::UChar256::operator&lt;&lt;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1092,13 +1149,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="805" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="805" bodyend="842"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="805" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="805" bodyend="842"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1a46120985f60d7b61b8f1ff96570269d6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1aaee6c756e2935da3c2b1776e519f3b0a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator&lt;&lt;=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator&lt;&lt;=</definition>
         <argsstring>(const unsigned int &amp;b) noexcept</argsstring>
         <name>operator&lt;&lt;=</name>
+        <qualifiedname>avx::UChar256::operator&lt;&lt;=</qualifiedname>
         <param>
           <type>const unsigned int &amp;</type>
           <declname>b</declname>
@@ -1109,13 +1167,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="845" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="845" bodyend="859"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="845" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="845" bodyend="859"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a4d33ac11841a57623ca3e1612be85133" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator&gt;&gt;</definition>
         <argsstring>(const UChar256 &amp;bV) const noexcept</argsstring>
         <name>operator&gt;&gt;</name>
+        <qualifiedname>avx::UChar256::operator&gt;&gt;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1126,13 +1185,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="862" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="862" bodyend="892"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="862" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="862" bodyend="892"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a9d49f2203f5bd3dbedf23bdcda5c4129" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator&gt;&gt;</definition>
         <argsstring>(const unsigned int &amp;b) const noexcept</argsstring>
         <name>operator&gt;&gt;</name>
+        <qualifiedname>avx::UChar256::operator&gt;&gt;</qualifiedname>
         <param>
           <type>const unsigned int &amp;</type>
           <declname>b</declname>
@@ -1143,13 +1203,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="895" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="895" bodyend="903"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="895" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="895" bodyend="903"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1aa52c3c73b913e875795b268a4efdf8ab" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a8f462c02a60ee341866d857aa460f171" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator&gt;&gt;=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator&gt;&gt;=</definition>
         <argsstring>(const UChar256 &amp;bV) noexcept</argsstring>
         <name>operator&gt;&gt;=</name>
+        <qualifiedname>avx::UChar256::operator&gt;&gt;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1160,13 +1221,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="906" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="906" bodyend="937"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="906" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="906" bodyend="937"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_char256_1adc6abdff0bb6b2979aa46e180f152f10" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_char256_1a9e6843fc33f70e5b9bdae07a3cbff2af" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-        <definition>UChar256&amp; avx::UChar256::operator&gt;&gt;=</definition>
+        <definition>UChar256 &amp; avx::UChar256::operator&gt;&gt;=</definition>
         <argsstring>(const unsigned int &amp;b) noexcept</argsstring>
         <name>operator&gt;&gt;=</name>
+        <qualifiedname>avx::UChar256::operator&gt;&gt;=</qualifiedname>
         <param>
           <type>const unsigned int &amp;</type>
           <declname>b</declname>
@@ -1177,54 +1239,58 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="940" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="940" bodyend="949"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="940" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="940" bodyend="949"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ae0b8856818164e400f93ef8549485c1b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
         <definition>UChar256 avx::UChar256::operator~</definition>
         <argsstring>() const noexcept</argsstring>
         <name>operator~</name>
+        <qualifiedname>avx::UChar256::operator~</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="953" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="953" bodyend="955"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="953" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="953" bodyend="955"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ab3017afc90d57f773d44b94fd352b675" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string avx::UChar256::str</definition>
         <argsstring>() const noexcept</argsstring>
         <name>str</name>
+        <qualifiedname>avx::UChar256::str</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="957" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="957" bodyend="966"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="957" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="957" bodyend="966"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a55e8e99c9c95b89cc97bfdfa87df9014" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string avx::UChar256::toString</definition>
         <argsstring>() const noexcept</argsstring>
         <name>toString</name>
+        <qualifiedname>avx::UChar256::toString</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="968" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="968" bodyend="975"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="968" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="968" bodyend="975"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="friend">
-      <memberdef kind="friend" id="classavx_1_1_u_char256_1a38ee55d314f8287fb615baf6299b52c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classavx_1_1_u_char256_1a68078b02b69961cd511eee1888118560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <definition>std::ostream &amp; operator&lt;&lt;</definition>
         <argsstring>(std::ostream &amp;os, const UChar256 &amp;a)</argsstring>
         <name>operator&lt;&lt;</name>
+        <qualifiedname>avx::UChar256::operator&lt;&lt;</qualifiedname>
         <param>
           <type>std::ostream &amp;</type>
           <declname>os</declname>
@@ -1239,15 +1305,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="977" column="19" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.cpp" bodystart="6" bodyend="14"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="977" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.cpp" bodystart="6" bodyend="14"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Class representing vectorized version of <computeroutput>unsigned char</computeroutput>. It can hold 32 individual <computeroutput>unsigned char</computeroutput> variables. Provides support for arithmetic and bitwise operators. <computeroutput>str()</computeroutput> method returns stored data as string. Supports printing directly to stream (cout). </para>
     </detaileddescription>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" line="21" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp" bodystart="21" bodyend="979"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="21" bodyend="979"/>
     <listofallmembers>
       <member refid="classavx_1_1_u_char256_1af77f33fd2def1940b8db9760d7acb218" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>get</name></member>
       <member refid="classavx_1_1_u_char256_1ad3c2ae53c8dbe7fe8bc54dae56bcdd08" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>load</name></member>
@@ -1259,44 +1325,44 @@
       <member refid="classavx_1_1_u_char256_1a06c7665e116da3bffd40994efb604c14" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator%=</name></member>
       <member refid="classavx_1_1_u_char256_1ad6c864a6400529e7e670c6b97d55014f" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&amp;</name></member>
       <member refid="classavx_1_1_u_char256_1a47afea3952c84e987647d305e84d926c" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&amp;</name></member>
-      <member refid="classavx_1_1_u_char256_1ab92fec899219b222a6db8a04f54184bc" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&amp;=</name></member>
-      <member refid="classavx_1_1_u_char256_1a9c9be4f926e153c45ea59773822f2377" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_u_char256_1aa87bd398ed2bc04d1b88aba5b3cd9950" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_u_char256_1a3bef6b11b1d0f7d7da26d65f60a72dcf" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&amp;=</name></member>
       <member refid="classavx_1_1_u_char256_1ae470ba307493dde9ace0d7ac822325dc" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator*</name></member>
       <member refid="classavx_1_1_u_char256_1a2fea06e449a30e4b55e0a49a5af1b312" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_u_char256_1a2b3849c5b7a792851661ca463c220ffc" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator*=</name></member>
-      <member refid="classavx_1_1_u_char256_1a1dd73f3279f163675243656cf9d156e7" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_u_char256_1aafaf69ff9c21d0a65e0071cc9968206b" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_u_char256_1ab7bc239fe1d952ed53550c4f1df93af0" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator*=</name></member>
       <member refid="classavx_1_1_u_char256_1ad85b21b8d384a3a1aa33b8845f9ec40a" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator+</name></member>
       <member refid="classavx_1_1_u_char256_1a2aabaaee8893908160e17632d99ce488" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_u_char256_1ae3efa5c8d6649cc55c8836fc4d87a7e0" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_u_char256_1a9ccb35e11c4674b57adac6c104186a25" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_u_char256_1abcf357a7b5b67c81d643f13a30c2c766" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_u_char256_1a1b681e9d03b36ba47fb0f5600313f484" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator+=</name></member>
       <member refid="classavx_1_1_u_char256_1a8d5097fb10c0bb84530fd9cd3a627f47" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator-</name></member>
       <member refid="classavx_1_1_u_char256_1a1189bee75387139468599a2b10d150a7" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_u_char256_1ad1d113e33ea13b2234f2a899db862c8f" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_u_char256_1a54b3972f9f9e8fdaf83ac603ff5fd3cd" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_u_char256_1aef0afa28ddef275288fe9b66944871aa" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_u_char256_1a8b2eb9b899c980c7b4f5a1f3e2c6aa1a" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator-=</name></member>
       <member refid="classavx_1_1_u_char256_1ad0f1d5abbfaa4dbb06116bec632a60c2" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator/</name></member>
       <member refid="classavx_1_1_u_char256_1a321a8b008f5a948f3363234ea7784ffb" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator/</name></member>
       <member refid="classavx_1_1_u_char256_1aded81e2ab36dcfd21eeaefea39dd6e9b" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator/=</name></member>
       <member refid="classavx_1_1_u_char256_1a9a25f5cba78089f19ad5f8d5654a35fa" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator/=</name></member>
       <member refid="classavx_1_1_u_char256_1af315d01c5355d0f4ed4d2023e3008a81" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;</name></member>
       <member refid="classavx_1_1_u_char256_1ae862868b1b73665ee359961d7203055b" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;</name></member>
-      <member refid="classavx_1_1_u_char256_1a38ee55d314f8287fb615baf6299b52c9" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;</name></member>
-      <member refid="classavx_1_1_u_char256_1a67674552f08709e0e175ca728416a71e" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;=</name></member>
-      <member refid="classavx_1_1_u_char256_1a46120985f60d7b61b8f1ff96570269d6" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_u_char256_1a68078b02b69961cd511eee1888118560" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classavx_1_1_u_char256_1a95f458c17c1b5e0285473e5524716867" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_u_char256_1aaee6c756e2935da3c2b1776e519f3b0a" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&lt;&lt;=</name></member>
       <member refid="classavx_1_1_u_char256_1ac7e6197e1fa16108f72aa98f5ee0ced9" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_u_char256_1a6f9bb6e6f09921c6eabbf68417a7388b" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_u_char256_1a4d33ac11841a57623ca3e1612be85133" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&gt;&gt;</name></member>
       <member refid="classavx_1_1_u_char256_1a9d49f2203f5bd3dbedf23bdcda5c4129" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&gt;&gt;</name></member>
-      <member refid="classavx_1_1_u_char256_1aa52c3c73b913e875795b268a4efdf8ab" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&gt;&gt;=</name></member>
-      <member refid="classavx_1_1_u_char256_1adc6abdff0bb6b2979aa46e180f152f10" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_u_char256_1a8f462c02a60ee341866d857aa460f171" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_u_char256_1a9e6843fc33f70e5b9bdae07a3cbff2af" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator&gt;&gt;=</name></member>
       <member refid="classavx_1_1_u_char256_1af40bd631875be9dc639c23e76f1f6c13" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator[]</name></member>
       <member refid="classavx_1_1_u_char256_1aeb1a020148f8cd332a350af91fad3de2" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator^</name></member>
       <member refid="classavx_1_1_u_char256_1a61021c51ba4a8aba59f0ba866972f14e" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator^</name></member>
-      <member refid="classavx_1_1_u_char256_1a531af26697f320a10158608bda4103a9" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator^=</name></member>
-      <member refid="classavx_1_1_u_char256_1a1ea648716576111d2d60090ef899129d" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_u_char256_1a8f3ddbf3f712accc542900eff6066977" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_u_char256_1a0c7f955b5b81e8cf79912cb419c48c09" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator^=</name></member>
       <member refid="classavx_1_1_u_char256_1a03eb09f835ed374f0b20441c421dba57" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator|</name></member>
       <member refid="classavx_1_1_u_char256_1a2f26df773bef07723fe6572fe3fe2206" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator|</name></member>
-      <member refid="classavx_1_1_u_char256_1ad68f9c5dd3c30bef3ee984ef1a079c04" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator|=</name></member>
-      <member refid="classavx_1_1_u_char256_1af45a660c17989f783ad19b341e2e7b7f" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_u_char256_1a4a5650d4ae97edbbe871bdfc688c4e49" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_u_char256_1ab3df386f51f879cae4ef7eedb58a2c40" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator|=</name></member>
       <member refid="classavx_1_1_u_char256_1ae0b8856818164e400f93ef8549485c1b" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>operator~</name></member>
       <member refid="classavx_1_1_u_char256_1a1c3f349b32726616faa25ea575e9f6ac" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>save</name></member>
       <member refid="classavx_1_1_u_char256_1a0aae3ce6e38d06d8ebc24915c8a2cf72" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>save</name></member>

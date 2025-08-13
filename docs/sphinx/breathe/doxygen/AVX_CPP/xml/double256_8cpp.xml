@@ -1,17 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="double256_8cpp" kind="file" language="C++">
     <compoundname>double256.cpp</compoundname>
     <includes refid="double256_8hpp" local="yes">double256.hpp</includes>
     <incdepgraph>
-      <node id="6">
-        <label>immintrin.h</label>
+      <node id="7">
+        <label>constants.hpp</label>
+        <link refid="constants_8hpp_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
-      <node id="5">
-        <label>stdexcept</label>
-      </node>
-      <node id="4">
-        <label>string</label>
+      <node id="1">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/double256.cpp</label>
+        <link refid="double256_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>double256.hpp</label>
@@ -30,17 +33,14 @@
       <node id="3">
         <label>array</label>
       </node>
-      <node id="1">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/double256.cpp</label>
-        <link refid="double256_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
+      <node id="6">
+        <label>immintrin.h</label>
       </node>
-      <node id="7">
-        <label>constants.hpp</label>
-        <link refid="constants_8hpp_source"/>
-        <childnode refid="6" relation="include">
-        </childnode>
+      <node id="5">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>string</label>
       </node>
     </incdepgraph>
     <briefdescription>
@@ -48,8 +48,8 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;double256.hpp&quot;</highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;double256.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/double256.cpp"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.cpp"/>
   </compounddef>
 </doxygen>

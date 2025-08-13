@@ -1,44 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="classavx_1_1_u_long256" kind="class" language="C++" prot="public">
     <compoundname>avx::ULong256</compoundname>
     <includes refid="ulong256_8hpp" local="no">ulong256.hpp</includes>
-      <sectiondef kind="public-type">
+    <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classavx_1_1_u_long256_1a39143d0221c2c72aea59afa5c782abca" prot="public" static="no">
         <type>unsigned long long</type>
         <definition>using avx::ULong256::storedType =  unsigned long long</definition>
         <argsstring></argsstring>
         <name>storedType</name>
+        <qualifiedname>avx::ULong256::storedType</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="27" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="27" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="27" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="27" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-attrib">
+    </sectiondef>
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classavx_1_1_u_long256_1a7970be8325dbeea3d4a52192b493b44a" prot="private" static="no" mutable="no">
         <type>__m256i</type>
         <definition>__m256i avx::ULong256::v</definition>
         <argsstring></argsstring>
         <name>v</name>
+        <qualifiedname>avx::ULong256::v</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="23" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="23" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="23" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-attrib">
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="classavx_1_1_u_long256_1a59e8929ab3a03d8fb40b79f4437cb5fa" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr int</type>
-        <definition>constexpr int avx::ULong256::size</definition>
+        <type>int</type>
+        <definition>int avx::ULong256::size</definition>
         <argsstring></argsstring>
         <name>size</name>
+        <qualifiedname>avx::ULong256::size</qualifiedname>
         <initializer>= 4</initializer>
         <briefdescription>
         </briefdescription>
@@ -46,28 +49,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="26" column="34" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="26" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="26" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="26" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classavx_1_1_u_long256_1aa15a63145e8fd02b04dd459cca921abe" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>() noexcept</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="29" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="29" bodyend="29"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="29" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="29" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1abc9ba826a17307403e77a091eebb319b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(__m256i init)</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>__m256i</type>
           <declname>init</declname>
@@ -78,13 +83,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="31" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="31" bodyend="31"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="31" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="31" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1aff9dedbebdfe8d493285ec98a4d66fc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(const unsigned long long &amp;init)</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>init</declname>
@@ -95,13 +101,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="33" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="33" bodyend="35"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="33" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="33" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a60073c414eff10b63c4da983c8babfc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(const ULong256 &amp;init)</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>init</declname>
@@ -112,13 +119,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="37" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="37" bodyend="37"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="37" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="37" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1ab3dbb611c93bae3396f3561ddf010f53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(const unsigned long long *init)</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>const unsigned long long *</type>
           <declname>init</declname>
@@ -129,13 +137,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="39" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="39" bodyend="41"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="39" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="39" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1aa9c7a2829eadead35e220fa8588ddecf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(const std::array&lt; unsigned long long, 4 &gt; &amp;init)</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>const std::array&lt; unsigned long long, 4 &gt; &amp;</type>
           <declname>init</declname>
@@ -146,13 +155,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="43" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="43" bodyend="45"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="43" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="43" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1ad242fa936fe10a67a262c4e36a1b90a2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(const std::array&lt; unsigned int, 4 &gt; &amp;init) noexcept</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>const std::array&lt; unsigned int, 4 &gt; &amp;</type>
           <declname>init</declname>
@@ -163,13 +173,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="47" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="47" bodyend="55"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="47" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="47" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a36d5792804b654f900886ab72d63799b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(const std::array&lt; unsigned short, 4 &gt; &amp;init) noexcept</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>const std::array&lt; unsigned short, 4 &gt; &amp;</type>
           <declname>init</declname>
@@ -180,13 +191,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="57" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="57" bodyend="65"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="57" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="57" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a8629563ab0e12e816a6f7b5c38885959" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(const std::array&lt; unsigned char, 4 &gt; &amp;init) noexcept</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>const std::array&lt; unsigned char, 4 &gt; &amp;</type>
           <declname>init</declname>
@@ -197,13 +209,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="67" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="67" bodyend="75"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="67" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="67" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a9dada5c35ed69017bcaea95a683a2dfd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::ULong256::ULong256</definition>
         <argsstring>(std::initializer_list&lt; unsigned long long &gt; init) noexcept</argsstring>
         <name>ULong256</name>
+        <qualifiedname>avx::ULong256::ULong256</qualifiedname>
         <param>
           <type>std::initializer_list&lt; unsigned long long &gt;</type>
           <declname>init</declname>
@@ -214,26 +227,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="77" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="77" bodyend="95"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="77" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="77" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a8f0f43f1bde954af6693d9b0fdcdb934" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
         <definition>__m256i avx::ULong256::get</definition>
         <argsstring>() const noexcept</argsstring>
         <name>get</name>
+        <qualifiedname>avx::ULong256::get</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="97" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="97" bodyend="97"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="97" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="97" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1ab85ad51b963639abc86275e54946c100" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::ULong256::set</definition>
         <argsstring>(__m256i val) noexcept</argsstring>
         <name>set</name>
+        <qualifiedname>avx::ULong256::set</qualifiedname>
         <param>
           <type>__m256i</type>
           <declname>val</declname>
@@ -244,13 +259,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="98" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="98" bodyend="98"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="98" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="98" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a7befaf7490a1dbfb27df396e8f57edc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::ULong256::load</definition>
         <argsstring>(const unsigned long long *pSrc) N_THROW_REL</argsstring>
         <name>load</name>
+        <qualifiedname>avx::ULong256::load</qualifiedname>
         <param>
           <type>const unsigned long long *</type>
           <declname>pSrc</declname>
@@ -280,13 +296,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="105" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="105" bodyend="112"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="105" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="105" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a9758e4c235dc5977ea756a32536ecf59" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::ULong256::save</definition>
         <argsstring>(std::array&lt; unsigned long long, 4 &gt; &amp;dest) const noexcept</argsstring>
         <name>save</name>
+        <qualifiedname>avx::ULong256::save</qualifiedname>
         <param>
           <type>std::array&lt; unsigned long long, 4 &gt; &amp;</type>
           <declname>dest</declname>
@@ -307,13 +324,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="118" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="118" bodyend="120"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="118" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="118" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1af7817aa7d01478c2940a1d6cbb226a08" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::ULong256::save</definition>
         <argsstring>(unsigned long long *pDest) const N_THROW_REL</argsstring>
         <name>save</name>
+        <qualifiedname>avx::ULong256::save</qualifiedname>
         <param>
           <type>unsigned long long *</type>
           <declname>pDest</declname>
@@ -344,13 +362,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="129" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="129" bodyend="136"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="129" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="129" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a65f8554e25ea32f93b75504fe8730a83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::ULong256::saveAligned</definition>
         <argsstring>(unsigned long long *pDest) const N_THROW_REL</argsstring>
         <name>saveAligned</name>
+        <qualifiedname>avx::ULong256::saveAligned</qualifiedname>
         <param>
           <type>unsigned long long *</type>
           <declname>pDest</declname>
@@ -381,13 +400,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="145" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="145" bodyend="152"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="145" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="145" bodyend="152"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a31cacf130e5797e6165a744cd4b59782" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>unsigned long long</type>
         <definition>unsigned long long avx::ULong256::operator[]</definition>
         <argsstring>(unsigned int index) const</argsstring>
         <name>operator[]</name>
+        <qualifiedname>avx::ULong256::operator[]</qualifiedname>
         <param>
           <type>unsigned int</type>
           <declname>index</declname>
@@ -398,13 +418,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="154" column="32" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="154" bodyend="161"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="154" column="32" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="154" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a8bfa8eb27a2d8c781735dee83a170935" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::ULong256::operator==</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator==</name>
+        <qualifiedname>avx::ULong256::operator==</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -427,13 +448,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="173" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="173" bodyend="176"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="173" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="173" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a63ab8999fc84047b710a500db411c179" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::ULong256::operator==</definition>
         <argsstring>(const unsigned long long b) const noexcept</argsstring>
         <name>operator==</name>
+        <qualifiedname>avx::ULong256::operator==</qualifiedname>
         <param>
           <type>const unsigned long long</type>
           <declname>b</declname>
@@ -456,13 +478,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="184" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="184" bodyend="188"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="184" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="184" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a9f0e7fa843ae5701f5360430287c7782" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::ULong256::operator!=</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator!=</name>
+        <qualifiedname>avx::ULong256::operator!=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -485,13 +508,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="196" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="196" bodyend="199"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="196" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="196" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a6d92f7d0eb4b63369fcbac6864f69880" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::ULong256::operator!=</definition>
         <argsstring>(const unsigned long long b) const noexcept</argsstring>
         <name>operator!=</name>
+        <qualifiedname>avx::ULong256::operator!=</qualifiedname>
         <param>
           <type>const unsigned long long</type>
           <declname>b</declname>
@@ -514,13 +538,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="207" column="18" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="207" bodyend="211"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="207" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="207" bodyend="211"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1afcfe7134e46a94694fa36535738e1289" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator+</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator+</name>
+        <qualifiedname>avx::ULong256::operator+</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -534,13 +559,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="218" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="218" bodyend="220"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="218" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="218" bodyend="220"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a59c11f95dbcc00781921185dabad4ed4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator+</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator+</name>
+        <qualifiedname>avx::ULong256::operator+</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -554,13 +580,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="227" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="227" bodyend="232"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="227" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="227" bodyend="232"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1af9f3944a07be4d353028f5b607a28090" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1abcf387b6a98b5146d8c45ff52d9fa9e0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator+=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator+=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator+=</name>
+        <qualifiedname>avx::ULong256::operator+=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -571,13 +598,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="234" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="234" bodyend="240"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="234" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="234" bodyend="240"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a3061c46e3554e430922a13078d9101f7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a49aebd02dbbab2d3f4ee15c062a29fd0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator+=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator+=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator+=</name>
+        <qualifiedname>avx::ULong256::operator+=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -588,13 +616,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="242" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="242" bodyend="248"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="242" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="242" bodyend="248"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a39b635d88dd32939f3c2e798f945bc12" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator-</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator-</name>
+        <qualifiedname>avx::ULong256::operator-</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -605,13 +634,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="251" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="251" bodyend="253"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="251" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="251" bodyend="253"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a3f556e86d65581edf35f7813673d802e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator-</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator-</name>
+        <qualifiedname>avx::ULong256::operator-</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -622,13 +652,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="255" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="255" bodyend="260"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="255" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="255" bodyend="260"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a785225610d41901db18d2f0d1731b309" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a353ac3d10cc2c37e8118b142dfa8cde2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator-=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator-=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator-=</name>
+        <qualifiedname>avx::ULong256::operator-=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -639,13 +670,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="262" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="262" bodyend="265"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="262" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="262" bodyend="265"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a472006392c2d92125e664d702bf7f744" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a8a175d53ead1b674e542fb8938f26d88" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator-=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator-=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator-=</name>
+        <qualifiedname>avx::ULong256::operator-=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -656,13 +688,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="267" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="267" bodyend="273"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="267" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="267" bodyend="273"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a19c24ab8719afd5e6b994988a1784eae" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator*</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator*</name>
+        <qualifiedname>avx::ULong256::operator*</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -673,13 +706,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="275" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="275" bodyend="290"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="275" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="275" bodyend="290"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1acc517bf9edbe4d3cf34037ee5d60b290" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator*</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator*</name>
+        <qualifiedname>avx::ULong256::operator*</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -690,13 +724,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="292" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="292" bodyend="306"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="292" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="292" bodyend="306"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a216b5dcbc7303ab2a5d2fa50b6ccea8a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1aa4d50791ba89248ecec542aa752d6efa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator*=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator*=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator*=</name>
+        <qualifiedname>avx::ULong256::operator*=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -707,13 +742,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="308" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="308" bodyend="325"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="308" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="308" bodyend="325"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a4995553d98a8634656c799899f0b55ce" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a9fdf3e654eb1f344c77de31cd9c553c2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator*=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator*=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator*=</name>
+        <qualifiedname>avx::ULong256::operator*=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -724,13 +760,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="327" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="327" bodyend="343"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="327" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="327" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a7fb2aeb85d7a8cf0394f9038ea150c7e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator/</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator/</name>
+        <qualifiedname>avx::ULong256::operator/</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -741,13 +778,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="345" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="345" bodyend="360"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="345" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="345" bodyend="360"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a165518b07806ee0d02a4ef04c174ed2a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator/</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator/</name>
+        <qualifiedname>avx::ULong256::operator/</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -758,13 +796,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="362" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="362" bodyend="375"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="362" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="362" bodyend="375"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a228e758ce5958cc45a65031692896531" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1ab664b3defc7b8069df40acd0a6f171ec" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator/=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator/=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator/=</name>
+        <qualifiedname>avx::ULong256::operator/=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -775,13 +814,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="377" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="377" bodyend="393"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="377" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="377" bodyend="393"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1af255370f983204b6288c2db1d0cf693d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a0d349115699e9d8bc5fd37599f1e1e21" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator/=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator/=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator/=</name>
+        <qualifiedname>avx::ULong256::operator/=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -792,13 +832,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="395" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="395" bodyend="410"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="395" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="395" bodyend="410"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a1863a806d9b39523cee79f34bbe3bc69" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator%</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator%</name>
+        <qualifiedname>avx::ULong256::operator%</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -809,13 +850,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="412" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="412" bodyend="423"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="412" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="412" bodyend="423"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1aacf60e20a21d74a076f36d2c25b47122" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator%</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator%</name>
+        <qualifiedname>avx::ULong256::operator%</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -826,13 +868,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="425" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="425" bodyend="435"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="425" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="425" bodyend="435"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a23358dc61f085662aaedec73f73e6e98" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1af31473e3c5081a892361f79946181b3a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator%=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator%=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator%=</name>
+        <qualifiedname>avx::ULong256::operator%=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -843,13 +886,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="437" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="437" bodyend="449"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="437" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="437" bodyend="449"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a156a82077d716a041e9b4765e9b8480c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a6b9bfe36057171c7213f2c91b9cf2311" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator%=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator%=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator%=</name>
+        <qualifiedname>avx::ULong256::operator%=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -860,13 +904,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="451" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="451" bodyend="462"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="451" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="451" bodyend="462"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a503d4f12a970f6eeda9cb072a4b6b399" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator&amp;</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator&amp;</name>
+        <qualifiedname>avx::ULong256::operator&amp;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -877,13 +922,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="464" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="464" bodyend="466"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="464" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="464" bodyend="466"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1af41770307d72aebf5545b2e2a2dcc09e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator&amp;</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator&amp;</name>
+        <qualifiedname>avx::ULong256::operator&amp;</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -894,13 +940,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="468" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="468" bodyend="473"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="468" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="468" bodyend="473"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1ac1f4d84661e8afb11a0fe7f31aaa4a32" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1ab5f45ad2ab3ff2a3c8cca74f34538262" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator&amp;=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator&amp;=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator&amp;=</name>
+        <qualifiedname>avx::ULong256::operator&amp;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -911,13 +958,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="475" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="475" bodyend="478"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="475" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="475" bodyend="478"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a45c9ba851075d34e252ae697ae1bb8f4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1ac3cadeb11d6ece30b52617aebf1b0459" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator&amp;=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator&amp;=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator&amp;=</name>
+        <qualifiedname>avx::ULong256::operator&amp;=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -928,13 +976,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="480" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="480" bodyend="486"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="480" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="480" bodyend="486"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a84de8c4fd8940ecb0ade0895e6ff5174" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator|</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator|</name>
+        <qualifiedname>avx::ULong256::operator|</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -945,13 +994,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="488" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="488" bodyend="490"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="488" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="488" bodyend="490"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a323d9f9cc992d6a937190551ad08feff" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator|</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator|</name>
+        <qualifiedname>avx::ULong256::operator|</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -962,13 +1012,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="492" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="492" bodyend="497"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="492" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="492" bodyend="497"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1aa1249a922a01ffb5ae3a01315349072e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1af903e5a6814e7eed63672bcdf7cb02f8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator|=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator|=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator|=</name>
+        <qualifiedname>avx::ULong256::operator|=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -979,13 +1030,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="499" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="499" bodyend="502"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="499" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="499" bodyend="502"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a1bd8b80778e88273b5e7a239c0de836f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1acbc7e5fb65b849e2c44b461ba5329246" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator|=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator|=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator|=</name>
+        <qualifiedname>avx::ULong256::operator|=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -996,13 +1048,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="504" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="504" bodyend="510"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="504" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="504" bodyend="510"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a39bca86c38d953e330bf97a17bd84dc0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator^</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator^</name>
+        <qualifiedname>avx::ULong256::operator^</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1013,13 +1066,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="512" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="512" bodyend="514"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="512" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="512" bodyend="514"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1af84976b995dea28b886e639f8f197012" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator^</definition>
         <argsstring>(const unsigned long long &amp;b) const noexcept</argsstring>
         <name>operator^</name>
+        <qualifiedname>avx::ULong256::operator^</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -1030,13 +1084,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="516" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="516" bodyend="521"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="516" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="516" bodyend="521"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a50ce8535be97c6b0e6be32fbb836bcca" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1ace27dfeca66c416cb79ab456cf4a0aac" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator^=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator^=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator^=</name>
+        <qualifiedname>avx::ULong256::operator^=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1047,13 +1102,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="523" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="523" bodyend="526"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="523" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="523" bodyend="526"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a57b485dceb2292811e932bb9606733ca" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a9bfc815c30c6187e8af3d37cbcdbb7ed" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator^=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator^=</definition>
         <argsstring>(const unsigned long long &amp;b) noexcept</argsstring>
         <name>operator^=</name>
+        <qualifiedname>avx::ULong256::operator^=</qualifiedname>
         <param>
           <type>const unsigned long long &amp;</type>
           <declname>b</declname>
@@ -1064,26 +1120,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="528" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="528" bodyend="534"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="528" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="528" bodyend="534"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a414ca41a4b04c4026dabcab766cae3ca" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator~</definition>
         <argsstring>() const noexcept</argsstring>
         <name>operator~</name>
+        <qualifiedname>avx::ULong256::operator~</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="536" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="536" bodyend="536"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="536" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="536" bodyend="536"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1ad81bc85aeff1d4988607ec099255b5b7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator&lt;&lt;</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator&lt;&lt;</name>
+        <qualifiedname>avx::ULong256::operator&lt;&lt;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1094,13 +1152,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="538" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="538" bodyend="540"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="538" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="538" bodyend="540"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1aa6323b6a0cebc4e773c987e33caca65f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator&lt;&lt;</definition>
         <argsstring>(const unsigned int b) const noexcept</argsstring>
         <name>operator&lt;&lt;</name>
+        <qualifiedname>avx::ULong256::operator&lt;&lt;</qualifiedname>
         <param>
           <type>const unsigned int</type>
           <declname>b</declname>
@@ -1111,13 +1170,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="542" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="542" bodyend="544"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="542" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="542" bodyend="544"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1aeef4a12503c0fb3bb324f76522203daf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1aa6ce19576834032f70814eeff3fba6af" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator&lt;&lt;=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator&lt;&lt;=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator&lt;&lt;=</name>
+        <qualifiedname>avx::ULong256::operator&lt;&lt;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1128,13 +1188,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="546" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="546" bodyend="549"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="546" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="546" bodyend="549"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a39eaba3518c0f72fa6cfa972240d538d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a2d1d93f4e9b9d889081d3130ad99e5fb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator&lt;&lt;=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator&lt;&lt;=</definition>
         <argsstring>(const unsigned int b) noexcept</argsstring>
         <name>operator&lt;&lt;=</name>
+        <qualifiedname>avx::ULong256::operator&lt;&lt;=</qualifiedname>
         <param>
           <type>const unsigned int</type>
           <declname>b</declname>
@@ -1145,13 +1206,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="551" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="551" bodyend="554"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="551" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="551" bodyend="554"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a65f93b0ad525565d9631765c620ca22e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator&gt;&gt;</definition>
         <argsstring>(const ULong256 &amp;bV) const noexcept</argsstring>
         <name>operator&gt;&gt;</name>
+        <qualifiedname>avx::ULong256::operator&gt;&gt;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1162,13 +1224,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="556" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="556" bodyend="558"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="556" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="556" bodyend="558"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1af78b58640f51f07a2f34dc0e912144ef" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 avx::ULong256::operator&gt;&gt;</definition>
         <argsstring>(const unsigned int b) const noexcept</argsstring>
         <name>operator&gt;&gt;</name>
+        <qualifiedname>avx::ULong256::operator&gt;&gt;</qualifiedname>
         <param>
           <type>const unsigned int</type>
           <declname>b</declname>
@@ -1179,13 +1242,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="560" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="560" bodyend="562"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="560" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="560" bodyend="562"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a0c4bb52e6332733929a1295c70da0523" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a4b4eeccfee594293ce93f70a77526f9c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator&gt;&gt;=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator&gt;&gt;=</definition>
         <argsstring>(const ULong256 &amp;bV) noexcept</argsstring>
         <name>operator&gt;&gt;=</name>
+        <qualifiedname>avx::ULong256::operator&gt;&gt;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1196,13 +1260,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="564" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="564" bodyend="567"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="564" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="564" bodyend="567"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_long256_1a0a136d821fdf20a61b78356034c8afb4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_long256_1a79b668b862ba95368c2603318d33ff48" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &amp;</type>
-        <definition>ULong256&amp; avx::ULong256::operator&gt;&gt;=</definition>
+        <definition>ULong256 &amp; avx::ULong256::operator&gt;&gt;=</definition>
         <argsstring>(const unsigned int b) noexcept</argsstring>
         <name>operator&gt;&gt;=</name>
+        <qualifiedname>avx::ULong256::operator&gt;&gt;=</qualifiedname>
         <param>
           <type>const unsigned int</type>
           <declname>b</declname>
@@ -1213,28 +1278,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="569" column="22" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="569" bodyend="572"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="569" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="569" bodyend="572"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_long256_1a8f4cae271c41696e43b75d09c1cd42d4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string avx::ULong256::str</definition>
         <argsstring>() const noexcept</argsstring>
         <name>str</name>
+        <qualifiedname>avx::ULong256::str</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="574" column="25" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="574" bodyend="583"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="574" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="574" bodyend="583"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="friend">
-      <memberdef kind="friend" id="classavx_1_1_u_long256_1af1d2c0c26147a6f4fc1af92ca4997fc9" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classavx_1_1_u_long256_1adcf56bda4c329dfdbca6429772949fc3" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 sum</definition>
-        <argsstring>(const std::vector&lt; ULong256 &gt; &amp;ulongs) noexcept</argsstring>
+        <argsstring>(const std::vector&lt; ULong256 &gt; &amp;ulongs)</argsstring>
         <name>sum</name>
+        <qualifiedname>avx::ULong256::sum</qualifiedname>
         <param>
           <type>const std::vector&lt; <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &gt; &amp;</type>
           <declname>ulongs</declname>
@@ -1245,13 +1312,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="585" column="29" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.cpp" bodystart="5" bodyend="11"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="585" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.cpp" bodystart="5" bodyend="11"/>
       </memberdef>
-      <memberdef kind="friend" id="classavx_1_1_u_long256_1a84a70f0393c78a71f8478b935b77de3f" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+      <memberdef kind="friend" id="classavx_1_1_u_long256_1a6d2f1df71cefd990c678462ccf98f33a" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref></type>
         <definition>ULong256 sum</definition>
-        <argsstring>(const std::set&lt; ULong256 &gt; &amp;ulongs) noexcept</argsstring>
+        <argsstring>(const std::set&lt; ULong256 &gt; &amp;ulongs)</argsstring>
         <name>sum</name>
+        <qualifiedname>avx::ULong256::sum</qualifiedname>
         <param>
           <type>const std::set&lt; <ref refid="classavx_1_1_u_long256" kindref="compound">ULong256</ref> &gt; &amp;</type>
           <declname>ulongs</declname>
@@ -1262,15 +1330,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="587" column="29" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.cpp" bodystart="13" bodyend="19"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="587" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.cpp" bodystart="13" bodyend="19"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>unsigned long long</computeroutput> aka <computeroutput>uint64_t</computeroutput>. Can hold 4 individual <computeroutput>unsigned long long</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" line="21" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp" bodystart="21" bodyend="589"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp" bodystart="21" bodyend="589"/>
     <listofallmembers>
       <member refid="classavx_1_1_u_long256_1a8f0f43f1bde954af6693d9b0fdcdb934" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>get</name></member>
       <member refid="classavx_1_1_u_long256_1a7befaf7490a1dbfb27df396e8f57edc4" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>load</name></member>
@@ -1278,47 +1346,47 @@
       <member refid="classavx_1_1_u_long256_1a6d92f7d0eb4b63369fcbac6864f69880" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator!=</name></member>
       <member refid="classavx_1_1_u_long256_1a1863a806d9b39523cee79f34bbe3bc69" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator%</name></member>
       <member refid="classavx_1_1_u_long256_1aacf60e20a21d74a076f36d2c25b47122" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator%</name></member>
-      <member refid="classavx_1_1_u_long256_1a23358dc61f085662aaedec73f73e6e98" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator%=</name></member>
-      <member refid="classavx_1_1_u_long256_1a156a82077d716a041e9b4765e9b8480c" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_u_long256_1af31473e3c5081a892361f79946181b3a" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_u_long256_1a6b9bfe36057171c7213f2c91b9cf2311" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator%=</name></member>
       <member refid="classavx_1_1_u_long256_1a503d4f12a970f6eeda9cb072a4b6b399" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&amp;</name></member>
       <member refid="classavx_1_1_u_long256_1af41770307d72aebf5545b2e2a2dcc09e" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&amp;</name></member>
-      <member refid="classavx_1_1_u_long256_1ac1f4d84661e8afb11a0fe7f31aaa4a32" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&amp;=</name></member>
-      <member refid="classavx_1_1_u_long256_1a45c9ba851075d34e252ae697ae1bb8f4" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_u_long256_1ab5f45ad2ab3ff2a3c8cca74f34538262" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_u_long256_1ac3cadeb11d6ece30b52617aebf1b0459" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&amp;=</name></member>
       <member refid="classavx_1_1_u_long256_1a19c24ab8719afd5e6b994988a1784eae" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator*</name></member>
       <member refid="classavx_1_1_u_long256_1acc517bf9edbe4d3cf34037ee5d60b290" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_u_long256_1a216b5dcbc7303ab2a5d2fa50b6ccea8a" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator*=</name></member>
-      <member refid="classavx_1_1_u_long256_1a4995553d98a8634656c799899f0b55ce" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_u_long256_1aa4d50791ba89248ecec542aa752d6efa" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_u_long256_1a9fdf3e654eb1f344c77de31cd9c553c2" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator*=</name></member>
       <member refid="classavx_1_1_u_long256_1afcfe7134e46a94694fa36535738e1289" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator+</name></member>
       <member refid="classavx_1_1_u_long256_1a59c11f95dbcc00781921185dabad4ed4" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_u_long256_1af9f3944a07be4d353028f5b607a28090" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_u_long256_1a3061c46e3554e430922a13078d9101f7" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_u_long256_1abcf387b6a98b5146d8c45ff52d9fa9e0" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_u_long256_1a49aebd02dbbab2d3f4ee15c062a29fd0" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator+=</name></member>
       <member refid="classavx_1_1_u_long256_1a39b635d88dd32939f3c2e798f945bc12" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator-</name></member>
       <member refid="classavx_1_1_u_long256_1a3f556e86d65581edf35f7813673d802e" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_u_long256_1a785225610d41901db18d2f0d1731b309" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_u_long256_1a472006392c2d92125e664d702bf7f744" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_u_long256_1a353ac3d10cc2c37e8118b142dfa8cde2" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_u_long256_1a8a175d53ead1b674e542fb8938f26d88" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator-=</name></member>
       <member refid="classavx_1_1_u_long256_1a7fb2aeb85d7a8cf0394f9038ea150c7e" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator/</name></member>
       <member refid="classavx_1_1_u_long256_1a165518b07806ee0d02a4ef04c174ed2a" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator/</name></member>
-      <member refid="classavx_1_1_u_long256_1a228e758ce5958cc45a65031692896531" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator/=</name></member>
-      <member refid="classavx_1_1_u_long256_1af255370f983204b6288c2db1d0cf693d" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_u_long256_1ab664b3defc7b8069df40acd0a6f171ec" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_u_long256_1a0d349115699e9d8bc5fd37599f1e1e21" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator/=</name></member>
       <member refid="classavx_1_1_u_long256_1ad81bc85aeff1d4988607ec099255b5b7" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&lt;&lt;</name></member>
       <member refid="classavx_1_1_u_long256_1aa6323b6a0cebc4e773c987e33caca65f" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&lt;&lt;</name></member>
-      <member refid="classavx_1_1_u_long256_1aeef4a12503c0fb3bb324f76522203daf" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&lt;&lt;=</name></member>
-      <member refid="classavx_1_1_u_long256_1a39eaba3518c0f72fa6cfa972240d538d" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_u_long256_1aa6ce19576834032f70814eeff3fba6af" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_u_long256_1a2d1d93f4e9b9d889081d3130ad99e5fb" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&lt;&lt;=</name></member>
       <member refid="classavx_1_1_u_long256_1a8bfa8eb27a2d8c781735dee83a170935" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_u_long256_1a63ab8999fc84047b710a500db411c179" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_u_long256_1a65f93b0ad525565d9631765c620ca22e" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&gt;&gt;</name></member>
       <member refid="classavx_1_1_u_long256_1af78b58640f51f07a2f34dc0e912144ef" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&gt;&gt;</name></member>
-      <member refid="classavx_1_1_u_long256_1a0c4bb52e6332733929a1295c70da0523" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&gt;&gt;=</name></member>
-      <member refid="classavx_1_1_u_long256_1a0a136d821fdf20a61b78356034c8afb4" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_u_long256_1a4b4eeccfee594293ce93f70a77526f9c" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_u_long256_1a79b668b862ba95368c2603318d33ff48" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator&gt;&gt;=</name></member>
       <member refid="classavx_1_1_u_long256_1a31cacf130e5797e6165a744cd4b59782" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator[]</name></member>
       <member refid="classavx_1_1_u_long256_1a39bca86c38d953e330bf97a17bd84dc0" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator^</name></member>
       <member refid="classavx_1_1_u_long256_1af84976b995dea28b886e639f8f197012" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator^</name></member>
-      <member refid="classavx_1_1_u_long256_1a50ce8535be97c6b0e6be32fbb836bcca" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator^=</name></member>
-      <member refid="classavx_1_1_u_long256_1a57b485dceb2292811e932bb9606733ca" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_u_long256_1ace27dfeca66c416cb79ab456cf4a0aac" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_u_long256_1a9bfc815c30c6187e8af3d37cbcdbb7ed" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator^=</name></member>
       <member refid="classavx_1_1_u_long256_1a84de8c4fd8940ecb0ade0895e6ff5174" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator|</name></member>
       <member refid="classavx_1_1_u_long256_1a323d9f9cc992d6a937190551ad08feff" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator|</name></member>
-      <member refid="classavx_1_1_u_long256_1aa1249a922a01ffb5ae3a01315349072e" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator|=</name></member>
-      <member refid="classavx_1_1_u_long256_1a1bd8b80778e88273b5e7a239c0de836f" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_u_long256_1af903e5a6814e7eed63672bcdf7cb02f8" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_u_long256_1acbc7e5fb65b849e2c44b461ba5329246" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator|=</name></member>
       <member refid="classavx_1_1_u_long256_1a414ca41a4b04c4026dabcab766cae3ca" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>operator~</name></member>
       <member refid="classavx_1_1_u_long256_1a9758e4c235dc5977ea756a32536ecf59" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>save</name></member>
       <member refid="classavx_1_1_u_long256_1af7817aa7d01478c2940a1d6cbb226a08" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>save</name></member>
@@ -1327,8 +1395,8 @@
       <member refid="classavx_1_1_u_long256_1a59e8929ab3a03d8fb40b79f4437cb5fa" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>size</name></member>
       <member refid="classavx_1_1_u_long256_1a39143d0221c2c72aea59afa5c782abca" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>storedType</name></member>
       <member refid="classavx_1_1_u_long256_1a8f4cae271c41696e43b75d09c1cd42d4" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>str</name></member>
-      <member refid="classavx_1_1_u_long256_1af1d2c0c26147a6f4fc1af92ca4997fc9" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>sum</name></member>
-      <member refid="classavx_1_1_u_long256_1a84a70f0393c78a71f8478b935b77de3f" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>sum</name></member>
+      <member refid="classavx_1_1_u_long256_1adcf56bda4c329dfdbca6429772949fc3" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>sum</name></member>
+      <member refid="classavx_1_1_u_long256_1a6d2f1df71cefd990c678462ccf98f33a" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>sum</name></member>
       <member refid="classavx_1_1_u_long256_1aa15a63145e8fd02b04dd459cca921abe" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>ULong256</name></member>
       <member refid="classavx_1_1_u_long256_1abc9ba826a17307403e77a091eebb319b" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>ULong256</name></member>
       <member refid="classavx_1_1_u_long256_1aff9dedbebdfe8d493285ec98a4d66fc6" prot="public" virt="non-virtual"><scope>avx::ULong256</scope><name>ULong256</name></member>

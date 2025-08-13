@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
-    <compoundname>/home/jakub/Publiczny/AVX-CPP/src</compoundname>
-    <innerdir refid="dir_0c0c9fa8a58db41e576adc3ce68c5ee9">/home/jakub/Publiczny/AVX-CPP/src/types</innerdir>
+    <compoundname>/home/jakub/git-repos/AVX-CPP/src</compoundname>
+    <innerdir refid="dir_0c0c9fa8a58db41e576adc3ce68c5ee9">/home/jakub/git-repos/AVX-CPP/src/types</innerdir>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/"/>
   </compounddef>
 </doxygen>

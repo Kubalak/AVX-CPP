@@ -1,64 +1,36 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="constants_8hpp" kind="file" language="C++">
     <compoundname>constants.hpp</compoundname>
     <includes local="no">immintrin.h</includes>
-    <includedby refid="char256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp</includedby>
-    <includedby refid="double256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp</includedby>
-    <includedby refid="float256_8hpp" local="no">/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp</includedby>
-    <includedby refid="int256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp</includedby>
-    <includedby refid="long256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/long256.hpp</includedby>
-    <includedby refid="short256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp</includedby>
-    <includedby refid="uchar256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp</includedby>
-    <includedby refid="uint256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp</includedby>
-    <includedby refid="ulong256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp</includedby>
-    <includedby refid="ushort256_8hpp" local="yes">/home/jakub/Publiczny/AVX-CPP/src/types/ushort256.hpp</includedby>
+    <includedby refid="char256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/char256.hpp</includedby>
+    <includedby refid="double256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp</includedby>
+    <includedby refid="float256_8hpp" local="no">/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp</includedby>
+    <includedby refid="int256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp</includedby>
+    <includedby refid="long256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp</includedby>
+    <includedby refid="short256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp</includedby>
+    <includedby refid="uchar256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp</includedby>
+    <includedby refid="uint256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp</includedby>
+    <includedby refid="ulong256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp</includedby>
+    <includedby refid="ushort256_8hpp" local="yes">/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp</includedby>
     <incdepgraph>
-      <node id="2">
-        <label>immintrin.h</label>
-      </node>
       <node id="1">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp</label>
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp</label>
         <link refid="constants_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
+      <node id="2">
+        <label>immintrin.h</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="10">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/ulong256.hpp</label>
-        <link refid="ulong256_8hpp_source"/>
-      </node>
-      <node id="8">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/uchar256.hpp</label>
-        <link refid="uchar256_8hpp_source"/>
-      </node>
-      <node id="4">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/float256.hpp</label>
-        <link refid="float256_8hpp_source"/>
-      </node>
-      <node id="7">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/short256.hpp</label>
-        <link refid="short256_8hpp_source"/>
-      </node>
-      <node id="6">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/long256.hpp</label>
-        <link refid="long256_8hpp_source"/>
-      </node>
-      <node id="3">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/double256.hpp</label>
-        <link refid="double256_8hpp_source"/>
-      </node>
       <node id="2">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/char256.hpp</label>
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/char256.hpp</label>
         <link refid="char256_8hpp_source"/>
       </node>
-      <node id="9">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/uint256.hpp</label>
-        <link refid="uint256_8hpp_source"/>
-      </node>
       <node id="1">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp</label>
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp</label>
         <link refid="constants_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -81,18 +53,46 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp</label>
+        <link refid="double256_8hpp_source"/>
+      </node>
+      <node id="4">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp</label>
+        <link refid="float256_8hpp_source"/>
+      </node>
       <node id="5">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp</label>
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp</label>
         <link refid="int256_8hpp_source"/>
       </node>
+      <node id="6">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp</label>
+        <link refid="long256_8hpp_source"/>
+      </node>
+      <node id="7">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp</label>
+        <link refid="short256_8hpp_source"/>
+      </node>
+      <node id="8">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp</label>
+        <link refid="uchar256_8hpp_source"/>
+      </node>
+      <node id="9">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp</label>
+        <link refid="uint256_8hpp_source"/>
+      </node>
+      <node id="10">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/ulong256.hpp</label>
+        <link refid="ulong256_8hpp_source"/>
+      </node>
       <node id="11">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/ushort256.hpp</label>
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp</label>
         <link refid="ushort256_8hpp_source"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceavx">avx</innernamespace>
     <innernamespace refid="namespaceavx_1_1constants">avx::constants</innernamespace>
-      <sectiondef kind="define">
+    <sectiondef kind="define">
       <memberdef kind="define" id="constants_8hpp_1a42c0943f2f88eaff5a2b25319b69453c" prot="public" static="no">
         <name>__AVX_CONSTANTS_HPP</name>
         <briefdescription>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="3" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="3" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="3" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="3" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="constants_8hpp_1a2579dcfe84b3c9db7242a24a04ee21ef" prot="public" static="no">
         <name>N_THROW_REL</name>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="10" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="10" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="10" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="10" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="constants_8hpp_1ae56f326dbbe7fcd243c6899ec4d2fd1d" prot="public" static="no">
         <name>__AVX_LOCALIZED_NULL_STR</name>
@@ -122,9 +122,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" line="13" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp" bodystart="13" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="13" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="13" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -142,10 +142,10 @@
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>N_THROW_REL</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__AVX_LOCALIZED_NULL_STR<sp/>std::string(__FILE__)<sp/>+<sp/>std::string(&quot;:&quot;</highlight><highlight class="normal">)<sp/>+<sp/>std::to_string(__LINE__)<sp/>+<sp/>std::string(&quot;<sp/>&quot;)<sp/>+<sp/>std::string(__func__)<sp/>+&quot;()<sp/>Passed<sp/>argument<sp/>is<sp/>nullptr!&quot;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__AVX_LOCALIZED_NULL_STR<sp/>std::string(__FILE__)<sp/>+<sp/>std::string(&quot;:&quot;)<sp/>+<sp/>std::to_string(__LINE__)<sp/>+<sp/>std::string(&quot;<sp/>&quot;)<sp/>+<sp/>std::string(__func__)<sp/>+&quot;()<sp/>Passed<sp/>argument<sp/>is<sp/>nullptr!&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceavx" kindref="compound">avx</ref><sp/>{</highlight></codeline>
-<codeline lineno="19" refid="namespaceavx_1_1constants" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">constants{</highlight></codeline>
+<codeline lineno="19" refid="namespaceavx_1_1constants" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceavx_1_1constants" kindref="compound">constants</ref>{</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>ONES<sp/>=<sp/>_mm256_set1_epi8(0xFF);</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI8_ONE<sp/>=<sp/>_mm256_set1_epi8(1);</highlight></codeline>
@@ -171,12 +171,12 @@
 <codeline lineno="105"><highlight class="normal"></highlight></codeline>
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>__m256i<sp/>EPI32_SLOWEST<sp/>=<sp/>_mm256_set1_epi32(0x8000&apos;0001);</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>INT2FLOAT_LIMIT<sp/>=<sp/>0x0100&apos;0000;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>INT2FLOAT_LIMIT<sp/>=<sp/>0x0100&apos;0000;</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="113"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"></highlight></codeline>
 <codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/constants.hpp"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp"/>
   </compounddef>
 </doxygen>

@@ -5,31 +5,31 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="avx::Char256" href="char256/index.html" /><link rel="prev" title="About AVX CPP" href="about.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Quickstart - AVX CPP documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
+        <title>Quickstart - AVX CPP</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">AVX CPP  documentation</div></a>
+      <a href="index.html"><div class="brand">AVX CPP</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,8 +189,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
-  
-  <span class="sidebar-brand-text">AVX CPP  documentation</span>
+  <span class="sidebar-brand-text">AVX CPP</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -301,7 +300,40 @@
         <article role="main" id="furo-main-content">
           <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
+        <h1 id="overview">So how does it work?</h1>
+        <p>
+            The <a href="https://github.com/Kubalak/AVX-CPP">AVX-CPP</a> library works on the principle of <i>SIMD</i>. 
+            This term stands for <i><strong>S</strong>ingle <strong>I</strong>nstruction <strong>M</strong>ultiple <strong>D</strong>ata</i>. 
+            In simple terms it allows processing of multiple values utilizing only one [assembler] intruction. 
+            This way performance critical parts of software can see a reduced runtime saving precious time.<br/><br/>
+            Modern Intel and AMD CPUs support many SIMD instructions including:
+            <ol>
+                <li><a href="https://en.wikibooks.org/wiki/X86_Assembly/SSE" target="blank">SSE</a></li>
+                <li>SSE2</li>
+                <li>SSE3</li>
+                <li>SSE4</li>
+                <li>SSE5</li>
+                <li>SSSE3</li>
+                <li><a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions" target="blank">AVX</a></li>
+                <li>AVX2</li>
+                <li>AVX512</li>
+            </ol>
+            Each of them provides different sets of registers and instructions which can be used to speed up computation. 
+            SSE instructions operate on 128-bit registers, which can hold up to 4 32-bit values, AVX and AVX2 provide 256-bit registers, while AVX512 pushes it even further with 512-bit registers.
+            This library utilizes mostly AVX and AVX2 instructions while AVX512 is enabled explicitly by using <strong>BUILD_USE_AVX512</strong> flag in CMake.
+        </p>
+
+        <img src="noexistent" alt="some cool ass aniamtion..."/>
+
+        <p>
+            Each class provides a set of regular math operators: <code>+ - * / %</code>. Those operators are intended to behave in a same way as their non-SIMD counterparts.
+            Each class has two static attributes which can be referenced when accessing them:
+            <ul>
+                <li><code style="color:rgb(0, 104, 189)">constexpr int</code> <code style="color:rgb(0, 207, 207)">size</code> - number of elements stored in vector (4/8/16/32)</li>
+                <li><code style="color:rgb(154, 0, 192)">using</code> <code style="color:rgb(0, 167, 69)">storedType</code> - type of elements stored in vector.</li>
+            </ul>
+        </p>
+    <script type="module" src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script><div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -357,6 +389,6 @@
 </div><script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>

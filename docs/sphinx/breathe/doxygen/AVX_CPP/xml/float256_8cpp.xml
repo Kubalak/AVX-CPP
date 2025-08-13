@@ -1,9 +1,21 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="float256_8cpp" kind="file" language="C++">
     <compoundname>float256.cpp</compoundname>
     <includes refid="float256_8hpp" local="yes">float256.hpp</includes>
     <incdepgraph>
+      <node id="8">
+        <label>types/constants.hpp</label>
+        <link refid="constants_8hpp_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/jakub/git-repos/AVX-CPP/src/types/float256.cpp</label>
+        <link refid="float256_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="2">
         <label>float256.hpp</label>
         <link refid="float256_8hpp_source"/>
@@ -20,6 +32,12 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>array</label>
+      </node>
+      <node id="5">
+        <label>cstring</label>
+      </node>
       <node id="7">
         <label>immintrin.h</label>
       </node>
@@ -29,32 +47,14 @@
       <node id="4">
         <label>string</label>
       </node>
-      <node id="3">
-        <label>array</label>
-      </node>
-      <node id="1">
-        <label>/home/jakub/Publiczny/AVX-CPP/src/types/float256.cpp</label>
-        <link refid="float256_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>types/constants.hpp</label>
-        <link refid="constants_8hpp_source"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>cstring</label>
-      </node>
     </incdepgraph>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;float256.hpp&quot;</highlight></codeline>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;float256.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/float256.cpp"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.cpp"/>
   </compounddef>
 </doxygen>

@@ -5,31 +5,31 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="author" title="About these documents" href="../about.html" /><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="avx::UChar256" href="../uchar256/index.html" /><link rel="prev" title="avx::Char256" href="index.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Examples - AVX CPP documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
+        <title>Examples - AVX CPP</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">AVX CPP  documentation</div></a>
+      <a href="../index.html"><div class="brand">AVX CPP</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,8 +189,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
-  <span class="sidebar-brand-text">AVX CPP  documentation</span>
+  <span class="sidebar-brand-text">AVX CPP</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -331,10 +330,6 @@ This constructor is only intended to use when loading binary data into vector!
 Altough it cheks for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> it <strong>does not</strong> check the length of the string.
 It will <strong>ALWAYS</strong> load 32 bytes into vector.</p>
 </div>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>Differentiate when using <cite>char*</cite> containing characters and binary data (explicittly specify size).</p>
-</div>
 </section>
 <section id="using-basic-arithmetic-operators">
 <h2>Using basic arithmetic operators<a class="headerlink" href="#using-basic-arithmetic-operators" title="Link to this heading">¶</a></h2>
@@ -372,7 +367,7 @@ Let’s assume we have created variables:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>== <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> , != <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></td>
+<tr class="row-even"><td><p>== <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> , != <a class="footnote-reference brackets" href="#id7" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">avx::Char256</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>+, +=</p></td>
@@ -384,10 +379,10 @@ Let’s assume we have created variables:</p>
 <tr class="row-odd"><td><p>*, *=</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">avx::Char256</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>/, /= <a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></td>
+<tr class="row-even"><td><p>/, /= <a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">avx::Char256</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>%, %= <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></td>
+<tr class="row-odd"><td><p>%, %= <a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">avx::Char256</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>|, |=</p></td>
@@ -402,7 +397,7 @@ Let’s assume we have created variables:</p>
 <tr class="row-odd"><td><p>&lt;&lt;, &lt;&lt;=</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">avx::Char256</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>&gt;&gt;, &gt;&gt;= <a class="footnote-reference brackets" href="#id10" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p></td>
+<tr class="row-even"><td><p>&gt;&gt;, &gt;&gt;= <a class="footnote-reference brackets" href="#id9" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">avx::Char256</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>~</p></td>
@@ -441,21 +436,21 @@ Intermediate array allocates <strong>33</strong> bytes for data and sets 33-rd b
 </div>
 <hr class="docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id7" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id6" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> only if all values are equal (using bitwise XOR).</p>
 </aside>
-<aside class="footnote brackets" id="id8" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id7" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <strong>any</strong> value is not matching (using bitwise XOR).</p>
 </aside>
-<aside class="footnote brackets" id="id9" role="doc-footnote">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id5">2</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
 <p>Not available natively in AVX2. Implemented using intermediate <code class="docutils literal notranslate"><span class="pre">float</span></code> values.</p>
 </aside>
-<aside class="footnote brackets" id="id10" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">4</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">4</a><span class="fn-bracket">]</span></span>
 <p>No sign extension.</p>
 </aside>
 </aside>
@@ -536,6 +531,6 @@ Intermediate array allocates <strong>33</strong> bytes for data and sets 33-rd b
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>

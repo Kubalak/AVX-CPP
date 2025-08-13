@@ -1,44 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="classavx_1_1_int256" kind="class" language="C++" prot="public">
     <compoundname>avx::Int256</compoundname>
     <includes refid="int256_8hpp" local="no">int256.hpp</includes>
-      <sectiondef kind="public-type">
+    <sectiondef kind="public-type">
       <memberdef kind="typedef" id="classavx_1_1_int256_1a96d8b359a100f18d16a97db104d77bbc" prot="public" static="no">
         <type>int</type>
         <definition>using avx::Int256::storedType =  int</definition>
         <argsstring></argsstring>
         <name>storedType</name>
+        <qualifiedname>avx::Int256::storedType</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="45" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="45" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="45" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="45" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-attrib">
+    </sectiondef>
+    <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classavx_1_1_int256_1a3da75e1c086411c5ff3b921c5993f0ef" prot="private" static="no" mutable="no">
         <type>__m256i</type>
         <definition>__m256i avx::Int256::v</definition>
         <argsstring></argsstring>
         <name>v</name>
+        <qualifiedname>avx::Int256::v</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="41" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="41" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="41" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="41" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-attrib">
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="classavx_1_1_int256_1a0d87051c05a25923c0c570956c29b783" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr int</type>
-        <definition>constexpr int avx::Int256::size</definition>
+        <type>int</type>
+        <definition>int avx::Int256::size</definition>
         <argsstring></argsstring>
         <name>size</name>
+        <qualifiedname>avx::Int256::size</qualifiedname>
         <initializer>= 8</initializer>
         <briefdescription>
         </briefdescription>
@@ -46,15 +49,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="44" column="30" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="44" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="44" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="44" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
+    </sectiondef>
+    <sectiondef kind="public-func">
       <memberdef kind="function" id="classavx_1_1_int256_1a8f3cb7b950f4a633d07281f63fbcee7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>()</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -62,13 +66,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="50" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="50" bodyend="50"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="50" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="50" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a273ee075b5d7d86d9271ea5e591803f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(const int *init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>const int *</type>
           <declname>init</declname>
@@ -89,13 +94,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="55" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="55" bodyend="55"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="55" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a3831640a2a0bc431a28e7761f4790ac9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(const int &amp;init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>init</declname>
@@ -116,13 +122,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="61" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="61" bodyend="61"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="61" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="61" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a237a4aedff1d91067a1390e038c3ce00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(const __m256i &amp;init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>const __m256i &amp;</type>
           <declname>init</declname>
@@ -143,13 +150,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="67" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="67" bodyend="67"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="67" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="67" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a162d22b1c369840124b0d3321a27e653" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(const Int256 &amp;init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>init</declname>
@@ -170,13 +178,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="74" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="74" bodyend="74"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="74" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="74" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a16a88e9ca75ecb004d3c31ea550f9848" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(const std::array&lt; int, 8 &gt; &amp;init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>const std::array&lt; int, 8 &gt; &amp;</type>
           <declname>init</declname>
@@ -197,13 +206,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="80" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="80" bodyend="80"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="80" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="80" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a2473772a2259a70fc23036bf64ea3d8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(const std::array&lt; short, 8 &gt; &amp;init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>const std::array&lt; short, 8 &gt; &amp;</type>
           <declname>init</declname>
@@ -224,13 +234,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="87" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="87" bodyend="99"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="87" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="87" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae37492d0058931f5b2585bbd8f081ea3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(const std::array&lt; char, 8 &gt; &amp;init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>const std::array&lt; char, 8 &gt; &amp;</type>
           <declname>init</declname>
@@ -251,13 +262,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="106" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="106" bodyend="117"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="106" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="106" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a1e55fe9d67971f364e3dc49b543452a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Int256::Int256</definition>
         <argsstring>(std::initializer_list&lt; int &gt; init)</argsstring>
         <name>Int256</name>
+        <qualifiedname>avx::Int256::Int256</qualifiedname>
         <param>
           <type>std::initializer_list&lt; int &gt;</type>
           <declname>init</declname>
@@ -278,26 +290,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="125" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="125" bodyend="143"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="125" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="125" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a472f0584182166f7b62a9b1cbfdf54e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>__m256i</type>
         <definition>__m256i avx::Int256::get</definition>
         <argsstring>() const</argsstring>
         <name>get</name>
+        <qualifiedname>avx::Int256::get</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="145" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="145" bodyend="145"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="145" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="145" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a67b671bc8184ddba13cbae4ba89b0df3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Int256::set</definition>
         <argsstring>(__m256i val)</argsstring>
         <name>set</name>
+        <qualifiedname>avx::Int256::set</qualifiedname>
         <param>
           <type>__m256i</type>
           <declname>val</declname>
@@ -308,13 +322,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="148" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="148" bodyend="148"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="148" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="148" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1aa15b409d0a0768374c17f77b80a965d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Int256::load</definition>
         <argsstring>(const int *pSrc) N_THROW_REL</argsstring>
         <name>load</name>
+        <qualifiedname>avx::Int256::load</qualifiedname>
         <param>
           <type>const int *</type>
           <declname>pSrc</declname>
@@ -344,13 +359,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="155" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="155" bodyend="162"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="155" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="155" bodyend="162"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1acb0fd228f1559d620602a027612f13a9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Int256::save</definition>
         <argsstring>(std::array&lt; int, 8 &gt; &amp;dest) const noexcept</argsstring>
         <name>save</name>
+        <qualifiedname>avx::Int256::save</qualifiedname>
         <param>
           <type>std::array&lt; int, 8 &gt; &amp;</type>
           <declname>dest</declname>
@@ -371,13 +387,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="168" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="168" bodyend="170"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="168" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="168" bodyend="170"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a70169eac884587f61f2255014416d51c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Int256::save</definition>
         <argsstring>(int *pDest) const N_THROW_REL</argsstring>
         <name>save</name>
+        <qualifiedname>avx::Int256::save</qualifiedname>
         <param>
           <type>int *</type>
           <declname>pDest</declname>
@@ -408,13 +425,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="179" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="179" bodyend="186"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="179" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="179" bodyend="186"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1af35d79855c662b55c0f78053cce231d5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Int256::saveAligned</definition>
         <argsstring>(int *pDest) const N_THROW_REL</argsstring>
         <name>saveAligned</name>
+        <qualifiedname>avx::Int256::saveAligned</qualifiedname>
         <param>
           <type>int *</type>
           <declname>pDest</declname>
@@ -445,13 +463,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="195" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="195" bodyend="202"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="195" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="195" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae0613d3870ed36959b32f07d8d0426e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::Int256::operator==</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator==</name>
+        <qualifiedname>avx::Int256::operator==</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -462,13 +481,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="204" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="204" bodyend="207"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="204" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="204" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a0ea7beaa72ea9e4642045763d50c797d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::Int256::operator==</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator==</name>
+        <qualifiedname>avx::Int256::operator==</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -479,13 +499,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="209" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="209" bodyend="213"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="209" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="209" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a8eaf278d22cdfca7d5f53f8e3ce01617" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::Int256::operator!=</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator!=</name>
+        <qualifiedname>avx::Int256::operator!=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -496,13 +517,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="215" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="215" bodyend="218"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="215" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="215" bodyend="218"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a484a7c58a6d5e0135c9b1eccbbe56fb5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool avx::Int256::operator!=</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator!=</name>
+        <qualifiedname>avx::Int256::operator!=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -513,13 +535,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="220" column="14" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="220" bodyend="224"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="220" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="220" bodyend="224"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1acf6d2fd3b7c3555942361cef0da15779" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
         <definition>int avx::Int256::operator[]</definition>
         <argsstring>(const unsigned int index) const</argsstring>
         <name>operator[]</name>
+        <qualifiedname>avx::Int256::operator[]</qualifiedname>
         <param>
           <type>const unsigned int</type>
           <declname>index</declname>
@@ -551,13 +574,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="233" column="13" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="233" bodyend="240"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="233" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="233" bodyend="240"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a9dc99d4b3cd4fd0a80112cb3b5afc676" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator+</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator+</name>
+        <qualifiedname>avx::Int256::operator+</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -571,13 +595,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="250" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="250" bodyend="250"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="250" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="250" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae2f0dcdd4039161ee75849b8d5010107" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator+</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator+</name>
+        <qualifiedname>avx::Int256::operator+</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -591,13 +616,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="256" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="256" bodyend="256"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="256" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="256" bodyend="256"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a9ae55f05b711ccbcfbaad366eb92ff62" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator-</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator-</name>
+        <qualifiedname>avx::Int256::operator-</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -608,13 +634,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="259" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="259" bodyend="259"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="259" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="259" bodyend="259"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a749797664e4d1c4bcc2203f120127c4f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator-</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator-</name>
+        <qualifiedname>avx::Int256::operator-</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -625,13 +652,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="260" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="260" bodyend="260"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="260" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="260" bodyend="260"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a75f74c5f579250db23a284a37ed3410c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator*</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator*</name>
+        <qualifiedname>avx::Int256::operator*</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -642,13 +670,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="263" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="263" bodyend="263"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="263" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="263" bodyend="263"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a020c2946c0ba73528999480d8865e110" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator*</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator*</name>
+        <qualifiedname>avx::Int256::operator*</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -659,13 +688,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="264" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="264" bodyend="264"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="264" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="264" bodyend="264"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a578115211790bf40f4c2d6946c9b9952" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator/</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator/</name>
+        <qualifiedname>avx::Int256::operator/</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -676,13 +706,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="267" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="267" bodyend="279"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="267" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="267" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a6dd388da037927cf03607e3b9c562910" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator/</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator/</name>
+        <qualifiedname>avx::Int256::operator/</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -693,13 +724,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="281" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="281" bodyend="295"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="281" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="281" bodyend="295"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a44b60faab269e7542888d11d168383f5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator%</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator%</name>
+        <qualifiedname>avx::Int256::operator%</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -710,13 +742,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="298" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="298" bodyend="333"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="298" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="298" bodyend="311"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a854860ec8f28bb894dc6bcf45d9646d1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator%</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator%</name>
+        <qualifiedname>avx::Int256::operator%</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -727,13 +760,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="337" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="337" bodyend="375"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="315" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="315" bodyend="332"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a6812eb236caedd3887e34735f65c947c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator^</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator^</name>
+        <qualifiedname>avx::Int256::operator^</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -744,13 +778,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="378" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="378" bodyend="378"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="335" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="335" bodyend="335"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a94372beac04e031922df4c418c63fa56" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator^</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator^</name>
+        <qualifiedname>avx::Int256::operator^</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -761,13 +796,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="379" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="379" bodyend="379"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="336" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="336" bodyend="336"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a80dfa615ff20758550d7060c44defb89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator|</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator|</name>
+        <qualifiedname>avx::Int256::operator|</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -778,13 +814,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="382" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="382" bodyend="382"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="339" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="339" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a5e66bd7c42556ef2e4ec5ed34376033d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator|</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator|</name>
+        <qualifiedname>avx::Int256::operator|</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -795,13 +832,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="383" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="383" bodyend="383"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="340" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="340" bodyend="340"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1afdea7c0eb55f376be77e68661099fa69" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator&amp;</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator&amp;</name>
+        <qualifiedname>avx::Int256::operator&amp;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -812,13 +850,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="386" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="386" bodyend="386"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="343" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="343" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a504811450a1af1cdddb3a383134b69da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator&amp;</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator&amp;</name>
+        <qualifiedname>avx::Int256::operator&amp;</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -829,26 +868,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="387" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="387" bodyend="387"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="344" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="344" bodyend="344"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1aa52424c26f3ec87e764e5c208f618d71" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator~</definition>
         <argsstring>() const</argsstring>
         <name>operator~</name>
+        <qualifiedname>avx::Int256::operator~</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="390" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="390" bodyend="390"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="347" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="347" bodyend="347"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae06cc8c901f0c09dcb86663cc57b8b88" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator&lt;&lt;</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator&lt;&lt;</name>
+        <qualifiedname>avx::Int256::operator&lt;&lt;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -859,13 +900,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="393" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="393" bodyend="393"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="350" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="350" bodyend="350"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1ae0ca0a4659e18f67736d615bd0cd5e5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator&lt;&lt;</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator&lt;&lt;</name>
+        <qualifiedname>avx::Int256::operator&lt;&lt;</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -876,13 +918,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="394" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="394" bodyend="394"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="351" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="351" bodyend="351"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1a79165029fb3c1811c1cb41fec62f696b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator&gt;&gt;</definition>
         <argsstring>(const Int256 &amp;bV) const</argsstring>
         <name>operator&gt;&gt;</name>
+        <qualifiedname>avx::Int256::operator&gt;&gt;</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -893,13 +936,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="396" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="396" bodyend="396"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="353" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="353" bodyend="353"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1af9ca007c21ffbda42ec0cf48998cec1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 avx::Int256::operator&gt;&gt;</definition>
         <argsstring>(const int &amp;b) const</argsstring>
         <name>operator&gt;&gt;</name>
+        <qualifiedname>avx::Int256::operator&gt;&gt;</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -910,13 +954,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="397" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="397" bodyend="397"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="354" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="354" bodyend="354"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a8ecf534a0e9cb5254f19d203b56b4048" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a487877899bd9f5bc224026cc653f5b3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator+=</definition>
+        <definition>Int256 &amp; avx::Int256::operator+=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator+=</name>
+        <qualifiedname>avx::Int256::operator+=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -927,13 +972,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="400" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="400" bodyend="403"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="357" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="357" bodyend="360"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1ae195f1531ac791acf02b3c8a94990861" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a82758b284c492fab70f111c61a22ed65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator+=</definition>
+        <definition>Int256 &amp; avx::Int256::operator+=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator+=</name>
+        <qualifiedname>avx::Int256::operator+=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -944,13 +990,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="405" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="405" bodyend="408"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="362" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="362" bodyend="365"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1ae409c34c6e2fc5f262fc3c5fc5269bbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a0bf4b1689216cdf5cabee34b8ab421d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator-=</definition>
+        <definition>Int256 &amp; avx::Int256::operator-=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator-=</name>
+        <qualifiedname>avx::Int256::operator-=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -961,13 +1008,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="410" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="410" bodyend="413"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="367" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="367" bodyend="370"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a40063c04fa7362631900946d71afb238" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a0f4d598fa042f391c708052f02697f1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator-=</definition>
+        <definition>Int256 &amp; avx::Int256::operator-=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator-=</name>
+        <qualifiedname>avx::Int256::operator-=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -978,13 +1026,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="415" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="415" bodyend="418"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="372" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="372" bodyend="375"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a6660624b8d278d3087258d5114abb218" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1ab3a724ec01cc456d35e86facf81f9b01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator*=</definition>
+        <definition>Int256 &amp; avx::Int256::operator*=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator*=</name>
+        <qualifiedname>avx::Int256::operator*=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -995,13 +1044,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="420" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="420" bodyend="423"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="377" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="377" bodyend="380"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a6a8ebe39a9c8d39f01ede942af4f4d57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1ae743890fb1bf6fd6144e0fe5d3bc5cd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator*=</definition>
+        <definition>Int256 &amp; avx::Int256::operator*=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator*=</name>
+        <qualifiedname>avx::Int256::operator*=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -1012,13 +1062,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="425" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="425" bodyend="429"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="382" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="382" bodyend="386"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1addd1d62fd15be146b0d36a2cf2f624f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1aadd00dd0408cbd4a79682d51b9ee40d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator/=</definition>
+        <definition>Int256 &amp; avx::Int256::operator/=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator/=</name>
+        <qualifiedname>avx::Int256::operator/=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1029,13 +1080,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="431" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="431" bodyend="443"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="388" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="388" bodyend="400"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a77fe8c2acc2ecedd58a7476f5b0e4cf9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a1d7ad90b6394b2a7498eec70eb3d9349" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator/=</definition>
+        <definition>Int256 &amp; avx::Int256::operator/=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator/=</name>
+        <qualifiedname>avx::Int256::operator/=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -1046,13 +1098,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="445" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="445" bodyend="457"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="402" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="402" bodyend="414"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a6f388fb0e7c1d6cd6fd0d5d06e938d6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a7535c84c01f2e1608827ac620581d691" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator%=</definition>
+        <definition>Int256 &amp; avx::Int256::operator%=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator%=</name>
+        <qualifiedname>avx::Int256::operator%=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1075,13 +1128,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="465" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="465" bodyend="502"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="422" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="422" bodyend="437"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a348a1a8eebdd0dd9227590a11166a6db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a1d2dade65a40c97dfc7aff00c62242bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator%=</definition>
+        <definition>Int256 &amp; avx::Int256::operator%=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator%=</name>
+        <qualifiedname>avx::Int256::operator%=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -1092,13 +1146,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="504" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="504" bodyend="546"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="439" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="439" bodyend="461"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a59265e3efd2ba3ed941fd49a4025c7aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1aeddfcac9dc9e4c6566057b0228350008" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator|=</definition>
+        <definition>Int256 &amp; avx::Int256::operator|=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator|=</name>
+        <qualifiedname>avx::Int256::operator|=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1109,13 +1164,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="548" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="548" bodyend="551"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="463" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="463" bodyend="466"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a9822efa17bcdb01768d0d4c33e9a5dcc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1ad923f71000aaa18a88d83ca71404e3f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator|=</definition>
+        <definition>Int256 &amp; avx::Int256::operator|=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator|=</name>
+        <qualifiedname>avx::Int256::operator|=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -1126,13 +1182,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="554" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="554" bodyend="557"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="469" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="469" bodyend="472"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a8f39b3b605ef4dd04ec32abb9833cd23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a28623855e6818d3afdd3b4bc21e1eb0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator&amp;=</definition>
+        <definition>Int256 &amp; avx::Int256::operator&amp;=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator&amp;=</name>
+        <qualifiedname>avx::Int256::operator&amp;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1143,13 +1200,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="560" column="17" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="560" bodyend="563"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="475" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="475" bodyend="478"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a84e4692c78001c6dcf5a7765a92d875e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a06879e079ab65650ba3e4777c40018ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator^=</definition>
+        <definition>Int256 &amp; avx::Int256::operator^=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator^=</name>
+        <qualifiedname>avx::Int256::operator^=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1160,13 +1218,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="565" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="565" bodyend="568"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="480" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="480" bodyend="483"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1ac5db90d4c93b44c6eb1d2341f9ec25fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a040bf3038c0f61661fc6ca0c410747ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator^=</definition>
+        <definition>Int256 &amp; avx::Int256::operator^=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator^=</name>
+        <qualifiedname>avx::Int256::operator^=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -1177,13 +1236,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="571" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="571" bodyend="574"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="486" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="486" bodyend="489"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1ac1c995041506a9d12264f9f4027df53e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a166cfbe31da81567490017593fa2b228" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator&lt;&lt;=</definition>
+        <definition>Int256 &amp; avx::Int256::operator&lt;&lt;=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator&lt;&lt;=</name>
+        <qualifiedname>avx::Int256::operator&lt;&lt;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1194,13 +1254,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="576" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="576" bodyend="579"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="491" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="491" bodyend="494"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1af947f7331aab9b8bd0b9baf2c2820039" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a5d81bbf35802b5b2a4b377251f48e9c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator&lt;&lt;=</definition>
+        <definition>Int256 &amp; avx::Int256::operator&lt;&lt;=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator&lt;&lt;=</name>
+        <qualifiedname>avx::Int256::operator&lt;&lt;=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -1211,13 +1272,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="581" column="9" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="581" bodyend="584"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="496" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="496" bodyend="499"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1a7e41957b0356534d4ce45c7c6528a976" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1a46d25bbebec9bd2ad5ab923cc0bc9f75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator&gt;&gt;=</definition>
+        <definition>Int256 &amp; avx::Int256::operator&gt;&gt;=</definition>
         <argsstring>(const Int256 &amp;bV)</argsstring>
         <name>operator&gt;&gt;=</name>
+        <qualifiedname>avx::Int256::operator&gt;&gt;=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
           <declname>bV</declname>
@@ -1228,13 +1290,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="586" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="586" bodyend="589"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="501" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="501" bodyend="504"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_int256_1aa8843b605ff31975c1d6c27244093511" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_int256_1af8ebd67cbb6152e78a9b523794af2a7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &amp;</type>
-        <definition>Int256&amp; avx::Int256::operator&gt;&gt;=</definition>
+        <definition>Int256 &amp; avx::Int256::operator&gt;&gt;=</definition>
         <argsstring>(const int &amp;b)</argsstring>
         <name>operator&gt;&gt;=</name>
+        <qualifiedname>avx::Int256::operator&gt;&gt;=</qualifiedname>
         <param>
           <type>const int &amp;</type>
           <declname>b</declname>
@@ -1245,31 +1308,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="591" column="16" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="591" bodyend="594"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="506" column="16" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="506" bodyend="509"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_int256_1acc816d00ced8fc6291364d276c8dcfa1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string avx::Int256::str</definition>
         <argsstring>() const</argsstring>
         <name>str</name>
+        <qualifiedname>avx::Int256::str</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="596" column="21" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="596" bodyend="605"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="511" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="511" bodyend="520"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="friend">
-      <memberdef kind="friend" id="classavx_1_1_int256_1a613bcc04cebe1a3d16349abc8430719d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classavx_1_1_int256_1a785869399f7dafef59776a60cabee450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 sum</definition>
-        <argsstring>(std::vector&lt; Int256 &gt; &amp;)</argsstring>
+        <argsstring>(std::vector&lt; Int256 &gt; &amp;a)</argsstring>
         <name>sum</name>
+        <qualifiedname>avx::Int256::sum</qualifiedname>
         <param>
           <type>std::vector&lt; <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &gt; &amp;</type>
-          <defname>a</defname>
+          <declname>a</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1277,16 +1342,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="607" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="9" bodyend="15"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="522" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.cpp" bodystart="9" bodyend="15"/>
       </memberdef>
-      <memberdef kind="friend" id="classavx_1_1_int256_1a48f6526a6b585065e4a0aa44d041b6bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="friend" id="classavx_1_1_int256_1a09ef91694fcf7ae149601db0047aac0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classavx_1_1_int256" kindref="compound">Int256</ref></type>
         <definition>Int256 sum</definition>
-        <argsstring>(std::set&lt; Int256 &gt; &amp;)</argsstring>
+        <argsstring>(std::set&lt; Int256 &gt; &amp;a)</argsstring>
         <name>sum</name>
+        <qualifiedname>avx::Int256::sum</qualifiedname>
         <param>
           <type>std::set&lt; <ref refid="classavx_1_1_int256" kindref="compound">Int256</ref> &gt; &amp;</type>
-          <defname>a</defname>
+          <declname>a</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1294,15 +1360,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="608" column="23" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.cpp" bodystart="18" bodyend="24"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="523" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.cpp" bodystart="18" bodyend="24"/>
       </memberdef>
-      </sectiondef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>int</computeroutput>. Can hold 8 individual <computeroutput>int</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. Class providing vectorized version of <computeroutput>int</computeroutput>. Can hold 8 individual <computeroutput>int</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" line="38" column="5" bodyfile="/home/jakub/Publiczny/AVX-CPP/src/types/int256.hpp" bodystart="39" bodyend="609"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" line="38" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/int256.hpp" bodystart="39" bodyend="524"/>
     <listofallmembers>
       <member refid="classavx_1_1_int256_1a472f0584182166f7b62a9b1cbfdf54e8" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>get</name></member>
       <member refid="classavx_1_1_int256_1a8f3cb7b950f4a633d07281f63fbcee7f" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>Int256</name></member>
@@ -1319,46 +1385,46 @@
       <member refid="classavx_1_1_int256_1a484a7c58a6d5e0135c9b1eccbbe56fb5" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator!=</name></member>
       <member refid="classavx_1_1_int256_1a44b60faab269e7542888d11d168383f5" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator%</name></member>
       <member refid="classavx_1_1_int256_1a854860ec8f28bb894dc6bcf45d9646d1" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator%</name></member>
-      <member refid="classavx_1_1_int256_1a6f388fb0e7c1d6cd6fd0d5d06e938d6c" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator%=</name></member>
-      <member refid="classavx_1_1_int256_1a348a1a8eebdd0dd9227590a11166a6db" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_int256_1a7535c84c01f2e1608827ac620581d691" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator%=</name></member>
+      <member refid="classavx_1_1_int256_1a1d2dade65a40c97dfc7aff00c62242bb" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator%=</name></member>
       <member refid="classavx_1_1_int256_1afdea7c0eb55f376be77e68661099fa69" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&amp;</name></member>
       <member refid="classavx_1_1_int256_1a504811450a1af1cdddb3a383134b69da" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&amp;</name></member>
-      <member refid="classavx_1_1_int256_1a8f39b3b605ef4dd04ec32abb9833cd23" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_int256_1a28623855e6818d3afdd3b4bc21e1eb0b" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&amp;=</name></member>
       <member refid="classavx_1_1_int256_1a75f74c5f579250db23a284a37ed3410c" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator*</name></member>
       <member refid="classavx_1_1_int256_1a020c2946c0ba73528999480d8865e110" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_int256_1a6660624b8d278d3087258d5114abb218" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator*=</name></member>
-      <member refid="classavx_1_1_int256_1a6a8ebe39a9c8d39f01ede942af4f4d57" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_int256_1ab3a724ec01cc456d35e86facf81f9b01" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_int256_1ae743890fb1bf6fd6144e0fe5d3bc5cd9" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator*=</name></member>
       <member refid="classavx_1_1_int256_1a9dc99d4b3cd4fd0a80112cb3b5afc676" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator+</name></member>
       <member refid="classavx_1_1_int256_1ae2f0dcdd4039161ee75849b8d5010107" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_int256_1a8ecf534a0e9cb5254f19d203b56b4048" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_int256_1ae195f1531ac791acf02b3c8a94990861" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_int256_1a487877899bd9f5bc224026cc653f5b3d" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_int256_1a82758b284c492fab70f111c61a22ed65" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator+=</name></member>
       <member refid="classavx_1_1_int256_1a9ae55f05b711ccbcfbaad366eb92ff62" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator-</name></member>
       <member refid="classavx_1_1_int256_1a749797664e4d1c4bcc2203f120127c4f" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_int256_1ae409c34c6e2fc5f262fc3c5fc5269bbe" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_int256_1a40063c04fa7362631900946d71afb238" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_int256_1a0bf4b1689216cdf5cabee34b8ab421d2" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_int256_1a0f4d598fa042f391c708052f02697f1c" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator-=</name></member>
       <member refid="classavx_1_1_int256_1a578115211790bf40f4c2d6946c9b9952" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator/</name></member>
       <member refid="classavx_1_1_int256_1a6dd388da037927cf03607e3b9c562910" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator/</name></member>
-      <member refid="classavx_1_1_int256_1addd1d62fd15be146b0d36a2cf2f624f8" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator/=</name></member>
-      <member refid="classavx_1_1_int256_1a77fe8c2acc2ecedd58a7476f5b0e4cf9" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_int256_1aadd00dd0408cbd4a79682d51b9ee40d2" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_int256_1a1d7ad90b6394b2a7498eec70eb3d9349" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator/=</name></member>
       <member refid="classavx_1_1_int256_1ae06cc8c901f0c09dcb86663cc57b8b88" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&lt;&lt;</name></member>
       <member refid="classavx_1_1_int256_1ae0ca0a4659e18f67736d615bd0cd5e5a" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&lt;&lt;</name></member>
-      <member refid="classavx_1_1_int256_1ac1c995041506a9d12264f9f4027df53e" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&lt;&lt;=</name></member>
-      <member refid="classavx_1_1_int256_1af947f7331aab9b8bd0b9baf2c2820039" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_int256_1a166cfbe31da81567490017593fa2b228" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&lt;&lt;=</name></member>
+      <member refid="classavx_1_1_int256_1a5d81bbf35802b5b2a4b377251f48e9c1" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&lt;&lt;=</name></member>
       <member refid="classavx_1_1_int256_1ae0613d3870ed36959b32f07d8d0426e7" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_int256_1a0ea7beaa72ea9e4642045763d50c797d" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_int256_1a79165029fb3c1811c1cb41fec62f696b" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&gt;&gt;</name></member>
       <member refid="classavx_1_1_int256_1af9ca007c21ffbda42ec0cf48998cec1e" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&gt;&gt;</name></member>
-      <member refid="classavx_1_1_int256_1a7e41957b0356534d4ce45c7c6528a976" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&gt;&gt;=</name></member>
-      <member refid="classavx_1_1_int256_1aa8843b605ff31975c1d6c27244093511" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_int256_1a46d25bbebec9bd2ad5ab923cc0bc9f75" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&gt;&gt;=</name></member>
+      <member refid="classavx_1_1_int256_1af8ebd67cbb6152e78a9b523794af2a7f" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator&gt;&gt;=</name></member>
       <member refid="classavx_1_1_int256_1acf6d2fd3b7c3555942361cef0da15779" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator[]</name></member>
       <member refid="classavx_1_1_int256_1a6812eb236caedd3887e34735f65c947c" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator^</name></member>
       <member refid="classavx_1_1_int256_1a94372beac04e031922df4c418c63fa56" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator^</name></member>
-      <member refid="classavx_1_1_int256_1a84e4692c78001c6dcf5a7765a92d875e" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator^=</name></member>
-      <member refid="classavx_1_1_int256_1ac5db90d4c93b44c6eb1d2341f9ec25fb" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_int256_1a06879e079ab65650ba3e4777c40018ca" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator^=</name></member>
+      <member refid="classavx_1_1_int256_1a040bf3038c0f61661fc6ca0c410747ff" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator^=</name></member>
       <member refid="classavx_1_1_int256_1a80dfa615ff20758550d7060c44defb89" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator|</name></member>
       <member refid="classavx_1_1_int256_1a5e66bd7c42556ef2e4ec5ed34376033d" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator|</name></member>
-      <member refid="classavx_1_1_int256_1a59265e3efd2ba3ed941fd49a4025c7aa" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator|=</name></member>
-      <member refid="classavx_1_1_int256_1a9822efa17bcdb01768d0d4c33e9a5dcc" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_int256_1aeddfcac9dc9e4c6566057b0228350008" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_int256_1ad923f71000aaa18a88d83ca71404e3f2" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator|=</name></member>
       <member refid="classavx_1_1_int256_1aa52424c26f3ec87e764e5c208f618d71" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>operator~</name></member>
       <member refid="classavx_1_1_int256_1acb0fd228f1559d620602a027612f13a9" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>save</name></member>
       <member refid="classavx_1_1_int256_1a70169eac884587f61f2255014416d51c" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>save</name></member>
@@ -1367,8 +1433,8 @@
       <member refid="classavx_1_1_int256_1a0d87051c05a25923c0c570956c29b783" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>size</name></member>
       <member refid="classavx_1_1_int256_1a96d8b359a100f18d16a97db104d77bbc" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>storedType</name></member>
       <member refid="classavx_1_1_int256_1acc816d00ced8fc6291364d276c8dcfa1" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>str</name></member>
-      <member refid="classavx_1_1_int256_1a613bcc04cebe1a3d16349abc8430719d" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>sum</name></member>
-      <member refid="classavx_1_1_int256_1a48f6526a6b585065e4a0aa44d041b6bd" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>sum</name></member>
+      <member refid="classavx_1_1_int256_1a785869399f7dafef59776a60cabee450" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>sum</name></member>
+      <member refid="classavx_1_1_int256_1a09ef91694fcf7ae149601db0047aac0d" prot="public" virt="non-virtual"><scope>avx::Int256</scope><name>sum</name></member>
       <member refid="classavx_1_1_int256_1a3da75e1c086411c5ff3b921c5993f0ef" prot="private" virt="non-virtual"><scope>avx::Int256</scope><name>v</name></member>
     </listofallmembers>
   </compounddef>

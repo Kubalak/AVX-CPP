@@ -5,11 +5,12 @@ import pathlib, os, datetime
 project = "AVX CPP"
 author = "Kubalak"
 copyright = '2024-%Y, Kubalak'
-version = '0.8.1.2'
+version = '0.8.1.3'
 
 extensions = ["breathe", "sphinx.ext.viewcode", "sphinx.ext.todo"]
 
 html_theme = "furo"
+html_title = "AVX CPP"
 
 breathe_projects = {
     "AVX_CPP": "../docs/xml"

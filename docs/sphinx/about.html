@@ -5,31 +5,31 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="author" title="About these documents" href="#" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Quickstart" href="quickstart.html" /><link rel="prev" title="AVX CPP" href="index.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>About AVX CPP - AVX CPP documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
+        <title>About AVX CPP - AVX CPP</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">AVX CPP  documentation</div></a>
+      <a href="index.html"><div class="brand">AVX CPP</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -189,8 +189,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
-  
-  <span class="sidebar-brand-text">AVX CPP  documentation</span>
+  <span class="sidebar-brand-text">AVX CPP</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -293,7 +292,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -311,18 +310,78 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In case of GCC and Clang turning on specific optimization flags might produce code very similar in performance to this wrote by hand.
-Both of these compilers do heavy lifting by integrating SIMD in the output code.
+Both of these compilers can produce well optimized code when SIMD instructions are enabled.
 For MSVC manually optimized SIMD can result in code that is few times faster than “optimized” by MSVC.</p>
 </div>
 <p>While developing this library I have followed the principles listed below:</p>
 <ul class="simple">
 <li><p><strong>Performance</strong> - the library should be as fast as possible, resulting in code that has as little overhead caused by abstraction as possible (that’s why almost all methods are <cite>inline</cite>).</p></li>
-<li><p><strong>Exception Avoidance</strong> - the library should not throw exceptions as they make code slower and harder to read. An exception to this rule is running code in Debug mode, where exceptions are explicitly thrown. Otherwise, for _invalid_ inputs, functions have no effect or guarantee not to cause undefined behavior (e.g. buffer overflow).</p></li>
+<li><p><strong>Exception Avoidance</strong> - the library should not throw exceptions as they make code slower and harder to read. An exception to this rule is running code in Debug mode, where exceptions are explicitly thrown. Otherwise, for <em>invalid</em> inputs, functions have no effect or guarantee not to cause undefined behavior (e.g. buffer overflow).</p></li>
 <li><p><strong>Ease of Use</strong> - the library should be easy to use providing intuitive API for introducing SIMD to existing code.</p></li>
 <li><p><strong>Simplicity</strong> - no one likes to use overcomplicated code with many abstraction layers. That’s why each class is an independent unit (even though all of them share same namespace and most methods) not using polymorphism or iheritance.</p></li>
 <li><p><strong>Portability</strong> - the library should be available on Windows and Linux platforms while supporting all major compilers (GCC, Clang and MSVC). For obvious reasons the library is targeting only x86 architecture supporting AVX2 (mandatory) and AVX512 (optional).</p></li>
-<li><p><a class="reference external" href="https://www.geeksforgeeks.org/test-driven-development-tdd/">TDD</a> - each feature should be tested before being added to the library (along with adding a feature, tests for it should be developed). The tests should be run on all supported platforms and compilers to ensure seamless integration <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/test-driven-development-tdd/">TDD</a> - each feature should be tested before being added to the library (along with adding a feature, tests for it should be developed). The tests should be run on all supported platforms and compilers to ensure seamless integration <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Tests can be found in <a class="reference external" href="https://github.com/Kubalak/AVX-CPP/tree/main/src/tests">src/tests</a> folder.</p></li>
 </ul>
+<section id="list-of-classes">
+<h2>List of classes<a class="headerlink" href="#list-of-classes" title="Link to this heading">¶</a></h2>
+<p>The library provides following classes, which can be used (all of which are within <code class="docutils literal notranslate"><span class="pre">avx</span></code> namespace):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Char256</span></code> holds 32 chars (8-bit integers),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UChar256</span></code> holds 32 unsigned chars (8-bit unsigned integers),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Short256</span></code> holds 16 shorts (16-bit integers),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UShort256</span></code> holds 16 unsigned shorts (16-bit unsigned integers),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Int256</span></code> holds 8 32-bit integers,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UInt256</span></code> holds 8 32-bit unsigned integers,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Long256</span></code> holds 4 64-bit integers,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ULong256</span></code> holds 4 64-bit unsigned integers,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Float256</span></code> holds 8 32-bit floats,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Double256</span></code> holds 4 64-bit doubles</p></li>
+</ul>
+<div class="line-block">
+<div class="line">Almost all classes are header only and utilize inline methods for better performance.</div>
+<div class="line">Please refer to <a class="reference external" href="https://en.wikipedia.org/wiki/Inline_(C_and_C%2B%2B)">this</a> page for more information what benefits does inlining provide and what are it’s drawbacks.</div>
+</div>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading">¶</a></h2>
+<p>Each of the types supports regular math operators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">+=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> and <code class="docutils literal notranslate"><span class="pre">-=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">*=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">/=</span></code></p></li>
+</ul>
+<p>Each operator supports class and scalar values (of corresponding type).
+For example <code class="docutils literal notranslate"><span class="pre">+</span></code> operator for <code class="docutils literal notranslate"><span class="pre">Int256</span></code> will have two versions, one accepting <code class="docutils literal notranslate"><span class="pre">Int256</span></code> and other accepting <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>All types also support following logical operators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>, accepts types like math operators,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code>, same as above + ignores -0.0 for floating-point types.</p></li>
+</ul>
+<p>Integer types also support bitwise operators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">&amp;=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> and <code class="docutils literal notranslate"><span class="pre">|=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> and <code class="docutils literal notranslate"><span class="pre">^=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> without arguments</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code>, this is an exception, accepts same class or <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>, this is an exception, accepts same class or <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></p></li>
+</ul>
+<p>Each class will provide list of operators and used SIMD instructions.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">¶</a></h2>
+<div class="line-block">
+<div class="line">Currently the library does not support dynamic detection of supported SIMD instructions.</div>
+<div class="line">This means that if it is compiled with AVX512 enabled, then it will only work on CPUs supporting AVX512.</div>
+<div class="line">For <code class="docutils literal notranslate"><span class="pre">Long256</span></code> and <code class="docutils literal notranslate"><span class="pre">ULong256</span></code> data loading and saving overhead results in SIMD version being slower, than regular sequential solution.</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please check <a class="reference external" href="long256/index.html">Long256</a> and <a class="reference external" href="ulong256/index.html">ULong256</a> documentation to see details.</p>
+</div>
+<p>Each constructor or <code class="docutils literal notranslate"><span class="pre">load</span></code> method expects source to contain at least 32 bytes of continous data.
+Providing pointer to memory, which contains less than 32 bytes can result in undefined behavior.</p>
 <div class="toctree-wrapper compound">
 </div>
 <hr class="docutils" />
@@ -332,6 +391,7 @@ For MSVC manually optimized SIMD can result in code that is few times faster tha
 <p>Automatic tests are run using Github Actions on each commit. As some functionality is not available on all platforms (e.g. SVML) some features are fully implemented on selected platforms and being ported to others later (e.g. stable <cite>/</cite> operator for <cite>Int256</cite>).</p>
 </aside>
 </aside>
+</section>
 </section>
 
         </article>
@@ -377,8 +437,29 @@ For MSVC manually optimized SIMD can result in code that is few times faster tha
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">About AVX CPP</a><ul>
+<li><a class="reference internal" href="#list-of-classes">List of classes</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -386,6 +467,6 @@ For MSVC manually optimized SIMD can result in code that is few times faster tha
 </div><script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>

@@ -5,31 +5,31 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="author" title="About these documents" href="../about.html" /><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="avx::UInt256" href="../uint256/index.html" /><link rel="prev" title="avx::Int256" href="index.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Examples - AVX CPP documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
+        <title>Examples - AVX CPP</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">AVX CPP  documentation</div></a>
+      <a href="../index.html"><div class="brand">AVX CPP</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -189,8 +189,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
-  <span class="sidebar-brand-text">AVX CPP  documentation</span>
+  <span class="sidebar-brand-text">AVX CPP</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -293,7 +292,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -301,6 +300,93 @@
         <article role="main" id="furo-main-content">
           <section id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h1>
+<section id="examples-of-initializing-avx-int256">
+<h2>Examples of initializing <code class="docutils literal notranslate"><span class="pre">avx::Int256</span></code><a class="headerlink" href="#examples-of-initializing-avx-int256" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">avx::Int256</span></code> can be initialized in the ways listed below:</p>
+<ul class="simple">
+<li><p>Default constructor, all values in vector are set to 0.</p></li>
+<li><p>initialization by scalar of type <code class="docutils literal notranslate"><span class="pre">int</span></code>, all vector fields will be set to the value of passed argument.</p></li>
+<li><p>Initialization by another <code class="docutils literal notranslate"><span class="pre">avx::Int256</span></code>, copy vector value.</p></li>
+<li><p>Initialization by <code class="docutils literal notranslate"><span class="pre">__m256i</span></code>, copy vector value.</p></li>
+<li><p>Initialization by initializer list, copy first 8 values to vector. If list contains less than 8 values missing values will be set to 0.</p></li>
+<li><p>Initialization by <code class="docutils literal notranslate"><span class="pre">std::array&lt;int,</span> <span class="pre">8&gt;</span></code> copy array values to vector.</p></li>
+<li><p>Initialization by <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int*</span></code>, copy first 8 values to vector.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When initializing by <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">int*</span></code> you must ensure that source contains at least 32 bytes of data.
+Although constructor performs null pointer checks, it can’t check for the size of data which is pointed by this pointer.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Apart from accepting <code class="docutils literal notranslate"><span class="pre">std::array&lt;int,</span> <span class="pre">8&gt;</span></code> arrays for smaller types (<code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code>) are also supported.
+Though due to types size difference it will cause performance penalty.</p>
+</div>
+<p>The code snippet below shows various initialization methods in practice.</p>
+<div class="highlight-CPP notranslate"><div class="highlight"><pre><span></span><span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// This will initialize vector with 1. Printing results of str() method will show Int256(1, 1, 1, 1, 1, 1, 1, 1)</span>
+<span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="w"> </span><span class="n">b</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span><span class="w"> </span><span class="c1">// Using initializer list. Result will be Int256(1, 2, 3, 4, 5, 0, 0, 0)</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cP</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">};</span>
+<span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">cP</span><span class="p">);</span><span class="w"> </span><span class="c1">// Initialization using pointer. Will print Int256(6, 7, 8, 9, 10, 11, 12, 13)</span>
+
+<span class="c1">// For debugginh you can print vector contents by using str() method.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="c1">// Int256(6, 7, 8, 9, 10, 11, 12, 13)</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
+<p>You can use this type as if it was any other numeric type*.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>* Please note that currently <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> operators are not suppoerted.</p>
+</div>
+<div class="highlight-CPP notranslate"><div class="highlight"><pre><span></span><span class="c1">// Assuming we have set up variables in previous code block.</span>
+<span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Multiplying by scalar.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Int256(18, 21, 24, 27, 30, 33, 36, 39)</span>
+<span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adding two vectors together.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Int256(7, 9, 11, 13, 15, 11, 12, 13)</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Use == and != operators to quickly check if vectors are equal.</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;a vector contains only 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you want to save vector contents to external variables, you can do so by using following methods:</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">save</span></code> method to save data to desired destination.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">saveAligned</span></code> to save data to memory location aligned to 32-byte boundary.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">get</span></code> method to retrieve raw vector data (<code class="docutils literal notranslate"><span class="pre">__m256i</span></code>).</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator to access single elements from vector. The vector contents cannot be modified by using this method.</p></li>
+</ul>
+</section>
+<section id="sample-example">
+<h2>Sample example<a class="headerlink" href="#sample-example" title="Link to this heading">¶</a></h2>
+<p>The following example shows the most effective way of using <code class="docutils literal notranslate"><span class="pre">avx::Int256</span></code> in real computation.</p>
+<div class="highlight-CPP notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;types/int256.hpp&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="w"> </span><span class="n">aV</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span><span class="w"> </span><span class="n">bV</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span><span class="w"> </span><span class="c1">// Create two vectors 1024 values each.</span>
+
+<span class="w">    </span><span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// Create temporary variables.</span>
+
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">aV</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="o">::</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="o">::</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="p">(</span><span class="n">aV</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">avx</span><span class="o">::</span><span class="n">Int256</span><span class="p">(</span><span class="n">bV</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="n">r</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">aV</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">aV</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="n">aV</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bV</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -346,8 +432,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Examples</a><ul>
+<li><a class="reference internal" href="#examples-of-initializing-avx-int256">Examples of initializing <code class="docutils literal notranslate"><span class="pre">avx::Int256</span></code></a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#sample-example">Sample example</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -355,6 +462,6 @@
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>

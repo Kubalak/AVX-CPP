@@ -36,9 +36,6 @@ Example of initializing avx::Char256
     Altough it cheks for ``nullptr`` it **does not** check the length of the string.
     It will **ALWAYS** load 32 bytes into vector.
 
-.. todo::
-    Differentiate when using `char*` containing characters and binary data (explicittly specify size).
-
 
 Using basic arithmetic operators
 ================================
