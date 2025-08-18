@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(AVX-CPP VERSION 0.8.1.3 LANGUAGES C CXX)
+project(AVX-CPP VERSION 0.8.1.4 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
@@ -97,3 +97,20 @@ if(BUILD_SHARED_LIBS)
     )
 endif()
 
+file(
+    GLOB_RECURSE HEADERS 
+    RELATIVE ${SOURCE_DIR}
+    "${SOURCE_DIR}/types/*.hpp"
+    "${SOURCE_DIR}/ops/*.hpp"
+    "${SOURCE_DIR}/misc/*.h"
+)
+
+foreach(HEADER_FILE IN LISTS HEADERS)
+    # Copies files into include dir inside build folder.
+    add_custom_command(
+        TARGET avxcpp-s POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy
+        "${SOURCE_DIR}/${HEADER_FILE}"
+        "${CMAKE_CURRENT_BINARY_DIR}/include/${HEADER_FILE}"
+    )
+endforeach()

@@ -278,7 +278,7 @@ namespace avx {
              * Does not support value assignment through this method (e.g. aV[0] = 1 won't work).
              * @param index Position of desired element between 0 and 31.
              * @return Value of underlying element.
-             * @throws If index is not within the correct range and build type is debug `std::out_of_range` will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that in case of out of index it will behave like `index % 32`.
+             * @throws If index is not within the correct range and build type is debug `std::out_of_range` will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 5 LSBs are used from `index`.
              */
             char operator[](const unsigned int& index) const 
             #ifndef NDEBUG

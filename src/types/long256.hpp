@@ -23,82 +23,115 @@ namespace avx {
             __m256i v;
         
         public:
+
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr int size = 4;
+            
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = long long;
 
-            Long256() noexcept :v(_mm256_setzero_si256()){};
+        /**
+         * Default constructor. Initializes vector with zeros.
+         */
+        Long256() noexcept : v(_mm256_setzero_si256()) {}
 
-            Long256(const long long* init) :
-                v(_mm256_lddqu_si256((const __m256i*)init))
-            {}
+        /**
+         * Initializes vector by loading data from memory (via `_mm256_lddqu_si256`).
+         * @param init Valid memory address of minimal size of 256-bits (32 bytes).
+         */
+        Long256(const long long* init) : v(_mm256_lddqu_si256((const __m256i*)init)) {}
 
-            Long256(const long long& init) noexcept :
-                v(_mm256_set1_epi64x(init))
-            {}
+        /**
+         * Initializes vector with const value. Each cell will be set with value of `init`.
+         * @param init Value to be set.
+         */
+        Long256(const long long& init) noexcept : v(_mm256_set1_epi64x(init)) {}
 
-            Long256(__m256i init) noexcept : v(init){}
+        /**
+         * Initializes vector from __m256i value.
+         * @param init Value of type __m256i to initialize the vector.
+         */
+        Long256(__m256i init) noexcept : v(init) {}
 
-            Long256(Long256& init) noexcept : v(init.v){}
+        /**
+         * Copy constructor.
+         * Initializes vector from another Long256 vector.
+         * @param init Another Long256 vector to copy from.
+         */
+        Long256(Long256& init) noexcept : v(init.v) {}
 
-            Long256(const Long256& init):v(init.v){};
+        /**
+         * Copy constructor (const).
+         * Initializes vector from another Long256 vector.
+         * @param init Another Long256 vector to copy from.
+         */
+        Long256(const Long256& init) : v(init.v) {}
 
-            Long256(const std::array<long long, 4>& init) noexcept :
-                v(_mm256_lddqu_si256((const __m256i*)init.data()))
-            {}
+        /**
+         * Initializes vector from std::array of 4 long long values.
+         * @param init Array of 4 long long values to initialize the vector.
+         */
+        Long256(const std::array<long long, 4>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())) {}
 
-            Long256(const std::array<int, 4>& init) noexcept :
-                    v(_mm256_set_epi64x(
-                    init[0], 
-                    init[1], 
-                    init[2], 
-                    init[3]
-                    )
-                )
-            {}
+        /**
+         * Initializes vector from std::array of 4 int values. Each int value is promoted to long long.
+         * @param init Array of 4 int values to initialize the vector.
+         */
+        Long256(const std::array<int, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
 
-            Long256(const std::array<short, 4>& init) noexcept :
-                    v(_mm256_set_epi64x(
-                    init[0], 
-                    init[1], 
-                    init[2], 
-                    init[3]
-                    )
-                )
-            {}
+        /**
+         * Initializes vector from std::array of 4 short values. Each short value is promoted to long long.
+         * @param init Array of 4 short values to initialize the vector.
+         */
+        Long256(const std::array<short, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
 
-            Long256(const std::array<char, 4>& init) noexcept :
-                    v(_mm256_set_epi64x(
-                    init[0], 
-                    init[1], 
-                    init[2], 
-                    init[3]
-                    )
-                )
-            {}
+        /**
+         * Initializes vector from std::array of 4 char values. Each char value is promoted to long long.
+         * @param init Array of 4 char values to initialize the vector.
+         */
+        Long256(const std::array<char, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
 
-            Long256(std::initializer_list<long long> init) noexcept {
-                alignas(32) long long init_v[4];
-                memset(init_v, 0, 32);
-                if(init.size() < 4){
-                    auto begin = init.begin();
-                    for(int i{0}; i < init.size(); ++i){
-                        init_v[i] = *begin;
-                        begin++;
-                    }
+        /**
+         * Initializes vector from initializer_list of long long values.
+         * If the list contains fewer than 4 elements, remaining elements are set to zero.
+         * If the list contains more than 4 elements, only the first 4 are used.
+         * @param init Initializer list of long long values.
+         */
+        Long256(std::initializer_list<long long> init) noexcept {
+            alignas(32) long long init_v[4];
+            memset(init_v, 0, 32);
+            if(init.size() < 4){
+                auto begin = init.begin();
+                for(int i{0}; i < init.size(); ++i){
+                    init_v[i] = *begin;
+                    begin++;
                 }
-                else {
-                    auto begin = init.begin();
-                    for(int i{0}; i < size; ++i){
-                        init_v[i] = *begin;
-                        begin++;
-                    }
-                }
-                v = _mm256_load_si256((const __m256i*)init_v);
             }
+            else {
+                auto begin = init.begin();
+                for(int i{0}; i < size; ++i){
+                    init_v[i] = *begin;
+                    begin++;
+                }
+            }
+            v = _mm256_load_si256((const __m256i*)init_v);
+        }
 
-            __m256i get() const noexcept {return v;}
+        /**
+         * Returns the internal __m256i value stored by the object.
+         * @return The __m256i value.
+         */
+        __m256i get() const noexcept { return v; }
 
-            void set(__m256i val) noexcept {v = val;}
+        /**
+         * Sets the internal __m256i value stored by the object.
+         * @param val New value of type __m256i.
+         */
+        void set(__m256i val) noexcept { v = val; }
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
@@ -584,12 +617,6 @@ namespace avx {
                 result += ")";
                 return result;
             }
-
-            
-
-            friend Long256 sum(std::vector<Long256>&);
-            friend Long256 sum(std::set<Long256>&);
-
     };
 
 };

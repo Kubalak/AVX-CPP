@@ -258,6 +258,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../math/index.html">AVX Math</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of AVX Math</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/ops/avxmath.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -509,7 +513,7 @@
 <dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 31. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – index is not within the correct range and build type is debug <code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code> will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that in case of out of index it will behave like <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">%</span> <span class="pre">32</span></code>. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – index is not within the correct range and build type is debug <code class="docutils literal notranslate"><span class="pre">std::out_of_range</span></code> will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 5 LSBs are used from <code class="docutils literal notranslate"><span class="pre">index</span></code>. </p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Value of underlying element. </p>

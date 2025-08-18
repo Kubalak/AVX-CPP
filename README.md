@@ -12,7 +12,7 @@ Library provides both integer and floating-point types:
 
 - Integer types:
   - `Int256` - Vector containing 8 signed 32-bit integers (`__m256i`) &#x2705;
-  - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`) &#x2705;[&#x2757;](#known-issues)
+  - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`) &#x2705;
   - `Short256` - Vector containing 16 signed 16-bit integers (`__m256i`) &#x2705;
   - `Ushort256` - Vector containing 16 unsigned 16-bit integers (`__m256i`) &#x2705;
   - `Long256` - Vector containing 4 signed 64-bit integers (`__m256i`) [&#9888;&#65039; &#x1F6A9;](#known-issues)
@@ -153,6 +153,5 @@ If you want to read documentation offline go to [docs/sphinx](docs/sphinx).
 ## Known issues
 
 - &#9888;&#65039; - `/` and `%` might not always use SIMD instructions to calculate results due to instruction set restrictions. Some types use casting to `float` to perform those operations.
-- &#x2757; For `UInt256` the underlying type used in division and modulo is `float` which might cause rounding to occur which will yield inaccurate results. Please refer to [this](https://en.wikipedia.org/wiki/IEEE_754) document about `float` type structure.
 - &#x1F6A9; - `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
 - `Long256` and `ULong256` don't use AVX/AVX2 for `*`, `/` and `%` due to lack available SIMD instructions. In AVX512 mode they might use some SIMD instructions (which will be checked once getting access to CPU supporting AVX512).

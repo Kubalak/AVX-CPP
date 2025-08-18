@@ -258,6 +258,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../math/index.html">AVX Math</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of AVX Math</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/ops/avxmath.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -309,7 +313,8 @@
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long25610storedTypeE">
 <span id="_CPPv3N3avx7Long25610storedTypeE"></span><span id="_CPPv2N3avx7Long25610storedTypeE"></span><span class="target" id="classavx_1_1_long256_1a82594b26231b41a083e56ff4fe8ca566"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">storedType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><a class="headerlink" href="#_CPPv4N3avx7Long25610storedTypeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Type that is stored inside vector. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -317,67 +322,140 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256Ev">
 <span id="_CPPv3N3avx7Long2567Long256Ev"></span><span id="_CPPv2N3avx7Long2567Long256Ev"></span><span id="avx::Long256::Long256"></span><span class="target" id="classavx_1_1_long256_1a9707a84592cef79f63fe6dd830c9b392"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256Ev" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Default constructor. Initializes vector with zeros. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256EPKx">
 <span id="_CPPv3N3avx7Long2567Long256EPKx"></span><span id="_CPPv2N3avx7Long2567Long256EPKx"></span><span id="avx::Long256::Long256__l-lCP"></span><span class="target" id="classavx_1_1_long256_1af544d0c79db280d376a61b78170b288a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256EPKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector by loading data from memory (via <code class="docutils literal notranslate"><span class="pre">_mm256_lddqu_si256</span></code>). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Valid memory address of minimal size of 256-bits (32 bytes). </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ERKx">
 <span id="_CPPv3N3avx7Long2567Long256ERKx"></span><span id="_CPPv2N3avx7Long2567Long256ERKx"></span><span id="avx::Long256::Long256__l-lCR"></span><span class="target" id="classavx_1_1_long256_1a54f5d54a7a133813a6f5abc99df9430a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector with const value. Each cell will be set with value of <code class="docutils literal notranslate"><span class="pre">init</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Value to be set. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256E7__m256i">
 <span id="_CPPv3N3avx7Long2567Long256E7__m256i"></span><span id="_CPPv2N3avx7Long2567Long256E7__m256i"></span><span id="avx::Long256::Long256____m256i"></span><span class="target" id="classavx_1_1_long256_1a6f6967f97ca96fa022feee1723b4c0f6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256E7__m256i" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from __m256i value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Value of type __m256i to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ER7Long256">
 <span id="_CPPv3N3avx7Long2567Long256ER7Long256"></span><span id="_CPPv2N3avx7Long2567Long256ER7Long256"></span><span id="avx::Long256::Long256__Long256R"></span><span class="target" id="classavx_1_1_long256_1a5045ef5bb5a2354e06991f82e00a9c88"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3avx7Long2567Long256ER7Long256" title="avx::Long256::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ER7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Copy constructor. Initializes vector from another <a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Another <a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> vector to copy from. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ERK7Long256">
 <span id="_CPPv3N3avx7Long2567Long256ERK7Long256"></span><span id="_CPPv2N3avx7Long2567Long256ERK7Long256"></span><span id="avx::Long256::Long256__Long256CR"></span><span class="target" id="classavx_1_1_long256_1a07f3d02386883cf562e10c18ee5b4d5b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long2567Long256ERK7Long256" title="avx::Long256::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Copy constructor (const). Initializes vector from another <a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Another <a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> vector to copy from. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ERKNSt5arrayIxXL4EEEE">
 <span id="_CPPv3N3avx7Long2567Long256ERKNSt5arrayIxXL4EEEE"></span><span id="_CPPv2N3avx7Long2567Long256ERKNSt5arrayIxX4EEE"></span><span id="avx::Long256::Long256__std::array:l-l.4:CR"></span><span class="target" id="classavx_1_1_long256_1a08dc49079e91996ed4ada75e7a908dc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIxXL4EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 4 long long values. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 4 long long values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ERKNSt5arrayIiXL4EEEE">
 <span id="_CPPv3N3avx7Long2567Long256ERKNSt5arrayIiXL4EEEE"></span><span id="_CPPv2N3avx7Long2567Long256ERKNSt5arrayIiX4EEE"></span><span id="avx::Long256::Long256__std::array:i.4:CR"></span><span class="target" id="classavx_1_1_long256_1a91b4b6d11ff75287b70bfa7f96f58cc9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIiXL4EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 4 int values. Each int value is promoted to long long. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 4 int values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ERKNSt5arrayIsXL4EEEE">
 <span id="_CPPv3N3avx7Long2567Long256ERKNSt5arrayIsXL4EEEE"></span><span id="_CPPv2N3avx7Long2567Long256ERKNSt5arrayIsX4EEE"></span><span id="avx::Long256::Long256__std::array:short.4:CR"></span><span class="target" id="classavx_1_1_long256_1a37368b556436135afd8f4176840e79ff"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">short</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIsXL4EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 4 short values. Each short value is promoted to long long. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 4 short values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ERKNSt5arrayIcXL4EEEE">
 <span id="_CPPv3N3avx7Long2567Long256ERKNSt5arrayIcXL4EEEE"></span><span id="_CPPv2N3avx7Long2567Long256ERKNSt5arrayIcX4EEE"></span><span id="avx::Long256::Long256__std::array:c.4:CR"></span><span class="target" id="classavx_1_1_long256_1a8c31b2c5e2c4af4b0cff477b812f1d9b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ERKNSt5arrayIcXL4EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 4 char values. Each char value is promoted to long long. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 4 char values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256ENSt16initializer_listIxEE">
 <span id="_CPPv3N3avx7Long2567Long256ENSt16initializer_listIxEE"></span><span id="_CPPv2N3avx7Long2567Long256ENSt16initializer_listIxEE"></span><span id="avx::Long256::Long256__std::initializer_list:l-l:"></span><span class="target" id="classavx_1_1_long256_1a7a23d42e6055a1d2e0dc03f0713a5d3a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256ENSt16initializer_listIxEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from initializer_list of long long values. If the list contains fewer than 4 elements, remaining elements are set to zero. If the list contains more than 4 elements, only the first 4 are used. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Initializer list of long long values. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long2563getEv">
 <span id="_CPPv3NK3avx7Long2563getEv"></span><span id="_CPPv2NK3avx7Long2563getEv"></span><span id="avx::Long256::getC"></span><span class="target" id="classavx_1_1_long256_1aba9d0832c5542ae3abcc436795a556e8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long2563getEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns the internal __m256i value stored by the object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The __m256i value. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2563setE7__m256i">
 <span id="_CPPv3N3avx7Long2563setE7__m256i"></span><span id="_CPPv2N3avx7Long2563setE7__m256i"></span><span id="avx::Long256::set____m256i"></span><span class="target" id="classavx_1_1_long256_1a42a3044986407ba0bc45d57b4708d3a7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">val</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2563setE7__m256i" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Sets the internal __m256i value stored by the object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>val</strong> – New value of type __m256i. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
@@ -711,20 +789,8 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2564sizeE">
 <span id="_CPPv3N3avx7Long2564sizeE"></span><span id="_CPPv2N3avx7Long2564sizeE"></span><span id="avx::Long256::size__i"></span><span class="target" id="classavx_1_1_long256_1a430447a0c369a7c43f8c928bd9688a18"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><a class="headerlink" href="#_CPPv4N3avx7Long2564sizeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2563sumERNSt6vectorI7Long256EE">
-<span id="_CPPv3N3avx7Long2563sumERNSt6vectorI7Long256EE"></span><span id="_CPPv2N3avx7Long2563sumERNSt6vectorI7Long256EE"></span><span id="avx::Long256::sum__std::vector:Long256:R"></span><span class="target" id="classavx_1_1_long256_1ae563e93383d4842fbfe6612fb8946e33"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Long2563sumERNSt6vectorI7Long256EE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2563sumERNSt3setI7Long256EE">
-<span id="_CPPv3N3avx7Long2563sumERNSt3setI7Long256EE"></span><span id="_CPPv2N3avx7Long2563sumERNSt3setI7Long256EE"></span><span id="avx::Long256::sum__std::set:Long256:R"></span><span class="target" id="classavx_1_1_long256_1a5078c3a8be257c72a117bb9717f51305"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">set</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Long2563sumERNSt3setI7Long256EE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Number of individual values stored by object. This value can be used to iterate over elements. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -855,8 +921,6 @@
 <li><a class="reference internal" href="#_CPPv4N3avx7Long256rSERKj"><code class="docutils literal notranslate"><span class="pre">operator&gt;&gt;=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Long2563strEv"><code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx7Long2564sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx7Long2563sumERNSt6vectorI7Long256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx7Long2563sumERNSt3setI7Long256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -13,28 +13,60 @@ namespace avx {
      * Class providing vectorized version of `float`.
      * Can hold 8 individual `float` values.
      * Provides arithmetic operators.
-     * * Provides comparison operators == != (optimization on the way).
-     */
-    /**
-     * Class providing vectorized version of `float`.
-     * Can hold 8 individual `float` values.
-     * Provides arithmetic operators.
-     * * Provides comparison operators == != (optimization on the way).
+     * Provides comparison operators == !=.
      */
     class Float256 {
         private:
-        __m256 v;
+            __m256 v;
 
         public:
+
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr int size = 8;
+
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = float;
 
-            Float256() noexcept : v(_mm256_setzero_ps()){}
-            Float256(const Float256 &init) noexcept : v(init.v){}
-            Float256(const float value) noexcept : v(_mm256_set1_ps(value)){}
-            Float256(const __m256 init) noexcept : v(init){}
-            Float256(const std::array<float, 8> &init) noexcept : v(_mm256_loadu_ps(init.data())){}
+            /**
+             * Default constructor. Initializes vector with zeros.
+             */
+            Float256() noexcept : v(_mm256_setzero_ps()) {}
 
+            /**
+             * Copy constructor.
+             * Initializes vector from another Float256 vector.
+             * @param init Another Float256 vector to copy from.
+             */
+            Float256(const Float256 &init) noexcept : v(init.v) {}
+
+            /**
+             * Initializes vector with const value. Each cell will be set with value of `value`.
+             * @param value Value to be set.
+             */
+            Float256(const float value) noexcept : v(_mm256_set1_ps(value)) {}
+
+            /**
+             * Initializes vector from __m256 value.
+             * @param init Value of type __m256 to initialize the vector.
+             */
+            Float256(const __m256 init) noexcept : v(init) {}
+
+            /**
+             * Initializes vector from std::array of 8 float values.
+             * @param init Array of 8 float values to initialize the vector.
+             */
+            Float256(const std::array<float, 8> &init) noexcept : v(_mm256_loadu_ps(init.data())) {}
+
+            /**
+             * Initializes vector from initializer_list of float values.
+             * If the list contains fewer than 8 elements, remaining elements are set to zero.
+             * If the list contains more than 8 elements, only the first 8 are used.
+             * @param init Initializer list of float values.
+             */
             Float256(std::initializer_list<float> init) noexcept {
                 alignas(32) float init_v[size];
                 memset((char*)init_v, 0, 32);
@@ -55,10 +87,23 @@ namespace avx {
                 v = _mm256_load_ps((const float*)init_v);
             }
 
-            Float256(const float* pSrc) : v(_mm256_loadu_ps(pSrc)){}
+            /**
+             * Initializes vector by loading data from memory (via `_mm256_loadu_ps`).
+             * @param pSrc Pointer to memory of at least 32 bytes (8 floats).
+             */
+            Float256(const float* pSrc) : v(_mm256_loadu_ps(pSrc)) {}
 
-            const __m256 get() const noexcept { return v;}
-            void set(__m256 val) noexcept { v = val;}
+            /**
+             * Returns the internal __m256 value stored by the object.
+             * @return The __m256 value.
+             */
+            const __m256 get() const noexcept { return v; }
+
+            /**
+             * Sets the internal __m256 value stored by the object.
+             * @param val New value of type __m256.
+             */
+            void set(__m256 val) noexcept { v = val; }
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
@@ -113,7 +158,6 @@ namespace avx {
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
             #endif
             }
-            
 
             /**
              * Compares with second vector for equality. This method is secured to return true when comparing 0.0f with -0.0f.
@@ -135,7 +179,7 @@ namespace avx {
 
                 // Fixes 0.0f == -0.0f mismatch by zeroing corresponding fields
                 eq = _mm256_and_ps(eq, zerofx);
-                
+
                 return _mm256_testz_si256(_mm256_castps_si256(eq), _mm256_castps_si256(eq)) != 0;
             }
 
@@ -155,7 +199,7 @@ namespace avx {
                 ));
 
                 eq = _mm256_and_ps(eq, zerofx);
-                
+
                 return _mm256_testz_si256(_mm256_castps_si256(eq), _mm256_castps_si256(eq)) != 0;
             }
 
@@ -173,7 +217,7 @@ namespace avx {
                 ));
 
                 eq = _mm256_and_ps(eq, zerofx);
-                
+
                 return _mm256_testz_si256(_mm256_castps_si256(eq), _mm256_castps_si256(eq)) == 0;
             }
 
@@ -193,7 +237,7 @@ namespace avx {
                 ));
 
                 eq = _mm256_and_ps(eq, zerofx);
-                
+
                 return _mm256_testz_si256(_mm256_castps_si256(eq), _mm256_castps_si256(eq)) == 0;
             }
 
@@ -269,6 +313,13 @@ namespace avx {
                 return *this;
             }
 
+            /**
+            * Indexing operator.
+            * Does not support value assignment through this method (e.g. aV[0] = 1 won't work).
+            * @param index Position of desired element between 0 and 7.
+            * @return Value of underlying element.
+            * @throws std::out_of_range If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 3 LSBs are used from `index`.
+            */
             float operator[](const unsigned int index) const 
             #ifndef NDEBUG 
                 {
@@ -279,13 +330,18 @@ namespace avx {
             #else 
                 noexcept { return ((float*)&v)[index & 7]; }
             #endif
-
+            
+            /**
+             * Returns string representation of vector.
+             * Printing will result in Float256(<vector_values>) eg. Float256(1.000000, 2.000000, 3.000000, 4.000000, 5.000000, 6.000000, 7.000000, 8.000000)
+             * @returns String representation of underlying vector.
+             */
             std::string str() const noexcept {
                 std::string result = "Float256(";
                 float* iv = (float*)&v; 
                 for(unsigned i{0}; i < 7; ++i)
                     result += std::to_string(iv[i]) + ", ";
-                
+
                 result += std::to_string(iv[7]);
                 result += ")";
                 return result;

@@ -23,7 +23,15 @@ namespace avx {
             __m256i v;
 
         public:
+        
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr int size = 4;
+
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = unsigned long long;
 
             ULong256() noexcept :v(_mm256_setzero_si256()){}
@@ -581,11 +589,6 @@ namespace avx {
                 result += ")";
                 return result;
             }
-
-            friend ULong256 sum(const std::vector<ULong256>& ulongs) noexcept;
-
-            friend ULong256 sum(const std::set<ULong256>& ulongs) noexcept;
-
     };
 }
 

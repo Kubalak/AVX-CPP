@@ -36,12 +36,21 @@ namespace avx
      * Provides comparison operators == !=.
      */
     class Int256
+    
     {
     private:
         __m256i v;
 
     public:
+
+        /**
+         * Number of individual values stored by object. This value can be used to iterate over elements.
+        */
         static constexpr int size = 8;
+
+        /**
+        * Type that is stored inside vector.
+        */
         using storedType = int;
 
         /**
@@ -142,10 +151,17 @@ namespace avx
             v = _mm256_load_si256((const __m256i*)init_v);
         }
 
-        __m256i get() const { return v; }
+    /**
+     * Returns the internal __m256i value stored by the object.
+     * @return The __m256i value.
+     */
+    __m256i get() const { return v; }
 
-
-        void set(__m256i val) { v = val; }
+    /**
+     * Sets the internal __m256i value stored by the object.
+     * @param val New value of type __m256i.
+     */
+    void set(__m256i val) { v = val; }
 
         /**
          * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
@@ -201,22 +217,44 @@ namespace avx
         #endif
         }
 
+        /**
+         * Compares vectors for equality.
+         * @param bV Second vector.
+         * @returns true if all values in both vectors are equal, false if any value doesn't match.
+         */
         bool operator==(const Int256 &bV) const {
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) != 0;
         }
 
+        /**
+         * Compares vectors for equality.
+         * @param b Value to compare.
+         * @returns true if all values in vector is equal to `b`, otherwise false.
+         */
         bool operator==(const int &b) const {
             __m256i bV = _mm256_set1_epi32(b);
             __m256i eq = _mm256_xor_si256(v, bV);
             return _mm256_testz_si256(eq, eq) != 0;
         }
 
+
+        /**
+         * Compares vectors for inequality.
+         * @param bV Second vector.
+         * @returns true if ANY value is different between vectors.
+         */
         bool operator!=(const Int256 &bV) const {
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) == 0;
         }
 
+
+        /**
+         * Compares vectors for inequality.
+         * @param b Value to compare.
+         * @returns true if ANY value in vector is different than `b`, otherwise false.
+         */
         bool operator!=(const int &b) const {
             __m256i bV = _mm256_set1_epi32(b);
             __m256i eq = _mm256_xor_si256(v, bV);
@@ -228,7 +266,7 @@ namespace avx
         * Does not support value assignment through this method (e.g. aV[0] = 1 won't work).
         * @param index Position of desired element between 0 and 7.
         * @return Value of underlying element.
-        * @throws std::out_of_range If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that in case of out of index it will behave like `index % 32`.
+        * @throws std::out_of_range If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 3 LSBs are used from `index`.
         */
         int operator[](const unsigned int index) const 
         #ifndef NDEBUG
@@ -242,20 +280,25 @@ namespace avx
             noexcept { return ((int*)&v)[index & 7];}
         #endif 
 
-        // Plus operators
         /**
          * Adds values from other vector and returns new vector.
+         * @param bV Second vector.
          * @return New vector being a sum of this vector and `bv`.
          */
         Int256 operator+(const Int256 &bV) const { return _mm256_add_epi32(v, bV.v); };
 
         /**
          * Adds single value across all vector fields.
+         * @param b Value to add to vector.
          * @return New vector being a sum of this vector and `b`.
          */
         Int256 operator+(const int &b) const { return _mm256_add_epi32(v, _mm256_set1_epi32(b)); }
 
-        // Minus operators
+        /**
+         * Substracts values from vector.
+         * @param bV Second vector.
+         * @return New vector being result of subtracting `bV` from vecotr.
+         */
         Int256 operator-(const Int256 &bV) const { return _mm256_sub_epi32(v, bV.v); };
         Int256 operator-(const int &b) const { return _mm256_sub_epi32(v, _mm256_set1_epi32(b)); }
 
@@ -460,54 +503,117 @@ namespace avx
             return *this;
         }
 
+        /**
+         * Bitwise OR assignment operator.
+         * Applies bitwise OR between this vector and the given vector, storing the result in this vector.
+         * @param bV Second vector.
+         * @return Reference to the modified object.
+         */
         Int256 & operator|=(const Int256 &bV){
             v = _mm256_or_si256(v, bV.v);
             return *this;
         }
 
-
+        /**
+         * Bitwise OR assignment operator.
+         * Applies bitwise OR between this vector and the given integer value, storing the result in this vector.
+         * @param b Integer value.
+         * @return Reference to the modified object.
+         */
         Int256 & operator|=(const int &b){
             v = _mm256_or_si256(v, _mm256_set1_epi32(b));
             return *this;
         }
 
-
+        /**
+         * Bitwise AND assignment operator.
+         * Applies bitwise AND between this vector and the given vector, storing the result in this vector.
+         * @param bV Second vector.
+         * @return Reference to the modified object.
+         */
         Int256 & operator&=(const Int256 &bV){
             v = _mm256_and_si256(v, bV.v);
             return *this;
         }
 
+        /**
+         * Bitwise AND assignment operator.
+         * Applies bitwise AND between this vector and the given integer value, storing the result in this vector.
+         * @param b Integer value.
+         * @return Reference to the modified object.
+         */
+        Int256 & operator&=(const int &b){
+            v = _mm256_and_si256(v, _mm256_set1_epi32(b));
+            return *this;
+        }
+
+        /**
+         * Bitwise XOR assignment operator.
+         * Applies bitwise XOR between this vector and the given vector, storing the result in this vector.
+         * @param bV Second vector.
+         * @return Reference to the modified object.
+         */
         Int256 &operator^=(const Int256 &bV){
             v = _mm256_xor_si256(v, bV.v);
             return *this;
         }
 
-
+        /**
+         * Bitwise XOR assignment operator.
+         * Applies bitwise XOR between this vector and the given integer value, storing the result in this vector.
+         * @param b Integer value.
+         * @return Reference to the modified object.
+         */
         Int256 &operator^=(const int &b){
             v = _mm256_xor_si256(v, _mm256_set1_epi32(b));
             return *this;
         }
 
+        /**
+         * Shifts values left while shifting in 0.
+         * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+         * @returns Reference to modified object.
+         */
         Int256 &operator<<=(const Int256 &bV) {
             v = _mm256_sllv_epi32(v, bV.v);
             return *this;
         }
-
+        
+        /**
+         * Shifts values right while shifting in 0.
+         * @param b Number of bits by which values should be shifted.
+         * @returns Reference to modified object.
+         */
         Int256 &operator<<=(const int &b) {
             v = _mm256_slli_epi32(v, b);
             return *this;
         }
 
+        /**
+         * Shifts values right while shifting in sign bit.
+         * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+         * @returns Reference to modified object.
+         */
         Int256 &operator>>=(const Int256 &bV) {
             v = _mm256_srav_epi32(v, bV.v);
             return *this;
         }
 
+        /**
+         * Shifts values right while shifting in sign bit.
+         * @param b Number of bits by which values should be shifted.
+         * @returns Reference to modified object.
+         */
         Int256 &operator>>=(const int &b) {
             v = _mm256_srai_epi32(v, b);
             return *this;
         }
 
+        /**
+         * Returns string representation of vector.
+         * Printing will result in Int256(<vector_values>) eg. Int256(1, 2, 3, 4, 5, 6, 7, 8)
+         * @returns String representation of underlying vector.
+         */
         std::string str() const {
             std::string result = "Int256(";
             int* iv = (int*)&v; 
@@ -519,8 +625,6 @@ namespace avx
             return result;
         }
 
-        friend Int256 sum(std::vector<Int256> &);
-        friend Int256 sum(std::set<Int256> &);
     };
 };
 #endif

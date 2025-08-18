@@ -23,8 +23,15 @@ namespace avx {
         __m256i v;
 
         public:
-
+            
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr int size = 32;
+
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = unsigned char;
 
             UChar256() noexcept : v(_mm256_setzero_si256()){}

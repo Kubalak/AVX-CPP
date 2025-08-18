@@ -258,6 +258,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../math/index.html">AVX Math</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of AVX Math</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/ops/avxmath.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -309,7 +313,8 @@
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8ULong25610storedTypeE">
 <span id="_CPPv3N3avx8ULong25610storedTypeE"></span><span id="_CPPv2N3avx8ULong25610storedTypeE"></span><span class="target" id="classavx_1_1_u_long256_1a39143d0221c2c72aea59afa5c782abca"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">storedType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><a class="headerlink" href="#_CPPv4N3avx8ULong25610storedTypeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Type that is stored inside vector. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -718,20 +723,8 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8ULong2564sizeE">
 <span id="_CPPv3N3avx8ULong2564sizeE"></span><span id="_CPPv2N3avx8ULong2564sizeE"></span><span id="avx::ULong256::size__i"></span><span class="target" id="classavx_1_1_u_long256_1a59e8929ab3a03d8fb40b79f4437cb5fa"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><a class="headerlink" href="#_CPPv4N3avx8ULong2564sizeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx8ULong2563sumERKNSt6vectorI8ULong256EE">
-<span id="_CPPv3N3avx8ULong2563sumERKNSt6vectorI8ULong256EE"></span><span id="_CPPv2N3avx8ULong2563sumERKNSt6vectorI8ULong256EE"></span><span id="avx::ULong256::sum__std::vector:ULong256:CR"></span><span class="target" id="classavx_1_1_u_long256_1adcf56bda4c329dfdbca6429772949fc3"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8ULong256E" title="avx::ULong256"><span class="n"><span class="pre">ULong256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx8ULong256E" title="avx::ULong256"><span class="n"><span class="pre">ULong256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ulongs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8ULong2563sumERKNSt6vectorI8ULong256EE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx8ULong2563sumERKNSt3setI8ULong256EE">
-<span id="_CPPv3N3avx8ULong2563sumERKNSt3setI8ULong256EE"></span><span id="_CPPv2N3avx8ULong2563sumERKNSt3setI8ULong256EE"></span><span id="avx::ULong256::sum__std::set:ULong256:CR"></span><span class="target" id="classavx_1_1_u_long256_1a6d2f1df71cefd990c678462ccf98f33a"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8ULong256E" title="avx::ULong256"><span class="n"><span class="pre">ULong256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">set</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx8ULong256E" title="avx::ULong256"><span class="n"><span class="pre">ULong256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ulongs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8ULong2563sumERKNSt3setI8ULong256EE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Number of individual values stored by object. This value can be used to iterate over elements. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -861,8 +854,6 @@
 <li><a class="reference internal" href="#_CPPv4N3avx8ULong256rSEKj"><code class="docutils literal notranslate"><span class="pre">operator&gt;&gt;=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx8ULong2563strEv"><code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8ULong2564sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx8ULong2563sumERKNSt6vectorI8ULong256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx8ULong2563sumERKNSt3setI8ULong256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
 </ul>
 </li>
 </ul>

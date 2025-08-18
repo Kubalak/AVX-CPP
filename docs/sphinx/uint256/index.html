@@ -258,6 +258,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../math/index.html">AVX Math</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of AVX Math</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/ops/avxmath.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -309,7 +313,8 @@
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt25610storedTypeE">
 <span id="_CPPv3N3avx7UInt25610storedTypeE"></span><span id="_CPPv2N3avx7UInt25610storedTypeE"></span><span class="target" id="classavx_1_1_u_int256_1a7ee63936cafe3c597438fb2ad27586fe"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">storedType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><a class="headerlink" href="#_CPPv4N3avx7UInt25610storedTypeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Type that is stored inside vector. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -744,37 +749,7 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt2564sizeE">
 <span id="_CPPv3N3avx7UInt2564sizeE"></span><span id="_CPPv2N3avx7UInt2564sizeE"></span><span id="avx::UInt256::size__i"></span><span class="target" id="classavx_1_1_u_int256_1a177b92e32574f6c3005b365bba3f66d5"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><a class="headerlink" href="#_CPPv4N3avx7UInt2564sizeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt2563sumERNSt6vectorI7UInt256EE">
-<span id="_CPPv3N3avx7UInt2563sumERNSt6vectorI7UInt256EE"></span><span id="_CPPv2N3avx7UInt2563sumERNSt6vectorI7UInt256EE"></span><span id="avx::UInt256::sum__std::vector:UInt256:R"></span><span class="target" id="classavx_1_1_u_int256_1a23bfbfda6030a6330c8b31087cc8d2b2"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7UInt256E" title="avx::UInt256"><span class="n"><span class="pre">UInt256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx7UInt256E" title="avx::UInt256"><span class="n"><span class="pre">UInt256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7UInt2563sumERNSt6vectorI7UInt256EE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Sums all elements in vector. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>items</strong> – Vector containing <code class="docutils literal notranslate"><a class="reference internal" href="#classavx_1_1_u_int256"><span class="std std-ref"><span class="pre">UInt256</span></span></a></code> values. </p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Sum of all elements in vector. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx7UInt2563sumERNSt3setI7UInt256EE">
-<span id="_CPPv3N3avx7UInt2563sumERNSt3setI7UInt256EE"></span><span id="_CPPv2N3avx7UInt2563sumERNSt3setI7UInt256EE"></span><span id="avx::UInt256::sum__std::set:UInt256:R"></span><span class="target" id="classavx_1_1_u_int256_1a4e8ebd6581ea606dc395d2627aaee6a6"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7UInt256E" title="avx::UInt256"><span class="n"><span class="pre">UInt256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">set</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx7UInt256E" title="avx::UInt256"><span class="n"><span class="pre">UInt256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7UInt2563sumERNSt3setI7UInt256EE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Sums all elements in set. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>items</strong> – Set containing <code class="docutils literal notranslate"><a class="reference internal" href="#classavx_1_1_u_int256"><span class="std std-ref"><span class="pre">UInt256</span></span></a></code> values. </p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Sum of all elements in set. </p>
-</dd>
-</dl>
+<dd><p>Number of individual values stored by object. This value can be used to iterate over elements. </p>
 </dd></dl>
 
 </div>
@@ -905,8 +880,6 @@
 <li><a class="reference internal" href="#_CPPv4NK3avx7UInt256coEv"><code class="docutils literal notranslate"><span class="pre">operator~()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7UInt2563strEv"><code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx7UInt2564sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx7UInt2563sumERNSt6vectorI7UInt256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx7UInt2563sumERNSt3setI7UInt256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
 </ul>
 </li>
 </ul>

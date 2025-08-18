@@ -609,7 +609,7 @@
 <parametername>If</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>index is not within the correct range and build type is debug <computeroutput>std::out_of_range</computeroutput> will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that in case of out of index it will behave like <computeroutput>index % 32</computeroutput>. </para>
+<para>index is not within the correct range and build type is debug <computeroutput>std::out_of_range</computeroutput> will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 5 LSBs are used from <computeroutput>index</computeroutput>. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>

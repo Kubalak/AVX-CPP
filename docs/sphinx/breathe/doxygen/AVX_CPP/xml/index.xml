@@ -209,6 +209,7 @@
     <member refid="classavx_1_1_int256_1aeddfcac9dc9e4c6566057b0228350008" kind="function"><name>operator|=</name></member>
     <member refid="classavx_1_1_int256_1ad923f71000aaa18a88d83ca71404e3f2" kind="function"><name>operator|=</name></member>
     <member refid="classavx_1_1_int256_1a28623855e6818d3afdd3b4bc21e1eb0b" kind="function"><name>operator&amp;=</name></member>
+    <member refid="classavx_1_1_int256_1a609d71ec5f865763b45121d246b88e74" kind="function"><name>operator&amp;=</name></member>
     <member refid="classavx_1_1_int256_1a06879e079ab65650ba3e4777c40018ca" kind="function"><name>operator^=</name></member>
     <member refid="classavx_1_1_int256_1a040bf3038c0f61661fc6ca0c410747ff" kind="function"><name>operator^=</name></member>
     <member refid="classavx_1_1_int256_1a166cfbe31da81567490017593fa2b228" kind="function"><name>operator&lt;&lt;=</name></member>
@@ -216,8 +217,6 @@
     <member refid="classavx_1_1_int256_1a46d25bbebec9bd2ad5ab923cc0bc9f75" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_int256_1af8ebd67cbb6152e78a9b523794af2a7f" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_int256_1acc816d00ced8fc6291364d276c8dcfa1" kind="function"><name>str</name></member>
-    <member refid="classavx_1_1_int256_1a785869399f7dafef59776a60cabee450" kind="friend"><name>sum</name></member>
-    <member refid="classavx_1_1_int256_1a09ef91694fcf7ae149601db0047aac0d" kind="friend"><name>sum</name></member>
   </compound>
   <compound refid="classavx_1_1_long256" kind="class"><name>avx::Long256</name>
     <member refid="classavx_1_1_long256_1a82594b26231b41a083e56ff4fe8ca566" kind="typedef"><name>storedType</name></member>
@@ -287,8 +286,6 @@
     <member refid="classavx_1_1_long256_1a10f767f3ea55bda2733c747128077f6e" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_long256_1a0ccc592ef3b2aaf90af14605b60bce63" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_long256_1af820eab728ae4ca7421c1cac2ae1de80" kind="function"><name>str</name></member>
-    <member refid="classavx_1_1_long256_1ae563e93383d4842fbfe6612fb8946e33" kind="friend"><name>sum</name></member>
-    <member refid="classavx_1_1_long256_1a5078c3a8be257c72a117bb9717f51305" kind="friend"><name>sum</name></member>
   </compound>
   <compound refid="classavx_1_1_short256" kind="class"><name>avx::Short256</name>
     <member refid="classavx_1_1_short256_1a3058175057294365c11239ac1356d9b7" kind="typedef"><name>storedType</name></member>
@@ -298,7 +295,7 @@
     <member refid="classavx_1_1_short256_1afcc1efe51771b44867eee4ec50e5b080" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a3c9fec9b43963b7634b385872cdbd042" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a9df1fdd1af31460fea0d7f934e7a1ca7" kind="function"><name>Short256</name></member>
-    <member refid="classavx_1_1_short256_1abb83e0884c5f50fd1f67fb697a40b954" kind="function"><name>Short256</name></member>
+    <member refid="classavx_1_1_short256_1ad41284db97920d83323bdb04c1bc7be0" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a0949aa3dd019d5dd3d8c2d6f98778507" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a2fb405c56cbdd2b8dde56c88e713107c" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1ad1b3048ffaab3867ab52ddd2424a2706" kind="function"><name>load</name></member>
@@ -490,8 +487,6 @@
     <member refid="classavx_1_1_u_int256_1a45950118f602cb7a5651603876565dd9" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_u_int256_1a036d4a7f4eb7da2a778d2afd3377b296" kind="function"><name>operator~</name></member>
     <member refid="classavx_1_1_u_int256_1a31f7ab89dac52246334cd796ed63b878" kind="function"><name>str</name></member>
-    <member refid="classavx_1_1_u_int256_1a23bfbfda6030a6330c8b31087cc8d2b2" kind="friend"><name>sum</name></member>
-    <member refid="classavx_1_1_u_int256_1a4e8ebd6581ea606dc395d2627aaee6a6" kind="friend"><name>sum</name></member>
   </compound>
   <compound refid="classavx_1_1_u_long256" kind="class"><name>avx::ULong256</name>
     <member refid="classavx_1_1_u_long256_1a39143d0221c2c72aea59afa5c782abca" kind="typedef"><name>storedType</name></member>
@@ -560,8 +555,6 @@
     <member refid="classavx_1_1_u_long256_1a4b4eeccfee594293ce93f70a77526f9c" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_u_long256_1a79b668b862ba95368c2603318d33ff48" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_u_long256_1a8f4cae271c41696e43b75d09c1cd42d4" kind="function"><name>str</name></member>
-    <member refid="classavx_1_1_u_long256_1adcf56bda4c329dfdbca6429772949fc3" kind="friend"><name>sum</name></member>
-    <member refid="classavx_1_1_u_long256_1a6d2f1df71cefd990c678462ccf98f33a" kind="friend"><name>sum</name></member>
   </compound>
   <compound refid="classavx_1_1_u_short256" kind="class"><name>avx::UShort256</name>
     <member refid="classavx_1_1_u_short256_1a4b9c61a4fd69168c155b0cae14c7885f" kind="typedef"><name>storedType</name></member>
@@ -630,15 +623,7 @@
   </compound>
   <compound refid="namespaceavx" kind="namespace"><name>avx</name>
     <member refid="namespaceavx_1ac10eb9b0b13b0a4b8907daf2ce349c20" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceavx_1a070990c1c40d2e4d358920c2c75c8f35" kind="function"><name>sum</name></member>
-    <member refid="namespaceavx_1a91f23ecf4fac1d56e27d7240f5db2b27" kind="function"><name>sum</name></member>
-    <member refid="namespaceavx_1a92f3b09489fa35d1ab4185a49bb8c9e6" kind="function"><name>sum</name></member>
-    <member refid="namespaceavx_1a76f1c23daff481a2bd9ed4c02c760e0d" kind="function"><name>sum</name></member>
     <member refid="namespaceavx_1abfd6eaeef8f73ff17fa9b1e387df690e" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceavx_1a4210dc5174276fce458db54d8f4f2308" kind="function"><name>sum</name></member>
-    <member refid="namespaceavx_1a559aad5e972f31dff9fc73d9b6aadfc9" kind="function"><name>sum</name></member>
-    <member refid="namespaceavx_1aedfb9779feef9c1929144f754762cb35" kind="function"><name>sum</name></member>
-    <member refid="namespaceavx_1a5effa277cafeab09b884f7530933e044" kind="function"><name>sum</name></member>
   </compound>
   <compound refid="namespaceavx_1_1constants" kind="namespace"><name>avx::constants</name>
     <member refid="namespaceavx_1_1constants_1a3f5680987301f20b1d9a594d79c70827" kind="variable"><name>ONES</name></member>
@@ -675,27 +660,17 @@
     <member refid="constants_8hpp_1a2579dcfe84b3c9db7242a24a04ee21ef" kind="define"><name>N_THROW_REL</name></member>
     <member refid="constants_8hpp_1ae56f326dbbe7fcd243c6899ec4d2fd1d" kind="define"><name>__AVX_LOCALIZED_NULL_STR</name></member>
   </compound>
-  <compound refid="double256_8cpp" kind="file"><name>double256.cpp</name>
-  </compound>
   <compound refid="double256_8hpp" kind="file"><name>double256.hpp</name>
     <member refid="double256_8hpp_1ab82c193be114e3e0d9e1a73e1c7e7c84" kind="define"><name>DOUBLE256_HPP__</name></member>
-  </compound>
-  <compound refid="float256_8cpp" kind="file"><name>float256.cpp</name>
   </compound>
   <compound refid="float256_8hpp" kind="file"><name>float256.hpp</name>
     <member refid="float256_8hpp_1aa0481f19d93876b350e8db04b4e49510" kind="define"><name>FLOAT256_HPP__</name></member>
   </compound>
-  <compound refid="int256_8cpp" kind="file"><name>int256.cpp</name>
-  </compound>
   <compound refid="int256_8hpp" kind="file"><name>int256.hpp</name>
     <member refid="int256_8hpp_1ad6b2bb69780867bd86d9e49c9d3cbea3" kind="define"><name>INT256_HPP__</name></member>
   </compound>
-  <compound refid="long256_8cpp" kind="file"><name>long256.cpp</name>
-  </compound>
   <compound refid="long256_8hpp" kind="file"><name>long256.hpp</name>
     <member refid="long256_8hpp_1a7e6c185c8bf5c6e03d81076c6b27902c" kind="define"><name>LONG256_HPP__</name></member>
-  </compound>
-  <compound refid="short256_8cpp" kind="file"><name>short256.cpp</name>
   </compound>
   <compound refid="short256_8hpp" kind="file"><name>short256.hpp</name>
     <member refid="short256_8hpp_1a000cde91f8b9e04aa92b70235dfc0fb7" kind="define"><name>SHORT256_HPP__</name></member>
@@ -705,17 +680,11 @@
   <compound refid="uchar256_8hpp" kind="file"><name>uchar256.hpp</name>
     <member refid="uchar256_8hpp_1a77a83a49f0ea0d71b659a3eb225504f1" kind="define"><name>UCHAR256_HPP__</name></member>
   </compound>
-  <compound refid="uint256_8cpp" kind="file"><name>uint256.cpp</name>
-  </compound>
   <compound refid="uint256_8hpp" kind="file"><name>uint256.hpp</name>
     <member refid="uint256_8hpp_1ac977df8cc50763e735bd705d2437e7c8" kind="define"><name>UINT256_HPP__</name></member>
   </compound>
-  <compound refid="ulong256_8cpp" kind="file"><name>ulong256.cpp</name>
-  </compound>
   <compound refid="ulong256_8hpp" kind="file"><name>ulong256.hpp</name>
     <member refid="ulong256_8hpp_1ae32b79f30224aadb4cd42efb3a612db5" kind="define"><name>ULONG256_HPP__</name></member>
-  </compound>
-  <compound refid="ushort256_8cpp" kind="file"><name>ushort256.cpp</name>
   </compound>
   <compound refid="ushort256_8hpp" kind="file"><name>ushort256.hpp</name>
     <member refid="ushort256_8hpp_1a08f5fe1c6f0d278d27dbd5ff9f0734a0" kind="define"><name>USHORT256_HPP__</name></member>

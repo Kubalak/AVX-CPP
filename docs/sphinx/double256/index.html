@@ -258,6 +258,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../math/index.html">AVX Math</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of AVX Math</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/ops/avxmath.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -312,7 +316,8 @@
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9Double25610storedTypeE">
 <span id="_CPPv3N3avx9Double25610storedTypeE"></span><span id="_CPPv2N3avx9Double25610storedTypeE"></span><span class="target" id="classavx_1_1_double256_1ad11d9d79e4e4792cbfc769426c0e04ef"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">storedType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><a class="headerlink" href="#_CPPv4N3avx9Double25610storedTypeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Type that is stored inside vector. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -520,12 +525,30 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9Double256ixEKj">
 <span id="_CPPv3NK3avx9Double256ixEKj"></span><span id="_CPPv2NK3avx9Double256ixEKj"></span><span id="avx::Double256::subscript-operator__unsigned-iCC"></span><span class="target" id="classavx_1_1_double256_1aa0dd0364633c34e87ac3fae731ebc7ed"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx9Double256ixEKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Indexing operator. Does not support value assignment through this method (e.g. aV[0] = 1 won’t work). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 3. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value of underlying element. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9Double2563strEv">
 <span id="_CPPv3NK3avx9Double2563strEv"></span><span id="_CPPv2NK3avx9Double2563strEv"></span><span id="avx::Double256::strC"></span><span class="target" id="classavx_1_1_double256_1ad7c754f07ede8d94c5c2e9e42aeacb09"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">str</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9Double2563strEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns string representation of vector. Printing will result in Double256(&lt;vector_values&gt;) eg. <a class="reference internal" href="#classavx_1_1_double256"><span class="std std-ref">Double256</span></a>(1.000000, 2.000000, 3.000000, 4.000000) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String representation of underlying vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -533,7 +556,8 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9Double2564sizeE">
 <span id="_CPPv3N3avx9Double2564sizeE"></span><span id="_CPPv2N3avx9Double2564sizeE"></span><span id="avx::Double256::size__i"></span><span class="target" id="classavx_1_1_double256_1ab3ed72ed44e5b9a366ce15ec002cd4dd"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><a class="headerlink" href="#_CPPv4N3avx9Double2564sizeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Number of individual values stored by object. This value can be used to iterate over elements. </p>
+</dd></dl>
 
 </div>
 </dd></dl>

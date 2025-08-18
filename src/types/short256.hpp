@@ -21,7 +21,15 @@ namespace avx {
             __m256i v;
        
         public:
+
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr const int size = 16;
+
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = short;
 
             /**
@@ -56,15 +64,14 @@ namespace avx {
              * @param addr A valid address containing at least 16 `short` numbers.
              * @throws If in debug mode and `addr` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown.
              */
-            explicit Short256(const short* addr) 
-            #ifndef NDEBUG
-                {
-                    if(addr == nullptr)throw std::invalid_argument("Passed address is nullptr!");
+            explicit Short256(const short* addr) N_THROW_REL {
+                if(addr)
                     v = _mm256_lddqu_si256((const __m256i*)addr);
-                }
-            #else
-                : v(_mm256_lddqu_si256((const __m256i*)addr)){}
+            #ifndef NDEBUG
+                else
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
             #endif
+            }
 
 
             /**
@@ -278,13 +285,14 @@ namespace avx {
             }
 
             /**
-             * Performs an integer division. 
+             * Performs an integer division. Utilizes casting to `float` to compensate for lack of native integer division in AVX and AVX2.
              * 
-             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result which has not been yet tested for performance.
+             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result.
              * @param bV Divisors vector.
              * @return Result of integer division with truncation.
              */
             Short256 operator/(const Short256& bV) const noexcept {
+                // TODO: Update to use AVX512 if available.
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));

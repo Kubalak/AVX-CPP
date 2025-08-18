@@ -24,4 +24,5 @@ Documented classes
     float256/index
     double256/index
     constants/index
+    math/index
 

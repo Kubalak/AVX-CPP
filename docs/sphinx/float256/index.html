@@ -258,6 +258,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../math/index.html">AVX Math</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of AVX Math</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/ops/avxmath.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -304,7 +308,6 @@
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float256E">
 <span id="_CPPv3N3avx8Float256E"></span><span id="_CPPv2N3avx8Float256E"></span><span id="avx::Float256"></span><span class="target" id="classavx_1_1_float256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><a class="headerlink" href="#_CPPv4N3avx8Float256E" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">float</span></code>. Can hold 8 individual <code class="docutils literal notranslate"><span class="pre">float</span></code> values. Provides arithmetic operators.<ul class="simple">
-<li><p>Provides comparison operators == != (optimization on the way). Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">float</span></code>. Can hold 8 individual <code class="docutils literal notranslate"><span class="pre">float</span></code> values. Provides arithmetic operators.</p></li>
 <li><p>Provides comparison operators == != (optimization on the way). </p></li>
 </ul>
 </p>
@@ -313,7 +316,8 @@
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float25610storedTypeE">
 <span id="_CPPv3N3avx8Float25610storedTypeE"></span><span id="_CPPv2N3avx8Float25610storedTypeE"></span><span class="target" id="classavx_1_1_float256_1a1af5c742978243cce3b7869f4e4c47de"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">storedType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><a class="headerlink" href="#_CPPv4N3avx8Float25610storedTypeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Type that is stored inside vector. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -321,47 +325,96 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256Ev">
 <span id="_CPPv3N3avx8Float2568Float256Ev"></span><span id="_CPPv2N3avx8Float2568Float256Ev"></span><span id="avx::Float256::Float256"></span><span class="target" id="classavx_1_1_float256_1aaf79eeaf2622f82dfec790eea4cc54a9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256Ev" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Default constructor. Initializes vector with zeros. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256ERK8Float256">
 <span id="_CPPv3N3avx8Float2568Float256ERK8Float256"></span><span id="_CPPv2N3avx8Float2568Float256ERK8Float256"></span><span id="avx::Float256::Float256__Float256CR"></span><span class="target" id="classavx_1_1_float256_1a933268afcc37f0a7f475933b8cbe8ddf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Float2568Float256ERK8Float256" title="avx::Float256::Float256"><span class="n"><span class="pre">Float256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256ERK8Float256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Copy constructor. Initializes vector from another <a class="reference internal" href="#classavx_1_1_float256"><span class="std std-ref">Float256</span></a> vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Another <a class="reference internal" href="#classavx_1_1_float256"><span class="std std-ref">Float256</span></a> vector to copy from. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256EKf">
 <span id="_CPPv3N3avx8Float2568Float256EKf"></span><span id="_CPPv2N3avx8Float2568Float256EKf"></span><span id="avx::Float256::Float256__floatC"></span><span class="target" id="classavx_1_1_float256_1a86589f56e127e08937446b56d0d379d1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256EKf" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector with const value. Each cell will be set with value of <code class="docutils literal notranslate"><span class="pre">value</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – Value to be set. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256EK6__m256">
 <span id="_CPPv3N3avx8Float2568Float256EK6__m256"></span><span id="_CPPv2N3avx8Float2568Float256EK6__m256"></span><span id="avx::Float256::Float256____m256C"></span><span class="target" id="classavx_1_1_float256_1aa4c9a94de6d70094fb3a9ede6e65a4d5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">__m256</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256EK6__m256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from __m256 value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Value of type __m256 to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256ERKNSt5arrayIfXL8EEEE">
 <span id="_CPPv3N3avx8Float2568Float256ERKNSt5arrayIfXL8EEEE"></span><span id="_CPPv2N3avx8Float2568Float256ERKNSt5arrayIfX8EEE"></span><span id="avx::Float256::Float256__std::array:float.8:CR"></span><span class="target" id="classavx_1_1_float256_1aa7ae3a7c2c9b794e4ba39878bd750af3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256ERKNSt5arrayIfXL8EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from std::array of 8 float values. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array of 8 float values to initialize the vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256ENSt16initializer_listIfEE">
 <span id="_CPPv3N3avx8Float2568Float256ENSt16initializer_listIfEE"></span><span id="_CPPv2N3avx8Float2568Float256ENSt16initializer_listIfEE"></span><span id="avx::Float256::Float256__std::initializer_list:float:"></span><span class="target" id="classavx_1_1_float256_1af7891223c869a8e30fa52e64cc45579d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">float</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256ENSt16initializer_listIfEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from initializer_list of float values. If the list contains fewer than 8 elements, remaining elements are set to zero. If the list contains more than 8 elements, only the first 8 are used. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Initializer list of float values. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2568Float256EPKf">
 <span id="_CPPv3N3avx8Float2568Float256EPKf"></span><span id="_CPPv2N3avx8Float2568Float256EPKf"></span><span id="avx::Float256::Float256__floatCP"></span><span class="target" id="classavx_1_1_float256_1a713fce05ff701807106ce98f34f9ad93"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Float256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8Float2568Float256EPKf" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector by loading data from memory (via <code class="docutils literal notranslate"><span class="pre">_mm256_loadu_ps</span></code>). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pSrc</strong> – Pointer to memory of at least 32 bytes (8 floats). </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Float2563getEv">
 <span id="_CPPv3NK3avx8Float2563getEv"></span><span id="_CPPv2NK3avx8Float2563getEv"></span><span id="avx::Float256::getC"></span><span class="target" id="classavx_1_1_float256_1abe90ea496b0b2c8573c1f5e33efcf878"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">__m256</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Float2563getEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns the internal __m256 value stored by the object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The __m256 value. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2563setE6__m256">
 <span id="_CPPv3N3avx8Float2563setE6__m256"></span><span id="_CPPv2N3avx8Float2563setE6__m256"></span><span id="avx::Float256::set____m256"></span><span class="target" id="classavx_1_1_float256_1a11ad422c06fc456499fbdad71e88a4fb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">__m256</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">val</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2563setE6__m256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Sets the internal __m256 value stored by the object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>val</strong> – New value of type __m256. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
@@ -557,12 +610,30 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Float256ixEKj">
 <span id="_CPPv3NK3avx8Float256ixEKj"></span><span id="_CPPv2NK3avx8Float256ixEKj"></span><span id="avx::Float256::subscript-operator__unsigned-iCC"></span><span class="target" id="classavx_1_1_float256_1a1cb1fb731d5d7224ff18878b1bf4725f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8Float256ixEKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Indexing operator. Does not support value assignment through this method (e.g. aV[0] = 1 won’t work). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 7. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 3 LSBs are used from <code class="docutils literal notranslate"><span class="pre">index</span></code>. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value of underlying element. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Float2563strEv">
 <span id="_CPPv3NK3avx8Float2563strEv"></span><span id="_CPPv2NK3avx8Float2563strEv"></span><span id="avx::Float256::strC"></span><span class="target" id="classavx_1_1_float256_1a905330b7b986cb226f76dad566996e9e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">str</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Float2563strEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns string representation of vector. Printing will result in Float256(&lt;vector_values&gt;) eg. <a class="reference internal" href="#classavx_1_1_float256"><span class="std std-ref">Float256</span></a>(1.000000, 2.000000, 3.000000, 4.000000, 5.000000, 6.000000, 7.000000, 8.000000) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String representation of underlying vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -570,7 +641,8 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Float2564sizeE">
 <span id="_CPPv3N3avx8Float2564sizeE"></span><span id="_CPPv2N3avx8Float2564sizeE"></span><span id="avx::Float256::size__i"></span><span class="target" id="classavx_1_1_float256_1af1a301e331306ac1ef47bb67feaacd51"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><a class="headerlink" href="#_CPPv4N3avx8Float2564sizeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Number of individual values stored by object. This value can be used to iterate over elements. </p>
+</dd></dl>
 
 </div>
 </dd></dl>

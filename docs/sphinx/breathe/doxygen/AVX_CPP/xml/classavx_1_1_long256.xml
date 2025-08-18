@@ -13,10 +13,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Type that is stored inside vector. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="27" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="27" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="35" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="35" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
@@ -46,10 +47,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Number of individual values stored by object. This value can be used to iterate over elements. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="26" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="26" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="30" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="30" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -62,10 +64,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Default constructor. Initializes vector with zeros. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="29" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="29" bodyend="29"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="40" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="40" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1af544d0c79db280d376a61b78170b288a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -80,10 +83,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector by loading data from memory (via <computeroutput>_mm256_lddqu_si256</computeroutput>). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valid memory address of minimal size of 256-bits (32 bytes). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="31" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="31" bodyend="33"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="46" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="46" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a54f5d54a7a133813a6f5abc99df9430a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -98,10 +111,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector with const value. Each cell will be set with value of <computeroutput>init</computeroutput>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="35" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="35" bodyend="37"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="52" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="52" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a6f6967f97ca96fa022feee1723b4c0f6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -116,10 +139,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from __m256i value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of type __m256i to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="39" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="39" bodyend="39"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="58" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="58" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a5045ef5bb5a2354e06991f82e00a9c88" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -134,10 +167,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Copy constructor. Initializes vector from another <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> vector to copy from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="41" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="41" bodyend="41"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="65" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="65" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a07f3d02386883cf562e10c18ee5b4d5b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -152,10 +195,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Copy constructor (const). Initializes vector from another <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> vector to copy from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="43" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="43" bodyend="43"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="72" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="72" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a08dc49079e91996ed4ada75e7a908dc7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -170,10 +223,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from std::array of 4 long long values. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of 4 long long values to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="45" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="45" bodyend="47"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="78" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="78" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a91b4b6d11ff75287b70bfa7f96f58cc9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -188,10 +251,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from std::array of 4 int values. Each int value is promoted to long long. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of 4 int values to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="49" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="49" bodyend="57"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="84" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="84" bodyend="84"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a37368b556436135afd8f4176840e79ff" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -206,10 +279,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from std::array of 4 short values. Each short value is promoted to long long. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of 4 short values to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="59" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="59" bodyend="67"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="90" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="90" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8c31b2c5e2c4af4b0cff477b812f1d9b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -224,10 +307,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from std::array of 4 char values. Each char value is promoted to long long. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of 4 char values to initialize the vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="69" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="69" bodyend="77"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="96" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="96" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a7a23d42e6055a1d2e0dc03f0713a5d3a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -242,10 +335,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from initializer_list of long long values. If the list contains fewer than 4 elements, remaining elements are set to zero. If the list contains more than 4 elements, only the first 4 are used. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initializer list of long long values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="79" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="79" bodyend="97"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="104" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="104" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aba9d0832c5542ae3abcc436795a556e8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
@@ -256,10 +359,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Returns the internal __m256i value stored by the object. <simplesect kind="return"><para>The __m256i value. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="99" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="99" bodyend="99"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="128" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="128" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a42a3044986407ba0bc45d57b4708d3a7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -274,10 +380,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Sets the internal __m256i value stored by the object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New value of type __m256i. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="101" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="101" bodyend="101"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="134" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="134" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a0de8033baa0690161f9330d9698840b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -314,7 +430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="108" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="108" bodyend="115"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="141" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="141" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a6cb1d690dc0550a8c0660594bd4b8fb6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -342,7 +458,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="121" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="121" bodyend="123"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="154" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="154" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a36257b92d21d3e92316040a57cb460f7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -380,7 +496,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="132" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="132" bodyend="139"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="165" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="165" bodyend="172"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ad0e2e286196240b3b6d46e42d84e5bf9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -418,7 +534,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="148" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="148" bodyend="155"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="181" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="181" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a07ec7611ea208a5687d7ac48f13a2bda" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>long long</type>
@@ -436,7 +552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="157" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="157" bodyend="164"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="190" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="190" bodyend="197"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a95f3d3612450306a392aa79732532c0a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -466,7 +582,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="174" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="174" bodyend="177"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="207" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="207" bodyend="210"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ae8ab701f3d45fb21af61a44cc5b460cb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -496,7 +612,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="185" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="185" bodyend="189"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="218" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="218" bodyend="222"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a9e90cda122bd6dc0df468c48cdefe782" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -526,7 +642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="197" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="197" bodyend="200"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="230" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="230" bodyend="233"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ac160ac1779e777c0be373a567ddbb88f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -556,7 +672,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="208" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="208" bodyend="212"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="241" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="241" bodyend="245"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a2823928467a26c4bcaca39d5e531baf1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -574,7 +690,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="215" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="215" bodyend="217"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="248" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="248" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ace01604721bee7b481e0da32a4e140be" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -592,7 +708,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="219" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="219" bodyend="224"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="252" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="252" bodyend="257"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa594702691fddb93179630861f7c4bf4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -610,7 +726,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="226" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="226" bodyend="229"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="259" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="259" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8d830312fe32ea0d86f4abc94044ed5c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -628,7 +744,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="231" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="231" bodyend="237"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="264" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="264" bodyend="270"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1af09cf38177a5eab0ae732154b9b10f82" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -646,7 +762,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="239" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="239" bodyend="244"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="272" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="272" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1abc4c4a4df118abee3eb6e9051c2f1678" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -664,7 +780,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="246" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="246" bodyend="251"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="279" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="279" bodyend="284"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a0ca0f4d74e8e13c87fef0110d9f1601d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -682,7 +798,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="253" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="253" bodyend="260"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="286" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="286" bodyend="293"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a73683b1c26c06eea3898a80d044a2b90" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -700,7 +816,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="262" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="262" bodyend="269"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="295" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="295" bodyend="302"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa445886887836bf98a19cb5b43e7d3ce" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -718,7 +834,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="271" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="271" bodyend="283"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="304" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="304" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8cd6659e4debe51d3d3131398877be41" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -736,7 +852,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="285" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="285" bodyend="297"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="318" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="318" bodyend="330"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a01d8e3f3e1e203506c7f8b3bc8b20a40" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -754,7 +870,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="299" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="299" bodyend="313"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="332" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="332" bodyend="346"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab231d1a575e01567a3df89cce7617164" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -772,7 +888,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="315" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="315" bodyend="328"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="348" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="348" bodyend="361"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a4ef1fe0489066c93cf04f28d7f4e8097" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -790,7 +906,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="330" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="330" bodyend="343"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="363" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="363" bodyend="376"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a5d03c23b906e6cb5310d67d1612e3b33" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -808,7 +924,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="345" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="345" bodyend="357"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="378" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="378" bodyend="390"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa05afe20286b24c1d6a3ca4d62e4323f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -826,7 +942,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="359" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="359" bodyend="373"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="392" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="392" bodyend="406"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a4c3d586abf0d20782b0a8b53f2aa42ad" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -844,7 +960,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="375" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="375" bodyend="388"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="408" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="408" bodyend="421"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a4f75bec53ae968195eabae664c44dec6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -862,7 +978,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="390" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="390" bodyend="400"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="423" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="423" bodyend="433"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1abfd692d6c29e4cfe6c6d3f4bcfc50d24" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -880,7 +996,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="402" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="402" bodyend="411"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="435" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="435" bodyend="444"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a187123f8d1c685838849f170b0919769" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -898,7 +1014,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="413" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="413" bodyend="425"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="446" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="446" bodyend="458"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aaaeb11a5c1e362978e72faa17866591c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -916,7 +1032,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="427" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="427" bodyend="438"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="460" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="460" bodyend="471"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a81363938bff203f67a4ffa5b4ea08a41" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -934,7 +1050,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="440" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="440" bodyend="445"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="473" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="473" bodyend="478"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab87455e050e8d08e705ee2e622459c06" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -952,7 +1068,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="447" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="447" bodyend="452"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="480" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="480" bodyend="485"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa9279e17faf5b151ade282ce31b56357" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -970,7 +1086,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="454" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="454" bodyend="461"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="487" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="487" bodyend="494"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8d777d712c314bfd90af8ea287d07f60" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -988,7 +1104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="463" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="463" bodyend="470"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="496" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="496" bodyend="503"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a3cd7115e126fd7316510d324883bd037" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1006,7 +1122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="472" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="472" bodyend="477"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="505" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="505" bodyend="510"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a86b891d5713fb2465e6d8ba83ea6f5b7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1024,7 +1140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="479" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="479" bodyend="484"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="512" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="512" bodyend="517"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab2353d67adad8680fbb340f10d9105fa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1042,7 +1158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="486" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="486" bodyend="493"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="519" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="519" bodyend="526"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab98da37ec09c6d4cfcbb11eefd9141bf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1060,7 +1176,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="495" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="495" bodyend="502"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="528" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="528" bodyend="535"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a193eb932cfcf11ce9551f414daf88366" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1078,7 +1194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="504" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="504" bodyend="509"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="537" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="537" bodyend="542"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8f624dc3fad4537cc0a8ba10cd3fc5c6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1096,7 +1212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="511" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="511" bodyend="516"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="544" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="544" bodyend="549"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1acf5b66f85355090f7dff34a98580a8ae" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1114,7 +1230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="518" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="518" bodyend="525"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="551" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="551" bodyend="558"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a204d01246d7ff6a37455a4746c2faf5f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1132,7 +1248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="527" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="527" bodyend="534"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="560" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="560" bodyend="567"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a472e46aafeadd2ec895eeff4da79f5cb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1146,7 +1262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="536" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="536" bodyend="536"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="569" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="569" bodyend="569"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a9b0acba962c442425b4e648acf58f0dc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1164,7 +1280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="538" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="538" bodyend="540"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="571" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="571" bodyend="573"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aed3142f8776970a81a6f9c40daa33dcc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1182,7 +1298,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="542" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="542" bodyend="544"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="575" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="575" bodyend="577"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1adf8d118b65fa7ad3d9baa7c1126dabb3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1200,7 +1316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="546" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="546" bodyend="549"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="579" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="579" bodyend="582"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1af564672d1c6c5c634bb609a44242a108" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1218,7 +1334,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="551" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="551" bodyend="554"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="584" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="584" bodyend="587"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ac35193b4252e9224b05737f2d690f07e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1236,7 +1352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="556" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="556" bodyend="561"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="589" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="589" bodyend="594"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a2ddb69260088d36aed880d3b04da002a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1254,7 +1370,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="563" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="563" bodyend="565"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="596" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="596" bodyend="598"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a10f767f3ea55bda2733c747128077f6e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1272,7 +1388,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="567" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="567" bodyend="570"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="600" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="600" bodyend="603"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a0ccc592ef3b2aaf90af14605b60bce63" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1290,7 +1406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="572" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="572" bodyend="575"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="605" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="605" bodyend="608"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1af820eab728ae4ca7421c1cac2ae1de80" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1304,45 +1420,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="577" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="577" bodyend="586"/>
-      </memberdef>
-    </sectiondef>
-    <sectiondef kind="friend">
-      <memberdef kind="friend" id="classavx_1_1_long256_1ae563e93383d4842fbfe6612fb8946e33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
-        <definition>Long256 sum</definition>
-        <argsstring>(std::vector&lt; Long256 &gt; &amp;a)</argsstring>
-        <name>sum</name>
-        <qualifiedname>avx::Long256::sum</qualifiedname>
-        <param>
-          <type>std::vector&lt; <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &gt; &amp;</type>
-          <declname>a</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="590" column="28" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.cpp" bodystart="5" bodyend="11"/>
-      </memberdef>
-      <memberdef kind="friend" id="classavx_1_1_long256_1a5078c3a8be257c72a117bb9717f51305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
-        <definition>Long256 sum</definition>
-        <argsstring>(std::set&lt; Long256 &gt; &amp;a)</argsstring>
-        <name>sum</name>
-        <qualifiedname>avx::Long256::sum</qualifiedname>
-        <param>
-          <type>std::set&lt; <ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &gt; &amp;</type>
-          <declname>a</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="591" column="28" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.cpp" bodystart="14" bodyend="20"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="610" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="610" bodyend="619"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1350,7 +1428,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>long long</computeroutput> aka <computeroutput>int64_t</computeroutput>. Can hold 4 individual <computeroutput>long long</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="21" bodyend="593"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="21" bodyend="620"/>
     <listofallmembers>
       <member refid="classavx_1_1_long256_1aba9d0832c5542ae3abcc436795a556e8" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>get</name></member>
       <member refid="classavx_1_1_long256_1a0de8033baa0690161f9330d9698840b3" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>load</name></member>
@@ -1418,8 +1496,6 @@
       <member refid="classavx_1_1_long256_1a430447a0c369a7c43f8c928bd9688a18" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>size</name></member>
       <member refid="classavx_1_1_long256_1a82594b26231b41a083e56ff4fe8ca566" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>storedType</name></member>
       <member refid="classavx_1_1_long256_1af820eab728ae4ca7421c1cac2ae1de80" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>str</name></member>
-      <member refid="classavx_1_1_long256_1ae563e93383d4842fbfe6612fb8946e33" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>sum</name></member>
-      <member refid="classavx_1_1_long256_1a5078c3a8be257c72a117bb9717f51305" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>sum</name></member>
       <member refid="classavx_1_1_long256_1aa7a03aae0f919eb1f6dbf9fa5af9d611" prot="private" virt="non-virtual"><scope>avx::Long256</scope><name>v</name></member>
     </listofallmembers>
   </compounddef>

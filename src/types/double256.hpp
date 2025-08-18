@@ -13,7 +13,7 @@ namespace avx {
      * Class providing vectorized version of `double`.
      * Can hold 4 individual `double` values.
      * Provides arithmetic operators.
-     * * Provides comparison operators == != (optimization on the way).
+     * * Provides comparison operators == !=.
      */
     class Double256 {
 
@@ -21,8 +21,15 @@ namespace avx {
             __m256d v;
         
         public:
-
+            
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr int size = 4;
+
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = double;
 
             Double256() noexcept : v(_mm256_setzero_pd()){}
@@ -123,49 +130,64 @@ namespace avx {
 
 
             bool operator==(const Double256& bV) {
-                double* vP,* bP;
-                vP = (double*)&v;
-                bP = (double*)&bV.v;
+                // TODO: Check performance vs classic approach on MSVC and GCC.
+                __m256d eq = _mm256_xor_pd(v, bV.v); // Bitwise XOR - equal values return field with 0.
 
-                for(unsigned int i{0}; i < 4; ++i)
-                    if(vP[i] != bP[i])
-                        return false;
+                /*
+                    Explanation - compute bitwise AND with value and sign bit set to 0.
+                    Next is comparing result to 0 (remove sign bit from equation).
+                    Compute AND of NOT v and NOT bV.v - if they are equal (0) then corresponding field will be set to 0.
+                */
+                __m256d zerofx = _mm256_castsi256_pd(_mm256_andnot_si256(
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256()),
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(bV.v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256())
+                ));
 
-                return true;
+                // Fixes 0.0 == -0.0 mismatch by zeroing corresponding fields
+                eq = _mm256_and_pd(eq, zerofx);
+                
+                return _mm256_testz_si256(_mm256_castpd_si256(eq), _mm256_castpd_si256(eq)) != 0;
             }
 
             bool operator==(const double b) {
-                double* vP,* bP;
-                vP = (double*)&v;
+                __m256d bV = _mm256_set1_pd(b);
+                __m256d eq = _mm256_xor_pd(v, bV);
 
-                for(unsigned int i{0}; i < 4; ++i)
-                    if(vP[i] != b)
-                        return false;
+                __m256d zerofx = _mm256_castsi256_pd(_mm256_andnot_si256(
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256()),
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(bV, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256())
+                ));
 
-                return true;
+                eq = _mm256_and_pd(eq, zerofx);
+                
+                return _mm256_testz_si256(_mm256_castpd_si256(eq), _mm256_castpd_si256(eq)) != 0;
             }
 
             bool operator!=(const Double256& bV) {
-                double* vP,* bP;
-                vP = (double*)&v;
-                bP = (double*)&bV.v;
+                __m256d eq = _mm256_xor_pd(v, bV.v);
 
-                for(unsigned int i{0}; i < 4; ++i)
-                    if(vP[i] != bP[i])
-                        return true;
+                __m256d zerofx = _mm256_castsi256_pd(_mm256_andnot_si256(
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256()),
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(bV.v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256())
+                ));
 
-                return false;
+                eq = _mm256_and_pd(eq, zerofx);
+                
+                return _mm256_testz_si256(_mm256_castpd_si256(eq), _mm256_castpd_si256(eq)) == 0;
             }
 
             bool operator!=(const double b) {
-                double* vP,* bP;
-                vP = (double*)&v;
+                __m256d bV = _mm256_set1_pd(b);
+                __m256d eq = _mm256_xor_pd(v, bV);
 
-                for(unsigned int i{0}; i < 4; ++i)
-                    if(vP[i] != b)
-                        return true;
+                __m256d zerofx = _mm256_castsi256_pd(_mm256_andnot_si256(
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256()),
+                    _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(bV, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256())
+                ));
 
-                return false;
+                eq = _mm256_and_pd(eq, zerofx);
+                
+                return _mm256_testz_si256(_mm256_castpd_si256(eq), _mm256_castpd_si256(eq)) == 0;
             }
 
 
@@ -241,6 +263,13 @@ namespace avx {
                 return *this;
             }
 
+            /**
+            * Indexing operator.
+            * Does not support value assignment through this method (e.g. aV[0] = 1 won't work).
+            * @param index Position of desired element between 0 and 3.
+            * @return Value of underlying element.
+            * @throws std::out_of_range If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range.
+            */
             double operator[](const unsigned int index) const 
             #ifndef NDEBUG
                 {
@@ -252,6 +281,12 @@ namespace avx {
                 noexcept { return ((double*)&v)[index & 3]; }
             #endif 
 
+
+            /**
+             * Returns string representation of vector.
+             * Printing will result in Double256(<vector_values>) eg. Double256(1.000000, 2.000000, 3.000000, 4.000000)
+             * @returns String representation of underlying vector.
+             */
             std::string str() const noexcept {
                 std::string result = "Double256(";
                 double* iv = (double*)&v; 

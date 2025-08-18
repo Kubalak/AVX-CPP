@@ -293,6 +293,13 @@ __m256i _mm256_div_epi64(__m256i a, __m256i b) {
     return a;
 }
 
-__m256 _mm256_sin_ps(__m256 a){ return a; }
+__m256 _mm256_sin_ps(__m256 a) {
+    __asm__(
+      "vxorps %[a], %[a], %[a]"
+      :
+        [a] "+x" (a)
+    );
+
+}
 
 #endif // _MSC_VER

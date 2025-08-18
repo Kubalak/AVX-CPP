@@ -31,8 +31,15 @@ namespace avx {
             __m256i v; 
         
         public:
-
+            
+            /**
+             * Number of individual values stored by object. This value can be used to iterate over elements.
+            */
             static constexpr int size = 8;
+
+            /**
+             * Type that is stored inside vector.
+             */
             using storedType = unsigned int;
 
             /**
@@ -598,25 +605,7 @@ namespace avx {
                 result += ")";
                 return result;
             }
-
-
-            
-            /**
-             * Sums all elements in vector.
-             * @param items Vector containing `UInt256` values.
-             * @return Sum of all elements in vector.
-             */
-            friend UInt256 sum(std::vector<UInt256>& b);
-
-            
-            /**
-             * Sums all elements in set.
-             * @param items Set containing `UInt256` values.
-             * @return Sum of all elements in set.
-             */
-            friend UInt256 sum(std::set<UInt256>& b);
-
-    };
+        };
 };
 
 

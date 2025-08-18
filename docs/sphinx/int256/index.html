@@ -258,6 +258,10 @@
 <li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/types/constants.hpp">Source code</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../math/index.html">AVX Math</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of AVX Math</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/Kubalak/AVX-CPP/blob/main/src/ops/avxmath.hpp">Source code</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -396,7 +400,8 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int25610storedTypeE">
 <span id="_CPPv3N3avx6Int25610storedTypeE"></span><span id="_CPPv2N3avx6Int25610storedTypeE"></span><span class="target" id="classavx_1_1_int256_1a96d8b359a100f18d16a97db104d77bbc"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">storedType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><a class="headerlink" href="#_CPPv4N3avx6Int25610storedTypeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Type that is stored inside vector. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -498,12 +503,24 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int2563getEv">
 <span id="_CPPv3NK3avx6Int2563getEv"></span><span id="_CPPv2NK3avx6Int2563getEv"></span><span id="avx::Int256::getC"></span><span class="target" id="classavx_1_1_int256_1a472f0584182166f7b62a9b1cbfdf54e8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int2563getEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns the internal __m256i value stored by the object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The __m256i value. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2563setE7__m256i">
 <span id="_CPPv3N3avx6Int2563setE7__m256i"></span><span id="_CPPv2N3avx6Int2563setE7__m256i"></span><span id="avx::Int256::set____m256i"></span><span class="target" id="classavx_1_1_int256_1a67b671bc8184ddba13cbae4ba89b0df3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">val</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2563setE7__m256i" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Sets the internal __m256i value stored by the object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>val</strong> – New value of type __m256i. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
@@ -563,22 +580,58 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int256eqERK6Int256">
 <span id="_CPPv3NK3avx6Int256eqERK6Int256"></span><span id="_CPPv2NK3avx6Int256eqERK6Int256"></span><span id="avx::Int256::eq-operator__Int256CRC"></span><span class="target" id="classavx_1_1_int256_1ae0613d3870ed36959b32f07d8d0426e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int256eqERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares vectors for equality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if all values in both vectors are equal, false if any value doesn’t match. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int256eqERKi">
 <span id="_CPPv3NK3avx6Int256eqERKi"></span><span id="_CPPv2NK3avx6Int256eqERKi"></span><span id="avx::Int256::eq-operator__iCRC"></span><span class="target" id="classavx_1_1_int256_1a0ea7beaa72ea9e4642045763d50c797d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int256eqERKi" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares vectors for equality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to compare. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if all values in vector is equal to <code class="docutils literal notranslate"><span class="pre">b</span></code>, otherwise false. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int256neERK6Int256">
 <span id="_CPPv3NK3avx6Int256neERK6Int256"></span><span id="_CPPv2NK3avx6Int256neERK6Int256"></span><span id="avx::Int256::neq-operator__Int256CRC"></span><span class="target" id="classavx_1_1_int256_1a8eaf278d22cdfca7d5f53f8e3ce01617"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int256neERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares vectors for inequality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if ANY value is different between vectors. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int256neERKi">
 <span id="_CPPv3NK3avx6Int256neERKi"></span><span id="_CPPv2NK3avx6Int256neERKi"></span><span id="avx::Int256::neq-operator__iCRC"></span><span class="target" id="classavx_1_1_int256_1a484a7c58a6d5e0135c9b1eccbbe56fb5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int256neERKi" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Compares vectors for inequality. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to compare. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if ANY value in vector is different than <code class="docutils literal notranslate"><span class="pre">b</span></code>, otherwise false. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int256ixEKj">
@@ -589,7 +642,7 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 7. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that in case of out of index it will behave like <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">%</span> <span class="pre">32</span></code>. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 3 LSBs are used from <code class="docutils literal notranslate"><span class="pre">index</span></code>. </p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Value of underlying element. </p>
@@ -602,8 +655,11 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <span id="_CPPv3NK3avx6Int256plERK6Int256"></span><span id="_CPPv2NK3avx6Int256plERK6Int256"></span><span id="avx::Int256::add-operator__Int256CRC"></span><span class="target" id="classavx_1_1_int256_1a9dc99d4b3cd4fd0a80112cb3b5afc676"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int256plERK6Int256" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Adds values from other vector and returns new vector. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">bv</span></code>. </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">bv</span></code>. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -613,8 +669,11 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <span id="_CPPv3NK3avx6Int256plERKi"></span><span id="_CPPv2NK3avx6Int256plERKi"></span><span id="avx::Int256::add-operator__iCRC"></span><span class="target" id="classavx_1_1_int256_1ae2f0dcdd4039161ee75849b8d5010107"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int256plERKi" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Adds single value across all vector fields. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to add to vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -622,7 +681,16 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int256miERK6Int256">
 <span id="_CPPv3NK3avx6Int256miERK6Int256"></span><span id="_CPPv2NK3avx6Int256miERK6Int256"></span><span id="avx::Int256::sub-operator__Int256CRC"></span><span class="target" id="classavx_1_1_int256_1a9ae55f05b711ccbcfbaad366eb92ff62"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int256miERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Substracts values from vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New vector being result of subtracting <code class="docutils literal notranslate"><span class="pre">bV</span></code> from vecotr. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int256miERKi">
@@ -776,52 +844,153 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256oRERK6Int256">
 <span id="_CPPv3N3avx6Int256oRERK6Int256"></span><span id="_CPPv2N3avx6Int256oRERK6Int256"></span><span id="avx::Int256::or-assign-operator__Int256CR"></span><span class="target" id="classavx_1_1_int256_1aeddfcac9dc9e4c6566057b0228350008"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256oRERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256oRERKi">
 <span id="_CPPv3N3avx6Int256oRERKi"></span><span id="_CPPv2N3avx6Int256oRERKi"></span><span id="avx::Int256::or-assign-operator__iCR"></span><span class="target" id="classavx_1_1_int256_1ad923f71000aaa18a88d83ca71404e3f2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256oRERKi" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given integer value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Integer value. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256aNERK6Int256">
 <span id="_CPPv3N3avx6Int256aNERK6Int256"></span><span id="_CPPv2N3avx6Int256aNERK6Int256"></span><span id="avx::Int256::and-assign-operator__Int256CR"></span><span class="target" id="classavx_1_1_int256_1a28623855e6818d3afdd3b4bc21e1eb0b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256aNERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256aNERKi">
+<span id="_CPPv3N3avx6Int256aNERKi"></span><span id="_CPPv2N3avx6Int256aNERKi"></span><span id="avx::Int256::and-assign-operator__iCR"></span><span class="target" id="classavx_1_1_int256_1a609d71ec5f865763b45121d246b88e74"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256aNERKi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given integer value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Integer value. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256eOERK6Int256">
 <span id="_CPPv3N3avx6Int256eOERK6Int256"></span><span id="_CPPv2N3avx6Int256eOERK6Int256"></span><span id="avx::Int256::xor-assign-operator__Int256CR"></span><span class="target" id="classavx_1_1_int256_1a06879e079ab65650ba3e4777c40018ca"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256eOERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256eOERKi">
 <span id="_CPPv3N3avx6Int256eOERKi"></span><span id="_CPPv2N3avx6Int256eOERKi"></span><span id="avx::Int256::xor-assign-operator__iCR"></span><span class="target" id="classavx_1_1_int256_1a040bf3038c0f61661fc6ca0c410747ff"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256eOERKi" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given integer value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Integer value. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256lSERK6Int256">
 <span id="_CPPv3N3avx6Int256lSERK6Int256"></span><span id="_CPPv2N3avx6Int256lSERK6Int256"></span><span id="avx::Int256::lshift-assign-operator__Int256CR"></span><span class="target" id="classavx_1_1_int256_1a166cfbe31da81567490017593fa2b228"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256lSERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values left while shifting in 0. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256lSERKi">
 <span id="_CPPv3N3avx6Int256lSERKi"></span><span id="_CPPv2N3avx6Int256lSERKi"></span><span id="avx::Int256::lshift-assign-operator__iCR"></span><span class="target" id="classavx_1_1_int256_1a5d81bbf35802b5b2a4b377251f48e9c1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256lSERKi" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values right while shifting in 0. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256rSERK6Int256">
 <span id="_CPPv3N3avx6Int256rSERK6Int256"></span><span id="_CPPv2N3avx6Int256rSERK6Int256"></span><span id="avx::Int256::rshift-assign-operator__Int256CR"></span><span class="target" id="classavx_1_1_int256_1a46d25bbebec9bd2ad5ab923cc0bc9f75"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256rSERK6Int256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values right while shifting in sign bit. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int256rSERKi">
 <span id="_CPPv3N3avx6Int256rSERKi"></span><span id="_CPPv2N3avx6Int256rSERKi"></span><span id="avx::Int256::rshift-assign-operator__iCR"></span><span class="target" id="classavx_1_1_int256_1af8ebd67cbb6152e78a9b523794af2a7f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int256rSERKi" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values right while shifting in sign bit. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx6Int2563strEv">
 <span id="_CPPv3NK3avx6Int2563strEv"></span><span id="_CPPv2NK3avx6Int2563strEv"></span><span id="avx::Int256::strC"></span><span class="target" id="classavx_1_1_int256_1acc816d00ced8fc6291364d276c8dcfa1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">str</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx6Int2563strEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns string representation of vector. Printing will result in Int256(&lt;vector_values&gt;) eg. Int256(1, 2, 3, 4, 5, 6, 7, 8) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String representation of underlying vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -829,20 +998,8 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2564sizeE">
 <span id="_CPPv3N3avx6Int2564sizeE"></span><span id="_CPPv2N3avx6Int2564sizeE"></span><span id="avx::Int256::size__i"></span><span class="target" id="classavx_1_1_int256_1a0d87051c05a25923c0c570956c29b783"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><a class="headerlink" href="#_CPPv4N3avx6Int2564sizeE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2563sumERNSt6vectorI6Int256EE">
-<span id="_CPPv3N3avx6Int2563sumERNSt6vectorI6Int256EE"></span><span id="_CPPv2N3avx6Int2563sumERNSt6vectorI6Int256EE"></span><span id="avx::Int256::sum__std::vector:Int256:R"></span><span class="target" id="classavx_1_1_int256_1a785869399f7dafef59776a60cabee450"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2563sumERNSt6vectorI6Int256EE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N3avx6Int2563sumERNSt3setI6Int256EE">
-<span id="_CPPv3N3avx6Int2563sumERNSt3setI6Int256EE"></span><span id="_CPPv2N3avx6Int2563sumERNSt3setI6Int256EE"></span><span id="avx::Int256::sum__std::set:Int256:R"></span><span class="target" id="classavx_1_1_int256_1a09ef91694fcf7ae149601db0047aac0d"></span><span class="k"><span class="pre">friend</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sum</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">set</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N3avx6Int256E" title="avx::Int256"><span class="n"><span class="pre">Int256</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx6Int2563sumERNSt3setI6Int256EE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Number of individual values stored by object. This value can be used to iterate over elements. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -964,6 +1121,7 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <li><a class="reference internal" href="#_CPPv4N3avx6Int256oRERK6Int256"><code class="docutils literal notranslate"><span class="pre">operator|=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx6Int256oRERKi"><code class="docutils literal notranslate"><span class="pre">operator|=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx6Int256aNERK6Int256"><code class="docutils literal notranslate"><span class="pre">operator&amp;=()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx6Int256aNERKi"><code class="docutils literal notranslate"><span class="pre">operator&amp;=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx6Int256eOERK6Int256"><code class="docutils literal notranslate"><span class="pre">operator^=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx6Int256eOERKi"><code class="docutils literal notranslate"><span class="pre">operator^=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx6Int256lSERK6Int256"><code class="docutils literal notranslate"><span class="pre">operator&lt;&lt;=()</span></code></a></li>
@@ -972,8 +1130,6 @@ Each object of class <code class="docutils literal notranslate"><span class="pre
 <li><a class="reference internal" href="#_CPPv4N3avx6Int256rSERKi"><code class="docutils literal notranslate"><span class="pre">operator&gt;&gt;=()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx6Int2563strEv"><code class="docutils literal notranslate"><span class="pre">str()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx6Int2564sizeE"><code class="docutils literal notranslate"><span class="pre">size</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx6Int2563sumERNSt6vectorI6Int256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
-<li><a class="reference internal" href="#_CPPv4N3avx6Int2563sumERNSt3setI6Int256EE"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a></li>
 </ul>
 </li>
 </ul>
