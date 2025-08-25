@@ -153,6 +153,55 @@ namespace avx {
         #endif
     }
 
+    Double256 asin(const Double256 &bV) {
+        #ifdef _MSC_VER
+            return _mm256_asin_pd(bV.get());
+        #else
+            alignas(32) double resultV[4];
+            __m256d bVData = bV.get();
+            resultV[0] = std::asin(((double*)&bVData)[0]);
+            resultV[1] = std::asin(((double*)&bVData)[1]);
+            resultV[2] = std::asin(((double*)&bVData)[2]);
+            resultV[3] = std::asin(((double*)&bVData)[3]);
+            __m256d result = _mm256_load_pd(resultV);
+            return result;
+        #endif
+    }
+
+    Double256 acos(const Double256 &bV) {
+        #ifdef _MSC_VER
+            return _mm256_acos_pd(bV.get());
+        #else
+            alignas(32) double resultV[4];
+            __m256d bVData = bV.get();
+            resultV[0] = std::acos(((double*)&bVData)[0]);
+            resultV[1] = std::acos(((double*)&bVData)[1]);
+            resultV[2] = std::acos(((double*)&bVData)[2]);
+            resultV[3] = std::acos(((double*)&bVData)[3]);
+            __m256d result = _mm256_load_pd(resultV);
+            return result;
+        #endif
+    }
+
+    Double256 atan(const Double256 &bV) {
+        #ifdef _MSC_VER
+            return _mm256_atan_pd(bV.get());
+        #else
+            alignas(32) double resultV[4];
+            __m256d bVData = bV.get();
+            resultV[0] = std::atan(((double*)&bVData)[0]);
+            resultV[1] = std::atan(((double*)&bVData)[1]);
+            resultV[2] = std::atan(((double*)&bVData)[2]);
+            resultV[3] = std::atan(((double*)&bVData)[3]);
+            __m256d result = _mm256_load_pd(resultV);
+            return result;
+        #endif
+    }
+
+    Double256 sqrt(const Double256 &bV) {
+        return _mm256_sqrt_pd(bV.get());
+    }
+
     /**
      * Calculates sine of the vector.
      * @param bV Vector which values will be used to calculate sine.
@@ -310,6 +359,68 @@ namespace avx {
             __m256 result = _mm256_load_ps(resultV);
             return result;
         #endif
+    }
+
+    Float256 asin(const Float256 &bV) {
+        #ifdef _MSC_VER
+            return _mm256_asin_ps(bV.get());
+        #else
+            alignas(32) float resultV[8];
+            __m256d bVData = bV.get();
+            resultV[0] = std::asin(((float*)&bVData)[0]);
+            resultV[1] = std::asin(((float*)&bVData)[1]);
+            resultV[2] = std::asin(((float*)&bVData)[2]);
+            resultV[3] = std::asin(((float*)&bVData)[3]);
+            resultV[4] = std::asin(((float*)&bVData)[4]);
+            resultV[5] = std::asin(((float*)&bVData)[5]);
+            resultV[6] = std::asin(((float*)&bVData)[6]);
+            resultV[7] = std::asin(((float*)&bVData)[7]);
+            __m256d result = _mm256_load_ps(resultV);
+            return result;
+        #endif
+    }
+
+
+    Float256 acos(const Float256 &bV) {
+        #ifdef _MSC_VER
+            return _mm256_acos_ps(bV.get());
+        #else
+            alignas(32) float resultV[8];
+            __m256d bVData = bV.get();
+            resultV[0] = std::acos(((float*)&bVData)[0]);
+            resultV[1] = std::acos(((float*)&bVData)[1]);
+            resultV[2] = std::acos(((float*)&bVData)[2]);
+            resultV[3] = std::acos(((float*)&bVData)[3]);
+            resultV[4] = std::acos(((float*)&bVData)[4]);
+            resultV[5] = std::acos(((float*)&bVData)[5]);
+            resultV[6] = std::acos(((float*)&bVData)[6]);
+            resultV[7] = std::acos(((float*)&bVData)[7]);
+            __m256d result = _mm256_load_ps(resultV);
+            return result;
+        #endif
+    }
+
+    Float256 atan(const Float256 &bV) {
+        #ifdef _MSC_VER
+            return _mm256_atan_ps(bV.get());
+        #else
+            alignas(32) float resultV[8];
+            __m256d bVData = bV.get();
+            resultV[0] = std::atan(((float*)&bVData)[0]);
+            resultV[1] = std::atan(((float*)&bVData)[1]);
+            resultV[2] = std::atan(((float*)&bVData)[2]);
+            resultV[3] = std::atan(((float*)&bVData)[3]);
+            resultV[4] = std::atan(((float*)&bVData)[4]);
+            resultV[5] = std::atan(((float*)&bVData)[5]);
+            resultV[6] = std::atan(((float*)&bVData)[6]);
+            resultV[7] = std::atan(((float*)&bVData)[7]);
+            __m256d result = _mm256_load_ps(resultV);
+            return result;
+        #endif
+    }
+
+    Float256 sqrt(const Float256 &bV) {
+        return _mm256_sqrt_ps(bV.get());
     }
 
     Int256 abs(const Int256& bV) {
@@ -470,58 +581,5 @@ namespace avx {
 
 
 };
-
-/**
- * TODO: Implement inverse and hyperbolic trigonometric functions.
-
-// Inverse trigonometric functions
-
-    Double256 asin(const Double256& bV);
-    Double256 acos(const Double256& bV);
-    Double256 atan(const Double256& bV);
-    Double256 acot(const Double256& bV);
-    Double256 asec(const Double256& bV);
-    Double256 acsc(const Double256& bV);
-
-    Float256 asin(const Float256& bV);
-    Float256 acos(const Float256& bV);
-    Float256 atan(const Float256& bV);
-    Float256 acot(const Float256& bV);
-    Float256 asec(const Float256& bV);
-    Float256 acsc(const Float256& bV);
-
-// Hyperbolic functions
-
-    Double256 sinh(const Double256& bV);
-    Double256 cosh(const Double256& bV);
-    Double256 tanh(const Double256& bV);
-    Double256 coth(const Double256& bV);
-    Double256 sech(const Double256& bV);
-    Double256 csch(const Double256& bV);
-
-    Float256 sinh(const Float256& bV);
-    Float256 cosh(const Float256& bV);
-    Float256 tanh(const Float256& bV);
-    Float256 coth(const Float256& bV);
-    Float256 sech(const Float256& bV);
-    Float256 csch(const Float256& bV);
-
-// Inverse hyperbolic functions
-
-    Double256 asinh(const Double256& bV);
-    Double256 acosh(const Double256& bV);
-    Double256 atanh(const Double256& bV);
-    Double256 acoth(const Double256& bV);
-    Double256 acsch(const Double256& bV);
-    Double256 asech(const Double256& bV);
-
-    Float256 asinh(const Float256& bV);
-    Float256 acosh(const Float256& bV);
-    Float256 atanh(const Float256& bV);
-    Float256 acoth(const Float256& bV);
-    Float256 acsch(const Float256& bV);
-    Float256 asech(const Float256& bV);
-
-*/
 
 #endif

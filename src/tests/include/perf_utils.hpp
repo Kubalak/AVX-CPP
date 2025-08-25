@@ -918,8 +918,9 @@ namespace testing{
             S dLit = bV[bV.size() / 2];
             T d(dLit);
             uint64_t pos = 0;
+            const size_t totalSize = aV.size();
 
-            while(pos + size < aV.size()){
+            while(pos + size < totalSize){
                 T a(aV.data() + pos);
                 T b(bV.data() + pos);
                 c = a & b;
@@ -928,7 +929,7 @@ namespace testing{
                 pos += size;
             }
 
-            while(pos < aV.size()){
+            while(pos < totalSize){
                 cV[pos] = aV[pos] & bV[pos];
                 cV[pos] &= dLit;
                 ++pos;
@@ -965,8 +966,9 @@ namespace testing{
             auto start = std::chrono::steady_clock::now();
 
             S d = bV[bV.size() / 2];
+            const size_t totalSize = aV.size();
 
-            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+            for(uint64_t pos{0}; pos < totalSize; ++pos){
                 *(cV.data() + pos) = *(aV.data() + pos) & *(bV.data() + pos);
                 *(cV.data() + pos) &= d;
             }
@@ -1002,8 +1004,9 @@ namespace testing{
             T c;
             S dLit = bV[bV.size() / 2];
             uint64_t pos = 0;
+            const size_t totalSize = aV.size();
 
-            while(pos + size < aV.size()){
+            while(pos + size < totalSize){
                 T a(aV.data() + pos);
                 T b(bV.data() + pos);
                 c = a << b;
@@ -1012,7 +1015,7 @@ namespace testing{
                 pos += size;
             }
 
-            while(pos < aV.size()){
+            while(pos < totalSize){
                 cV[pos] = aV[pos] << bV[pos];
                 cV[pos] <<= dLit;
                 ++pos;
@@ -1047,10 +1050,11 @@ namespace testing{
                 cV.resize(aV.size());
 
             auto start = std::chrono::steady_clock::now();
+            const size_t totalSize = aV.size();
 
             S d = bV[bV.size() / 2];
 
-            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+            for(uint64_t pos{0}; pos < totalSize; ++pos){
                 *(cV.data() + pos) = *(aV.data() + pos) << *(bV.data() + pos);
                 *(cV.data() + pos) <<= d;
             }
@@ -1060,6 +1064,64 @@ namespace testing{
                 printTestDuration(__func__, start, stop);
             
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+        }
+
+        template<typename T, typename S = typename T::storedType>
+        std::pair<int64_t, bool> testCmpAVX(const std::vector<S> &aV, const std::vector<S> &bV, const bool print = true, const unsigned int size = T::size) {
+            if(aV.size() != bV.size()){
+                std::cerr << "Sizes don't match (" << aV.size() << " != " << bV.size() << ")!\n";
+                return {-1, false};
+            }
+
+            auto start = std::chrono::steady_clock::now();
+            bool areEqual = true;
+            uint64_t pos = 0;
+            const size_t totalSize = aV.size();
+
+            while(pos + size < totalSize){
+                T a(aV.data() + pos);
+                T b(bV.data() + pos);
+                areEqual &= (a == b);
+                pos += size;
+            }
+
+            while(pos < totalSize){
+                areEqual &= (aV[pos] == bV[pos]);
+                pos++;
+            }
+
+            auto stop = std::chrono::steady_clock::now();
+
+            if(print) {
+                std::cout << "Vectors are" << (areEqual ? " " : " not ") << "equal\n";
+                printTestDuration(__func__, start, stop);
+            }
+            
+            return {std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count(), areEqual};
+        }
+
+        template<typename T, typename S = typename T::storedType>
+        std::pair<int64_t, bool> testCmpSeq(const std::vector<S> &aV, const std::vector<S> &bV, const bool print = true) {
+            if(aV.size() != bV.size()){
+                std::cerr << "Sizes don't match (" << aV.size() << " != " << bV.size() << ")!\n";
+                return {-1, false};
+            }
+
+            auto start = std::chrono::steady_clock::now();
+            bool areEqual = true;
+            const size_t totalSize = aV.size();
+
+            for(uint64_t pos = 0 ; pos < totalSize; ++pos)
+                areEqual &= (aV[pos] == bV[pos]);
+
+            auto stop = std::chrono::steady_clock::now();
+
+            if(print) {
+                std::cout << "Vectors are" << (areEqual ? " " : " not ") << "equal\n";
+                printTestDuration(__func__, start, stop);
+            }
+            
+            return {std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count(), areEqual};
         }
 
         /**
@@ -1119,7 +1181,7 @@ namespace testing{
 
             int64_t times[18];
             std::tuple<int64_t, S, S> validations[18];
-            for(char i=0;i<18;++i)
+            for(char i = 0; i < 18; ++i)
                 validations[i] = std::make_tuple(-1, 0, 0);
 
             if(config.doWarmup)
@@ -1212,6 +1274,9 @@ namespace testing{
             times[17] = testing::perf::testLshiftSeq<S>(aV, bV, cV, config.printTestFailed);
             if(config.verifyValues)
                 validations[17] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+            
+            auto cmpFResult = testing::perf::testCmpSeq<T>(aV, bV, config.printTestFailed);
+            auto cmpSResult = testing::perf::testCmpAVX<T>(aV, bV, config.printTestFailed);
 
             std::string validationRes = "";
             std::pair<double, std::string> duration;
@@ -1329,6 +1394,12 @@ namespace testing{
             if(config.verifyValues)
                 validationRes = validationToStr(validations[17]);
             printf("%-20s %8.4lf %-3s%s\n", "Test lshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
+
+            duration = testing::universalDuration(cmpFResult.first);
+            printf("%-20s %8.4lf %-3s%s\n", "Test cmp seq:", duration.first, duration.second.c_str(), (cmpFResult.second ? "EQ":"NEQ"));
+
+            duration = testing::universalDuration(cmpSResult.first);
+            printf("%-20s %8.4lf %-3s%s\n", "Test cmp AVX:", duration.first, duration.second.c_str(), (cmpSResult.second ? "EQ":"NEQ"));
 
             int result = 0;
             if(config.verifyValues)

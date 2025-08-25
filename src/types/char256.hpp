@@ -522,6 +522,31 @@ namespace avx {
 
 
             Char256 operator/(const Char256& bV) const noexcept {
+            #if defined(__AVX512_FP16__) && defined(__AVX512BW__) && defined(__AVX512F__) // If supports FP16
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_cvtepi8_epi16(second.v);
+                __m512h firstFp16 = _mm512_cvtepi16_ph(first16);
+                __m512h secondFp16 = _mm512_cvtepi16_ph(bV16);
+                firstFp16 = _mm512_div_ph(firstFp16, secondFp16);
+                first16 = _mm512_cvttph_epi16(firstFp16);
+                return _mm512_cvtepi16_epi8(first16);
+            #elif defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_cvtepi8_epi16(bV.v);
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(second16)));
+                __m512 secondfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(second16, 1)));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp_1);
+
+                __m256i result = _mm256_castsi128_si256(_mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp)));
+
+                return _mm256_inserti128_si256(result, _mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp_1)), 1);
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
                 auto [b_fhalf_epi16, b_shalf_epi16] = _sig_ext_epi8_epi16(bV.v);
 
@@ -533,8 +558,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 3);
@@ -551,8 +576,8 @@ namespace avx {
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -561,10 +586,26 @@ namespace avx {
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
 
                 return _mm256_or_si256(half_res, shalf_res);
+            #endif
             }
 
 
             Char256 operator/(const char& b) const noexcept {
+            #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_set1_ps(static_cast<float>(b));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp);
+
+                __m256i result = _mm256_castsi128_si256(_mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp)));
+
+                return _mm256_inserti128_si256(result, _mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp_1)), 1);
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
                 __m256 bV = _mm256_set1_ps(static_cast<float>(b));
 
@@ -596,10 +637,36 @@ namespace avx {
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
 
                 return _mm256_or_si256(half_res, shalf_res);
+                #endif
             }
 
 
             Char256& operator/=(const Char256& bV) noexcept {
+            #if defined(__AVX512_FP16__) && defined(__AVX512BW__) && defined(__AVX512F__) // If supports FP16
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_cvtepi8_epi16(bV.v);
+                __m512h firstFp16 = _mm512_cvtepi16_ph(first16);
+                __m512h secondFp16 = _mm512_cvtepi16_ph(bV16);
+                firstFp16 = _mm512_div_ph(firstFp16, secondFp16);
+                first16 = _mm512_cvttph_epi16(firstFp16);
+                v = _mm512_cvtepi16_epi8(first16);
+            #elif defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_cvtepi8_epi16(bV.v);
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(second16)));
+                __m512 secondfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(second16, 1)));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp_1);
+
+                __m256i result = _mm256_castsi128_si256(_mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp)));
+
+                v = _mm256_inserti128_si256(result, _mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp_1)), 1);
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
                 auto [b_fhalf_epi16, b_shalf_epi16] = _sig_ext_epi8_epi16(bV.v);
 
@@ -639,11 +706,27 @@ namespace avx {
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
 
                 v = _mm256_or_si256(half_res, shalf_res);
+            #endif
                 return *this;
             }
 
 
             Char256& operator/=(const char& b) noexcept {
+            #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_set1_ps(static_cast<float>(b));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp);
+
+                __m256i result = _mm256_castsi128_si256(_mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp)));
+
+                v = _mm256_inserti128_si256(result, _mm512_cvtepi32_epi8(_mm512_cvttps_epi32(firstfp_1)), 1);
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
                 __m256 bV = _mm256_set1_ps(static_cast<float>(b));
 
@@ -675,11 +758,32 @@ namespace avx {
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
 
                 v = _mm256_or_si256(half_res, shalf_res);
+            #endif
                 return *this;
             }
 
 
             Char256 operator%(const Char256& bV) const noexcept {
+            #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_cvtepi8_epi16(bV.v);
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(second16)));
+                __m512 secondfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(second16, 1)));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp_1);
+
+                __m512i result = _mm512_castsi256_si512(_mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp)));
+                result = _mm512_inserti64x4(result, _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp_1)), 1);
+
+                result = _mm512_mullo_epi16(result, second16);
+                
+                return _mm256_sub_epi8(v, _mm512_cvtepi16_epi8(result));
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
                 auto [b_fhalf_epi16, b_shalf_epi16] = _sig_ext_epi8_epi16(bV.v);
 
@@ -728,10 +832,30 @@ namespace avx {
                 __m256i result = _mm256_or_si256(fresult, sresult);
 
                 return _mm256_sub_epi8(v, result);
+            #endif
             }
 
 
             Char256 operator%(const char& b) const noexcept {
+            #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_set1_epi16(static_cast<short>(b));
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_set1_ps(static_cast<float>(b));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp);
+
+                __m512i result = _mm512_castsi256_si512(_mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp)));
+                result = _mm512_inserti64x4(result, _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp_1)), 1);
+
+                result = _mm512_mullo_epi16(result, second16);
+                
+                return _mm256_sub_epi8(v, _mm512_cvtepi16_epi8(result));
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
 
                 __m256 bV = _mm256_set1_ps(static_cast<float>(b));
@@ -774,10 +898,31 @@ namespace avx {
                 __m256i result = _mm256_or_si256(fresult, sresult);
 
                 return _mm256_sub_epi8(v, result);
+            #endif
             }
 
 
             Char256& operator%=(const Char256& bV) noexcept {
+            #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_cvtepi8_epi16(bV.v);
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(second16)));
+                __m512 secondfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(second16, 1)));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp_1);
+
+                __m512i result = _mm512_castsi256_si512(_mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp)));
+                result = _mm512_inserti64x4(result, _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp_1)), 1);
+
+                result = _mm512_mullo_epi16(result, second16);
+                
+                v = _mm256_sub_epi8(v, _mm512_cvtepi16_epi8(result));
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
                 auto [b_fhalf_epi16, b_shalf_epi16] = _sig_ext_epi8_epi16(bV.v);
 
@@ -826,11 +971,31 @@ namespace avx {
                 __m256i result = _mm256_or_si256(fresult, sresult);
 
                 v = _mm256_sub_epi8(v, result);
+            #endif
                 return *this;
             }
 
 
             Char256& operator%=(const char& b) noexcept {
+            #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
+                __m512i first16 = _mm512_cvtepi8_epi16(v);
+                __m512i second16 = _mm512_set1_epi16(static_cast<short>(b));
+                
+                __m512 firstfp = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_castsi512_si256(first16)));
+                __m512 firstfp_1 = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(_mm512_extracti64x4_epi64(first16, 1)));
+
+                __m512 secondfp = _mm512_set1_ps(static_cast<float>(b));
+
+                firstfp = _mm512_div_ps(firstfp, secondfp);
+                firstfp_1 = _mm512_div_ps(firstfp_1, secondfp);
+
+                __m512i result = _mm512_castsi256_si512(_mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp)));
+                result = _mm512_inserti64x4(result, _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(firstfp_1)), 1);
+
+                result = _mm512_mullo_epi16(result, second16);
+                
+                v = _mm256_sub_epi8(v, _mm512_cvtepi16_epi8(result));
+            #else
                 auto [v_fhalf_epi16, v_shalf_epi16] = _sig_ext_epi8_epi16(v);
 
                 __m256 bV = _mm256_set1_ps(static_cast<float>(b));
@@ -873,6 +1038,7 @@ namespace avx {
                 __m256i result = _mm256_or_si256(fresult, sresult);
 
                 v = _mm256_sub_epi8(v, result);
+            #endif
                 return *this;
             }
 

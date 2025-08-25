@@ -1,3 +1,7 @@
+v0.8.2
+- Added AVX512 variant for / and % operators for Int256, Short256, UInt256, Char256, Uchar256 (work in progress) classes.
+- Added test to perf utils for testing comparison (== !=) operators.
+
 v0.8.1.4
 - Updated Double256 class to use SIMD in == and != operators with fix for -0.0 and 0.0 comparison.
 - Updated documentation.

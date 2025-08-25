@@ -349,8 +349,15 @@ namespace avx {
                 return *this;
             }
 
-            UInt256 operator/(const UInt256& b) const noexcept {
-                return _mm256_div_epu32(v, b.v);
+            UInt256 operator/(const UInt256& bV) const noexcept {
+            #ifdef __AVX512F__
+                __m512d first = _mm512_cvtepu32_pd(v);
+                __m512d second = _mm512_cvtepu32_pd(bV.v);
+
+                return _mm512_cvttpd_epu32(_mm512_div_pd(first,second));
+            #else
+                return _mm256_div_epu32(v, bV.v);
+            #endif
             }
 
             /* NOTE: Faster than using only div function however ends up failing on VERY edge cases due to float casting.
@@ -391,12 +398,25 @@ namespace avx {
                 if(!b) return _mm256_setzero_si256();
                 if(b < 2)
                     return v;
+            #ifdef __AVX512F__
+                __m512d first = _mm512_cvtepu32_pd(v);
+                __m512d second = _mm512_set1_pd(static_cast<double>(b));
 
+                return _mm512_cvttpd_epu32(_mm512_div_pd(first,second));
+            #else
                 return _mm256_div_epu32(v, _mm256_set1_epi32(b));
+            #endif
             }
 
-            UInt256& operator/=(const UInt256& b) noexcept {
-                v = _mm256_div_epu32(v, b.v);
+            UInt256& operator/=(const UInt256& bV) noexcept {
+            #ifdef __AVX512F__
+                __m512d first = _mm512_cvtepu32_pd(v);
+                __m512d second = _mm512_cvtepu32_pd(bV.v);
+
+                v = _mm512_cvttpd_epu32(_mm512_div_pd(first,second));
+            #else
+                v = _mm256_div_epu32(v, bV.v);
+            #endif
                 return *this;
             }
 
@@ -408,19 +428,32 @@ namespace avx {
                     
                 if(b < 2)
                     return *this;
+            #ifdef __AVX512F__
+                __m512d first = _mm512_cvtepu32_pd(v);
+                __m512d second = _mm512_set1_pd(static_cast<double>(b));
 
+                v = _mm512_cvttpd_epu32(_mm512_div_pd(first,second));
+            #else
                 v =_mm256_div_epu32(v, _mm256_set1_epi32(b));
+            #endif
                 return *this;
             }
+            
 
+            UInt256 operator%(const UInt256& bV) const noexcept {        
+            #ifdef __AVX512F__
+                __m512d first = _mm512_cvtepu32_pd(v);
+                __m512d second = _mm512_cvtepu32_pd(bV.v);
 
-            UInt256 operator%(const UInt256& b) const noexcept {                        
-                __m256i divisor = _mm256_div_epu32(v, b.v);
+                __m512i result = _mm512_cvttpd_epu64(_mm512_div_pd(first,second));
+                return _mm256_sub_epi32(v, _mm512_cvtepi64_epi32(_mm512_mullo_epi64(result, _mm512_cvtepu32_epi64(bV.v))));
+            #else
+                __m256i divisor = _mm256_div_epu32(v, bV.v);
 
-                __m256i first = _mm256_mul_epu32(b.v, divisor);
+                __m256i first = _mm256_mul_epu32(bV.v, divisor);
                 divisor = _mm256_srli_si256(divisor, sizeof(unsigned int));
                 
-                __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
+                __m256i bv = _mm256_srli_si256(bV.v, sizeof(unsigned int));
                 __m256i second = _mm256_mul_epu32(divisor, bv);
 
                 second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
@@ -430,11 +463,18 @@ namespace avx {
                 __m256i multiplied = _mm256_or_si256(first, second);
 
                 return _mm256_sub_epi32(v, multiplied);
+            #endif
             }
 
             UInt256 operator%(const unsigned int b) const noexcept {
                 if(b > 1) {
+            #ifdef __AVX512F__
+                    __m512d first = _mm512_cvtepu32_pd(v);
+                    __m512d second = _mm512_set1_pd(static_cast<double>(b));
 
+                    __m512i result = _mm512_cvttpd_epu64(_mm512_div_pd(first,second));
+                    return _mm256_sub_epi32(v, _mm512_cvtepi64_epi32(_mm512_mullo_epi64(result, _mm512_set1_epi64(static_cast<int64_t>(b)))));
+            #else
                     __m256i bV = _mm256_set1_epi32(b);
                     __m256i divisor = _mm256_div_epu32(v, bV);
 
@@ -450,19 +490,27 @@ namespace avx {
                     __m256i multiplied = _mm256_or_si256(first, second);
 
                     return _mm256_sub_epi32(v, multiplied);
+            #endif
                 }
                 
                 return  _mm256_setzero_si256();
             }
 
 
-            UInt256& operator%=(const UInt256& b) noexcept {
-                __m256i divisor = _mm256_div_epu32(v, b.v);
+            UInt256& operator%=(const UInt256& bV) noexcept {
+            #ifdef __AVX512F__
+                __m512d first = _mm512_cvtepu32_pd(v);
+                __m512d second = _mm512_cvtepu32_pd(bV.v);
 
-                __m256i first = _mm256_mul_epu32(b.v, divisor);
+                __m512i result = _mm512_cvttpd_epu64(_mm512_div_pd(first,second));
+                v = _mm256_sub_epi32(v, _mm512_cvtepi64_epi32(_mm512_mullo_epi64(result, _mm512_cvtepu32_epi64(bV.v))));
+            #else
+                __m256i divisor = _mm256_div_epu32(v, bV.v);
+
+                __m256i first = _mm256_mul_epu32(bV.v, divisor);
                 divisor = _mm256_srli_si256(divisor, sizeof(unsigned int));
                 
-                __m256i bv = _mm256_srli_si256(b.v, sizeof(unsigned int));
+                __m256i bv = _mm256_srli_si256(bV.v, sizeof(unsigned int));
                 __m256i second = _mm256_mul_epu32(divisor, bv);
 
                 second = _mm256_and_si256(second, constants::EPI32_CRATE_EPI64);
@@ -472,11 +520,19 @@ namespace avx {
                 __m256i multiplied = _mm256_or_si256(first, second);
 
                 v = _mm256_sub_epi32(v, multiplied);
+            #endif
                 return *this;
             }
 
             UInt256& operator%=(const unsigned int b) noexcept {
                 if(b) {
+            #ifdef __AVX512F__
+                    __m512d first = _mm512_cvtepu32_pd(v);
+                    __m512d second = _mm512_set1_pd(static_cast<double>(b));
+
+                    __m512i result = _mm512_cvttpd_epu64(_mm512_div_pd(first,second));
+                    v = _mm256_sub_epi32(v, _mm512_cvtepi64_epi32(_mm512_mullo_epi64(result, _mm512_set1_epi64(static_cast<int64_t>(b)))));
+            #else
                     __m256i bV = _mm256_set1_epi32(b);
                     __m256i divisor = _mm256_div_epu32(v, bV);
 
@@ -492,14 +548,15 @@ namespace avx {
                     __m256i multiplied = _mm256_or_si256(first, second);
 
                     v = _mm256_sub_epi32(v, multiplied);
+            #endif
                 }
                 else 
                     v =  _mm256_setzero_si256();
                 return *this;
             }
 
-            UInt256 operator^(const UInt256& b) const noexcept {
-                return _mm256_xor_si256(v, b.v);
+            UInt256 operator^(const UInt256& bV) const noexcept {
+                return _mm256_xor_si256(v, bV.v);
             }
 
             UInt256 operator^(const unsigned int b) const noexcept {

@@ -287,12 +287,15 @@ namespace avx {
             /**
              * Performs an integer division. Utilizes casting to `float` to compensate for lack of native integer division in AVX and AVX2.
              * 
-             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result.
              * @param bV Divisors vector.
              * @return Result of integer division with truncation.
              */
             Short256 operator/(const Short256& bV) const noexcept {
-                // TODO: Update to use AVX512 if available.
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(bV.v));
+                return _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
@@ -303,8 +306,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -313,16 +316,21 @@ namespace avx {
                 a2 = vP[2];
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 return _mm256_insert_epi64(combinedres, b1, 2);
+            #endif
             }
 
              /**
              * Performs an integer division. 
              * 
-             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result which has not been yet tested for performance.
              * @param bV Divisor value.
              * @return Result of integer division with truncation.
              */
             Short256 operator/(const short& b) const noexcept {
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_set1_ps(static_cast<float>(b));
+                return _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
 
@@ -331,8 +339,8 @@ namespace avx {
 
                 __m256 bV = _mm256_set1_ps(b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -341,9 +349,15 @@ namespace avx {
                 a2 = vP[2];
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 return _mm256_insert_epi64(combinedres, b1, 2);
+            #endif
             }
 
             Short256& operator/=(const Short256& bV) noexcept {
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(bV.v));
+                v = _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
@@ -354,8 +368,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -364,10 +378,16 @@ namespace avx {
                 a2 = vP[2];
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 v = _mm256_insert_epi64(combinedres, b1, 2);
+            #endif
                 return *this;
             }
             
             Short256& operator/=(const short& b) noexcept {
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_set1_ps(static_cast<float>(b));
+                v = _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
 
@@ -376,8 +396,8 @@ namespace avx {
 
                 __m256 bV = _mm256_set1_ps(b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -386,6 +406,7 @@ namespace avx {
                 a2 = vP[2];
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 v = _mm256_insert_epi64(combinedres, b1, 2);
+            #endif
                 return *this;
             }
 
@@ -397,6 +418,12 @@ namespace avx {
              * @return Modulo result.
              */
             Short256 operator%(const Short256& bV) const noexcept {
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(bV.v));
+                __m256i result = _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+                return _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, result));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
@@ -407,8 +434,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -418,6 +445,7 @@ namespace avx {
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
                 return _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, combinedres));
+            #endif
             }
 
 
@@ -429,6 +457,12 @@ namespace avx {
              * @return Modulo result.
              */
             Short256 operator%(const short& b) noexcept {
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_set1_ps(static_cast<float>(b));
+                __m256i result = _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+                return _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), result));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
 
@@ -437,8 +471,8 @@ namespace avx {
 
                 __m256 bV = _mm256_set1_ps(b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -448,10 +482,17 @@ namespace avx {
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
                 return _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), combinedres));
+            #endif
             }
 
 
             Short256& operator%=(const Short256& bV) noexcept {
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(bV.v));
+                __m256i result = _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+                v = _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, result));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(v_first_half));
@@ -462,8 +503,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_first_half));
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(bv_second_half));
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -473,10 +514,17 @@ namespace avx {
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
                 v = _mm256_sub_epi16(v, _mm256_mullo_epi16(bV.v, combinedres));
+            #endif
                 return *this;
             }
 
             Short256& operator%=(const short& b) noexcept {
+            #ifdef __AVX512F__
+                __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
+                __m512 second = _mm512_set1_ps(static_cast<float>(b));
+                __m256i result = _mm512_cvtepi32_epi16(_mm512_cvttps_epi32(_mm512_div_ps(first, second)));
+                v = _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), result));
+            #else
                 __m128i v_first_half = _mm256_extracti128_si256(v, 0);
                 __m128i v_second_half = _mm256_extracti128_si256(v, 1);
 
@@ -485,8 +533,8 @@ namespace avx {
 
                 __m256 bV = _mm256_set1_ps(b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 __m256i combinedres = _mm256_packs_epi32(fresult, sresult);
                 long long a2, b1, *vP;
@@ -496,6 +544,7 @@ namespace avx {
                 combinedres = _mm256_insert_epi64(combinedres, a2, 1);
                 combinedres = _mm256_insert_epi64(combinedres, b1, 2);  
                 v = _mm256_sub_epi16(v, _mm256_mullo_epi16(_mm256_set1_epi16(b), combinedres));
+            #endif
                 return *this;
             }
 
@@ -559,7 +608,7 @@ namespace avx {
              * @return New value of `v` shifted by number of bits specfied in `bV`.
              */
             Short256 operator<<(const Short256& bV) const noexcept {
-                #if (defined __AVX512BW__ && defined __AVX512VL__)
+                #if defined(__AVX512BW__) && defined(__AVX512VL__)
                     // If compiler is using AVX-512BW and AVX-512DQ use available function.
                     return _mm256_sllv_epi16(v, bV.v);
                 #else
@@ -590,7 +639,7 @@ namespace avx {
             }
 
             Short256& operator<<=(const Short256& bV) noexcept {
-                #if (defined __AVX512BW__ && defined __AVX512VL__)
+                #if defined(__AVX512BW__) && defined(__AVX512VL__)
                     v = _mm256_sllv_epi16(v, bV.v);
                 #else
                     __m256i halves = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -617,7 +666,7 @@ namespace avx {
             }
 
             Short256 operator>>(const Short256& bV) const noexcept {
-                #if (defined __AVX512BW__ && defined __AVX512VL__)
+                #if defined(__AVX512BW__) && defined(__AVX512VL__)
                     return _mm256_srlv_epi16(v, bV.v);
                 #else
                     __m256i halves = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -642,7 +691,7 @@ namespace avx {
             }
 
             Short256& operator>>=(const Short256& bV) noexcept {
-                #if (defined __AVX512BW__ && defined __AVX512VL__)
+                #if defined(__AVX512BW__) && defined(__AVX512VL__)
                     v = _mm256_srlv_epi16(v, bV.v);
                 #else
                     __m256i halves = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);

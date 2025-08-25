@@ -364,7 +364,7 @@ namespace avx
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
                         _mm512_cvtepi32_pd(v), 
-                        _mm512_cvtepi32_pd(bV.v)
+                        _mm512_set1_pd(static_cast<double>(b))
                     )
                 );
             #else
@@ -491,7 +491,7 @@ namespace avx
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
                         _mm512_cvtepi32_pd(v), 
-                        _mm512_cvtepi32_pd(bV.v)
+                        _mm512_set1_pd(static_cast<double>(b))
                     )
                 );
             #else
