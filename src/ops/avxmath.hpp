@@ -34,8 +34,7 @@ namespace avx {
             resultV[1] = std::sin(((double*)&bVData)[1]);
             resultV[2] = std::sin(((double*)&bVData)[2]);
             resultV[3] = std::sin(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -55,8 +54,7 @@ namespace avx {
             resultV[1] = std::cos(((double*)&bVData)[1]);
             resultV[2] = std::cos(((double*)&bVData)[2]);
             resultV[3] = std::cos(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -76,8 +74,7 @@ namespace avx {
             resultV[1] = std::tan(((double*)&bVData)[1]);
             resultV[2] = std::tan(((double*)&bVData)[2]);
             resultV[3] = std::tan(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -100,8 +97,7 @@ namespace avx {
             resultV[1] = 1.0 / std::tan(((double*)&bVData)[1]);
             resultV[2] = 1.0 / std::tan(((double*)&bVData)[2]);
             resultV[3] = 1.0 / std::tan(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -124,8 +120,7 @@ namespace avx {
             resultV[1] = 1.0 / std::cos(((double*)&bVData)[1]);
             resultV[2] = 1.0 / std::cos(((double*)&bVData)[2]);
             resultV[3] = 1.0 / std::cos(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -148,8 +143,7 @@ namespace avx {
             resultV[1] = 1.0 / std::sin(((double*)&bVData)[1]);
             resultV[2] = 1.0 / std::sin(((double*)&bVData)[2]);
             resultV[3] = 1.0 / std::sin(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -163,8 +157,7 @@ namespace avx {
             resultV[1] = std::asin(((double*)&bVData)[1]);
             resultV[2] = std::asin(((double*)&bVData)[2]);
             resultV[3] = std::asin(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -178,8 +171,7 @@ namespace avx {
             resultV[1] = std::acos(((double*)&bVData)[1]);
             resultV[2] = std::acos(((double*)&bVData)[2]);
             resultV[3] = std::acos(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+           return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -193,8 +185,7 @@ namespace avx {
             resultV[1] = std::atan(((double*)&bVData)[1]);
             resultV[2] = std::atan(((double*)&bVData)[2]);
             resultV[3] = std::atan(((double*)&bVData)[3]);
-            __m256d result = _mm256_load_pd(resultV);
-            return result;
+            return _mm256_load_pd(resultV);
         #endif
     }
 
@@ -222,8 +213,7 @@ namespace avx {
             resultV[5] = std::sin(((float*)&bVData)[5]);
             resultV[6] = std::sin(((float*)&bVData)[6]);
             resultV[7] = std::sin(((float*)&bVData)[7]);
-            __m256 result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 
@@ -247,8 +237,7 @@ namespace avx {
             resultV[5] = std::cos(((float*)&bVData)[5]);
             resultV[6] = std::cos(((float*)&bVData)[6]);
             resultV[7] = std::cos(((float*)&bVData)[7]);
-            __m256 result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 
@@ -272,8 +261,7 @@ namespace avx {
             resultV[5] = std::tan(((float*)&bVData)[5]);
             resultV[6] = std::tan(((float*)&bVData)[6]);
             resultV[7] = std::tan(((float*)&bVData)[7]);
-            __m256 result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 
@@ -300,8 +288,7 @@ namespace avx {
             resultV[5] = 1.0f / std::tan(((float*)&bVData)[5]);
             resultV[6] = 1.0f / std::tan(((float*)&bVData)[6]);
             resultV[7] = 1.0f / std::tan(((float*)&bVData)[7]);
-            __m256 result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
     
@@ -328,8 +315,7 @@ namespace avx {
             resultV[5] = 1.0f / std::cos(((float*)&bVData)[5]);
             resultV[6] = 1.0f / std::cos(((float*)&bVData)[6]);
             resultV[7] = 1.0f / std::cos(((float*)&bVData)[7]);
-            __m256 result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 
@@ -356,8 +342,7 @@ namespace avx {
             resultV[5] = 1.0f / std::sin(((float*)&bVData)[5]);
             resultV[6] = 1.0f / std::sin(((float*)&bVData)[6]);
             resultV[7] = 1.0f / std::sin(((float*)&bVData)[7]);
-            __m256 result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 
@@ -366,7 +351,7 @@ namespace avx {
             return _mm256_asin_ps(bV.get());
         #else
             alignas(32) float resultV[8];
-            __m256d bVData = bV.get();
+            __m256 bVData = bV.get();
             resultV[0] = std::asin(((float*)&bVData)[0]);
             resultV[1] = std::asin(((float*)&bVData)[1]);
             resultV[2] = std::asin(((float*)&bVData)[2]);
@@ -375,8 +360,7 @@ namespace avx {
             resultV[5] = std::asin(((float*)&bVData)[5]);
             resultV[6] = std::asin(((float*)&bVData)[6]);
             resultV[7] = std::asin(((float*)&bVData)[7]);
-            __m256d result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 
@@ -386,7 +370,7 @@ namespace avx {
             return _mm256_acos_ps(bV.get());
         #else
             alignas(32) float resultV[8];
-            __m256d bVData = bV.get();
+            __m256 bVData = bV.get();
             resultV[0] = std::acos(((float*)&bVData)[0]);
             resultV[1] = std::acos(((float*)&bVData)[1]);
             resultV[2] = std::acos(((float*)&bVData)[2]);
@@ -395,8 +379,7 @@ namespace avx {
             resultV[5] = std::acos(((float*)&bVData)[5]);
             resultV[6] = std::acos(((float*)&bVData)[6]);
             resultV[7] = std::acos(((float*)&bVData)[7]);
-            __m256d result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 
@@ -405,7 +388,7 @@ namespace avx {
             return _mm256_atan_ps(bV.get());
         #else
             alignas(32) float resultV[8];
-            __m256d bVData = bV.get();
+            __m256 bVData = bV.get();
             resultV[0] = std::atan(((float*)&bVData)[0]);
             resultV[1] = std::atan(((float*)&bVData)[1]);
             resultV[2] = std::atan(((float*)&bVData)[2]);
@@ -414,8 +397,7 @@ namespace avx {
             resultV[5] = std::atan(((float*)&bVData)[5]);
             resultV[6] = std::atan(((float*)&bVData)[6]);
             resultV[7] = std::atan(((float*)&bVData)[7]);
-            __m256d result = _mm256_load_ps(resultV);
-            return result;
+            return _mm256_load_ps(resultV);
         #endif
     }
 

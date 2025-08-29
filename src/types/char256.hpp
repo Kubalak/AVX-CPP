@@ -585,9 +585,43 @@ namespace avx {
 
                 __m256i shalf_res = _mm256_or_si256(fresult, sresult);
 
-                return _mm256_or_si256(half_res, shalf_res);
+                return _mm256_or_si256(half_res, shalf_res);                
             #endif
             }
+
+            /* // AVX2(512)version. Apparently _mm256_cvtepi16_epi8 and _mm256_cvtepi32_epi16 for some reason didn't make it to AVX2 lol ->_<'-
+                __m256i v_first_16 = _mm256_cvtepi8_epi16(_mm256_castsi256_si128(v));
+                __m256i v_second_16 = _mm256_cvtepi8_epi16(_mm256_extracti128_si256(v, 1));
+
+                __m256i bV_first_16 = _mm256_cvtepi8_epi16(_mm256_castsi256_si128(bV.v));
+                __m256i bV_second_16 = _mm256_cvtepi8_epi16(_mm256_extracti128_si256(bV.v, 1));
+
+                __m256 v_f_first = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_castsi256_si128(v_first_16)));
+                __m256 v_s_first = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_extracti128_si256(v_first_16, 1)));
+
+                __m256 v_f_second = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_castsi256_si128(v_second_16)));
+                __m256 v_s_second = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_extracti128_si256(v_second_16, 1)));
+
+                __m256 bV_f_first = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_castsi256_si128(bV_first_16)));
+                __m256 bV_s_first = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_extracti128_si256(bV_first_16, 1)));
+
+                __m256 bV_f_second = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_castsi256_si128(bV_second_16)));
+                __m256 bV_s_second = _mm256_cvtepi32_ps(_mm256_cvtepi16_epi32(_mm256_extracti128_si256(bV_second_16, 1)));
+
+                v_f_first = _mm256_div_ps(v_f_first, bV_f_first);
+                v_s_first = _mm256_div_ps(v_s_first, bV_s_first);
+                v_f_second = _mm256_div_ps(v_f_second, bV_f_second);
+                v_s_second = _mm256_div_ps(v_s_second, bV_s_second);
+
+                v_first_16 = _mm256_castsi128_si256(_mm256_cvtepi32_epi16(_mm256_cvttps_epi32(v_f_first)));
+                v_first_16 = _mm256_inserti128_si256(v_first_16, _mm256_cvtepi32_epi16(_mm256_cvttps_epi32(v_s_first)), 1);
+
+                v_second_16 = _mm256_castsi128_si256(_mm256_cvtepi32_epi16(_mm256_cvttps_epi32(v_f_second)));
+                v_second_16 = _mm256_inserti128_si256(v_second_16, _mm256_cvtepi32_epi16(_mm256_cvttps_epi32(v_s_second)), 1);
+
+                v_first_16 = _mm256_castsi128_si256(_mm256_cvtepi16_epi8(v_first_16));
+                return _mm256_inserti128_si256(v_first_16, _mm256_cvtepi16_epi8(v_second_16), 1);
+             */
 
 
             Char256 operator/(const char& b) const noexcept {
@@ -613,8 +647,8 @@ namespace avx {
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 3);
@@ -627,8 +661,8 @@ namespace avx {
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -678,8 +712,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 3);
@@ -696,8 +730,8 @@ namespace avx {
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -734,8 +768,8 @@ namespace avx {
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 3);
@@ -748,8 +782,8 @@ namespace avx {
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI8_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -795,8 +829,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -813,8 +847,8 @@ namespace avx {
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -865,8 +899,8 @@ namespace avx {
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -879,8 +913,8 @@ namespace avx {
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -934,8 +968,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -952,8 +986,8 @@ namespace avx {
                 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -1005,8 +1039,8 @@ namespace avx {
                 __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -1019,8 +1053,8 @@ namespace avx {
                 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
                 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
                 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -1229,22 +1263,72 @@ namespace avx {
 
 
             Char256 operator>>(const Char256& bV) const noexcept {
+            #if defined(__AVX512BW__)
+                return _mm512_cvtepi16_epi8(
+                    _mm512_srav_epi16(
+                        _mm512_cvtepi8_epi16(v), 
+                        _mm512_cvtepi8_epi16(bV.v)
+                    )
+                );
+            #else
+                /*__m256i a_1 = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                a_1 = _mm256_slli_si256(a_1, 1);
+                a_1 = _mm256_srai_epi16(a_1, 8);
+                __m256i a_2 = _mm256_srai_epi16(_mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE), 8);
+                
+                __m256i b_1 = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI16);
+                b_1 = _mm256_slli_si256(b_1, 1);
+                b_1 = _mm256_srai_epi16(b_1, 8);
+                __m256i b_2 = _mm256_srai_epi16(_mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI16_INVERSE), 8);
+
+                __m128i res_1_1 = _mm_sra_epi16(_mm256_castsi256_si128(a_1), _mm256_castsi256_si128(b_1));
+                __m128i res_1_2 = _mm_sra_epi16(_mm256_extracti128_si256(a_1, 1), _mm256_extracti128_si256(b_1, 1));
+
+                res_1_1 = _mm_and_si128(res_1_1, _mm256_castsi256_si128(constants::EPI8_CRATE_EPI16));
+                res_1_2 = _mm_slli_si128(_mm_and_si128(res_1_2, _mm256_castsi256_si128(constants::EPI8_CRATE_EPI16)), 1);
+                res_1_1 = _mm_or_si128(res_1_1, res_1_2);
+                
+                
+                __m128i res_2_1 = _mm_sra_epi16(_mm256_castsi256_si128(a_2), _mm256_castsi256_si128(b_2));
+                __m128i res_2_2 = _mm_sra_epi16(_mm256_extracti128_si256(a_2, 1), _mm256_extracti128_si256(b_2, 1));
+
+                res_2_1 = _mm_and_si128(res_2_1, _mm256_castsi256_si128(constants::EPI8_CRATE_EPI16));
+                res_2_2 = _mm_slli_si128(_mm_and_si128(res_2_2, _mm256_castsi256_si128(constants::EPI8_CRATE_EPI16)), 1);
+                res_2_1 = _mm_or_si128(res_2_1, res_2_2);
+                
+                return _mm256_inserti128_si256(_mm256_castsi128_si256(res_1_1), res_2_1, 1);*/
+
                 __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                q1_a = _mm256_slli_si256(q1_a, 3);
+                q1_a = _mm256_srai_epi32(q1_a, 24);
                 __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
-
+                q1_b = _mm256_slli_si256(q1_b, 3);
+                q1_b = _mm256_srai_epi32(q1_b, 24);
+                
                 __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
+                q2_a = _mm256_slli_si256(q2_a, 3);
+                q2_a = _mm256_srai_epi32(q2_a, 24);
+                
                 __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
-
+                q2_b = _mm256_slli_si256(q2_b, 3);
+                q2_b = _mm256_srai_epi32(q2_b, 24);
+                
                 __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                q3_a = _mm256_slli_si256(q3_a, 3);
+                q3_a = _mm256_srai_epi32(q3_a, 24);
+                
                 __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
+                q3_b = _mm256_slli_si256(q3_b, 3);
+                q3_b = _mm256_srai_epi32(q3_b, 24);
+                
+                __m256i q4_a = _mm256_srai_epi32(v, 24);
 
-                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
-                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
+                __m256i q4_b = _mm256_srai_epi32(bV.v, 24);
 
-                __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
-                __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
-                __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
-                __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
+                __m256i q1_res = _mm256_srav_epi32(q1_a, q1_b);
+                __m256i q2_res = _mm256_srav_epi32(q2_a, q2_b);
+                __m256i q3_res = _mm256_srav_epi32(q3_a, q3_b);
+                __m256i q4_res = _mm256_srav_epi32(q4_a, q4_b);
 
                 q1_res = _mm256_and_si256(q1_res, constants::EPI8_CRATE_EPI32);
                 q2_res = _mm256_and_si256(q2_res, constants::EPI8_CRATE_EPI32);
@@ -1257,15 +1341,18 @@ namespace avx {
                 
                 q1_res = _mm256_or_si256(q1_res, q2_res);
                 q2_res = _mm256_or_si256(q3_res, q4_res);
-                return _mm256_or_si256(q1_res, q2_res);
+                return  _mm256_or_si256(q1_res, q2_res);
+            #endif
             }
 
 
             Char256 operator>>(const unsigned int& b) const noexcept {
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                fhalf = _mm256_slli_si256(fhalf, 1);
+                fhalf = _mm256_srai_epi16(fhalf, 8);
                 __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
-                fhalf = _mm256_srli_epi16(fhalf, b);
-                shalf = _mm256_srli_epi16(shalf, b);
+                fhalf = _mm256_srai_epi16(fhalf, b);
+                shalf = _mm256_srai_epi16(shalf, b);
                 fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
                 shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 return _mm256_or_si256(fhalf, shalf);
@@ -1273,22 +1360,46 @@ namespace avx {
 
 
             Char256& operator>>=(const Char256& bV) noexcept {
+            #if defined(__AVX512BW__)
+                v = _mm512_cvtepi16_epi8(
+                    _mm512_srav_epi16(
+                        _mm512_cvtepi8_epi16(v), 
+                        _mm512_cvtepi8_epi16(bV.v)
+                    )
+                );
+            #else
+                // TODO: Use _mm256_sra_epi16
                 __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
+                q1_a = _mm256_slli_si256(q1_a, 3);
+                q1_a = _mm256_srai_epi32(q1_a, 24);
                 __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
-
+                q1_b = _mm256_slli_si256(q1_b, 3);
+                q1_b = _mm256_srai_epi32(q1_b, 24);
+                
                 __m256i q2_a = _mm256_and_si256(_mm256_srli_si256(v, 1), constants::EPI8_CRATE_EPI32);
+                q2_a = _mm256_slli_si256(q2_a, 3);
+                q2_a = _mm256_srai_epi32(q2_a, 24);
+                
                 __m256i q2_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 1), constants::EPI8_CRATE_EPI32);
-
+                q2_b = _mm256_slli_si256(q2_b, 3);
+                q2_b = _mm256_srai_epi32(q2_b, 24);
+                
                 __m256i q3_a = _mm256_and_si256(_mm256_srli_si256(v, 2), constants::EPI8_CRATE_EPI32);
+                q3_a = _mm256_slli_si256(q3_a, 3);
+                q3_a = _mm256_srai_epi32(q3_a, 24);
+                
                 __m256i q3_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 2), constants::EPI8_CRATE_EPI32);
+                q3_b = _mm256_slli_si256(q3_b, 3);
+                q3_b = _mm256_srai_epi32(q3_b, 24);
+                
+                __m256i q4_a = _mm256_srai_epi32(v, 24);
 
-                __m256i q4_a = _mm256_and_si256(_mm256_srli_si256(v, 3), constants::EPI8_CRATE_EPI32);
-                __m256i q4_b = _mm256_and_si256(_mm256_srli_si256(bV.v, 3), constants::EPI8_CRATE_EPI32);
+                __m256i q4_b = _mm256_srai_epi32(bV.v, 24);
 
-                __m256i q1_res = _mm256_srlv_epi32(q1_a, q1_b);
-                __m256i q2_res = _mm256_srlv_epi32(q2_a, q2_b);
-                __m256i q3_res = _mm256_srlv_epi32(q3_a, q3_b);
-                __m256i q4_res = _mm256_srlv_epi32(q4_a, q4_b);
+                __m256i q1_res = _mm256_srav_epi32(q1_a, q1_b);
+                __m256i q2_res = _mm256_srav_epi32(q2_a, q2_b);
+                __m256i q3_res = _mm256_srav_epi32(q3_a, q3_b);
+                __m256i q4_res = _mm256_srav_epi32(q4_a, q4_b);
 
                 q1_res = _mm256_and_si256(q1_res, constants::EPI8_CRATE_EPI32);
                 q2_res = _mm256_and_si256(q2_res, constants::EPI8_CRATE_EPI32);
@@ -1302,15 +1413,18 @@ namespace avx {
                 q1_res = _mm256_or_si256(q1_res, q2_res);
                 q2_res = _mm256_or_si256(q3_res, q4_res);
                 v = _mm256_or_si256(q1_res, q2_res);
+            #endif
                 return *this;
             }
 
 
             Char256& operator>>=(const unsigned int& b) noexcept {
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
+                fhalf = _mm256_slli_si256(fhalf, 1);
+                fhalf = _mm256_srai_epi16(fhalf, 8);
                 __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
-                fhalf = _mm256_srli_epi16(fhalf, b);
-                shalf = _mm256_srli_epi16(shalf, b);
+                fhalf = _mm256_srai_epi16(fhalf, b);
+                shalf = _mm256_srai_epi16(shalf, b);
                 fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
                 shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 v = _mm256_or_si256(fhalf, shalf);

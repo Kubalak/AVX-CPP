@@ -1,3 +1,7 @@
+v0.8.3
+- Fixed right shift operators for affected types.
+- Fixed right shift test so that sub zero values are tested properly.
+
 v0.8.2
 - Added AVX512 variant for / and % operators for Int256, Short256, UInt256, Char256, Uchar256 (work in progress) classes.
 - Added test to perf utils for testing comparison (== !=) operators.

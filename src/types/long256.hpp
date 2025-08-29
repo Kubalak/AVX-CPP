@@ -587,23 +587,69 @@ namespace avx {
             }
 
             Long256 operator>>(const Long256& bV) const noexcept {
-                return _mm256_srlv_epi64(
+            #if defined(__AVX512F__) && defined(__AVX512VL__)
+                return _mm256_srav_epi64(
                     v,
                     bV.v
                 );
+            #else
+                long long* a = (long long*)&v;
+                long long* bv = (long long*)&bV.v;
+
+                return _mm256_set_epi64x(
+                    a[3] >> bv[3],
+                    a[2] >> bv[2],
+                    a[1] >> bv[1],
+                    a[0] >> bv[0]
+                );
+            #endif
             }
 
             Long256 operator>>(const unsigned int& b) const noexcept {
-                return _mm256_srli_epi64(v, b);
+            #if defined(__AVX512F__) && defined(__AVX512VL__)
+                return _mm256_srai_epi64(v, b);
+            #else
+                long long* a = (long long*)&v;
+
+                return _mm256_set_epi64x(
+                    a[3] >> b,
+                    a[2] >> b,
+                    a[1] >> b,
+                    a[0] >> b
+                );
+            #endif
             }
 
             Long256& operator>>=(const Long256& bV) noexcept {
-                v = _mm256_srlv_epi64(v, bV.v);
+            #if defined(__AVX512F__) && defined(__AVX512VL__)
+                v = _mm256_srav_epi64(v, bV.v);
+            #else
+                long long* a = (long long*)&v;
+                long long* bv = (long long*)&bV.v;
+
+                v = _mm256_set_epi64x(
+                    a[3] >> bv[3],
+                    a[2] >> bv[2],
+                    a[1] >> bv[1],
+                    a[0] >> bv[0]
+                );
+            #endif
                 return *this;
             }
 
             Long256& operator>>=(const unsigned int& b) noexcept {
-                v = _mm256_srli_epi64(v, b);
+            #if defined(__AVX512F__) && defined(__AVX512VL__)
+                v = _mm256_srai_epi64(v, b);
+            #else
+                long long* a = (long long*)&v;
+
+                v = _mm256_set_epi64x(
+                    a[3] >> b,
+                    a[2] >> b,
+                    a[1] >> b,
+                    a[0] >> b
+                );
+            #endif
                 return *this;
             }
 

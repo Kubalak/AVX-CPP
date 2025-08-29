@@ -29,7 +29,14 @@
 #define _AVX_LSH        0x10000 // Use to check if verification failed.
 #define _AVX_LSH_SEQ    0x20000 // Use to check if verification failed.
 
+#define _AVX_RSH_RAW    0x40000  // Use to check if verification failed.
+#define _AVX_RSH        0x80000 // Use to check if verification failed.
+#define _AVX_RSH_SEQ    0x100000 // Use to check if verification failed.
+
+
+
 #define _AVX_IGNORE_LSH 0x07FFF // Use to ignore left shift operator verification error.
+#define _AVX_IGNORE_RSH 0x0FFFF // Use to ignore right shift verification error.
 
 namespace testing{
     namespace perf{
@@ -161,6 +168,27 @@ namespace testing{
              * @returns Time taken by the test in nanoseconds.
              */
             std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> lshRaw;
+
+            /**
+             * Function to perform right shifting of two vectors using raw AVX2 code. \n
+             * Code the function should perform:
+             * 
+             * 1. Load data from `aV` to temporary vector (`a`) \n
+             * 2. Load data from `bV` to temporary vector (`b`) \n
+             * 3. Right shift `a` by `b` -> `c` \n
+             * 4. Right shift `c` by `b[b.size() / 2]`. \n
+             * 5. Save `c` to `cV` according to index.
+             * 
+             * Or following Python way of doing things `cV = (aV >> bV) >> bV[bV.size() / 2]`
+             * 
+             * Params in order from first to last.
+             * @param aV First vector.
+             * @param bV Second vector.
+             * @param cV Results vector.
+             * @param print Whether to print info or not. 
+             * @returns Time taken by the test in nanoseconds.
+             */
+            std::function<int64_t(const std::vector<S>&, const std::vector<S>&, std::vector<S>&, const bool)> rshRaw;
         };
 
         template <typename S>
@@ -452,6 +480,40 @@ namespace testing{
             for(uint64_t pos{0}; pos < aV.size(); ++pos){
                 temp = *(aV.data() + pos) << *(bV.data() + pos);
                 temp <<= d;
+                if(cV[pos] != temp){
+
+                    if(print)
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+
+                    return std::make_tuple(pos, temp, cV[pos]);
+                }
+            }
+
+            return std::make_tuple(-1, 0, 0);
+        }
+
+        /**
+         * Verifies results of right shift between `aV` and `bV` comparing it with `cV`.
+         *
+         * @param aV First vector
+         * @param bV Second vector
+         * @param cV Results vector
+         * @param print Print to cerr in case of failure.
+         * @returns `-2` if vector sizes don't match. `-1` if verification finished successfully. Otherwise returns a position where `cV` does not match expected value.
+         */
+        template<typename S>
+        std::tuple<int64_t, S, S> verifyRshift(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size() || aV.size() != cV.size()) {
+                std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
+                return std::make_tuple(-2, 0, 0);
+            }
+
+            S d = bV[bV.size() / 2];
+            S temp;
+
+            for(uint64_t pos{0}; pos < aV.size(); ++pos){
+                temp = *(aV.data() + pos) >> *(bV.data() + pos);
+                temp >>= d;
                 if(cV[pos] != temp){
 
                     if(print)
@@ -1066,6 +1128,92 @@ namespace testing{
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
         }
 
+        /**
+         * Performs a performance test of >> and >>= operator on types from `avx` namespace. Loads data from `aV` and `bV` and performs >> operation.
+         * 
+         * Disclaimer - due to small loop size they introduce some overhead on results.
+         * @param aV First vector with data.
+         * @param bV Second vector with data.
+         * @param cV Results vector.
+         * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
+         * @param size Number of elements in classes from `avx` namespace. Don't set unless you know what you're doing!
+         * @returns Test time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
+         */
+        template<typename T, typename S = typename T::storedType>
+        int64_t testRshiftAVX(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV, const bool print = true, const unsigned int size = T::size){
+            if(aV.size() != bV.size()){
+                std::cerr << "Sizes don't match (" << aV.size() << " != " << bV.size() << ")!\n";
+                return -1;
+            }
+            if(aV.size() != cV.size())
+                cV.resize(aV.size());
+
+            auto start = std::chrono::steady_clock::now();
+            T c;
+            S dLit = bV[bV.size() / 2];
+            uint64_t pos = 0;
+            const size_t totalSize = aV.size();
+
+            while(pos + size < totalSize){
+                T a(aV.data() + pos);
+                T b(bV.data() + pos);
+                c = a >> b;
+                c >>= dLit;
+                c.save(cV.data() + pos);
+                pos += size;
+            }
+
+            while(pos < totalSize){
+                cV[pos] = aV[pos] >> bV[pos];
+                cV[pos] >>= dLit;
+                ++pos;
+            }
+            
+            auto stop = std::chrono::steady_clock::now();
+
+            if(print)
+                printTestDuration(__func__, start, stop);
+            
+            return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+        }
+
+        /**
+         * Performs a performance test of >> and >>= operator sequentially on `aV` and `bV`. Use as a baseline for non-AVX2 enabled calculations.
+         * 
+         * Disclaimer - due to small loop size they introduce some overhead on results. Compilers like `gcc` or `clang` may produce AVX2 instructions for loop optimization. Use `-fno-tree-vectorize` to prevent this behaviour.
+         * @param aV First vector with data.
+         * @param bV Second vector with data.
+         * @param cV Results vector.
+         * @param print If set to `false` function produces no output to stdout.
+         * @returns Duration in nanoseconds. You can use universalDuration to get human readable data.
+         */
+        template<typename S>
+        int64_t testRshiftSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
+            if(aV.size() != bV.size()){
+                std::cerr << "Sizes don't match (" << aV.size() << " != " << bV.size() << ")!\n";
+                return -1;
+            }
+
+            if(aV.size() != cV.size())
+                cV.resize(aV.size());
+
+            auto start = std::chrono::steady_clock::now();
+            const size_t totalSize = aV.size();
+
+            S d = bV[bV.size() / 2];
+
+            for(uint64_t pos{0}; pos < totalSize; ++pos){
+                *(cV.data() + pos) = *(aV.data() + pos) >> *(bV.data() + pos);
+                *(cV.data() + pos) >>= d;
+            }
+            
+            auto stop = std::chrono::steady_clock::now();
+            if(print)
+                printTestDuration(__func__, start, stop);
+            
+            return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+        }
+
         template<typename T, typename S = typename T::storedType>
         std::pair<int64_t, bool> testCmpAVX(const std::vector<S> &aV, const std::vector<S> &bV, const bool print = true, const unsigned int size = T::size) {
             if(aV.size() != bV.size()){
@@ -1147,6 +1295,7 @@ namespace testing{
             }
 
             printf("All performance tests for %s {%s x%d}. \nCompiled using %s %d.%d.%d on %s at %s %s\n", demangle(typeid(T).name()).c_str(), demangle(typeid(S).name()).c_str(), T::size, getCompilerName(), getCompilerMajor(), getCompilerMinor(), getCompilerPatchLevel(), getPlatform(), __DATE__, __TIME__);
+            printf("Compiler SIMD flags: %s\n", getSIMDFlags().c_str());
             printf("Testing with vector size of %zu (%zu bytes)\n", aV.size(), aV.size() * sizeof(S));
 
             if(config.printCPUInfo)
@@ -1179,9 +1328,9 @@ namespace testing{
                 printf("%-20s %8.4lf %s\n",  "Preparation took: ", value, unit.c_str());
             }
 
-            int64_t times[18];
-            std::tuple<int64_t, S, S> validations[18];
-            for(char i = 0; i < 18; ++i)
+            int64_t times[21];
+            std::tuple<int64_t, S, S> validations[21];
+            for(char i = 0; i < 21; ++i)
                 validations[i] = std::make_tuple(-1, 0, 0);
 
             if(config.doWarmup)
@@ -1274,6 +1423,20 @@ namespace testing{
             times[17] = testing::perf::testLshiftSeq<S>(aV, bV, cV, config.printTestFailed);
             if(config.verifyValues)
                 validations[17] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+            
+            if(config.avxFuncs.rshRaw){
+                times[18] = config.avxFuncs.rshRaw(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[18] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+            }
+            
+            times[19] = testing::perf::testRshiftAVX<T>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[19] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+
+            times[20] = testing::perf::testRshiftSeq<S>(aV, bV, cV, config.printTestFailed);
+            if(config.verifyValues)
+                validations[20] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
             
             auto cmpFResult = testing::perf::testCmpSeq<T>(aV, bV, config.printTestFailed);
             auto cmpSResult = testing::perf::testCmpAVX<T>(aV, bV, config.printTestFailed);
@@ -1395,11 +1558,31 @@ namespace testing{
                 validationRes = validationToStr(validations[17]);
             printf("%-20s %8.4lf %-3s%s\n", "Test lshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universalDuration(cmpFResult.first);
-            printf("%-20s %8.4lf %-3s%s\n", "Test cmp seq:", duration.first, duration.second.c_str(), (cmpFResult.second ? "EQ":"NEQ"));
+            if(config.avxFuncs.rshRaw){
+                duration = testing::universalDuration(times[18]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[18]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test rshift AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+            }
+            else 
+                printf("Test rshift AVX2 raw:    skipped...\n");
+
+            duration = testing::universalDuration(times[19]);
+            if(config.verifyValues)
+                validationRes = validationToStr(validations[19]);
+            printf("%-20s %8.4lf %-3s%s\n", "Test rshift AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
+
+            duration = testing::universalDuration(times[20]);
+            if(config.verifyValues)
+                validationRes = validationToStr(validations[20]);
+            printf("%-20s %8.4lf %-3s%s\n", "Test rshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
             duration = testing::universalDuration(cmpSResult.first);
             printf("%-20s %8.4lf %-3s%s\n", "Test cmp AVX:", duration.first, duration.second.c_str(), (cmpSResult.second ? "EQ":"NEQ"));
+
+            duration = testing::universalDuration(cmpFResult.first);
+            printf("%-20s %8.4lf %-3s%s\n", "Test cmp seq:", duration.first, duration.second.c_str(), (cmpFResult.second ? "EQ":"NEQ"));
+
 
             int result = 0;
             if(config.verifyValues)

@@ -15,6 +15,7 @@
 #include <stdexcept>
 #include <filesystem>
 #include <functional>
+#include <type_traits>
 #include <immintrin.h>
 
 #ifdef __GNUG__
@@ -100,6 +101,92 @@ namespace testing
         #else
             return "Unknown Platform";
         #endif
+    }
+
+    constexpr const std::string getSIMDFlags(){
+        std::string flags;
+
+        #ifdef __AVX__ //SSE not included as AVX and AVX2 is min requirement for library to work
+            flags += "AVX ";
+        #endif
+
+        #ifdef __AVX2__
+            flags += "AVX2 ";
+        #endif
+
+        #ifdef __AVX512F__
+            flags += "AVX512F ";
+        #endif
+
+        #ifdef __AVX512VL__	    
+            flags += "AVX512VL ";
+        #endif
+
+        #ifdef __AVX512BW__	    
+            flags += "AVX512BW ";
+        #endif
+
+        #ifdef __AVX512DQ__	    
+            flags += "AVX512DQ ";
+        #endif
+
+        #ifdef __AVX512CD__	    
+            flags += "AVX512CD ";
+        #endif
+
+        #ifdef __AVX512ER__	    
+            flags += "AVX512ER ";
+        #endif
+
+        #ifdef __AVX512PF__	    
+            flags += "AVX512PF ";
+        #endif
+
+        #ifdef __AVX512IFMA__	    
+            flags += "AVX512IFMA ";
+        #endif
+
+        #ifdef __AVX512VBMI__	    
+            flags += "AVX512VBMI ";
+        #endif
+
+        #ifdef __AVX512VBMI2__	    
+            flags += "AVX512VBMI2 ";
+        #endif
+
+        #ifdef __AVX512VNNI__	    
+            flags += "AVX512VNNI ";
+        #endif
+
+        #ifdef __AVX512BITALG__	
+            flags += "AVX512BITALG ";
+        #endif
+
+        #ifdef __AVX5124VNNIW__	
+            flags += "AVX5124VNNIW ";
+        #endif
+
+        #ifdef __AVX5124FMAPS__
+            flags += "AVX5124FMAPS ";
+        #endif
+
+        #ifdef __AVX512BF16__
+            flags += "AVX512BF16 ";
+        #endif
+
+        #ifdef __AVX512VP2INTERSECT__
+            flags += "AVX512VP2INTERSECT ";
+        #endif
+
+        #ifdef __AVX512FP16__ 
+            flags += "AVX512FP16 ";
+        #endif
+
+        #ifdef __AVX10_VER__
+            flags += "AVX10.1 ";
+        #endif
+
+        return flags;
     }
 
     template <typename T>
@@ -849,13 +936,51 @@ namespace testing
         std::random_device dev;
         std::mt19937 rng(dev());
         unsigned int randLit;
-        std::uniform_int_distribution<std::mt19937::result_type> dist(1, sizeof(S) * 8 - 1); // -1 to avoid undefined behaviour
+        S min_v = static_cast<S>(INT_MIN), max_v = static_cast<S>(INT_MAX);
+        using sel_type = std::conditional_t<std::is_same_v<S, char> || std::is_same_v<S, unsigned char>,
+            short,
+            S>;
+        if constexpr(std::is_same_v<S, char>){
+            min_v = -128;
+            max_v = 127;
+        }
+        else if constexpr(std::is_same_v<S, unsigned char>){
+            min_v = 0;
+            max_v = 255;
+        }
+        else if constexpr(std::is_same_v<S, short>){
+            min_v = INT16_MIN;
+            max_v = INT16_MAX;
+        }
+        else if constexpr(std::is_same_v<S, unsigned short>){
+            min_v = 0;
+            max_v = UINT16_MAX;
+        }
+        else if constexpr(std::is_same_v<S, int>){
+            min_v = INT_MIN;
+            max_v = INT_MAX;
+        }
+        else if constexpr(std::is_same_v<S, unsigned int>){
+            min_v = 0;
+            max_v = UINT16_MAX;
+        }
+        else if constexpr(std::is_same_v<S, long long>){
+            min_v = LLONG_MIN;
+            max_v = LLONG_MAX;
+        }
+        else if constexpr(std::is_same_v<S, unsigned long long>){
+            min_v = 0;
+            max_v = ULLONG_MAX;
+        }
 
-        randLit = dist(rng);
+        std::uniform_int_distribution<sel_type> dist(min_v, max_v);
+
+
+        randLit = std::rand() % (sizeof(S) * 8 - 1);
 
         for(unsigned int i = 0; i < size; ++i){
             aV[i] = dist(rng);
-            bV[i] = dist(rng);
+            bV[i] = static_cast<unsigned long>(dist(rng)) % (sizeof(S) * 8);
             resV[i] = aV[i] >> bV[i];
             litV[i] = aV[i] >> randLit;
         }
@@ -895,7 +1020,7 @@ namespace testing
             result = 1;
         }
 
-        c = a >> (const unsigned int&)randLit;
+        c = a >> randLit;
         if(c != expectedLit){
             printTestFailed(
                 __FILE__, 
@@ -911,7 +1036,7 @@ namespace testing
         }
 
         c = a;
-        c >>= (const unsigned int&)randLit;
+        c >>= randLit;
 
         if(c != expectedLit){
             printTestFailed(

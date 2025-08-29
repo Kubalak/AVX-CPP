@@ -354,7 +354,6 @@ namespace avx
         }
 
 
-        // TODO: Fix float value limit resulting in wrong mod values.        
         Int256 operator%(const int &b) const {
             if(!b) return _mm256_setzero_si256();
 
