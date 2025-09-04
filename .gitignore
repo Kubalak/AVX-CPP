@@ -54,3 +54,4 @@ Doxyfile.in
 docs/xml
 
 .VSCodeCounter/
+.local/

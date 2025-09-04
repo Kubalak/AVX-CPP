@@ -34,117 +34,125 @@ namespace avx {
              */
             using storedType = long long;
 
-        /**
-         * Default constructor. Initializes vector with zeros.
-         */
-        Long256() noexcept : v(_mm256_setzero_si256()) {}
+            /**
+             * Default constructor. Initializes vector with zeros.
+             */
+            Long256() noexcept : v(_mm256_setzero_si256()) {}
 
-        /**
-         * Initializes vector by loading data from memory (via `_mm256_lddqu_si256`).
-         * @param init Valid memory address of minimal size of 256-bits (32 bytes).
-         */
-        Long256(const long long* init) : v(_mm256_lddqu_si256((const __m256i*)init)) {}
-
-        /**
-         * Initializes vector with const value. Each cell will be set with value of `init`.
-         * @param init Value to be set.
-         */
-        Long256(const long long& init) noexcept : v(_mm256_set1_epi64x(init)) {}
-
-        /**
-         * Initializes vector from __m256i value.
-         * @param init Value of type __m256i to initialize the vector.
-         */
-        Long256(__m256i init) noexcept : v(init) {}
-
-        /**
-         * Copy constructor.
-         * Initializes vector from another Long256 vector.
-         * @param init Another Long256 vector to copy from.
-         */
-        Long256(Long256& init) noexcept : v(init.v) {}
-
-        /**
-         * Copy constructor (const).
-         * Initializes vector from another Long256 vector.
-         * @param init Another Long256 vector to copy from.
-         */
-        Long256(const Long256& init) : v(init.v) {}
-
-        /**
-         * Initializes vector from std::array of 4 long long values.
-         * @param init Array of 4 long long values to initialize the vector.
-         */
-        Long256(const std::array<long long, 4>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())) {}
-
-        /**
-         * Initializes vector from std::array of 4 int values. Each int value is promoted to long long.
-         * @param init Array of 4 int values to initialize the vector.
-         */
-        Long256(const std::array<int, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
-
-        /**
-         * Initializes vector from std::array of 4 short values. Each short value is promoted to long long.
-         * @param init Array of 4 short values to initialize the vector.
-         */
-        Long256(const std::array<short, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
-
-        /**
-         * Initializes vector from std::array of 4 char values. Each char value is promoted to long long.
-         * @param init Array of 4 char values to initialize the vector.
-         */
-        Long256(const std::array<char, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
-
-        /**
-         * Initializes vector from initializer_list of long long values.
-         * If the list contains fewer than 4 elements, remaining elements are set to zero.
-         * If the list contains more than 4 elements, only the first 4 are used.
-         * @param init Initializer list of long long values.
-         */
-        Long256(std::initializer_list<long long> init) noexcept {
-            alignas(32) long long init_v[4];
-            memset(init_v, 0, 32);
-            if(init.size() < 4){
-                auto begin = init.begin();
-                for(int i{0}; i < init.size(); ++i){
-                    init_v[i] = *begin;
-                    begin++;
-                }
+            /**
+             * Initializes vector by loading data from memory (via `_mm256_lddqu_si256`).
+             * @param pSrc Valid memory address of minimal size of 256-bits (32 bytes).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
+             */
+            Long256(const long long* pSrc) {
+            #ifndef NDEBUG
+                if(!pSrc)
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
+            #endif
+                v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
-            else {
-                auto begin = init.begin();
-                for(int i{0}; i < size; ++i){
-                    init_v[i] = *begin;
-                    begin++;
+
+            /**
+             * Initializes vector with const value. Each cell will be set with value of `init`.
+             * @param init Value to be set.
+             */
+            Long256(const long long& init) noexcept : v(_mm256_set1_epi64x(init)) {}
+
+            /**
+             * Initializes vector from __m256i value.
+             * @param init Value of type __m256i to initialize the vector.
+             */
+            Long256(__m256i init) noexcept : v(init) {}
+
+            /**
+             * Copy constructor.
+             * Initializes vector from another Long256 vector.
+             * @param init Another Long256 vector to copy from.
+             */
+            Long256(Long256& init) noexcept : v(init.v) {}
+
+            /**
+             * Copy constructor (const).
+             * Initializes vector from another Long256 vector.
+             * @param init Another Long256 vector to copy from.
+             */
+            Long256(const Long256& init) : v(init.v) {}
+
+            /**
+             * Initializes vector from std::array of 4 long long values.
+             * @param init Array of 4 long long values to initialize the vector.
+             */
+            Long256(const std::array<long long, 4>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())) {}
+
+            /**
+             * Initializes vector from std::array of 4 int values. Each int value is promoted to long long.
+             * @param init Array of 4 int values to initialize the vector.
+             */
+            Long256(const std::array<int, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
+
+            /**
+             * Initializes vector from std::array of 4 short values. Each short value is promoted to long long.
+             * @param init Array of 4 short values to initialize the vector.
+             */
+            Long256(const std::array<short, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
+
+            /**
+             * Initializes vector from std::array of 4 char values. Each char value is promoted to long long.
+             * @param init Array of 4 char values to initialize the vector.
+             */
+            Long256(const std::array<char, 4>& init) noexcept : v(_mm256_set_epi64x(init[0], init[1], init[2], init[3])) {}
+
+            /**
+             * Initializes vector from initializer_list of long long values.
+             * If the list contains fewer than 4 elements, remaining elements are set to zero.
+             * If the list contains more than 4 elements, only the first 4 are used.
+             * @param init Initializer list of long long values.
+             */
+            Long256(std::initializer_list<long long> init) noexcept {
+                alignas(32) long long init_v[4];
+                memset(init_v, 0, 32);
+                if(init.size() < 4){
+                    auto begin = init.begin();
+                    for(int i{0}; i < init.size(); ++i){
+                        init_v[i] = *begin;
+                        begin++;
+                    }
                 }
+                else {
+                    auto begin = init.begin();
+                    for(int i{0}; i < size; ++i){
+                        init_v[i] = *begin;
+                        begin++;
+                    }
+                }
+                v = _mm256_load_si256((const __m256i*)init_v);
             }
-            v = _mm256_load_si256((const __m256i*)init_v);
-        }
 
-        /**
-         * Returns the internal __m256i value stored by the object.
-         * @return The __m256i value.
-         */
-        __m256i get() const noexcept { return v; }
+            /**
+             * Returns the internal __m256i value stored by the object.
+             * @return The __m256i value.
+             */
+            __m256i get() const noexcept { return v; }
 
-        /**
-         * Sets the internal __m256i value stored by the object.
-         * @param val New value of type __m256i.
-         */
-        void set(__m256i val) noexcept { v = val; }
+            /**
+             * Sets the internal __m256i value stored by the object.
+             * @param val New value of type __m256i.
+             */
+            void set(__m256i val) noexcept { v = val; }
 
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
              * @param pSrc Pointer to memory from which to load data.
-             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void load(const long long *pSrc) N_THROW_REL {
-                if(pSrc)
-                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            void load(const long long *pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
 
             /**
@@ -160,15 +168,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (4x `long long`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void save(long long *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_storeu_si256((__m256i*)pDest, v);
+            void save(long long *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_storeu_si256((__m256i*)pDest, v);
             }
 
             /**
@@ -176,15 +184,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (4x `long long`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void saveAligned(long long *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_store_si256((__m256i*)pDest, v);
+            void saveAligned(long long *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_store_si256((__m256i*)pDest, v);
             }
 
             long long operator[](unsigned int index) const

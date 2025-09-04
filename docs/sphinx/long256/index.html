@@ -327,11 +327,14 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2567Long256EPKx">
-<span id="_CPPv3N3avx7Long2567Long256EPKx"></span><span id="_CPPv2N3avx7Long2567Long256EPKx"></span><span id="avx::Long256::Long256__l-lCP"></span><span class="target" id="classavx_1_1_long256_1af544d0c79db280d376a61b78170b288a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256EPKx" title="Link to this definition">¶</a><br /></dt>
+<span id="_CPPv3N3avx7Long2567Long256EPKx"></span><span id="_CPPv2N3avx7Long2567Long256EPKx"></span><span id="avx::Long256::Long256__l-lCP"></span><span class="target" id="classavx_1_1_long256_1ad83bfc3ad130b15773a91ccf5163fb65"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Long256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Long2567Long256EPKx" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Initializes vector by loading data from memory (via <code class="docutils literal notranslate"><span class="pre">_mm256_lddqu_si256</span></code>). </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>init</strong> – Valid memory address of minimal size of 256-bits (32 bytes). </p>
+<dd class="field-odd"><p><strong>pSrc</strong> – Valid memory address of minimal size of 256-bits (32 bytes). </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -458,15 +461,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_long256_1a0de8033baa0690161f9330d9698840b3"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">load</span> <span class="pre">(const</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">*pSrc)</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3avx7Long2564loadEPKx">
+<span id="_CPPv3N3avx7Long2564loadEPKx"></span><span id="_CPPv2N3avx7Long2564loadEPKx"></span><span id="avx::Long256::load__l-lCP"></span><span class="target" id="classavx_1_1_long256_1a0b7139d70bbc1fd129039bf49c89e7eb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx7Long2564loadEPKx" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn’t need to be aligned to any specific boundary. If <code class="docutils literal notranslate"><span class="pre">sP</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this method has no effect. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pSrc</strong> – Pointer to memory from which to load data. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -483,8 +486,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_long256_1a36257b92d21d3e92316040a57cb460f7"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">save</span> <span class="pre">(long</span> <span class="pre">long</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long2564saveEPx">
+<span id="_CPPv3NK3avx7Long2564saveEPx"></span><span id="_CPPv2NK3avx7Long2564saveEPx"></span><span id="avx::Long256::save__l-lPC"></span><span class="target" id="classavx_1_1_long256_1ae9b9dd3d342fac0bd0e716d60a6e2f5b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long2564saveEPx" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data to destination in memory. The memory doesn’t have to be aligned to any specific boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
@@ -492,14 +495,14 @@
 <dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (4x <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_long256_1ad0e2e286196240b3b6d46e42d84e5bf9"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">saveAligned</span> <span class="pre">(long</span> <span class="pre">long</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long25611saveAlignedEPx">
+<span id="_CPPv3NK3avx7Long25611saveAlignedEPx"></span><span id="_CPPv2NK3avx7Long25611saveAlignedEPx"></span><span id="avx::Long256::saveAligned__l-lPC"></span><span class="target" id="classavx_1_1_long256_1ac4e71deda92e5ca5825878f6c94b0de3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long25611saveAlignedEPx" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data to destination in memory. The memory must be aligned at 32-byte boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
@@ -507,7 +510,7 @@
 <dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (4x <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -872,7 +875,10 @@
 <li><a class="reference internal" href="#_CPPv4N3avx7Long2567Long256ENSt16initializer_listIxEE"><code class="docutils literal notranslate"><span class="pre">Long256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Long2563getEv"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx7Long2563setE7__m256i"><code class="docutils literal notranslate"><span class="pre">set()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx7Long2564loadEPKx"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Long2564saveERNSt5arrayIxXL4EEEE"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx7Long2564saveEPx"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx7Long25611saveAlignedEPx"><code class="docutils literal notranslate"><span class="pre">saveAligned()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Long256ixEj"><code class="docutils literal notranslate"><span class="pre">operator[]()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Long256eqERK7Long256"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx7Long256eqEKx"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>

@@ -38,6 +38,16 @@
 #define _AVX_IGNORE_LSH 0x07FFF // Use to ignore left shift operator verification error.
 #define _AVX_IGNORE_RSH 0x0FFFF // Use to ignore right shift verification error.
 
+// Sets up start timestamp;
+#define __START_TIME auto start = std::chrono::steady_clock::now();
+
+// Gets final time, prints test time or returns test time in ns directly.
+#define __FINALIZE_TEST auto stop = std::chrono::steady_clock::now();\
+    if(print)\
+        testing::printTestDuration(__func__, start, stop);  \
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+
+
 namespace testing{
     namespace perf{
 
@@ -1338,8 +1348,7 @@ namespace testing{
 
             start = std::chrono::steady_clock::now();
 
-            // THIS IS SH*T IK
-
+            // Add operator
             if(config.avxFuncs.addRaw){
                 times[0] = config.avxFuncs.addRaw(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
@@ -1353,7 +1362,8 @@ namespace testing{
             times[2] = testing::perf::testAddSeq<S>(aV, bV, cV, config.printTestFailed);
             if(config.verifyValues)
                 validations[2] = testing::perf::verifyAdd(aV, bV, cV, config.printVerificationFailed);
-
+            
+            // Substraction operator
             if(config.avxFuncs.subRaw){
                 times[3] = config.avxFuncs.subRaw(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
@@ -1367,7 +1377,8 @@ namespace testing{
             times[5] = testing::perf::testSubSeq<S>(aV, bV, cV, config.printTestFailed);
             if(config.verifyValues)
                 validations[5] = testing::perf::verifySub(aV, bV, cV, config.printVerificationFailed);
-
+            
+            // Multiplication operator
             if(config.avxFuncs.mulRaw){
                 times[6] = config.avxFuncs.mulRaw(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
@@ -1382,6 +1393,7 @@ namespace testing{
             if(config.verifyValues)
                 validations[8] = testing::perf::verifyMul(aV, bV, cV, config.printVerificationFailed);
             
+            // Division operator
             if(config.avxFuncs.divRaw){
                 times[9] = config.avxFuncs.divRaw(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
@@ -1396,8 +1408,9 @@ namespace testing{
             if(config.verifyValues)
                 validations[11] = testing::perf::verifyDiv(aV, bV, cV, config.printVerificationFailed);
             
+            // Modulo operator
             if(config.avxFuncs.modRaw){
-                times[12] = config.avxFuncs.addRaw(aV, bV, cV, config.printTestFailed);
+                times[12] = config.avxFuncs.modRaw(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
                     validations[12] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
             }
@@ -1410,6 +1423,7 @@ namespace testing{
             if(config.verifyValues)
                 validations[14] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
             
+                // Left shift
             if(config.avxFuncs.lshRaw){
                 times[15] = config.avxFuncs.lshRaw(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
@@ -1424,6 +1438,7 @@ namespace testing{
             if(config.verifyValues)
                 validations[17] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
             
+            // Right shift
             if(config.avxFuncs.rshRaw){
                 times[18] = config.avxFuncs.rshRaw(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)

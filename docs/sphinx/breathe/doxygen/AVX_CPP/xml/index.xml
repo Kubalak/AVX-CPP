@@ -15,10 +15,10 @@
     <member refid="classavx_1_1_char256_1ac0a493c55bd68578ba5aeed59a936fe9" kind="function"><name>Char256</name></member>
     <member refid="classavx_1_1_char256_1a8f149f4031fbe4bd18b48e59d7f5c2d7" kind="function"><name>Char256</name></member>
     <member refid="classavx_1_1_char256_1a465dc1e3a5588e72c94c264214fe678a" kind="function"><name>Char256</name></member>
-    <member refid="classavx_1_1_char256_1afd859d164ff1212fc145809b6fdcb4e5" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_char256_1a88ee0bc85f72a8788905151b42e175c2" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_char256_1a0c00f3b507899e47274126acf21f006f" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_char256_1a26cb526b1d2931b956bcf08e138b246c" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_char256_1a1c1de6483ddad6b40e4b30beb2db74af" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_char256_1a8578ef8fb1342c195de0a7b45ccb4e74" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_char256_1a9963cc73beb54f8b8ccfb60cb2bfcbd5" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_char256_1a458a653a43d298050f783368c24c383b" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_char256_1a1246ed93b8ed8b02dbb31d431ccbdd26" kind="function"><name>set</name></member>
     <member refid="classavx_1_1_char256_1a2d54457a200cd29d8517ef30bbf9b88b" kind="function"><name>operator[]</name></member>
@@ -80,12 +80,12 @@
     <member refid="classavx_1_1_double256_1a29faa27746bbd551a89f5b02c2a49b1c" kind="function"><name>Double256</name></member>
     <member refid="classavx_1_1_double256_1a324980571e72f5aff187b2f0b2833534" kind="function"><name>Double256</name></member>
     <member refid="classavx_1_1_double256_1a11138d06d78517916f2d70ec4f0e34c8" kind="function"><name>Double256</name></member>
-    <member refid="classavx_1_1_double256_1a23ef3a5fb31d51a9735bcd0913e8c4df" kind="function"><name>Double256</name></member>
+    <member refid="classavx_1_1_double256_1ae0ad5dcfa6e5f9a048c98cfae5af2f75" kind="function"><name>Double256</name></member>
     <member refid="classavx_1_1_double256_1a11312f2812dcad4b0321c5d9a053a9da" kind="function"><name>Double256</name></member>
-    <member refid="classavx_1_1_double256_1a6f6b7a3fc6e01f6462b395bba192fbe3" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_double256_1a651451005ba15ea458706e1682021af2" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_double256_1aade0b6777f38a76af902d10d4220b404" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_double256_1a89a476a92aeebcbc2ff336da0e9e41a9" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_double256_1a672babaecbca5f269873d2e1826ad9b3" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_double256_1a57a58d630183589fe983816af80bdbaa" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_double256_1af86ae78bd1e49eb504f35f3bc2ac6523" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_double256_1add8f59e988fdc70c5639e22c8cfca230" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_double256_1ac6f41ace61804089518d2c89cdabd864" kind="function"><name>set</name></member>
     <member refid="classavx_1_1_double256_1a8293f21316ea531711bac47a9ec0699b" kind="function"><name>operator==</name></member>
@@ -124,10 +124,10 @@
     <member refid="classavx_1_1_float256_1a713fce05ff701807106ce98f34f9ad93" kind="function"><name>Float256</name></member>
     <member refid="classavx_1_1_float256_1abe90ea496b0b2c8573c1f5e33efcf878" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_float256_1a11ad422c06fc456499fbdad71e88a4fb" kind="function"><name>set</name></member>
-    <member refid="classavx_1_1_float256_1a02e9ba08f43556b8054da2e3ae1beb8a" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_float256_1ad55bae898da176a5b58b9caaa650affc" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_float256_1a1c836a6f30e03e48414adb1f8f223fea" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_float256_1a533fc3c3dd7f4316e9b5ec14ca170bdb" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_float256_1a5d4c07069167239aa2fa2d1a748a9043" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_float256_1a84a67554fe5aeea85273662849841dec" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_float256_1a6285f002c04184530b807b7551c6e8cb" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_float256_1ae1496dee50bec0487a0085a145671786" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_float256_1ab578a1c38df13f1b07dc23788bbfef83" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_float256_1a07a0f2fdddbe88828844799e8ca159f6" kind="function"><name>operator!=</name></member>
@@ -156,7 +156,7 @@
     <member refid="classavx_1_1_int256_1a3da75e1c086411c5ff3b921c5993f0ef" kind="variable"><name>v</name></member>
     <member refid="classavx_1_1_int256_1a0d87051c05a25923c0c570956c29b783" kind="variable"><name>size</name></member>
     <member refid="classavx_1_1_int256_1a8f3cb7b950f4a633d07281f63fbcee7f" kind="function"><name>Int256</name></member>
-    <member refid="classavx_1_1_int256_1a273ee075b5d7d86d9271ea5e591803f7" kind="function"><name>Int256</name></member>
+    <member refid="classavx_1_1_int256_1a85d223a3fb6288750f40fc55329bfb19" kind="function"><name>Int256</name></member>
     <member refid="classavx_1_1_int256_1a3831640a2a0bc431a28e7761f4790ac9" kind="function"><name>Int256</name></member>
     <member refid="classavx_1_1_int256_1a237a4aedff1d91067a1390e038c3ce00" kind="function"><name>Int256</name></member>
     <member refid="classavx_1_1_int256_1a162d22b1c369840124b0d3321a27e653" kind="function"><name>Int256</name></member>
@@ -166,14 +166,14 @@
     <member refid="classavx_1_1_int256_1a1e55fe9d67971f364e3dc49b543452a6" kind="function"><name>Int256</name></member>
     <member refid="classavx_1_1_int256_1a472f0584182166f7b62a9b1cbfdf54e8" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_int256_1a67b671bc8184ddba13cbae4ba89b0df3" kind="function"><name>set</name></member>
-    <member refid="classavx_1_1_int256_1aa15b409d0a0768374c17f77b80a965d9" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_int256_1a55ca05d5cf9f23296eee9d32cfd0badf" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_int256_1acb0fd228f1559d620602a027612f13a9" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_int256_1a70169eac884587f61f2255014416d51c" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_int256_1af35d79855c662b55c0f78053cce231d5" kind="function"><name>saveAligned</name></member>
-    <member refid="classavx_1_1_int256_1ae0613d3870ed36959b32f07d8d0426e7" kind="function"><name>operator==</name></member>
-    <member refid="classavx_1_1_int256_1a0ea7beaa72ea9e4642045763d50c797d" kind="function"><name>operator==</name></member>
-    <member refid="classavx_1_1_int256_1a8eaf278d22cdfca7d5f53f8e3ce01617" kind="function"><name>operator!=</name></member>
-    <member refid="classavx_1_1_int256_1a484a7c58a6d5e0135c9b1eccbbe56fb5" kind="function"><name>operator!=</name></member>
+    <member refid="classavx_1_1_int256_1acf842cb23ae4b372dbda30f5bd9b4a51" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_int256_1a7b6e265c8697eb04ef077455723fb391" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_int256_1ae79cc208eb12f547fe28c45e99151d86" kind="function"><name>operator==</name></member>
+    <member refid="classavx_1_1_int256_1a7df7825afaf23104379d6164130097de" kind="function"><name>operator==</name></member>
+    <member refid="classavx_1_1_int256_1ad6c7a95c8aebfa476173f25ba17cfa13" kind="function"><name>operator!=</name></member>
+    <member refid="classavx_1_1_int256_1afd234e1b7d5a3a538d2ea87c11157d48" kind="function"><name>operator!=</name></member>
     <member refid="classavx_1_1_int256_1acf6d2fd3b7c3555942361cef0da15779" kind="function"><name>operator[]</name></member>
     <member refid="classavx_1_1_int256_1a9dc99d4b3cd4fd0a80112cb3b5afc676" kind="function"><name>operator+</name></member>
     <member refid="classavx_1_1_int256_1ae2f0dcdd4039161ee75849b8d5010107" kind="function"><name>operator+</name></member>
@@ -223,7 +223,7 @@
     <member refid="classavx_1_1_long256_1aa7a03aae0f919eb1f6dbf9fa5af9d611" kind="variable"><name>v</name></member>
     <member refid="classavx_1_1_long256_1a430447a0c369a7c43f8c928bd9688a18" kind="variable"><name>size</name></member>
     <member refid="classavx_1_1_long256_1a9707a84592cef79f63fe6dd830c9b392" kind="function"><name>Long256</name></member>
-    <member refid="classavx_1_1_long256_1af544d0c79db280d376a61b78170b288a" kind="function"><name>Long256</name></member>
+    <member refid="classavx_1_1_long256_1ad83bfc3ad130b15773a91ccf5163fb65" kind="function"><name>Long256</name></member>
     <member refid="classavx_1_1_long256_1a54f5d54a7a133813a6f5abc99df9430a" kind="function"><name>Long256</name></member>
     <member refid="classavx_1_1_long256_1a6f6967f97ca96fa022feee1723b4c0f6" kind="function"><name>Long256</name></member>
     <member refid="classavx_1_1_long256_1a5045ef5bb5a2354e06991f82e00a9c88" kind="function"><name>Long256</name></member>
@@ -235,10 +235,10 @@
     <member refid="classavx_1_1_long256_1a7a23d42e6055a1d2e0dc03f0713a5d3a" kind="function"><name>Long256</name></member>
     <member refid="classavx_1_1_long256_1aba9d0832c5542ae3abcc436795a556e8" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_long256_1a42a3044986407ba0bc45d57b4708d3a7" kind="function"><name>set</name></member>
-    <member refid="classavx_1_1_long256_1a0de8033baa0690161f9330d9698840b3" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_long256_1a0b7139d70bbc1fd129039bf49c89e7eb" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_long256_1a6cb1d690dc0550a8c0660594bd4b8fb6" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_long256_1a36257b92d21d3e92316040a57cb460f7" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_long256_1ad0e2e286196240b3b6d46e42d84e5bf9" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_long256_1ae9b9dd3d342fac0bd0e716d60a6e2f5b" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_long256_1ac4e71deda92e5ca5825878f6c94b0de3" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_long256_1a07ec7611ea208a5687d7ac48f13a2bda" kind="function"><name>operator[]</name></member>
     <member refid="classavx_1_1_long256_1a95f3d3612450306a392aa79732532c0a" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_long256_1ae8ab701f3d45fb21af61a44cc5b460cb" kind="function"><name>operator==</name></member>
@@ -295,13 +295,13 @@
     <member refid="classavx_1_1_short256_1afcc1efe51771b44867eee4ec50e5b080" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a3c9fec9b43963b7634b385872cdbd042" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a9df1fdd1af31460fea0d7f934e7a1ca7" kind="function"><name>Short256</name></member>
-    <member refid="classavx_1_1_short256_1ad41284db97920d83323bdb04c1bc7be0" kind="function"><name>Short256</name></member>
+    <member refid="classavx_1_1_short256_1af6d4b43385ae9e52f2f5d29eaa2a0574" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a0949aa3dd019d5dd3d8c2d6f98778507" kind="function"><name>Short256</name></member>
     <member refid="classavx_1_1_short256_1a2fb405c56cbdd2b8dde56c88e713107c" kind="function"><name>Short256</name></member>
-    <member refid="classavx_1_1_short256_1ad1b3048ffaab3867ab52ddd2424a2706" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_short256_1ac085f845171473d6841976cb2919c83f" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_short256_1a34543cb7eb1e5ff70afd1295f293ace8" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_short256_1a96989ca551d61f2dd0d9909c17490f9e" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_short256_1a50adde9f77f5d3889de26f4c5c54159d" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_short256_1ab06d63dbc0e7e7a2000e9071e6269dc8" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_short256_1a079c3610bc32db324cd4a4503ac7c9eb" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_short256_1ae72ae89bf693753229f57fa8d15223a7" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_short256_1a2b2b1d77009c1998f7d497ac8d714212" kind="function"><name>set</name></member>
     <member refid="classavx_1_1_short256_1aed471999bc6221584be97499496a95f8" kind="function"><name>operator[]</name></member>
@@ -364,10 +364,10 @@
     <member refid="classavx_1_1_u_char256_1adc354d94f11fb25d4d618ea25d168124" kind="function"><name>UChar256</name></member>
     <member refid="classavx_1_1_u_char256_1a1a0403deb56f30f22304d515e7f3eb14" kind="function"><name>UChar256</name></member>
     <member refid="classavx_1_1_u_char256_1a50f88c529af5de5603a165b4a46d0baa" kind="function"><name>UChar256</name></member>
-    <member refid="classavx_1_1_u_char256_1ad3c2ae53c8dbe7fe8bc54dae56bcdd08" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_u_char256_1a2390df1548ccebb4d51b8cc5dfa9bada" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_u_char256_1a1c3f349b32726616faa25ea575e9f6ac" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_char256_1a0aae3ce6e38d06d8ebc24915c8a2cf72" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_char256_1ab0abe7c67029f6f86ccfa4e525c4d0e7" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_u_char256_1a449f1b64966a52068dfc95a8edf5d0ec" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_u_char256_1a6a14d0e56378c051bdcd1f2c5d918127" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_u_char256_1af77f33fd2def1940b8db9760d7acb218" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_u_char256_1a2e2d59825a4e30db333857a757847599" kind="function"><name>set</name></member>
     <member refid="classavx_1_1_u_char256_1af40bd631875be9dc639c23e76f1f6c13" kind="function"><name>operator[]</name></member>
@@ -436,10 +436,10 @@
     <member refid="classavx_1_1_u_int256_1a1b40e38b0a34608884b79d45a1323812" kind="function"><name>UInt256</name></member>
     <member refid="classavx_1_1_u_int256_1a6ff53befe5246ecb787aa3c07f6520fc" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_u_int256_1aacc8a795160ec08a8a9ea64bbe69ed45" kind="function"><name>set</name></member>
-    <member refid="classavx_1_1_u_int256_1a1d2955becae03b539a00c485fb06c0d9" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_u_int256_1a104020fc63dd4ad528777941b557ae2d" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_u_int256_1a75786e337bf88b92541dbc537e70acb0" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_int256_1ac991ee7cf716337b0ea72c7943ff32e3" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_int256_1afa47f0b46aa12778bf2542091d104e35" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_u_int256_1ae1e63104f6021a95b1258acee4cedbe2" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_u_int256_1a8bdb64a951121d6964b4b0551c69941d" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_u_int256_1a91246a76efe5fe9667bb9ae460213e2f" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_u_int256_1a46a960e5849d13d3dfa9eec4624531bd" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_u_int256_1ab8833fc39c5f3edb1370b54afac50f9b" kind="function"><name>operator!=</name></member>
@@ -457,15 +457,15 @@
     <member refid="classavx_1_1_u_int256_1a635d7c2c42eea7c097ae7b6094f087df" kind="function"><name>operator*</name></member>
     <member refid="classavx_1_1_u_int256_1ad3fcfc4598db42efcdf853557328735d" kind="function"><name>operator*=</name></member>
     <member refid="classavx_1_1_u_int256_1a6c48c8d028d56387cad66d456602d465" kind="function"><name>operator*=</name></member>
-    <member refid="classavx_1_1_u_int256_1ae5b3dbd9bd85f15c0566fa1229e2cda0" kind="function"><name>operator/</name></member>
+    <member refid="classavx_1_1_u_int256_1a6a1c0192bb26432f7b3d8a43ccc1562c" kind="function"><name>operator/</name></member>
     <member refid="classavx_1_1_u_int256_1ac3612aafa749b612898b844629c6bb75" kind="function"><name>operator/</name></member>
-    <member refid="classavx_1_1_u_int256_1abb97f3d5e2a690c8798987e5b696ee37" kind="function"><name>operator/=</name></member>
+    <member refid="classavx_1_1_u_int256_1a0fc98682b55b4da296b8a236f3531014" kind="function"><name>operator/=</name></member>
     <member refid="classavx_1_1_u_int256_1a543db3950a6398c99e38dffab77e52b8" kind="function"><name>operator/=</name></member>
-    <member refid="classavx_1_1_u_int256_1a071c9ae7c9c9ba7a5c9180741e404412" kind="function"><name>operator%</name></member>
+    <member refid="classavx_1_1_u_int256_1a7d05d834c423d7807a65c1e34af98974" kind="function"><name>operator%</name></member>
     <member refid="classavx_1_1_u_int256_1a7c0596f3bd926305357f61da3e31464b" kind="function"><name>operator%</name></member>
-    <member refid="classavx_1_1_u_int256_1a83bac4910d0f479eb1302d0118f48ad1" kind="function"><name>operator%=</name></member>
+    <member refid="classavx_1_1_u_int256_1a08b6377f4d341182a4db3907389e757b" kind="function"><name>operator%=</name></member>
     <member refid="classavx_1_1_u_int256_1abe1d86d1e43dfb1bb1b5e7fc37ac0312" kind="function"><name>operator%=</name></member>
-    <member refid="classavx_1_1_u_int256_1a1614997484398e488fa9b74ab5d0dd50" kind="function"><name>operator^</name></member>
+    <member refid="classavx_1_1_u_int256_1ad5b3c86b03a21f9d9ac3d8bade26f88b" kind="function"><name>operator^</name></member>
     <member refid="classavx_1_1_u_int256_1a8d21f860548bae1b3650db69d6211dc4" kind="function"><name>operator^</name></member>
     <member refid="classavx_1_1_u_int256_1a7614deb3cc2f27504ff67304620a1b23" kind="function"><name>operator^=</name></member>
     <member refid="classavx_1_1_u_int256_1a8ce75a1562fa8cca6d24b635201dabab" kind="function"><name>operator^=</name></member>
@@ -496,7 +496,7 @@
     <member refid="classavx_1_1_u_long256_1abc9ba826a17307403e77a091eebb319b" kind="function"><name>ULong256</name></member>
     <member refid="classavx_1_1_u_long256_1aff9dedbebdfe8d493285ec98a4d66fc6" kind="function"><name>ULong256</name></member>
     <member refid="classavx_1_1_u_long256_1a60073c414eff10b63c4da983c8babfc4" kind="function"><name>ULong256</name></member>
-    <member refid="classavx_1_1_u_long256_1ab3dbb611c93bae3396f3561ddf010f53" kind="function"><name>ULong256</name></member>
+    <member refid="classavx_1_1_u_long256_1a7beec864e77049e780417dd07d24760e" kind="function"><name>ULong256</name></member>
     <member refid="classavx_1_1_u_long256_1aa9c7a2829eadead35e220fa8588ddecf" kind="function"><name>ULong256</name></member>
     <member refid="classavx_1_1_u_long256_1ad242fa936fe10a67a262c4e36a1b90a2" kind="function"><name>ULong256</name></member>
     <member refid="classavx_1_1_u_long256_1a36d5792804b654f900886ab72d63799b" kind="function"><name>ULong256</name></member>
@@ -504,10 +504,10 @@
     <member refid="classavx_1_1_u_long256_1a9dada5c35ed69017bcaea95a683a2dfd" kind="function"><name>ULong256</name></member>
     <member refid="classavx_1_1_u_long256_1a8f0f43f1bde954af6693d9b0fdcdb934" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_u_long256_1ab85ad51b963639abc86275e54946c100" kind="function"><name>set</name></member>
-    <member refid="classavx_1_1_u_long256_1a7befaf7490a1dbfb27df396e8f57edc4" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_u_long256_1adf54d4acb614069fef4b6a4691f3edd6" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_u_long256_1a9758e4c235dc5977ea756a32536ecf59" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_long256_1af7817aa7d01478c2940a1d6cbb226a08" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_long256_1a65f8554e25ea32f93b75504fe8730a83" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_u_long256_1a7f109329bd5b4a6136ee777422cfb110" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_u_long256_1ac465d5182339f2238ec6311590d6ca63" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_u_long256_1a31cacf130e5797e6165a744cd4b59782" kind="function"><name>operator[]</name></member>
     <member refid="classavx_1_1_u_long256_1a8bfa8eb27a2d8c781735dee83a170935" kind="function"><name>operator==</name></member>
     <member refid="classavx_1_1_u_long256_1a63ab8999fc84047b710a500db411c179" kind="function"><name>operator==</name></member>
@@ -565,12 +565,12 @@
     <member refid="classavx_1_1_u_short256_1a955cd424048504ae2251defd42d6792d" kind="function"><name>UShort256</name></member>
     <member refid="classavx_1_1_u_short256_1abe71ddb96be361430760be9ca6c84388" kind="function"><name>UShort256</name></member>
     <member refid="classavx_1_1_u_short256_1a85b79fe378f9016e455c0d9622485f32" kind="function"><name>UShort256</name></member>
-    <member refid="classavx_1_1_u_short256_1a02295906b2d9a64d2b4001037620feef" kind="function"><name>UShort256</name></member>
+    <member refid="classavx_1_1_u_short256_1ab6bfa5a4989e5c4a7c766c37cd4c5141" kind="function"><name>UShort256</name></member>
     <member refid="classavx_1_1_u_short256_1a4421b9be00a4916a17ba4bd1cfe2b406" kind="function"><name>UShort256</name></member>
-    <member refid="classavx_1_1_u_short256_1a121566233a55371b4019dfc88a9b556d" kind="function"><name>load</name></member>
+    <member refid="classavx_1_1_u_short256_1a45b3d57045345cad9a69a70ce459a940" kind="function"><name>load</name></member>
     <member refid="classavx_1_1_u_short256_1a931ec8f87195e19811ecbc69dbe231fe" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_short256_1a8919c8b605304999b8934216562f2762" kind="function"><name>save</name></member>
-    <member refid="classavx_1_1_u_short256_1ac15bfd33bb4d5b93583ebbac064aa970" kind="function"><name>saveAligned</name></member>
+    <member refid="classavx_1_1_u_short256_1a65b550387b3910104bc6f371212bf771" kind="function"><name>save</name></member>
+    <member refid="classavx_1_1_u_short256_1a4f1e44a6450ad4ee4506ef6b045b9acc" kind="function"><name>saveAligned</name></member>
     <member refid="classavx_1_1_u_short256_1a4236650e83c48983bce51d7e2129b9ae" kind="function"><name>get</name></member>
     <member refid="classavx_1_1_u_short256_1a37f1ccc6844f7348f2d837937f6c12b9" kind="function"><name>set</name></member>
     <member refid="classavx_1_1_u_short256_1ac85f7a7efc92ccabbddedcc745a0b9ab" kind="function"><name>operator[]</name></member>
@@ -657,7 +657,6 @@
   </compound>
   <compound refid="constants_8hpp" kind="file"><name>constants.hpp</name>
     <member refid="constants_8hpp_1a42c0943f2f88eaff5a2b25319b69453c" kind="define"><name>__AVX_CONSTANTS_HPP</name></member>
-    <member refid="constants_8hpp_1a2579dcfe84b3c9db7242a24a04ee21ef" kind="define"><name>N_THROW_REL</name></member>
     <member refid="constants_8hpp_1ae56f326dbbe7fcd243c6899ec4d2fd1d" kind="define"><name>__AVX_LOCALIZED_NULL_STR</name></member>
   </compound>
   <compound refid="double256_8hpp" kind="file"><name>double256.hpp</name>

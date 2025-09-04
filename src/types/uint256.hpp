@@ -46,43 +46,38 @@ namespace avx {
              * Default constructor.
              * Initializes vector with zeros using `_mm256_setzero_si256()`.
              */
-            UInt256():v(_mm256_setzero_si256()){}
+            UInt256():v(_mm256_setzero_si256()) {}
 
             /** Initializes vector by loading data from memory (via `_mm256_lddq_si256`). 
              * @param pSrc Valid memory addres of minimal size of 256-bits (32 bytes).
+             * @throws std::invalid_argument If in Debug and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
             */
-            UInt256(const unsigned int* pSrc) 
+            UInt256(const unsigned int* pSrc) {
             #ifndef NDEBUG
-                {
-                    if(pSrc == nullptr) throw std::invalid_argument("Passed address is nullptr!");
-                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
-                }
-            #else 
-            noexcept :
-                v(_mm256_lddqu_si256((const __m256i*)pSrc))
-            {}
+                if(!pSrc)
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            }
 
             /**
              * Fills vector with passed value using `_mm256_set1_epi32()`.
              * @param init Value to be set.
              */
-            UInt256(const unsigned int init) noexcept : v(_mm256_set1_epi32(init))
-            {}
+            UInt256(const unsigned int init) noexcept : v(_mm256_set1_epi32(init)) {}
 
             /**
              * Just sets vector value using passed `__m256i`.
              * @param init Vector value to be set.
              */
-            UInt256(__m256i init) noexcept : v(init)
-            {}
+            UInt256(__m256i init) noexcept : v(init) {}
 
             /**
              * Set value using reference.
              * @param init Reference to object which value will be copied.
              */
-            UInt256(UInt256& init) noexcept : v(init.v)
-            {}
+            UInt256(UInt256& init) noexcept : v(init.v) {}
 
             /**
              * Set value using const reference.
@@ -176,15 +171,15 @@ namespace avx {
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
              * @param pSrc Pointer to memory from which to load data.
-             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void load(const unsigned int *pSrc) N_THROW_REL {
-                if(pSrc)
-                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            void load(const unsigned int *pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
 
             /**
@@ -200,15 +195,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (8x `unsigned int`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void save(unsigned int *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_storeu_si256((__m256i*)pDest, v);
+            void save(unsigned int *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                    _mm256_storeu_si256((__m256i*)pDest, v);
             }
 
             /**
@@ -216,15 +211,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (8x `unsigned int`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void saveAligned(unsigned int *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_store_si256((__m256i*)pDest, v);
+            void saveAligned(unsigned int *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_store_si256((__m256i*)pDest, v);
             }
 
             bool operator==(const UInt256 &bV) const {

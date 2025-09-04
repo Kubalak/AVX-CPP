@@ -103,7 +103,7 @@ namespace testing
         #endif
     }
 
-    constexpr const std::string getSIMDFlags(){
+    std::string getSIMDFlags(){
         std::string flags;
 
         #ifdef __AVX__ //SSE not included as AVX and AVX2 is min requirement for library to work

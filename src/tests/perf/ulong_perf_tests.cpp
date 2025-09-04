@@ -8,8 +8,5 @@ int main(int argc, char* argv[]) {
     testing::perf::TestConfig<unsigned long long> config;
     config.printVerificationFailed = true;
     int result = testing::perf::allPerfTest<avx::ULong256>(aV, bV, cV, config);
-    // std::cout << aV[16] << ' ' << bV[16] << ' ' << ((aV[16] >> bV[16]) >> bV[bV.size() / 2]) << '\n';
-    // avx::ULong256 a(aV.data() + 16), b(bV.data() + 16);
-    // std::cout << (a >> b).str() << '\n';
     return (result & (_AVX_IGNORE_LSH & _AVX_IGNORE_RSH)) != 0;
 }

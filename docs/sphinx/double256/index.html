@@ -308,7 +308,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9Double256E">
 <span id="_CPPv3N3avx9Double256E"></span><span id="_CPPv2N3avx9Double256E"></span><span id="avx::Double256"></span><span class="target" id="classavx_1_1_double256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Double256</span></span></span><a class="headerlink" href="#_CPPv4N3avx9Double256E" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Class providing vectorized version of <code class="docutils literal notranslate"><span class="pre">double</span></code>. Can hold 4 individual <code class="docutils literal notranslate"><span class="pre">double</span></code> values. Provides arithmetic operators.<ul class="simple">
-<li><p>Provides comparison operators == != (optimization on the way). </p></li>
+<li><p>Provides comparison operators == !=. </p></li>
 </ul>
 </p>
 <div class="breathe-sectiondef docutils container">
@@ -348,8 +348,8 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_double256_1a23ef3a5fb31d51a9735bcd0913e8c4df"></span><span class="sig-name descname"><span class="pre">inline</span>&#160; <span class="pre">Double256</span> <span class="pre">(const</span> <span class="pre">double</span> <span class="pre">*addr)</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3avx9Double2569Double256EPKd">
+<span id="_CPPv3N3avx9Double2569Double256EPKd"></span><span id="_CPPv2N3avx9Double2569Double256EPKd"></span><span id="avx::Double256::Double256__doubleCP"></span><span class="target" id="classavx_1_1_double256_1ae0ad5dcfa6e5f9a048c98cfae5af2f75"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Double256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx9Double2569Double256EPKd" title="Link to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp function">
@@ -358,15 +358,15 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_double256_1a6f6b7a3fc6e01f6462b395bba192fbe3"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">load</span> <span class="pre">(const</span> <span class="pre">double</span> <span class="pre">*pSrc)</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3avx9Double2564loadEPKd">
+<span id="_CPPv3N3avx9Double2564loadEPKd"></span><span id="_CPPv2N3avx9Double2564loadEPKd"></span><span id="avx::Double256::load__doubleCP"></span><span class="target" id="classavx_1_1_double256_1a651451005ba15ea458706e1682021af2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx9Double2564loadEPKd" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn’t need to be aligned to any specific boundary. If <code class="docutils literal notranslate"><span class="pre">sP</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this method has no effect. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pSrc</strong> – Pointer to memory from which to load data. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -383,8 +383,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_double256_1a89a476a92aeebcbc2ff336da0e9e41a9"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">save</span> <span class="pre">(double</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx9Double2564saveEPd">
+<span id="_CPPv3NK3avx9Double2564saveEPd"></span><span id="_CPPv2NK3avx9Double2564saveEPd"></span><span id="avx::Double256::save__doublePC"></span><span class="target" id="classavx_1_1_double256_1a57a58d630183589fe983816af80bdbaa"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx9Double2564saveEPd" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data to destination in memory. The memory doesn’t have to be aligned to any specific boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
@@ -392,14 +392,14 @@
 <dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (4x <code class="docutils literal notranslate"><span class="pre">double</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_double256_1a672babaecbca5f269873d2e1826ad9b3"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">saveAligned</span> <span class="pre">(double</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx9Double25611saveAlignedEPd">
+<span id="_CPPv3NK3avx9Double25611saveAlignedEPd"></span><span id="_CPPv2NK3avx9Double25611saveAlignedEPd"></span><span id="avx::Double256::saveAligned__doublePC"></span><span class="target" id="classavx_1_1_double256_1af86ae78bd1e49eb504f35f3bc2ac6523"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx9Double25611saveAlignedEPd" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data to destination in memory. The memory must be aligned at 32-byte boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
@@ -407,7 +407,7 @@
 <dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (4x <code class="docutils literal notranslate"><span class="pre">double</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -631,8 +631,12 @@
 <li><a class="reference internal" href="#_CPPv4N3avx9Double2569Double256EK7__m256d"><code class="docutils literal notranslate"><span class="pre">Double256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx9Double2569Double256ERK9Double256"><code class="docutils literal notranslate"><span class="pre">Double256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx9Double2569Double256ERKNSt5arrayIdXL4EEEE"><code class="docutils literal notranslate"><span class="pre">Double256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx9Double2569Double256EPKd"><code class="docutils literal notranslate"><span class="pre">Double256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx9Double2569Double256ENSt16initializer_listIdEE"><code class="docutils literal notranslate"><span class="pre">Double256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx9Double2564loadEPKd"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx9Double2564saveERNSt5arrayIdXL4EEEE"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx9Double2564saveEPd"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx9Double25611saveAlignedEPd"><code class="docutils literal notranslate"><span class="pre">saveAligned()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx9Double2563getEv"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx9Double2563setE7__m256d"><code class="docutils literal notranslate"><span class="pre">set()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx9Double256eqERK9Double256"><code class="docutils literal notranslate"><span class="pre">operator==()</span></code></a></li>

@@ -59,18 +59,17 @@ namespace avx {
             Short256(const std::array<short, 16>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
 
-            /**
-             * Initialize vector with values using pointer.
-             * @param addr A valid address containing at least 16 `short` numbers.
-             * @throws If in debug mode and `addr` is `nullptr` throws `std::invalid_argument`. Otherwise no exception will be thrown.
+            /** Initializes vector by loading data from memory (via `_mm256_lddq_si256`).
+             * @param pSrc Valid memory addres of minimal size of 256-bits (32 bytes).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            explicit Short256(const short* addr) N_THROW_REL {
-                if(addr)
-                    v = _mm256_lddqu_si256((const __m256i*)addr);
+            explicit Short256(const short* pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+            v = _mm256_lddqu_si256((const __m256i *)pSrc); 
             }
 
 
@@ -103,15 +102,15 @@ namespace avx {
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
              * @param pSrc Pointer to memory from which to load data.
-             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void load(const short *pSrc) N_THROW_REL {
-                if(pSrc)
-                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            void load(const short *pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
             
             /**
@@ -127,15 +126,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (16x `short`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void save(short *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_storeu_si256((__m256i*)pDest, v);
+            void save(short *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_storeu_si256((__m256i*)pDest, v);
             }
 
             /**
@@ -143,15 +142,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (16x `short`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void saveAligned(short *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_store_si256((__m256i*)pDest, v);
+            void saveAligned(short *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_store_si256((__m256i*)pDest, v);
             }
 
             /**

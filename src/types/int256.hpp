@@ -39,8 +39,7 @@ namespace avx
     
     {
     private:
-        __m256i v;
-
+        alignas(32) __m256i v;
     public:
 
         /**
@@ -59,9 +58,17 @@ namespace avx
         Int256() : v(_mm256_setzero_si256()) {}
 
         /** Initializes vector by loading data from memory (via `_mm256_lddq_si256`).
-         * @param init Valid memory addres of minimal size of 256-bits (32 bytes).
+         * @param pSrc Valid memory addres of minimal size of 256-bits (32 bytes).
+         * @throws std::invalid_argument If in Debug and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
          */
-        Int256(const int *init) : v(_mm256_lddqu_si256((const __m256i *)init)) {};
+        Int256(const int *pSrc) {
+        #ifndef NDEBUG
+            if(!pSrc)
+                throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            else
+        #endif
+            v = _mm256_lddqu_si256((const __m256i *)pSrc); 
+        }
 
         /**
          * Initializes vector with const value. Each cell will be set with value of `init`.
@@ -151,30 +158,30 @@ namespace avx
             v = _mm256_load_si256((const __m256i*)init_v);
         }
 
-    /**
-     * Returns the internal __m256i value stored by the object.
-     * @return The __m256i value.
-     */
-    __m256i get() const { return v; }
+        /**
+         * Returns the internal __m256i value stored by the object.
+         * @return The __m256i value.
+         */
+        __m256i get() const { return v; }
 
-    /**
-     * Sets the internal __m256i value stored by the object.
-     * @param val New value of type __m256i.
-     */
-    void set(__m256i val) { v = val; }
+        /**
+         * Sets the internal __m256i value stored by the object.
+         * @param val New value of type __m256i.
+         */
+        void set(__m256i val) { v = val; }
 
         /**
          * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
          * @param pSrc Pointer to memory from which to load data.
-         * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+         * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
          */
-        void load(const int *pSrc) N_THROW_REL {
-            if(pSrc)
-                v = _mm256_lddqu_si256((const __m256i*)pSrc);
+        void load(const int *pSrc) {
         #ifndef NDEBUG
-            else
+            if(pSrc)
                 throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            else
         #endif
+            v = _mm256_lddqu_si256((const __m256i*)pSrc);
         }
 
         /**
@@ -190,15 +197,15 @@ namespace avx
          * 
          * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
          * @param pDest A valid pointer to a memory of at least 32 bytes (8x `int`).
-         * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+         * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
          */
-        void save(int *pDest) const N_THROW_REL {
-            if(pDest)
-                _mm256_storeu_si256((__m256i*)pDest, v);
+        void save(int *pDest) const {
         #ifndef NDEBUG
-            else
+            if(!pDest)
                 throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            else
         #endif
+            _mm256_storeu_si256((__m256i*)pDest, v);
         }
 
         /**
@@ -206,15 +213,15 @@ namespace avx
          * 
          * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
          * @param pDest A valid pointer to a memory of at least 32 bytes (8x `int`).
-         * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+         * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
          */
-        void saveAligned(int *pDest) const N_THROW_REL{
-            if(pDest)
-                _mm256_store_si256((__m256i*)pDest, v);
+        void saveAligned(int *pDest) const {
         #ifndef NDEBUG
-            else
+            if(!pDest)
                 throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+            else
         #endif
+            _mm256_store_si256((__m256i*)pDest, v);
         }
 
         /**
@@ -222,7 +229,7 @@ namespace avx
          * @param bV Second vector.
          * @returns true if all values in both vectors are equal, false if any value doesn't match.
          */
-        bool operator==(const Int256 &bV) const {
+        bool operator==(const Int256 &bV) const noexcept {
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) != 0;
         }
@@ -232,7 +239,7 @@ namespace avx
          * @param b Value to compare.
          * @returns true if all values in vector is equal to `b`, otherwise false.
          */
-        bool operator==(const int &b) const {
+        bool operator==(const int &b) const noexcept {
             __m256i bV = _mm256_set1_epi32(b);
             __m256i eq = _mm256_xor_si256(v, bV);
             return _mm256_testz_si256(eq, eq) != 0;
@@ -244,7 +251,7 @@ namespace avx
          * @param bV Second vector.
          * @returns true if ANY value is different between vectors.
          */
-        bool operator!=(const Int256 &bV) const {
+        bool operator!=(const Int256 &bV) const noexcept {
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) == 0;
         }
@@ -255,7 +262,7 @@ namespace avx
          * @param b Value to compare.
          * @returns true if ANY value in vector is different than `b`, otherwise false.
          */
-        bool operator!=(const int &b) const {
+        bool operator!=(const int &b) const noexcept {
             __m256i bV = _mm256_set1_epi32(b);
             __m256i eq = _mm256_xor_si256(v, bV);
             return _mm256_testz_si256(eq, eq) == 0;

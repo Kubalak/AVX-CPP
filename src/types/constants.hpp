@@ -4,12 +4,6 @@
 
 #include <immintrin.h>
 
-#ifdef NDEBUG
-    #define N_THROW_REL noexcept
-#else
-    #define N_THROW_REL
-#endif
-
 #define __AVX_LOCALIZED_NULL_STR std::string(__FILE__) + std::string(":") + std::to_string(__LINE__) + std::string(" ") + std::string(__func__) +"() Passed argument is nullptr!"
 
 namespace avx {

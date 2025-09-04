@@ -141,15 +141,15 @@
         </inbodydescription>
         <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="43" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="43" bodyend="43"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a23ef3a5fb31d51a9735bcd0913e8c4df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1ae0ad5dcfa6e5f9a048c98cfae5af2f75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Double256::Double256</definition>
-        <argsstring>(const double *addr) N_THROW_REL</argsstring>
+        <argsstring>(const double *pSrc)</argsstring>
         <name>Double256</name>
         <qualifiedname>avx::Double256::Double256</qualifiedname>
         <param>
           <type>const double *</type>
-          <declname>addr</declname>
+          <declname>pSrc</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -177,10 +177,10 @@
         </inbodydescription>
         <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="54" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="54" bodyend="71"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a6f6b7a3fc6e01f6462b395bba192fbe3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a651451005ba15ea458706e1682021af2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Double256::load</definition>
-        <argsstring>(const double *pSrc) N_THROW_REL</argsstring>
+        <argsstring>(const double *pSrc)</argsstring>
         <name>load</name>
         <qualifiedname>avx::Double256::load</qualifiedname>
         <param>
@@ -204,7 +204,7 @@
 <parametername>std::invalid_argument</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>If in Debug mode and <computeroutput>pSrc</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release builds this method never throws (for <computeroutput>nullptr</computeroutput> method will have no effect). </para>
+<para>If in Debug mode and <computeroutput>pSrc</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release mode no checks are performed to improve efficiency. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -242,10 +242,10 @@
         </inbodydescription>
         <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="91" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="91" bodyend="93"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a89a476a92aeebcbc2ff336da0e9e41a9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a57a58d630183589fe983816af80bdbaa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Double256::save</definition>
-        <argsstring>(double *pDest) const N_THROW_REL</argsstring>
+        <argsstring>(double *pDest) const</argsstring>
         <name>save</name>
         <qualifiedname>avx::Double256::save</qualifiedname>
         <param>
@@ -270,7 +270,7 @@
 <parametername>std::invalid_argument</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>If in Debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release builds this method never throws (for <computeroutput>nullptr</computeroutput> method will have no effect). </para>
+<para>If in Debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release mode no checks are performed to improve efficiency. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -280,10 +280,10 @@
         </inbodydescription>
         <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="102" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="102" bodyend="109"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a672babaecbca5f269873d2e1826ad9b3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1af86ae78bd1e49eb504f35f3bc2ac6523" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Double256::saveAligned</definition>
-        <argsstring>(double *pDest) const N_THROW_REL</argsstring>
+        <argsstring>(double *pDest) const</argsstring>
         <name>saveAligned</name>
         <qualifiedname>avx::Double256::saveAligned</qualifiedname>
         <param>
@@ -308,7 +308,7 @@
 <parametername>std::invalid_argument</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>If in Debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release builds this method never throws (for <computeroutput>nullptr</computeroutput> method will have no effect). </para>
+<para>If in Debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release mode no checks are performed to improve efficiency. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -771,7 +771,7 @@
     </briefdescription>
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>double</computeroutput>. Can hold 4 individual <computeroutput>double</computeroutput> values. Provides arithmetic operators.<itemizedlist>
-<listitem><para>Provides comparison operators == != (optimization on the way). </para>
+<listitem><para>Provides comparison operators == !=. </para>
 </listitem></itemizedlist>
 </para>
     </detaileddescription>
@@ -782,10 +782,10 @@
       <member refid="classavx_1_1_double256_1a29faa27746bbd551a89f5b02c2a49b1c" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1a324980571e72f5aff187b2f0b2833534" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1a11138d06d78517916f2d70ec4f0e34c8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
-      <member refid="classavx_1_1_double256_1a23ef3a5fb31d51a9735bcd0913e8c4df" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1ae0ad5dcfa6e5f9a048c98cfae5af2f75" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1a11312f2812dcad4b0321c5d9a053a9da" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1add8f59e988fdc70c5639e22c8cfca230" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>get</name></member>
-      <member refid="classavx_1_1_double256_1a6f6b7a3fc6e01f6462b395bba192fbe3" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>load</name></member>
+      <member refid="classavx_1_1_double256_1a651451005ba15ea458706e1682021af2" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>load</name></member>
       <member refid="classavx_1_1_double256_1a77c3aaccf7a7270a0e1e4d835af75cf1" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator!=</name></member>
       <member refid="classavx_1_1_double256_1a29c628531416a02c5fb1d82cf59fb3f8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator!=</name></member>
       <member refid="classavx_1_1_double256_1a45465e7079338a409a2ae102fe0dfe36" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
@@ -808,8 +808,8 @@
       <member refid="classavx_1_1_double256_1aa547541d8dbe8e7cfdeefc7357f05065" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_double256_1aa0dd0364633c34e87ac3fae731ebc7ed" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator[]</name></member>
       <member refid="classavx_1_1_double256_1aade0b6777f38a76af902d10d4220b404" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>save</name></member>
-      <member refid="classavx_1_1_double256_1a89a476a92aeebcbc2ff336da0e9e41a9" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>save</name></member>
-      <member refid="classavx_1_1_double256_1a672babaecbca5f269873d2e1826ad9b3" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>saveAligned</name></member>
+      <member refid="classavx_1_1_double256_1a57a58d630183589fe983816af80bdbaa" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>save</name></member>
+      <member refid="classavx_1_1_double256_1af86ae78bd1e49eb504f35f3bc2ac6523" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>saveAligned</name></member>
       <member refid="classavx_1_1_double256_1ac6f41ace61804089518d2c89cdabd864" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>set</name></member>
       <member refid="classavx_1_1_double256_1ab3ed72ed44e5b9a366ce15ec002cd4dd" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>size</name></member>
       <member refid="classavx_1_1_double256_1ad11d9d79e4e4792cbfc769426c0e04ef" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>storedType</name></member>

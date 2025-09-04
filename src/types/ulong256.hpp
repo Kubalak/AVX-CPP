@@ -38,19 +38,20 @@ namespace avx {
 
             ULong256(__m256i init):v(init){};
             
-            ULong256(const unsigned long long& init):
-                v(_mm256_set1_epi64x(init))
-            {}
+            ULong256(const unsigned long long& init) : v(_mm256_set1_epi64x(init)) {}
 
-            ULong256(const ULong256& init):v(init.v){};
+            ULong256(const ULong256& init):v(init.v) {}
             
-            ULong256(const unsigned long long* init): 
-                v(_mm256_lddqu_si256((const __m256i*)init))
-            {}
+            ULong256(const unsigned long long* pSrc) {
+            #ifndef NDEBUG
+                if(!pSrc)
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
+            #endif
+                v = _mm256_lddqu_si256((const __m256i *)pSrc); 
+            }
             
-            ULong256(const std::array<unsigned long long, 4>& init):
-                v(_mm256_lddqu_si256((const __m256i*)init.data()))
-            {}
+            ULong256(const std::array<unsigned long long, 4>& init) :  v(_mm256_lddqu_si256((const __m256i*)init.data())) {}
             
             ULong256(const std::array<unsigned int, 4>& init) noexcept :
                 v(_mm256_set_epi64x(
@@ -110,13 +111,13 @@ namespace avx {
              * @param pSrc Pointer to memory from which to load data.
              * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
              */
-            void load(const unsigned long long *pSrc) N_THROW_REL {
-                if(pSrc)
-                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            void load(const unsigned long long *pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                v = _mm256_lddqu_si256((const __m256i *)pSrc); 
             }
 
             /**
@@ -132,15 +133,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (4x `unsigned long long`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void save(unsigned long long *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_storeu_si256((__m256i*)pDest, v);
+            void save(unsigned long long *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_storeu_si256((__m256i *)pDest, v); 
             }
 
             /**
@@ -148,15 +149,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (4x `unsigned long long`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void saveAligned(unsigned long long *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_store_si256((__m256i*)pDest, v);
+            void saveAligned(unsigned long long *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_store_si256((__m256i *)pDest, v); 
             }
 
             unsigned long long operator[](unsigned int index) const

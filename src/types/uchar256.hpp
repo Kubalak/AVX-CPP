@@ -47,22 +47,16 @@ namespace avx {
              * Data does not need to be aligned to any specific boundary. 
              * 
              * @param pSrc Memory holding data (minimum 32 bytes).
-             * @throw If used in debug mode if `pSrc` is `nullptr` then `std::invalid_argument` will be thrown. Otherwise if `nullptr` is passed it will initialize vector with 0s.
+             * @throws std::invalid_argument If in Debug and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            explicit UChar256(const unsigned char* pSrc)
+            explicit UChar256(const unsigned char* pSrc){
             #ifndef NDEBUG
-                {
-                    if(pSrc == nullptr)throw std::invalid_argument("Passed address is nullptr!");
+                if(!pSrc)
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else                
+            #endif                
                     v = _mm256_lddqu_si256((const __m256i*)pSrc);
-                }
-            #else
-                noexcept{
-                    if(pSrc != nullptr) 
-                        v = _mm256_lddqu_si256((const __m256i*)pSrc);
-                    else
-                        v = _mm256_setzero_si256();
-                }
-            #endif
+            }
             
             /**
              * Initializes with first 32 bytes read from string. If `init` is less than 32 bytes long missing values will be set to 0.
@@ -110,15 +104,15 @@ namespace avx {
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
              * @param pSrc Pointer to memory from which to load data.
-             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void load(const unsigned char *pSrc) N_THROW_REL {
-                if(pSrc)
-                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            void load(const unsigned char *pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
-            #endif
+                else                
+            #endif                
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
 
             /**
@@ -134,15 +128,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (32x `unsigned char`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void save(unsigned char *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_storeu_si256((__m256i*)pDest, v);
+            void save(unsigned char *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
-            #endif
+                else                
+            #endif                
+                    _mm256_storeu_si256((__m256i*)pDest, v);
             }
 
             /**
@@ -150,15 +144,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (32x `unsigned char`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void saveAligned(unsigned char *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_store_si256((__m256i*)pDest, v);
+            void saveAligned(unsigned char *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
-            #endif
+                else                
+            #endif                
+                    _mm256_store_si256((__m256i*)pDest, v);
             }
 
             /**

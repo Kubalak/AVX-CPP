@@ -348,7 +348,7 @@
 <dd class="field-odd"><p><strong>pSrc</strong> – Memory holding data (minimum 32 bytes). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">If</span></span></span> – used in debug mode if <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> then <code class="docutils literal notranslate"><span class="pre">std::invalid_argument</span></code> will be thrown. Otherwise if <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> is passed it will initialize vector with 0s. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -375,15 +375,15 @@
 <dd></dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_u_char256_1ad3c2ae53c8dbe7fe8bc54dae56bcdd08"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">load</span> <span class="pre">(const</span> <span class="pre">unsigned</span> <span class="pre">char</span> <span class="pre">*pSrc)</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2564loadEPKh">
+<span id="_CPPv3N3avx8UChar2564loadEPKh"></span><span id="_CPPv2N3avx8UChar2564loadEPKh"></span><span id="avx::UChar256::load__unsigned-cCP"></span><span class="target" id="classavx_1_1_u_char256_1a2390df1548ccebb4d51b8cc5dfa9bada"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pSrc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx8UChar2564loadEPKh" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn’t need to be aligned to any specific boundary. If <code class="docutils literal notranslate"><span class="pre">sP</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> this method has no effect. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pSrc</strong> – Pointer to memory from which to load data. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -400,8 +400,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_u_char256_1a0aae3ce6e38d06d8ebc24915c8a2cf72"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">save</span> <span class="pre">(unsigned</span> <span class="pre">char</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar2564saveEPh">
+<span id="_CPPv3NK3avx8UChar2564saveEPh"></span><span id="_CPPv2NK3avx8UChar2564saveEPh"></span><span id="avx::UChar256::save__unsigned-cPC"></span><span class="target" id="classavx_1_1_u_char256_1a449f1b64966a52068dfc95a8edf5d0ec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">save</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar2564saveEPh" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data to destination in memory. The memory doesn’t have to be aligned to any specific boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
@@ -409,14 +409,14 @@
 <dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (32x <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="classavx_1_1_u_char256_1ab0abe7c67029f6f86ccfa4e525c4d0e7"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">void</span> <span class="pre">saveAligned</span> <span class="pre">(unsigned</span> <span class="pre">char</span> <span class="pre">*pDest)</span> <span class="pre">const</span> <span class="pre">N_THROW_REL</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK3avx8UChar25611saveAlignedEPh">
+<span id="_CPPv3NK3avx8UChar25611saveAlignedEPh"></span><span id="_CPPv2NK3avx8UChar25611saveAlignedEPh"></span><span id="avx::UChar256::saveAligned__unsigned-cPC"></span><span class="target" id="classavx_1_1_u_char256_1a6a14d0e56378c051bdcd1f2c5d918127"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">saveAligned</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pDest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx8UChar25611saveAlignedEPh" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Saves data to destination in memory. The memory must be aligned at 32-byte boundary.</p>
 <p>See <a class="reference external" href="https://en.cppreference.com/w/cpp/memory/c/aligned_alloc">https://en.cppreference.com/w/cpp/memory/c/aligned_alloc</a> for more details. </p>
 <dl class="field-list simple">
@@ -424,7 +424,7 @@
 <dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (32x <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -795,7 +795,10 @@
 <li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">UChar256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE"><code class="docutils literal notranslate"><span class="pre">UChar256()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ENSt16initializer_listIhEE"><code class="docutils literal notranslate"><span class="pre">UChar256()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N3avx8UChar2564loadEPKh"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx8UChar2564saveERNSt5arrayIhXL32EEEE"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar2564saveEPh"><code class="docutils literal notranslate"><span class="pre">save()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4NK3avx8UChar25611saveAlignedEPh"><code class="docutils literal notranslate"><span class="pre">saveAligned()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx8UChar2563getEv"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4N3avx8UChar2563setEK7__m256i"><code class="docutils literal notranslate"><span class="pre">set()</span></code></a></li>
 <li><a class="reference internal" href="#_CPPv4NK3avx8UChar256ixERKj"><code class="docutils literal notranslate"><span class="pre">operator[]()</span></code></a></li>

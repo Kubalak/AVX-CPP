@@ -108,22 +108,16 @@ namespace avx {
              * Data does not need to be aligned to a 32 byte boundary. 
              * 
              * @param pSrc Memory holding data (minimum 32 bytes).
-             * @throw If used in debug mode if `addr` is `nullptr` then `std::invalid_argument` will be thrown. Otherwise if `nullptr` is passed it will initialize vector with 0's.
+             * @throws std::invalid_argument If in Debug and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            explicit Char256(const char* pSrc)
+            explicit Char256(const char* pSrc) {
             #ifndef NDEBUG
-                {
-                    if(pSrc == nullptr)throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                if(!pSrc)
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else                
+            #endif                
                     v = _mm256_lddqu_si256((const __m256i*)pSrc);
                 }
-            #else
-                noexcept{
-                    if(pSrc != nullptr) 
-                        v = _mm256_lddqu_si256((const __m256i*)pSrc);
-                    else
-                        v = _mm256_setzero_si256();
-                }
-            #endif
             
             /**
              * Initializes object using first `count` bytes from `pSrc` or 32 bytes if `count` > 32.
@@ -131,27 +125,25 @@ namespace avx {
              * 
              * @param pSrc Valid pointer from which data will be loaded.
              * @param count Number of bytes held by `pSrc`. For less than 32 remaining bytes will be filled with 0's. Otherwise first 32 bytes will be used.
-             * @throws std::invalid_argument If in debug mode and `pSrc` is nullptr. If not in debug mode and `nullptr` is passed, then vector will be loaded with 0's.
+             * @throws std::invalid_argument if in debug mode and `pSrc` is `nullptr`. If in release, then no pointer checks are performed to improve performance.
             */
             Char256(const char* pSrc, unsigned int count) {
-                if(pSrc) {
-                    if(count >= 32)
-                        v = _mm256_lddqu_si256((const __m256i*)pSrc);
-                    else if(count < 32) {
-                        char tmp[32];
-                        #if defined(_MSC_VER) || defined(__STDC_WANT_LIB_EXT1__)
-                            memcpy_s(tmp, sizeof(tmp), pSrc, count);
-                        #else
-                            memcpy(tmp, pSrc, count);
-                        #endif
-                        memset(tmp + count, 0, 32 - count);
-                        v = _mm256_lddqu_si256((const __m256i*)tmp);
-                    }
-                }
-                #ifndef NDEBUG
-                else
+            #ifndef NDEBUG
+                if(!pSrc) 
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
-                #endif
+            #endif
+                if(count >= 32)
+                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+                else {
+                    char tmp[32];
+                    #if defined(_MSC_VER) || defined(__STDC_WANT_LIB_EXT1__)
+                        memcpy_s(tmp, sizeof(tmp), pSrc, count);
+                    #else
+                        memcpy(tmp, pSrc, count);
+                    #endif
+                    memset(tmp + count, 0, 32 - count);
+                    v = _mm256_lddqu_si256((const __m256i*)tmp);
+                }
             }
 
             /**
@@ -208,17 +200,17 @@ namespace avx {
             }
 
             /**
-             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
+             * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary.
              * @param pSrc Pointer to memory from which to load data.
-             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. If in Release mode no pointer checks are performed to improve performance.
              */
-            void load(const char *pSrc) N_THROW_REL {
-                if(pSrc)
-                    v = _mm256_lddqu_si256((const __m256i*)pSrc);
+            void load(const char *pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                v = _mm256_lddqu_si256((const __m256i*)pSrc);
             }
 
             /**
@@ -234,15 +226,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (32x `char`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve performance.
              */
-            void save(char *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_storeu_si256((__m256i*)pDest, v);
+            void save(char *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_storeu_si256((__m256i*)pDest, v);
             }
 
             /**
@@ -250,15 +242,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (32x `char`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve performance.
              */
-            void saveAligned(char *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_store_si256((__m256i*)pDest, v);
+            void saveAligned(char *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_store_si256((__m256i*)pDest, v);
             }
 
             /**
@@ -1347,6 +1339,9 @@ namespace avx {
 
 
             Char256 operator>>(const unsigned int& b) const noexcept {
+            #ifdef __AVX512BW__
+                return _mm512_cvtepi16_epi8(_mm512_srai_epi16(_mm512_cvtepi8_epi16(v), b));
+            #else
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 fhalf = _mm256_slli_si256(fhalf, 1);
                 fhalf = _mm256_srai_epi16(fhalf, 8);
@@ -1356,6 +1351,7 @@ namespace avx {
                 fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
                 shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 return _mm256_or_si256(fhalf, shalf);
+            #endif
             }
 
 
@@ -1419,6 +1415,9 @@ namespace avx {
 
 
             Char256& operator>>=(const unsigned int& b) noexcept {
+            #ifdef __AVX512BW__
+                v = _mm512_cvtepi16_epi8(_mm512_srai_epi16(_mm512_cvtepi8_epi16(v), b));
+            #else
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 fhalf = _mm256_slli_si256(fhalf, 1);
                 fhalf = _mm256_srai_epi16(fhalf, 8);
@@ -1428,6 +1427,7 @@ namespace avx {
                 fhalf = _mm256_and_si256(fhalf, constants::EPI8_CRATE_EPI16);
                 shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 v = _mm256_or_si256(fhalf, shalf);
+            #endif
                 return *this;
             }
 

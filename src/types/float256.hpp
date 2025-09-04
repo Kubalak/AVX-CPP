@@ -90,8 +90,16 @@ namespace avx {
             /**
              * Initializes vector by loading data from memory (via `_mm256_loadu_ps`).
              * @param pSrc Pointer to memory of at least 32 bytes (8 floats).
+             * @throws std::invalid_argument If in Debug mode and passed `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            Float256(const float* pSrc) : v(_mm256_loadu_ps(pSrc)) {}
+            Float256(const float* pSrc) {
+            #ifndef NDEBUG
+                if(!pSrc)
+                    throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
+            #endif
+                v = _mm256_loadu_ps(pSrc);
+            }
 
             /**
              * Returns the internal __m256 value stored by the object.
@@ -108,15 +116,15 @@ namespace avx {
             /**
              * Loads data from memory into vector (memory should be of size of at least 32 bytes). Memory doesn't need to be aligned to any specific boundary. If `sP` is `nullptr` this method has no effect.
              * @param pSrc Pointer to memory from which to load data.
-             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void load(const float *pSrc) N_THROW_REL {
-                if(pSrc)
-                    v = _mm256_loadu_ps(pSrc);
+            void load(const float *pSrc) {
             #ifndef NDEBUG
-                else
+                if(!pSrc)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                v = _mm256_loadu_ps(pSrc);
             }
 
             /**
@@ -132,15 +140,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (8x `float`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void save(float *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_storeu_ps(pDest, v);
+            void save(float *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_storeu_ps(pDest, v);
             }
 
             /**
@@ -148,15 +156,15 @@ namespace avx {
              * 
              * See https://en.cppreference.com/w/cpp/memory/c/aligned_alloc for more details.
              * @param pDest A valid pointer to a memory of at least 32 bytes (8x `float`).
-             * @throws std::invalid_argument If in Debug mode and `pDest` is `nullptr`. In Release builds this method never throws (for `nullptr` method will have no effect).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
              */
-            void saveAligned(float *pDest) const N_THROW_REL {
-                if(pDest)
-                    _mm256_store_ps(pDest, v);
+            void saveAligned(float *pDest) const {
             #ifndef NDEBUG
-                else
+                if(!pDest)
                     throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
+                else
             #endif
+                _mm256_store_ps(pDest, v);
             }
 
             /**
