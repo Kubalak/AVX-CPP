@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(AVX-CPP VERSION 0.9.0 LANGUAGES C CXX)
+project(AVX-CPP VERSION 0.9.4 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
@@ -52,15 +52,32 @@ endif()
 
 add_library(avxcpp-s STATIC ${SOURCES})
 
+if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
+    set(AVX_SLEEF_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/external-libs/sleef/include" CACHE PATH "Sleef include directory")
+    add_library(sleef SHARED IMPORTED)
+    set_target_properties(sleef PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external-libs/sleef/lib/libsleef.a)
+endif()
+
 if(BUILD_SHARED_LIBS)
     add_library(avxcpp SHARED ${SOURCES})
     set_target_properties(avxcpp PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
     target_include_directories(avxcpp PUBLIC ${SOURCE_DIR})
+    
+    if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
+        target_include_directories(avxcpp PUBLIC ${SOURCE_DIR} ${AVX_SLEEF_INCLUDE_DIR})
+        target_link_libraries(avxcpp sleef)
+    endif()
+
     target_compile_options(avxcpp PRIVATE ${OPTIMIZATION_OPTIONS})
 endif()
 
 set_target_properties(avxcpp-s PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
 target_include_directories(avxcpp-s PUBLIC ${SOURCE_DIR})
+
+if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
+    target_include_directories(avxcpp-s PUBLIC ${SOURCE_DIR} ${AVX_SLEEF_INCLUDE_DIR})
+    target_link_libraries(avxcpp-s sleef)
+endif()
 
 target_compile_options(avxcpp-s PRIVATE ${OPTIMIZATION_OPTIONS})
 

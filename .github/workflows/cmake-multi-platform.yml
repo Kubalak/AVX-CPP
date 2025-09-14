@@ -64,12 +64,25 @@ jobs:
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DBUILD_TESTING=ON
         -S ${{ github.workspace }}
+    
+    - name: Prepare external libs
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        cd external-libs
+        git clone https://github.com/shibatch/sleef.git
+        cd sleef
+        cmake -S . -B build -DCMAKE_INSTALL_PREFIX=.
+        cd build
+        cmake --build .
+        cmake --install .
+      shell: bash
 
-    - name: Build
+
+    - name: Build AVX-CPP
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
-    - name: Test
+    - name: Run Tests
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail

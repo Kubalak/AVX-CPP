@@ -16,25 +16,23 @@
 #include <set>
 #include <cmath>
 
+#ifndef _MSC_VER
+    #include <sleef.h>
+#endif
+
 namespace avx {
 
     /**
      * Calculates sine of the vector.
      * @param bV Vector which values will be used to calculate sine.
      * @return Vector containing sine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform sine calculation on per element basis (this can be changed in future versions).
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Double256 sin(const Double256& bV) {
         #ifdef _MSC_VER
             return _mm256_sin_pd(bV.get());
         #else 
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = std::sin(((double*)&bVData)[0]);
-            resultV[1] = std::sin(((double*)&bVData)[1]);
-            resultV[2] = std::sin(((double*)&bVData)[2]);
-            resultV[3] = std::sin(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            return Sleef_sind4_u35avx2(bV.get());
         #endif
     }
 
@@ -42,19 +40,13 @@ namespace avx {
      * Calculates cosine of the vector.
      * @param bV Vector which values will be used to calculate cosine.
      * @return Vector containing cosine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform cosine calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Double256 cos(const Double256& bV) {
         #ifdef _MSC_VER
             return _mm256_cos_pd(bV.get());
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = std::cos(((double*)&bVData)[0]);
-            resultV[1] = std::cos(((double*)&bVData)[1]);
-            resultV[2] = std::cos(((double*)&bVData)[2]);
-            resultV[3] = std::cos(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            return Sleef_cosd4_u35avx2(bV.get());
         #endif
     }
 
@@ -62,19 +54,13 @@ namespace avx {
      * Calculates tangent of the vector.
      * @param bV Vector which values will be used to calculate tangent.
      * @return Vector containing tangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform tangent calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Double256 tan(const Double256& bV) {
         #ifdef _MSC_VER
             return _mm256_tan_pd(bV.get());
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = std::tan(((double*)&bVData)[0]);
-            resultV[1] = std::tan(((double*)&bVData)[1]);
-            resultV[2] = std::tan(((double*)&bVData)[2]);
-            resultV[3] = std::tan(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            Sleef_tand4_u35avx2(bV.get());
         #endif
     }
 
@@ -82,7 +68,7 @@ namespace avx {
      * Calculates cotangent of the vector.
      * @param bV Vector which values will be used to calculate cotangent.
      * @return Vector containing cotangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform cotangent calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Double256 ctg(const Double256& bV) {
         #ifdef _MSC_VER
@@ -91,13 +77,7 @@ namespace avx {
                 _mm256_tan_pd(bV.get())
             );
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = 1.0 / std::tan(((double*)&bVData)[0]);
-            resultV[1] = 1.0 / std::tan(((double*)&bVData)[1]);
-            resultV[2] = 1.0 / std::tan(((double*)&bVData)[2]);
-            resultV[3] = 1.0 / std::tan(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            return _mm256_div_pd(constants::DOUBLE_ONE, Sleef_tand4_u35avx2(bV.get()));
         #endif
     }
 
@@ -105,7 +85,7 @@ namespace avx {
      * Calculates secant of the vector.
      * @param bV Vector which values will be used to calculate secant.
      * @return Vector containing secant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform secant calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Double256 sec(const Double256& bV) {
         #ifdef _MSC_VER
@@ -114,13 +94,7 @@ namespace avx {
                 _mm256_cos_pd(bV.get())
             ); 
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = 1.0 / std::cos(((double*)&bVData)[0]);
-            resultV[1] = 1.0 / std::cos(((double*)&bVData)[1]);
-            resultV[2] = 1.0 / std::cos(((double*)&bVData)[2]);
-            resultV[3] = 1.0 / std::cos(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            return _mm256_div_pd(constants::DOUBLE_ONE, Sleef_cosd4_u35avx2(bV.get()));
         #endif
     }
 
@@ -128,7 +102,7 @@ namespace avx {
      * Calculates cosecant of the vector.
      * @param bV Vector which values will be used to calculate cosecant.
      * @return Vector containing cosecant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform cosecant calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Double256 cosec(const Double256& bV) {
         #ifdef _MSC_VER
@@ -137,13 +111,7 @@ namespace avx {
                 _mm256_sin_pd(bV.get())
             );
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = 1.0 / std::sin(((double*)&bVData)[0]);
-            resultV[1] = 1.0 / std::sin(((double*)&bVData)[1]);
-            resultV[2] = 1.0 / std::sin(((double*)&bVData)[2]);
-            resultV[3] = 1.0 / std::sin(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            return _mm256_div_pd(constants::DOUBLE_ONE, Sleef_sind4_u35avx2(bV.get()));
         #endif
     }
 
@@ -151,13 +119,7 @@ namespace avx {
         #ifdef _MSC_VER
             return _mm256_asin_pd(bV.get());
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = std::asin(((double*)&bVData)[0]);
-            resultV[1] = std::asin(((double*)&bVData)[1]);
-            resultV[2] = std::asin(((double*)&bVData)[2]);
-            resultV[3] = std::asin(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            return Sleef_asind4_u35avx2(bV.get());
         #endif
     }
 
@@ -165,13 +127,7 @@ namespace avx {
         #ifdef _MSC_VER
             return _mm256_acos_pd(bV.get());
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = std::acos(((double*)&bVData)[0]);
-            resultV[1] = std::acos(((double*)&bVData)[1]);
-            resultV[2] = std::acos(((double*)&bVData)[2]);
-            resultV[3] = std::acos(((double*)&bVData)[3]);
-           return _mm256_load_pd(resultV);
+            return Sleef_acosd4_u35avx2(bV.get());
         #endif
     }
 
@@ -179,13 +135,7 @@ namespace avx {
         #ifdef _MSC_VER
             return _mm256_atan_pd(bV.get());
         #else
-            alignas(32) double resultV[4];
-            __m256d bVData = bV.get();
-            resultV[0] = std::atan(((double*)&bVData)[0]);
-            resultV[1] = std::atan(((double*)&bVData)[1]);
-            resultV[2] = std::atan(((double*)&bVData)[2]);
-            resultV[3] = std::atan(((double*)&bVData)[3]);
-            return _mm256_load_pd(resultV);
+            return Sleef_atand4_u35avx2(bV.get());
         #endif
     }
 
@@ -197,23 +147,13 @@ namespace avx {
      * Calculates sine of the vector.
      * @param bV Vector which values will be used to calculate sine.
      * @return Vector containing sine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform sine calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Float256 sin(const Float256& bV) {
         #ifdef _MSC_VER
             return _mm256_sin_ps(bV.get());
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = std::sin(((float*)&bVData)[0]);
-            resultV[1] = std::sin(((float*)&bVData)[1]);
-            resultV[2] = std::sin(((float*)&bVData)[2]);
-            resultV[3] = std::sin(((float*)&bVData)[3]);
-            resultV[4] = std::sin(((float*)&bVData)[4]);
-            resultV[5] = std::sin(((float*)&bVData)[5]);
-            resultV[6] = std::sin(((float*)&bVData)[6]);
-            resultV[7] = std::sin(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            return Sleef_sinf8_u10avx2(bV.get());
         #endif
     }
 
@@ -221,23 +161,13 @@ namespace avx {
      * Calculates cosine of the vector.
      * @param bV Vector which values will be used to calculate cosine.
      * @return Vector containing cosine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform cosine calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Float256 cos(const Float256& bV) {
         #ifdef _MSC_VER
             return _mm256_cos_ps(bV.get());
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = std::cos(((float*)&bVData)[0]);
-            resultV[1] = std::cos(((float*)&bVData)[1]);
-            resultV[2] = std::cos(((float*)&bVData)[2]);
-            resultV[3] = std::cos(((float*)&bVData)[3]);
-            resultV[4] = std::cos(((float*)&bVData)[4]);
-            resultV[5] = std::cos(((float*)&bVData)[5]);
-            resultV[6] = std::cos(((float*)&bVData)[6]);
-            resultV[7] = std::cos(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            return Sleef_cosf8_u35avx2(bV.get());
         #endif
     }
 
@@ -245,23 +175,13 @@ namespace avx {
      * Calculates tangent of the vector.
      * @param bV Vector which values will be used to calculate tangent.
      * @return Vector containing tangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform tangent calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Float256 tan(const Float256& bV) {
         #ifdef _MSC_VER
             return _mm256_tan_ps(bV.get());
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = std::tan(((float*)&bVData)[0]);
-            resultV[1] = std::tan(((float*)&bVData)[1]);
-            resultV[2] = std::tan(((float*)&bVData)[2]);
-            resultV[3] = std::tan(((float*)&bVData)[3]);
-            resultV[4] = std::tan(((float*)&bVData)[4]);
-            resultV[5] = std::tan(((float*)&bVData)[5]);
-            resultV[6] = std::tan(((float*)&bVData)[6]);
-            resultV[7] = std::tan(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            return Sleef_tanf8_u35avx2(bV.get());
         #endif
     }
 
@@ -269,7 +189,7 @@ namespace avx {
      * Calculates cotangent of the vector.
      * @param bV Vector which values will be used to calculate cotangent.
      * @return Vector containing cotangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform cotangent calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Float256 ctg(const Float256& bV) {
         #ifdef _MSC_VER
@@ -278,17 +198,7 @@ namespace avx {
                 _mm256_tan_ps(bV.get())
             );
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = 1.0f / std::tan(((float*)&bVData)[0]);
-            resultV[1] = 1.0f / std::tan(((float*)&bVData)[1]);
-            resultV[2] = 1.0f / std::tan(((float*)&bVData)[2]);
-            resultV[3] = 1.0f / std::tan(((float*)&bVData)[3]);
-            resultV[4] = 1.0f / std::tan(((float*)&bVData)[4]);
-            resultV[5] = 1.0f / std::tan(((float*)&bVData)[5]);
-            resultV[6] = 1.0f / std::tan(((float*)&bVData)[6]);
-            resultV[7] = 1.0f / std::tan(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            _mm256_div_ps(constants::FLOAT_ONE, Sleef_tanf8_u35avx2(bV.get()));
         #endif
     }
     
@@ -296,7 +206,7 @@ namespace avx {
      * Calculates secant of the vector.
      * @param bV Vector which values will be used to calculate secant.
      * @return Vector containing secant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform secant calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Float256 sec(const Float256& bV) {
         #ifdef _MSC_VER
@@ -305,17 +215,7 @@ namespace avx {
                 _mm256_cos_ps(bV.get())
             );
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = 1.0f / std::cos(((float*)&bVData)[0]);
-            resultV[1] = 1.0f / std::cos(((float*)&bVData)[1]);
-            resultV[2] = 1.0f / std::cos(((float*)&bVData)[2]);
-            resultV[3] = 1.0f / std::cos(((float*)&bVData)[3]);
-            resultV[4] = 1.0f / std::cos(((float*)&bVData)[4]);
-            resultV[5] = 1.0f / std::cos(((float*)&bVData)[5]);
-            resultV[6] = 1.0f / std::cos(((float*)&bVData)[6]);
-            resultV[7] = 1.0f / std::cos(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            _mm256_div_ps(constants::FLOAT_ONE, Sleef_cosf8_u35avx2(bV.get()));
         #endif
     }
 
@@ -323,7 +223,7 @@ namespace avx {
      * Calculates cosecant of the vector.
      * @param bV Vector which values will be used to calculate cosecant.
      * @return Vector containing cosecant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on MSVC compiler. On other compilers function will perform cosecant calculation on per element basis.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
      */
     Float256 cosec(const Float256& bV) {
         #ifdef _MSC_VER
@@ -332,17 +232,7 @@ namespace avx {
                 _mm256_sin_ps(bV.get())
             );
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = 1.0f / std::sin(((float*)&bVData)[0]);
-            resultV[1] = 1.0f / std::sin(((float*)&bVData)[1]);
-            resultV[2] = 1.0f / std::sin(((float*)&bVData)[2]);
-            resultV[3] = 1.0f / std::sin(((float*)&bVData)[3]);
-            resultV[4] = 1.0f / std::sin(((float*)&bVData)[4]);
-            resultV[5] = 1.0f / std::sin(((float*)&bVData)[5]);
-            resultV[6] = 1.0f / std::sin(((float*)&bVData)[6]);
-            resultV[7] = 1.0f / std::sin(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            _mm256_div_ps(constants::FLOAT_ONE, Sleef_sinf8_u35avx2(bV.get()));
         #endif
     }
 
@@ -350,17 +240,7 @@ namespace avx {
         #ifdef _MSC_VER
             return _mm256_asin_ps(bV.get());
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = std::asin(((float*)&bVData)[0]);
-            resultV[1] = std::asin(((float*)&bVData)[1]);
-            resultV[2] = std::asin(((float*)&bVData)[2]);
-            resultV[3] = std::asin(((float*)&bVData)[3]);
-            resultV[4] = std::asin(((float*)&bVData)[4]);
-            resultV[5] = std::asin(((float*)&bVData)[5]);
-            resultV[6] = std::asin(((float*)&bVData)[6]);
-            resultV[7] = std::asin(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            return Sleef_asinf8_u35avx2(bV.get());
         #endif
     }
 
@@ -369,17 +249,7 @@ namespace avx {
         #ifdef _MSC_VER
             return _mm256_acos_ps(bV.get());
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = std::acos(((float*)&bVData)[0]);
-            resultV[1] = std::acos(((float*)&bVData)[1]);
-            resultV[2] = std::acos(((float*)&bVData)[2]);
-            resultV[3] = std::acos(((float*)&bVData)[3]);
-            resultV[4] = std::acos(((float*)&bVData)[4]);
-            resultV[5] = std::acos(((float*)&bVData)[5]);
-            resultV[6] = std::acos(((float*)&bVData)[6]);
-            resultV[7] = std::acos(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            return Sleef_acosf8_u35avx2(bV.get());
         #endif
     }
 
@@ -387,17 +257,7 @@ namespace avx {
         #ifdef _MSC_VER
             return _mm256_atan_ps(bV.get());
         #else
-            alignas(32) float resultV[8];
-            __m256 bVData = bV.get();
-            resultV[0] = std::atan(((float*)&bVData)[0]);
-            resultV[1] = std::atan(((float*)&bVData)[1]);
-            resultV[2] = std::atan(((float*)&bVData)[2]);
-            resultV[3] = std::atan(((float*)&bVData)[3]);
-            resultV[4] = std::atan(((float*)&bVData)[4]);
-            resultV[5] = std::atan(((float*)&bVData)[5]);
-            resultV[6] = std::atan(((float*)&bVData)[6]);
-            resultV[7] = std::atan(((float*)&bVData)[7]);
-            return _mm256_load_ps(resultV);
+            return Sleef_atanf8_u35avx2(bV.get());
         #endif
     }
 

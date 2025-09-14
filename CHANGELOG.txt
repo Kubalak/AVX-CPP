@@ -1,3 +1,7 @@
+v0.9.4
+- Trigonometric functions on Linux (GCC & Clang) are now using Sleef library to perform computation
+- 
+
 v0.9.0
 - Added performance tests for raw AVX2/AVX512 functions for some types.
 - REMOVED pointer checks for pointer constructor, load, save and saveAligned methods (performance optimization).
