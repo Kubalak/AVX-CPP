@@ -60,7 +60,7 @@ namespace avx {
         #ifdef _MSC_VER
             return _mm256_tan_pd(bV.get());
         #else
-            Sleef_tand4_u35avx2(bV.get());
+            return Sleef_tand4_u35avx2(bV.get());
         #endif
     }
 
@@ -198,7 +198,7 @@ namespace avx {
                 _mm256_tan_ps(bV.get())
             );
         #else
-            _mm256_div_ps(constants::FLOAT_ONE, Sleef_tanf8_u35avx2(bV.get()));
+            return _mm256_div_ps(constants::FLOAT_ONE, Sleef_tanf8_u35avx2(bV.get()));
         #endif
     }
     
@@ -215,7 +215,7 @@ namespace avx {
                 _mm256_cos_ps(bV.get())
             );
         #else
-            _mm256_div_ps(constants::FLOAT_ONE, Sleef_cosf8_u35avx2(bV.get()));
+            return _mm256_div_ps(constants::FLOAT_ONE, Sleef_cosf8_u35avx2(bV.get()));
         #endif
     }
 
@@ -232,7 +232,7 @@ namespace avx {
                 _mm256_sin_ps(bV.get())
             );
         #else
-            _mm256_div_ps(constants::FLOAT_ONE, Sleef_sinf8_u35avx2(bV.get()));
+            return _mm256_div_ps(constants::FLOAT_ONE, Sleef_sinf8_u35avx2(bV.get()));
         #endif
     }
 

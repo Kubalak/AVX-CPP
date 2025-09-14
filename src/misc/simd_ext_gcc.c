@@ -294,12 +294,177 @@ __m256i _mm256_div_epi64(__m256i a, __m256i b) {
 }
 
 __m256 _mm256_sin_ps(__m256 a) {
-    __asm__(
-      "vxorps %[a], %[a], %[a]"
-      :
-        [a] "+x" (a)
-    );
+    // __asm__(
+    //   "vxorps %[a], %[a], %[a]"
+    //   :
+    //     [a] "+x" (a)
+    // );
 
+    const __m256 inv_two_pi = _mm256_set1_ps(1.0f / M_2PI_F);
+    const __m256 two_pi = _mm256_set1_ps(M_2PI_F);
+    const __m256 pi = _mm256_set1_ps(M_PI_F);
+    const __m256 minus_pi = _mm256_set1_ps(-M_PI_F);
+
+    // Redukcja argumentu do [-π, π]
+    a = _mm256_sub_ps(a, _mm256_mul_ps(two_pi, _mm256_floor_ps(_mm256_mul_ps(a, inv_two_pi))));
+    a = _mm256_add_ps(a, _mm256_and_ps(_mm256_cmp_ps(a, minus_pi, _CMP_LT_OS), two_pi)); // a += 2π if a < -π
+    a = _mm256_sub_ps(a, _mm256_and_ps(_mm256_cmp_ps(a, pi, _CMP_GT_OS), two_pi));       // x -= 2π if x > π
+
+    // x, x^3, x^5, x^7 (potęgi obliczamy iteracyjnie)
+    __m256 x2 = _mm256_mul_ps(a, a);
+    __m256 x3 = _mm256_mul_ps(x2, a);
+    __m256 x5 = _mm256_mul_ps(x3, x2);
+    __m256 x7 = _mm256_mul_ps(x5, x2);
+
+    // Współczynniki szeregu Maclaurina (float, 5 wyrazów)
+    const __m256 c1 = _mm256_set1_ps(1.0f);
+    const __m256 c3 = _mm256_set1_ps(-1.0f / 6.0f);       // -x^3 / 3!
+    const __m256 c5 = _mm256_set1_ps(1.0f / 120.0f);      // x^5 / 5!
+    const __m256 c7 = _mm256_set1_ps(-1.0f / 5040.0f);    // -x^7 / 7!
+
+    // Wielomian: sin(x) ≈ x + c3*x^3 + c5*x^5 + c7*x^7
+    __m256 res = _mm256_add_ps(
+                    _mm256_add_ps(
+                        _mm256_add_ps(_mm256_mul_ps(c7, x7), _mm256_mul_ps(c5, x5)),
+                        _mm256_mul_ps(c3, x3)),
+                    a);
+
+    return res;
+
+    //return a;
 }
+
+__m256d _mm256_sin_pd(__m256d a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256 _mm256_cos_ps(__m256 a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256d _mm256_cos_pd(__m256d a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256 _mm256_tan_ps(__m256 a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256d _mm256_tan_pd(__m256d a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256 _mm256_asin_ps(__m256 a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256d _mm256_asin_pd(__m256d a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256 _mm256_acos_ps(__m256 a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256d _mm256_acos_pd(__m256d a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256 _mm256_atan_ps(__m256 a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
+__m256d _mm256_atan_pd(__m256d a) {
+  __asm__(
+    "nop\n\t"
+    "vxorps %[a], %[a], %[a]\n\t"
+    "nop\n\t"
+    :
+      [a] "+x" (a)
+  );
+
+  return a;
+}
+
 
 #endif // _MSC_VER

@@ -18,6 +18,9 @@ static const __m256i __DATA_8 = {0x7FFFFFFC00000000LL, 0x7FFFFFFC00000000LL, 0x7
 static const __m256i __DATA_9 = {0x0003FFFFFFFFFFFFLL, 0x0003FFFFFFFFFFFFLL, 0x0003FFFFFFFFFFFFLL, 0x0003FFFFFFFFFFFFLL};
 static const __m256i __DATA_10 = {0x0000000000000001LL, 0x0000000000000001LL, 0x0000000000000001LL, 0x0000000000000001LL};
 
+#define M_PI_F 3.14159265358979323846f
+#define M_2PI_F 6.28318530717958647692f
+
 #ifdef __cplusplus // Use for linking C lib inside C++
 extern "C" { 
 #endif
@@ -54,6 +57,22 @@ extern "C" {
     __m256i _mm256_div_epi64(__m256i a, __m256i b);
 
     __m256 _mm256_sin_ps(__m256 a);
+    __m256d _mm256_sin_pd(__m256d a);
+
+    __m256 _mm256_cos_ps(__m256 a);
+    __m256d _mm256_cos_pd(__m256d a);
+
+    __m256 _mm256_tan_ps(__m256 a);
+    __m256d _mm256_tan_pd(__m256d a);
+
+    __m256 _mm256_asin_ps(__m256 a);
+    __m256d _mm256_asin_pd(__m256d a);
+
+    __m256 _mm256_acos_ps(__m256 a);
+    __m256d _mm256_acos_pd(__m256d a);
+
+    __m256 _mm256_atan_ps(__m256 a);
+    __m256d _mm256_atan_pd(__m256d a);
 
 #ifdef __cplusplus // End of extern C block
 }
