@@ -1,10 +1,8 @@
 # AVX-CPP - AVX2 made easy in C++
 
-![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-royalblue?logo=github&logoColor=lightgray)](LICENSE)
+![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-royalblue?logo=github&logoColor=lightgray)](LICENSE) [![VERSION](https://img.shields.io/badge/Version-v0.9.5-blue)](CMakeLists.txt) [![C++ version](https://img.shields.io/badge/version-20-royalblue?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/20.html) [![C++ version](https://img.shields.io/badge/version-17-royalblue?logo=c)](https://www.geeksforgeeks.org/c/c-17-standard/)
 
 AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides basic numeric types and math operations.
-
-**NOTE:** This is still in development state. Some features are not yet available!
 
 ## Types and functions
 
@@ -15,8 +13,8 @@ Library provides both integer and floating-point types:
   - `Uint256` - Vector containing 8 unsigned 32-bit integers (`__m256i`) &#x2705;
   - `Short256` - Vector containing 16 signed 16-bit integers (`__m256i`) &#x2705;
   - `Ushort256` - Vector containing 16 unsigned 16-bit integers (`__m256i`) &#x2705;
-  - `Long256` - Vector containing 4 signed 64-bit integers (`__m256i`) [&#9888;&#65039; &#x1F6A9;](#known-issues)
-  - `ULong256` - Vector containing 4 unsigned 64-bit integers (`__m256i`) [&#9888;&#65039; &#x1F6A9;](#known-issues)
+  - `Long256` - Vector containing 4 signed 64-bit integers (`__m256i`) [**](#known-issues)
+  - `ULong256` - Vector containing 4 unsigned 64-bit integers (`__m256i`) [**](#known-issues)
   - `Char256` - Vector containing 32 signed 8-bit integers (`__m256i`) &#x2705;
   - `Uchar256` - Vector containing 32 unsigned 8-bit integers (`__m256i`) &#x2705;
 - Floating-point types:
@@ -25,30 +23,29 @@ Library provides both integer and floating-point types:
 
 Supported math functions:
 
-- Trigonometric functions `Double256` and `Float256` (on MSVC) &#x1F6A7; (on other)
-- Inverse trigonometric functions `Double256` and `Float256` &#x1F6A7;
-- Hyperbolic functions `Double256` and `Float256` &#x1F6A7;
-- Inverse hyperbolic functions `Double256` and `Float256` &#x1F6A7;
+- Trigonometric functions `Double256` and `Float256`. On MSVC implemented using included SVML library, on GCC and Clang uses [Sleef](https://github.com/shibatch/sleef) library to provide same functionality.
+- Inverse trigonometric functions `Double256` and `Float256` - same as trigonometric functions.
 
 <!-- Other supported functions: 
 - `sum` - supports all types
 - `avg` - supports all types
 - `stddev` - supports all types
 - -->
+
 Supported operators:
 
 - `==` `!=` - all types + scalars [*](#details)
 - `+` `+=` - all types + scalars
 - `-` `-=` - all types + scalars
 - `*` `*=` - all types + scalars
-- `/` `/=` - all types + scalars [&#9888;&#65039;](#known-issues)
-- `%` `%=` - integer types + integer scalars [&#9888;&#65039;](#known-issues)
+- `/` `/=` - all types + scalars
+- `%` `%=` - integer types + integer scalars
 - `|` `|=` - integer types + integer scalars
 - `&` `&=` - integer types + integer scalars
 - `^` `^=` - integer types + integer scalars
 - `<<` `<<=` - integer types + integer scalars
 - `>>` `>>=` - integer types + integer scalars
-- `[]` - all types, read only
+- `[]` - all types, **<u>read only</u>**
 - `~` - integer types
 
 Other than that all types support initialization using:
@@ -56,7 +53,7 @@ Other than that all types support initialization using:
 - Literal value e.g. `Int256` can be initialized using single `int` value.
 - `std::array` with corresponding type and valid size e.g. `Int256` requires `std::array<int, 8>` as initializer.
 - Pointer to memory address of at least 32 bytes.
-- Initializer list (still in development).
+- Initializer lists.
 
 Elements from vectors can be extracted using following methods:
 
@@ -138,6 +135,8 @@ Available building options are
 | BUILD_DEEP_TESTS | BOOLEAN | OFF | Build types deep testing (brute force testing for all possible values, doesn't work on Windows) |
 | BUILD_USE_AVX512 | BOOLEAN | [CPU Support](cmake/avx-detect.cmake) | Use AVX512 when generatring binaries |
 
+---
+
 Building has been tested on following compilers (build and run):
 
 - GCC 11.4.0-1ubuntu1~22.04
@@ -152,6 +151,4 @@ If you want to read documentation offline go to [docs/sphinx](docs/sphinx).
 
 ## Known issues
 
-- &#9888;&#65039; - `/` and `%` might not always use SIMD instructions to calculate results due to instruction set restrictions. Some types use casting to `float` to perform those operations.
-- &#x1F6A9; - `*` and `*=` don't use AVX2. If AVX512 is available (AVX512DQ and AVX512VL) AVX512 instructions are used
-- `Long256` and `ULong256` don't use AVX/AVX2 for `*`, `/` and `%` due to lack available SIMD instructions. In AVX512 mode they might use some SIMD instructions (which will be checked once getting access to CPU supporting AVX512).
+- `Long256` and `ULong256` don't use SIMD for `*`, `*=`, `/`, `/=`, `%` and `%=` due to the lack of useful functions in AVX2.

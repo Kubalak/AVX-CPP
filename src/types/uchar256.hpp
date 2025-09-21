@@ -34,12 +34,27 @@ namespace avx {
              */
             using storedType = unsigned char;
 
+            /**
+             * Default constructor. Initializes vector with zeros.
+             */
             UChar256() noexcept : v(_mm256_setzero_si256()){}
 
+            /**
+             * Initializes all vector fields with single value.
+             * @param b A literal value to be set.
+             */
             UChar256(const unsigned char init) noexcept : v(_mm256_set1_epi8(init)){}
 
+            /**
+             * Initializes vector but using `__m256i` type.
+             * @param init Raw value to be set.
+             */
             UChar256(const __m256i& init) noexcept : v(init){}
-
+            
+            /**
+             * Initializes vector with value from other vector.
+             * @param init Object which value will be copied.
+             */
             UChar256(const UChar256& init) noexcept : v(init.v){}
 
             /**
@@ -79,6 +94,10 @@ namespace avx {
                 }
             }
 
+            /**
+             * Initialize vector with values read from an array.
+             * @param init Array from which values will be copied.
+             */
             UChar256(const std::array<unsigned char, 32>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
             UChar256(std::initializer_list<unsigned char> init) {

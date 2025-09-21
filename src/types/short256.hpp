@@ -79,6 +79,12 @@ namespace avx {
              */
             explicit Short256(const short b) noexcept : v(_mm256_set1_epi16(b)){}
 
+            /**
+             * Initializes vector with variable-length initializer list.
+             * If list contains less then 16 values missing values will be filled with zeros.
+             * Otherwise only first 16 values will be copied into vector.
+             * @param init Initializer list from which values will be copied.
+             */
             Short256(std::initializer_list<short> init) {
                 alignas(32) short init_v[size];
                 std::memset(init_v, 0, 32);

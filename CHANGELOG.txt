@@ -1,6 +1,10 @@
+v0.9.5
+- Refactor of perf utils to support floating point types.
+- Added perf tests for Double256 and Float256.
+- Friend operators for Double256 (for future testing).
+
 v0.9.4
 - Trigonometric functions on Linux (GCC & Clang) are now using Sleef library to perform computation
-- 
 
 v0.9.0
 - Added performance tests for raw AVX2/AVX512 functions for some types.

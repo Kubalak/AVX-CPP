@@ -298,6 +298,24 @@ namespace avx {
                 return result;
             }
 
+            // Friend operators (used for double <op> Double256)
+
+            friend Double256 operator+(double a, const Double256 &bV){
+                return _mm256_add_pd(bV.v, _mm256_set1_pd(a));
+            }
+
+            friend Double256 operator-(double a, const Double256 &bV){
+                return _mm256_sub_pd(_mm256_set1_pd(a), bV.v);
+            }
+
+            friend Double256 operator*(double a, const Double256 &bV){
+                return _mm256_mul_pd(_mm256_set1_pd(a), bV.v);
+            }
+
+            friend Double256 operator/(double a, const Double256 &bV){
+                return _mm256_div_pd(_mm256_set1_pd(a), bV.v);
+            }
+
     };
 }
 

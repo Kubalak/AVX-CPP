@@ -212,6 +212,7 @@ namespace testing{
             bool printPreparationTime = true;
             bool printTestFailed = false;
             bool printVerificationFailed = false;
+            bool checkForNEQ = false;
             // Stores raw AVX functions for performance comparison
             RawAVXFuncs<S> avxFuncs;
         };
@@ -1314,21 +1315,25 @@ namespace testing{
             auto start = std::chrono::steady_clock::now();
 
             std::srand(config.randomSeed);
-            constexpr bool isLong = sizeof(S) > 4;
-            for(size_t i = 0; i < aV.size(); ++i){
-                if(isLong){
-                    aV[i] = std::rand();
-                    aV[i] <<= 32;
-                    aV[i] |= std::rand();
+            if constexpr (std::is_integral_v<S>)
+            {
+                std::default_random_engine rd;
+                std::uniform_int_distribution dist(std::numeric_limits<S>::min(), std::numeric_limits<S>::max());
 
-                    bV[i] = std::rand();
-                    bV[i] <<= 32;
-                    bV[i] |= std::rand() | 1;
+                for(size_t i = 0; i < aV.size(); ++i){
+                    aV[i] = dist(rd);
+                    bV[i] = dist(rd) | 1; // Avoid zero division error.
                 }
-                else {
-                    aV[i] = std::rand();
-                    bV[i] = std::rand() | 1;
+
+            } else {
+                std::uniform_real_distribution<S> dist(std::numeric_limits<S>::min(), std::numeric_limits<S>::max());
+                std::default_random_engine re;
+
+                for(size_t i = 0;i < aV.size(); ++i){
+                    aV[i] = dist(re);
+                    bV[i] = dist(re);
                 }
+
             }
 
             auto stop = std::chrono::steady_clock::now();
@@ -1408,53 +1413,59 @@ namespace testing{
             if(config.verifyValues)
                 validations[11] = testing::perf::verifyDiv(aV, bV, cV, config.printVerificationFailed);
             
-            // Modulo operator
-            if(config.avxFuncs.modRaw){
-                times[12] = config.avxFuncs.modRaw(aV, bV, cV, config.printTestFailed);
+            if constexpr(std::is_integral_v<S>){
+                // Modulo operator
+                if(config.avxFuncs.modRaw){
+                    times[12] = config.avxFuncs.modRaw(aV, bV, cV, config.printTestFailed);
+                    if(config.verifyValues)
+                        validations[12] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
+                }
+
+                times[13] = testing::perf::testModAVX<T>(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
-                    validations[12] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
-            }
+                    validations[13] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
 
-            times[13] = testing::perf::testModAVX<T>(aV, bV, cV, config.printTestFailed);
-            if(config.verifyValues)
-                validations[13] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
-
-            times[14] = testing::perf::testModSeq<S>(aV, bV, cV, config.printTestFailed);
-            if(config.verifyValues)
-                validations[14] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
-            
-                // Left shift
-            if(config.avxFuncs.lshRaw){
-                times[15] = config.avxFuncs.lshRaw(aV, bV, cV, config.printTestFailed);
+                times[14] = testing::perf::testModSeq<S>(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
-                    validations[15] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
-            }
+                    validations[14] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
+                
+                    // Left shift
+                if(config.avxFuncs.lshRaw){
+                    times[15] = config.avxFuncs.lshRaw(aV, bV, cV, config.printTestFailed);
+                    if(config.verifyValues)
+                        validations[15] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+                }
 
-            times[16] = testing::perf::testLshiftAVX<T>(aV, bV, cV, config.printTestFailed);
-            if(config.verifyValues)
-                validations[16] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
-
-            times[17] = testing::perf::testLshiftSeq<S>(aV, bV, cV, config.printTestFailed);
-            if(config.verifyValues)
-                validations[17] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
-            
-            // Right shift
-            if(config.avxFuncs.rshRaw){
-                times[18] = config.avxFuncs.rshRaw(aV, bV, cV, config.printTestFailed);
+                times[16] = testing::perf::testLshiftAVX<T>(aV, bV, cV, config.printTestFailed);
                 if(config.verifyValues)
-                    validations[18] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
-            }
-            
-            times[19] = testing::perf::testRshiftAVX<T>(aV, bV, cV, config.printTestFailed);
-            if(config.verifyValues)
-                validations[19] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+                    validations[16] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
 
-            times[20] = testing::perf::testRshiftSeq<S>(aV, bV, cV, config.printTestFailed);
-            if(config.verifyValues)
-                validations[20] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+                times[17] = testing::perf::testLshiftSeq<S>(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[17] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+                
+                // Right shift
+                if(config.avxFuncs.rshRaw){
+                    times[18] = config.avxFuncs.rshRaw(aV, bV, cV, config.printTestFailed);
+                    if(config.verifyValues)
+                        validations[18] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+                }
+                
+                times[19] = testing::perf::testRshiftAVX<T>(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[19] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+
+                times[20] = testing::perf::testRshiftSeq<S>(aV, bV, cV, config.printTestFailed);
+                if(config.verifyValues)
+                    validations[20] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+        }
             
-            auto cmpFResult = testing::perf::testCmpSeq<T>(aV, bV, config.printTestFailed);
-            auto cmpSResult = testing::perf::testCmpAVX<T>(aV, bV, config.printTestFailed);
+            if(!config.checkForNEQ)
+                for (size_t i{0}; i < aV.size(); ++i)
+                    cV[i] = aV[i];
+            
+            auto cmpFResult = testing::perf::testCmpSeq<T>(aV, cV, config.printTestFailed);
+            auto cmpSResult = testing::perf::testCmpAVX<T>(aV, cV, config.printTestFailed);
 
             std::string validationRes = "";
             std::pair<double, std::string> duration;
@@ -1535,62 +1546,64 @@ namespace testing{
                 validationRes = validationToStr(validations[11]);
             printf("%-20s %8.4lf %-3s%s\n", "Test div seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            if(config.avxFuncs.modRaw){
-                duration = testing::universalDuration(times[12]);
+            if constexpr(std::is_integral_v<S>) {
+                if(config.avxFuncs.modRaw){
+                    duration = testing::universalDuration(times[12]);
+                    if(config.verifyValues)
+                        validationRes = validationToStr(validations[12]);
+                    printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+                }
+                else
+                    printf("Test mod AVX2 raw:       skipped...\n");
+
+                duration = testing::universalDuration(times[13]);
                 if(config.verifyValues)
-                    validationRes = validationToStr(validations[12]);
-                printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
-            }
-            else
-                printf("Test mod AVX2 raw:       skipped...\n");
+                    validationRes = validationToStr(validations[13]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universalDuration(times[13]);
-            if(config.verifyValues)
-                validationRes = validationToStr(validations[13]);
-            printf("%-20s %8.4lf %-3s%s\n", "Test mod AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
-
-            duration = testing::universalDuration(times[14]);
-            if(config.verifyValues)
-                validationRes = validationToStr(validations[14]);
-            printf("%-20s %8.4lf %-3s%s\n", "Test mod seq:", duration.first, duration.second.c_str(), validationRes.c_str());
-
-            if(config.avxFuncs.lshRaw){
-                duration = testing::universalDuration(times[15]);
+                duration = testing::universalDuration(times[14]);
                 if(config.verifyValues)
-                    validationRes = validationToStr(validations[15]);
-                printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
-            }
-            else 
-                printf("Test lshift AVX2 raw:    skipped...\n");
+                    validationRes = validationToStr(validations[14]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test mod seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
-            duration = testing::universalDuration(times[16]);
-            if(config.verifyValues)
-                validationRes = validationToStr(validations[16]);
-            printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
+                if(config.avxFuncs.lshRaw){
+                    duration = testing::universalDuration(times[15]);
+                    if(config.verifyValues)
+                        validationRes = validationToStr(validations[15]);
+                    printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+                }
+                else 
+                    printf("Test lshift AVX2 raw:    skipped...\n");
 
-            duration = testing::universalDuration(times[17]);
-            if(config.verifyValues)
-                validationRes = validationToStr(validations[17]);
-            printf("%-20s %8.4lf %-3s%s\n", "Test lshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
-
-            if(config.avxFuncs.rshRaw){
-                duration = testing::universalDuration(times[18]);
+                duration = testing::universalDuration(times[16]);
                 if(config.verifyValues)
-                    validationRes = validationToStr(validations[18]);
-                printf("%-20s %8.4lf %-3s%s\n", "Test rshift AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+                    validationRes = validationToStr(validations[16]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test lshift AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
+
+                duration = testing::universalDuration(times[17]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[17]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test lshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
+
+                if(config.avxFuncs.rshRaw){
+                    duration = testing::universalDuration(times[18]);
+                    if(config.verifyValues)
+                        validationRes = validationToStr(validations[18]);
+                    printf("%-20s %8.4lf %-3s%s\n", "Test rshift AVX2 raw:", duration.first, duration.second.c_str(), validationRes.c_str());
+                }
+                else 
+                    printf("Test rshift AVX2 raw:    skipped...\n");
+
+                duration = testing::universalDuration(times[19]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[19]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test rshift AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
+
+                duration = testing::universalDuration(times[20]);
+                if(config.verifyValues)
+                    validationRes = validationToStr(validations[20]);
+                printf("%-20s %8.4lf %-3s%s\n", "Test rshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
             }
-            else 
-                printf("Test rshift AVX2 raw:    skipped...\n");
-
-            duration = testing::universalDuration(times[19]);
-            if(config.verifyValues)
-                validationRes = validationToStr(validations[19]);
-            printf("%-20s %8.4lf %-3s%s\n", "Test rshift AVX2:", duration.first, duration.second.c_str(), validationRes.c_str());
-
-            duration = testing::universalDuration(times[20]);
-            if(config.verifyValues)
-                validationRes = validationToStr(validations[20]);
-            printf("%-20s %8.4lf %-3s%s\n", "Test rshift seq:", duration.first, duration.second.c_str(), validationRes.c_str());
 
             duration = testing::universalDuration(cmpSResult.first);
             printf("%-20s %8.4lf %-3s%s\n", "Test cmp AVX:", duration.first, duration.second.c_str(), (cmpSResult.second ? "EQ":"NEQ"));
