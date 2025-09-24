@@ -566,15 +566,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors together. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of adding <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="252" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="252" bodyend="254"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="257" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="257" bodyend="259"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1a3f59fea160b9e7ee724cb05ca108eaf6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a11578f423c04732ea79acb5e5cb1e15f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
         <definition>Float256 avx::Float256::operator+</definition>
-        <argsstring>(const float b) const</argsstring>
+        <argsstring>(const float b) const noexcept</argsstring>
         <name>operator+</name>
         <qualifiedname>avx::Float256::operator+</qualifiedname>
         <param>
@@ -584,15 +596,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds scalar to all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="256" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="256" bodyend="258"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="266" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="266" bodyend="268"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1aa952d4d0a2c5478c9ed185e6882a0df0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1ad53859cf7c7bd34d261070ae437f8c7e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator+=</definition>
-        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <argsstring>(const Float256 &amp;bV) noexcept</argsstring>
         <name>operator+=</name>
         <qualifiedname>avx::Float256::operator+=</qualifiedname>
         <param>
@@ -602,15 +626,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors together and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="260" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="260" bodyend="263"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="275" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="275" bodyend="278"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1ae7656f2d4cd310216fa5fa1606d54809" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a5ee1e00887359736930e65f6562431c3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator+=</definition>
-        <argsstring>(const float b)</argsstring>
+        <argsstring>(const float b) noexcept</argsstring>
         <name>operator+=</name>
         <qualifiedname>avx::Float256::operator+=</qualifiedname>
         <param>
@@ -620,15 +656,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds scalar to vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="265" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="265" bodyend="268"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="285" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="285" bodyend="288"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1a308e53a2d94cf1f65181b705093a6bba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a44b6555826ba00a394a280e334834055" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
         <definition>Float256 avx::Float256::operator-</definition>
-        <argsstring>(const Float256 &amp;bV) const</argsstring>
+        <argsstring>(const Float256 &amp;bV) const noexcept</argsstring>
         <name>operator-</name>
         <qualifiedname>avx::Float256::operator-</qualifiedname>
         <param>
@@ -638,15 +686,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="270" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="270" bodyend="272"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="295" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="295" bodyend="297"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1ab30061ffe75d5d21b2002a164e9290c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1af9b1e07239db92e1edf57ced7a03a489" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
         <definition>Float256 avx::Float256::operator-</definition>
-        <argsstring>(const float b) const</argsstring>
+        <argsstring>(const float b) const noexcept</argsstring>
         <name>operator-</name>
         <qualifiedname>avx::Float256::operator-</qualifiedname>
         <param>
@@ -656,15 +716,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts scalar from all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="274" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="274" bodyend="276"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="304" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="304" bodyend="306"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1a4d8b001beff49cbc2bccc6f2e7b7c808" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a894b7019a95eac6b9a8996c7a4cf89b0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator-=</definition>
-        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <argsstring>(const Float256 &amp;bV) noexcept</argsstring>
         <name>operator-=</name>
         <qualifiedname>avx::Float256::operator-=</qualifiedname>
         <param>
@@ -674,15 +746,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="278" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="278" bodyend="281"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="313" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="313" bodyend="316"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1aa9aba695dee7af4a4f9ca445de26c6d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a4291e51701720674d8a2efde895442b5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator-=</definition>
-        <argsstring>(const float b)</argsstring>
+        <argsstring>(const float b) noexcept</argsstring>
         <name>operator-=</name>
         <qualifiedname>avx::Float256::operator-=</qualifiedname>
         <param>
@@ -692,15 +776,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts scalar from vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="283" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="283" bodyend="286"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="323" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="323" bodyend="326"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1a4597a6f234902d62a216850ccf90e79a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1ac465a203fea13a95ee324543545c9ff3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
         <definition>Float256 avx::Float256::operator*</definition>
-        <argsstring>(const Float256 &amp;bV) const</argsstring>
+        <argsstring>(const Float256 &amp;bV) const noexcept</argsstring>
         <name>operator*</name>
         <qualifiedname>avx::Float256::operator*</qualifiedname>
         <param>
@@ -710,15 +806,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of multiplying vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="288" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="288" bodyend="290"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="333" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="333" bodyend="335"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1aa526a29c2d6a6c879e7c87c2c56bfd4c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1ae343750a983a7c85bd594de428b28e34" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
         <definition>Float256 avx::Float256::operator*</definition>
-        <argsstring>(const float b) const</argsstring>
+        <argsstring>(const float b) const noexcept</argsstring>
         <name>operator*</name>
         <qualifiedname>avx::Float256::operator*</qualifiedname>
         <param>
@@ -728,15 +836,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies all vector fields by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of multiplying vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="292" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="292" bodyend="294"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="342" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="342" bodyend="344"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1a1535bef2e98641aaec8ec379bc6aa041" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a0e5ac98e1282d0735afa0660418790e8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator*=</definition>
-        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <argsstring>(const Float256 &amp;bV) noexcept</argsstring>
         <name>operator*=</name>
         <qualifiedname>avx::Float256::operator*=</qualifiedname>
         <param>
@@ -746,15 +866,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="296" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="296" bodyend="299"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="351" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="351" bodyend="354"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1a8b0e3424a3706005f824a77ec72227e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a05bafdac9ec2585d1d72d936456df82d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator*=</definition>
-        <argsstring>(const float b)</argsstring>
+        <argsstring>(const float b) noexcept</argsstring>
         <name>operator*=</name>
         <qualifiedname>avx::Float256::operator*=</qualifiedname>
         <param>
@@ -764,15 +896,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="301" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="301" bodyend="304"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="361" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="361" bodyend="364"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1af168a23c01e2a76483a1d3a343cf95da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a05aac9afa48fede94b22c1f6de8a57c9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
         <definition>Float256 avx::Float256::operator/</definition>
-        <argsstring>(const Float256 &amp;bV) const</argsstring>
+        <argsstring>(const Float256 &amp;bV) const noexcept</argsstring>
         <name>operator/</name>
         <qualifiedname>avx::Float256::operator/</qualifiedname>
         <param>
@@ -782,15 +926,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of dividing vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="306" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="306" bodyend="308"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="371" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="371" bodyend="373"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1aed7e0cdd4977b96b0be87742ef8a932a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a1ba8dea7d0fc3c5d42f4fa6dc4735e2e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
         <definition>Float256 avx::Float256::operator/</definition>
-        <argsstring>(const float b) const</argsstring>
+        <argsstring>(const float b) const noexcept</argsstring>
         <name>operator/</name>
         <qualifiedname>avx::Float256::operator/</qualifiedname>
         <param>
@@ -800,15 +956,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides all vector fields by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of dividing vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="310" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="310" bodyend="312"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="380" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="380" bodyend="382"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1a2e303a1d7db3b475169cc20ce86d1260" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1acb43e6eb25ad2cbce410830356167e57" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator/=</definition>
-        <argsstring>(const Float256 &amp;bV)</argsstring>
+        <argsstring>(const Float256 &amp;bV) noexcept</argsstring>
         <name>operator/=</name>
         <qualifiedname>avx::Float256::operator/=</qualifiedname>
         <param>
@@ -818,15 +986,27 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="314" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="314" bodyend="317"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="389" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="389" bodyend="392"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_float256_1afcfb28b03a2023860dc2cc042930b8a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_float256_1a321867e8667b57cfdc10dbb559f5561c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
         <definition>Float256 &amp; avx::Float256::operator/=</definition>
-        <argsstring>(const float b)</argsstring>
+        <argsstring>(const float b) noexcept</argsstring>
         <name>operator/=</name>
         <qualifiedname>avx::Float256::operator/=</qualifiedname>
         <param>
@@ -836,10 +1016,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="319" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="319" bodyend="322"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="399" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="399" bodyend="402"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a1cb1fb731d5d7224ff18878b1bf4725f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
@@ -878,7 +1070,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="331" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="331" bodyend="337"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="411" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="411" bodyend="417"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a905330b7b986cb226f76dad566996e9e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -895,7 +1087,177 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="347" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="347" bodyend="356"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="427" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="427" bodyend="436"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classavx_1_1_float256_1aaa97b529656b4be34c173d53ffa8b9d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 operator+</definition>
+        <argsstring>(float a, const Float256 &amp;bV)</argsstring>
+        <name>operator+</name>
+        <qualifiedname>avx::Float256::operator+</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>float</computeroutput> + <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to which <computeroutput>bV</computeroutput> should be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> Vector being a result of <computeroutput>a</computeroutput> + <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="445" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="445" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="friend" id="classavx_1_1_float256_1abb7ef0663f8ac072a738d68cda0e181d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 operator-</definition>
+        <argsstring>(float a, const Float256 &amp;bV)</argsstring>
+        <name>operator-</name>
+        <qualifiedname>avx::Float256::operator-</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>float</computeroutput> - <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar from which <computeroutput>bV</computeroutput> should be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> Vector being a result of <computeroutput>a</computeroutput> - <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="455" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="455" bodyend="457"/>
+      </memberdef>
+      <memberdef kind="friend" id="classavx_1_1_float256_1a408a2a72d6021340e5c2f826aa8b8996" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 operator*</definition>
+        <argsstring>(float a, const Float256 &amp;bV)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>avx::Float256::operator*</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>float</computeroutput> * <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar which should be multiplied by <computeroutput>bV</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be multiplier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> Vector being a result of <computeroutput>a</computeroutput> * <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="465" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="465" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="friend" id="classavx_1_1_float256_1a11e73c7549f3a122c7417a23e5a74dd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
+        <definition>Float256 operator/</definition>
+        <argsstring>(float a, const Float256 &amp;bV)</argsstring>
+        <name>operator/</name>
+        <qualifiedname>avx::Float256::operator/</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>float</computeroutput> / <ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar which should be divided by <computeroutput>bV</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be divisor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> Vector being a result of <computeroutput>a</computeroutput> / <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="475" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="475" bodyend="477"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -903,7 +1265,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>float</computeroutput>. Can hold 8 individual <computeroutput>float</computeroutput> values. Provides arithmetic operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="18" bodyend="358"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="18" bodyend="479"/>
     <listofallmembers>
       <member refid="classavx_1_1_float256_1aaf79eeaf2622f82dfec790eea4cc54a9" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
       <member refid="classavx_1_1_float256_1a933268afcc37f0a7f475933b8cbe8ddf" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
@@ -916,22 +1278,26 @@
       <member refid="classavx_1_1_float256_1ad55bae898da176a5b58b9caaa650affc" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>load</name></member>
       <member refid="classavx_1_1_float256_1a07a0f2fdddbe88828844799e8ca159f6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator!=</name></member>
       <member refid="classavx_1_1_float256_1a6265ed5e6545d82bac595edad19ea8e6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator!=</name></member>
-      <member refid="classavx_1_1_float256_1a4597a6f234902d62a216850ccf90e79a" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_float256_1aa526a29c2d6a6c879e7c87c2c56bfd4c" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_float256_1a1535bef2e98641aaec8ec379bc6aa041" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*=</name></member>
-      <member refid="classavx_1_1_float256_1a8b0e3424a3706005f824a77ec72227e0" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_float256_1ac465a203fea13a95ee324543545c9ff3" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_float256_1ae343750a983a7c85bd594de428b28e34" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_float256_1a408a2a72d6021340e5c2f826aa8b8996" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_float256_1a0e5ac98e1282d0735afa0660418790e8" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_float256_1a05bafdac9ec2585d1d72d936456df82d" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator*=</name></member>
       <member refid="classavx_1_1_float256_1a20bcd485318006ead8b11f3b2ac33d8d" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_float256_1a3f59fea160b9e7ee724cb05ca108eaf6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_float256_1aa952d4d0a2c5478c9ed185e6882a0df0" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_float256_1ae7656f2d4cd310216fa5fa1606d54809" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_float256_1a308e53a2d94cf1f65181b705093a6bba" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_float256_1ab30061ffe75d5d21b2002a164e9290c8" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_float256_1a4d8b001beff49cbc2bccc6f2e7b7c808" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_float256_1aa9aba695dee7af4a4f9ca445de26c6d6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_float256_1af168a23c01e2a76483a1d3a343cf95da" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/</name></member>
-      <member refid="classavx_1_1_float256_1aed7e0cdd4977b96b0be87742ef8a932a" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/</name></member>
-      <member refid="classavx_1_1_float256_1a2e303a1d7db3b475169cc20ce86d1260" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/=</name></member>
-      <member refid="classavx_1_1_float256_1afcfb28b03a2023860dc2cc042930b8a6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_float256_1a11578f423c04732ea79acb5e5cb1e15f" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_float256_1aaa97b529656b4be34c173d53ffa8b9d2" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_float256_1ad53859cf7c7bd34d261070ae437f8c7e" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_float256_1a5ee1e00887359736930e65f6562431c3" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_float256_1a44b6555826ba00a394a280e334834055" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_float256_1af9b1e07239db92e1edf57ced7a03a489" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_float256_1abb7ef0663f8ac072a738d68cda0e181d" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_float256_1a894b7019a95eac6b9a8996c7a4cf89b0" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_float256_1a4291e51701720674d8a2efde895442b5" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_float256_1a05aac9afa48fede94b22c1f6de8a57c9" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_float256_1a1ba8dea7d0fc3c5d42f4fa6dc4735e2e" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_float256_1a11e73c7549f3a122c7417a23e5a74dd6" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_float256_1acb43e6eb25ad2cbce410830356167e57" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_float256_1a321867e8667b57cfdc10dbb559f5561c" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator/=</name></member>
       <member refid="classavx_1_1_float256_1ae1496dee50bec0487a0085a145671786" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_float256_1ab578a1c38df13f1b07dc23788bbfef83" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_float256_1a1cb1fb731d5d7224ff18878b1bf4725f" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>operator[]</name></member>

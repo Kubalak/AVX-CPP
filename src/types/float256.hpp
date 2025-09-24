@@ -249,74 +249,154 @@ namespace avx {
                 return _mm256_testz_si256(_mm256_castps_si256(eq), _mm256_castps_si256(eq)) == 0;
             }
 
-            Float256 operator+(const Float256& bV) const noexcept{
+            /**
+             * Adds two vectors together.
+             * @param bV Second vector.
+             * @returns New vector being result of adding `bV` to vector.
+             */
+            Float256 operator+(const Float256& bV) const noexcept {
                 return _mm256_add_ps(v, bV.v);
             }
 
-            Float256 operator+(const float b) const {
+            /**
+             * Adds scalar to all vector fields.
+             * @param b Scalar value to be added.
+             * @returns New vector being result of adding `b` to vector.
+             */
+            Float256 operator+(const float b) const noexcept {
                 return _mm256_add_ps(v, _mm256_set1_ps(b));
             }
 
-            Float256& operator+=(const Float256& bV) {
+            /**
+             * Adds two vectors together and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after adding `bV` to vector.
+             */
+            Float256& operator+=(const Float256& bV) noexcept {
                 v = _mm256_add_ps(v, bV.v);
                 return *this;
             }
 
-            Float256& operator+=(const float b) {
+            /**
+             * Adds scalar to vector and stores result inside original vector.
+             * @param b Scalar to be added.
+             * @returns Reference to same vector after adding `b` to vector.
+             */
+            Float256& operator+=(const float b) noexcept {
                 v = _mm256_add_ps(v, _mm256_set1_ps(b));
                 return *this;
             }
 
-            Float256 operator-(const Float256& bV) const {
+            /**
+             * Subtracts two vectors.
+             * @param bV Second vector.
+             * @returns New vector being result of subtracting `bV` from vector.
+             */
+            Float256 operator-(const Float256& bV) const noexcept {
                 return _mm256_sub_ps(v, bV.v);
             }
 
-            Float256 operator-(const float b) const {
+            /**
+             * Subtracts scalar from all vector fields.
+             * @param b Scalar value to be subtracted.
+             * @returns New vector being result of subtracting `b` from vector.
+             */
+            Float256 operator-(const float b) const noexcept {
                 return _mm256_sub_ps(v, _mm256_set1_ps(b));
             }
 
-            Float256& operator-=(const Float256& bV) {
+            /**
+             * Subtracts two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after subtracting `bV` from vector.
+             */
+            Float256& operator-=(const Float256& bV) noexcept {
                 v = _mm256_sub_ps(v, bV.v);
                 return *this;
             }
 
-            Float256& operator-=(const float b) {
+            /**
+             * Subtracts scalar from vector and stores result inside original vector.
+             * @param b Scalar to be subtracted.
+             * @returns Reference to same vector after subtracting `b` from vector.
+             */
+            Float256& operator-=(const float b) noexcept {
                 v = _mm256_sub_ps(v, _mm256_set1_ps(b));
                 return *this;
             }
 
-            Float256 operator*(const Float256& bV) const {
+            /**
+             * Multiplies two vectors.
+             * @param bV Second vector.
+             * @returns New vector being result of multiplying vector by `bV`.
+             */
+            Float256 operator*(const Float256& bV) const noexcept {
                 return _mm256_mul_ps(v, bV.v);
             }
 
-            Float256 operator*(const float b) const {
+            /**
+             * Multiplies all vector fields by scalar.
+             * @param b Scalar value to multiply by.
+             * @returns New vector being result of multiplying vector by `b`.
+             */
+            Float256 operator*(const float b) const noexcept {
                 return _mm256_mul_ps(v, _mm256_set1_ps(b));
             }
 
-            Float256& operator*=(const Float256& bV) {
+            /**
+             * Multiplies two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after multiplying by `bV`.
+             */
+            Float256& operator*=(const Float256& bV) noexcept {
                 v = _mm256_mul_ps(v, bV.v);
                 return *this;
             }
 
-            Float256& operator*=(const float b) {
+            /**
+             * Multiplies vector by scalar and stores result inside original vector.
+             * @param b Scalar to multiply by.
+             * @returns Reference to same vector after multiplying by `b`.
+             */
+            Float256& operator*=(const float b) noexcept {
                 v = _mm256_mul_ps(v, _mm256_set1_ps(b));
                 return *this;
             }
 
-            Float256 operator/(const Float256& bV) const {
+            /**
+             * Divides two vectors.
+             * @param bV Second vector (divisor).
+             * @returns New vector being result of dividing vector by `bV`.
+             */
+            Float256 operator/(const Float256& bV) const noexcept {
                 return _mm256_div_ps(v, bV.v);
             }
 
-            Float256 operator/(const float b) const {
+            /**
+             * Divides all vector fields by scalar.
+             * @param b Scalar value (divisor).
+             * @returns New vector being result of dividing vector by `b`.
+             */
+            Float256 operator/(const float b) const noexcept {
                 return _mm256_div_ps(v, _mm256_set1_ps(b));
             }
 
-            Float256& operator/=(const Float256& bV) {
+            /**
+             * Divides two vectors and stores result inside original vector.
+             * @param bV Second vector (divisor).
+             * @returns Reference to same vector after dividing by `bV`.
+             */
+            Float256& operator/=(const Float256& bV) noexcept {
                 v = _mm256_div_ps(v, bV.v);
                 return *this;
             }
 
-            Float256& operator/=(const float b) {
+            /**
+             * Divides vector by scalar and stores result inside original vector.
+             * @param b Scalar value (divisor).
+             * @returns Reference to same vector after dividing by `b`.
+             */
+            Float256& operator/=(const float b) noexcept {
                 v = _mm256_div_ps(v, _mm256_set1_ps(b));
                 return *this;
             }
@@ -353,6 +433,47 @@ namespace avx {
                 result += std::to_string(iv[7]);
                 result += ")";
                 return result;
+            }
+
+            
+            /**
+             * Provides support for `float` + Float256 operation.
+             * @param a Scalar to which `bV` should be added.
+             * @param bV Vector which will be added.
+             * @returns Float256 Vector being a result of `a` + `bV`
+             */
+            friend Float256 operator+(float a, const Float256 &bV) {
+                return _mm256_add_ps(bV.v, _mm256_set1_ps(a));
+            }
+
+            /**
+             * Provides support for `float` - Float256 operation.
+             * @param a Scalar from which `bV` should be subtracted.
+             * @param bV Vector which will be subtracted.
+             * @returns Float256 Vector being a result of `a` - `bV`
+             */
+            friend Float256 operator-(float a, const Float256 &bV) {
+                return _mm256_sub_ps(_mm256_set1_ps(a), bV.v);
+            }
+
+            /**
+             * Provides support for `float` * Float256 operation.
+             * @param a Scalar which should be multiplied by `bV`.
+             * @param bV Vector which will be multiplier.
+             * @returns Float256 Vector being a result of `a` * `bV`
+             */
+            friend Float256 operator*(float a, const Float256 &bV) {
+                return _mm256_mul_ps(_mm256_set1_ps(a), bV.v);
+            }
+
+            /**
+             * Provides support for `float` / Float256 operation.
+             * @param a Scalar which should be divided by `bV`.
+             * @param bV Vector which will be divisor.
+             * @returns Float256 Vector being a result of `a` / `bV`
+             */
+            friend Float256 operator/(float a, const Float256 &bV) {
+                return _mm256_div_ps(_mm256_set1_ps(a), bV.v);
             }
 
     };

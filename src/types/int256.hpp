@@ -290,31 +290,56 @@ namespace avx
         /**
          * Adds values from other vector and returns new vector.
          * @param bV Second vector.
-         * @return New vector being a sum of this vector and `bv`.
+         * @return Int256 New vector being a sum of this vector and `bv`.
          */
-        Int256 operator+(const Int256 &bV) const { return _mm256_add_epi32(v, bV.v); };
+        Int256 operator+(const Int256 &bV) const noexcept { return _mm256_add_epi32(v, bV.v); };
 
         /**
          * Adds single value across all vector fields.
          * @param b Value to add to vector.
-         * @return New vector being a sum of this vector and `b`.
+         * @return Int256 New vector being a sum of this vector and `b`.
          */
-        Int256 operator+(const int &b) const { return _mm256_add_epi32(v, _mm256_set1_epi32(b)); }
+        Int256 operator+(const int &b) const noexcept { return _mm256_add_epi32(v, _mm256_set1_epi32(b)); }
 
         /**
          * Substracts values from vector.
          * @param bV Second vector.
-         * @return New vector being result of subtracting `bV` from vecotr.
+         * @return Int256 New vector being result of subtracting `bV` from vecotr.
          */
-        Int256 operator-(const Int256 &bV) const { return _mm256_sub_epi32(v, bV.v); };
-        Int256 operator-(const int &b) const { return _mm256_sub_epi32(v, _mm256_set1_epi32(b)); }
+        /**
+         * Subtracts values from vector.
+         * @param bV Second vector.
+         * @return Int256 New vector being result of subtracting `bV` from vector.
+         */
+        Int256 operator-(const Int256 &bV) const noexcept { return _mm256_sub_epi32(v, bV.v); };
 
-        // Multiplication operators
-        Int256 operator*(const Int256 &bV) const { return _mm256_mullo_epi32(v, bV.v); }
-        Int256 operator*(const int &b) const { return _mm256_mullo_epi32(v,_mm256_set1_epi32(b)); }
+        /**
+         * Subtracts a single value from all vector fields.
+         * @param b Value to subtract from vector.
+         * @return Int256 New vector being result of subtracting `b` from vector.
+         */
+        Int256 operator-(const int &b) const noexcept { return _mm256_sub_epi32(v, _mm256_set1_epi32(b)); }
 
+        /**
+         * Multiplies two vectors.
+         * @param bV Second vector.
+         * @return Int256 New vector being result of multiplying vector by `bV`.
+         */
+        Int256 operator*(const Int256 &bV) const noexcept { return _mm256_mullo_epi32(v, bV.v); }
 
-        Int256 operator/(const Int256 &bV) const { 
+        /**
+         * Multiplies all vector fields by a single value.
+         * @param b Value to multiply by.
+         * @return Int256 New vector being result of multiplying vector by `b`.
+         */
+        Int256 operator*(const int &b) const noexcept { return _mm256_mullo_epi32(v,_mm256_set1_epi32(b)); }
+
+        /**
+         * Divides two vectors.
+         * @param bV Second vector (divisor).
+         * @return Int256 New vector being result of dividing vector by `bV`.
+         */
+        Int256 operator/(const Int256 &bV) const noexcept { 
             // ASM goes brrr ≽^•⩊•^≼
             #ifdef __AVX512F__
                 return _mm512_cvttpd_epi32(
@@ -327,7 +352,12 @@ namespace avx
                 return _mm256_div_epi32(v, bV.v); 
             #endif
         }
-        
+
+        /**
+         * Divides all vector fields by a single value.
+         * @param b Value (divisor).
+         * @return Int256 New vector being result of dividing vector by `b`.
+         */
         Int256 operator/(const int&b) const {
 
             if(!b) return _mm256_setzero_si256();
@@ -344,7 +374,11 @@ namespace avx
             #endif
         }
 
-        // Modulo operators
+        /**
+         * Calculates element-wise modulo of two vectors.
+         * @param bV Second vector (divisor).
+         * @return Int256 New vector being result of modulo operation.
+         */
         Int256 operator%(const Int256 &bV) const {
             #ifdef __AVX512F__
                 __m256i divided = _mm512_cvttpd_epi32(
@@ -356,84 +390,172 @@ namespace avx
             #else
                 __m256i divided = _mm256_div_epi32(v, bV.v);
             #endif
-            
             return _mm256_sub_epi32(v, _mm256_mullo_epi32(bV.v, divided));
         }
 
-
+        /**
+         * Calculates element-wise modulo of vector and scalar.
+         * @param b Value (divisor).
+         * @return Int256 New vector being result of modulo operation.
+         */
         Int256 operator%(const int &b) const {
             if(!b) return _mm256_setzero_si256();
-
             __m256i bV = _mm256_set1_epi32(b);
-
             #ifdef __AVX512F__
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
                         _mm512_cvtepi32_pd(v), 
-                        _mm512_set1_pd(static_cast<double>(b))
+                        _mm512_cvtepi32_pd(bV)
                     )
                 );
             #else
                 __m256i divided = _mm256_div_epi32(v, bV);
             #endif
-            
             return _mm256_sub_epi32(v, _mm256_mullo_epi32(bV, divided));
-        }    
+        }
 
-        // XOR operators
+        /**
+         * Bitwise XOR operator.
+         * @param bV Second vector.
+         * @return Int256 New vector being result of bitwise XOR with `bV`.
+         */
         Int256 operator^(const Int256 &bV) const { return _mm256_xor_si256(v, bV.v); }
+
+        /**
+         * Bitwise XOR operator with scalar.
+         * @param b Value to XOR with.
+         * @return Int256 New vector being result of bitwise XOR with `b`.
+         */
         Int256 operator^(const int &b) const { return _mm256_xor_si256(v, _mm256_set1_epi32(b)); }
 
-        // OR operators
+        /**
+         * Bitwise OR operator.
+         * @param bV Second vector.
+         * @return Int256 New vector being result of bitwise OR with `bV`.
+         */
         Int256 operator|(const Int256 &bV) const {return _mm256_or_si256(v, bV.v);}
+
+        /**
+         * Bitwise OR operator with scalar.
+         * @param b Value to OR with.
+         * @return Int256 New vector being result of bitwise OR with `b`.
+         */
         Int256 operator|(const int &b) const { return _mm256_or_si256(v, _mm256_set1_epi32(b)); }
 
-        // AND operators
+        /**
+         * Bitwise AND operator.
+         * @param bV Second vector.
+         * @return Int256 New vector being result of bitwise AND with `bV`.
+         */
         Int256 operator&(const Int256 &bV) const { return _mm256_and_si256(v, bV.v);}
+
+        /**
+         * Bitwise AND operator with scalar.
+         * @param b Value to AND with.
+         * @return Int256 New vector being result of bitwise AND with `b`.
+         */
         Int256 operator&(const int &b) const { return _mm256_and_si256(v, _mm256_set1_epi32(b)); }
 
-        // NOT operators
+        /**
+         * Bitwise NOT operator.
+         * @return Int256 New vector with all bits inverted.
+         */
         Int256 operator~() const { return _mm256_xor_si256(v, constants::ONES); }
 
-        // Bitwise shift operations
+        /**
+         * Bitwise left shift operator (element-wise).
+         * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+         * @return Int256 New vector after left shift.
+         */
         Int256 operator<<(const Int256 &bV) const { return _mm256_sllv_epi32(v,bV.v); }
+
+        /**
+         * Bitwise left shift operator by scalar.
+         * @param b Number of bits by which values should be shifted.
+         * @return Int256 New vector after left shift.
+         */
         Int256 operator<<(const int &b) const { return _mm256_slli_epi32(v, b); }
 
+        /**
+         * Bitwise right shift operator (element-wise, arithmetic shift).
+         * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+         * @return Int256 New vector after right shift.
+         */
         Int256 operator>>(const Int256 &bV) const { return _mm256_srav_epi32(v, bV.v); }
+
+        /**
+         * Bitwise right shift operator by scalar (arithmetic shift).
+         * @param b Number of bits by which values should be shifted.
+         * @return Int256 New vector after right shift.
+         */
         Int256 operator>>(const int &b) const { return _mm256_srai_epi32(v, b); }
 
-        // Calc and store operators
+        /**
+         * Adds two vectors together and stores result inside original vector.
+         * @param bV Second vector.
+         * @returns Reference to same vector after adding `bV` to vector.
+         */
         Int256& operator+=(const Int256 &bV) {
             v = _mm256_add_epi32(v, bV.v);
             return *this;
         }
         
+        /**
+         * Adds scalar to vector and stores result inside original vector.
+         * @param b Scalar to be added.
+         * @returns Reference to same vector after adding `b` to vector.
+         */
         Int256& operator+=(const int& b) {
             v = _mm256_add_epi32(v, _mm256_set1_epi32(b));
             return *this;
         }
 
+        /**
+         * Subtracts two vectors and stores result inside original vector.
+         * @param bV Second vector.
+         * @returns Reference to same vector after subtracting `bV` from vector.
+         */
         Int256& operator-=(const Int256 &bV) {
             v = _mm256_sub_epi32(v, bV.v);
             return *this;
         }
 
+        /**
+         * Subtracts scalar from vector and stores result inside original vector.
+         * @param b Scalar to be subtracted.
+         * @returns Reference to same vector after subtracting `b` from vector.
+         */
         Int256 &operator-=(const int &b) {
             v = _mm256_sub_epi32(v, _mm256_set1_epi32(b));
             return *this;
         }
 
+        /**
+         * Multiplies two vectors and stores result inside original vector.
+         * @param bV Second vector.
+         * @returns Reference to same vector after multiplying by `bV`.
+         */
         Int256 &operator*=(const Int256 &bV) {
             v = _mm256_mullo_epi32(v, bV.v);
             return *this;
         }
 
+        /**
+         * Multiplies vector by scalar and stores result inside original vector.
+         * @param b Scalar to multiply by.
+         * @returns Reference to same vector after multiplying by `b`.
+         */
         Int256 &operator*=(const int &b)
         {
             v = _mm256_mullo_epi32(v, _mm256_set1_epi32(b));
             return *this;
         };
 
+        /**
+         * Divides two vectors and stores result inside original vector.
+         * @param bV Second vector (divisor).
+         * @returns Reference to same vector after dividing by `bV`.
+         */
         Int256 &operator/=(const Int256 &bV) {
             #ifdef __AVX512F__
                 v = _mm512_cvttpd_epi32(
@@ -448,6 +570,11 @@ namespace avx
             return *this;
         }
 
+        /**
+         * Divides vector by scalar and stores result inside original vector.
+         * @param b Scalar value (divisor).
+         * @returns Reference to same vector after dividing by `b`.
+         */
         Int256 &operator/=(const int &b) {
             #ifdef __AVX512F__
                 v = _mm512_cvttpd_epi32(
@@ -464,7 +591,7 @@ namespace avx
 
 
         /**
-         * Performs integer division. IMPORTANT: Does not work for 0x8000'0000 aka -2 147 483 648
+         * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
          * @param bV Second modulo operand (divisor)
          * @return Result of modulo operation.
          */
@@ -485,6 +612,11 @@ namespace avx
             return *this;
         }
 
+        /**
+         * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+         * @param bV Second modulo operand (divisor)
+         * @return Reference to the original vector holding modulo operation results.
+         */
         Int256& operator%=(const int &b){
             if(!b) {
                 v = _mm256_setzero_si256();
@@ -497,7 +629,7 @@ namespace avx
                 __m256i divided = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
                         _mm512_cvtepi32_pd(v), 
-                        _mm512_set1_pd(static_cast<double>(b))
+                        _mm512_cvtepi32_pd(bV)
                     )
                 );
             #else

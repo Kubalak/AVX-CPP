@@ -1,6 +1,6 @@
 # AVX-CPP - AVX2 made easy in C++
 
-![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-royalblue?logo=github&logoColor=lightgray)](LICENSE) [![VERSION](https://img.shields.io/badge/Version-v0.9.5-blue)](CMakeLists.txt) [![C++ version](https://img.shields.io/badge/version-20-royalblue?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/20.html) [![C++ version](https://img.shields.io/badge/version-17-royalblue?logo=c)](https://www.geeksforgeeks.org/c/c-17-standard/)
+![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-royalblue?logo=github&logoColor=lightgray)](LICENSE) [![VERSION](https://img.shields.io/badge/Version-v0.9.6-blue)](CMakeLists.txt) [![C++ version](https://img.shields.io/badge/version-20-royalblue?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/20.html) [![C++ version](https://img.shields.io/badge/version-17-royalblue?logo=c)](https://www.geeksforgeeks.org/c/c-17-standard/)
 
 AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides basic numeric types and math operations.
 

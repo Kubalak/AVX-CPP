@@ -322,22 +322,41 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256Ev">
 <span id="_CPPv3N3avx8UChar2568UChar256Ev"></span><span id="_CPPv2N3avx8UChar2568UChar256Ev"></span><span id="avx::UChar256::UChar256"></span><span class="target" id="classavx_1_1_u_char256_1ad65831d82cf9fa0bf09d316014e216cc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256Ev" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Default constructor. Initializes vector with zeros. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256EKh">
 <span id="_CPPv3N3avx8UChar2568UChar256EKh"></span><span id="_CPPv2N3avx8UChar2568UChar256EKh"></span><span id="avx::UChar256::UChar256__unsigned-cC"></span><span class="target" id="classavx_1_1_u_char256_1a88e2884c653674de4e8e24d1540b3e08"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256EKh" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes all vector fields with single value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – A literal value to be set. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERK7__m256i">
 <span id="_CPPv3N3avx8UChar2568UChar256ERK7__m256i"></span><span id="_CPPv2N3avx8UChar2568UChar256ERK7__m256i"></span><span id="avx::UChar256::UChar256____m256iCR"></span><span class="target" id="classavx_1_1_u_char256_1aad3251db80eb55be631bcd48898b8111"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">__m256i</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERK7__m256i" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector but using <code class="docutils literal notranslate"><span class="pre">__m256i</span></code> type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Raw value to be set. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERK8UChar256">
 <span id="_CPPv3N3avx8UChar2568UChar256ERK8UChar256"></span><span id="_CPPv2N3avx8UChar2568UChar256ERK8UChar256"></span><span id="avx::UChar256::UChar256__UChar256CR"></span><span class="target" id="classavx_1_1_u_char256_1a7daa5793dd933c16b925e580ba71b36d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8UChar2568UChar256ERK8UChar256" title="avx::UChar256::UChar256"><span class="n"><span class="pre">UChar256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERK8UChar256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector with value from other vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Object which value will be copied. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256EPKh">
@@ -367,7 +386,13 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE">
 <span id="_CPPv3N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE"></span><span id="_CPPv2N3avx8UChar2568UChar256ERKNSt5arrayIhX32EEE"></span><span id="avx::UChar256::UChar256__std::array:unsigned-c.32:CR"></span><span class="target" id="classavx_1_1_u_char256_1a1a0403deb56f30f22304d515e7f3eb14"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UChar256</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">32</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8UChar2568UChar256ERKNSt5arrayIhXL32EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initialize vector with values read from an array. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Array from which values will be copied. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8UChar2568UChar256ENSt16initializer_listIhEE">

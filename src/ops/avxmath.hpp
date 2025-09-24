@@ -26,7 +26,7 @@ namespace avx {
      * Calculates sine of the vector.
      * @param bV Vector which values will be used to calculate sine.
      * @return Vector containing sine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 sin(const Double256& bV) {
         #ifdef _MSC_VER
@@ -40,7 +40,7 @@ namespace avx {
      * Calculates cosine of the vector.
      * @param bV Vector which values will be used to calculate cosine.
      * @return Vector containing cosine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 cos(const Double256& bV) {
         #ifdef _MSC_VER
@@ -54,7 +54,7 @@ namespace avx {
      * Calculates tangent of the vector.
      * @param bV Vector which values will be used to calculate tangent.
      * @return Vector containing tangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 tan(const Double256& bV) {
         #ifdef _MSC_VER
@@ -68,7 +68,7 @@ namespace avx {
      * Calculates cotangent of the vector.
      * @param bV Vector which values will be used to calculate cotangent.
      * @return Vector containing cotangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 ctg(const Double256& bV) {
         #ifdef _MSC_VER
@@ -85,7 +85,7 @@ namespace avx {
      * Calculates secant of the vector.
      * @param bV Vector which values will be used to calculate secant.
      * @return Vector containing secant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 sec(const Double256& bV) {
         #ifdef _MSC_VER
@@ -102,7 +102,7 @@ namespace avx {
      * Calculates cosecant of the vector.
      * @param bV Vector which values will be used to calculate cosecant.
      * @return Vector containing cosecant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 cosec(const Double256& bV) {
         #ifdef _MSC_VER
@@ -147,7 +147,7 @@ namespace avx {
      * Calculates sine of the vector.
      * @param bV Vector which values will be used to calculate sine.
      * @return Vector containing sine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 sin(const Float256& bV) {
         #ifdef _MSC_VER
@@ -161,7 +161,7 @@ namespace avx {
      * Calculates cosine of the vector.
      * @param bV Vector which values will be used to calculate cosine.
      * @return Vector containing cosine of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 cos(const Float256& bV) {
         #ifdef _MSC_VER
@@ -175,7 +175,7 @@ namespace avx {
      * Calculates tangent of the vector.
      * @param bV Vector which values will be used to calculate tangent.
      * @return Vector containing tangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 tan(const Float256& bV) {
         #ifdef _MSC_VER
@@ -189,7 +189,7 @@ namespace avx {
      * Calculates cotangent of the vector.
      * @param bV Vector which values will be used to calculate cotangent.
      * @return Vector containing cotangent of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 ctg(const Float256& bV) {
         #ifdef _MSC_VER
@@ -206,7 +206,7 @@ namespace avx {
      * Calculates secant of the vector.
      * @param bV Vector which values will be used to calculate secant.
      * @return Vector containing secant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 sec(const Float256& bV) {
         #ifdef _MSC_VER
@@ -223,7 +223,7 @@ namespace avx {
      * Calculates cosecant of the vector.
      * @param bV Vector which values will be used to calculate cosecant.
      * @return Vector containing cosecant of each value in `bV`.
-     * * Note: This function uses SVML library, which is available only on GCC and Clang Sleef library is used to perform computaion.
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 cosec(const Float256& bV) {
         #ifdef _MSC_VER

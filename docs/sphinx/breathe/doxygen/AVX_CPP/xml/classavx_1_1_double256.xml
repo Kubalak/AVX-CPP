@@ -64,28 +64,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Default constructor. Initializes vector values with zeros. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="35" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="35" bodyend="35"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="38" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="38" bodyend="38"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a0ab0ae7fc1ec3b6dfeb602d6e6a83a83" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a3472009057128111f5820badab850b8e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
         <definition>avx::Double256::Double256</definition>
-        <argsstring>(const double val) noexcept</argsstring>
+        <argsstring>(const double init) noexcept</argsstring>
         <name>Double256</name>
         <qualifiedname>avx::Double256::Double256</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>init</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes all vector fields with single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A literal value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="37" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="37" bodyend="37"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="44" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="44" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a29faa27746bbd551a89f5b02c2a49b1c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -100,10 +111,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector but using <computeroutput>__m256d</computeroutput> type. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="39" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="39" bodyend="39"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="50" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="50" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a324980571e72f5aff187b2f0b2833534" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -118,10 +139,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector with value from other vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object which value will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="41" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="41" bodyend="41"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="56" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="56" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a11138d06d78517916f2d70ec4f0e34c8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -136,10 +167,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initialize vector with values read from an array. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array from which values will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="43" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="43" bodyend="43"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="62" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="62" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1ae0ad5dcfa6e5f9a048c98cfae5af2f75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -154,10 +195,29 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector by loading data from memory (via <computeroutput>_mm256_loadu_pd</computeroutput>). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pSrc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valid memory addres of minimal size of 256-bits (32 bytes). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::invalid_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If in Debug mode and <computeroutput>pSrc</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release mode no checks are performed to improve efficiency. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="45" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="45" bodyend="52"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="68" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="68" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a11312f2812dcad4b0321c5d9a053a9da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -172,10 +232,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector with variable-length initializer list. If list contains less then 16 values missing values will be filled with zeros. Otherwise only first 16 values will be copied into vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initializer list from which values will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="54" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="54" bodyend="71"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="83" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="83" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a651451005ba15ea458706e1682021af2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -212,7 +282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="78" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="78" bodyend="85"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="107" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="107" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1aade0b6777f38a76af902d10d4220b404" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -240,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="91" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="91" bodyend="93"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="120" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="120" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a57a58d630183589fe983816af80bdbaa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -278,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="102" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="102" bodyend="109"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="131" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="131" bodyend="138"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1af86ae78bd1e49eb504f35f3bc2ac6523" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -316,7 +386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="118" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="118" bodyend="125"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="147" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="147" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1add8f59e988fdc70c5639e22c8cfca230" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const __m256d</type>
@@ -327,10 +397,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Get the internal vector value. <simplesect kind="return"><para>The value of <computeroutput>__m256i</computeroutput> vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="128" column="27" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="128" bodyend="128"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="160" column="27" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="160" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1ac6f41ace61804089518d2c89cdabd864" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -345,10 +418,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Set the internal vector value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New value to be set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="129" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="129" bodyend="129"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="166" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="166" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a8293f21316ea531711bac47a9ec0699b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -363,10 +446,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares two vectors for equality. This operator is secured against -0.0 == 0.0 comparison ensuring it will result <computeroutput>true</computeroutput>. <simplesect kind="return"><para>bool <computeroutput>true</computeroutput> if ALL values in vectors are equal otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="132" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="132" bodyend="150"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="173" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="173" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1aa547541d8dbe8e7cfdeefc7357f05065" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -381,10 +467,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vector with scalar for equality. This operator is secured against -0.0 == 0.0 comparison ensuring it will return <computeroutput>true</computeroutput>. <simplesect kind="return"><para>bool <computeroutput>true</computeroutput> if ALL values in vector are equal to <computeroutput>b</computeroutput> otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="152" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="152" bodyend="164"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="192" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="192" bodyend="204"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a77c3aaccf7a7270a0e1e4d835af75cf1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -399,10 +488,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares two vectors for inequality. This operator is secured against -0.0 == 0.0 comparison ensuring it will return <computeroutput>false</computeroutput>. <simplesect kind="return"><para>bool <computeroutput>true</computeroutput> if ANY value in vectors is not equal otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="166" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="166" bodyend="177"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="211" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="211" bodyend="222"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a29c628531416a02c5fb1d82cf59fb3f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -417,298 +509,493 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vector with scalar for inequality. This operator is secured against -0.0 == 0.0 comparison ensuring it will return <computeroutput>false</computeroutput>. <simplesect kind="return"><para>bool <computeroutput>true</computeroutput> if ANY value in vector is not equal to <computeroutput>b</computeroutput> otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="179" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="179" bodyend="191"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="229" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="229" bodyend="241"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1aa0fe34c8e8232d29121c0baba152f457" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a140c3e18ac54982be49296b90b9157c3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator+</definition>
-        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) const noexcept</argsstring>
         <name>operator+</name>
         <qualifiedname>avx::Double256::operator+</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors together. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of adding <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="194" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="194" bodyend="196"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="249" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="249" bodyend="251"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1aff7ad0961dd4adc4a265094ab9a95997" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a35184ff79f0a74eef013b8d459083084" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator+</definition>
-        <argsstring>(const double val) const noexcept</argsstring>
+        <argsstring>(const double b) const noexcept</argsstring>
         <name>operator+</name>
         <qualifiedname>avx::Double256::operator+</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds scalar to all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="198" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="198" bodyend="200"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="258" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="258" bodyend="260"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1af9132623c7b4ebe2e0e6fe35ab81c33a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1acfb345cf0a603a813cd83100d0ebfeb5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator+=</definition>
-        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) noexcept</argsstring>
         <name>operator+=</name>
         <qualifiedname>avx::Double256::operator+=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors together and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="202" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="202" bodyend="205"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="267" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="267" bodyend="270"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a8421f7bcfd356723cb949613d7a2a0b5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1afc17de257a64ed53ea484154a3ca9ee7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator+=</definition>
-        <argsstring>(const double val) noexcept</argsstring>
+        <argsstring>(const double b) noexcept</argsstring>
         <name>operator+=</name>
         <qualifiedname>avx::Double256::operator+=</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds scalar to vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="207" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="207" bodyend="210"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="277" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="277" bodyend="280"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a130b0f40d279fbef58d05f47902f84f5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a707751946a9ceadf4a712e05d30bcd89" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator-</definition>
-        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) const noexcept</argsstring>
         <name>operator-</name>
         <qualifiedname>avx::Double256::operator-</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="212" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="212" bodyend="214"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="287" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="287" bodyend="289"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1ad2e4bc47a901e578a5757e31d08ffd6b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a04a5edf91d663bdd97b1fce02ac9bf01" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator-</definition>
-        <argsstring>(const double val) const noexcept</argsstring>
+        <argsstring>(const double b) const noexcept</argsstring>
         <name>operator-</name>
         <qualifiedname>avx::Double256::operator-</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts scalar from all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="216" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="216" bodyend="218"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="296" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="296" bodyend="298"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a0cbbfc7ecf9966b24e5b99104a3a0e39" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1ad8518d3572238cf78cab42e420a00ca0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator-=</definition>
-        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) noexcept</argsstring>
         <name>operator-=</name>
         <qualifiedname>avx::Double256::operator-=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="220" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="220" bodyend="223"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="305" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="305" bodyend="308"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1aff567c5ad55d94fa76cc3ca4f0400197" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1af72fd196e8251b6a3ab4b85f44831598" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator-=</definition>
-        <argsstring>(const double val) noexcept</argsstring>
+        <argsstring>(const double b) noexcept</argsstring>
         <name>operator-=</name>
         <qualifiedname>avx::Double256::operator-=</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts scalar from vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="225" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="225" bodyend="228"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="315" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="315" bodyend="318"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a45465e7079338a409a2ae102fe0dfe36" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a206c09c9c06b85b3313ade42a47fd0ba" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator*</definition>
-        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) const noexcept</argsstring>
         <name>operator*</name>
         <qualifiedname>avx::Double256::operator*</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of multiplying vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="230" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="230" bodyend="232"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="325" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="325" bodyend="327"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a1b3d921ec6cdc768642b45539e6e8a02" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a42c11e736e26d701508fe6e71f195682" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator*</definition>
-        <argsstring>(const double val) const noexcept</argsstring>
+        <argsstring>(const double b) const noexcept</argsstring>
         <name>operator*</name>
         <qualifiedname>avx::Double256::operator*</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies all vector fields by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of multiplying vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="234" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="234" bodyend="236"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="334" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="334" bodyend="336"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a633316de27e630ce897223c31cab7c09" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1aaf0623987a45313c5f4ae5d44df0d0a1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator*=</definition>
-        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) noexcept</argsstring>
         <name>operator*=</name>
         <qualifiedname>avx::Double256::operator*=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="238" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="238" bodyend="241"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="343" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="343" bodyend="346"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1afd64dabe70aebcbbb9fbd157973b6d6a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1aa00ab33ec898fc522a3f37c5c0f7ab4f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator*=</definition>
-        <argsstring>(const double val) noexcept</argsstring>
+        <argsstring>(const double b) noexcept</argsstring>
         <name>operator*=</name>
         <qualifiedname>avx::Double256::operator*=</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="243" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="243" bodyend="246"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="353" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="353" bodyend="356"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a31aaa1e75e086a3e0238a3f8dcc838bc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a322d221c8a6f3807515b85a62db941ae" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator/</definition>
-        <argsstring>(const Double256 &amp;other) const noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) const noexcept</argsstring>
         <name>operator/</name>
         <qualifiedname>avx::Double256::operator/</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of dividing vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="248" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="248" bodyend="250"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="363" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="363" bodyend="365"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a90d976b16c5bf7276f44438d016ae35f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a2623f99805b7e8c79665f470229de7da" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
         <definition>Double256 avx::Double256::operator/</definition>
-        <argsstring>(const double val) const noexcept</argsstring>
+        <argsstring>(const double b) const noexcept</argsstring>
         <name>operator/</name>
         <qualifiedname>avx::Double256::operator/</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides all vector fields by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>New vector being result of dividing vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="252" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="252" bodyend="254"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="372" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="372" bodyend="374"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1a77b459baf8ef4af5db87d696483722cd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1adb7a7280bd0230abdbb12b51b40590ab" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator/=</definition>
-        <argsstring>(const Double256 &amp;other) noexcept</argsstring>
+        <argsstring>(const Double256 &amp;bV) noexcept</argsstring>
         <name>operator/=</name>
         <qualifiedname>avx::Double256::operator/=</qualifiedname>
         <param>
           <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
-          <declname>other</declname>
+          <declname>bV</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="256" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="256" bodyend="259"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="381" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="381" bodyend="384"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1aca648004707511ef73d082040cf2f8c8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a71234df29fd155d08e9365b8aa6d303e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
         <definition>Double256 &amp; avx::Double256::operator/=</definition>
-        <argsstring>(const double val) noexcept</argsstring>
+        <argsstring>(const double b) noexcept</argsstring>
         <name>operator/=</name>
         <qualifiedname>avx::Double256::operator/=</qualifiedname>
         <param>
           <type>const double</type>
-          <declname>val</declname>
+          <declname>b</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="261" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="261" bodyend="264"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="391" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="391" bodyend="394"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1aa0dd0364633c34e87ac3fae731ebc7ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -747,7 +1034,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="273" column="20" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="273" bodyend="279"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="403" column="20" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="403" bodyend="409"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1ad7c754f07ede8d94c5c2e9e42aeacb09" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -764,7 +1051,177 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="290" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="290" bodyend="299"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="420" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="420" bodyend="429"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classavx_1_1_double256_1a75d096397e6e70da582134dd1dd57c53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 operator+</definition>
+        <argsstring>(double a, const Double256 &amp;bV)</argsstring>
+        <name>operator+</name>
+        <qualifiedname>avx::Double256::operator+</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>double</computeroutput> + <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to which <computeroutput>bV</computeroutput> should be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> Vector being a result of <computeroutput>a</computeroutput> + <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="439" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="439" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="friend" id="classavx_1_1_double256_1a172eb88428e5b9350ffec6d9ae23b464" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 operator-</definition>
+        <argsstring>(double a, const Double256 &amp;bV)</argsstring>
+        <name>operator-</name>
+        <qualifiedname>avx::Double256::operator-</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>double</computeroutput> - <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to which <computeroutput>bV</computeroutput> should be substracted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be substracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> Vector being a result of <computeroutput>a</computeroutput> - <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="449" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="449" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="friend" id="classavx_1_1_double256_1a62bbe2144e3120c28254469d42b3d8d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 operator*</definition>
+        <argsstring>(double a, const Double256 &amp;bV)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>avx::Double256::operator*</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>double</computeroutput> * <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar which should be multiplied by <computeroutput>bV</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be multiplier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> Vector being a result of <computeroutput>a</computeroutput> * <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="459" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="459" bodyend="461"/>
+      </memberdef>
+      <memberdef kind="friend" id="classavx_1_1_double256_1ab7c5742bcd7b328b50789fa9fb77ddfa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
+        <definition>Double256 operator/</definition>
+        <argsstring>(double a, const Double256 &amp;bV)</argsstring>
+        <name>operator/</name>
+        <qualifiedname>avx::Double256::operator/</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
+          <declname>bV</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides support for <computeroutput>double</computeroutput> / <ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> operation. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar which should be divided by <computeroutput>bV</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector which will be divisor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> Vector being a result of <computeroutput>a</computeroutput> / <computeroutput>bV</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="469" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="469" bodyend="471"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -775,10 +1232,10 @@
 </listitem></itemizedlist>
 </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="18" bodyend="301"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="18" bodyend="473"/>
     <listofallmembers>
       <member refid="classavx_1_1_double256_1a68b3446b519207ed2b61df20d230c8ed" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
-      <member refid="classavx_1_1_double256_1a0ab0ae7fc1ec3b6dfeb602d6e6a83a83" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
+      <member refid="classavx_1_1_double256_1a3472009057128111f5820badab850b8e" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1a29faa27746bbd551a89f5b02c2a49b1c" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1a324980571e72f5aff187b2f0b2833534" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1a11138d06d78517916f2d70ec4f0e34c8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
@@ -788,22 +1245,26 @@
       <member refid="classavx_1_1_double256_1a651451005ba15ea458706e1682021af2" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>load</name></member>
       <member refid="classavx_1_1_double256_1a77c3aaccf7a7270a0e1e4d835af75cf1" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator!=</name></member>
       <member refid="classavx_1_1_double256_1a29c628531416a02c5fb1d82cf59fb3f8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator!=</name></member>
-      <member refid="classavx_1_1_double256_1a45465e7079338a409a2ae102fe0dfe36" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_double256_1a1b3d921ec6cdc768642b45539e6e8a02" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_double256_1a633316de27e630ce897223c31cab7c09" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*=</name></member>
-      <member refid="classavx_1_1_double256_1afd64dabe70aebcbbb9fbd157973b6d6a" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*=</name></member>
-      <member refid="classavx_1_1_double256_1aa0fe34c8e8232d29121c0baba152f457" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_double256_1aff7ad0961dd4adc4a265094ab9a95997" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_double256_1af9132623c7b4ebe2e0e6fe35ab81c33a" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_double256_1a8421f7bcfd356723cb949613d7a2a0b5" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_double256_1a130b0f40d279fbef58d05f47902f84f5" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_double256_1ad2e4bc47a901e578a5757e31d08ffd6b" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_double256_1a0cbbfc7ecf9966b24e5b99104a3a0e39" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_double256_1aff567c5ad55d94fa76cc3ca4f0400197" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_double256_1a31aaa1e75e086a3e0238a3f8dcc838bc" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/</name></member>
-      <member refid="classavx_1_1_double256_1a90d976b16c5bf7276f44438d016ae35f" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/</name></member>
-      <member refid="classavx_1_1_double256_1a77b459baf8ef4af5db87d696483722cd" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/=</name></member>
-      <member refid="classavx_1_1_double256_1aca648004707511ef73d082040cf2f8c8" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_double256_1a206c09c9c06b85b3313ade42a47fd0ba" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_double256_1a42c11e736e26d701508fe6e71f195682" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_double256_1a62bbe2144e3120c28254469d42b3d8d1" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_double256_1aaf0623987a45313c5f4ae5d44df0d0a1" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_double256_1aa00ab33ec898fc522a3f37c5c0f7ab4f" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_double256_1a140c3e18ac54982be49296b90b9157c3" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_double256_1a35184ff79f0a74eef013b8d459083084" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_double256_1a75d096397e6e70da582134dd1dd57c53" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_double256_1acfb345cf0a603a813cd83100d0ebfeb5" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_double256_1afc17de257a64ed53ea484154a3ca9ee7" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_double256_1a707751946a9ceadf4a712e05d30bcd89" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_double256_1a04a5edf91d663bdd97b1fce02ac9bf01" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_double256_1a172eb88428e5b9350ffec6d9ae23b464" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_double256_1ad8518d3572238cf78cab42e420a00ca0" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_double256_1af72fd196e8251b6a3ab4b85f44831598" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_double256_1a322d221c8a6f3807515b85a62db941ae" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_double256_1a2623f99805b7e8c79665f470229de7da" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_double256_1ab7c5742bcd7b328b50789fa9fb77ddfa" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/</name></member>
+      <member refid="classavx_1_1_double256_1adb7a7280bd0230abdbb12b51b40590ab" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_double256_1a71234df29fd155d08e9365b8aa6d303e" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator/=</name></member>
       <member refid="classavx_1_1_double256_1a8293f21316ea531711bac47a9ec0699b" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_double256_1aa547541d8dbe8e7cfdeefc7357f05065" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator==</name></member>
       <member refid="classavx_1_1_double256_1aa0dd0364633c34e87ac3fae731ebc7ed" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>operator[]</name></member>

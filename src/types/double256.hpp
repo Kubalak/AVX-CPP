@@ -32,16 +32,39 @@ namespace avx {
              */
             using storedType = double;
 
+            /**
+             * Default constructor. Initializes vector values with zeros.
+             */
             Double256() noexcept : v(_mm256_setzero_pd()){}
 
-            Double256(const double val) noexcept : v(_mm256_set1_pd(val)){}
+            /**
+             * Initializes all vector fields with single value.
+             * @param init A literal value to be set.
+             */
+            Double256(const double init) noexcept : v(_mm256_set1_pd(init)){}
 
+            /**
+             * Initializes vector but using `__m256d` type.
+             * @param init Raw value to be set.
+             */
             Double256(const __m256d init) noexcept : v(init){}
 
+            /**
+             * Initializes vector with value from other vector.
+             * @param init Object which value will be copied.
+             */
             Double256(const Double256 &init) noexcept : v(init.v){}
 
+            /**
+             * Initialize vector with values read from an array.
+             * @param init Array from which values will be copied.
+             */
             Double256(const std::array<double, 4> &init) noexcept : v(_mm256_loadu_pd(init.data())){}
 
+            /** Initializes vector by loading data from memory (via `_mm256_loadu_pd`).
+             * @param pSrc Valid memory addres of minimal size of 256-bits (32 bytes).
+             * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
+             */
             Double256(const double* pSrc) {    
             #ifndef NDEBUG
                 if(!pSrc)
@@ -51,6 +74,12 @@ namespace avx {
                 v = _mm256_loadu_pd(pSrc);
             }
 
+            /**
+             * Initializes vector with variable-length initializer list.
+             * If list contains less then 16 values missing values will be filled with zeros.
+             * Otherwise only first 16 values will be copied into vector.
+             * @param init Initializer list from which values will be copied.
+             */
             Double256(std::initializer_list<double> init) {
                 alignas(32) double init_v[size]{0.0, 0.0, 0.0, 0.0};
                 if(init.size() < size){
@@ -124,20 +153,26 @@ namespace avx {
                 _mm256_store_pd(pDest, v);
             }
 
-            
+            /**
+             * Get the internal vector value.
+             * @returns The value of `__m256i` vector.
+             */
             const __m256d get() const noexcept { return v;}
+
+            /**
+             * Set the internal vector value.
+             * @param value New value to be set.
+             */
             void set(__m256d val) noexcept { v = val;}
 
-
+            /**
+             * Compares two vectors for equality.
+             * This operator is secured against -0.0 == 0.0 comparison ensuring it will result `true`.
+             * @returns bool `true` if ALL values in vectors are equal otherwise `false`.
+             */
             bool operator==(const Double256& bV) {
-                // TODO: Check performance vs classic approach on MSVC and GCC.
                 __m256d eq = _mm256_xor_pd(v, bV.v); // Bitwise XOR - equal values return field with 0.
 
-                /*
-                    Explanation - compute bitwise AND with value and sign bit set to 0.
-                    Next is comparing result to 0 (remove sign bit from equation).
-                    Compute AND of NOT v and NOT bV.v - if they are equal (0) then corresponding field will be set to 0.
-                */
                 __m256d zerofx = _mm256_castsi256_pd(_mm256_andnot_si256(
                     _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256()),
                     _mm256_cmpeq_epi32(_mm256_castpd_si256(_mm256_and_pd(bV.v, constants::DOUBLE_NO_SIGN)), _mm256_setzero_si256())
@@ -149,6 +184,11 @@ namespace avx {
                 return _mm256_testz_si256(_mm256_castpd_si256(eq), _mm256_castpd_si256(eq)) != 0;
             }
 
+            /**
+             * Compares vector with scalar for equality.
+             * This operator is secured against -0.0 == 0.0 comparison ensuring it will return `true`.
+             * @returns bool `true` if ALL values in vector are equal to `b` otherwise `false`.
+             */
             bool operator==(const double b) {
                 __m256d bV = _mm256_set1_pd(b);
                 __m256d eq = _mm256_xor_pd(v, bV);
@@ -163,6 +203,11 @@ namespace avx {
                 return _mm256_testz_si256(_mm256_castpd_si256(eq), _mm256_castpd_si256(eq)) != 0;
             }
 
+            /**
+             * Compares two vectors for inequality.
+             * This operator is secured against -0.0 == 0.0 comparison ensuring it will return `false`.
+             * @returns bool `true` if ANY value in vectors is not equal otherwise `false`.
+             */
             bool operator!=(const Double256& bV) {
                 __m256d eq = _mm256_xor_pd(v, bV.v);
 
@@ -176,6 +221,11 @@ namespace avx {
                 return _mm256_testz_si256(_mm256_castpd_si256(eq), _mm256_castpd_si256(eq)) == 0;
             }
 
+            /**
+             * Compares vector with scalar for inequality.
+             * This operator is secured against -0.0 == 0.0 comparison ensuring it will return `false`.
+             * @returns bool `true` if ANY value in vector is not equal to `b` otherwise `false`.
+             */
             bool operator!=(const double b) {
                 __m256d bV = _mm256_set1_pd(b);
                 __m256d eq = _mm256_xor_pd(v, bV);
@@ -191,75 +241,155 @@ namespace avx {
             }
 
 
-            Double256 operator+(const Double256& other) const noexcept {
-                return Double256(_mm256_add_pd(v, other.v));
+            /**
+             * Adds two vectors together.
+             * @param bV Second vector.
+             * @returns New vector being result of adding `bV` to vector.
+             */
+            Double256 operator+(const Double256& bV) const noexcept {
+                return Double256(_mm256_add_pd(v, bV.v));
             }
 
-            Double256 operator+(const double val) const noexcept {
-                return Double256(_mm256_add_pd(v, _mm256_set1_pd(val)));
+            /**
+             * Adds scalar to all vector fields.
+             * @param b Scalar value to be added.
+             * @returns New vector being result of adding `b` to vector.
+             */
+            Double256 operator+(const double b) const noexcept {
+                return Double256(_mm256_add_pd(v, _mm256_set1_pd(b)));
             }
 
-            Double256& operator+=(const Double256& other) noexcept {
-                v = _mm256_add_pd(v, other.v);
+            /**
+             * Adds two vectors together and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after adding `bV` to vector.
+             */
+            Double256& operator+=(const Double256& bV) noexcept {
+                v = _mm256_add_pd(v, bV.v);
                 return *this;
             }
 
-            Double256& operator+=(const double val) noexcept {
-                v = _mm256_add_pd(v, _mm256_set1_pd(val));
+            /**
+             * Adds scalar to vector and stores result inside original vector.
+             * @param b Scalar to be added.
+             * @returns Reference to same vector after adding `b` to vector.
+             */
+            Double256& operator+=(const double b) noexcept {
+                v = _mm256_add_pd(v, _mm256_set1_pd(b));
                 return *this;
             }
 
-            Double256 operator-(const Double256& other) const noexcept {
-                return Double256(_mm256_sub_pd(v, other.v));
+            /**
+             * Subtracts two vectors.
+             * @param bV Second vector.
+             * @returns New vector being result of subtracting `bV` from vector.
+             */
+            Double256 operator-(const Double256& bV) const noexcept {
+                return Double256(_mm256_sub_pd(v, bV.v));
             }
 
-            Double256 operator-(const double val) const noexcept {
-                return Double256(_mm256_sub_pd(v, _mm256_set1_pd(val)));
+            /**
+             * Subtracts scalar from all vector fields.
+             * @param b Scalar value to be subtracted.
+             * @returns New vector being result of subtracting `b` from vector.
+             */
+            Double256 operator-(const double b) const noexcept {
+                return Double256(_mm256_sub_pd(v, _mm256_set1_pd(b)));
             }
 
-            Double256& operator-=(const Double256& other) noexcept {
-                v = _mm256_sub_pd(v, other.v);
+            /**
+             * Subtracts two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after subtracting `bV` from vector.
+             */
+            Double256& operator-=(const Double256& bV) noexcept {
+                v = _mm256_sub_pd(v, bV.v);
                 return *this;
             }
 
-            Double256& operator-=(const double val) noexcept {
-                v = _mm256_sub_pd(v, _mm256_set1_pd(val));
+            /**
+             * Subtracts scalar from vector and stores result inside original vector.
+             * @param b Scalar to be subtracted.
+             * @returns Reference to same vector after subtracting `b` from vector.
+             */
+            Double256& operator-=(const double b) noexcept {
+                v = _mm256_sub_pd(v, _mm256_set1_pd(b));
                 return *this;
             }
 
-            Double256 operator*(const Double256& other) const noexcept {
-                return Double256(_mm256_mul_pd(v, other.v));
+            /**
+             * Multiplies two vectors.
+             * @param bV Second vector.
+             * @returns New vector being result of multiplying vector by `bV`.
+             */
+            Double256 operator*(const Double256& bV) const noexcept {
+                return Double256(_mm256_mul_pd(v, bV.v));
             }
 
-            Double256 operator*(const double val) const noexcept {
-                return Double256(_mm256_mul_pd(v, _mm256_set1_pd(val)));
+            /**
+             * Multiplies all vector fields by scalar.
+             * @param b Scalar value to multiply by.
+             * @returns New vector being result of multiplying vector by `b`.
+             */
+            Double256 operator*(const double b) const noexcept {
+                return Double256(_mm256_mul_pd(v, _mm256_set1_pd(b)));
             }
 
-            Double256& operator*=(const Double256& other) noexcept {
-                v = _mm256_mul_pd(v, other.v);
+            /**
+             * Multiplies two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after multiplying by `bV`.
+             */
+            Double256& operator*=(const Double256& bV) noexcept {
+                v = _mm256_mul_pd(v, bV.v);
                 return *this;
             }
 
-            Double256& operator*=(const double val) noexcept {
-                v = _mm256_mul_pd(v, _mm256_set1_pd(val));
+            /**
+             * Multiplies vector by scalar and stores result inside original vector.
+             * @param b Scalar to multiply by.
+             * @returns Reference to same vector after multiplying by `b`.
+             */
+            Double256& operator*=(const double b) noexcept {
+                v = _mm256_mul_pd(v, _mm256_set1_pd(b));
                 return *this;
             }
 
-            Double256 operator/(const Double256& other) const noexcept {
-                return Double256(_mm256_div_pd(v, other.v));
+            /**
+             * Divides two vectors.
+             * @param bV Second vector (divisor).
+             * @returns New vector being result of dividing vector by `bV`.
+             */
+            Double256 operator/(const Double256& bV) const noexcept {
+                return Double256(_mm256_div_pd(v, bV.v));
             }
 
-            Double256 operator/(const double val) const noexcept {
-                return Double256(_mm256_div_pd(v, _mm256_set1_pd(val)));
+            /**
+             * Divides all vector fields by scalar.
+             * @param b Scalar value (divisor).
+             * @returns New vector being result of dividing vector by `b`.
+             */
+            Double256 operator/(const double b) const noexcept {
+                return Double256(_mm256_div_pd(v, _mm256_set1_pd(b)));
             }
 
-            Double256& operator/=(const Double256& other) noexcept {
-                v = _mm256_div_pd(v, other.v);
+            /**
+             * Divides two vectors and stores result inside original vector.
+             * @param bV Second vector (divisor).
+             * @returns Reference to same vector after dividing by `bV`.
+             */
+            Double256& operator/=(const Double256& bV) noexcept {
+                v = _mm256_div_pd(v, bV.v);
                 return *this;
             }
 
-            Double256& operator/=(const double val) noexcept {
-                v = _mm256_div_pd(v, _mm256_set1_pd(val));
+            /**
+             * Divides vector by scalar and stores result inside original vector.
+             * @param b Scalar value (divisor).
+             * @returns Reference to same vector after dividing by `b`.
+             */
+            Double256& operator/=(const double b) noexcept {
+                v = _mm256_div_pd(v, _mm256_set1_pd(b));
                 return *this;
             }
 
@@ -300,18 +430,42 @@ namespace avx {
 
             // Friend operators (used for double <op> Double256)
 
+            /**
+             * Provides support for `double` + Double256 operation.
+             * @param a Scalar to which `bV` should be added.
+             * @param bV Vector which will be added.
+             * @returns Double256 Vector being a result of `a` + `bV`
+             */
             friend Double256 operator+(double a, const Double256 &bV){
                 return _mm256_add_pd(bV.v, _mm256_set1_pd(a));
             }
 
+            /**
+             * Provides support for `double` - Double256 operation.
+             * @param a Scalar to which `bV` should be substracted.
+             * @param bV Vector which will be substracted.
+             * @returns Double256 Vector being a result of `a` - `bV`
+             */
             friend Double256 operator-(double a, const Double256 &bV){
                 return _mm256_sub_pd(_mm256_set1_pd(a), bV.v);
             }
 
+            /**
+             * Provides support for `double` * Double256 operation.
+             * @param a Scalar which should be multiplied by `bV`.
+             * @param bV Vector which will be multiplier.
+             * @returns Double256 Vector being a result of `a` * `bV`
+             */
             friend Double256 operator*(double a, const Double256 &bV){
                 return _mm256_mul_pd(_mm256_set1_pd(a), bV.v);
             }
 
+            /**
+             * Provides support for `double` / Double256 operation.
+             * @param a Scalar which should be divided by `bV`.
+             * @param bV Vector which will be divisor.
+             * @returns Double256 Vector being a result of `a` / `bV`
+             */
             friend Double256 operator/(double a, const Double256 &bV){
                 return _mm256_div_pd(_mm256_set1_pd(a), bV.v);
             }

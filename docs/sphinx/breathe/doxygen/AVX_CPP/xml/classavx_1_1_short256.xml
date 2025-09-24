@@ -232,10 +232,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector with variable-length initializer list. If list contains less then 16 values missing values will be filled with zeros. Otherwise only first 16 values will be copied into vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initializer list from which values will be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="82" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="82" bodyend="100"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="88" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="88" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ac085f845171473d6841976cb2919c83f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -272,7 +282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="107" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="107" bodyend="114"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="113" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="113" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a34543cb7eb1e5ff70afd1295f293ace8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -300,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="120" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="120" bodyend="122"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="126" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="126" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ab06d63dbc0e7e7a2000e9071e6269dc8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -338,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="131" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="131" bodyend="138"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="137" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="137" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a079c3610bc32db324cd4a4503ac7c9eb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -376,7 +386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="147" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="147" bodyend="154"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="153" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="153" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae72ae89bf693753229f57fa8d15223a7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
@@ -393,7 +403,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="160" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="160" bodyend="160"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="166" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="166" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a2b2b1d77009c1998f7d497ac8d714212" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -421,7 +431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="166" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="166" bodyend="166"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="172" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="172" bodyend="172"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1aed471999bc6221584be97499496a95f8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>short</type>
@@ -460,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="175" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="175" bodyend="181"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="181" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="181" bodyend="187"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae0daa7cf99adb8efa6a7991c893fd05d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -490,7 +500,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="192" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="192" bodyend="195"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="198" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="198" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a80ee1427f2f381c909f99c9bfb3a270c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -520,7 +530,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="203" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="203" bodyend="207"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="209" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="209" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae50ac2925a95842c60e0c16a30e3acd1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -550,7 +560,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="215" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="215" bodyend="218"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="221" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="221" bodyend="224"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1abd66e8e1a42167959eb0823dbd8665fb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -580,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="226" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="226" bodyend="230"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="232" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="232" bodyend="236"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae14348eb7ddcb22bf7ff1e4fc279f451" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -598,7 +608,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="232" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="232" bodyend="234"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="238" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="238" bodyend="240"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a1c3faa6e766509540ff14d0227e801be" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -616,7 +626,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="236" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="236" bodyend="238"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="242" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="242" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a8eee8205ce3b426b7f1821ba69d187c2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -634,7 +644,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="240" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="240" bodyend="243"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="246" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="246" bodyend="249"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a48f7a25fb2af9ab4381547b560955ffc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -652,7 +662,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="245" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="245" bodyend="248"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="251" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="251" bodyend="254"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a206411e499aeeb14a22b99cbc7c7c644" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -670,7 +680,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="250" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="250" bodyend="252"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="256" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="256" bodyend="258"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a388e8d614c2fe69303cc3aa6220bcfb3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -688,7 +698,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="254" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="254" bodyend="256"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="260" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="260" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ab78b9e248e8a556f5fce73bb5a0c0d91" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -706,7 +716,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="258" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="258" bodyend="261"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="264" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="264" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae2916772dd69ee6b73e0d713b78f1f27" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -724,7 +734,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="263" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="263" bodyend="266"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="269" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="269" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a5501a5b8e81e6e071aba659380146b5d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -742,7 +752,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="268" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="268" bodyend="270"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="274" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="274" bodyend="276"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a9440a32753b5aa4f403abb76208cc703" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -760,7 +770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="272" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="272" bodyend="274"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="278" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="278" bodyend="280"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1aa6e6e693e9afaf5a4b63ac4fc3056ab1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -778,7 +788,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="276" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="276" bodyend="279"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="282" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="282" bodyend="285"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a999880febc8aadec6b689c65a0e49557" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -796,7 +806,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="281" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="281" bodyend="284"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="287" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="287" bodyend="290"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a73de1d8dbbf220f75c2413bb8da6bc34" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -827,7 +837,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="292" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="292" bodyend="319"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="298" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="298" bodyend="325"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a0647a2bbb6512b947cd3aebe72f351e6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -858,7 +868,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="327" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="327" bodyend="352"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="333" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="333" bodyend="358"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a114390fd7ca813c64ff72e9048a333ae" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -876,7 +886,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="354" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="354" bodyend="382"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="360" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="360" bodyend="388"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a6469869ad44111741c6d73149d79295c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -894,7 +904,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="384" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="384" bodyend="410"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="390" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="390" bodyend="416"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a3989f754aa831fb59788b6f8ad817158" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -925,7 +935,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="419" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="419" bodyend="448"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="425" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="425" bodyend="454"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a7dca86199384be723d69c3f6452d645c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -956,7 +966,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="458" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="458" bodyend="485"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="464" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="464" bodyend="491"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a6b2e282b9215fa05c56adea92414daa3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -974,7 +984,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="488" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="488" bodyend="518"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="494" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="494" bodyend="524"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a78984778f13930553c15e43d594afb02" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -992,7 +1002,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="520" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="520" bodyend="548"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="526" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="526" bodyend="554"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1afdf954919c07e577522ab7d913ccb67e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1010,7 +1020,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="550" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="550" bodyend="552"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="556" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="556" bodyend="558"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a7056e0693fd5399a08775e356c7f1292" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1028,7 +1038,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="554" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="554" bodyend="556"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="560" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="560" bodyend="562"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae11427edc1e45fa9a9428ad130e043bb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1046,7 +1056,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="558" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="558" bodyend="561"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="564" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="564" bodyend="567"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1afc0db19844986982ca9691757993c12d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1064,7 +1074,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="563" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="563" bodyend="566"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="569" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="569" bodyend="572"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a2644e68f65eae7de70b1ca07bc213cb9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1082,7 +1092,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="568" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="568" bodyend="570"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="574" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="574" bodyend="576"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1af19a60e9a45cbfaa856e9eecff27fd0f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1100,7 +1110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="572" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="572" bodyend="574"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="578" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="578" bodyend="580"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ab03a68ee7efae34fa0c3394da2c64c7a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1118,7 +1128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="576" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="576" bodyend="579"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="582" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="582" bodyend="585"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a7dbd6386b04eabca679f0348d02ef105" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1136,7 +1146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="581" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="581" bodyend="584"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="587" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="587" bodyend="590"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a2cc8e60eeee17c03f6c32392af06e076" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1154,7 +1164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="586" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="586" bodyend="588"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="592" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="592" bodyend="594"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a197b9d9cdffadb4d91021c900aec2627" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1172,7 +1182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="590" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="590" bodyend="592"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="596" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="596" bodyend="598"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a6d94ba8f4a8e64911416e0b6b48fcbd0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1190,7 +1200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="594" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="594" bodyend="597"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="600" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="600" bodyend="603"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a77cfdd86287443173a83d024260d55a6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1208,7 +1218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="599" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="599" bodyend="602"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="605" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="605" bodyend="608"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a34c2ccf9977b9ad83cf985c373aaf4f2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1238,7 +1248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="609" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="609" bodyend="634"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="615" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="615" bodyend="640"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a357077bcb5fa9153cbcd320420888f99" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1256,7 +1266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="636" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="636" bodyend="638"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="642" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="642" bodyend="644"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a1371fa0c7fee53c0e10e003d660890d0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1274,7 +1284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="640" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="640" bodyend="660"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="646" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="646" bodyend="666"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ac30aa8e5b848fe2e03af3c26959f48ac" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1292,7 +1302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="662" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="662" bodyend="665"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="668" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="668" bodyend="671"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1aa57a940e70fca4d3205539c2fe459398" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1310,7 +1320,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="667" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="667" bodyend="690"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="673" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="673" bodyend="696"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1aa17751f8eaca804461c844b60bcf6f68" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1328,7 +1338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="692" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="692" bodyend="694"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="698" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="698" bodyend="700"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a12ceef5ca182bef2f9150a858f2534d1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1346,7 +1356,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="696" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="696" bodyend="720"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="702" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="702" bodyend="726"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a1d228441e6828fb98f0f71d069812e94" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1364,7 +1374,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="722" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="722" bodyend="725"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="728" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="728" bodyend="731"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a63cc935bd0562b8e654a60972874da30" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1378,7 +1388,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="727" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="727" bodyend="729"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="733" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="733" bodyend="735"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a14d416aaac181668ab59e5676d8654cf" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1392,7 +1402,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="731" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="731" bodyend="740"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="737" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="737" bodyend="746"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1400,7 +1410,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>short</computeroutput>. Can hold 16 individual <computeroutput>short</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="19" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="19" bodyend="741"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="19" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="19" bodyend="747"/>
     <listofallmembers>
       <member refid="classavx_1_1_short256_1ae72ae89bf693753229f57fa8d15223a7" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>get</name></member>
       <member refid="classavx_1_1_short256_1ac085f845171473d6841976cb2919c83f" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>load</name></member>

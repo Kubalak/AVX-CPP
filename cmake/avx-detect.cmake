@@ -22,7 +22,7 @@ set(AVX512_CODE "
 
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU|Clang)
     set(AVX2_FLAGS -mavx2)
-    set(AVX512_FLAGS -mavx512f -mavx512dq -mavx512vl)
+    set(AVX512_FLAGS -mavx512f -mavx512dq -mavx512vl -mavx512bw)
 elseif(MSVC)
     set(AVX2_FLAGS /arch:AVX2)
     set(AVX512_FLAGS /arch:AVX512)

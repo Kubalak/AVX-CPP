@@ -1,3 +1,7 @@
+v0.9.6
+- Documentation update
+- Minor fixes for AVX512 version of operators
+
 v0.9.5
 - Refactor of perf utils to support floating point types.
 - Added perf tests for Double256 and Float256.
