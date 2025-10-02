@@ -1,6 +1,7 @@
 #pragma once
 #ifndef FLOAT256_HPP__
 #define FLOAT256_HPP__
+
 #include <array>
 #include <string>
 #include <cstring>

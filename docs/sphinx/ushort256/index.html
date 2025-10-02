@@ -361,7 +361,13 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort2569UShort256ENSt16initializer_listItEE">
 <span id="_CPPv3N3avx9UShort2569UShort256ENSt16initializer_listItEE"></span><span id="_CPPv2N3avx9UShort2569UShort256ENSt16initializer_listItEE"></span><span id="avx::UShort256::UShort256__std::initializer_list:unsigned-short:"></span><span class="target" id="classavx_1_1_u_short256_1a85b79fe378f9016e455c0d9622485f32"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UShort256</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">initializer_list</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3avx9UShort2569UShort256ENSt16initializer_listItEE" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Initializes vector from initializer_list of int values. If the list contains fewer than 16 elements, remaining elements are set to zero. If the list contains more than 16 elements, only the first 16 are used. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>init</strong> – Initializer list of int values. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort2569UShort256EPKt">
@@ -369,7 +375,7 @@
 <dd><p>Initialize vector with values using pointer. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>addr</strong> – A valid address containing at least 16 <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span></code> numbers. </p>
+<dd class="field-odd"><p><strong>pSrc</strong> – A valid address containing at least 16 <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">short</span></code> numbers. </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pSrc</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
@@ -602,7 +608,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256dvERK9UShort256">
 <span id="_CPPv3NK3avx9UShort256dvERK9UShort256"></span><span id="_CPPv2NK3avx9UShort256dvERK9UShort256"></span><span id="avx::UShort256::div-operator__UShort256CRC"></span><span class="target" id="classavx_1_1_u_short256_1aa50ba20c9d3c28f73e0498d4eef2e43c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256dvERK9UShort256" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Performs an integer division.</p>
-<p>NOTE: Value is first casted to <code class="docutils literal notranslate"><span class="pre">int</span></code> and then to <code class="docutils literal notranslate"><span class="pre">float</span></code> and inverse to return integer result which has not been yet tested for performance. </p>
+<p>NOTE: Value is first casted to <code class="docutils literal notranslate"><span class="pre">int</span></code> and then to <code class="docutils literal notranslate"><span class="pre">float</span></code> and inverse using <code class="docutils literal notranslate"><span class="pre">_mm256_cvttps_epi32</span></code> to return integer. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>bV</strong> – Divisors vector. </p>
@@ -617,10 +623,10 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256dvERKt">
 <span id="_CPPv3NK3avx9UShort256dvERKt"></span><span id="_CPPv2NK3avx9UShort256dvERKt"></span><span id="avx::UShort256::div-operator__unsigned-shortCRC"></span><span class="target" id="classavx_1_1_u_short256_1a0d09fa219aafb160cbd740130702c4e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256dvERKt" title="Link to this definition">¶</a><br /></dt>
 <dd><p>Performs an integer division.</p>
-<p>NOTE: Value is first casted to <code class="docutils literal notranslate"><span class="pre">int</span></code> and then to <code class="docutils literal notranslate"><span class="pre">float</span></code> and inverse to return integer result which has not been yet tested for performance. </p>
+<p>NOTE: Value is first casted to <code class="docutils literal notranslate"><span class="pre">int</span></code> and then to <code class="docutils literal notranslate"><span class="pre">float</span></code> and inverse using <code class="docutils literal notranslate"><span class="pre">_mm256_cvttps_epi32</span></code> to return integer. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>bV</strong> – Divisor value. </p>
+<dd class="field-odd"><p><strong>b</strong> – Divisor value. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Result of integer division with truncation. </p>
@@ -662,7 +668,7 @@
 <p>NOTE: Analogously as in <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">/=</span></code> operators values are casted before performing a division. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>bV</strong> – Divisor. </p>
+<dd class="field-odd"><p><strong>b</strong> – Divisor. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Modulo result. </p>
@@ -694,7 +700,7 @@
 <p>NOTE: Analogously as in <code class="docutils literal notranslate"><span class="pre">/</span></code> and <code class="docutils literal notranslate"><span class="pre">/=</span></code> operators values are casted before performing a division. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>bV</strong> – Divisor. </p>
+<dd class="field-odd"><p><strong>b</strong> – Divisor. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Reference to modified object. </p>
@@ -705,62 +711,170 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256orERK9UShort256">
 <span id="_CPPv3NK3avx9UShort256orERK9UShort256"></span><span id="_CPPv2NK3avx9UShort256orERK9UShort256"></span><span id="avx::UShort256::or-operator__UShort256CRC"></span><span class="target" id="classavx_1_1_u_short256_1a245bc722cb6ed16934b0a544a5fbb0ab"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256orERK9UShort256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_u_short256"><span class="std std-ref">UShort256</span></a> New vector being result of bitwise OR with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256orERKt">
 <span id="_CPPv3NK3avx9UShort256orERKt"></span><span id="_CPPv2NK3avx9UShort256orERKt"></span><span id="avx::UShort256::or-operator__unsigned-shortCRC"></span><span class="target" id="classavx_1_1_u_short256_1ad15b87b6b9f68fb98bfd84ad8fc6ee04"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256orERKt" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to OR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_u_short256"><span class="std std-ref">UShort256</span></a> New vector being result of bitwise OR with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort256oRERK9UShort256">
 <span id="_CPPv3N3avx9UShort256oRERK9UShort256"></span><span id="_CPPv2N3avx9UShort256oRERK9UShort256"></span><span id="avx::UShort256::or-assign-operator__UShort256CR"></span><span class="target" id="classavx_1_1_u_short256_1a2cd367e5a8165466153144faf7907672"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx9UShort256oRERK9UShort256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort256oRERKt">
 <span id="_CPPv3N3avx9UShort256oRERKt"></span><span id="_CPPv2N3avx9UShort256oRERKt"></span><span id="avx::UShort256::or-assign-operator__unsigned-shortCR"></span><span class="target" id="classavx_1_1_u_short256_1a42f9b040fd98457ff1194a140fcf3a20"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx9UShort256oRERKt" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator with scalar. Applies bitwise OR between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to OR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256anERK9UShort256">
 <span id="_CPPv3NK3avx9UShort256anERK9UShort256"></span><span id="_CPPv2NK3avx9UShort256anERK9UShort256"></span><span id="avx::UShort256::and-operator__UShort256CRC"></span><span class="target" id="classavx_1_1_u_short256_1a28717195dcfc5f81f8c2c9dcd5680ee8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256anERK9UShort256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_u_short256"><span class="std std-ref">UShort256</span></a> New vector being result of bitwise AND with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256anERKt">
 <span id="_CPPv3NK3avx9UShort256anERKt"></span><span id="_CPPv2NK3avx9UShort256anERKt"></span><span id="avx::UShort256::and-operator__unsigned-shortCRC"></span><span class="target" id="classavx_1_1_u_short256_1abd67657ded66c2e764e2345a765e4f25"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256anERKt" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to AND with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_u_short256"><span class="std std-ref">UShort256</span></a> New vector being result of bitwise AND with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort256aNERK9UShort256">
 <span id="_CPPv3N3avx9UShort256aNERK9UShort256"></span><span id="_CPPv2N3avx9UShort256aNERK9UShort256"></span><span id="avx::UShort256::and-assign-operator__UShort256CR"></span><span class="target" id="classavx_1_1_u_short256_1a64c1f727f6391003f3ec52ddffbea635"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx9UShort256aNERK9UShort256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort256aNERKt">
 <span id="_CPPv3N3avx9UShort256aNERKt"></span><span id="_CPPv2N3avx9UShort256aNERKt"></span><span id="avx::UShort256::and-assign-operator__unsigned-shortCR"></span><span class="target" id="classavx_1_1_u_short256_1afd0661bb16f73cc59b6545d645bb0e1c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx9UShort256aNERKt" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND assignment operator with scalar. Applies bitwise AND between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to AND with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256eoERK9UShort256">
 <span id="_CPPv3NK3avx9UShort256eoERK9UShort256"></span><span id="_CPPv2NK3avx9UShort256eoERK9UShort256"></span><span id="avx::UShort256::xor-operator__UShort256CRC"></span><span class="target" id="classavx_1_1_u_short256_1a0a82039db3a199c50ba59eb18bde62f6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256eoERK9UShort256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_u_short256"><span class="std std-ref">UShort256</span></a> New vector being result of bitwise XOR with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256eoERKt">
 <span id="_CPPv3NK3avx9UShort256eoERKt"></span><span id="_CPPv2NK3avx9UShort256eoERKt"></span><span id="avx::UShort256::xor-operator__unsigned-shortCRC"></span><span class="target" id="classavx_1_1_u_short256_1aa6b1ab4cd5b1b25f4400174fe823365a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256eoERKt" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to XOR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_u_short256"><span class="std std-ref">UShort256</span></a> New vector being result of bitwise XOR with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort256eOERK9UShort256">
 <span id="_CPPv3N3avx9UShort256eOERK9UShort256"></span><span id="_CPPv2N3avx9UShort256eOERK9UShort256"></span><span id="avx::UShort256::xor-assign-operator__UShort256CR"></span><span class="target" id="classavx_1_1_u_short256_1aff6bd2703acccb9f2edb0e982c72fd96"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx9UShort256eOERK9UShort256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx9UShort256eOERKt">
 <span id="_CPPv3N3avx9UShort256eOERKt"></span><span id="_CPPv2N3avx9UShort256eOERKt"></span><span id="avx::UShort256::xor-assign-operator__unsigned-shortCR"></span><span class="target" id="classavx_1_1_u_short256_1a85b3674058f5d8703013ed4f97aee65c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx9UShort256eOERKt" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator with scalar. Applies bitwise XOR between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to XOR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256lsERK9UShort256">
@@ -814,12 +928,24 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort256coEv">
 <span id="_CPPv3NK3avx9UShort256coEv"></span><span id="_CPPv2NK3avx9UShort256coEv"></span><span id="avx::UShort256::inv-operatorC"></span><span class="target" id="classavx_1_1_u_short256_1ae3fec3bfc3a67b7b16f5ed30a5f36c10"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx9UShort256E" title="avx::UShort256"><span class="n"><span class="pre">UShort256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">~</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort256coEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise NOT operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classavx_1_1_u_short256"><span class="std std-ref">UShort256</span></a> New vector with all bits inverted. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx9UShort2563strEv">
 <span id="_CPPv3NK3avx9UShort2563strEv"></span><span id="_CPPv2NK3avx9UShort2563strEv"></span><span id="avx::UShort256::strC"></span><span class="target" id="classavx_1_1_u_short256_1a8b02114f7ddd83e51ed7ad7a5ee12861"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">str</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx9UShort2563strEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns string representation of vector. Printing will result in Short256(&lt;vector_values&gt;) eg. Short256(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String representation of underlying vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">

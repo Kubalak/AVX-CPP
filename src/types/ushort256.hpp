@@ -58,6 +58,12 @@ namespace avx {
              */
             UShort256(const std::array<unsigned short, 16>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
+            /**
+             * Initializes vector from initializer_list of int values.
+             * If the list contains fewer than 16 elements, remaining elements are set to zero.
+             * If the list contains more than 16 elements, only the first 16 are used.
+             * @param init Initializer list of int values.
+             */
             UShort256(std::initializer_list<unsigned short> init) {
                 alignas(32) unsigned short init_v[size];
                 std::memset(init_v, 0, 32);
@@ -81,7 +87,7 @@ namespace avx {
 
             /**
              * Initialize vector with values using pointer.
-             * @param addr A valid address containing at least 16 `unsigned short` numbers.
+             * @param pSrc A valid address containing at least 16 `unsigned short` numbers.
              * @throws std::invalid_argument If in Debug mode and `pSrc` is `nullptr`. In Release mode no checks are performed to improve efficiency.
             */
             explicit UShort256(const unsigned short* pSrc) {
@@ -118,7 +124,7 @@ namespace avx {
              * Saves data to destination in memory.
              * @param dest Reference to the list to which vector will be saved. Array doesn't need to be aligned to any specific boundary.
              */
-            void save(std::array<unsigned short, 16>& dest) const noexcept {
+            void save(std::array<unsigned short, 16> &dest) const noexcept {
                 _mm256_storeu_si256((__m256i*)dest.data(), v);
             }
 
@@ -344,42 +350,63 @@ namespace avx {
             /**
              * Performs an integer division. 
              * 
-             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result which has not been yet tested for performance.
+             * NOTE: Value is first casted to `int` and then to `float` and inverse using `_mm256_cvttps_epi32` to return integer.
              * @param bV Divisors vector.
              * @return Result of integer division with truncation.
              */
-            UShort256 operator/(const UShort256& bV) const noexcept {
-                __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
-                v_first_half = _mm256_srli_si256(v_first_half, 2);
-                __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
-                __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
-                __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
+            UShort256 operator/(const UShort256 &bV) const noexcept {
+                #ifdef __AVX512F__
+                    return _mm512_cvtepi32_epi16(
+                        _mm512_cvttps_epi32(
+                            _mm512_div_ps(
+                                _mm512_cvtepi32_ps(_mm512_cvtepu16_epi32(v)), 
+                                _mm512_cvtepi32_ps(_mm512_cvtepu16_epi32(bV.v))
+                            )
+                        )
+                    );
+                #else
+                    __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
+                    v_first_half = _mm256_srli_si256(v_first_half, 2);
+                    __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
+                    __m256 v_fhalf_f = _mm256_cvtepi32_ps(v_first_half);
+                    __m256 v_shalf_f = _mm256_cvtepi32_ps(v_second_half);
 
-                __m256i bv_first_half = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32_INVERSE);
-                bv_first_half = _mm256_srli_si256(bv_first_half, 2);
-                __m256i bv_second_half = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32);
-                __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
-                __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
+                    __m256i bv_first_half = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32_INVERSE);
+                    bv_first_half = _mm256_srli_si256(bv_first_half, 2);
+                    __m256i bv_second_half = _mm256_and_si256(bV.v, constants::EPI16_CRATE_EPI32);
+                    __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
+                    __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                    __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                    __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
 
-                fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
-                fresult = _mm256_slli_si256(fresult, 2);
+                    fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
+                    fresult = _mm256_slli_si256(fresult, 2);
 
-                sresult = _mm256_and_si256(sresult, constants::EPI16_CRATE_EPI32);
-                
-                return _mm256_or_si256(fresult, sresult);
+                    sresult = _mm256_and_si256(sresult, constants::EPI16_CRATE_EPI32);
+                    
+                    return _mm256_or_si256(fresult, sresult);
+                #endif
             }
 
              /**
              * Performs an integer division. 
              * 
-             * NOTE: Value is first casted to `int` and then to `float` and inverse to return integer result which has not been yet tested for performance.
-             * @param bV Divisor value.
+             * NOTE: Value is first casted to `int` and then to `float` and inverse using `_mm256_cvttps_epi32` to return integer.
+             * @param b Divisor value.
              * @return Result of integer division with truncation.
              */
-            UShort256 operator/(const unsigned short& b) const noexcept {
+            UShort256 operator/(const unsigned short &b) const noexcept {
+            #ifdef __AVX512F__
+                return _mm512_cvtepi32_epi16(
+                    _mm512_cvttps_epi32(
+                        _mm512_div_ps(
+                            _mm512_cvtepi32_ps(_mm512_cvtepu16_epi32(v)), 
+                            _mm512_set1_ps(static_cast<float>(b))
+                        )
+                    )
+                );
+            #else
                 __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
                 v_first_half = _mm256_srli_si256(v_first_half, 2);
                 __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -388,8 +415,8 @@ namespace avx {
 
                 __m256 bV = _mm256_set_ps(b, b, b, b, b, b, b, b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -397,9 +424,20 @@ namespace avx {
                 sresult = _mm256_and_si256(sresult, constants::EPI16_CRATE_EPI32);
                 
                 return _mm256_or_si256(fresult, sresult);
+            #endif
             }
 
             UShort256& operator/=(const UShort256& bV) noexcept {
+            #ifdef __AVX512F__
+                v = _mm512_cvtepi32_epi16(
+                        _mm512_cvttps_epi32(
+                            _mm512_div_ps(
+                                _mm512_cvtepi32_ps(_mm512_cvtepu16_epi32(v)), 
+                                _mm512_cvtepi32_ps(_mm512_cvtepu16_epi32(bV.v))
+                            )
+                        )
+                    );
+            #else
                 __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
                 v_first_half = _mm256_srli_si256(v_first_half, 2);
                 __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -412,8 +450,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -421,10 +459,21 @@ namespace avx {
                 sresult = _mm256_and_si256(sresult, constants::EPI16_CRATE_EPI32);
                 
                 v = _mm256_or_si256(fresult, sresult);
+            #endif
                 return *this;
             }
             
             UShort256& operator/=(const unsigned short& b) noexcept {
+            #ifdef __AVX512F__
+                v = _mm512_cvtepi32_epi16(
+                    _mm512_cvttps_epi32(
+                        _mm512_div_ps(
+                            _mm512_cvtepi32_ps(_mm512_cvtepu16_epi32(v)), 
+                            _mm512_set1_ps(static_cast<float>(b))
+                        )
+                    )
+                );
+            #else
                 __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
                 v_first_half = _mm256_srli_si256(v_first_half, 2);
                 __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -433,8 +482,8 @@ namespace avx {
 
                 __m256 bV = _mm256_set_ps(b, b, b, b, b, b, b, b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bV), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bV));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bV));
 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 fresult = _mm256_slli_si256(fresult, 2);
@@ -442,6 +491,7 @@ namespace avx {
                 sresult = _mm256_and_si256(sresult, constants::EPI16_CRATE_EPI32);
                 
                 v = _mm256_or_si256(fresult, sresult);
+            #endif
                 return *this;
             }
 
@@ -455,7 +505,7 @@ namespace avx {
              * @param bV Divisor.
              * @return Modulo result.
              */
-            UShort256 operator%(const UShort256& bV) const noexcept {
+            UShort256 operator%(const UShort256 &bV) const noexcept {
                 __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
                 v_first_half = _mm256_srli_si256(v_first_half, 2);
                 __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -468,8 +518,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
 
@@ -491,10 +541,10 @@ namespace avx {
              * Due to SIMD (AVX2) limitations values are casted to two float vectors and then divided.
              * 
              * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
-             * @param bV Divisor.
+             * @param b Divisor.
              * @return Modulo result.
              */
-            UShort256 operator%(const unsigned short& b) noexcept {
+            UShort256 operator%(const unsigned short &b) noexcept {
                 __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
                 v_first_half = _mm256_srli_si256(v_first_half, 2);
                 __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -504,8 +554,8 @@ namespace avx {
                 __m256i bV = _mm256_set_epi16(0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b);
                 __m256 bVf = _mm256_set1_ps(b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bVf));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bVf));
 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
                 sresult = _mm256_and_si256(sresult, constants::EPI16_CRATE_EPI32);
@@ -541,8 +591,8 @@ namespace avx {
                 __m256 bv_fhalf_f = _mm256_cvtepi32_ps(bv_first_half);
                 __m256 bv_shalf_f = _mm256_cvtepi32_ps(bv_second_half);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bv_fhalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bv_shalf_f), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bv_fhalf_f));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bv_shalf_f));
 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
 
@@ -564,10 +614,10 @@ namespace avx {
              * Due to SIMD (AVX2) limitations values are casted to two float vectors and then divided.
              * 
              * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
-             * @param bV Divisor.
+             * @param b Divisor.
              * @return Reference to modified object.
              */
-            UShort256& operator%=(const unsigned short& b) noexcept {
+            UShort256& operator%=(const unsigned short &b) noexcept {
                 __m256i v_first_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
                 v_first_half = _mm256_srli_si256(v_first_half, 2);
                 __m256i v_second_half = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32);
@@ -577,8 +627,8 @@ namespace avx {
                 __m256i bV = _mm256_set_epi16(0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b);
                 __m256 bVf = _mm256_set1_ps(b);
 
-                __m256i fresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_fhalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
-                __m256i sresult = _mm256_cvtps_epi32(_mm256_round_ps(_mm256_div_ps(v_shalf_f, bVf), _MM_FROUND_TO_ZERO | _MM_FROUND_NO_EXC));
+                __m256i fresult = _mm256_cvttps_epi32(_mm256_div_ps(v_fhalf_f, bVf));
+                __m256i sresult = _mm256_cvttps_epi32(_mm256_div_ps(v_shalf_f, bVf));
 
                 fresult = _mm256_and_si256(fresult, constants::EPI16_CRATE_EPI32);
 
@@ -592,57 +642,123 @@ namespace avx {
                 v = _mm256_or_si256(fresult, sresult);
                 return *this;
             }
-
+            
+            /**
+             * Bitwise OR operator.
+             * @param bV Second vector.
+             * @return UShort256 New vector being result of bitwise OR with `bV`.
+             */
             UShort256 operator|(const UShort256& bV) const noexcept {
                 return _mm256_or_si256(v, bV.v);
             }
 
+            /**
+             * Bitwise OR operator with scalar.
+             * @param b Value to OR with.
+             * @return UShort256 New vector being result of bitwise OR with `b`.
+             */
             UShort256 operator|(const unsigned short& b) const noexcept {
                 return _mm256_or_si256(v, _mm256_set1_epi16(b));
             }
-
+            
+            /**
+             * Bitwise OR assignment operator.
+             * Applies bitwise OR between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             UShort256& operator|=(const UShort256& bV) noexcept {
                 v = _mm256_or_si256(v, bV.v);
                 return *this;
             }
-
+            
+            /**
+             * Bitwise OR assignment operator with scalar.
+             * Applies bitwise OR between this vector and the given value, storing the result in this vector.
+             * @param b Value to OR with.
+             * @return Reference to the modified object.
+             */
             UShort256& operator|=(const unsigned short& b) noexcept {
                 v = _mm256_or_si256(v, _mm256_set1_epi16(b));
                 return *this;
             }
 
+            /**
+             * Bitwise AND operator.
+             * @param bV Second vector.
+             * @return UShort256 New vector being result of bitwise AND with `bV`.
+             */
             UShort256 operator&(const UShort256& bV) const noexcept {
                 return _mm256_and_si256(v, bV.v);
             }
 
+            /**
+             * Bitwise AND operator with scalar.
+             * @param b Value to AND with.
+             * @return UShort256 New vector being result of bitwise AND with `b`.
+             */
             UShort256 operator&(const unsigned short& b) const noexcept {
                 return _mm256_and_si256(v, _mm256_set1_epi16(b));
             }
-
+            
+            /**
+             * Bitwise AND assignment operator.
+             * Applies bitwise AND between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             UShort256& operator&=(const UShort256& bV) noexcept {
                 v = _mm256_and_si256(v, bV.v);
                 return *this;
             }
-
+            
+            /**
+             * Bitwise AND assignment operator with scalar.
+             * Applies bitwise AND between this vector and the given value, storing the result in this vector.
+             * @param b Value to AND with.
+             * @return Reference to the modified object.
+             */
             UShort256& operator&=(const unsigned short& b) noexcept {
                 v = _mm256_and_si256(v, _mm256_set1_epi16(b));
                 return *this;
             }
 
-            UShort256 operator^(const UShort256& bV) const noexcept{
-                return _mm256_xor_si256(v, bV.v);
+            /**
+             * Bitwise XOR operator.
+             * @param bV Second vector.
+             * @return UShort256 New vector being result of bitwise XOR with `bV`.
+             */
+            UShort256 operator^(const UShort256 &bV) const noexcept{
+                return _mm256_xor_si256(v, bV.v);            
             }
-
-            UShort256 operator^(const unsigned short& b) const noexcept{
+            
+            /**
+             * Bitwise XOR operator with scalar.
+             * @param b Value to XOR with.
+             * @return UShort256 New vector being result of bitwise XOR with `b`.
+             */
+            UShort256 operator^(const unsigned short &b) const noexcept{
                 return _mm256_xor_si256(v, _mm256_set1_epi16(b));
             }
-
-            UShort256& operator^=(const UShort256& bV) noexcept{
+            
+            /**
+             * Bitwise XOR assignment operator.
+             * Applies bitwise XOR between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
+            UShort256& operator^=(const UShort256 &bV) noexcept{
                 v = _mm256_xor_si256(v, bV.v);
                 return *this;
             }
-
-            UShort256& operator^=(const unsigned short& b) noexcept{
+            
+            /**
+             * Bitwise XOR assignment operator with scalar.
+             * Applies bitwise XOR between this vector and the given value, storing the result in this vector.
+             * @param b Value to XOR with.
+             * @return Reference to the modified object.
+             */
+            UShort256& operator^=(const unsigned short &b) noexcept{
                 v = _mm256_xor_si256(v, _mm256_set1_epi16(b));
                 return *this;
             }
@@ -652,7 +768,7 @@ namespace avx {
              * @param bV Second vector that specifies number of bits to shift (for each 16-bit value).
              * @return New value of `v` shifted by number of bits specfied in `bV`.
              */
-            UShort256 operator<<(const UShort256& bV) const noexcept {
+            UShort256 operator<<(const UShort256 &bV) const noexcept {
                 #if (defined __AVX512BW__ && defined __AVX512VL__)
                     // If compiler is using AVX-512BW and AVX-512DQ use available function.
                     return _mm256_sllv_epi16(v, bV.v);
@@ -683,7 +799,7 @@ namespace avx {
                 return _mm256_slli_epi16(v, shift);
             }
 
-            UShort256& operator<<=(const UShort256& bV) noexcept {
+            UShort256& operator<<=(const UShort256 &bV) noexcept {
                 #if (defined __AVX512BW__ && defined __AVX512VL__)
                     v = _mm256_sllv_epi16(v, bV.v);
                 #else
@@ -705,12 +821,12 @@ namespace avx {
                 return *this;
             }
 
-            UShort256& operator<<=(const unsigned int& shift) noexcept {
+            UShort256& operator<<=(const unsigned int &shift) noexcept {
                 v = _mm256_slli_epi16(v, shift);
                 return *this;
             }
 
-            UShort256 operator>>(const UShort256& bV) const noexcept {
+            UShort256 operator>>(const UShort256 &bV) const noexcept {
                 #if (defined __AVX512BW__ && defined __AVX512VL__)
                     return _mm256_srlv_epi16(v, bV.v);
                 #else
@@ -731,11 +847,11 @@ namespace avx {
                 #endif
             }
 
-            UShort256 operator>>(const unsigned int& shift) const noexcept{
+            UShort256 operator>>(const unsigned int &shift) const noexcept{
                 return _mm256_srli_epi16(v, shift);
             }
 
-            UShort256& operator>>=(const UShort256& bV) noexcept {
+            UShort256& operator>>=(const UShort256 &bV) noexcept {
                 #if (defined __AVX512BW__ && defined __AVX512VL__)
                     v = _mm256_srlv_epi16(v, bV.v);
                 #else
@@ -757,15 +873,24 @@ namespace avx {
                 return *this;
             }
 
-            UShort256& operator>>=(const unsigned int& shift) noexcept {
+            UShort256& operator>>=(const unsigned int &shift) noexcept {
                 v = _mm256_srli_epi16(v, shift);
                 return *this;
             }
 
+            /**
+             * Bitwise NOT operator.
+             * @return UShort256 New vector with all bits inverted.
+             */
             UShort256 operator~() const noexcept{
                 return _mm256_xor_si256(v, constants::ONES);
             }
 
+            /**
+             * Returns string representation of vector.
+             * Printing will result in Short256(<vector_values>) eg. Short256(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+             * @returns String representation of underlying vector.
+             */
             std::string str() const noexcept {
                 std::string result = "UShort256(";
                 unsigned short* iv = (unsigned short*)&v; 

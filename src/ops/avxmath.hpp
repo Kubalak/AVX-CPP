@@ -26,6 +26,7 @@ namespace avx {
      * Calculates sine of the vector.
      * @param bV Vector which values will be used to calculate sine.
      * @return Vector containing sine of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 sin(const Double256& bV) {
@@ -40,6 +41,7 @@ namespace avx {
      * Calculates cosine of the vector.
      * @param bV Vector which values will be used to calculate cosine.
      * @return Vector containing cosine of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 cos(const Double256& bV) {
@@ -54,6 +56,7 @@ namespace avx {
      * Calculates tangent of the vector.
      * @param bV Vector which values will be used to calculate tangent.
      * @return Vector containing tangent of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 tan(const Double256& bV) {
@@ -68,6 +71,7 @@ namespace avx {
      * Calculates cotangent of the vector.
      * @param bV Vector which values will be used to calculate cotangent.
      * @return Vector containing cotangent of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 ctg(const Double256& bV) {
@@ -85,6 +89,7 @@ namespace avx {
      * Calculates secant of the vector.
      * @param bV Vector which values will be used to calculate secant.
      * @return Vector containing secant of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 sec(const Double256& bV) {
@@ -102,6 +107,7 @@ namespace avx {
      * Calculates cosecant of the vector.
      * @param bV Vector which values will be used to calculate cosecant.
      * @return Vector containing cosecant of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Double256 cosec(const Double256& bV) {
@@ -115,6 +121,13 @@ namespace avx {
         #endif
     }
 
+    /**
+     * Calculates sine of the vector.
+     * @param bV Vector which values will be used to calculate sine.
+     * @return Vector containing sine of each value in `bV`.
+     * 
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
+     */
     Double256 asin(const Double256 &bV) {
         #ifdef _MSC_VER
             return _mm256_asin_pd(bV.get());
@@ -123,6 +136,13 @@ namespace avx {
         #endif
     }
 
+    /**
+     * Calculates acos of the vector.
+     * @param bV Vector which values will be used to calculate acos.
+     * @return Vector containing acos of each value in `bV`.
+     * 
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
+     */
     Double256 acos(const Double256 &bV) {
         #ifdef _MSC_VER
             return _mm256_acos_pd(bV.get());
@@ -131,6 +151,13 @@ namespace avx {
         #endif
     }
 
+    /**
+     * Calculates atan of the vector.
+     * @param bV Vector which values will be used to calculate atan.
+     * @return Vector containing atan of each value in `bV`.
+     * 
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
+     */
     Double256 atan(const Double256 &bV) {
         #ifdef _MSC_VER
             return _mm256_atan_pd(bV.get());
@@ -139,6 +166,11 @@ namespace avx {
         #endif
     }
 
+    /**
+     * Calculates square root of the values inside vector.
+     * @param bV Vector which values will be used to calculate square root.
+     * @return New vector containing sqrt of each value inside `bV`.
+     */
     Double256 sqrt(const Double256 &bV) {
         return _mm256_sqrt_pd(bV.get());
     }
@@ -147,6 +179,7 @@ namespace avx {
      * Calculates sine of the vector.
      * @param bV Vector which values will be used to calculate sine.
      * @return Vector containing sine of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 sin(const Float256& bV) {
@@ -161,6 +194,7 @@ namespace avx {
      * Calculates cosine of the vector.
      * @param bV Vector which values will be used to calculate cosine.
      * @return Vector containing cosine of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 cos(const Float256& bV) {
@@ -175,6 +209,7 @@ namespace avx {
      * Calculates tangent of the vector.
      * @param bV Vector which values will be used to calculate tangent.
      * @return Vector containing tangent of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 tan(const Float256& bV) {
@@ -189,6 +224,7 @@ namespace avx {
      * Calculates cotangent of the vector.
      * @param bV Vector which values will be used to calculate cotangent.
      * @return Vector containing cotangent of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 ctg(const Float256& bV) {
@@ -206,6 +242,7 @@ namespace avx {
      * Calculates secant of the vector.
      * @param bV Vector which values will be used to calculate secant.
      * @return Vector containing secant of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 sec(const Float256& bV) {
@@ -223,6 +260,7 @@ namespace avx {
      * Calculates cosecant of the vector.
      * @param bV Vector which values will be used to calculate cosecant.
      * @return Vector containing cosecant of each value in `bV`.
+     * 
      * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
      */
     Float256 cosec(const Float256& bV) {
@@ -236,6 +274,13 @@ namespace avx {
         #endif
     }
 
+    /**
+     * Calculates asin of the vector.
+     * @param bV Vector which values will be used to calculate cosecant.
+     * @return Vector containing asin of each value in `bV`.
+     * 
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
+     */
     Float256 asin(const Float256 &bV) {
         #ifdef _MSC_VER
             return _mm256_asin_ps(bV.get());
@@ -244,7 +289,13 @@ namespace avx {
         #endif
     }
 
-
+    /**
+     * Calculates acos of the vector.
+     * @param bV Vector which values will be used to calculate acos.
+     * @return Vector containing acos of each value in `bV`.
+     * 
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
+     */
     Float256 acos(const Float256 &bV) {
         #ifdef _MSC_VER
             return _mm256_acos_ps(bV.get());
@@ -253,6 +304,13 @@ namespace avx {
         #endif
     }
 
+    /**
+     * Calculates atan of the vector.
+     * @param bV Vector which values will be used to calculate atan.
+     * @return Vector containing atan of each value in `bV`.
+     * 
+     * * Note: This function uses SVML library, which is available only on GCC and Clang <a href="https://github.com/shibatch/sleef">Sleef</a> library is used to perform computaion.
+     */
     Float256 atan(const Float256 &bV) {
         #ifdef _MSC_VER
             return _mm256_atan_ps(bV.get());
@@ -261,18 +319,40 @@ namespace avx {
         #endif
     }
 
+    /**
+     * Calculates square root of the values inside vector.
+     * @param bV Vector which values will be used to calculate square root.
+     * @return New vector containing sqrt of each value inside `bV`.
+     */
     Float256 sqrt(const Float256 &bV) {
         return _mm256_sqrt_ps(bV.get());
     }
 
+    /**
+     * Calculates absolute value of the values inside vector.
+     * @param bV Vector which values will be used to calculate absolute value.
+     * @return New vector containing abs of each value inside `bV`.
+     */
     Int256 abs(const Int256& bV) {
         return _mm256_abs_epi32(bV.get());
     }
 
+    /**
+     * Calculates absolute value of the values inside vector.
+     * @param bV Vector which values will be used to calculate absolute value.
+     * @return New vector containing abs of each value inside `bV`.
+     */
     Short256 abs(const Short256& bV) {
         return _mm256_abs_epi16(bV.get());
     }
 
+    /**
+     * Calculates absolute value of the values inside vector.
+     * @param bV Vector which values will be used to calculate absolute value.
+     * @return New vector containing abs of each value inside `bV`.
+     * 
+     * Note: When avaliable function uses AVX512F and AVX512VL to calculate absolute value.
+     */
     Long256 abs(const Long256& bV) {
         #if defined(__AVX512F__) && defined(__AVX512VL__)
             return _mm256_abs_epi64(bV.get());
@@ -285,14 +365,29 @@ namespace avx {
 
     }
 
+    /**
+     * Calculates absolute value of the values inside vector.
+     * @param bV Vector which values will be used to calculate absolute value.
+     * @return New vector containing abs of each value inside `bV`.
+     */
     Char256 abs(const Char256& bV) {
         return _mm256_abs_epi8(bV.get());
     }
 
+    /**
+     * Calculates absolute value of the values inside vector.
+     * @param bV Vector which values will be used to calculate absolute value.
+     * @return New vector containing abs of each value inside `bV`.
+     */
     Double256 abs(const Double256& bV) {
         return _mm256_and_pd(bV.get(), constants::DOUBLE_NO_SIGN);
     }
 
+    /**
+     * Calculates absolute value of the values inside vector.
+     * @param bV Vector which values will be used to calculate absolute value.
+     * @return New vector containing abs of each value inside `bV`.
+     */
     Float256 abs(const Float256& bV) {
         return _mm256_and_ps(bV.get(), constants::FLOAT_NO_SIGN);
     }
@@ -420,8 +515,6 @@ namespace avx {
 
         return initVal;
     }
-
-
 };
 
 #endif

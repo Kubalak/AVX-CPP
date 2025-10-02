@@ -13,79 +13,11 @@
     <innerclass refid="classavx_1_1_u_long256" prot="public">avx::ULong256</innerclass>
     <innerclass refid="classavx_1_1_u_short256" prot="public">avx::UShort256</innerclass>
     <innernamespace refid="namespaceavx_1_1constants">avx::constants</innernamespace>
-    <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceavx_1ac10eb9b0b13b0a4b8907daf2ce349c20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream &amp; avx::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;os, const Char256 &amp;a)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <qualifiedname>avx::operator&lt;&lt;</qualifiedname>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>os</declname>
-        </param>
-        <param>
-          <type>const <ref refid="classavx_1_1_char256" kindref="compound">Char256</ref> &amp;</type>
-          <declname>a</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Prints content of vector as raw string. <parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>os</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Output stream, to which content will be written. </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>a</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Vector, whose value will be written to stream. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>Reference to <computeroutput>os</computeroutput>. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/char256.cpp" line="4" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/char256.cpp" bodystart="4" bodyend="12"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceavx_1abfd6eaeef8f73ff17fa9b1e387df690e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream &amp; avx::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;os, const UChar256 &amp;a)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <qualifiedname>avx::operator&lt;&lt;</qualifiedname>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>os</declname>
-        </param>
-        <param>
-          <type>const <ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
-          <declname>a</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.cpp" line="6" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.cpp" bodystart="6" bodyend="14"/>
-      </memberdef>
-    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>Jakub Jach (c) 2024 Namespace containing type definitions and basic functions. </para>
-</simplesect>
-</para>
+<para>Namespace containing type definitions and basic functions. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/char256.cpp" line="3" column="1"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/char256.hpp" line="15" column="1"/>
   </compounddef>
 </doxygen>

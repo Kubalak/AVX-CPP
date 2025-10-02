@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="22" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="22" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="23" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a383d4fdbbad3c259ef6bf78518a61725" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="26" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="26" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="28" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a773337a353b118922a7fea8c21471d5e" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="30" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="30" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="33" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1ac5c55e62168e08b8ce915145063fc815" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="34" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="34" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="38" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1af441eb9f1aba10d96e83babaca6e67f4" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="38" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="38" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="43" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1add5e75515f24bb729a381d8212892edf" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="42" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="42" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="48" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a5f11df355d70dffb695a142453d2dfcf" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="46" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="46" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="53" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a8d9856e86a2fe198a92d6860d3b22bf9" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="50" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="50" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="58" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a141f350d38327de2926ca64673bfe8f1" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="54" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="54" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="63" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a9165f0517c3ddab536f959ff753c7cde" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="58" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="58" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="68" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1ac1152fce4fac2aa92f039ace3e79a908" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="62" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="62" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="73" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a255eb1f57cf82d6cb4fb2562d1bc9c9a" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -209,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="66" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="66" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="78" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a2165f5e19b0a9f71787d10d03da4c1a3" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -225,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="70" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="70" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="83" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a9d8b9d46ca22d2022022164c771a0b42" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -241,7 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="74" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="74" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="88" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a12c0b91367073bab868d23800d3b30bd" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -257,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="78" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="78" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="93" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a730c7f620e0947cc68d4ebedeb3f10f0" prot="public" static="yes" mutable="no">
         <type>const __m256d</type>
@@ -273,7 +273,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="82" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="82" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="98" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="98" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1abc94e2b8b64ff2965d6c8f420bf7ef79" prot="public" static="yes" mutable="no">
         <type>const __m256</type>
@@ -289,7 +289,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="86" column="36" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="86" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="103" column="36" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1ab5be15cec272baeb1e08edc517b8cc39" prot="public" static="yes" mutable="no">
         <type>const __m256d</type>
@@ -305,7 +305,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="90" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="90" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="108" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="108" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1a9b1cca554d88045b5239d244040db840" prot="public" static="yes" mutable="no">
         <type>const __m256</type>
@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="94" column="36" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="94" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="113" column="36" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceavx_1_1constants_1acb88b7523b809f737d9153e4e2f3af18" prot="public" static="yes" mutable="no">
         <type>const __m256i</type>
@@ -337,38 +337,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="98" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="98" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceavx_1_1constants_1aea7d44ff29404b78e595a332d1930c7a" prot="public" static="yes" mutable="no">
-        <type>const __m256i</type>
-        <definition>const __m256i avx::constants::EPI32_SLOWEST</definition>
-        <argsstring></argsstring>
-        <name>EPI32_SLOWEST</name>
-        <qualifiedname>avx::constants::EPI32_SLOWEST</qualifiedname>
-        <initializer>= _mm256_set1_epi32(0x8000&apos;0001)</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="100" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="100" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceavx_1_1constants_1a3bdf66ca76d2eb83bfd5d8498e020cd4" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>int</type>
-        <definition>int avx::constants::INT2FLOAT_LIMIT</definition>
-        <argsstring></argsstring>
-        <name>INT2FLOAT_LIMIT</name>
-        <qualifiedname>avx::constants::INT2FLOAT_LIMIT</qualifiedname>
-        <initializer>= 0x0100&apos;0000</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>2^24 </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="105" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="105" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" line="118" column="37" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/constants.hpp" bodystart="118" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

@@ -630,8 +630,6 @@
     <member refid="classavx_1_1_u_short256_1a8b02114f7ddd83e51ed7ad7a5ee12861" kind="function"><name>str</name></member>
   </compound>
   <compound refid="namespaceavx" kind="namespace"><name>avx</name>
-    <member refid="namespaceavx_1ac10eb9b0b13b0a4b8907daf2ce349c20" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceavx_1abfd6eaeef8f73ff17fa9b1e387df690e" kind="function"><name>operator&lt;&lt;</name></member>
   </compound>
   <compound refid="namespaceavx_1_1constants" kind="namespace"><name>avx::constants</name>
     <member refid="namespaceavx_1_1constants_1a3f5680987301f20b1d9a594d79c70827" kind="variable"><name>ONES</name></member>
@@ -655,10 +653,6 @@
     <member refid="namespaceavx_1_1constants_1ab5be15cec272baeb1e08edc517b8cc39" kind="variable"><name>DOUBLE_ONE</name></member>
     <member refid="namespaceavx_1_1constants_1a9b1cca554d88045b5239d244040db840" kind="variable"><name>FLOAT_ONE</name></member>
     <member refid="namespaceavx_1_1constants_1acb88b7523b809f737d9153e4e2f3af18" kind="variable"><name>FLOAT_LIMIT</name></member>
-    <member refid="namespaceavx_1_1constants_1aea7d44ff29404b78e595a332d1930c7a" kind="variable"><name>EPI32_SLOWEST</name></member>
-    <member refid="namespaceavx_1_1constants_1a3bdf66ca76d2eb83bfd5d8498e020cd4" kind="variable"><name>INT2FLOAT_LIMIT</name></member>
-  </compound>
-  <compound refid="char256_8cpp" kind="file"><name>char256.cpp</name>
   </compound>
   <compound refid="char256_8hpp" kind="file"><name>char256.hpp</name>
     <member refid="char256_8hpp_1ad1514038047b9e1b2371e3df9ebeca83" kind="define"><name>CHAR256_HPP__</name></member>
@@ -681,8 +675,6 @@
   </compound>
   <compound refid="short256_8hpp" kind="file"><name>short256.hpp</name>
     <member refid="short256_8hpp_1a000cde91f8b9e04aa92b70235dfc0fb7" kind="define"><name>SHORT256_HPP__</name></member>
-  </compound>
-  <compound refid="uchar256_8cpp" kind="file"><name>uchar256.cpp</name>
   </compound>
   <compound refid="uchar256_8hpp" kind="file"><name>uchar256.hpp</name>
     <member refid="uchar256_8hpp_1a77a83a49f0ea0d71b659a3eb225504f1" kind="define"><name>UCHAR256_HPP__</name></member>

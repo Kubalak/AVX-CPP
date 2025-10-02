@@ -13,7 +13,7 @@ namespace avx {
      * Class providing vectorized version of `double`.
      * Can hold 4 individual `double` values.
      * Provides arithmetic operators.
-     * * Provides comparison operators == !=.
+     * Provides comparison operators == !=.
      */
     class Double256 {
 

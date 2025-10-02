@@ -1,9 +1,7 @@
 #pragma once
 #ifndef INT256_HPP__
 #define INT256_HPP__
-/**
- * @author Jakub Jach (c) 2024
- */
+
 #include <set>
 #include <array>
 #include <vector>
@@ -26,10 +24,6 @@
 namespace avx
 {
     /**
-     * Class providing vectorized version of `int`.
-     * Can hold 8 individual `int` values.
-     * Provides arithmetic and bitwise operators.
-     * Provides comparison operators == !=.
      * Class providing vectorized version of `int`.
      * Can hold 8 individual `int` values.
      * Provides arithmetic and bitwise operators.
@@ -177,7 +171,7 @@ namespace avx
          */
         void load(const int *pSrc) {
         #ifndef NDEBUG
-            if(pSrc)
+            if(!pSrc)
                 throw std::invalid_argument(__AVX_LOCALIZED_NULL_STR);
             else
         #endif
@@ -245,7 +239,6 @@ namespace avx
             return _mm256_testz_si256(eq, eq) != 0;
         }
 
-
         /**
          * Compares vectors for inequality.
          * @param bV Second vector.
@@ -255,7 +248,6 @@ namespace avx
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) == 0;
         }
-
 
         /**
          * Compares vectors for inequality.
@@ -505,7 +497,7 @@ namespace avx
          * @param b Scalar to be added.
          * @returns Reference to same vector after adding `b` to vector.
          */
-        Int256& operator+=(const int& b) {
+        Int256& operator+=(const int &b) {
             v = _mm256_add_epi32(v, _mm256_set1_epi32(b));
             return *this;
         }
@@ -614,7 +606,7 @@ namespace avx
 
         /**
          * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
-         * @param bV Second modulo operand (divisor)
+         * @param b Second modulo operand (divisor).
          * @return Reference to the original vector holding modulo operation results.
          */
         Int256& operator%=(const int &b){

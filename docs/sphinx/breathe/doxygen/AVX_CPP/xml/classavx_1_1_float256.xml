@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="32" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="32" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="33" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="33" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="20" column="20" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="20" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="21" column="20" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="21" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-attrib">
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="27" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="27" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="28" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="28" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="37" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="37" bodyend="37"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="38" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="38" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a933268afcc37f0a7f475933b8cbe8ddf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="44" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="44" bodyend="44"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="45" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="45" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a86589f56e127e08937446b56d0d379d1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="50" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="50" bodyend="50"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="51" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="51" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1aa4c9a94de6d70094fb3a9ede6e65a4d5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="56" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="56" bodyend="56"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="57" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="57" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1aa7ae3a7c2c9b794e4ba39878bd750af3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -180,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="62" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="62" bodyend="62"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="63" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="63" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1af7891223c869a8e30fa52e64cc45579d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -208,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="70" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="70" bodyend="88"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="71" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="71" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a713fce05ff701807106ce98f34f9ad93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -245,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="95" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="95" bodyend="102"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="96" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="96" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1abe90ea496b0b2c8573c1f5e33efcf878" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const __m256</type>
@@ -262,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="108" column="26" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="108" bodyend="108"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="109" column="26" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="109" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a11ad422c06fc456499fbdad71e88a4fb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -290,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="114" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="114" bodyend="114"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="115" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="115" bodyend="115"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1ad55bae898da176a5b58b9caaa650affc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -327,7 +327,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="121" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="121" bodyend="128"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="122" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="122" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a1c836a6f30e03e48414adb1f8f223fea" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -355,7 +355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="134" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="134" bodyend="136"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="135" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="135" bodyend="137"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a84a67554fe5aeea85273662849841dec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -393,7 +393,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="145" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="145" bodyend="152"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="146" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="146" bodyend="153"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a6285f002c04184530b807b7551c6e8cb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -431,7 +431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="161" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="161" bodyend="168"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="162" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="162" bodyend="169"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1ae1496dee50bec0487a0085a145671786" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -461,7 +461,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="175" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="175" bodyend="192"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="176" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="176" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1ab578a1c38df13f1b07dc23788bbfef83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -491,7 +491,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="200" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="200" bodyend="212"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="201" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="201" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a07a0f2fdddbe88828844799e8ca159f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -521,7 +521,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="219" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="219" bodyend="230"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="220" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="220" bodyend="231"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a6265ed5e6545d82bac595edad19ea8e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -551,7 +551,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="238" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="238" bodyend="250"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="239" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="239" bodyend="251"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a20bcd485318006ead8b11f3b2ac33d8d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -581,7 +581,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="257" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="257" bodyend="259"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="258" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="258" bodyend="260"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a11578f423c04732ea79acb5e5cb1e15f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -611,7 +611,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="266" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="266" bodyend="268"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="267" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="267" bodyend="269"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1ad53859cf7c7bd34d261070ae437f8c7e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -641,7 +641,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="275" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="275" bodyend="278"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="276" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="276" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a5ee1e00887359736930e65f6562431c3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -671,7 +671,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="285" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="285" bodyend="288"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="286" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="286" bodyend="289"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a44b6555826ba00a394a280e334834055" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -701,7 +701,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="295" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="295" bodyend="297"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="296" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="296" bodyend="298"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1af9b1e07239db92e1edf57ced7a03a489" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -731,7 +731,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="304" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="304" bodyend="306"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="305" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="305" bodyend="307"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a894b7019a95eac6b9a8996c7a4cf89b0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -761,7 +761,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="313" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="313" bodyend="316"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="314" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="314" bodyend="317"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a4291e51701720674d8a2efde895442b5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -791,7 +791,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="323" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="323" bodyend="326"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="324" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="324" bodyend="327"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1ac465a203fea13a95ee324543545c9ff3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -821,7 +821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="333" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="333" bodyend="335"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="334" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="334" bodyend="336"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1ae343750a983a7c85bd594de428b28e34" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -851,7 +851,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="342" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="342" bodyend="344"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="343" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="343" bodyend="345"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a0e5ac98e1282d0735afa0660418790e8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -881,7 +881,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="351" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="351" bodyend="354"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="352" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="352" bodyend="355"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a05bafdac9ec2585d1d72d936456df82d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -911,7 +911,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="361" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="361" bodyend="364"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="362" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="362" bodyend="365"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a05aac9afa48fede94b22c1f6de8a57c9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -941,7 +941,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="371" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="371" bodyend="373"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="372" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="372" bodyend="374"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a1ba8dea7d0fc3c5d42f4fa6dc4735e2e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -971,7 +971,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="380" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="380" bodyend="382"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="381" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="381" bodyend="383"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1acb43e6eb25ad2cbce410830356167e57" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -1001,7 +1001,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="389" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="389" bodyend="392"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="390" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="390" bodyend="393"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a321867e8667b57cfdc10dbb559f5561c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref> &amp;</type>
@@ -1031,7 +1031,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="399" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="399" bodyend="402"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="400" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="400" bodyend="403"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a1cb1fb731d5d7224ff18878b1bf4725f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
@@ -1070,7 +1070,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="411" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="411" bodyend="417"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="412" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="412" bodyend="418"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_float256_1a905330b7b986cb226f76dad566996e9e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1087,7 +1087,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="427" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="427" bodyend="436"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="428" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="428" bodyend="437"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="friend">
@@ -1131,7 +1131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="445" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="445" bodyend="447"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="446" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="446" bodyend="448"/>
       </memberdef>
       <memberdef kind="friend" id="classavx_1_1_float256_1abb7ef0663f8ac072a738d68cda0e181d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -1173,7 +1173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="455" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="455" bodyend="457"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="456" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="456" bodyend="458"/>
       </memberdef>
       <memberdef kind="friend" id="classavx_1_1_float256_1a408a2a72d6021340e5c2f826aa8b8996" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -1215,7 +1215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="465" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="465" bodyend="467"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="466" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="466" bodyend="468"/>
       </memberdef>
       <memberdef kind="friend" id="classavx_1_1_float256_1a11e73c7549f3a122c7417a23e5a74dd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_float256" kindref="compound">Float256</ref></type>
@@ -1257,7 +1257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="475" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="475" bodyend="477"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="476" column="29" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="476" bodyend="478"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1265,7 +1265,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>float</computeroutput>. Can hold 8 individual <computeroutput>float</computeroutput> values. Provides arithmetic operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="18" bodyend="479"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" line="19" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/float256.hpp" bodystart="19" bodyend="480"/>
     <listofallmembers>
       <member refid="classavx_1_1_float256_1aaf79eeaf2622f82dfec790eea4cc54a9" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>
       <member refid="classavx_1_1_float256_1a933268afcc37f0a7f475933b8cbe8ddf" prot="public" virt="non-virtual"><scope>avx::Float256</scope><name>Float256</name></member>

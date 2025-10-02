@@ -1227,10 +1227,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Class providing vectorized version of <computeroutput>double</computeroutput>. Can hold 4 individual <computeroutput>double</computeroutput> values. Provides arithmetic operators.<itemizedlist>
-<listitem><para>Provides comparison operators == !=. </para>
-</listitem></itemizedlist>
-</para>
+<para>Class providing vectorized version of <computeroutput>double</computeroutput>. Can hold 4 individual <computeroutput>double</computeroutput> values. Provides arithmetic operators. Provides comparison operators == !=. </para>
     </detaileddescription>
     <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="18" bodyend="473"/>
     <listofallmembers>

@@ -56,24 +56,6 @@ extern "C" {
      */
     __m256i _mm256_div_epi64(__m256i a, __m256i b);
 
-    __m256 _mm256_sin_ps(__m256 a);
-    __m256d _mm256_sin_pd(__m256d a);
-
-    __m256 _mm256_cos_ps(__m256 a);
-    __m256d _mm256_cos_pd(__m256d a);
-
-    __m256 _mm256_tan_ps(__m256 a);
-    __m256d _mm256_tan_pd(__m256d a);
-
-    __m256 _mm256_asin_ps(__m256 a);
-    __m256d _mm256_asin_pd(__m256d a);
-
-    __m256 _mm256_acos_ps(__m256 a);
-    __m256d _mm256_acos_pd(__m256d a);
-
-    __m256 _mm256_atan_ps(__m256 a);
-    __m256d _mm256_atan_pd(__m256d a);
-
 #ifdef __cplusplus // End of extern C block
 }
 #endif

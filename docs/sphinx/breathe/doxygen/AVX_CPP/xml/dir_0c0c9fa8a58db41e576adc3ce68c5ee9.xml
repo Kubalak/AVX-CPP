@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="dir_0c0c9fa8a58db41e576adc3ce68c5ee9" kind="dir">
     <compoundname>/home/jakub/git-repos/AVX-CPP/src/types</compoundname>
-    <innerfile refid="char256_8cpp">char256.cpp</innerfile>
     <innerfile refid="char256_8hpp">char256.hpp</innerfile>
     <innerfile refid="constants_8hpp">constants.hpp</innerfile>
     <innerfile refid="double256_8hpp">double256.hpp</innerfile>
@@ -10,7 +9,6 @@
     <innerfile refid="int256_8hpp">int256.hpp</innerfile>
     <innerfile refid="long256_8hpp">long256.hpp</innerfile>
     <innerfile refid="short256_8hpp">short256.hpp</innerfile>
-    <innerfile refid="uchar256_8cpp">uchar256.cpp</innerfile>
     <innerfile refid="uchar256_8hpp">uchar256.hpp</innerfile>
     <innerfile refid="uint256_8hpp">uint256.hpp</innerfile>
     <innerfile refid="ulong256_8hpp">ulong256.hpp</innerfile>

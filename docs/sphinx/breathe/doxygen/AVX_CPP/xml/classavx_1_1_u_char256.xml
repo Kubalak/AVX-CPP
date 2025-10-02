@@ -1328,7 +1328,7 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="friend">
-      <memberdef kind="friend" id="classavx_1_1_u_char256_1a68078b02b69961cd511eee1888118560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="friend" id="classavx_1_1_u_char256_1a68078b02b69961cd511eee1888118560" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::ostream &amp;</type>
         <definition>std::ostream &amp; operator&lt;&lt;</definition>
         <argsstring>(std::ostream &amp;os, const UChar256 &amp;a)</argsstring>
@@ -1348,7 +1348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1180" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.cpp" bodystart="6" bodyend="14"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1180" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1180" bodyend="1188"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1356,7 +1356,7 @@
     <detaileddescription>
 <para>Class representing vectorized version of <computeroutput>unsigned char</computeroutput>. It can hold 32 individual <computeroutput>unsigned char</computeroutput> variables. Provides support for arithmetic and bitwise operators. <computeroutput>str()</computeroutput> method returns stored data as string. Supports printing directly to stream (cout). </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="21" bodyend="1182"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="21" bodyend="1191"/>
     <listofallmembers>
       <member refid="classavx_1_1_u_char256_1af77f33fd2def1940b8db9760d7acb218" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>get</name></member>
       <member refid="classavx_1_1_u_char256_1a2390df1548ccebb4d51b8cc5dfa9bada" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>load</name></member>

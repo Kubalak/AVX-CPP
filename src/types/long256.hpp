@@ -1,6 +1,7 @@
 #pragma once
 #ifndef LONG256_HPP__
 #define LONG256_HPP__
+
 #include <set>
 #include <array>
 #include <vector>

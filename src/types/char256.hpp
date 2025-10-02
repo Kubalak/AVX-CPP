@@ -373,28 +373,50 @@ namespace avx {
             }
 
 
+            /**
+             * Subtracts values from vector.
+             * @param bV Second vector.
+             * @return Char256 New vector being result of subtracting `bV` from vector.
+             */
             Char256 operator-(const Char256& bV) const noexcept {
                 return _mm256_sub_epi8(v, bV.v);
             }
 
-
+            /**
+             * Subtracts a single value from all vector fields.
+             * @param b Value to subtract from vector.
+             * @return Char256 New vector being result of subtracting `b` from vector.
+             */
             Char256 operator-(const char& b) const noexcept {
                 return _mm256_sub_epi8(v, _mm256_set1_epi8(b));
             }
 
-
+            /**
+             * Subtracts two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after subtracting `bV` from vector.
+             */
             Char256& operator-=(const Char256& bV) noexcept {
                 v = _mm256_sub_epi8(v, bV.v);
                 return *this;
             }
 
-
+            /**
+             * Subtracts scalar from vector and stores result inside original vector.
+             * @param b Scalar to be subtracted.
+             * @returns Reference to same vector after subtracting `b` from vector.
+             */
             Char256& operator-=(const char& b) noexcept {
                 v = _mm256_sub_epi8(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
 
+            /**
+             * Multiplies two vectors.
+             * @param bV Second vector.
+             * @return Char256 New vector being result of multiplying vector by `bV`.
+             */
             Char256 operator*(const Char256& bV) const noexcept {
                 #if defined(__AVX512BW__)
                     return _mm512_cvtepi16_epi8(
@@ -424,7 +446,11 @@ namespace avx {
                 #endif
             }
 
-
+            /**
+             * Multiplies all vector fields by a single value.
+             * @param b Value to multiply by.
+             * @return Char256 New vector being result of multiplying vector by `b`.
+             */
             Char256 operator*(const char& b) const noexcept {
                 #if defined(__AVX512BW__)
                     return _mm512_cvtepi16_epi8(
@@ -452,7 +478,11 @@ namespace avx {
                 #endif
             }
 
-
+            /**
+             * Multiplies two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after multiplying by `bV`.
+             */
             Char256& operator*=(const Char256& bV) noexcept {
                 #if defined(__AVX512BW__)
                     v = _mm512_cvtepi16_epi8(
@@ -483,7 +513,11 @@ namespace avx {
                 return *this;
             }
 
-
+            /**
+             * Multiplies vector by scalar and stores result inside original vector.
+             * @param b Scalar to multiply by.
+             * @returns Reference to same vector after multiplying by `b`.
+             */
             Char256& operator*=(const char& b) noexcept {
                 #if defined(__AVX512BW__)
                     v = _mm512_cvtepi16_epi8(
@@ -513,6 +547,11 @@ namespace avx {
             }
 
 
+            /**
+             * Divides two vectors.
+             * @param bV Second vector (divisor).
+             * @return Char256 New vector being result of dividing vector by `bV`.
+             */
             Char256 operator/(const Char256& bV) const noexcept {
             #if defined(__AVX512_FP16__) && defined(__AVX512BW__) && defined(__AVX512F__) // If supports FP16
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -616,6 +655,11 @@ namespace avx {
              */
 
 
+            /**
+             * Divides all vector fields by a single value.
+             * @param b Value (divisor).
+             * @return Char256 New vector being result of dividing vector by `b`.
+             */
             Char256 operator/(const char& b) const noexcept {
             #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -666,7 +710,11 @@ namespace avx {
                 #endif
             }
 
-
+            /**
+             * Divides two vectors and stores result inside original vector.
+             * @param bV Second vector (divisor).
+             * @returns Reference to same vector after dividing by `bV`.
+             */
             Char256& operator/=(const Char256& bV) noexcept {
             #if defined(__AVX512_FP16__) && defined(__AVX512BW__) && defined(__AVX512F__) // If supports FP16
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -736,7 +784,11 @@ namespace avx {
                 return *this;
             }
 
-
+            /**
+             * Divides vector by scalar and stores result inside original vector.
+             * @param b Scalar value (divisor).
+             * @returns Reference to same vector after dividing by `b`.
+             */
             Char256& operator/=(const char& b) noexcept {
             #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -788,7 +840,11 @@ namespace avx {
                 return *this;
             }
 
-
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param bV Second modulo operand (divisor)
+             * @return Result of modulo operation.
+             */
             Char256 operator%(const Char256& bV) const noexcept {
             #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -861,7 +917,11 @@ namespace avx {
             #endif
             }
 
-
+            /**
+             * Calculates element-wise modulo of vector and scalar.
+             * @param b Value (divisor).
+             * @return Char256 New vector being result of modulo operation.
+             */
             Char256 operator%(const char& b) const noexcept {
             #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -927,7 +987,11 @@ namespace avx {
             #endif
             }
 
-
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param bV Second modulo operand (divisor)
+             * @return Reference to the original vector holding modulo operation results.
+             */
             Char256& operator%=(const Char256& bV) noexcept {
             #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -1001,7 +1065,11 @@ namespace avx {
                 return *this;
             }
 
-
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param b Scalar (divisor).
+             * @return Reference to the original vector holding modulo operation results.
+             */
             Char256& operator%=(const char& b) noexcept {
             #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
                 __m512i first16 = _mm512_cvtepi8_epi16(v);
@@ -1068,73 +1136,133 @@ namespace avx {
                 return *this;
             }
 
-
+            /**
+             * Bitwise AND operator.
+             * @param bV Second vector.
+             * @return Char256 New vector being result of bitwise AND with `bV`.
+             */
             Char256 operator&(const Char256& bV) const noexcept {
                 return _mm256_and_si256(v, bV.v);
             }
 
-
+            /**
+             * Bitwise AND operator with scalar.
+             * @param b Value to AND with.
+             * @return Char256 New vector being result of bitwise AND with `b`.
+             */
             Char256 operator&(const char& b) const noexcept {
                 return _mm256_and_si256(v, _mm256_set1_epi8(b));
             }
 
-
+            /**
+             * Bitwise AND assignment operator.
+             * Applies bitwise AND between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             Char256& operator&=(const Char256& bV) noexcept {
                 v = _mm256_and_si256(v, bV.v);
                 return *this;
             }
 
-
+            /**
+             * Bitwise AND assignment operator.
+             * Applies bitwise AND between this vector and the given value, storing the result in this vector.
+             * @param b Value to AND with.
+             * @return Reference to the modified object.
+             */
             Char256& operator&=(const char& b) noexcept {
                 v = _mm256_and_si256(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
-
+            /**
+             * Bitwise OR operator.
+             * @param bV Second vector.
+             * @return Char256 New vector being result of bitwise OR with `bV`.
+             */
             Char256 operator|(const Char256& bV) const noexcept {
                 return _mm256_or_si256(v, bV.v);
             }
 
-
+            /**
+             * Bitwise OR operator with scalar.
+             * @param b Value to OR with.
+             * @return Char256 New vector being result of bitwise OR with `b`.
+             */
             Char256 operator|(const char& b) const noexcept {
                 return _mm256_or_si256(v, _mm256_set1_epi8(b));
             }
 
 
+            /**
+             * Bitwise OR assignment operator.
+             * Applies bitwise OR between this vector and the given integer value, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Char256 Reference to the modified object.
+             */
             Char256& operator|=(const Char256& bV) noexcept {
                 v = _mm256_or_si256(v, bV.v);
                 return *this;
             }
 
-
+            /**
+             * Bitwise OR assignment operator.
+             * Applies bitwise OR between this vector and the given integer value, storing the result in this vector.
+             * @param b Integer value.
+             * @return Char256 Reference to the modified object.
+             */
             Char256& operator|=(const char& b) noexcept {
                 v = _mm256_or_si256(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
-
+            /**
+             * Bitwise XOR operator.
+             * @param bV Second vector.
+             * @return Char256 New vector being result of bitwise XOR with `bV`.
+             */
             Char256 operator^(const Char256& bV) const noexcept {
                 return _mm256_xor_si256(v, bV.v);
             }
 
-
+            /**
+             * Bitwise XOR operator with scalar.
+             * @param b Value to XOR with.
+             * @return Char256 New vector being result of bitwise XOR with `b`.
+             */
             Char256 operator^(const char& b) const noexcept {
                 return _mm256_xor_si256(v, _mm256_set1_epi8(b));
             }
 
-
+            /**
+             * Bitwise XOR assignment operator.
+             * Applies bitwise XOR between this vector and the given integer value, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             Char256& operator^=(const Char256& bV) noexcept {
                 v = _mm256_xor_si256(v, bV.v);
                 return *this;
             }
 
-
+            /**
+             * Bitwise XOR assignment operator.
+             * Applies bitwise XOR between this vector and the given integer value, storing the result in this vector.
+             * @param b Integer value.
+             * @return Reference to the modified object.
+             */
             Char256& operator^=(const char& b) noexcept {
                 v = _mm256_xor_si256(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
 
+            /**
+             * Bitwise left shift operator (element-wise).
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @return Char256 New vector after left shift.
+             */
             Char256 operator<<(const Char256& bV) const noexcept {
                 #ifdef __AVX512BW__
                     __m512i fV = _mm512_cvtepi8_epi16(v);
@@ -1174,6 +1302,11 @@ namespace avx {
             }
 
 
+            /**
+             * Bitwise left shift operator by scalar.
+             * @param b Number of bits by which values should be shifted.
+             * @return Char256 New vector after left shift.
+             */
             Char256 operator<<(const unsigned int& b) const noexcept {
                 #ifdef __AVX512BW__
                     __m512i fV = _mm512_cvtepi8_epi16(v);
@@ -1190,6 +1323,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values left while shifting in 0.
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @returns Reference to modified object.
+             */
             Char256& operator<<=(const Char256& bV) noexcept {
                 #ifdef __AVX512BW__
                     v = _mm512_cvtepi16_epi8(
@@ -1233,6 +1371,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values left while shifting in 0.
+             * @param b Number of bits by which values should be shifted.
+             * @returns Reference to modified object.
+             */
             Char256& operator<<=(const unsigned int& b) noexcept {
                 #ifdef __AVX512BW__
                     v = _mm512_cvtepi16_epi8(
@@ -1254,6 +1397,11 @@ namespace avx {
             }
 
 
+            /**
+             * Bitwise right shift operator (element-wise, arithmetic shift).
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @return Char256 New vector after right shift.
+             */
             Char256 operator>>(const Char256& bV) const noexcept {
             #if defined(__AVX512BW__)
                 return _mm512_cvtepi16_epi8(
@@ -1338,6 +1486,11 @@ namespace avx {
             }
 
 
+            /**
+             * Bitwise right shift operator by scalar (arithmetic shift).
+             * @param b Number of bits by which values should be shifted.
+             * @return Char256 New vector after right shift.
+             */
             Char256 operator>>(const unsigned int& b) const noexcept {
             #ifdef __AVX512BW__
                 return _mm512_cvtepi16_epi8(_mm512_srai_epi16(_mm512_cvtepi8_epi16(v), b));
@@ -1355,6 +1508,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values right while shifting in sign bit.
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @returns Reference to modified object.
+             */
             Char256& operator>>=(const Char256& bV) noexcept {
             #if defined(__AVX512BW__)
                 v = _mm512_cvtepi16_epi8(
@@ -1414,6 +1572,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values right while shifting in sign bit.
+             * @param b Number of bits by which values should be shifted.
+             * @returns Reference to modified object.
+             */
             Char256& operator>>=(const unsigned int& b) noexcept {
             #ifdef __AVX512BW__
                 v = _mm512_cvtepi16_epi8(_mm512_srai_epi16(_mm512_cvtepi8_epi16(v), b));
@@ -1432,9 +1595,8 @@ namespace avx {
             }
 
             /**
-             * Bitwise NOT.
-             * 
-             * @return New object with inversed bits.
+             * Bitwise NOT operator.
+             * @return Char256 New vector with all bits inverted.
              */
             Char256 operator~() const noexcept {
                 return _mm256_xor_si256(v, constants::ONES);
@@ -1477,7 +1639,15 @@ namespace avx {
              * @param a Vector, whose value will be written to stream.
              * @return Reference to `os`.
              */
-            friend std::ostream& operator<<(std::ostream& os, const Char256& a);
+            friend std::ostream& operator<<(std::ostream& os, const Char256& a) {
+                alignas(32) char tmp[33];
+                tmp[32] = '\0';
+
+                _mm256_store_si256((__m256i*)tmp, a.v);
+                
+                os << tmp;
+                return os;
+            }
 
     };
 }

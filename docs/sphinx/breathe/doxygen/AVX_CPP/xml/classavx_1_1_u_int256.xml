@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="43" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="43" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="37" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="37" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="31" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="31" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="25" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="25" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-attrib">
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="38" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="38" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="32" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="32" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="49" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="49" bodyend="49"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="43" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="43" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a0b1ea482aa659154d5487576f8be4a0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="55" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="55" bodyend="62"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="49" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="49" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1af99a354c80149e087911932a3c574349" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="68" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="68" bodyend="68"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="62" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="62" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1aa8a26fa662126e8ca44cfd386d6f029c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="74" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="74" bodyend="74"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="68" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="68" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a207fe1a439cc9ad5caf76372093cd2c4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -189,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="80" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="80" bodyend="80"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="74" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="74" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a9bd15821985f2cc18463e91cc8a449a9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -217,7 +217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="86" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="86" bodyend="86"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="80" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="80" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1aaec9ef7e78c95c58cd717966aa543915" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -246,7 +246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="93" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="93" bodyend="95"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="87" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="87" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a72d4105ef66c0c8de8c4c545d5a177fb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -274,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="101" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="101" bodyend="113"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="95" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="95" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1adb02d7b5e37dba13c9faab9dc5bef758" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -302,7 +302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="119" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="119" bodyend="131"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="113" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="113" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a1b40e38b0a34608884b79d45a1323812" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -330,7 +330,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="139" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="139" bodyend="157"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="133" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="133" bodyend="151"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a6ff53befe5246ecb787aa3c07f6520fc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
@@ -347,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="163" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="163" bodyend="163"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="157" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="157" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1aacc8a795160ec08a8a9ea64bbe69ed45" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -375,7 +375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="169" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="169" bodyend="169"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="163" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="163" bodyend="163"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a104020fc63dd4ad528777941b557ae2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -412,7 +412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="176" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="176" bodyend="183"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="170" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="170" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a75786e337bf88b92541dbc537e70acb0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -440,7 +440,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="189" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="189" bodyend="191"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="183" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="183" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ae1e63104f6021a95b1258acee4cedbe2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -478,7 +478,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="200" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="200" bodyend="207"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="194" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="194" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a8bdb64a951121d6964b4b0551c69941d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -516,7 +516,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="216" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="216" bodyend="223"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="210" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="210" bodyend="217"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a91246a76efe5fe9667bb9ae460213e2f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -531,10 +531,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vectors for equality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if all values in both vectors are equal, false if any value doesn&apos;t match. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="225" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="225" bodyend="228"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="224" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="224" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a46a960e5849d13d3dfa9eec4624531bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -549,10 +561,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vector to scalar for equality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if all values in vector are equal to <computeroutput>b</computeroutput>, otherwise false. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="230" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="230" bodyend="234"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="234" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="234" bodyend="238"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ab8833fc39c5f3edb1370b54afac50f9b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -567,10 +591,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vectors for inequality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if ANY value is different between vectors. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="236" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="236" bodyend="239"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="245" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="245" bodyend="248"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a42968a7813f88d204ed26f5eeca4f5ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -585,10 +621,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares vector to scalar for inequality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if ANY value in vector is different than <computeroutput>b</computeroutput>, otherwise false. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="241" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="241" bodyend="245"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="255" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="255" bodyend="259"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a33197e864f6c9a5ebe2802807b570ae1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>unsigned int</type>
@@ -606,7 +654,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="247" column="26" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="247" bodyend="254"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="261" column="26" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="261" bodyend="268"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a6e877d9714a04183088b3c94e68ae5ee" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -621,10 +669,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds values from other vector and returns new vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being a sum of this vector and <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="260" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="260" bodyend="260"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="278" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="278" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ae8cb011343eb25ddae5cdc30c7684717" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -639,10 +699,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds single value across all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to add to vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being a sum of this vector and <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="262" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="262" bodyend="262"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="285" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="285" bodyend="285"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a9ee3efdeba8879723ae48aa0462540d8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -657,10 +729,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors together and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="264" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="264" bodyend="267"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="292" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="292" bodyend="295"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ab2c8adc8055ceae95e0e4a15dd3fbefe" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -675,10 +759,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds scalar to vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="269" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="269" bodyend="272"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="302" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="302" bodyend="305"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a62acde2136d9212c61b5647e26f8a487" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -693,10 +789,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts values from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="274" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="274" bodyend="274"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="312" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="312" bodyend="312"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a5fb2dd2ee473b262ef823cd0c752ae28" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -711,10 +819,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts a single value from all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to subtract from vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="276" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="276" bodyend="276"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="319" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="319" bodyend="319"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a43a51194a77674b7bbd97901f3a51bca" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -729,10 +849,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="278" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="278" bodyend="281"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="326" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="326" bodyend="329"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a4e1821f4e5f7deebbd8903092d48e11d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -747,10 +879,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts scalar from vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="283" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="283" bodyend="286"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="336" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="336" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a78f383f14b337c5a6ed2760a8fe39b48" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -765,10 +909,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of multiplying vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="288" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="288" bodyend="300"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="346" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="346" bodyend="358"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a635d7c2c42eea7c097ae7b6094f087df" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -783,10 +939,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies all vector fields by a single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of multiplying vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="302" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="302" bodyend="314"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="365" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="365" bodyend="377"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ad3fcfc4598db42efcdf853557328735d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -801,10 +969,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="316" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="316" bodyend="329"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="384" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="384" bodyend="397"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a6c48c8d028d56387cad66d456602d465" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -819,10 +999,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="331" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="331" bodyend="345"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="404" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="404" bodyend="418"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a6a1c0192bb26432f7b3d8a43ccc1562c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -837,10 +1029,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of dividing vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="347" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="347" bodyend="356"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="425" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="425" bodyend="434"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ac3612aafa749b612898b844629c6bb75" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -855,10 +1059,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides all vector fields by a single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of dividing vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="392" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="392" bodyend="404"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="475" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="475" bodyend="487"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a0fc98682b55b4da296b8a236f3531014" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -873,10 +1089,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="406" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="406" bodyend="416"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="494" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="494" bodyend="504"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a543db3950a6398c99e38dffab77e52b8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -891,10 +1119,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="418" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="418" bodyend="435"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="511" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="511" bodyend="528"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a7d05d834c423d7807a65c1e34af98974" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -909,10 +1149,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculates element-wise modulo of two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of modulo operation. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="438" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="438" bodyend="462"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="535" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="535" bodyend="559"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a7c0596f3bd926305357f61da3e31464b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -927,10 +1179,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculates element-wise modulo of vector and scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of modulo operation. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="464" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="464" bodyend="492"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="566" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="566" bodyend="594"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a08b6377f4d341182a4db3907389e757b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -945,10 +1209,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second modulo operand (divisor) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the original vector holding modulo operation results. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="495" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="495" bodyend="520"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="601" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="601" bodyend="626"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1abe1d86d1e43dfb1bb1b5e7fc37ac0312" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -963,10 +1239,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second modulo operand (divisor) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the original vector holding modulo operation results. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="522" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="522" bodyend="551"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="633" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="633" bodyend="662"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ad5b3c86b03a21f9d9ac3d8bade26f88b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -981,10 +1269,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of bitwise XOR with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="553" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="553" bodyend="555"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="669" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="669" bodyend="671"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a8d21f860548bae1b3650db69d6211dc4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -999,10 +1299,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to XOR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of bitwise XOR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="557" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="557" bodyend="559"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="678" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="678" bodyend="680"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a7614deb3cc2f27504ff67304620a1b23" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1017,10 +1329,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="561" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="561" bodyend="564"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="688" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="688" bodyend="691"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a8ce75a1562fa8cca6d24b635201dabab" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1035,10 +1359,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given integer value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="566" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="566" bodyend="569"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="699" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="699" bodyend="702"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a48c9302da22239bb985fe0a5ec58ea46" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1053,10 +1389,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of bitwise OR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="571" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="571" bodyend="573"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="709" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="709" bodyend="711"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a0cca97b36d413c1b6a5bc915767c7799" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1071,10 +1419,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to OR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of bitwise OR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="575" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="575" bodyend="577"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="718" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="718" bodyend="720"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1aece2260a2a9d666929c9843cc169cf68" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1089,10 +1449,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="579" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="579" bodyend="582"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="728" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="728" bodyend="731"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1aa5419126cc66fc6a813d3b96e8673596" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1107,10 +1479,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given integer value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="584" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="584" bodyend="587"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="739" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="739" bodyend="742"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a5ea778c96c9d943ab4600b6bde398111" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1125,10 +1509,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of bitwise AND with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="589" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="589" bodyend="591"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="749" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="749" bodyend="751"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a16f10431889cb0de90269873a10e3a04" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1143,10 +1539,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to AND with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector being result of bitwise AND with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="593" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="593" bodyend="595"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="758" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="758" bodyend="760"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a21e269f4fb14349b74d799ce6113d984" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1161,10 +1569,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="597" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="597" bodyend="600"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="768" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="768" bodyend="771"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1aba3c46002233e098d724a23cd001c850" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1179,10 +1599,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given integer value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="602" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="602" bodyend="605"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="779" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="779" bodyend="782"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a7f6ae48ff04b5590252c88498959e5c3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1197,10 +1629,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift operator (element-wise). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector after left shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="607" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="607" bodyend="609"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="789" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="789" bodyend="791"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a977ba1a1001a3a5cd96b749ca994428b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1215,10 +1659,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift operator by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector after left shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="611" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="611" bodyend="613"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="798" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="798" bodyend="800"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ad8aa46cd1caf171ab3534f69ce670d42" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1233,10 +1689,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift assignment operator (element-wise). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="615" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="615" bodyend="618"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="807" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="807" bodyend="810"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a2df6b38f497e1df26dc9e9175ff44083" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1251,10 +1719,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift assignment operator by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="620" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="620" bodyend="623"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="817" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="817" bodyend="820"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a082aa11928c56fb56c2124d6d0c8dacb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1269,10 +1749,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator (element-wise, logical shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="625" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="625" bodyend="627"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="827" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="827" bodyend="829"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ab0b95b63b539dc7100cdd06fdc069b34" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1287,10 +1779,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator by scalar (logical shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="629" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="629" bodyend="631"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="836" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="836" bodyend="838"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1ae8d682f94bff5b838c0315212e1390fe" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1305,10 +1809,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift assignment operator (element-wise, logical shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="633" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="633" bodyend="636"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="845" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="845" bodyend="848"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a45950118f602cb7a5651603876565dd9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> &amp;</type>
@@ -1323,10 +1839,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift assignment operator by scalar (logical shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="637" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="637" bodyend="640"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="854" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="854" bodyend="857"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a036d4a7f4eb7da2a778d2afd3377b296" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref></type>
@@ -1337,10 +1865,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise NOT operator. <simplesect kind="return"><para><ref refid="classavx_1_1_u_int256" kindref="compound">UInt256</ref> New vector with all bits inverted. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="642" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="642" bodyend="642"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="864" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="864" bodyend="864"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_int256_1a31f7ab89dac52246334cd796ed63b878" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1358,15 +1889,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="650" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="650" bodyend="659"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="872" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="872" bodyend="881"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Class providing vectorized version of <computeroutput>unsigned int</computeroutput>. It can hold 8 individual values. Supports arithmetic and bitwise operators. Provides comparison operators == !=. Class providing vectorized version of <computeroutput>unsigned int</computeroutput>. It can hold 8 individual values. Supports arithmetic and bitwise operators. Provides comparison operators == !=. </para>
+<para>Class providing vectorized version of <computeroutput>unsigned int</computeroutput>. It can hold 8 individual values. Supports arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="29" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="29" bodyend="660"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" line="23" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uint256.hpp" bodystart="23" bodyend="882"/>
     <listofallmembers>
       <member refid="classavx_1_1_u_int256_1a6ff53befe5246ecb787aa3c07f6520fc" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>get</name></member>
       <member refid="classavx_1_1_u_int256_1a104020fc63dd4ad528777941b557ae2d" prot="public" virt="non-virtual"><scope>avx::UInt256</scope><name>load</name></member>
