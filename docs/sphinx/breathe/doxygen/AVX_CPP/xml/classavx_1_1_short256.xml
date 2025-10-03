@@ -605,10 +605,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds values from other vector and returns new vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being a sum of this vector and <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="238" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="238" bodyend="240"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="244" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="244" bodyend="246"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a1c3faa6e766509540ff14d0227e801be" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -623,10 +635,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds single value across all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to add to vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being a sum of this vector and <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="242" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="242" bodyend="244"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="253" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="253" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a8eee8205ce3b426b7f1821ba69d187c2" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -641,10 +665,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors together and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="246" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="246" bodyend="249"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="262" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="262" bodyend="265"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a48f7a25fb2af9ab4381547b560955ffc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -659,10 +695,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds scalar to vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="251" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="251" bodyend="254"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="272" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="272" bodyend="275"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a206411e499aeeb14a22b99cbc7c7c644" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -677,10 +725,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts values from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="256" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="256" bodyend="258"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="282" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="282" bodyend="284"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a388e8d614c2fe69303cc3aa6220bcfb3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -695,10 +755,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts a single value from all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to subtract from vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="260" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="260" bodyend="262"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="291" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="291" bodyend="293"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ab78b9e248e8a556f5fce73bb5a0c0d91" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -713,10 +785,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="264" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="264" bodyend="267"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="300" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="300" bodyend="303"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae2916772dd69ee6b73e0d713b78f1f27" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -731,10 +815,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts scalar from vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="269" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="269" bodyend="272"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="310" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="310" bodyend="313"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a5501a5b8e81e6e071aba659380146b5d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -749,10 +845,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of multiplying vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="274" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="274" bodyend="276"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="320" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="320" bodyend="322"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a9440a32753b5aa4f403abb76208cc703" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -767,10 +875,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies all vector fields by a single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of multiplying vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="278" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="278" bodyend="280"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="329" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="329" bodyend="331"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1aa6e6e693e9afaf5a4b63ac4fc3056ab1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -785,10 +905,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="282" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="282" bodyend="285"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="338" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="338" bodyend="341"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a999880febc8aadec6b689c65a0e49557" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -803,10 +935,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="287" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="287" bodyend="290"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="348" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="348" bodyend="351"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a73de1d8dbbf220f75c2413bb8da6bc34" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -837,7 +981,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="298" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="298" bodyend="325"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="359" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="359" bodyend="386"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a0647a2bbb6512b947cd3aebe72f351e6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -862,13 +1006,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>Result of integer division with truncation. </para>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New object containing result of division with truncation. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="333" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="333" bodyend="358"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="394" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="394" bodyend="419"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a114390fd7ca813c64ff72e9048a333ae" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -886,7 +1030,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="360" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="360" bodyend="388"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="421" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="421" bodyend="449"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a6469869ad44111741c6d73149d79295c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -901,10 +1045,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs integer division with assignment by scalar.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Divisor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref>&amp; Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="390" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="390" bodyend="416"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="457" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="457" bodyend="483"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a3989f754aa831fb59788b6f8ad817158" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -935,7 +1092,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="425" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="425" bodyend="454"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="492" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="492" bodyend="521"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a7dca86199384be723d69c3f6452d645c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -966,7 +1123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="464" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="464" bodyend="491"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="531" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="531" bodyend="558"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a6b2e282b9215fa05c56adea92414daa3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -984,7 +1141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="494" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="494" bodyend="524"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="561" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="561" bodyend="591"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a78984778f13930553c15e43d594afb02" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1002,7 +1159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="526" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="526" bodyend="554"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="593" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="593" bodyend="621"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1afdf954919c07e577522ab7d913ccb67e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1017,10 +1174,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of bitwise OR with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="556" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="556" bodyend="558"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="629" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="629" bodyend="631"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a7056e0693fd5399a08775e356c7f1292" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1035,10 +1204,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to OR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of bitwise OR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="560" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="560" bodyend="562"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="638" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="638" bodyend="640"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ae11427edc1e45fa9a9428ad130e043bb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1053,10 +1234,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="564" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="564" bodyend="567"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="648" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="648" bodyend="651"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1afc0db19844986982ca9691757993c12d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1071,10 +1264,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="569" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="569" bodyend="572"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="659" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="659" bodyend="662"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a2644e68f65eae7de70b1ca07bc213cb9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1089,10 +1294,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of bitwise AND with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="574" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="574" bodyend="576"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="669" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="669" bodyend="671"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1af19a60e9a45cbfaa856e9eecff27fd0f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1107,10 +1324,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to AND with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of bitwise AND with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="578" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="578" bodyend="580"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="678" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="678" bodyend="680"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ab03a68ee7efae34fa0c3394da2c64c7a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1125,10 +1354,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="582" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="582" bodyend="585"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="688" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="688" bodyend="691"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a7dbd6386b04eabca679f0348d02ef105" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1143,10 +1384,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="587" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="587" bodyend="590"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="699" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="699" bodyend="702"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a2cc8e60eeee17c03f6c32392af06e076" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1161,10 +1414,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of bitwise XOR with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="592" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="592" bodyend="594"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="709" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="709" bodyend="711"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a197b9d9cdffadb4d91021c900aec2627" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1179,10 +1444,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to XOR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector being result of bitwise XOR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="596" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="596" bodyend="598"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="718" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="718" bodyend="720"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a6d94ba8f4a8e64911416e0b6b48fcbd0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1197,10 +1474,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="600" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="600" bodyend="603"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="728" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="728" bodyend="731"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a77cfdd86287443173a83d024260d55a6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1215,10 +1504,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="605" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="605" bodyend="608"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="739" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="739" bodyend="742"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a34c2ccf9977b9ad83cf985c373aaf4f2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1248,7 +1549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="615" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="615" bodyend="640"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="749" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="749" bodyend="774"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a357077bcb5fa9153cbcd320420888f99" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1263,10 +1564,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift operator by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shift</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector after left shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="642" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="642" bodyend="644"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="781" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="781" bodyend="783"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a1371fa0c7fee53c0e10e003d660890d0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1281,10 +1594,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift assignment operator (element-wise). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="646" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="646" bodyend="666"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="790" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="790" bodyend="810"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1ac30aa8e5b848fe2e03af3c26959f48ac" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1299,10 +1624,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift assignment operator by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shift</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="668" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="668" bodyend="671"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="817" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="817" bodyend="820"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1aa57a940e70fca4d3205539c2fe459398" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1317,10 +1654,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator (element-wise, arithmetic shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="673" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="673" bodyend="696"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="827" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="827" bodyend="850"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1aa17751f8eaca804461c844b60bcf6f68" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1335,10 +1684,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator by scalar (arithmetic shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shift</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="698" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="698" bodyend="700"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="857" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="857" bodyend="859"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a12ceef5ca182bef2f9150a858f2534d1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1353,10 +1714,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift assignment operator (element-wise, arithmetic shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="702" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="702" bodyend="726"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="866" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="866" bodyend="890"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a1d228441e6828fb98f0f71d069812e94" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref> &amp;</type>
@@ -1371,10 +1744,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift assignment operator by scalar (arithmetic shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shift</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="728" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="728" bodyend="731"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="897" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="897" bodyend="900"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a63cc935bd0562b8e654a60972874da30" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_short256" kindref="compound">Short256</ref></type>
@@ -1388,7 +1773,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="733" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="733" bodyend="735"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="902" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="902" bodyend="904"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_short256_1a14d416aaac181668ab59e5676d8654cf" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1402,7 +1787,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="737" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="737" bodyend="746"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="906" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="906" bodyend="915"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1410,7 +1795,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>short</computeroutput>. Can hold 16 individual <computeroutput>short</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="19" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="19" bodyend="747"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" line="19" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/short256.hpp" bodystart="19" bodyend="916"/>
     <listofallmembers>
       <member refid="classavx_1_1_short256_1ae72ae89bf693753229f57fa8d15223a7" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>get</name></member>
       <member refid="classavx_1_1_short256_1ac085f845171473d6841976cb2919c83f" prot="public" virt="non-virtual"><scope>avx::Short256</scope><name>load</name></member>

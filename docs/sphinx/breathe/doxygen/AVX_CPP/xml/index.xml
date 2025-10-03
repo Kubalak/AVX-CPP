@@ -619,13 +619,13 @@
     <member refid="classavx_1_1_u_short256_1aff6bd2703acccb9f2edb0e982c72fd96" kind="function"><name>operator^=</name></member>
     <member refid="classavx_1_1_u_short256_1a85b3674058f5d8703013ed4f97aee65c" kind="function"><name>operator^=</name></member>
     <member refid="classavx_1_1_u_short256_1a59bbc605d79396d4208f69b1b3a3ec38" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="classavx_1_1_u_short256_1a802dbff7c367bc6a410f8898a49705ed" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="classavx_1_1_u_short256_1a14a970882a21e9d93911b57c1d7f1392" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="classavx_1_1_u_short256_1ad71226e012821fcda752fbc0a8b072ec" kind="function"><name>operator&lt;&lt;=</name></member>
-    <member refid="classavx_1_1_u_short256_1a502584e8ae293286da2774a8407d210d" kind="function"><name>operator&lt;&lt;=</name></member>
+    <member refid="classavx_1_1_u_short256_1a645dfc296b7a489a6fd41c5a4130089b" kind="function"><name>operator&lt;&lt;=</name></member>
     <member refid="classavx_1_1_u_short256_1a458a965400c81b0bbaa3b7fcab8f8028" kind="function"><name>operator&gt;&gt;</name></member>
-    <member refid="classavx_1_1_u_short256_1a08e0e0b2e94a68784f52b8bc6e6d09e8" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="classavx_1_1_u_short256_1a09727b6a46888d27fb0e8955c8afd4ac" kind="function"><name>operator&gt;&gt;</name></member>
     <member refid="classavx_1_1_u_short256_1a5102383d42ad35a8ed89900858e58d56" kind="function"><name>operator&gt;&gt;=</name></member>
-    <member refid="classavx_1_1_u_short256_1a5fbd1101ee9388ea899421219f2af499" kind="function"><name>operator&gt;&gt;=</name></member>
+    <member refid="classavx_1_1_u_short256_1a66e72c2b67c97b3724ffb3bad7edf0ea" kind="function"><name>operator&gt;&gt;=</name></member>
     <member refid="classavx_1_1_u_short256_1ae3fec3bfc3a67b7b16f5ed30a5f36c10" kind="function"><name>operator~</name></member>
     <member refid="classavx_1_1_u_short256_1a8b02114f7ddd83e51ed7ad7a5ee12861" kind="function"><name>str</name></member>
   </compound>

@@ -401,7 +401,7 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char256E">
 <span id="_CPPv3N3avx7Char256E"></span><span id="_CPPv2N3avx7Char256E"></span><span id="avx::Char256"></span><span class="target" id="classavx_1_1_char256"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char256</span></span></span><a class="headerlink" href="#_CPPv4N3avx7Char256E" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Class representing vectorized version of <code class="docutils literal notranslate"><span class="pre">char</span></code>. It can hold 32 individual <code class="docutils literal notranslate"><span class="pre">char</span></code> variables. Provides support for arithmetic and bitwise operators. <code class="docutils literal notranslate"><a class="reference internal" href="#classavx_1_1_char256_1ab4548801ba655542992f25e8d6351b78"><span class="std std-ref"><span class="pre">str()</span></span></a></code> method returns stored data as string. Supports printing directly to stream (cout). Class representing vectorized version of <code class="docutils literal notranslate"><span class="pre">char</span></code>. It can hold 32 individual <code class="docutils literal notranslate"><span class="pre">char</span></code> variables. Provides support for arithmetic and bitwise operators. <code class="docutils literal notranslate"><a class="reference internal" href="#classavx_1_1_char256_1ab4548801ba655542992f25e8d6351b78"><span class="std std-ref"><span class="pre">str()</span></span></a></code> method returns stored data as string. Supports printing directly to stream (cout). </p>
+<dd><p>Class representing vectorized version of <code class="docutils literal notranslate"><span class="pre">char</span></code>. It can hold 32 individual <code class="docutils literal notranslate"><span class="pre">char</span></code> variables. Provides support for arithmetic and bitwise operators. <code class="docutils literal notranslate"><a class="reference internal" href="#classavx_1_1_char256_1ab4548801ba655542992f25e8d6351b78"><span class="std std-ref"><span class="pre">str()</span></span></a></code> method returns stored data as string. Supports printing directly to stream (cout). </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
@@ -1033,13 +1033,13 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char256oRERK7Char256">
 <span id="_CPPv3N3avx7Char256oRERK7Char256"></span><span id="_CPPv2N3avx7Char256oRERK7Char256"></span><span id="avx::Char256::or-assign-operator__Char256CR"></span><span class="target" id="classavx_1_1_char256_1a663c47fffe0ac0276766c4c9cda727ac"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char256oRERK7Char256" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given integer value, storing the result in this vector. </p>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_char256"><span class="std std-ref">Char256</span></a> Reference to the modified object. </p>
+<dd class="field-even"><p>Reference to the modified object. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -1047,13 +1047,13 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char256oRERKc">
 <span id="_CPPv3N3avx7Char256oRERKc"></span><span id="_CPPv2N3avx7Char256oRERKc"></span><span id="avx::Char256::or-assign-operator__cCR"></span><span class="target" id="classavx_1_1_char256_1a8549879198c79ee02477e31d3271a5e2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char256oRERKc" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given integer value, storing the result in this vector. </p>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given scalar value, storing the result in this vector. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>b</strong> – Integer value. </p>
+<dd class="field-odd"><p><strong>b</strong> – Scalar value. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_char256"><span class="std std-ref">Char256</span></a> Reference to the modified object. </p>
+<dd class="field-even"><p>Reference to the modified object. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -1089,7 +1089,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char256eOERK7Char256">
 <span id="_CPPv3N3avx7Char256eOERK7Char256"></span><span id="_CPPv2N3avx7Char256eOERK7Char256"></span><span id="avx::Char256::xor-assign-operator__Char256CR"></span><span class="target" id="classavx_1_1_char256_1a1d8761f90a20b102abf95ca6a0a5991d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char256eOERK7Char256" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given integer value, storing the result in this vector. </p>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
@@ -1103,10 +1103,10 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Char256eOERKc">
 <span id="_CPPv3N3avx7Char256eOERKc"></span><span id="_CPPv2N3avx7Char256eOERKc"></span><span id="avx::Char256::xor-assign-operator__cCR"></span><span class="target" id="classavx_1_1_char256_1a21b1fd8842015d4a8514465ed212f706"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Char256E" title="avx::Char256"><span class="n"><span class="pre">Char256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Char256eOERKc" title="Link to this definition">¶</a><br /></dt>
-<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given integer value, storing the result in this vector. </p>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given scalar value, storing the result in this vector. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>b</strong> – Integer value. </p>
+<dd class="field-odd"><p><strong>b</strong> – Scalar value. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Reference to the modified object. </p>

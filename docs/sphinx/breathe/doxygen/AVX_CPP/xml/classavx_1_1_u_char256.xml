@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="23" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="23" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="23" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-attrib">
@@ -262,10 +262,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Initializes vector from initializer_list of unsigned char values. If the list contains fewer than 32 elements, remaining elements are set to zero. If the list contains more than 32 elements, only the first 32 are used. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>init</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initializer list of unsigned char values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="103" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="103" bodyend="121"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="109" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="109" bodyend="127"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2390df1548ccebb4d51b8cc5dfa9bada" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -302,7 +312,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="128" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="128" bodyend="135"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="134" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="134" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a1c3f349b32726616faa25ea575e9f6ac" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -330,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="141" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="141" bodyend="143"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="147" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="147" bodyend="149"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a449f1b64966a52068dfc95a8edf5d0ec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -368,7 +378,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="152" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="152" bodyend="159"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="158" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="158" bodyend="165"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a6a14d0e56378c051bdcd1f2c5d918127" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -406,7 +416,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="168" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="168" bodyend="175"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="174" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="174" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1af77f33fd2def1940b8db9760d7acb218" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
@@ -417,13 +427,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Get the internal vector value. <simplesect kind="return"><para>The value of <computeroutput>__m256i</computeroutput> vector. </para>
+<para>Get the internal vector value. <simplesect kind="return"><para>__m256i The value of <computeroutput>__m256i</computeroutput> vector. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="181" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="181" bodyend="181"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="187" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="187" bodyend="187"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2e2d59825a4e30db333857a757847599" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -451,7 +461,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="187" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="187" bodyend="187"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="193" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="193" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1af40bd631875be9dc639c23e76f1f6c13" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>unsigned char</type>
@@ -490,7 +500,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="195" column="27" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="195" bodyend="201"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="201" column="27" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="201" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ac7e6197e1fa16108f72aa98f5ee0ced9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -505,10 +515,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares with second vector for equality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if all elements are equal or <computeroutput>false</computeroutput> if not. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="207" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="207" bodyend="210"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="217" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="217" bodyend="220"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a6f9bb6e6f09921c6eabbf68417a7388b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -523,10 +545,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares with value for equality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if all elements are equal to passed value <computeroutput>false</computeroutput> if not. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="212" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="212" bodyend="216"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="226" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="226" bodyend="230"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a4317f7ab6ac388d1f1b80fdbf43a089e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -541,10 +575,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares with second vector for inequality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if any alement is not equal to corresponding element in <computeroutput>bV</computeroutput> otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="218" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="218" bodyend="221"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="237" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="237" bodyend="240"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a3d1cd299a66d4e5af24df150a622989d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -559,10 +605,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Compares with value for inequality. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if any alement is not equal to corresponding element in <computeroutput>bV</computeroutput> otherwise <computeroutput>false</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="223" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="223" bodyend="227"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="246" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="246" bodyend="250"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad85b21b8d384a3a1aa33b8845f9ec40a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -577,10 +635,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of adding <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="230" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="230" bodyend="232"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="257" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="257" bodyend="259"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2aabaaee8893908160e17632d99ce488" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -595,10 +665,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds a scalar to all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="235" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="235" bodyend="237"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="266" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="266" bodyend="268"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1abcf357a7b5b67c81d643f13a30c2c766" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -613,10 +695,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds second vector and returns reference to existing vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the same object after performing addition (<computeroutput>*this</computeroutput>). </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="240" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="240" bodyend="243"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="275" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="275" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a1b681e9d03b36ba47fb0f5600313f484" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -631,10 +725,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds a scalar to vector and returns reference to existing vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the same object after performing addition (<computeroutput>*this</computeroutput>). </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="246" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="246" bodyend="249"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="285" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="285" bodyend="288"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a8d5097fb10c0bb84530fd9cd3a627f47" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -649,10 +755,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts values from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="252" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="252" bodyend="254"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="295" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="295" bodyend="297"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a1189bee75387139468599a2b10d150a7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -667,10 +785,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts a single value from all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to subtract from vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="257" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="257" bodyend="259"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="304" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="304" bodyend="306"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aef0afa28ddef275288fe9b66944871aa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -685,10 +815,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts second vector and returns reference to existing vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector to subtract. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the same object after performing subtraction (<computeroutput>*this</computeroutput>). </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="262" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="262" bodyend="265"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="313" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="313" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a8b2eb9b899c980c7b4f5a1f3e2c6aa1a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -703,10 +845,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts a scalar from vector and returns reference to existing vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to subtract. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the same object after performing subtraction (<computeroutput>*this</computeroutput>). </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="268" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="268" bodyend="271"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="323" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="323" bodyend="326"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ae470ba307493dde9ace0d7ac822325dc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -721,10 +875,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of multiplying <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="274" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="274" bodyend="301"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="333" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="333" bodyend="360"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2fea06e449a30e4b55e0a49a5af1b312" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -739,10 +905,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies a scalar to all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value to be multiplied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of multiplying <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="304" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="304" bodyend="329"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="368" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="368" bodyend="393"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aafaf69ff9c21d0a65e0071cc9968206b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -757,10 +935,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="332" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="332" bodyend="360"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="401" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="401" bodyend="429"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ab7bc239fe1d952ed53550c4f1df93af0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -775,10 +965,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies a scalar to vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to multiply. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="363" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="363" bodyend="389"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="437" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="437" bodyend="463"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad0f1d5abbfaa4dbb06116bec632a60c2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -793,10 +995,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of dividing <computeroutput>bV</computeroutput> by vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="392" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="392" bodyend="452"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="471" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="471" bodyend="531"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a321a8b008f5a948f3363234ea7784ffb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -811,10 +1025,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides all vector fields by a single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of dividing vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="454" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="454" bodyend="505"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="538" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="538" bodyend="589"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aded81e2ab36dcfd21eeaefea39dd6e9b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -829,10 +1055,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="507" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="507" bodyend="568"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="596" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="596" bodyend="657"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a9a25f5cba78089f19ad5f8d5654a35fa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -847,10 +1085,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="570" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="570" bodyend="622"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="664" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="664" bodyend="716"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a481f6ea0e3b1b374a1a142352303491d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -865,10 +1115,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second modulo operand (divisor) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of modulo operation. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="625" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="625" bodyend="690"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="724" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="724" bodyend="789"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a6922dd2edd5a972f0cab870f4e9d5b83" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -883,10 +1145,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculates element-wise modulo of vector and scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of modulo operation. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="692" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="692" bodyend="749"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="796" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="796" bodyend="853"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ab6c063e25a4c35bfdd02f3a2141c1802" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -901,10 +1175,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second modulo operand (divisor) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the original vector holding modulo operation results. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="751" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="751" bodyend="817"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="860" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="860" bodyend="926"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a06c7665e116da3bffd40994efb604c14" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -919,10 +1205,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the original vector holding modulo operation results. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="822" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="822" bodyend="884"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="936" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="936" bodyend="998"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ad6c864a6400529e7e670c6b97d55014f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -937,10 +1235,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of bitwise AND with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="887" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="887" bodyend="889"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1006" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1006" bodyend="1008"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a47afea3952c84e987647d305e84d926c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -955,10 +1265,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to AND with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of bitwise AND with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="892" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="892" bodyend="894"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1016" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1016" bodyend="1018"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aa87bd398ed2bc04d1b88aba5b3cd9950" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -973,10 +1295,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="897" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="897" bodyend="900"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1027" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1027" bodyend="1030"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a3bef6b11b1d0f7d7da26d65f60a72dcf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -991,10 +1325,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to AND with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="903" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="903" bodyend="906"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1039" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1039" bodyend="1042"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a03eb09f835ed374f0b20441c421dba57" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1009,10 +1355,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of bitwise OR with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="909" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="909" bodyend="911"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1050" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1050" bodyend="1052"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a2f26df773bef07723fe6572fe3fe2206" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1027,10 +1385,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to OR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of bitwise OR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="914" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="914" bodyend="916"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1060" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1060" bodyend="1062"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a4a5650d4ae97edbbe871bdfc688c4e49" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1045,10 +1415,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="919" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="919" bodyend="922"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1071" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1071" bodyend="1074"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ab3df386f51f879cae4ef7eedb58a2c40" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1063,10 +1445,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given scalar value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="925" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="925" bodyend="928"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1083" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1083" bodyend="1086"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aeb1a020148f8cd332a350af91fad3de2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1081,10 +1475,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of bitwise XOR with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="931" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="931" bodyend="933"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1094" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1094" bodyend="1096"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a61021c51ba4a8aba59f0ba866972f14e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1099,10 +1505,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to XOR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector being result of bitwise XOR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="936" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="936" bodyend="938"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1104" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1104" bodyend="1106"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a8f3ddbf3f712accc542900eff6066977" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1117,10 +1535,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="941" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="941" bodyend="944"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1115" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1115" bodyend="1118"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a0c7f955b5b81e8cf79912cb419c48c09" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1135,10 +1565,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given scalar value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="947" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="947" bodyend="950"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1127" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1127" bodyend="1130"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1af315d01c5355d0f4ed4d2023e3008a81" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1153,10 +1595,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift operator (element-wise). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector after left shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="953" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="953" bodyend="989"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1138" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1138" bodyend="1174"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ae862868b1b73665ee359961d7203055b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1171,10 +1625,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift operator by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector after left shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="992" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="992" bodyend="1005"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1182" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1182" bodyend="1195"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a95f458c17c1b5e0285473e5524716867" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1189,10 +1655,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values left while shifting in 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1008" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1008" bodyend="1045"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1203" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1203" bodyend="1240"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1aaee6c756e2935da3c2b1776e519f3b0a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1207,10 +1685,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values left while shifting in 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1048" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1048" bodyend="1062"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1248" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1248" bodyend="1262"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a4d33ac11841a57623ca3e1612be85133" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1225,10 +1715,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator (element-wise, logical shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1065" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1065" bodyend="1095"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1270" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1270" bodyend="1300"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a9d49f2203f5bd3dbedf23bdcda5c4129" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1243,10 +1745,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator by scalar (logical shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1098" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1098" bodyend="1106"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1308" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1308" bodyend="1316"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a8f462c02a60ee341866d857aa460f171" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1261,10 +1775,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values right while shifting in 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1109" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1109" bodyend="1140"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1324" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1324" bodyend="1355"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a9e6843fc33f70e5b9bdae07a3cbff2af" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> &amp;</type>
@@ -1279,10 +1805,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values right while shifting in 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1143" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1143" bodyend="1152"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1363" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1363" bodyend="1372"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ae0b8856818164e400f93ef8549485c1b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref></type>
@@ -1293,10 +1831,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise NOT operator. <simplesect kind="return"><para><ref refid="classavx_1_1_u_char256" kindref="compound">UChar256</ref> New vector with all bits inverted. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1156" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1156" bodyend="1158"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1380" column="22" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1380" bodyend="1382"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1ab3017afc90d57f773d44b94fd352b675" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1307,10 +1848,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>A string representation of internal vector contents. All 32 stored values will be printed out.</para>
+<para><simplesect kind="return"><para>String in the following format (for default constructor): &quot;UChar256(0, 0, [...], 0)&quot; </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1160" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1160" bodyend="1169"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1389" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1389" bodyend="1398"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_char256_1a55e8e99c9c95b89cc97bfdfa87df9014" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1321,10 +1866,14 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Creates a string from internal vector. This function is safe even if data is not null-terminated.</para>
+<para><simplesect kind="return"><para>String filled with contents of internal vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1171" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1171" bodyend="1178"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1406" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1406" bodyend="1413"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="friend">
@@ -1345,18 +1894,38 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Prints content of vector as raw string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>os</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output stream, to which content will be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector, whose value will be written to stream. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to <computeroutput>os</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1180" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1180" bodyend="1188"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="1421" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="1421" bodyend="1429"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>Class representing vectorized version of <computeroutput>unsigned char</computeroutput>. It can hold 32 individual <computeroutput>unsigned char</computeroutput> variables. Provides support for arithmetic and bitwise operators. <computeroutput>str()</computeroutput> method returns stored data as string. Supports printing directly to stream (cout). </para>
+<para>Class representing vectorized version of <computeroutput>unsigned char</computeroutput>. It can hold 32 individual <computeroutput>unsigned char</computeroutput> variables. Provides support for arithmetic and bitwise operators. <computeroutput><ref refid="classavx_1_1_u_char256_1ab3017afc90d57f773d44b94fd352b675" kindref="member">str()</ref></computeroutput> method returns stored data as string. Supports printing directly to stream (cout). </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="21" bodyend="1191"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/uchar256.hpp" bodystart="21" bodyend="1432"/>
     <listofallmembers>
       <member refid="classavx_1_1_u_char256_1af77f33fd2def1940b8db9760d7acb218" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>get</name></member>
       <member refid="classavx_1_1_u_char256_1a2390df1548ccebb4d51b8cc5dfa9bada" prot="public" virt="non-virtual"><scope>avx::UChar256</scope><name>load</name></member>

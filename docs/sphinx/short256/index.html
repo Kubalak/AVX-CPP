@@ -547,62 +547,170 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256plERK8Short256">
 <span id="_CPPv3NK3avx8Short256plERK8Short256"></span><span id="_CPPv2NK3avx8Short256plERK8Short256"></span><span id="avx::Short256::add-operator__Short256CRC"></span><span class="target" id="classavx_1_1_short256_1ae14348eb7ddcb22bf7ff1e4fc279f451"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256plERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds values from other vector and returns new vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256plERKs">
 <span id="_CPPv3NK3avx8Short256plERKs"></span><span id="_CPPv2NK3avx8Short256plERKs"></span><span id="avx::Short256::add-operator__shortCRC"></span><span class="target" id="classavx_1_1_short256_1a1c3faa6e766509540ff14d0227e801be"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256plERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds single value across all vector fields. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to add to vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256pLERK8Short256">
 <span id="_CPPv3N3avx8Short256pLERK8Short256"></span><span id="_CPPv2N3avx8Short256pLERK8Short256"></span><span id="avx::Short256::add-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1a8eee8205ce3b426b7f1821ba69d187c2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256pLERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds two vectors together and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after adding <code class="docutils literal notranslate"><span class="pre">bV</span></code> to vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256pLERKs">
 <span id="_CPPv3N3avx8Short256pLERKs"></span><span id="_CPPv2N3avx8Short256pLERKs"></span><span id="avx::Short256::add-assign-operator__shortCR"></span><span class="target" id="classavx_1_1_short256_1a48f7a25fb2af9ab4381547b560955ffc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256pLERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds scalar to vector and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to be added. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after adding <code class="docutils literal notranslate"><span class="pre">b</span></code> to vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256miERK8Short256">
 <span id="_CPPv3NK3avx8Short256miERK8Short256"></span><span id="_CPPv2NK3avx8Short256miERK8Short256"></span><span id="avx::Short256::sub-operator__Short256CRC"></span><span class="target" id="classavx_1_1_short256_1a206411e499aeeb14a22b99cbc7c7c644"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256miERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts values from vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of subtracting <code class="docutils literal notranslate"><span class="pre">bV</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256miERKs">
 <span id="_CPPv3NK3avx8Short256miERKs"></span><span id="_CPPv2NK3avx8Short256miERKs"></span><span id="avx::Short256::sub-operator__shortCRC"></span><span class="target" id="classavx_1_1_short256_1a388e8d614c2fe69303cc3aa6220bcfb3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256miERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts a single value from all vector fields. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to subtract from vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of subtracting <code class="docutils literal notranslate"><span class="pre">b</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256mIERK8Short256">
 <span id="_CPPv3N3avx8Short256mIERK8Short256"></span><span id="_CPPv2N3avx8Short256mIERK8Short256"></span><span id="avx::Short256::sub-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1ab78b9e248e8a556f5fce73bb5a0c0d91"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256mIERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts two vectors and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after subtracting <code class="docutils literal notranslate"><span class="pre">bV</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256mIERKs">
 <span id="_CPPv3N3avx8Short256mIERKs"></span><span id="_CPPv2N3avx8Short256mIERKs"></span><span id="avx::Short256::sub-assign-operator__shortCR"></span><span class="target" id="classavx_1_1_short256_1ae2916772dd69ee6b73e0d713b78f1f27"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256mIERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts scalar from vector and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to be subtracted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after subtracting <code class="docutils literal notranslate"><span class="pre">b</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256mlERK8Short256">
 <span id="_CPPv3NK3avx8Short256mlERK8Short256"></span><span id="_CPPv2NK3avx8Short256mlERK8Short256"></span><span id="avx::Short256::mul-operator__Short256CRC"></span><span class="target" id="classavx_1_1_short256_1a5501a5b8e81e6e071aba659380146b5d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256mlERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies two vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of multiplying vector by <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256mlERKs">
 <span id="_CPPv3NK3avx8Short256mlERKs"></span><span id="_CPPv2NK3avx8Short256mlERKs"></span><span id="avx::Short256::mul-operator__shortCRC"></span><span class="target" id="classavx_1_1_short256_1a9440a32753b5aa4f403abb76208cc703"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256mlERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies all vector fields by a single value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to multiply by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of multiplying vector by <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256mLERK8Short256">
 <span id="_CPPv3N3avx8Short256mLERK8Short256"></span><span id="_CPPv2N3avx8Short256mLERK8Short256"></span><span id="avx::Short256::mul-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1aa6e6e693e9afaf5a4b63ac4fc3056ab1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256mLERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies two vectors and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after multiplying by <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256mLERKs">
 <span id="_CPPv3N3avx8Short256mLERKs"></span><span id="_CPPv2N3avx8Short256mLERKs"></span><span id="avx::Short256::mul-assign-operator__shortCR"></span><span class="target" id="classavx_1_1_short256_1a999880febc8aadec6b689c65a0e49557"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256mLERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies vector by scalar and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to multiply by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after multiplying by <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256dvERK8Short256">
@@ -627,7 +735,7 @@
 <dd class="field-odd"><p><strong>bV</strong> – Divisor value. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Result of integer division with truncation. </p>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New object containing result of division with truncation. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -640,7 +748,16 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256dVERKs">
 <span id="_CPPv3N3avx8Short256dVERKs"></span><span id="_CPPv2N3avx8Short256dVERKs"></span><span id="avx::Short256::div-assign-operator__shortCR"></span><span class="target" id="classavx_1_1_short256_1a6469869ad44111741c6d73149d79295c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256dVERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Performs integer division with assignment by scalar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Divisor. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a>&amp; Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256rmERK8Short256">
@@ -685,62 +802,170 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256orERK8Short256">
 <span id="_CPPv3NK3avx8Short256orERK8Short256"></span><span id="_CPPv2NK3avx8Short256orERK8Short256"></span><span id="avx::Short256::or-operator__Short256CRC"></span><span class="target" id="classavx_1_1_short256_1afdf954919c07e577522ab7d913ccb67e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256orERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of bitwise OR with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256orERKs">
 <span id="_CPPv3NK3avx8Short256orERKs"></span><span id="_CPPv2NK3avx8Short256orERKs"></span><span id="avx::Short256::or-operator__shortCRC"></span><span class="target" id="classavx_1_1_short256_1a7056e0693fd5399a08775e356c7f1292"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256orERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to OR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of bitwise OR with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256oRERK8Short256">
 <span id="_CPPv3N3avx8Short256oRERK8Short256"></span><span id="_CPPv2N3avx8Short256oRERK8Short256"></span><span id="avx::Short256::or-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1ae11427edc1e45fa9a9428ad130e043bb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256oRERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256oRERKs">
 <span id="_CPPv3N3avx8Short256oRERKs"></span><span id="_CPPv2N3avx8Short256oRERKs"></span><span id="avx::Short256::or-assign-operator__shortCR"></span><span class="target" id="classavx_1_1_short256_1afc0db19844986982ca9691757993c12d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256oRERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256anERK8Short256">
 <span id="_CPPv3NK3avx8Short256anERK8Short256"></span><span id="_CPPv2NK3avx8Short256anERK8Short256"></span><span id="avx::Short256::and-operator__Short256CRC"></span><span class="target" id="classavx_1_1_short256_1a2644e68f65eae7de70b1ca07bc213cb9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256anERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of bitwise AND with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256anERKs">
 <span id="_CPPv3NK3avx8Short256anERKs"></span><span id="_CPPv2NK3avx8Short256anERKs"></span><span id="avx::Short256::and-operator__shortCRC"></span><span class="target" id="classavx_1_1_short256_1af19a60e9a45cbfaa856e9eecff27fd0f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256anERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to AND with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of bitwise AND with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256aNERK8Short256">
 <span id="_CPPv3N3avx8Short256aNERK8Short256"></span><span id="_CPPv2N3avx8Short256aNERK8Short256"></span><span id="avx::Short256::and-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1ab03a68ee7efae34fa0c3394da2c64c7a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256aNERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256aNERKs">
 <span id="_CPPv3N3avx8Short256aNERKs"></span><span id="_CPPv2N3avx8Short256aNERKs"></span><span id="avx::Short256::and-assign-operator__shortCR"></span><span class="target" id="classavx_1_1_short256_1a7dbd6386b04eabca679f0348d02ef105"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256aNERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256eoERK8Short256">
 <span id="_CPPv3NK3avx8Short256eoERK8Short256"></span><span id="_CPPv2NK3avx8Short256eoERK8Short256"></span><span id="avx::Short256::xor-operator__Short256CRC"></span><span class="target" id="classavx_1_1_short256_1a2cc8e60eeee17c03f6c32392af06e076"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256eoERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of bitwise XOR with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256eoERKs">
 <span id="_CPPv3NK3avx8Short256eoERKs"></span><span id="_CPPv2NK3avx8Short256eoERKs"></span><span id="avx::Short256::xor-operator__shortCRC"></span><span class="target" id="classavx_1_1_short256_1a197b9d9cdffadb4d91021c900aec2627"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256eoERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to XOR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector being result of bitwise XOR with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256eOERK8Short256">
 <span id="_CPPv3N3avx8Short256eOERK8Short256"></span><span id="_CPPv2N3avx8Short256eOERK8Short256"></span><span id="avx::Short256::xor-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1a6d94ba8f4a8e64911416e0b6b48fcbd0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256eOERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256eOERKs">
 <span id="_CPPv3N3avx8Short256eOERKs"></span><span id="_CPPv2N3avx8Short256eOERKs"></span><span id="avx::Short256::xor-assign-operator__shortCR"></span><span class="target" id="classavx_1_1_short256_1a77cfdd86287443173a83d024260d55a6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">short</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256eOERKs" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256lsERK8Short256">
@@ -759,37 +984,100 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256lsERKj">
 <span id="_CPPv3NK3avx8Short256lsERKj"></span><span id="_CPPv2NK3avx8Short256lsERKj"></span><span id="avx::Short256::lshift-operator__unsigned-iCRC"></span><span class="target" id="classavx_1_1_short256_1a357077bcb5fa9153cbcd320420888f99"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shift</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256lsERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise left shift operator by scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shift</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector after left shift. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256lSERK8Short256">
 <span id="_CPPv3N3avx8Short256lSERK8Short256"></span><span id="_CPPv2N3avx8Short256lSERK8Short256"></span><span id="avx::Short256::lshift-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1a1371fa0c7fee53c0e10e003d660890d0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256lSERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise left shift assignment operator (element-wise). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256lSERKj">
 <span id="_CPPv3N3avx8Short256lSERKj"></span><span id="_CPPv2N3avx8Short256lSERKj"></span><span id="avx::Short256::lshift-assign-operator__unsigned-iCR"></span><span class="target" id="classavx_1_1_short256_1ac30aa8e5b848fe2e03af3c26959f48ac"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shift</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256lSERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise left shift assignment operator by scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shift</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256rsERK8Short256">
 <span id="_CPPv3NK3avx8Short256rsERK8Short256"></span><span id="_CPPv2NK3avx8Short256rsERK8Short256"></span><span id="avx::Short256::rshift-operator__Short256CRC"></span><span class="target" id="classavx_1_1_short256_1aa57a940e70fca4d3205539c2fe459398"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256rsERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise right shift operator (element-wise, arithmetic shift). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector after right shift. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256rsERKj">
 <span id="_CPPv3NK3avx8Short256rsERKj"></span><span id="_CPPv2NK3avx8Short256rsERKj"></span><span id="avx::Short256::rshift-operator__unsigned-iCRC"></span><span class="target" id="classavx_1_1_short256_1aa17751f8eaca804461c844b60bcf6f68"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shift</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx8Short256rsERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise right shift operator by scalar (arithmetic shift). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shift</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_short256"><span class="std std-ref">Short256</span></a> New vector after right shift. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256rSERK8Short256">
 <span id="_CPPv3N3avx8Short256rSERK8Short256"></span><span id="_CPPv2N3avx8Short256rSERK8Short256"></span><span id="avx::Short256::rshift-assign-operator__Short256CR"></span><span class="target" id="classavx_1_1_short256_1a12ceef5ca182bef2f9150a858f2534d1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256rSERK8Short256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise right shift assignment operator (element-wise, arithmetic shift). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx8Short256rSERKj">
 <span id="_CPPv3N3avx8Short256rSERKj"></span><span id="_CPPv2N3avx8Short256rSERKj"></span><span id="avx::Short256::rshift-assign-operator__unsigned-iCR"></span><span class="target" id="classavx_1_1_short256_1a1d228441e6828fb98f0f71d069812e94"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx8Short256E" title="avx::Short256"><span class="n"><span class="pre">Short256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shift</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx8Short256rSERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise right shift assignment operator by scalar (arithmetic shift). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shift</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx8Short256coEv">

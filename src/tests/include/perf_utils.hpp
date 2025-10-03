@@ -594,9 +594,7 @@ namespace testing{
          * @param bV Second vector with data.
          * @param cV Results vector.
          * @param print If set to `false` function produces no output to stdout. Otherwise prints test duration.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
-         * @param print If set to `false` function produces no output to stdout.
-         * @returns Pair containing the results vector and total time in nanoseconds. You can use `testing::universalDuration` to get human-readable values.
+         * @returns int64_t Number of nanoseconds spent executing function body. Use `testing::universalDuration` to get human-readable values.
          */
         template<typename S>
         int64_t testAddSeq(const std::vector<S>& aV, const std::vector<S>& bV, std::vector<S>& cV,  const bool  print = true){
@@ -1318,13 +1316,20 @@ namespace testing{
             if constexpr (std::is_integral_v<S>)
             {
                 std::default_random_engine rd;
-                std::uniform_int_distribution dist(std::numeric_limits<S>::min(), std::numeric_limits<S>::max());
-
-                for(size_t i = 0; i < aV.size(); ++i){
-                    aV[i] = dist(rd);
-                    bV[i] = dist(rd) | 1; // Avoid zero division error.
+                if constexpr (sizeof(S) == 1){
+                    std::uniform_int_distribution dist(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
+                    for(size_t i = 0; i < aV.size(); ++i){
+                        aV[i] = dist(rd);
+                        bV[i] = dist(rd) | 1; // Avoid zero division error.
+                    }
                 }
-
+                else{
+                    std::uniform_int_distribution dist(std::numeric_limits<S>::min(), std::numeric_limits<S>::max());
+                    for(size_t i = 0; i < aV.size(); ++i){
+                        aV[i] = dist(rd);
+                        bV[i] = dist(rd) | 1; // Avoid zero division error.
+                    }
+                }              
             } else {
                 std::uniform_real_distribution<S> dist(std::numeric_limits<S>::min(), std::numeric_limits<S>::max());
                 std::default_random_engine re;
@@ -1629,7 +1634,7 @@ namespace testing{
         /**
          * Returns the time of function execution in nanoseconds.
          * @param f Function to be executed.
-         * @param args Arguments to be passed to the function.
+         * @param params Arguments to be passed to the function.
          */
         template<typename S, typename ...args>
         uint64_t funcTime(S f, args&& ...params) {

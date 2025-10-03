@@ -20,7 +20,7 @@ namespace avx {
      */
     class UChar256{
         // Internal vector containing stored values.
-        __m256i v;
+        alignas(32) __m256i v;
 
         public:
             
@@ -100,6 +100,12 @@ namespace avx {
              */
             UChar256(const std::array<unsigned char, 32>& init) noexcept : v(_mm256_lddqu_si256((const __m256i*)init.data())){}
 
+            /**
+             * Initializes vector from initializer_list of unsigned char values.
+             * If the list contains fewer than 32 elements, remaining elements are set to zero.
+             * If the list contains more than 32 elements, only the first 32 are used.
+             * @param init Initializer list of unsigned char values.
+             */
             UChar256(std::initializer_list<unsigned char> init) {
                 alignas(32) unsigned char init_v[32];
                 memset(init_v, 0, 32);
@@ -176,7 +182,7 @@ namespace avx {
 
             /**
              * Get the internal vector value.
-             * @returns The value of `__m256i` vector.
+             * @return __m256i The value of `__m256i` vector.
              */
             __m256i get() const noexcept{return v;}
 
@@ -203,74 +209,127 @@ namespace avx {
                 noexcept { return ((unsigned char*)&v)[index & 31]; }
             #endif
 
-
+            /**
+             * Compares with second vector for equality.
+             * @param bV Object to compare.
+             * @returns `true` if all elements are equal or `false` if not.
+             */
             bool operator==(const UChar256& bV) const noexcept {
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
-
+            /**
+             * Compares with value for equality.
+             * @param b Value to compare.
+             * @returns `true` if all elements are equal to passed value `false` if not.
+             */
             bool operator==(const char b) const noexcept {
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
 
+            /**
+             * Compares with second vector for inequality.
+             * @param bV Object to compare.
+             * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
+             */
             bool operator!=(const UChar256& bV) const noexcept {
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
-
+            /**
+             * Compares with value for inequality.
+             * @param b Value to compare.
+             * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
+             */
             bool operator!=(const char b) const noexcept {
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
 
-
+            /**
+             * Adds two vectors.
+             * @param bV Second vector.
+             * @return UChar256 New vector being result of adding `bV` to vector.
+             */
             UChar256 operator+(const UChar256& bV) const noexcept {
                 return _mm256_add_epi8(v, bV.v);
             }
 
-
+            /**
+             * Adds a scalar to all vector fields.
+             * @param b Scalar value to be added.
+             * @return UChar256 New vector being result of adding `b` to vector.
+             */
             UChar256 operator+(const unsigned char& b) const noexcept{
                 return _mm256_add_epi8(v, _mm256_set1_epi8(b));
             }
 
-
+            /**
+             * Adds second vector and returns reference to existing vector.
+             * @param bV Vector to add.
+             * @return Reference to the same object after performing addition (`*this`).
+             */
             UChar256& operator+=(const UChar256& bV) noexcept {
                 v = _mm256_add_epi8(v, bV.v);
                 return *this;
             }
 
-
+            /**
+             * Adds a scalar to vector and returns reference to existing vector.
+             * @param b Scalar to add.
+             * @return Reference to the same object after performing addition (`*this`).
+             */
             UChar256& operator+=(const unsigned char& b) noexcept {
                 v =_mm256_add_epi8(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
-
+            /**
+             * Subtracts values from vector.
+             * @param bV Second vector.
+             * @return UChar256 New vector being result of subtracting `bV` from vector.
+             */
             UChar256 operator-(const UChar256& bV) const noexcept {
                 return _mm256_sub_epi8(v, bV.v);
             }
 
-
+            /**
+             * Subtracts a single value from all vector fields.
+             * @param b Value to subtract from vector.
+             * @return UChar256 New vector being result of subtracting `b` from vector.
+             */
             UChar256 operator-(const unsigned char& b) const noexcept {
                 return _mm256_sub_epi8(v, _mm256_set1_epi8(b));
             }
 
-
+            /**
+             * Subtracts second vector and returns reference to existing vector.
+             * @param bV Vector to subtract.
+             * @return Reference to the same object after performing subtraction (`*this`).
+             */
             UChar256& operator-=(const UChar256& bV) noexcept {
                 v = _mm256_sub_epi8(v, bV.v);
                 return *this;
             }
 
-
+            /**
+             * Subtracts a scalar from vector and returns reference to existing vector.
+             * @param b Scalar to subtract.
+             * @return Reference to the same object after performing subtraction (`*this`).
+             */ 
             UChar256& operator-=(const unsigned char& b) noexcept {
                 v = _mm256_sub_epi8(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
-
+            /**
+             * Multiplies two vectors.
+             * @param bV Second vector.
+             * @return UChar256 New vector being result of multiplying `bV` to vector.
+             */
             UChar256 operator*(const UChar256& bV) const noexcept {
             #ifdef __AVX512BW__
                 return _mm512_cvtepi16_epi8(
@@ -301,6 +360,11 @@ namespace avx {
             }
 
 
+            /**
+             * Multiplies a scalar to all vector fields.
+             * @param b Scalar value to be multiplied.
+             * @return UChar256 New vector being result of multiplying `b` to vector.
+             */
             UChar256 operator*(const char& b) const noexcept {
             #ifdef __AVX512BW__
                 return _mm512_cvtepi16_epi8(
@@ -329,6 +393,11 @@ namespace avx {
             }
 
 
+            /**
+             * Multiplies two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @return Reference to same vector after multiplying by `bV`.
+             */
             UChar256& operator*=(const UChar256& bV) noexcept {
             #ifdef __AVX512BW__
                 v = _mm512_cvtepi16_epi8(
@@ -360,6 +429,11 @@ namespace avx {
             }
 
 
+            /**
+             * Multiplies a scalar to vector and stores result inside original vector.
+             * @param b Scalar to multiply.
+             * @return Reference to same vector after multiplying by `b`.
+             */
             UChar256& operator*=(const char& b) noexcept {
             #ifdef __AVX512BW__
                 v = _mm512_cvtepi16_epi8(
@@ -389,6 +463,11 @@ namespace avx {
             }
 
 
+            /**
+             * Divides two vectors.
+             * @param bV Second vector.
+             * @return UChar256 New vector being result of dividing `bV` by vector.
+             */
             UChar256 operator/(const UChar256& bV) const noexcept {
             #ifdef __AVX512BW__
                 __m512i first_16 = _mm512_cvtepu8_epi16(v);
@@ -451,6 +530,11 @@ namespace avx {
             #endif
             }
 
+            /**
+             * Divides all vector fields by a single value.
+             * @param b Value (divisor).
+             * @return UChar256 New vector being result of dividing vector by `b`.
+             */
             UChar256 operator/(const unsigned char b) const noexcept {
             #ifdef __AVX512BW__
                 __m512i first_16 = _mm512_cvtepu8_epi16(v);
@@ -504,6 +588,11 @@ namespace avx {
             #endif
             }
 
+            /**
+             * Divides two vectors and stores result inside original vector.
+             * @param bV Second vector (divisor).
+             * @return Reference to same vector after dividing by `bV`.
+             */
             UChar256 operator/=(const UChar256& bV) noexcept {
             #ifdef __AVX512BW__
                 __m512i first_16 = _mm512_cvtepu8_epi16(v);
@@ -567,6 +656,11 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Divides vector by scalar and stores result inside original vector.
+             * @param b Scalar value (divisor).
+             * @return Reference to same vector after dividing by `b`.
+             */
             UChar256 operator/=(const unsigned char b) noexcept {
             #ifdef __AVX512BW__
                 __m512i first_16 = _mm512_cvtepu8_epi16(v);
@@ -622,6 +716,11 @@ namespace avx {
             }
 
 
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param bV Second modulo operand (divisor)
+             * @return Result of modulo operation.
+             */
             UChar256 operator%(const UChar256& bV) const noexcept {
             #if defined(__AVX512BW__) && defined(__AVX512F__)
                 __m512i first_16 = _mm512_cvtepu8_epi16(v);
@@ -689,6 +788,11 @@ namespace avx {
             #endif
             }
 
+            /**
+             * Calculates element-wise modulo of vector and scalar.
+             * @param b Value (divisor).
+             * @return UChar256 New vector being result of modulo operation.
+             */
             UChar256 operator%(const unsigned char b) const noexcept {
                 if(!b) return _mm256_setzero_si256();
             #if defined(__AVX512BW__) && defined(__AVX512F__)
@@ -748,6 +852,11 @@ namespace avx {
             #endif
             }
 
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param bV Second modulo operand (divisor)
+             * @return Reference to the original vector holding modulo operation results.
+             */
             UChar256 operator%=(const UChar256& bV) noexcept {
             #if defined(__AVX512BW__) && defined(__AVX512F__)
                 __m512i first_16 = _mm512_cvtepu8_epi16(v);
@@ -819,6 +928,11 @@ namespace avx {
 
 
 
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param b Scalar (divisor).
+             * @return Reference to the original vector holding modulo operation results.
+             */
             UChar256 operator%=(const unsigned char b) noexcept {
                 if(!b) {
                     v = _mm256_setzero_si256();
@@ -884,72 +998,143 @@ namespace avx {
             }
 
 
+            /**
+             * Bitwise AND operator.
+             * @param bV Second vector.
+             * @return UChar256 New vector being result of bitwise AND with `bV`.
+             */
             UChar256 operator&(const UChar256& bV) const noexcept {
                 return _mm256_and_si256(v, bV.v);
             }
 
 
+            /**
+             * Bitwise AND operator with scalar.
+             * @param b Value to AND with.
+             * @return UChar256 New vector being result of bitwise AND with `b`.
+             */
             UChar256 operator&(const unsigned char& b) const noexcept {
                 return _mm256_and_si256(v, _mm256_set1_epi8(b));
             }
 
 
+            /**
+             * Bitwise AND assignment operator.
+             * Applies bitwise AND between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             UChar256& operator&=(const UChar256& bV) noexcept {
                 v = _mm256_and_si256(v, bV.v);
                 return *this;
             }
 
 
+            /**
+             * Bitwise AND assignment operator.
+             * Applies bitwise AND between this vector and the given value, storing the result in this vector.
+             * @param b Value to AND with.
+             * @return Reference to the modified object.
+             */
             UChar256& operator&=(const unsigned char& b) noexcept {
                 v = _mm256_and_si256(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
 
+            /**
+             * Bitwise OR operator.
+             * @param bV Second vector.
+             * @return UChar256 New vector being result of bitwise OR with `bV`.
+             */
             UChar256 operator|(const UChar256& bV) const noexcept {
                 return _mm256_or_si256(v, bV.v);
             }
 
 
+            /**
+             * Bitwise OR operator with scalar.
+             * @param b Value to OR with.
+             * @return UChar256 New vector being result of bitwise OR with `b`.
+             */
             UChar256 operator|(const unsigned char& b) const noexcept {
                 return _mm256_or_si256(v, _mm256_set1_epi8(b));
             }
 
 
+            /**
+             * Bitwise OR assignment operator.
+             * Applies bitwise OR between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             UChar256& operator|=(const UChar256& bV) noexcept {
                 v = _mm256_or_si256(v, bV.v);
                 return *this;
             }
 
 
+            /**
+             * Bitwise OR assignment operator.
+             * Applies bitwise OR between this vector and the given scalar value, storing the result in this vector.
+             * @param b Scalar value.
+             * @return Reference to the modified object.
+             */
             UChar256& operator|=(const unsigned char& b) noexcept {
                 v = _mm256_or_si256(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
 
+            /**
+             * Bitwise XOR operator.
+             * @param bV Second vector.
+             * @return UChar256 New vector being result of bitwise XOR with `bV`.
+             */
             UChar256 operator^(const UChar256& bV) const noexcept {
                 return _mm256_xor_si256(v, bV.v);
             }
 
 
+            /**
+             * Bitwise XOR operator with scalar.
+             * @param b Value to XOR with.
+             * @return UChar256 New vector being result of bitwise XOR with `b`.
+             */
             UChar256 operator^(const unsigned char& b) const noexcept {
                 return _mm256_xor_si256(v, _mm256_set1_epi8(b));
             }
 
 
+            /**
+             * Bitwise XOR assignment operator.
+             * Applies bitwise XOR between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             UChar256& operator^=(const UChar256& bV) noexcept {
                 v = _mm256_xor_si256(v, bV.v);
                 return *this;
             }
 
 
+            /**
+             * Bitwise XOR assignment operator.
+             * Applies bitwise XOR between this vector and the given scalar value, storing the result in this vector.
+             * @param b Scalar value.
+             * @return Reference to the modified object.
+             */
             UChar256& operator^=(const unsigned char& b) noexcept {
                 v = _mm256_xor_si256(v, _mm256_set1_epi8(b));
                 return *this;
             }
 
 
+            /**
+             * Bitwise left shift operator (element-wise).
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @return UChar256 New vector after left shift.
+             */
             UChar256 operator<<(const UChar256& bV) const noexcept {
                  #ifdef __AVX512BW__
                     __m512i fV = _mm512_cvtepu8_epi16(v);
@@ -989,6 +1174,11 @@ namespace avx {
             }
 
 
+            /**
+             * Bitwise left shift operator by scalar.
+             * @param b Number of bits by which values should be shifted.
+             * @return UChar256 New vector after left shift.
+             */
             UChar256 operator<<(const unsigned int& b) const noexcept {
                 #ifdef __AVX512BW__
                     __m512i fV = _mm512_cvtepu8_epi16(v);
@@ -1005,6 +1195,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values left while shifting in 0.
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @return Reference to modified object.
+             */
             UChar256& operator<<=(const UChar256& bV) noexcept {
                  #ifdef __AVX512BW__
                     __m512i fV = _mm512_cvtepu8_epi16(v);
@@ -1045,6 +1240,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values left while shifting in 0.
+             * @param b Number of bits by which values should be shifted.
+             * @return Reference to modified object.
+             */
             UChar256& operator<<=(const unsigned int& b) noexcept {
                 #ifdef __AVX512BW__
                     __m512i fV = _mm512_cvtepu8_epi16(v);
@@ -1062,6 +1262,11 @@ namespace avx {
             }
 
 
+            /**
+             * Bitwise right shift operator (element-wise, logical shift).
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @return UChar256 New vector after right shift.
+             */
             UChar256 operator>>(const UChar256& bV) const noexcept {
                 __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
                 __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
@@ -1095,6 +1300,11 @@ namespace avx {
             }
 
 
+            /**
+             * Bitwise right shift operator by scalar (logical shift).
+             * @param b Number of bits by which values should be shifted.
+             * @return UChar256 New vector after right shift.
+             */
             UChar256 operator>>(const unsigned int& b) const noexcept {
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
@@ -1106,6 +1316,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values right while shifting in 0.
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @return Reference to modified object.
+             */
             UChar256& operator>>=(const UChar256& bV) noexcept {
                 __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
                 __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
@@ -1140,6 +1355,11 @@ namespace avx {
             }
 
 
+            /**
+             * Shifts values right while shifting in 0.
+             * @param b Number of bits by which values should be shifted.
+             * @return Reference to modified object.
+             */
             UChar256& operator>>=(const unsigned int& b) noexcept {
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
@@ -1153,10 +1373,19 @@ namespace avx {
 
 
 
+            /**
+             * Bitwise NOT operator.
+             * @return UChar256 New vector with all bits inverted.
+             */
             UChar256 operator~() const noexcept {
                 return _mm256_xor_si256(v, constants::ONES);
             }
 
+            /**
+             * A string representation of internal vector contents. All 32 stored values will be printed out.
+             * 
+             * @return String in the following format (for default constructor): "UChar256(0, 0, [...], 0)"
+             */
             std::string str() const noexcept {
                 std::string result = "UChar256(";
                 unsigned char* iv = (unsigned char*)&v; 
@@ -1168,6 +1397,12 @@ namespace avx {
                 return result;
             }
 
+            /**
+             * Creates a string from internal vector.
+             * This function is safe even if data is not null-terminated. 
+             * 
+             * @return String filled with contents of internal vector.
+             */
             std::string toString() const noexcept {
                 alignas(32) unsigned char tmp[33];
                 tmp[32] = '\0';
@@ -1177,6 +1412,12 @@ namespace avx {
                 return std::string(reinterpret_cast<char*>(tmp));
             }
 
+            /**
+             * Prints content of vector as raw string.
+             * @param os Output stream, to which content will be written.
+             * @param a Vector, whose value will be written to stream.
+             * @return Reference to `os`.
+             */
            friend std::ostream& operator<<(std::ostream& os, const UChar256& a) {
                 alignas(32) unsigned char tmp[33];
                 tmp[32] = '\0';

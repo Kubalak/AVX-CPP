@@ -1,7 +1,6 @@
 #include <iostream>
 #include "perf_utils.hpp"
 #include <types/int256.hpp>
-#include <sleef.h>
 
 int64_t raw_avx_add(const std::vector<int>& aV, const std::vector<int>& bV, std::vector<int>& cV, const bool print = true){
     __START_TIME

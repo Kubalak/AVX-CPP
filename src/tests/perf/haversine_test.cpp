@@ -6,7 +6,13 @@
 #include <cstdio>
 #include <ops/avxmath.hpp>
 #include <filesystem>
-#include <sleef.h>
+
+#ifdef _MSC_VER
+    #define Sleef_cosd4_u35avx2 _mm256_cos_pd
+    #define Sleef_asind4_u35avx2 _mm256_asin_pd
+#else
+    #include <sleef.h>
+#endif
 
 void computeHaversineSeq(const std::vector<double> &latitudes_1, const std::vector<double> &longitudes_1, const std::vector<double> &latitudes_2, const std::vector<double> &longitudes_2, std::vector<double> &distances) {
     if(latitudes_1.size() != longitudes_1.size() || latitudes_1.size() != latitudes_2.size() || latitudes_1.size() != longitudes_2.size()){

@@ -235,55 +235,116 @@ namespace avx {
                 return _mm256_testz_si256(eq, eq) == 0;
             }
             
+
+            /**
+             * Adds values from other vector and returns new vector.
+             * @param bV Second vector.
+             * @return Short256 New vector being a sum of this vector and `bV`.
+             */
             Short256 operator+(const Short256& bV) const noexcept{
                 return _mm256_add_epi16(v, bV.v);
             }
 
+            /**
+             * Adds single value across all vector fields.
+             * @param b Value to add to vector.
+             * @return Short256 New vector being a sum of this vector and `b`.
+             */
             Short256 operator+(const short& b) const noexcept{
                 return _mm256_add_epi16(v, _mm256_set1_epi16(b));
             }
 
+            /**
+             * Adds two vectors together and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after adding `bV` to vector.
+             */
             Short256& operator+=(const Short256& bV) noexcept {
                 v = _mm256_add_epi16(v, bV.v);
                 return *this;
             }
 
+            /**
+             * Adds scalar to vector and stores result inside original vector.
+             * @param b Scalar to be added.
+             * @returns Reference to same vector after adding `b` to vector.
+             */
             Short256& operator+=(const short& b) noexcept {
                 v = _mm256_add_epi16(v, _mm256_set1_epi16(b));
                 return *this;
             }
 
+            /**
+             * Subtracts values from vector.
+             * @param bV Second vector.
+             * @return Short256 New vector being result of subtracting `bV` from vector.
+             */
             Short256 operator-(const Short256& bV) const noexcept {
                 return _mm256_sub_epi16(v, bV.v);
             }
 
+            /**
+             * Subtracts a single value from all vector fields.
+             * @param b Value to subtract from vector.
+             * @return Short256 New vector being result of subtracting `b` from vector.
+             */
             Short256 operator-(const short& b) const noexcept {
                 return _mm256_sub_epi16(v, _mm256_set1_epi16(b));
             }
 
+            /**
+             * Subtracts two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after subtracting `bV` from vector.
+             */
             Short256& operator-=(const Short256& bV) noexcept {
                 v = _mm256_sub_epi16(v, bV.v);
                 return *this;
             }
 
+            /**
+             * Subtracts scalar from vector and stores result inside original vector.
+             * @param b Scalar to be subtracted.
+             * @returns Reference to same vector after subtracting `b` from vector.
+             */
             Short256& operator-=(const short& b) noexcept {
                 v =_mm256_sub_epi16(v, _mm256_set1_epi16(b));
                 return *this;
             }
 
+            /**
+             * Multiplies two vectors.
+             * @param bV Second vector.
+             * @return Short256 New vector being result of multiplying vector by `bV`.
+             */
             Short256 operator*(const Short256& bV) const noexcept {
                 return _mm256_mullo_epi16(v, bV.v);
             }
 
+            /**
+             * Multiplies all vector fields by a single value.
+             * @param b Value to multiply by.
+             * @return Short256 New vector being result of multiplying vector by `b`.
+             */
             Short256 operator*(const short& b) const noexcept {
                 return _mm256_mullo_epi16(v,_mm256_set1_epi16(b));
             }
 
+            /**
+             * Multiplies two vectors and stores result inside original vector.
+             * @param bV Second vector.
+             * @returns Reference to same vector after multiplying by `bV`.
+             */
             Short256& operator*=(const Short256& bV) noexcept {
                 v = _mm256_mullo_epi16(v, bV.v);
                 return *this;
             }
 
+            /**
+             * Multiplies vector by scalar and stores result inside original vector.
+             * @param b Scalar to multiply by.
+             * @returns Reference to same vector after multiplying by `b`.
+             */
             Short256& operator*=(const short& b) noexcept {
                 v = _mm256_mullo_epi16(v,_mm256_set1_epi16(b));
                 return *this;
@@ -324,11 +385,11 @@ namespace avx {
             #endif
             }
 
-             /**
+            /**
              * Performs an integer division. 
              * 
              * @param bV Divisor value.
-             * @return Result of integer division with truncation.
+             * @return Short256 New object containing result of division with truncation.
              */
             Short256 operator/(const short& b) const noexcept {
             #ifdef __AVX512F__
@@ -387,6 +448,12 @@ namespace avx {
                 return *this;
             }
             
+            /**
+             * Performs integer division with assignment by scalar. 
+             * 
+             * @param b Divisor.
+             * @return Short256& Reference to the modified object.
+             */
             Short256& operator/=(const short& b) noexcept {
             #ifdef __AVX512F__
                 __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
@@ -553,55 +620,122 @@ namespace avx {
                 return *this;
             }
 
+
+            /**
+             * Bitwise OR operator.
+             * @param bV Second vector.
+             * @return Short256 New vector being result of bitwise OR with `bV`.
+             */
             Short256 operator|(const Short256& bV) const noexcept {
                 return _mm256_or_si256(v, bV.v);
             }
 
+            /**
+             * Bitwise OR operator with scalar.
+             * @param b Value to OR with.
+             * @return Short256 New vector being result of bitwise OR with `b`.
+             */
             Short256 operator|(const short& b) const noexcept {
                 return _mm256_or_si256(v, _mm256_set1_epi16(b));
             }
 
+            /**
+             * Bitwise OR assignment operator.
+             * Applies bitwise OR between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             Short256& operator|=(const Short256& bV) noexcept {
                 v = _mm256_or_si256(v, bV.v);
                 return *this;
             }
 
+            /**
+             * Bitwise OR assignment operator.
+             * Applies bitwise OR between this vector and the given value, storing the result in this vector.
+             * @param b Value.
+             * @return Reference to the modified object.
+             */
             Short256& operator|=(const short& b) noexcept {
                 v = _mm256_or_si256(v, _mm256_set1_epi16(b));
                 return *this;
             }
 
+            /**
+             * Bitwise AND operator.
+             * @param bV Second vector.
+             * @return Short256 New vector being result of bitwise AND with `bV`.
+             */
             Short256 operator&(const Short256& bV) const noexcept {
                 return _mm256_and_si256(v, bV.v);
             }
 
+            /**
+             * Bitwise AND operator with scalar.
+             * @param b Value to AND with.
+             * @return Short256 New vector being result of bitwise AND with `b`.
+             */
             Short256 operator&(const short& b) const noexcept {
                 return _mm256_and_si256(v, _mm256_set1_epi16(b));
             }
 
+            /**
+             * Bitwise AND assignment operator.
+             * Applies bitwise AND between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             Short256& operator&=(const Short256& bV) noexcept {
                 v = _mm256_and_si256(v, bV.v);
                 return *this;
             }
 
+            /**
+             * Bitwise AND assignment operator.
+             * Applies bitwise AND between this vector and the given value, storing the result in this vector.
+             * @param b Value.
+             * @return Reference to the modified object.
+             */
             Short256& operator&=(const short& b) noexcept {
                 v = _mm256_and_si256(v, _mm256_set1_epi16(b));
                 return *this;
             }
 
+            /**
+             * Bitwise XOR operator.
+             * @param bV Second vector.
+             * @return Short256 New vector being result of bitwise XOR with `bV`.
+             */
             Short256 operator^(const Short256& bV) const noexcept{
                 return _mm256_xor_si256(v, bV.v);
             }
 
+            /**
+             * Bitwise XOR operator with scalar.
+             * @param b Value to XOR with.
+             * @return Short256 New vector being result of bitwise XOR with `b`.
+             */
             Short256 operator^(const short& b) const noexcept{
                 return _mm256_xor_si256(v, _mm256_set1_epi16(b));
             }
 
+            /**
+             * Bitwise XOR assignment operator.
+             * Applies bitwise XOR between this vector and the given vector, storing the result in this vector.
+             * @param bV Second vector.
+             * @return Reference to the modified object.
+             */
             Short256& operator^=(const Short256& bV) noexcept{
                 v = _mm256_xor_si256(v, bV.v);
                 return *this;
             }
 
+            /**
+             * Bitwise XOR assignment operator.
+             * Applies bitwise XOR between this vector and the given value, storing the result in this vector.
+             * @param b Value.
+             * @return Reference to the modified object.
+             */
             Short256& operator^=(const short& b) noexcept{
                 v = _mm256_xor_si256(v, _mm256_set1_epi16(b));
                 return *this;
@@ -639,10 +773,20 @@ namespace avx {
                 #endif
             }
 
+            /**
+             * Bitwise left shift operator by scalar.
+             * @param shift Number of bits by which values should be shifted.
+             * @return Short256 New vector after left shift.
+             */
             Short256 operator<<(const unsigned int& shift) const noexcept {
                 return _mm256_slli_epi16(v, shift);
             }
 
+            /**
+             * Bitwise left shift assignment operator (element-wise).
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @returns Reference to modified object.
+             */
             Short256& operator<<=(const Short256& bV) noexcept {
                 #if defined(__AVX512BW__) && defined(__AVX512VL__)
                     v = _mm256_sllv_epi16(v, bV.v);
@@ -665,11 +809,21 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Bitwise left shift assignment operator by scalar.
+             * @param shift Number of bits by which values should be shifted.
+             * @returns Reference to modified object.
+             */
             Short256& operator<<=(const unsigned int& shift) noexcept {
                 v = _mm256_slli_epi16(v, shift);
                 return *this;
             }
 
+            /**
+             * Bitwise right shift operator (element-wise, arithmetic shift).
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @return Short256 New vector after right shift.
+             */
             Short256 operator>>(const Short256& bV) const noexcept {
                 #if defined(__AVX512BW__) && defined(__AVX512VL__)
                     return _mm256_srlv_epi16(v, bV.v);
@@ -695,10 +849,20 @@ namespace avx {
                 #endif
             }
 
+            /**
+             * Bitwise right shift operator by scalar (arithmetic shift).
+             * @param shift Number of bits by which values should be shifted.
+             * @return Short256 New vector after right shift.
+             */
             Short256 operator>>(const unsigned int& shift) const noexcept{
                 return _mm256_srai_epi16(v, shift);
             }
 
+            /**
+             * Bitwise right shift assignment operator (element-wise, arithmetic shift).
+             * @param bV Vector containing number of bits for which each corresponding element should be shifted.
+             * @returns Reference to modified object.
+             */
             Short256& operator>>=(const Short256& bV) noexcept {
                 #if defined(__AVX512BW__) && defined(__AVX512VL__)
                     v = _mm256_srlv_epi16(v, bV.v);
@@ -725,6 +889,11 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Bitwise right shift assignment operator by scalar (arithmetic shift).
+             * @param shift Number of bits by which values should be shifted.
+             * @returns Reference to modified object.
+             */
             Short256& operator>>=(const unsigned int& shift) noexcept {
                 v = _mm256_srai_epi16(v, shift);
                 return *this;

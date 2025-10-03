@@ -20,13 +20,6 @@ namespace avx {
      * `str()` method returns stored data as string.
      * Supports printing directly to stream (cout).
      */
-    /**
-     * Class representing vectorized version of `char`.
-     * It can hold 32 individual `char` variables.
-     * Provides support for arithmetic and bitwise operators.
-     * `str()` method returns stored data as string.
-     * Supports printing directly to stream (cout).
-     */
     class Char256 {
         private:
 
@@ -255,7 +248,7 @@ namespace avx {
 
             /**
              * Get the internal vector value.
-             * @returns The value of `__m256i` vector.
+             * @return The value of `__m256i` vector.
              */
             __m256i get() const noexcept{return v;}
 
@@ -394,7 +387,7 @@ namespace avx {
             /**
              * Subtracts two vectors and stores result inside original vector.
              * @param bV Second vector.
-             * @returns Reference to same vector after subtracting `bV` from vector.
+             * @return Reference to same vector after subtracting `bV` from vector.
              */
             Char256& operator-=(const Char256& bV) noexcept {
                 v = _mm256_sub_epi8(v, bV.v);
@@ -404,7 +397,7 @@ namespace avx {
             /**
              * Subtracts scalar from vector and stores result inside original vector.
              * @param b Scalar to be subtracted.
-             * @returns Reference to same vector after subtracting `b` from vector.
+             * @return Reference to same vector after subtracting `b` from vector.
              */
             Char256& operator-=(const char& b) noexcept {
                 v = _mm256_sub_epi8(v, _mm256_set1_epi8(b));
@@ -481,7 +474,7 @@ namespace avx {
             /**
              * Multiplies two vectors and stores result inside original vector.
              * @param bV Second vector.
-             * @returns Reference to same vector after multiplying by `bV`.
+             * @return Reference to same vector after multiplying by `bV`.
              */
             Char256& operator*=(const Char256& bV) noexcept {
                 #if defined(__AVX512BW__)
@@ -516,7 +509,7 @@ namespace avx {
             /**
              * Multiplies vector by scalar and stores result inside original vector.
              * @param b Scalar to multiply by.
-             * @returns Reference to same vector after multiplying by `b`.
+             * @return Reference to same vector after multiplying by `b`.
              */
             Char256& operator*=(const char& b) noexcept {
                 #if defined(__AVX512BW__)
@@ -713,7 +706,7 @@ namespace avx {
             /**
              * Divides two vectors and stores result inside original vector.
              * @param bV Second vector (divisor).
-             * @returns Reference to same vector after dividing by `bV`.
+             * @return Reference to same vector after dividing by `bV`.
              */
             Char256& operator/=(const Char256& bV) noexcept {
             #if defined(__AVX512_FP16__) && defined(__AVX512BW__) && defined(__AVX512F__) // If supports FP16
@@ -787,7 +780,7 @@ namespace avx {
             /**
              * Divides vector by scalar and stores result inside original vector.
              * @param b Scalar value (divisor).
-             * @returns Reference to same vector after dividing by `b`.
+             * @return Reference to same vector after dividing by `b`.
              */
             Char256& operator/=(const char& b) noexcept {
             #if defined(__AVX512F__) && defined(__AVX512BW__) && defined(__AVX512VL__)
@@ -1194,12 +1187,11 @@ namespace avx {
                 return _mm256_or_si256(v, _mm256_set1_epi8(b));
             }
 
-
             /**
              * Bitwise OR assignment operator.
-             * Applies bitwise OR between this vector and the given integer value, storing the result in this vector.
+             * Applies bitwise OR between this vector and the given vector, storing the result in this vector.
              * @param bV Second vector.
-             * @return Char256 Reference to the modified object.
+             * @return Reference to the modified object.
              */
             Char256& operator|=(const Char256& bV) noexcept {
                 v = _mm256_or_si256(v, bV.v);
@@ -1208,9 +1200,9 @@ namespace avx {
 
             /**
              * Bitwise OR assignment operator.
-             * Applies bitwise OR between this vector and the given integer value, storing the result in this vector.
-             * @param b Integer value.
-             * @return Char256 Reference to the modified object.
+             * Applies bitwise OR between this vector and the given scalar value, storing the result in this vector.
+             * @param b Scalar value.
+             * @return Reference to the modified object.
              */
             Char256& operator|=(const char& b) noexcept {
                 v = _mm256_or_si256(v, _mm256_set1_epi8(b));
@@ -1237,7 +1229,7 @@ namespace avx {
 
             /**
              * Bitwise XOR assignment operator.
-             * Applies bitwise XOR between this vector and the given integer value, storing the result in this vector.
+             * Applies bitwise XOR between this vector and the given vector, storing the result in this vector.
              * @param bV Second vector.
              * @return Reference to the modified object.
              */
@@ -1248,8 +1240,8 @@ namespace avx {
 
             /**
              * Bitwise XOR assignment operator.
-             * Applies bitwise XOR between this vector and the given integer value, storing the result in this vector.
-             * @param b Integer value.
+             * Applies bitwise XOR between this vector and the given scalar value, storing the result in this vector.
+             * @param b Scalar value.
              * @return Reference to the modified object.
              */
             Char256& operator^=(const char& b) noexcept {
@@ -1326,7 +1318,7 @@ namespace avx {
             /**
              * Shifts values left while shifting in 0.
              * @param bV Vector containing number of bits for which each corresponding element should be shifted.
-             * @returns Reference to modified object.
+             * @return Reference to modified object.
              */
             Char256& operator<<=(const Char256& bV) noexcept {
                 #ifdef __AVX512BW__
@@ -1374,7 +1366,7 @@ namespace avx {
             /**
              * Shifts values left while shifting in 0.
              * @param b Number of bits by which values should be shifted.
-             * @returns Reference to modified object.
+             * @return Reference to modified object.
              */
             Char256& operator<<=(const unsigned int& b) noexcept {
                 #ifdef __AVX512BW__
@@ -1511,7 +1503,7 @@ namespace avx {
             /**
              * Shifts values right while shifting in sign bit.
              * @param bV Vector containing number of bits for which each corresponding element should be shifted.
-             * @returns Reference to modified object.
+             * @return Reference to modified object.
              */
             Char256& operator>>=(const Char256& bV) noexcept {
             #if defined(__AVX512BW__)
@@ -1575,7 +1567,7 @@ namespace avx {
             /**
              * Shifts values right while shifting in sign bit.
              * @param b Number of bits by which values should be shifted.
-             * @returns Reference to modified object.
+             * @return Reference to modified object.
              */
             Char256& operator>>=(const unsigned int& b) noexcept {
             #ifdef __AVX512BW__
