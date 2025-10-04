@@ -215,6 +215,7 @@ namespace avx {
              * @returns `true` if all elements are equal or `false` if not.
              */
             bool operator==(const UChar256& bV) const noexcept {
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
@@ -224,6 +225,7 @@ namespace avx {
              * @returns `true` if all elements are equal to passed value `false` if not.
              */
             bool operator==(const char b) const noexcept {
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) != 0;
@@ -235,6 +237,7 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const UChar256& bV) const noexcept {
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
@@ -244,6 +247,7 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const char b) const noexcept {
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) == 0;
@@ -925,9 +929,6 @@ namespace avx {
                 return *this;
             }
 
-
-
-
             /**
              * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
              * @param b Scalar (divisor).
@@ -997,7 +998,6 @@ namespace avx {
                 return *this;
             }
 
-
             /**
              * Bitwise AND operator.
              * @param bV Second vector.
@@ -1007,7 +1007,6 @@ namespace avx {
                 return _mm256_and_si256(v, bV.v);
             }
 
-
             /**
              * Bitwise AND operator with scalar.
              * @param b Value to AND with.
@@ -1016,7 +1015,6 @@ namespace avx {
             UChar256 operator&(const unsigned char& b) const noexcept {
                 return _mm256_and_si256(v, _mm256_set1_epi8(b));
             }
-
 
             /**
              * Bitwise AND assignment operator.
@@ -1029,7 +1027,6 @@ namespace avx {
                 return *this;
             }
 
-
             /**
              * Bitwise AND assignment operator.
              * Applies bitwise AND between this vector and the given value, storing the result in this vector.
@@ -1041,7 +1038,6 @@ namespace avx {
                 return *this;
             }
 
-
             /**
              * Bitwise OR operator.
              * @param bV Second vector.
@@ -1051,7 +1047,6 @@ namespace avx {
                 return _mm256_or_si256(v, bV.v);
             }
 
-
             /**
              * Bitwise OR operator with scalar.
              * @param b Value to OR with.
@@ -1060,7 +1055,6 @@ namespace avx {
             UChar256 operator|(const unsigned char& b) const noexcept {
                 return _mm256_or_si256(v, _mm256_set1_epi8(b));
             }
-
 
             /**
              * Bitwise OR assignment operator.
@@ -1073,7 +1067,6 @@ namespace avx {
                 return *this;
             }
 
-
             /**
              * Bitwise OR assignment operator.
              * Applies bitwise OR between this vector and the given scalar value, storing the result in this vector.
@@ -1085,7 +1078,6 @@ namespace avx {
                 return *this;
             }
 
-
             /**
              * Bitwise XOR operator.
              * @param bV Second vector.
@@ -1095,7 +1087,6 @@ namespace avx {
                 return _mm256_xor_si256(v, bV.v);
             }
 
-
             /**
              * Bitwise XOR operator with scalar.
              * @param b Value to XOR with.
@@ -1104,7 +1095,6 @@ namespace avx {
             UChar256 operator^(const unsigned char& b) const noexcept {
                 return _mm256_xor_si256(v, _mm256_set1_epi8(b));
             }
-
 
             /**
              * Bitwise XOR assignment operator.
@@ -1117,7 +1107,6 @@ namespace avx {
                 return *this;
             }
 
-
             /**
              * Bitwise XOR assignment operator.
              * Applies bitwise XOR between this vector and the given scalar value, storing the result in this vector.
@@ -1128,7 +1117,6 @@ namespace avx {
                 v = _mm256_xor_si256(v, _mm256_set1_epi8(b));
                 return *this;
             }
-
 
             /**
              * Bitwise left shift operator (element-wise).
@@ -1173,7 +1161,6 @@ namespace avx {
                 #endif
             }
 
-
             /**
              * Bitwise left shift operator by scalar.
              * @param b Number of bits by which values should be shifted.
@@ -1193,7 +1180,6 @@ namespace avx {
                     return _mm256_or_si256(fhalf, shalf);
                 #endif
             }
-
 
             /**
              * Shifts values left while shifting in 0.
@@ -1239,7 +1225,6 @@ namespace avx {
                 return *this;
             }
 
-
             /**
              * Shifts values left while shifting in 0.
              * @param b Number of bits by which values should be shifted.
@@ -1260,7 +1245,6 @@ namespace avx {
                 #endif
                 return *this;
             }
-
 
             /**
              * Bitwise right shift operator (element-wise, logical shift).
@@ -1299,13 +1283,13 @@ namespace avx {
                 return _mm256_or_si256(q1_res, q2_res);
             }
 
-
             /**
              * Bitwise right shift operator by scalar (logical shift).
              * @param b Number of bits by which values should be shifted.
              * @return UChar256 New vector after right shift.
              */
             UChar256 operator>>(const unsigned int& b) const noexcept {
+                // TODO: Make it SRAI so sing bits are shifted instead of zeros. Do for all rshift operators
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
                 fhalf = _mm256_srli_epi16(fhalf, b);
@@ -1314,7 +1298,6 @@ namespace avx {
                 shalf = _mm256_and_si256(shalf, constants::EPI8_CRATE_EPI16_INVERSE);
                 return _mm256_or_si256(fhalf, shalf);
             }
-
 
             /**
              * Shifts values right while shifting in 0.
@@ -1353,7 +1336,6 @@ namespace avx {
                 v = _mm256_or_si256(q1_res, q2_res);
                 return *this;
             }
-
 
             /**
              * Shifts values right while shifting in 0.

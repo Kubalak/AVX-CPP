@@ -283,6 +283,7 @@ namespace avx {
              * @return If ALL values are the same then it will return `true`, otherwise `false`.
              */
             bool operator==(const Char256& bV) const noexcept {
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
@@ -294,6 +295,7 @@ namespace avx {
              * @return If ALL values in vector are equal to `b` then will return `true`, otherwise `false` will be returned.
              */
             bool operator==(const char b) const noexcept {
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) != 0;
@@ -306,6 +308,7 @@ namespace avx {
              * @return If ANY value doesn't match then `true` will be returned. Otherwise will return `false`.
              */
             bool operator!=(const Char256& bV) const noexcept {
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
@@ -317,6 +320,7 @@ namespace avx {
              * @return If ANY value doesn't match with `b` then `true` will be returned. Otherwise will return `false`.
              */
             bool operator!=(const char b) const noexcept {
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi8(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) == 0;

@@ -180,6 +180,7 @@ namespace avx {
              * @returns `true` if all elements are equal or `false` if not.
              */
             bool operator==(const ULong256 &bV) const noexcept {
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v); // Doing XOR. If all bits are the same then resulting vector should be all 0s.
                 return _mm256_testz_si256(eq, eq) != 0; // Returns 1 if AND of eq and eq yields 0 (equal vectors).
             }
@@ -191,6 +192,7 @@ namespace avx {
              * @returns `true` if all elements are equal to passed value `false` if not.
              */
             bool operator==(const unsigned long long b) const noexcept{
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi64x(b);
                 __m256i eq = _mm256_xor_si256(v, bV); 
                 return _mm256_testz_si256(eq, eq) != 0;
@@ -203,6 +205,7 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const ULong256 &bV) const noexcept{
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
@@ -214,6 +217,7 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const unsigned long long b) const noexcept{
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi64x(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) == 0;

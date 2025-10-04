@@ -191,6 +191,7 @@ namespace avx {
          * @returns `true` if all elements are equal or `false` if not.
          */
         bool operator==(const UShort256 &bV) const noexcept {
+            _mm256_zeroall();
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) != 0;
         }
@@ -201,6 +202,7 @@ namespace avx {
          * @returns `true` if all elements are equal to passed value `false` if not.
          */
         bool operator==(const unsigned short &b) const noexcept{
+            _mm256_zeroall();
             __m256i bV = _mm256_set1_epi16(b);
             __m256i eq = _mm256_xor_si256(v, bV);
             return _mm256_testz_si256(eq, eq) != 0;
@@ -212,6 +214,7 @@ namespace avx {
          * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
          */
         bool operator!=(const UShort256 &bV) const noexcept{
+            _mm256_zeroall();
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) == 0;
         }
@@ -222,6 +225,7 @@ namespace avx {
          * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
          */
         bool operator!=(const unsigned short &b) const noexcept{
+            _mm256_zeroall();
             __m256i bV = _mm256_set1_epi16(b);
             __m256i eq = _mm256_xor_si256(v, bV);
             return _mm256_testz_si256(eq, eq) == 0;
@@ -241,7 +245,7 @@ namespace avx {
          * @param b Value to add to vector.
          * @return UShort256 New vector being a sum of this vector and `b`.
          */
-        UShort256 operator+(const unsigned short& b) const noexcept{
+        UShort256 operator+(const unsigned short b) const noexcept{
             return _mm256_add_epi16(v, _mm256_set1_epi16(b));
         }
 
@@ -260,7 +264,7 @@ namespace avx {
          * @param b Scalar to be added.
          * @returns Reference to same vector after adding `b` to vector.
          */
-        UShort256& operator+=(const unsigned short& b) noexcept {
+        UShort256& operator+=(const unsigned short b) noexcept {
             v = _mm256_add_epi16(v, _mm256_set1_epi16(b));
             return *this;
         }
@@ -279,7 +283,7 @@ namespace avx {
          * @param b Value to subtract from vector.
          * @return UShort256 New vector being result of subtracting `b` from vector.
          */
-        UShort256 operator-(const unsigned short& b) const noexcept {
+        UShort256 operator-(const unsigned short b) const noexcept {
             return _mm256_sub_epi16(v, _mm256_set1_epi16(b));
         }
 
@@ -298,7 +302,7 @@ namespace avx {
          * @param b Scalar to be subtracted.
          * @returns Reference to same vector after subtracting `b` from vector.
          */
-        UShort256& operator-=(const unsigned short& b) noexcept {
+        UShort256& operator-=(const unsigned short b) noexcept {
             v =_mm256_sub_epi16(v, _mm256_set1_epi16(b));
             return *this;
         }
@@ -332,7 +336,7 @@ namespace avx {
          * @param b Value to multiply by.
          * @return UShort256 New vector being result of multiplying vector by `b`.
          */
-        UShort256 operator*(const unsigned short& b) const noexcept {
+        UShort256 operator*(const unsigned short b) const noexcept {
             __m256i bV = _mm256_set_epi16(0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b);
             __m256i fhalf = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
             fhalf = _mm256_srli_si256(fhalf, 2);
@@ -379,7 +383,7 @@ namespace avx {
          * @param b Scalar to multiply by.
          * @returns Reference to same vector after multiplying by `b`.
          */
-        UShort256& operator*=(const unsigned short& b) noexcept {
+        UShort256& operator*=(const unsigned short b) noexcept {
             __m256i bV = _mm256_set_epi16(0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b, 0, b);
             __m256i fhalf = _mm256_and_si256(v, constants::EPI16_CRATE_EPI32_INVERSE);
             fhalf = _mm256_srli_si256(fhalf, 2);
@@ -527,7 +531,7 @@ namespace avx {
          * @param b Divisor value.
          * @return Reference to modified object.
          */
-        UShort256& operator/=(const unsigned short& b) noexcept {
+        UShort256& operator/=(const unsigned short b) noexcept {
         #ifdef __AVX512F__
             v = _mm512_cvtepi32_epi16(
                 _mm512_cvttps_epi32(
@@ -720,7 +724,7 @@ namespace avx {
          * @param b Value to OR with.
          * @return UShort256 New vector being result of bitwise OR with `b`.
          */
-        UShort256 operator|(const unsigned short& b) const noexcept {
+        UShort256 operator|(const unsigned short b) const noexcept {
             return _mm256_or_si256(v, _mm256_set1_epi16(b));
         }
 
@@ -740,7 +744,7 @@ namespace avx {
          * @param b Value to AND with.
          * @return UShort256 New vector being result of bitwise AND with `b`.
          */
-        UShort256& operator|=(const unsigned short& b) noexcept {
+        UShort256& operator|=(const unsigned short b) noexcept {
             v = _mm256_or_si256(v, _mm256_set1_epi16(b));
             return *this;            
         }
@@ -759,7 +763,7 @@ namespace avx {
          * @param b Value to AND with.
          * @return UShort256 New vector being result of bitwise AND with `bV`.
          */
-        UShort256 operator&(const unsigned short& b) const noexcept {
+        UShort256 operator&(const unsigned short b) const noexcept {
             return _mm256_and_si256(v, _mm256_set1_epi16(b));
         }
         
@@ -780,7 +784,7 @@ namespace avx {
          * @param b Value to AND with.
          * @return Reference to the modified object.
          */
-        UShort256& operator&=(const unsigned short& b) noexcept {
+        UShort256& operator&=(const unsigned short b) noexcept {
             v = _mm256_and_si256(v, _mm256_set1_epi16(b));
             return *this;
         }

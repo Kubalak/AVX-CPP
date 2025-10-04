@@ -224,6 +224,7 @@ namespace avx
          * @returns true if all values in both vectors are equal, false if any value doesn't match.
          */
         bool operator==(const Int256 &bV) const noexcept {
+            _mm256_zeroall();
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) != 0;
         }
@@ -233,7 +234,8 @@ namespace avx
          * @param b Value to compare.
          * @returns true if all values in vector is equal to `b`, otherwise false.
          */
-        bool operator==(const int &b) const noexcept {
+        bool operator==(const int b) const noexcept {
+            _mm256_zeroall();
             __m256i bV = _mm256_set1_epi32(b);
             __m256i eq = _mm256_xor_si256(v, bV);
             return _mm256_testz_si256(eq, eq) != 0;
@@ -245,6 +247,7 @@ namespace avx
          * @returns true if ANY value is different between vectors.
          */
         bool operator!=(const Int256 &bV) const noexcept {
+            _mm256_zeroall();
             __m256i eq = _mm256_xor_si256(v, bV.v);
             return _mm256_testz_si256(eq, eq) == 0;
         }
@@ -254,7 +257,8 @@ namespace avx
          * @param b Value to compare.
          * @returns true if ANY value in vector is different than `b`, otherwise false.
          */
-        bool operator!=(const int &b) const noexcept {
+        bool operator!=(const int b) const noexcept {
+            _mm256_zeroall();
             __m256i bV = _mm256_set1_epi32(b);
             __m256i eq = _mm256_xor_si256(v, bV);
             return _mm256_testz_si256(eq, eq) == 0;
@@ -291,7 +295,7 @@ namespace avx
          * @param b Value to add to vector.
          * @return Int256 New vector being a sum of this vector and `b`.
          */
-        Int256 operator+(const int &b) const noexcept { return _mm256_add_epi32(v, _mm256_set1_epi32(b)); }
+        Int256 operator+(const int b) const noexcept { return _mm256_add_epi32(v, _mm256_set1_epi32(b)); }
 
         /**
          * Substracts values from vector.
@@ -310,7 +314,7 @@ namespace avx
          * @param b Value to subtract from vector.
          * @return Int256 New vector being result of subtracting `b` from vector.
          */
-        Int256 operator-(const int &b) const noexcept { return _mm256_sub_epi32(v, _mm256_set1_epi32(b)); }
+        Int256 operator-(const int b) const noexcept { return _mm256_sub_epi32(v, _mm256_set1_epi32(b)); }
 
         /**
          * Multiplies two vectors.
@@ -324,7 +328,7 @@ namespace avx
          * @param b Value to multiply by.
          * @return Int256 New vector being result of multiplying vector by `b`.
          */
-        Int256 operator*(const int &b) const noexcept { return _mm256_mullo_epi32(v,_mm256_set1_epi32(b)); }
+        Int256 operator*(const int b) const noexcept { return _mm256_mullo_epi32(v,_mm256_set1_epi32(b)); }
 
         /**
          * Divides two vectors.
@@ -350,7 +354,7 @@ namespace avx
          * @param b Value (divisor).
          * @return Int256 New vector being result of dividing vector by `b`.
          */
-        Int256 operator/(const int&b) const {
+        Int256 operator/(const int b) const {
 
             if(!b) return _mm256_setzero_si256();
 
@@ -390,7 +394,7 @@ namespace avx
          * @param b Value (divisor).
          * @return Int256 New vector being result of modulo operation.
          */
-        Int256 operator%(const int &b) const {
+        Int256 operator%(const int b) const {
             if(!b) return _mm256_setzero_si256();
             __m256i bV = _mm256_set1_epi32(b);
             #ifdef __AVX512F__
@@ -418,7 +422,7 @@ namespace avx
          * @param b Value to XOR with.
          * @return Int256 New vector being result of bitwise XOR with `b`.
          */
-        Int256 operator^(const int &b) const { return _mm256_xor_si256(v, _mm256_set1_epi32(b)); }
+        Int256 operator^(const int b) const { return _mm256_xor_si256(v, _mm256_set1_epi32(b)); }
 
         /**
          * Bitwise OR operator.
@@ -432,7 +436,7 @@ namespace avx
          * @param b Value to OR with.
          * @return Int256 New vector being result of bitwise OR with `b`.
          */
-        Int256 operator|(const int &b) const { return _mm256_or_si256(v, _mm256_set1_epi32(b)); }
+        Int256 operator|(const int b) const { return _mm256_or_si256(v, _mm256_set1_epi32(b)); }
 
         /**
          * Bitwise AND operator.
@@ -446,7 +450,7 @@ namespace avx
          * @param b Value to AND with.
          * @return Int256 New vector being result of bitwise AND with `b`.
          */
-        Int256 operator&(const int &b) const { return _mm256_and_si256(v, _mm256_set1_epi32(b)); }
+        Int256 operator&(const int b) const { return _mm256_and_si256(v, _mm256_set1_epi32(b)); }
 
         /**
          * Bitwise NOT operator.
@@ -466,7 +470,7 @@ namespace avx
          * @param b Number of bits by which values should be shifted.
          * @return Int256 New vector after left shift.
          */
-        Int256 operator<<(const int &b) const { return _mm256_slli_epi32(v, b); }
+        Int256 operator<<(const int b) const { return _mm256_slli_epi32(v, b); }
 
         /**
          * Bitwise right shift operator (element-wise, arithmetic shift).
@@ -480,7 +484,7 @@ namespace avx
          * @param b Number of bits by which values should be shifted.
          * @return Int256 New vector after right shift.
          */
-        Int256 operator>>(const int &b) const { return _mm256_srai_epi32(v, b); }
+        Int256 operator>>(const int b) const { return _mm256_srai_epi32(v, b); }
 
         /**
          * Adds two vectors together and stores result inside original vector.
@@ -497,7 +501,7 @@ namespace avx
          * @param b Scalar to be added.
          * @returns Reference to same vector after adding `b` to vector.
          */
-        Int256& operator+=(const int &b) {
+        Int256& operator+=(const int b) {
             v = _mm256_add_epi32(v, _mm256_set1_epi32(b));
             return *this;
         }
@@ -517,7 +521,7 @@ namespace avx
          * @param b Scalar to be subtracted.
          * @returns Reference to same vector after subtracting `b` from vector.
          */
-        Int256 &operator-=(const int &b) {
+        Int256 &operator-=(const int b) {
             v = _mm256_sub_epi32(v, _mm256_set1_epi32(b));
             return *this;
         }
@@ -537,7 +541,7 @@ namespace avx
          * @param b Scalar to multiply by.
          * @returns Reference to same vector after multiplying by `b`.
          */
-        Int256 &operator*=(const int &b)
+        Int256 &operator*=(const int b)
         {
             v = _mm256_mullo_epi32(v, _mm256_set1_epi32(b));
             return *this;
@@ -567,7 +571,7 @@ namespace avx
          * @param b Scalar value (divisor).
          * @returns Reference to same vector after dividing by `b`.
          */
-        Int256 &operator/=(const int &b) {
+        Int256 &operator/=(const int b) {
             #ifdef __AVX512F__
                 v = _mm512_cvttpd_epi32(
                     _mm512_div_pd(
@@ -609,7 +613,7 @@ namespace avx
          * @param b Second modulo operand (divisor).
          * @return Reference to the original vector holding modulo operation results.
          */
-        Int256& operator%=(const int &b){
+        Int256& operator%=(const int b){
             if(!b) {
                 v = _mm256_setzero_si256();
                 return *this;
@@ -650,7 +654,7 @@ namespace avx
          * @param b Integer value.
          * @return Reference to the modified object.
          */
-        Int256 & operator|=(const int &b){
+        Int256 & operator|=(const int b){
             v = _mm256_or_si256(v, _mm256_set1_epi32(b));
             return *this;
         }
@@ -672,7 +676,7 @@ namespace avx
          * @param b Integer value.
          * @return Reference to the modified object.
          */
-        Int256 & operator&=(const int &b){
+        Int256 & operator&=(const int b){
             v = _mm256_and_si256(v, _mm256_set1_epi32(b));
             return *this;
         }
@@ -683,7 +687,7 @@ namespace avx
          * @param bV Second vector.
          * @return Reference to the modified object.
          */
-        Int256 &operator^=(const Int256 &bV){
+        Int256 &operator^=(const Int256 &bV) {
             v = _mm256_xor_si256(v, bV.v);
             return *this;
         }
@@ -694,7 +698,7 @@ namespace avx
          * @param b Integer value.
          * @return Reference to the modified object.
          */
-        Int256 &operator^=(const int &b){
+        Int256 &operator^=(const int b){
             v = _mm256_xor_si256(v, _mm256_set1_epi32(b));
             return *this;
         }
@@ -714,7 +718,7 @@ namespace avx
          * @param b Number of bits by which values should be shifted.
          * @returns Reference to modified object.
          */
-        Int256 &operator<<=(const int &b) {
+        Int256 &operator<<=(const int b) {
             v = _mm256_slli_epi32(v, b);
             return *this;
         }
@@ -734,7 +738,7 @@ namespace avx
          * @param b Number of bits by which values should be shifted.
          * @returns Reference to modified object.
          */
-        Int256 &operator>>=(const int &b) {
+        Int256 &operator>>=(const int b) {
             v = _mm256_srai_epi32(v, b);
             return *this;
         }

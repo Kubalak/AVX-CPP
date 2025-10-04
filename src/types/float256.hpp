@@ -174,6 +174,7 @@ namespace avx {
              * @returns `true` if all fields in both vectors have the same value, `false` otherwise.
              */
             bool operator==(const Float256& bV) {
+                _mm256_zeroall();
                 __m256 eq = _mm256_xor_ps(v, bV.v); // Bitwise XOR - equal values return field with 0.
 
                 /*
@@ -199,6 +200,7 @@ namespace avx {
              * @returns `true` if all fields in vectors have the same value as b, `false` otherwise.
              */
             bool operator==(const float b) {
+                _mm256_zeroall();
                 __m256 bV = _mm256_set1_ps(b);
                 __m256 eq = _mm256_xor_ps(v, bV);
 
@@ -218,6 +220,7 @@ namespace avx {
              * @returns `true` if ANY field in one vector has different value than one in scond vector, `false` if vector are equal.
              */
             bool operator!=(const Float256& bV) {
+                _mm256_zeroall();
                 __m256 eq = _mm256_xor_ps(v, bV.v);
 
                 __m256 zerofx = _mm256_castsi256_ps(_mm256_andnot_si256(
@@ -237,6 +240,7 @@ namespace avx {
              * @returns `true` if ANY field in vector has different value than passed value, `false` if vector are equal.
              */
             bool operator!=(const float b) {
+                _mm256_zeroall();
                 __m256 bV = _mm256_set1_ps(b);
                 __m256 eq = _mm256_xor_ps(v, bV);
 

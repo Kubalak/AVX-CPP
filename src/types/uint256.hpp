@@ -222,6 +222,7 @@ namespace avx {
              * @returns true if all values in both vectors are equal, false if any value doesn't match.
              */
             bool operator==(const UInt256 &bV) const {
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
@@ -232,6 +233,7 @@ namespace avx {
              * @returns true if all values in vector are equal to `b`, otherwise false.
              */
             bool operator==(const int b) const {
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi32(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) != 0;
@@ -243,6 +245,7 @@ namespace avx {
              * @returns true if ANY value is different between vectors.
              */
             bool operator!=(const UInt256 &bV) const {
+                _mm256_zeroall();
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
@@ -253,6 +256,7 @@ namespace avx {
              * @returns true if ANY value in vector is different than `b`, otherwise false.
              */
             bool operator!=(const int b) const {
+                _mm256_zeroall();
                 __m256i bV = _mm256_set1_epi32(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) == 0;
