@@ -10,6 +10,7 @@
 #include <chrono>
 #include <cstdio>
 #include <memory>
+#include <utility>
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
@@ -948,29 +949,9 @@ namespace testing
             min_v = 0;
             max_v = 255;
         }
-        else if constexpr(std::is_same_v<S, short>){
-            min_v = INT16_MIN;
-            max_v = INT16_MAX;
-        }
-        else if constexpr(std::is_same_v<S, unsigned short>){
-            min_v = 0;
-            max_v = UINT16_MAX;
-        }
-        else if constexpr(std::is_same_v<S, int>){
-            min_v = INT_MIN;
-            max_v = INT_MAX;
-        }
-        else if constexpr(std::is_same_v<S, unsigned int>){
-            min_v = 0;
-            max_v = UINT16_MAX;
-        }
-        else if constexpr(std::is_same_v<S, long long>){
-            min_v = LLONG_MIN;
-            max_v = LLONG_MAX;
-        }
-        else if constexpr(std::is_same_v<S, unsigned long long>){
-            min_v = 0;
-            max_v = ULLONG_MAX;
+        else {
+            min_v = std::numeric_limits<S>::min();
+            max_v = std::numeric_limits<S>::max();
         }
 
         std::uniform_int_distribution<sel_type> dist(min_v, max_v);

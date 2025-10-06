@@ -278,7 +278,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifyAdd(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -290,13 +290,13 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -312,7 +312,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifySub(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -324,13 +324,13 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -346,7 +346,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifyMul(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -358,13 +358,13 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -380,7 +380,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifyDiv(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -392,13 +392,13 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -414,7 +414,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifyMod(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -426,13 +426,13 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -448,7 +448,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifyAnd(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -460,13 +460,13 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -482,7 +482,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifyLshift(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -493,14 +493,23 @@ namespace testing{
                 temp <<= d;
                 if(cV[pos] != temp){
 
-                    if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                    // if constexpr (std::is_same_v<char, S>){
+                    //     if(print)
+                    //         std::cerr << "Validation failed for index [" << pos << "]: expected " << static_cast<int>(temp) << " results vector value " << static_cast<int>(cV[pos])  <<  '\n';
+                    // }
+                    // else if constexpr (std::is_same_v<unsigned char, S>){
+                    //     if(print)
+                    //         std::cerr << "Validation failed for index [" << pos << "]: expected " << static_cast<unsigned int>(temp) << " results vector value " << static_cast<unsigned int>(cV[pos])  <<  '\n';
+                    // }
+                    // else
+                        if(print)
+                            std::cerr << "Validation failed for index [" << pos << "]: expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -516,7 +525,7 @@ namespace testing{
         std::tuple<int64_t, S, S> verifyRshift(const std::vector<S>& aV, const std::vector<S>& bV, const std::vector<S>& cV,  const bool  print = true){
             if(aV.size() != bV.size() || aV.size() != cV.size()) {
                 std::cerr << "Sizes don't match (" << aV.size() << " vs " << bV.size() << " vs " << cV.size() << ")!\n";
-                return std::make_tuple(-2, 0, 0);
+                return std::make_tuple(-2, static_cast<S>(0), static_cast<S>(0));
             }
 
             S d = bV[bV.size() / 2];
@@ -528,13 +537,13 @@ namespace testing{
                 if(cV[pos] != temp){
 
                     if(print)
-                        std::cerr << "Validation failed for index [" << pos << "]: expected " << temp << " results vector value " << cV[pos]  <<  '\n';
+                        std::cerr << "Validation failed for index [" << pos << "]: " << std::to_string(aV[pos]) << " >> " << std::to_string(bV[pos]) << " expected " << std::to_string(temp) << " results vector value " << std::to_string(cV[pos])  <<  '\n';
 
                     return std::make_tuple(pos, temp, cV[pos]);
                 }
             }
 
-            return std::make_tuple(-1, 0, 0);
+            return std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
         }
 
         /**
@@ -1351,7 +1360,7 @@ namespace testing{
             int64_t times[21];
             std::tuple<int64_t, S, S> validations[21];
             for(char i = 0; i < 21; ++i)
-                validations[i] = std::make_tuple(-1, 0, 0);
+                validations[i] = std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
 
             if(config.doWarmup)
                 doCPUWarmup(config.warmupDuration, !config.printWarmupInfo);
