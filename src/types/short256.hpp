@@ -196,7 +196,9 @@ namespace avx {
              * @returns `true` if all elements are equal or `false` if not.
              */
             bool operator==(const Short256 &bV) const noexcept {
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) != 0;
             }
@@ -208,7 +210,9 @@ namespace avx {
              * @returns `true` if all elements are equal to passed value `false` if not.
              */
             bool operator==(const short b) const noexcept{
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256i bV = _mm256_set1_epi16(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) != 0;
@@ -221,7 +225,9 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const Short256 &bV) const noexcept{
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256i eq = _mm256_xor_si256(v, bV.v);
                 return _mm256_testz_si256(eq, eq) == 0;
             }
@@ -233,7 +239,9 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const short b) const noexcept{
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256i bV = _mm256_set1_epi16(b);
                 __m256i eq = _mm256_xor_si256(v, bV);
                 return _mm256_testz_si256(eq, eq) == 0;

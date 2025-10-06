@@ -171,7 +171,9 @@ namespace avx {
              * @returns bool `true` if ALL values in vectors are equal otherwise `false`.
              */
             bool operator==(const Double256& bV) {
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256d eq = _mm256_xor_pd(v, bV.v); // Bitwise XOR - equal values return field with 0.
 
                 __m256d zerofx = _mm256_castsi256_pd(_mm256_andnot_si256(
@@ -191,7 +193,9 @@ namespace avx {
              * @returns bool `true` if ALL values in vector are equal to `b` otherwise `false`.
              */
             bool operator==(const double b) {
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256d bV = _mm256_set1_pd(b);
                 __m256d eq = _mm256_xor_pd(v, bV);
 
@@ -211,7 +215,9 @@ namespace avx {
              * @returns bool `true` if ANY value in vectors is not equal otherwise `false`.
              */
             bool operator!=(const Double256& bV) {
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256d eq = _mm256_xor_pd(v, bV.v);
 
                 __m256d zerofx = _mm256_castsi256_pd(_mm256_andnot_si256(
@@ -230,7 +236,9 @@ namespace avx {
              * @returns bool `true` if ANY value in vector is not equal to `b` otherwise `false`.
              */
             bool operator!=(const double b) {
-                _mm256_zeroall();
+            #if defined(__AVX512F__) || defined(__AVX512VL__)
+                _mm256_zeroupper();
+            #endif
                 __m256d bV = _mm256_set1_pd(b);
                 __m256d eq = _mm256_xor_pd(v, bV);
 
