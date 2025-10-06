@@ -191,7 +191,7 @@ namespace avx {
          * @returns `true` if all elements are equal or `false` if not.
          */
         bool operator==(const UShort256 &bV) const noexcept {
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -204,7 +204,7 @@ namespace avx {
          * @returns `true` if all elements are equal to passed value `false` if not.
          */
         bool operator==(const unsigned short &b) const noexcept{
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i bV = _mm256_set1_epi16(b);
@@ -218,7 +218,7 @@ namespace avx {
          * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
          */
         bool operator!=(const UShort256 &bV) const noexcept{
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -231,7 +231,7 @@ namespace avx {
          * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
          */
         bool operator!=(const unsigned short &b) const noexcept{
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i bV = _mm256_set1_epi16(b);

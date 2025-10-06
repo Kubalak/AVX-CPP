@@ -500,7 +500,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="193" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="193" bodyend="196"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="193" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="193" bodyend="199"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1aa0e60f3e4de26f993c0ce4ef03617e38" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -530,7 +530,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="203" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="203" bodyend="207"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="206" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="206" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a76f462119aebe016b4d3b5d7188f7b83" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -560,7 +560,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="214" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="214" bodyend="217"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="220" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="220" bodyend="226"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a148c104ccec326523189ae7f0cd46b39" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -590,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="224" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="224" bodyend="228"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="233" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="233" bodyend="240"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1aa344be83189c30778bc571265ea218b7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -620,16 +620,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="235" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="235" bodyend="237"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="247" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="247" bodyend="249"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1a9f175149996062a659eafdbcbe54e43d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1ae84c8b87c418f5350b7c38347304b96f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
         <definition>UShort256 avx::UShort256::operator+</definition>
-        <argsstring>(const unsigned short &amp;b) const noexcept</argsstring>
+        <argsstring>(const unsigned short b) const noexcept</argsstring>
         <name>operator+</name>
         <qualifiedname>avx::UShort256::operator+</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -650,7 +650,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="244" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="244" bodyend="246"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="256" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="256" bodyend="258"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a3fb81c0cc9ae6ddf4670bba7a974049d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -680,16 +680,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="253" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="253" bodyend="256"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="265" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="265" bodyend="268"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1ae07b021d72e05a890384289419494981" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1a9de597debe3bb954b4001ff562411a9f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
         <definition>UShort256 &amp; avx::UShort256::operator+=</definition>
-        <argsstring>(const unsigned short &amp;b) noexcept</argsstring>
+        <argsstring>(const unsigned short b) noexcept</argsstring>
         <name>operator+=</name>
         <qualifiedname>avx::UShort256::operator+=</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -710,7 +710,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="263" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="263" bodyend="266"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="275" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="275" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a54e0fbf6cb47ba8f21278e7caedf488c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -740,16 +740,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="273" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="273" bodyend="275"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="285" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="285" bodyend="287"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1a5b9c3c6c44057ae3b314b007483faca2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1a546d8161abadba7529f602d9ca9e375b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
         <definition>UShort256 avx::UShort256::operator-</definition>
-        <argsstring>(const unsigned short &amp;b) const noexcept</argsstring>
+        <argsstring>(const unsigned short b) const noexcept</argsstring>
         <name>operator-</name>
         <qualifiedname>avx::UShort256::operator-</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -770,7 +770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="282" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="282" bodyend="284"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="294" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="294" bodyend="296"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1ac4a9466d4396b80deacf703e8934b21b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -800,16 +800,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="291" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="291" bodyend="294"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="303" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="303" bodyend="306"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1a2730ec02aea3cbfa1e524fb205b1126c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1aed36917deac32a9c01edab6955c84eb8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
         <definition>UShort256 &amp; avx::UShort256::operator-=</definition>
-        <argsstring>(const unsigned short &amp;b) noexcept</argsstring>
+        <argsstring>(const unsigned short b) noexcept</argsstring>
         <name>operator-=</name>
         <qualifiedname>avx::UShort256::operator-=</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -830,7 +830,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="301" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="301" bodyend="304"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="313" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="313" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a8ce92287486b4607a7572fdab35bd20d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -860,16 +860,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="311" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="311" bodyend="328"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="323" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="323" bodyend="340"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1ad4de9f3588b9f78c63d694557e31a26c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1a1789c63636a2ed1c32dc02dcdf2f104c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
         <definition>UShort256 avx::UShort256::operator*</definition>
-        <argsstring>(const unsigned short &amp;b) const noexcept</argsstring>
+        <argsstring>(const unsigned short b) const noexcept</argsstring>
         <name>operator*</name>
         <qualifiedname>avx::UShort256::operator*</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -890,7 +890,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="335" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="335" bodyend="350"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="347" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="347" bodyend="362"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1adb841fb428a544afc0d1445e4bc7276b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -920,16 +920,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="357" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="357" bodyend="375"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="369" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="369" bodyend="387"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1a7eccf88461189831966fd0e1844f58bf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1a80b6b36a3a58f5e3ebb96b8e93190ad3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
         <definition>UShort256 &amp; avx::UShort256::operator*=</definition>
-        <argsstring>(const unsigned short &amp;b) noexcept</argsstring>
+        <argsstring>(const unsigned short b) noexcept</argsstring>
         <name>operator*=</name>
         <qualifiedname>avx::UShort256::operator*=</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -950,7 +950,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="382" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="382" bodyend="398"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="394" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="394" bodyend="410"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1aa50ba20c9d3c28f73e0498d4eef2e43c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -981,7 +981,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="407" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="407" bodyend="440"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="419" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="419" bodyend="452"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a0d09fa219aafb160cbd740130702c4e7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1012,7 +1012,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="449" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="449" bodyend="478"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="461" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="461" bodyend="490"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a192400c8dc1f812f568b22c052746ea4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1043,16 +1043,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="487" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="487" bodyend="521"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="499" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="499" bodyend="533"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1ac57b35964179a123f28669805e42340f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1aca17bdc152f07ec0ca60bfb5517492a9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
         <definition>UShort256 &amp; avx::UShort256::operator/=</definition>
-        <argsstring>(const unsigned short &amp;b) noexcept</argsstring>
+        <argsstring>(const unsigned short b) noexcept</argsstring>
         <name>operator/=</name>
         <qualifiedname>avx::UShort256::operator/=</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -1074,7 +1074,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="530" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="530" bodyend="560"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="542" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="542" bodyend="572"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a9056c1ee0ed658e9a93cf2865653e0f0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1106,7 +1106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="572" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="572" bodyend="598"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="584" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="584" bodyend="610"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a0f863c03ebf5c44b80ee800ddedcd993" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1138,7 +1138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="610" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="610" bodyend="632"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="622" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="622" bodyend="644"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1af4c1315c34c4840ed7071f23d5567fd4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1170,7 +1170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="644" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="644" bodyend="671"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="656" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="656" bodyend="683"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a762f2b7c9bcc642b393ccf36824532e0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1202,7 +1202,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="683" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="683" bodyend="707"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="695" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="695" bodyend="719"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a245bc722cb6ed16934b0a544a5fbb0ab" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1232,16 +1232,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="714" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="714" bodyend="716"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="726" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="726" bodyend="728"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1ad15b87b6b9f68fb98bfd84ad8fc6ee04" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1ab2ae1d894a61561713fcd29aa8f55dee" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
         <definition>UShort256 avx::UShort256::operator|</definition>
-        <argsstring>(const unsigned short &amp;b) const noexcept</argsstring>
+        <argsstring>(const unsigned short b) const noexcept</argsstring>
         <name>operator|</name>
         <qualifiedname>avx::UShort256::operator|</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -1262,7 +1262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="723" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="723" bodyend="725"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="735" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="735" bodyend="737"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a2cd367e5a8165466153144faf7907672" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1292,16 +1292,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="733" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="733" bodyend="736"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="745" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="745" bodyend="748"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1a42f9b040fd98457ff1194a140fcf3a20" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1a012abd0c9308dd7f89826f88de381b3b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
         <definition>UShort256 &amp; avx::UShort256::operator|=</definition>
-        <argsstring>(const unsigned short &amp;b) noexcept</argsstring>
+        <argsstring>(const unsigned short b) noexcept</argsstring>
         <name>operator|=</name>
         <qualifiedname>avx::UShort256::operator|=</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -1322,7 +1322,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="743" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="743" bodyend="746"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="755" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="755" bodyend="758"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a28717195dcfc5f81f8c2c9dcd5680ee8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1352,16 +1352,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="753" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="753" bodyend="755"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="765" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="765" bodyend="767"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1abd67657ded66c2e764e2345a765e4f25" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1aa8823f975ebc0844f82f6e89d57d678f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
         <definition>UShort256 avx::UShort256::operator&amp;</definition>
-        <argsstring>(const unsigned short &amp;b) const noexcept</argsstring>
+        <argsstring>(const unsigned short b) const noexcept</argsstring>
         <name>operator&amp;</name>
         <qualifiedname>avx::UShort256::operator&amp;</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -1382,7 +1382,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="762" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="762" bodyend="764"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="774" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="774" bodyend="776"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a64c1f727f6391003f3ec52ddffbea635" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1412,16 +1412,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="772" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="772" bodyend="775"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="784" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="784" bodyend="787"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_u_short256_1afd0661bb16f73cc59b6545d645bb0e1c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_u_short256_1ad27034931ec4ef43c1054b181ad8d5a0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
         <definition>UShort256 &amp; avx::UShort256::operator&amp;=</definition>
-        <argsstring>(const unsigned short &amp;b) noexcept</argsstring>
+        <argsstring>(const unsigned short b) noexcept</argsstring>
         <name>operator&amp;=</name>
         <qualifiedname>avx::UShort256::operator&amp;=</qualifiedname>
         <param>
-          <type>const unsigned short &amp;</type>
+          <type>const unsigned short</type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -1442,7 +1442,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="783" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="783" bodyend="786"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="795" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="795" bodyend="798"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a0a82039db3a199c50ba59eb18bde62f6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1472,7 +1472,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="793" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="793" bodyend="795"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="805" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="805" bodyend="807"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1aa6b1ab4cd5b1b25f4400174fe823365a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1502,7 +1502,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="802" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="802" bodyend="804"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="814" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="814" bodyend="816"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1aff6bd2703acccb9f2edb0e982c72fd96" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1532,7 +1532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="812" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="812" bodyend="815"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="824" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="824" bodyend="827"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a85b3674058f5d8703013ed4f97aee65c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1562,7 +1562,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="823" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="823" bodyend="826"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="835" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="835" bodyend="838"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a59bbc605d79396d4208f69b1b3a3ec38" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1592,7 +1592,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="833" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="833" bodyend="858"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="845" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="845" bodyend="870"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a14a970882a21e9d93911b57c1d7f1392" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1622,7 +1622,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="865" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="865" bodyend="867"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="877" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="877" bodyend="879"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1ad71226e012821fcda752fbc0a8b072ec" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1652,7 +1652,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="875" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="875" bodyend="895"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="887" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="887" bodyend="907"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a645dfc296b7a489a6fd41c5a4130089b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1682,7 +1682,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="903" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="903" bodyend="906"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="915" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="915" bodyend="918"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a458a965400c81b0bbaa3b7fcab8f8028" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1712,7 +1712,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="913" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="913" bodyend="932"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="925" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="925" bodyend="944"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a09727b6a46888d27fb0e8955c8afd4ac" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1742,7 +1742,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="939" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="939" bodyend="941"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="951" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="951" bodyend="953"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a5102383d42ad35a8ed89900858e58d56" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1772,7 +1772,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="949" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="949" bodyend="969"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="961" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="961" bodyend="981"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a66e72c2b67c97b3724ffb3bad7edf0ea" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref> &amp;</type>
@@ -1802,7 +1802,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="977" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="977" bodyend="980"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="989" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="989" bodyend="992"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1ae3fec3bfc3a67b7b16f5ed30a5f36c10" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_u_short256" kindref="compound">UShort256</ref></type>
@@ -1819,7 +1819,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="986" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="986" bodyend="988"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="998" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="998" bodyend="1000"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_u_short256_1a8b02114f7ddd83e51ed7ad7a5ee12861" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1836,7 +1836,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="995" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="995" bodyend="1004"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="1007" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="1007" bodyend="1016"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1844,7 +1844,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>unsigned short</computeroutput>. Can hold 16 individual <computeroutput>unsigned short</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="19" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="19" bodyend="1005"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" line="19" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/ushort256.hpp" bodystart="19" bodyend="1017"/>
     <listofallmembers>
       <member refid="classavx_1_1_u_short256_1a4236650e83c48983bce51d7e2129b9ae" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>get</name></member>
       <member refid="classavx_1_1_u_short256_1a45b3d57045345cad9a69a70ce459a940" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>load</name></member>
@@ -1855,25 +1855,25 @@
       <member refid="classavx_1_1_u_short256_1af4c1315c34c4840ed7071f23d5567fd4" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator%=</name></member>
       <member refid="classavx_1_1_u_short256_1a762f2b7c9bcc642b393ccf36824532e0" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator%=</name></member>
       <member refid="classavx_1_1_u_short256_1a28717195dcfc5f81f8c2c9dcd5680ee8" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&amp;</name></member>
-      <member refid="classavx_1_1_u_short256_1abd67657ded66c2e764e2345a765e4f25" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&amp;</name></member>
+      <member refid="classavx_1_1_u_short256_1aa8823f975ebc0844f82f6e89d57d678f" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&amp;</name></member>
       <member refid="classavx_1_1_u_short256_1a64c1f727f6391003f3ec52ddffbea635" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&amp;=</name></member>
-      <member refid="classavx_1_1_u_short256_1afd0661bb16f73cc59b6545d645bb0e1c" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&amp;=</name></member>
+      <member refid="classavx_1_1_u_short256_1ad27034931ec4ef43c1054b181ad8d5a0" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&amp;=</name></member>
       <member refid="classavx_1_1_u_short256_1a8ce92287486b4607a7572fdab35bd20d" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator*</name></member>
-      <member refid="classavx_1_1_u_short256_1ad4de9f3588b9f78c63d694557e31a26c" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator*</name></member>
+      <member refid="classavx_1_1_u_short256_1a1789c63636a2ed1c32dc02dcdf2f104c" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator*</name></member>
       <member refid="classavx_1_1_u_short256_1adb841fb428a544afc0d1445e4bc7276b" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator*=</name></member>
-      <member refid="classavx_1_1_u_short256_1a7eccf88461189831966fd0e1844f58bf" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator*=</name></member>
+      <member refid="classavx_1_1_u_short256_1a80b6b36a3a58f5e3ebb96b8e93190ad3" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator*=</name></member>
       <member refid="classavx_1_1_u_short256_1aa344be83189c30778bc571265ea218b7" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator+</name></member>
-      <member refid="classavx_1_1_u_short256_1a9f175149996062a659eafdbcbe54e43d" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator+</name></member>
+      <member refid="classavx_1_1_u_short256_1ae84c8b87c418f5350b7c38347304b96f" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator+</name></member>
       <member refid="classavx_1_1_u_short256_1a3fb81c0cc9ae6ddf4670bba7a974049d" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator+=</name></member>
-      <member refid="classavx_1_1_u_short256_1ae07b021d72e05a890384289419494981" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator+=</name></member>
+      <member refid="classavx_1_1_u_short256_1a9de597debe3bb954b4001ff562411a9f" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator+=</name></member>
       <member refid="classavx_1_1_u_short256_1a54e0fbf6cb47ba8f21278e7caedf488c" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator-</name></member>
-      <member refid="classavx_1_1_u_short256_1a5b9c3c6c44057ae3b314b007483faca2" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator-</name></member>
+      <member refid="classavx_1_1_u_short256_1a546d8161abadba7529f602d9ca9e375b" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator-</name></member>
       <member refid="classavx_1_1_u_short256_1ac4a9466d4396b80deacf703e8934b21b" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator-=</name></member>
-      <member refid="classavx_1_1_u_short256_1a2730ec02aea3cbfa1e524fb205b1126c" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator-=</name></member>
+      <member refid="classavx_1_1_u_short256_1aed36917deac32a9c01edab6955c84eb8" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator-=</name></member>
       <member refid="classavx_1_1_u_short256_1aa50ba20c9d3c28f73e0498d4eef2e43c" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator/</name></member>
       <member refid="classavx_1_1_u_short256_1a0d09fa219aafb160cbd740130702c4e7" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator/</name></member>
       <member refid="classavx_1_1_u_short256_1a192400c8dc1f812f568b22c052746ea4" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator/=</name></member>
-      <member refid="classavx_1_1_u_short256_1ac57b35964179a123f28669805e42340f" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator/=</name></member>
+      <member refid="classavx_1_1_u_short256_1aca17bdc152f07ec0ca60bfb5517492a9" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator/=</name></member>
       <member refid="classavx_1_1_u_short256_1a59bbc605d79396d4208f69b1b3a3ec38" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&lt;&lt;</name></member>
       <member refid="classavx_1_1_u_short256_1a14a970882a21e9d93911b57c1d7f1392" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&lt;&lt;</name></member>
       <member refid="classavx_1_1_u_short256_1ad71226e012821fcda752fbc0a8b072ec" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator&lt;&lt;=</name></member>
@@ -1890,9 +1890,9 @@
       <member refid="classavx_1_1_u_short256_1aff6bd2703acccb9f2edb0e982c72fd96" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator^=</name></member>
       <member refid="classavx_1_1_u_short256_1a85b3674058f5d8703013ed4f97aee65c" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator^=</name></member>
       <member refid="classavx_1_1_u_short256_1a245bc722cb6ed16934b0a544a5fbb0ab" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator|</name></member>
-      <member refid="classavx_1_1_u_short256_1ad15b87b6b9f68fb98bfd84ad8fc6ee04" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator|</name></member>
+      <member refid="classavx_1_1_u_short256_1ab2ae1d894a61561713fcd29aa8f55dee" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator|</name></member>
       <member refid="classavx_1_1_u_short256_1a2cd367e5a8165466153144faf7907672" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator|=</name></member>
-      <member refid="classavx_1_1_u_short256_1a42f9b040fd98457ff1194a140fcf3a20" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator|=</name></member>
+      <member refid="classavx_1_1_u_short256_1a012abd0c9308dd7f89826f88de381b3b" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator|=</name></member>
       <member refid="classavx_1_1_u_short256_1ae3fec3bfc3a67b7b16f5ed30a5f36c10" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>operator~</name></member>
       <member refid="classavx_1_1_u_short256_1a931ec8f87195e19811ecbc69dbe231fe" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>save</name></member>
       <member refid="classavx_1_1_u_short256_1a65b550387b3910104bc6f371212bf771" prot="public" virt="non-virtual"><scope>avx::UShort256</scope><name>save</name></member>

@@ -163,7 +163,7 @@ namespace avx {
              * Set the internal vector value.
              * @param value New value to be set.
              */
-            void set(__m256d val) noexcept { v = val;}
+            void set(__m256d value) noexcept { v = value;}
 
             /**
              * Compares two vectors for equality.
@@ -171,7 +171,7 @@ namespace avx {
              * @returns bool `true` if ALL values in vectors are equal otherwise `false`.
              */
             bool operator==(const Double256& bV) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256d eq = _mm256_xor_pd(v, bV.v); // Bitwise XOR - equal values return field with 0.
@@ -193,7 +193,7 @@ namespace avx {
              * @returns bool `true` if ALL values in vector are equal to `b` otherwise `false`.
              */
             bool operator==(const double b) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256d bV = _mm256_set1_pd(b);
@@ -215,7 +215,7 @@ namespace avx {
              * @returns bool `true` if ANY value in vectors is not equal otherwise `false`.
              */
             bool operator!=(const Double256& bV) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256d eq = _mm256_xor_pd(v, bV.v);
@@ -236,7 +236,7 @@ namespace avx {
              * @returns bool `true` if ANY value in vector is not equal to `b` otherwise `false`.
              */
             bool operator!=(const double b) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256d bV = _mm256_set1_pd(b);

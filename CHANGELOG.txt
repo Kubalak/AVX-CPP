@@ -1,3 +1,7 @@
+v0.9.7
+- Fixed == and != operators failing in edge cases with AVX512 enabled. Set __FIX_CMP macro to enable this (seems like a really edge case).
+- Updated documentation for all classes.
+
 v0.9.6
 - Documentation update
 - Minor fixes for AVX512 version of operators

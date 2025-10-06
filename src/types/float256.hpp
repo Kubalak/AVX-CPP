@@ -174,7 +174,7 @@ namespace avx {
              * @returns `true` if all fields in both vectors have the same value, `false` otherwise.
              */
             bool operator==(const Float256& bV) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256 eq = _mm256_xor_ps(v, bV.v); // Bitwise XOR - equal values return field with 0.
@@ -202,7 +202,7 @@ namespace avx {
              * @returns `true` if all fields in vectors have the same value as b, `false` otherwise.
              */
             bool operator==(const float b) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256 bV = _mm256_set1_ps(b);
@@ -224,7 +224,7 @@ namespace avx {
              * @returns `true` if ANY field in one vector has different value than one in scond vector, `false` if vector are equal.
              */
             bool operator!=(const Float256& bV) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256 eq = _mm256_xor_ps(v, bV.v);
@@ -246,7 +246,7 @@ namespace avx {
              * @returns `true` if ANY field in vector has different value than passed value, `false` if vector are equal.
              */
             bool operator!=(const float b) {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256 bV = _mm256_set1_ps(b);

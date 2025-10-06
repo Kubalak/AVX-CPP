@@ -196,7 +196,7 @@ namespace avx {
              * @returns `true` if all elements are equal or `false` if not.
              */
             bool operator==(const Short256 &bV) const noexcept {
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -210,7 +210,7 @@ namespace avx {
              * @returns `true` if all elements are equal to passed value `false` if not.
              */
             bool operator==(const short b) const noexcept{
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256i bV = _mm256_set1_epi16(b);
@@ -225,7 +225,7 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const Short256 &bV) const noexcept{
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -239,7 +239,7 @@ namespace avx {
              * @returns `true` if any alement is not equal to corresponding element in `bV` otherwise `false`.
              */
             bool operator!=(const short b) const noexcept{
-            #if defined(__AVX512F__) || defined(__AVX512VL__)
+            #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
                 _mm256_zeroupper();
             #endif
                 __m256i bV = _mm256_set1_epi16(b);
@@ -400,7 +400,7 @@ namespace avx {
             /**
              * Performs an integer division. 
              * 
-             * @param bV Divisor value.
+             * @param b Divisor value.
              * @return Short256 New object containing result of division with truncation.
              */
             Short256 operator/(const short b) const noexcept {
@@ -430,6 +430,11 @@ namespace avx {
             #endif
             }
 
+            /**
+             * Divides two vectors and stores result inside original vector.
+             * @param bV Second vector (divisor).
+             * @returns Reference to same vector after dividing by `bV`.
+             */
             Short256& operator/=(const Short256& bV) noexcept {
             #ifdef __AVX512F__
                 __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
@@ -532,12 +537,11 @@ namespace avx {
             #endif
             }
 
-
             /**
              * Performs a modulo operation.
              * 
              * NOTE: Analogously as in `/` and `/=` operators values are casted before performing a division.
-             * @param bV Divisor.
+             * @param b Divisor.
              * @return Modulo result.
              */
             Short256 operator%(const short b) noexcept {
@@ -569,7 +573,11 @@ namespace avx {
             #endif
             }
 
-
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param bV Second modulo operand (divisor)
+             * @return Result of modulo operation.
+             */
             Short256& operator%=(const Short256& bV) noexcept {
             #ifdef __AVX512F__
                 __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
@@ -602,6 +610,11 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector.
+             * @param b Second modulo operand (divisor).
+             * @return Reference to the original vector holding modulo operation results.
+             */
             Short256& operator%=(const short b) noexcept {
             #ifdef __AVX512F__
                 __m512 first = _mm512_cvtepi32_ps(_mm512_cvtepi16_epi32(v));
@@ -911,10 +924,19 @@ namespace avx {
                 return *this;
             }
 
+            /**
+             * Bitwise NOT operator.
+             * @return Short256 New vector with all bits inverted.
+             */
             Short256 operator~() const noexcept{
                 return _mm256_xor_si256(v, constants::ONES);
             }
 
+            /**
+             * Returns string representation of vector.
+             * Printing will result in Short256(<vector_values>) eg. Short256(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+             * @returns std::string String representation of underlying vector.
+             */
             std::string str() const noexcept {
                 std::string result = "Short256(";
                 short* iv = (short*)&v; 

@@ -5,7 +5,7 @@ import pathlib, os, datetime
 project = "AVX CPP"
 author = "Kubalak"
 copyright = '2024-%Y, Kubalak'
-version = '0.9.6'
+version = '0.9.7'
 
 extensions = ["breathe", "sphinx.ext.viewcode", "sphinx.ext.todo"]
 

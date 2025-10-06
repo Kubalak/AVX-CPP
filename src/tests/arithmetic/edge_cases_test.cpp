@@ -139,6 +139,7 @@ int test_edge_Int256_bitwise() {
     }
     a = Int256(0xF0F0F0F0);
     a ^= b;
+    // std::cout << (a == static_cast<int>(0xFFFFFFFF)) << '\n'; <-- This fixes the error and changes assembly instructions used for == operation.
     if (!(a == static_cast<int>(0xFFFFFFFF))) {
         testing::printTestFailed(__FILE__, __LINE__, __func__, "^=", "Int256", "Int256", std::to_string(static_cast<int>(0xFFFFFFFF)), a.str());
         result = 1;

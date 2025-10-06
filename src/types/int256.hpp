@@ -224,7 +224,7 @@ namespace avx
          * @returns true if all values in both vectors are equal, false if any value doesn't match.
          */
         bool operator==(const Int256 &bV) const noexcept {
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -237,7 +237,7 @@ namespace avx
          * @returns true if all values in vector is equal to `b`, otherwise false.
          */
         bool operator==(const int b) const noexcept {
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i bV = _mm256_set1_epi32(b);
@@ -251,7 +251,7 @@ namespace avx
          * @returns true if ANY value is different between vectors.
          */
         bool operator!=(const Int256 &bV) const noexcept {
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i eq = _mm256_xor_si256(v, bV.v);
@@ -264,7 +264,7 @@ namespace avx
          * @returns true if ANY value in vector is different than `b`, otherwise false.
          */
         bool operator!=(const int b) const noexcept {
-        #if defined(__AVX512F__) || defined(__AVX512VL__)
+        #if (defined(__AVX512F__) || defined(__AVX512VL__)) && defined(__FIX_CMP) // Fix compare where output assembly included vpternlogq which produced UB
             _mm256_zeroupper();
         #endif
             __m256i bV = _mm256_set1_epi32(b);
@@ -305,11 +305,6 @@ namespace avx
          */
         Int256 operator+(const int b) const noexcept { return _mm256_add_epi32(v, _mm256_set1_epi32(b)); }
 
-        /**
-         * Substracts values from vector.
-         * @param bV Second vector.
-         * @return Int256 New vector being result of subtracting `bV` from vecotr.
-         */
         /**
          * Subtracts values from vector.
          * @param bV Second vector.

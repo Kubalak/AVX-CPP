@@ -405,15 +405,15 @@
         </inbodydescription>
         <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="160" column="27" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="160" bodyend="160"/>
       </memberdef>
-      <memberdef kind="function" id="classavx_1_1_double256_1ac6f41ace61804089518d2c89cdabd864" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classavx_1_1_double256_1a94ace518d47dea037217a5ba2e19efdc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
         <definition>void avx::Double256::set</definition>
-        <argsstring>(__m256d val) noexcept</argsstring>
+        <argsstring>(__m256d value) noexcept</argsstring>
         <name>set</name>
         <qualifiedname>avx::Double256::set</qualifiedname>
         <param>
           <type>__m256d</type>
-          <declname>val</declname>
+          <declname>value</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -452,7 +452,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="173" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="173" bodyend="185"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="173" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="173" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1aa547541d8dbe8e7cfdeefc7357f05065" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -473,7 +473,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="192" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="192" bodyend="204"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="195" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="195" bodyend="210"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a77c3aaccf7a7270a0e1e4d835af75cf1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -494,7 +494,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="211" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="211" bodyend="222"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="217" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="217" bodyend="231"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a29c628531416a02c5fb1d82cf59fb3f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -515,7 +515,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="229" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="229" bodyend="241"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="238" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="238" bodyend="253"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a140c3e18ac54982be49296b90b9157c3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -545,7 +545,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="249" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="249" bodyend="251"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="261" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="261" bodyend="263"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a35184ff79f0a74eef013b8d459083084" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -575,7 +575,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="258" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="258" bodyend="260"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="270" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="270" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1acfb345cf0a603a813cd83100d0ebfeb5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -605,7 +605,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="267" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="267" bodyend="270"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="279" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="279" bodyend="282"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1afc17de257a64ed53ea484154a3ca9ee7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -635,7 +635,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="277" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="277" bodyend="280"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="289" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="289" bodyend="292"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a707751946a9ceadf4a712e05d30bcd89" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -665,7 +665,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="287" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="287" bodyend="289"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="299" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="299" bodyend="301"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a04a5edf91d663bdd97b1fce02ac9bf01" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -695,7 +695,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="296" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="296" bodyend="298"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="308" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="308" bodyend="310"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1ad8518d3572238cf78cab42e420a00ca0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -725,7 +725,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="305" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="305" bodyend="308"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="317" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="317" bodyend="320"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1af72fd196e8251b6a3ab4b85f44831598" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -755,7 +755,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="315" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="315" bodyend="318"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="327" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="327" bodyend="330"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a206c09c9c06b85b3313ade42a47fd0ba" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -785,7 +785,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="325" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="325" bodyend="327"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="337" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="337" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a42c11e736e26d701508fe6e71f195682" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -815,7 +815,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="334" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="334" bodyend="336"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="346" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="346" bodyend="348"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1aaf0623987a45313c5f4ae5d44df0d0a1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -845,7 +845,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="343" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="343" bodyend="346"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="355" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="355" bodyend="358"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1aa00ab33ec898fc522a3f37c5c0f7ab4f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -875,7 +875,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="353" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="353" bodyend="356"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="365" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="365" bodyend="368"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a322d221c8a6f3807515b85a62db941ae" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -905,7 +905,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="363" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="363" bodyend="365"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="375" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="375" bodyend="377"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a2623f99805b7e8c79665f470229de7da" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -935,7 +935,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="372" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="372" bodyend="374"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="384" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="384" bodyend="386"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1adb7a7280bd0230abdbb12b51b40590ab" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -965,7 +965,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="381" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="381" bodyend="384"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="393" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="393" bodyend="396"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1a71234df29fd155d08e9365b8aa6d303e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref> &amp;</type>
@@ -995,7 +995,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="391" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="391" bodyend="394"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="403" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="403" bodyend="406"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1aa0dd0364633c34e87ac3fae731ebc7ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -1034,7 +1034,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="403" column="20" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="403" bodyend="409"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="415" column="20" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="415" bodyend="421"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_double256_1ad7c754f07ede8d94c5c2e9e42aeacb09" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1051,7 +1051,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="420" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="420" bodyend="429"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="432" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="432" bodyend="441"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="friend">
@@ -1095,7 +1095,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="439" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="439" bodyend="441"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="451" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="451" bodyend="453"/>
       </memberdef>
       <memberdef kind="friend" id="classavx_1_1_double256_1a172eb88428e5b9350ffec6d9ae23b464" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -1137,7 +1137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="449" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="449" bodyend="451"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="461" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="461" bodyend="463"/>
       </memberdef>
       <memberdef kind="friend" id="classavx_1_1_double256_1a62bbe2144e3120c28254469d42b3d8d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -1179,7 +1179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="459" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="459" bodyend="461"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="471" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="471" bodyend="473"/>
       </memberdef>
       <memberdef kind="friend" id="classavx_1_1_double256_1ab7c5742bcd7b328b50789fa9fb77ddfa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_double256" kindref="compound">Double256</ref></type>
@@ -1221,7 +1221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="469" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="469" bodyend="471"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="481" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="481" bodyend="483"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1229,7 +1229,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>double</computeroutput>. Can hold 4 individual <computeroutput>double</computeroutput> values. Provides arithmetic operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="18" bodyend="473"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" line="18" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/double256.hpp" bodystart="18" bodyend="485"/>
     <listofallmembers>
       <member refid="classavx_1_1_double256_1a68b3446b519207ed2b61df20d230c8ed" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
       <member refid="classavx_1_1_double256_1a3472009057128111f5820badab850b8e" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>Double256</name></member>
@@ -1268,7 +1268,7 @@
       <member refid="classavx_1_1_double256_1aade0b6777f38a76af902d10d4220b404" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>save</name></member>
       <member refid="classavx_1_1_double256_1a57a58d630183589fe983816af80bdbaa" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>save</name></member>
       <member refid="classavx_1_1_double256_1af86ae78bd1e49eb504f35f3bc2ac6523" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>saveAligned</name></member>
-      <member refid="classavx_1_1_double256_1ac6f41ace61804089518d2c89cdabd864" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>set</name></member>
+      <member refid="classavx_1_1_double256_1a94ace518d47dea037217a5ba2e19efdc" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>set</name></member>
       <member refid="classavx_1_1_double256_1ab3ed72ed44e5b9a366ce15ec002cd4dd" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>size</name></member>
       <member refid="classavx_1_1_double256_1ad11d9d79e4e4792cbfc769426c0e04ef" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>storedType</name></member>
       <member refid="classavx_1_1_double256_1ad7c754f07ede8d94c5c2e9e42aeacb09" prot="public" virt="non-virtual"><scope>avx::Double256</scope><name>str</name></member>

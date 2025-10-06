@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="36" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="36" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="35" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="35" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="24" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="24" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="23" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="23" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-attrib">
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="31" column="34" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="31" bodyend="-1"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="30" column="30" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="30" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="41" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="41" bodyend="41"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="40" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="40" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ad83bfc3ad130b15773a91ccf5163fb65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="48" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="48" bodyend="55"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="47" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="47" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a54f5d54a7a133813a6f5abc99df9430a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="61" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="61" bodyend="61"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="60" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="60" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a6f6967f97ca96fa022feee1723b4c0f6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="67" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="67" bodyend="67"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="66" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="66" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a5045ef5bb5a2354e06991f82e00a9c88" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -189,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="74" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="74" bodyend="74"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="73" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="73" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a07f3d02386883cf562e10c18ee5b4d5b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -217,7 +217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="81" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="81" bodyend="81"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="80" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="80" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a08dc49079e91996ed4ada75e7a908dc7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -245,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="87" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="87" bodyend="87"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="86" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="86" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a91b4b6d11ff75287b70bfa7f96f58cc9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -273,7 +273,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="93" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="93" bodyend="93"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="92" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="92" bodyend="92"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a37368b556436135afd8f4176840e79ff" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="99" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="99" bodyend="99"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="98" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="98" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8c31b2c5e2c4af4b0cff477b812f1d9b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -329,7 +329,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="105" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="105" bodyend="105"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="104" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="104" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a7a23d42e6055a1d2e0dc03f0713a5d3a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -357,7 +357,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="113" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="113" bodyend="131"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="112" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="112" bodyend="130"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aba9d0832c5542ae3abcc436795a556e8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>__m256i</type>
@@ -374,7 +374,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="137" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="137" bodyend="137"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="136" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="136" bodyend="136"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a42a3044986407ba0bc45d57b4708d3a7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -402,7 +402,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="143" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="143" bodyend="143"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="142" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="142" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a0b7139d70bbc1fd129039bf49c89e7eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -439,7 +439,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="150" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="150" bodyend="157"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="149" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="149" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a6cb1d690dc0550a8c0660594bd4b8fb6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -467,7 +467,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="163" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="163" bodyend="165"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="162" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="162" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ae9b9dd3d342fac0bd0e716d60a6e2f5b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -497,7 +497,7 @@
 <parametername>std::invalid_argument</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>If in Debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release mode no checks are performed to improve efficiency. </para>
+<para>If in Debug mode and <computeroutput>pDest</computeroutput> is <computeroutput>nullptr</computeroutput>. In Release builds this method never throws (for <computeroutput>nullptr</computeroutput> method will have no effect). </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -505,7 +505,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="174" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="174" bodyend="181"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="173" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="173" bodyend="180"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ac4e71deda92e5ca5825878f6c94b0de3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -543,7 +543,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="190" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="190" bodyend="197"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="189" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="189" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a07ec7611ea208a5687d7ac48f13a2bda" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>long long</type>
@@ -558,10 +558,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Indexing operator. Does not support value assignment through this method (e.g. aV[0] = 1 won&apos;t work). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position of desired element between 0 and 3. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value of underlying element. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::out_of_range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 2 LSBs are used from <computeroutput>index</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="199" column="23" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="199" bodyend="206"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="205" column="19" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="205" bodyend="212"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a95f3d3612450306a392aa79732532c0a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -591,7 +612,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="216" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="216" bodyend="219"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="222" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="222" bodyend="228"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ae8ab701f3d45fb21af61a44cc5b460cb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -621,7 +642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="227" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="227" bodyend="231"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="235" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="235" bodyend="242"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a9e90cda122bd6dc0df468c48cdefe782" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -651,7 +672,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="239" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="239" bodyend="242"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="249" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="249" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ac160ac1779e777c0be373a567ddbb88f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -681,7 +702,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="250" column="18" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="250" bodyend="254"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="262" column="14" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="262" bodyend="269"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a2823928467a26c4bcaca39d5e531baf1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -696,10 +717,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds values from other vector and returns new vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being a sum of this vector and <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="257" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="257" bodyend="259"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="276" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="276" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ace01604721bee7b481e0da32a4e140be" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -714,10 +747,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds single value across all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to add to vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being a sum of this vector and <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="261" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="261" bodyend="266"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="285" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="285" bodyend="287"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa594702691fddb93179630861f7c4bf4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -732,10 +777,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds two vectors together and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>bV</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="268" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="268" bodyend="271"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="294" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="294" bodyend="297"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8d830312fe32ea0d86f4abc94044ed5c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -750,10 +807,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Adds scalar to vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after adding <computeroutput>b</computeroutput> to vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="273" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="273" bodyend="279"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="304" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="304" bodyend="307"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1af09cf38177a5eab0ae732154b9b10f82" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -768,10 +837,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts values from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="281" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="281" bodyend="286"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="314" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="314" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1abc4c4a4df118abee3eb6e9051c2f1678" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -786,10 +867,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts a single value from all vector fields. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to subtract from vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="288" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="288" bodyend="293"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="323" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="323" bodyend="325"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a0ca0f4d74e8e13c87fef0110d9f1601d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -804,10 +897,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>bV</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="295" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="295" bodyend="302"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="332" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="332" bodyend="335"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a73683b1c26c06eea3898a80d044a2b90" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -822,10 +927,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Subtracts scalar from vector and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to be subtracted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after subtracting <computeroutput>b</computeroutput> from vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="304" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="304" bodyend="311"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="342" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="342" bodyend="345"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa445886887836bf98a19cb5b43e7d3ce" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -840,10 +957,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of multiplying vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="313" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="313" bodyend="325"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="352" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="352" bodyend="364"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8cd6659e4debe51d3d3131398877be41" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -858,10 +987,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies all vector fields by a single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of multiplying vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="327" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="327" bodyend="339"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="371" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="371" bodyend="383"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a01d8e3f3e1e203506c7f8b3bc8b20a40" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -876,10 +1017,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="341" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="341" bodyend="355"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="390" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="390" bodyend="404"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab231d1a575e01567a3df89cce7617164" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -894,10 +1047,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Multiplies vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar to multiply by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after multiplying by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="357" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="357" bodyend="370"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="411" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="411" bodyend="424"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a4ef1fe0489066c93cf04f28d7f4e8097" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -912,10 +1077,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of dividing vector by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="372" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="372" bodyend="385"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="431" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="431" bodyend="444"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a5d03c23b906e6cb5310d67d1612e3b33" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -930,10 +1107,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides all vector fields by a single value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of dividing vector by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="387" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="387" bodyend="399"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="451" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="451" bodyend="463"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa05afe20286b24c1d6a3ca4d62e4323f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -948,10 +1137,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides two vectors and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="401" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="401" bodyend="415"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="470" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="470" bodyend="484"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a4c3d586abf0d20782b0a8b53f2aa42ad" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -966,10 +1167,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Divides vector by scalar and stores result inside original vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Scalar value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to same vector after dividing by <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="417" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="417" bodyend="430"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="491" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="491" bodyend="504"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a4f75bec53ae968195eabae664c44dec6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -984,10 +1197,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculates element-wise modulo of two vectors. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of modulo operation. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="432" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="432" bodyend="442"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="511" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="511" bodyend="521"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1abfd692d6c29e4cfe6c6d3f4bcfc50d24" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1002,10 +1227,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculates element-wise modulo of vector and scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of modulo operation. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="444" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="444" bodyend="453"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="528" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="528" bodyend="537"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a187123f8d1c685838849f170b0919769" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1020,10 +1257,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second modulo operand (divisor) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Result of modulo operation. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="455" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="455" bodyend="467"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="544" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="544" bodyend="556"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aaaeb11a5c1e362978e72faa17866591c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1038,10 +1287,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second modulo operand (divisor). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the original vector holding modulo operation results. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="469" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="469" bodyend="480"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="563" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="563" bodyend="574"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a81363938bff203f67a4ffa5b4ea08a41" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1056,10 +1317,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of bitwise OR with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="482" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="482" bodyend="487"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="582" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="582" bodyend="584"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab87455e050e8d08e705ee2e622459c06" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1074,10 +1347,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to OR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of bitwise OR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="489" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="489" bodyend="494"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="591" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="591" bodyend="593"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aa9279e17faf5b151ade282ce31b56357" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1092,10 +1377,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="496" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="496" bodyend="503"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="601" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="601" bodyend="604"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8d777d712c314bfd90af8ea287d07f60" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1110,10 +1407,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise OR assignment operator with scalar. Applies bitwise OR between this vector and the given value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to OR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="505" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="505" bodyend="512"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="612" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="612" bodyend="615"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a3cd7115e126fd7316510d324883bd037" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1128,10 +1437,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of bitwise XOR with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="514" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="514" bodyend="519"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="622" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="622" bodyend="624"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a86b891d5713fb2465e6d8ba83ea6f5b7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1146,10 +1467,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to XOR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of bitwise XOR with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="521" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="521" bodyend="526"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="631" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="631" bodyend="633"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab2353d67adad8680fbb340f10d9105fa" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1164,10 +1497,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="528" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="528" bodyend="535"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="641" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="641" bodyend="644"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ab98da37ec09c6d4cfcbb11eefd9141bf" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1182,10 +1527,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise XOR assignment operator with scalar. Applies bitwise XOR between this vector and the given value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to XOR with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="537" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="537" bodyend="544"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="652" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="652" bodyend="655"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a193eb932cfcf11ce9551f414daf88366" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1200,10 +1557,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of bitwise AND with <computeroutput>bV</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="546" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="546" bodyend="551"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="662" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="662" bodyend="664"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a8f624dc3fad4537cc0a8ba10cd3fc5c6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1218,10 +1587,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND operator with scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to AND with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector being result of bitwise AND with <computeroutput>b</computeroutput>. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="553" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="553" bodyend="558"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="671" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="671" bodyend="673"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1acf5b66f85355090f7dff34a98580a8ae" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1236,10 +1617,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second vector. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="560" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="560" bodyend="567"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="681" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="681" bodyend="684"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a204d01246d7ff6a37455a4746c2faf5f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1254,10 +1647,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise AND assignment operator with scalar. Applies bitwise AND between this vector and the given value, storing the result in this vector. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to AND with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="569" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="569" bodyend="576"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="692" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="692" bodyend="695"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a472e46aafeadd2ec895eeff4da79f5cb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1268,10 +1673,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise NOT operator. <simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector with all bits inverted. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="578" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="578" bodyend="578"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="701" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="701" bodyend="701"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a9b0acba962c442425b4e648acf58f0dc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1286,10 +1694,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift operator (element-wise). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector after left shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="580" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="580" bodyend="582"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="708" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="708" bodyend="710"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1aed3142f8776970a81a6f9c40daa33dcc" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1304,10 +1724,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise left shift operator by scalar. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector after left shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="584" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="584" bodyend="586"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="717" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="717" bodyend="719"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1adf8d118b65fa7ad3d9baa7c1126dabb3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1322,10 +1754,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values left while shifting in 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="588" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="588" bodyend="591"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="726" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="726" bodyend="729"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1af564672d1c6c5c634bb609a44242a108" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1340,10 +1784,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values right while shifting in 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="593" column="13" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="593" bodyend="596"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="736" column="9" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="736" bodyend="739"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1ac35193b4252e9224b05737f2d690f07e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1358,10 +1814,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator (element-wise, arithmetic shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="598" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="598" bodyend="615"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="746" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="746" bodyend="763"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a2ddb69260088d36aed880d3b04da002a" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref></type>
@@ -1376,10 +1844,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Bitwise right shift operator by scalar (arithmetic shift). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> New vector after right shift. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="617" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="617" bodyend="630"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="770" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="770" bodyend="783"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a10f767f3ea55bda2733c747128077f6e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1394,10 +1874,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values right while shifting in sign bit. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector containing number of bits for which each corresponding element should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="632" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="632" bodyend="647"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="790" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="790" bodyend="805"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1a0ccc592ef3b2aaf90af14605b60bce63" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classavx_1_1_long256" kindref="compound">Long256</ref> &amp;</type>
@@ -1412,10 +1904,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Shifts values right while shifting in sign bit. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bits by which values should be shifted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to modified object. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="649" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="649" bodyend="663"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="812" column="17" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="812" bodyend="826"/>
       </memberdef>
       <memberdef kind="function" id="classavx_1_1_long256_1af820eab728ae4ca7421c1cac2ae1de80" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>std::string</type>
@@ -1426,10 +1930,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Returns string representation of vector. Printing will result in Long256(&lt;vector_values&gt;) eg. Long256(1, 2, 3, 4) <simplesect kind="return"><para>String representation of underlying vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="665" column="25" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="665" bodyend="674"/>
+        <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="833" column="21" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="833" bodyend="842"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1437,7 +1944,7 @@
     <detaileddescription>
 <para>Class providing vectorized version of <computeroutput>long long</computeroutput> aka <computeroutput>int64_t</computeroutput>. Can hold 4 individual <computeroutput>long long</computeroutput> values. Provides arithmetic and bitwise operators. Provides comparison operators == !=. </para>
     </detaileddescription>
-    <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="22" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="22" bodyend="675"/>
+    <location file="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" line="21" column="5" bodyfile="/home/jakub/git-repos/AVX-CPP/src/types/long256.hpp" bodystart="21" bodyend="843"/>
     <listofallmembers>
       <member refid="classavx_1_1_long256_1aba9d0832c5542ae3abcc436795a556e8" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>get</name></member>
       <member refid="classavx_1_1_long256_1a0b7139d70bbc1fd129039bf49c89e7eb" prot="public" virt="non-virtual"><scope>avx::Long256</scope><name>load</name></member>

@@ -495,7 +495,7 @@
 <dd class="field-odd"><p><strong>pDest</strong> – A valid pointer to a memory of at least 32 bytes (4x <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>). </p>
 </dd>
 <dt class="field-even">Throws<span class="colon">:</span></dt>
-<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release mode no checks are performed to improve efficiency. </p>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">invalid_argument</span></span></span> – If in Debug mode and <code class="docutils literal notranslate"><span class="pre">pDest</span></code> is <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>. In Release builds this method never throws (for <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> method will have no effect). </p>
 </dd>
 </dl>
 </dd></dl>
@@ -518,7 +518,19 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256ixEj">
 <span id="_CPPv3NK3avx7Long256ixEj"></span><span id="_CPPv2NK3avx7Long256ixEj"></span><span id="avx::Long256::subscript-operator__unsigned-iC"></span><span class="target" id="classavx_1_1_long256_1a07ec7611ea208a5687d7ac48f13a2bda"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256ixEj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Indexing operator. Does not support value assignment through this method (e.g. aV[0] = 1 won’t work). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – Position of desired element between 0 and 3. </p>
+</dd>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">std</span><span class="p">::</span><span class="n">out_of_range</span></span></span> – If index is not within the correct range and build type is debug will be thrown. Otherwise bitwise AND will prevent index to be out of range. Side effect is that only 2 LSBs are used from <code class="docutils literal notranslate"><span class="pre">index</span></code>. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value of underlying element. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256eqERK7Long256">
@@ -579,212 +591,584 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256plERK7Long256">
 <span id="_CPPv3NK3avx7Long256plERK7Long256"></span><span id="_CPPv2NK3avx7Long256plERK7Long256"></span><span id="avx::Long256::add-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1a2823928467a26c4bcaca39d5e531baf1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256plERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds values from other vector and returns new vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256plERKx">
 <span id="_CPPv3NK3avx7Long256plERKx"></span><span id="_CPPv2NK3avx7Long256plERKx"></span><span id="avx::Long256::add-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1ace01604721bee7b481e0da32a4e140be"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256plERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds single value across all vector fields. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to add to vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being a sum of this vector and <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256pLERK7Long256">
 <span id="_CPPv3N3avx7Long256pLERK7Long256"></span><span id="_CPPv2N3avx7Long256pLERK7Long256"></span><span id="avx::Long256::add-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1aa594702691fddb93179630861f7c4bf4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256pLERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds two vectors together and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after adding <code class="docutils literal notranslate"><span class="pre">bV</span></code> to vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256pLERKx">
 <span id="_CPPv3N3avx7Long256pLERKx"></span><span id="_CPPv2N3avx7Long256pLERKx"></span><span id="avx::Long256::add-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1a8d830312fe32ea0d86f4abc94044ed5c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256pLERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Adds scalar to vector and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to be added. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after adding <code class="docutils literal notranslate"><span class="pre">b</span></code> to vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256miERK7Long256">
 <span id="_CPPv3NK3avx7Long256miERK7Long256"></span><span id="_CPPv2NK3avx7Long256miERK7Long256"></span><span id="avx::Long256::sub-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1af09cf38177a5eab0ae732154b9b10f82"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256miERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts values from vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of subtracting <code class="docutils literal notranslate"><span class="pre">bV</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256miERKx">
 <span id="_CPPv3NK3avx7Long256miERKx"></span><span id="_CPPv2NK3avx7Long256miERKx"></span><span id="avx::Long256::sub-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1abc4c4a4df118abee3eb6e9051c2f1678"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256miERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts a single value from all vector fields. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to subtract from vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of subtracting <code class="docutils literal notranslate"><span class="pre">b</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256mIERK7Long256">
 <span id="_CPPv3N3avx7Long256mIERK7Long256"></span><span id="_CPPv2N3avx7Long256mIERK7Long256"></span><span id="avx::Long256::sub-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1a0ca0f4d74e8e13c87fef0110d9f1601d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256mIERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts two vectors and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after subtracting <code class="docutils literal notranslate"><span class="pre">bV</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256mIERKx">
 <span id="_CPPv3N3avx7Long256mIERKx"></span><span id="_CPPv2N3avx7Long256mIERKx"></span><span id="avx::Long256::sub-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1a73683b1c26c06eea3898a80d044a2b90"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256mIERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Subtracts scalar from vector and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to be subtracted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after subtracting <code class="docutils literal notranslate"><span class="pre">b</span></code> from vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256mlERK7Long256">
 <span id="_CPPv3NK3avx7Long256mlERK7Long256"></span><span id="_CPPv2NK3avx7Long256mlERK7Long256"></span><span id="avx::Long256::mul-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1aa445886887836bf98a19cb5b43e7d3ce"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256mlERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies two vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of multiplying vector by <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256mlERKx">
 <span id="_CPPv3NK3avx7Long256mlERKx"></span><span id="_CPPv2NK3avx7Long256mlERKx"></span><span id="avx::Long256::mul-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1a8cd6659e4debe51d3d3131398877be41"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256mlERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies all vector fields by a single value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to multiply by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of multiplying vector by <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256mLERK7Long256">
 <span id="_CPPv3N3avx7Long256mLERK7Long256"></span><span id="_CPPv2N3avx7Long256mLERK7Long256"></span><span id="avx::Long256::mul-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1a01d8e3f3e1e203506c7f8b3bc8b20a40"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256mLERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies two vectors and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after multiplying by <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256mLERKx">
 <span id="_CPPv3N3avx7Long256mLERKx"></span><span id="_CPPv2N3avx7Long256mLERKx"></span><span id="avx::Long256::mul-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1ab231d1a575e01567a3df89cce7617164"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">*=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256mLERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Multiplies vector by scalar and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar to multiply by. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after multiplying by <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256dvERK7Long256">
 <span id="_CPPv3NK3avx7Long256dvERK7Long256"></span><span id="_CPPv2NK3avx7Long256dvERK7Long256"></span><span id="avx::Long256::div-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1a4ef1fe0489066c93cf04f28d7f4e8097"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256dvERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Divides two vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector (divisor). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of dividing vector by <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256dvERKx">
 <span id="_CPPv3NK3avx7Long256dvERKx"></span><span id="_CPPv2NK3avx7Long256dvERKx"></span><span id="avx::Long256::div-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1a5d03c23b906e6cb5310d67d1612e3b33"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256dvERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Divides all vector fields by a single value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value (divisor). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of dividing vector by <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256dVERK7Long256">
 <span id="_CPPv3N3avx7Long256dVERK7Long256"></span><span id="_CPPv2N3avx7Long256dVERK7Long256"></span><span id="avx::Long256::div-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1aa05afe20286b24c1d6a3ca4d62e4323f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256dVERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Divides two vectors and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector (divisor). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after dividing by <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256dVERKx">
 <span id="_CPPv3N3avx7Long256dVERKx"></span><span id="_CPPv2N3avx7Long256dVERKx"></span><span id="avx::Long256::div-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1a4c3d586abf0d20782b0a8b53f2aa42ad"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">/=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256dVERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Divides vector by scalar and stores result inside original vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Scalar value (divisor). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to same vector after dividing by <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256rmERK7Long256">
 <span id="_CPPv3NK3avx7Long256rmERK7Long256"></span><span id="_CPPv2NK3avx7Long256rmERK7Long256"></span><span id="avx::Long256::mod-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1a4f75bec53ae968195eabae664c44dec6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256rmERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Calculates element-wise modulo of two vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector (divisor). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of modulo operation. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256rmERKx">
 <span id="_CPPv3NK3avx7Long256rmERKx"></span><span id="_CPPv2NK3avx7Long256rmERKx"></span><span id="avx::Long256::mod-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1abfd692d6c29e4cfe6c6d3f4bcfc50d24"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256rmERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Calculates element-wise modulo of vector and scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value (divisor). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of modulo operation. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256rMERK7Long256">
 <span id="_CPPv3N3avx7Long256rMERK7Long256"></span><span id="_CPPv2N3avx7Long256rMERK7Long256"></span><span id="avx::Long256::mod-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1a187123f8d1c685838849f170b0919769"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256rMERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second modulo operand (divisor) </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of modulo operation. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256rMERKx">
 <span id="_CPPv3N3avx7Long256rMERKx"></span><span id="_CPPv2N3avx7Long256rMERKx"></span><span id="avx::Long256::mod-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1aaaeb11a5c1e362978e72faa17866591c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">%=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256rMERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Performs modulo operation. It does so by dividing vectors, multiplying result and subtracting from vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Second modulo operand (divisor). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the original vector holding modulo operation results. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256orERK7Long256">
 <span id="_CPPv3NK3avx7Long256orERK7Long256"></span><span id="_CPPv2NK3avx7Long256orERK7Long256"></span><span id="avx::Long256::or-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1a81363938bff203f67a4ffa5b4ea08a41"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256orERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of bitwise OR with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256orERKx">
 <span id="_CPPv3NK3avx7Long256orERKx"></span><span id="_CPPv2NK3avx7Long256orERKx"></span><span id="avx::Long256::or-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1ab87455e050e8d08e705ee2e622459c06"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256orERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to OR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of bitwise OR with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256oRERK7Long256">
 <span id="_CPPv3N3avx7Long256oRERK7Long256"></span><span id="_CPPv2N3avx7Long256oRERK7Long256"></span><span id="avx::Long256::or-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1aa9279e17faf5b151ade282ce31b56357"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256oRERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator. Applies bitwise OR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256oRERKx">
 <span id="_CPPv3N3avx7Long256oRERKx"></span><span id="_CPPv2N3avx7Long256oRERKx"></span><span id="avx::Long256::or-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1a8d777d712c314bfd90af8ea287d07f60"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">|=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256oRERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise OR assignment operator with scalar. Applies bitwise OR between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to OR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256eoERK7Long256">
 <span id="_CPPv3NK3avx7Long256eoERK7Long256"></span><span id="_CPPv2NK3avx7Long256eoERK7Long256"></span><span id="avx::Long256::xor-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1a3cd7115e126fd7316510d324883bd037"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256eoERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of bitwise XOR with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256eoERKx">
 <span id="_CPPv3NK3avx7Long256eoERKx"></span><span id="_CPPv2NK3avx7Long256eoERKx"></span><span id="avx::Long256::xor-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1a86b891d5713fb2465e6d8ba83ea6f5b7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256eoERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to XOR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of bitwise XOR with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256eOERK7Long256">
 <span id="_CPPv3N3avx7Long256eOERK7Long256"></span><span id="_CPPv2N3avx7Long256eOERK7Long256"></span><span id="avx::Long256::xor-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1ab2353d67adad8680fbb340f10d9105fa"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256eOERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator. Applies bitwise XOR between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256eOERKx">
 <span id="_CPPv3N3avx7Long256eOERKx"></span><span id="_CPPv2N3avx7Long256eOERKx"></span><span id="avx::Long256::xor-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1ab98da37ec09c6d4cfcbb11eefd9141bf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">^=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256eOERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise XOR assignment operator with scalar. Applies bitwise XOR between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to XOR with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256anERK7Long256">
 <span id="_CPPv3NK3avx7Long256anERK7Long256"></span><span id="_CPPv2NK3avx7Long256anERK7Long256"></span><span id="avx::Long256::and-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1a193eb932cfcf11ce9551f414daf88366"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256anERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of bitwise AND with <code class="docutils literal notranslate"><span class="pre">bV</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256anERKx">
 <span id="_CPPv3NK3avx7Long256anERKx"></span><span id="_CPPv2NK3avx7Long256anERKx"></span><span id="avx::Long256::and-operator__l-lCRC"></span><span class="target" id="classavx_1_1_long256_1a8f624dc3fad4537cc0a8ba10cd3fc5c6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256anERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND operator with scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to AND with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector being result of bitwise AND with <code class="docutils literal notranslate"><span class="pre">b</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256aNERK7Long256">
 <span id="_CPPv3N3avx7Long256aNERK7Long256"></span><span id="_CPPv2N3avx7Long256aNERK7Long256"></span><span id="avx::Long256::and-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1acf5b66f85355090f7dff34a98580a8ae"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256aNERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND assignment operator. Applies bitwise AND between this vector and the given vector, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Second vector. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256aNERKx">
 <span id="_CPPv3N3avx7Long256aNERKx"></span><span id="_CPPv2N3avx7Long256aNERKx"></span><span id="avx::Long256::and-assign-operator__l-lCR"></span><span class="target" id="classavx_1_1_long256_1a204d01246d7ff6a37455a4746c2faf5f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&amp;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256aNERKx" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise AND assignment operator with scalar. Applies bitwise AND between this vector and the given value, storing the result in this vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Value to AND with. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to the modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256coEv">
 <span id="_CPPv3NK3avx7Long256coEv"></span><span id="_CPPv2NK3avx7Long256coEv"></span><span id="avx::Long256::inv-operatorC"></span><span class="target" id="classavx_1_1_long256_1a472e46aafeadd2ec895eeff4da79f5cb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">~</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256coEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise NOT operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector with all bits inverted. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256lsERK7Long256">
 <span id="_CPPv3NK3avx7Long256lsERK7Long256"></span><span id="_CPPv2NK3avx7Long256lsERK7Long256"></span><span id="avx::Long256::lshift-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1a9b0acba962c442425b4e648acf58f0dc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256lsERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise left shift operator (element-wise). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector after left shift. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256lsERKj">
 <span id="_CPPv3NK3avx7Long256lsERKj"></span><span id="_CPPv2NK3avx7Long256lsERKj"></span><span id="avx::Long256::lshift-operator__unsigned-iCRC"></span><span class="target" id="classavx_1_1_long256_1aed3142f8776970a81a6f9c40daa33dcc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256lsERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise left shift operator by scalar. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector after left shift. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256lSERK7Long256">
 <span id="_CPPv3N3avx7Long256lSERK7Long256"></span><span id="_CPPv2N3avx7Long256lSERK7Long256"></span><span id="avx::Long256::lshift-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1adf8d118b65fa7ad3d9baa7c1126dabb3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256lSERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values left while shifting in 0. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256lSERKj">
 <span id="_CPPv3N3avx7Long256lSERKj"></span><span id="_CPPv2N3avx7Long256lSERKj"></span><span id="avx::Long256::lshift-assign-operator__unsigned-iCR"></span><span class="target" id="classavx_1_1_long256_1af564672d1c6c5c634bb609a44242a108"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256lSERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values right while shifting in 0. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256rsERK7Long256">
 <span id="_CPPv3NK3avx7Long256rsERK7Long256"></span><span id="_CPPv2NK3avx7Long256rsERK7Long256"></span><span id="avx::Long256::rshift-operator__Long256CRC"></span><span class="target" id="classavx_1_1_long256_1ac35193b4252e9224b05737f2d690f07e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256rsERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise right shift operator (element-wise, arithmetic shift). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector after right shift. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long256rsERKj">
 <span id="_CPPv3NK3avx7Long256rsERKj"></span><span id="_CPPv2NK3avx7Long256rsERKj"></span><span id="avx::Long256::rshift-operator__unsigned-iCRC"></span><span class="target" id="classavx_1_1_long256_1a2ddb69260088d36aed880d3b04da002a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long256rsERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Bitwise right shift operator by scalar (arithmetic shift). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#classavx_1_1_long256"><span class="std std-ref">Long256</span></a> New vector after right shift. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256rSERK7Long256">
 <span id="_CPPv3N3avx7Long256rSERK7Long256"></span><span id="_CPPv2N3avx7Long256rSERK7Long256"></span><span id="avx::Long256::rshift-assign-operator__Long256CR"></span><span class="target" id="classavx_1_1_long256_1a10f767f3ea55bda2733c747128077f6e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bV</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256rSERK7Long256" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values right while shifting in sign bit. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bV</strong> – Vector containing number of bits for which each corresponding element should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3avx7Long256rSERKj">
 <span id="_CPPv3N3avx7Long256rSERKj"></span><span id="_CPPv2N3avx7Long256rSERKj"></span><span id="avx::Long256::rshift-assign-operator__unsigned-iCR"></span><span class="target" id="classavx_1_1_long256_1a0ccc592ef3b2aaf90af14605b60bce63"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N3avx7Long256E" title="avx::Long256"><span class="n"><span class="pre">Long256</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;&gt;=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">b</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N3avx7Long256rSERKj" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Shifts values right while shifting in sign bit. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – Number of bits by which values should be shifted. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reference to modified object. </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3avx7Long2563strEv">
 <span id="_CPPv3NK3avx7Long2563strEv"></span><span id="_CPPv2NK3avx7Long2563strEv"></span><span id="avx::Long256::strC"></span><span class="target" id="classavx_1_1_long256_1af820eab728ae4ca7421c1cac2ae1de80"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">str</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4NK3avx7Long2563strEv" title="Link to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Returns string representation of vector. Printing will result in Long256(&lt;vector_values&gt;) eg. Long256(1, 2, 3, 4) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String representation of underlying vector. </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
