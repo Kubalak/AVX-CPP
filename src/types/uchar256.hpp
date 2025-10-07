@@ -1297,7 +1297,6 @@ namespace avx {
              * @return UChar256 New vector after right shift.
              */
             UChar256 operator>>(const unsigned int& b) const noexcept {
-                // TODO: Make it SRAI so sing bits are shifted instead of zeros. Do for all rshift operators
                 __m256i fhalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16);
                 __m256i shalf = _mm256_and_si256(v, constants::EPI8_CRATE_EPI16_INVERSE);
                 fhalf = _mm256_srli_epi16(fhalf, b);

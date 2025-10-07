@@ -1302,6 +1302,7 @@ namespace testing{
         template<typename T, typename S = typename T::storedType>
         int allPerfTest(std::vector<S> &aV, std::vector<S> &bV, std::vector<S> &cV, const TestConfig<S> &config, int64_t itemsCount = -1) {
 
+            std::vector<S> dV(itemsCount > 0 ? itemsCount : aV.size()); // Temporary vector for storing bV vector & number of bits - 1;
             if(itemsCount > 0){
                 aV.resize(itemsCount);
                 bV.resize(itemsCount);
@@ -1321,10 +1322,9 @@ namespace testing{
 
             auto start = std::chrono::steady_clock::now();
 
-            std::srand(config.randomSeed);
             if constexpr (std::is_integral_v<S>)
             {
-                std::default_random_engine rd;
+                std::default_random_engine rd(config.randomSeed);
                 if constexpr (sizeof(S) == 1){
                     std::uniform_int_distribution dist(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
                     for(size_t i = 0; i < aV.size(); ++i){
@@ -1338,10 +1338,14 @@ namespace testing{
                         aV[i] = dist(rd);
                         bV[i] = dist(rd) | 1; // Avoid zero division error.
                     }
-                }              
+                }
+                
+                for(size_t i{0}; i < aV.size(); ++i)
+                    dV[i] = bV[i] & (sizeof(S) * 8 - 1); // Do AND for bitwise shifts
+
             } else {
                 std::uniform_real_distribution<S> dist(std::numeric_limits<S>::min(), std::numeric_limits<S>::max());
-                std::default_random_engine re;
+                std::default_random_engine re(config.randomSeed);
 
                 for(size_t i = 0;i < aV.size(); ++i){
                     aV[i] = dist(re);
@@ -1443,35 +1447,37 @@ namespace testing{
                 if(config.verifyValues)
                     validations[14] = testing::perf::verifyMod(aV, bV, cV, config.printVerificationFailed);
                 
+                printf("Left shift and right shift will be performed by using AND mask of 0x%X\n", static_cast<int>(sizeof(S) * 8 - 1));
+                
                     // Left shift
                 if(config.avxFuncs.lshRaw){
-                    times[15] = config.avxFuncs.lshRaw(aV, bV, cV, config.printTestFailed);
+                    times[15] = config.avxFuncs.lshRaw(aV, dV, cV, config.printTestFailed);
                     if(config.verifyValues)
-                        validations[15] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+                        validations[15] = testing::perf::verifyLshift(aV, dV, cV, config.printVerificationFailed);
                 }
 
-                times[16] = testing::perf::testLshiftAVX<T>(aV, bV, cV, config.printTestFailed);
+                times[16] = testing::perf::testLshiftAVX<T>(aV, dV, cV, config.printTestFailed);
                 if(config.verifyValues)
-                    validations[16] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+                    validations[16] = testing::perf::verifyLshift(aV, dV, cV, config.printVerificationFailed);
 
-                times[17] = testing::perf::testLshiftSeq<S>(aV, bV, cV, config.printTestFailed);
+                times[17] = testing::perf::testLshiftSeq<S>(aV, dV, cV, config.printTestFailed);
                 if(config.verifyValues)
-                    validations[17] = testing::perf::verifyLshift(aV, bV, cV, config.printVerificationFailed);
+                    validations[17] = testing::perf::verifyLshift(aV, dV, cV, config.printVerificationFailed);
                 
                 // Right shift
                 if(config.avxFuncs.rshRaw){
-                    times[18] = config.avxFuncs.rshRaw(aV, bV, cV, config.printTestFailed);
+                    times[18] = config.avxFuncs.rshRaw(aV, dV, cV, config.printTestFailed);
                     if(config.verifyValues)
-                        validations[18] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+                        validations[18] = testing::perf::verifyRshift(aV, dV, cV, config.printVerificationFailed);
                 }
                 
-                times[19] = testing::perf::testRshiftAVX<T>(aV, bV, cV, config.printTestFailed);
+                times[19] = testing::perf::testRshiftAVX<T>(aV, dV, cV, config.printTestFailed);
                 if(config.verifyValues)
-                    validations[19] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+                    validations[19] = testing::perf::verifyRshift(aV, dV, cV, config.printVerificationFailed);
 
-                times[20] = testing::perf::testRshiftSeq<S>(aV, bV, cV, config.printTestFailed);
+                times[20] = testing::perf::testRshiftSeq<S>(aV, dV, cV, config.printTestFailed);
                 if(config.verifyValues)
-                    validations[20] = testing::perf::verifyRshift(aV, bV, cV, config.printVerificationFailed);
+                    validations[20] = testing::perf::verifyRshift(aV, dV, cV, config.printVerificationFailed);
         }
             
             if(!config.checkForNEQ)

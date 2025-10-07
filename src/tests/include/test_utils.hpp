@@ -938,9 +938,11 @@ namespace testing
         std::mt19937 rng(dev());
         unsigned int randLit;
         S min_v = static_cast<S>(INT_MIN), max_v = static_cast<S>(INT_MAX);
+        
         using sel_type = std::conditional_t<std::is_same_v<S, char> || std::is_same_v<S, unsigned char>,
             short,
             S>;
+
         if constexpr(std::is_same_v<S, char>){
             min_v = -128;
             max_v = 127;
@@ -957,7 +959,7 @@ namespace testing
         std::uniform_int_distribution<sel_type> dist(min_v, max_v);
 
 
-        randLit = std::rand() % (sizeof(S) * 8 - 1);
+        randLit = std::rand() % (sizeof(S) * 8);
 
         for(unsigned int i = 0; i < size; ++i){
             aV[i] = dist(rng);
