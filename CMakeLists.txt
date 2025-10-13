@@ -37,10 +37,15 @@ option(BUILD_TESTING "Build tests" OFF)
 option(BUILD_PERFORMANCE_TESTS "Build performance tests" OFF)
 option(BUILD_USE_AVX512 "Use AVX512 when building binaries" ${AVX512_SUPPORTED})
 option(BUILD_DEEP_TESTS "Build deep types tests (not recommended)" OFF)
-option(_FORCE_AVX2 "Force AVX2 for int64_t and uint64_t types" OFF)
+option(AVX_FORCE_AVX2 "Force AVX2 for int64_t and uint64_t types" OFF)
+option(AVX_FIX_CMP "Turn on fix for == operators in edge cases" OFF)
 
 if(_FORCE_AVX2)
     add_compile_definitions(__FORCE_AVX2_)
+endif()
+
+if(AVX_FIX_CMP)
+    add_compile_definitions(__FIX_CMP)
 endif()
 
 if(BUILD_USE_AVX512)
