@@ -297,7 +297,7 @@ namespace avx {
              * @returns New vector being result of subtracting `bV` from vector.
              */
             Double256 operator-(const Double256& bV) const noexcept {
-                return Double256(_mm256_sub_pd(v, bV.v));
+                return _mm256_sub_pd(v, bV.v);
             }
 
             /**
@@ -306,7 +306,7 @@ namespace avx {
              * @returns New vector being result of subtracting `b` from vector.
              */
             Double256 operator-(const double b) const noexcept {
-                return Double256(_mm256_sub_pd(v, _mm256_set1_pd(b)));
+                return _mm256_sub_pd(v, _mm256_set1_pd(b));
             }
 
             /**
@@ -335,7 +335,7 @@ namespace avx {
              * @returns New vector being result of multiplying vector by `bV`.
              */
             Double256 operator*(const Double256& bV) const noexcept {
-                return Double256(_mm256_mul_pd(v, bV.v));
+                return _mm256_mul_pd(v, bV.v);
             }
 
             /**
@@ -344,7 +344,7 @@ namespace avx {
              * @returns New vector being result of multiplying vector by `b`.
              */
             Double256 operator*(const double b) const noexcept {
-                return Double256(_mm256_mul_pd(v, _mm256_set1_pd(b)));
+                return _mm256_mul_pd(v, _mm256_set1_pd(b));
             }
 
             /**
@@ -373,7 +373,7 @@ namespace avx {
              * @returns New vector being result of dividing vector by `bV`.
              */
             Double256 operator/(const Double256& bV) const noexcept {
-                return Double256(_mm256_div_pd(v, bV.v));
+                return _mm256_div_pd(v, bV.v);
             }
 
             /**
@@ -382,7 +382,7 @@ namespace avx {
              * @returns New vector being result of dividing vector by `b`.
              */
             Double256 operator/(const double b) const noexcept {
-                return Double256(_mm256_div_pd(v, _mm256_set1_pd(b)));
+                return _mm256_div_pd(v, _mm256_set1_pd(b));
             }
 
             /**

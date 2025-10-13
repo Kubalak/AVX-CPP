@@ -762,6 +762,8 @@ namespace avx
             return result;
         }
 
+        //TODO: Add friend operators with scalar before Int256.
+
     };
 };
 #endif

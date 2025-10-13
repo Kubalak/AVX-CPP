@@ -1,6 +1,6 @@
 # AVX-CPP - AVX2 made easy in C++
 
-![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-royalblue?logo=github&logoColor=lightgray)](LICENSE) [![VERSION](https://img.shields.io/badge/Version-v0.9.6-blue)](CMakeLists.txt) [![C++ version](https://img.shields.io/badge/version-20-royalblue?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/20.html) [![C++ version](https://img.shields.io/badge/version-17-royalblue?logo=c)](https://www.geeksforgeeks.org/c/c-17-standard/)
+![Github Actions Status](https://github.com/Kubalak/AVX-CPP/workflows/CMake%20multiplatform/badge.svg) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-royalblue?logo=github&logoColor=lightgray)](LICENSE) [![VERSION](https://img.shields.io/badge/Version-v0.9.9-blue)](CMakeLists.txt) [![C++ version](https://img.shields.io/badge/version-20-royalblue?logo=c%2B%2B)](https://en.cppreference.com/w/cpp/20.html) [![C++ version](https://img.shields.io/badge/version-17-royalblue?logo=c)](https://www.geeksforgeeks.org/c/c-17-standard/)
 
 AVX-CPP aims to provide efficient and easy way of using AVX2 in C++. It provides basic numeric types and math operations.
 
@@ -65,30 +65,47 @@ Elements from vectors can be extracted using following methods:
 
 <span id="details">* For `Float256` and `Double256` `0` and `-0` are considered equal.</span>
 
-<!--
-# AVX-CPP is fast!
+## Almost zero cost abstraction
 
 Here is the table comparing runtime between non-AVX2 algorithm, raw AVX2 and the one using AVX-CPP library. To see how performance is tested go [here](src/tests/perf). Table below shows operations time for 1GB of data.
 
 Benchmark details (this is to show best-case scenario as MSVC does not optimize for SIMD by default as GCC does):
+
 - CPU: AMD Ryzen 9950X3D
 - OS: Win 11 Pro
-- Compiler: MSVC v19.43.34810
-- Flags: /arch:AVX /arch:AVX2
+- Compiler: MSVC v19.44
 
-| Tested type | Operator `+`, `+=` (SEQ/AVXCPP/AVX) | `-`, `-=` | `*`, `*=` | `/`, `/=` | `%`, `%=` |
-| --- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| [Char256](src/types/char256.hpp) | 1.61 s / 287.76 ms / - | 1.62 s / 286.86 ms / - | 1.85 s / 305.68 ms / - | 5.73 s / 1.57 s / - | 5.14 s / 1.65 s / - |
-| [UChar256](src/types/uchar256.hpp) | 1.64 s / 271.11 ms / - | 1.64 s / 271.44 ms / - | 1.86 s / 298.45 ms / - | 6.04 s / 1.55 s / - | 6.03 s / 1.63 s / - |
-| [Int256](src/types/int256.hpp) | 558.8 / 262 / 266 ms | - | - | - | - |
-| [UInt256](src/types/uint256.hpp) | - | - | - | - | - |
-| [Short256](src/types/short256.hpp) | - | - | - | - | - |
-| [UShort256](src/types/ushort256.hpp) | - | - | - | - | - |-->
+With AVX2 only [`Int256`](src/types/int256.hpp) 10 runs avg:
 
-<!--| [Long256](src/types/long256.hpp) | - | - | - | - | - |
-| [ULong256](src/types/ulong256.hpp) | - | - | - | - | - |
-| [Float256](src/types/float256.hpp) | - | - | - | - | - |
-| [Double256](src/types/double256.hpp) | - | - | - | - | - |-->
+| Type/operator | +, +=  | -, -=  | \*, \*= | /, /=  | %, %=  |
+|---------------|--------|--------|---------|--------|--------|
+| SEQ           | 135 ms | 135 ms | 143 ms  | 569 ms | 568 ms |
+| AVX2 raw      | 72 ms  | 72 ms  | 72 ms   | 149 ms | 168 ms |
+| AVX-CPP       | 72 ms  | 72 ms  | 72 ms   | 149 ms | 168 ms |
+
+With AVX512 enabled `Int256` 10 runs avg:
+
+| Type/operator | +, +=  | -, -=  | \*, \*= | /, /=  | %, %=  |
+|---------------|--------|--------|---------|--------|--------|
+| SEQ           | 135 ms | 148 ms | 147 ms  | 569 ms | 568 ms |
+| AVX2 raw      | 72 ms  | 72 ms  | 72 ms   | 73 ms  | 73 ms  |
+| AVX-CPP       | 72 ms  | 72 ms  | 72 ms   | 73 ms  | 73 ms  |
+
+The difference is even more visible for [`Char256`](src/types/char256.hpp):
+
+| Type/operator | +, +=  | -, -=  | \*, \*= | /, /=   | %, %=   | Comment |
+|---------------|--------|--------|---------|---------|---------|---------|
+| SEQ           | 530 ms | 531 ms | 782 ms  | 2318 ms | 2319 ms |         |
+| AVX2 raw      | 72 ms  | 72 ms  | 72 ms   | 138 ms  | 325 ms  | Optimized for this specific case |
+| AVX-CPP       | 72 ms  | 72 ms  | 72 ms   | 258 ms  | 327 ms  | |
+
+With AVX512 enabled `Char256` 10 runs avg:
+
+| Type/operator    | +, +=  | -, -=  | \*, \*= | /, /=   | %, %=  | Comment |
+|------------------|--------|--------|---------|---------|--------|---------|
+| SEQ              | 532 ms | 527 ms | 610 ms  | 2316 ms | 2321 ms | |
+| AVX2 (512) raw   | 72 ms  | 72 ms  | 72 ms   | **82 ms**   | **132**  ms | Optimized for this specific case |
+| AVX-CPP (AVX512) | 72 ms  | 72 ms  | 72 ms   | **125 ms**  | **143** ms | |
 
 ## Sample usage
 
@@ -152,3 +169,4 @@ If you want to read documentation offline go to [docs/sphinx](docs/sphinx).
 ## Known issues
 
 - `Long256` and `ULong256` don't use SIMD for `*`, `*=`, `/`, `/=`, `%` and `%=` due to the lack of useful functions in AVX2.
+- In very specific scenario in edge cases with AVX512 enabled == operator fails for ^= checks. Debugging this indicates that compiler is using [`vpternlogq`](https://www.felixcloutier.com/x86/vpternlogd:vpternlogq) however by doing so is causing UB which is mitigated by using `vzeroupper` (which forces compiler to use `vpxor` as intended). Please use `__FIX_CMP` macro to enable this in AVX512 builds. Likelihood for this situation to happen in real life scenario has not been tested.

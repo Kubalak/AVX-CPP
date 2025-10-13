@@ -55,3 +55,4 @@ docs/xml
 
 .VSCodeCounter/
 .local/
+.debugbench/

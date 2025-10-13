@@ -300,12 +300,12 @@ int test_edge_Short256_bitwise() {
         testing::printTestFailed(__FILE__, __LINE__, __func__, "&", "Short256", "Short256", "0", (a & b).str());
         result = 1;
     }
-    if (!((a | b) == static_cast<unsigned short>(0xFFFF))) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "|", "Short256", "Short256", std::to_string(static_cast<unsigned short>(0xFFFF)), (a | b).str());
+    if (!((a | b) == static_cast<short>(0xFFFF))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "|", "Short256", "Short256", std::to_string(static_cast<short>(0xFFFF)), (a | b).str());
         result = 1;
     }
-    if (!((a ^ b) == static_cast<unsigned short>(0xFFFF))) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "^", "Short256", "Short256", std::to_string(static_cast<unsigned short>(0xFFFF)), (a ^ b).str());
+    if (!((a ^ b) == static_cast<short>(0xFFFF))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "^", "Short256", "Short256", std::to_string(static_cast<short>(0xFFFF)), (a ^ b).str());
         result = 1;
     }
     a &= b;
@@ -315,14 +315,14 @@ int test_edge_Short256_bitwise() {
     }
     a = Short256(0xF0F0);
     a |= b;
-    if (!(a == static_cast<unsigned short>(0xFFFF))) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "|=", "Short256", "Short256", std::to_string(static_cast<unsigned short>(0xFFFF)), a.str());
+    if (!(a == static_cast<short>(0xFFFF))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "|=", "Short256", "Short256", std::to_string(static_cast<short>(0xFFFF)), a.str());
         result = 1;
     }
     a = Short256(0xF0F0);
     a ^= b;
-    if (!(a == static_cast<unsigned short>(0xFFFF))) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "^=", "Short256", "Short256", std::to_string(static_cast<unsigned short>(0xFFFF)), a.str());
+    if (!(a == static_cast<short>(0xFFFF))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "^=", "Short256", "Short256", std::to_string(static_cast<short>(0xFFFF)), a.str());
         result = 1;
     }
     return result;
@@ -651,12 +651,12 @@ int test_edge_Long256_bitwise() {
         testing::printTestFailed(__FILE__, __LINE__, __func__, "&", "Long256", "Long256", "0", (a & b).str());
         result = 1;
     }
-    if (!((a | b) == 0xFFFFFFFFFFFFFFFFLL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "|", "Long256", "Long256", std::to_string(0xFFFFFFFFFFFFFFFFLL), (a | b).str());
+    if (!((a | b) == static_cast<long long>(0xFFFFFFFFFFFFFFFFLL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "|", "Long256", "Long256", std::to_string(static_cast<long long>(0xFFFFFFFFFFFFFFFFLL)), (a | b).str());
         result = 1;
     }
-    if (!((a ^ b) == 0xFFFFFFFFFFFFFFFFLL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "^", "Long256", "Long256", std::to_string(0xFFFFFFFFFFFFFFFFLL), (a ^ b).str());
+    if (!((a ^ b) == static_cast<long long>(0xFFFFFFFFFFFFFFFFLL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "^", "Long256", "Long256", std::to_string(static_cast<long long>(0xFFFFFFFFFFFFFFFFLL)), (a ^ b).str());
         result = 1;
     }
     a &= b;
@@ -666,18 +666,19 @@ int test_edge_Long256_bitwise() {
     }
     a = Long256(0xF0F0F0F0F0F0F0F0LL);
     a |= b;
-    if (!(a == 0xFFFFFFFFFFFFFFFFLL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "|=", "Long256", "Long256", std::to_string(0xFFFFFFFFFFFFFFFFLL), a.str());
+    if (!(a == static_cast<long long>(0xFFFFFFFFFFFFFFFFLL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "|=", "Long256", "Long256", std::to_string(static_cast<long long>(0xFFFFFFFFFFFFFFFFLL)), a.str());
         result = 1;
     }
     a = Long256(0xF0F0F0F0F0F0F0F0LL);
     a ^= b;
-    if (!(a == 0xFFFFFFFFFFFFFFFFLL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "^=", "Long256", "Long256", std::to_string(0xFFFFFFFFFFFFFFFFLL), a.str());
+    if (!(a == static_cast<long long>(0xFFFFFFFFFFFFFFFFLL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "^=", "Long256", "Long256", std::to_string(static_cast<long long>(0xFFFFFFFFFFFFFFFFLL)), a.str());
         result = 1;
     }
     return result;
 }
+
 int test_edge_Long256_load_save() {
     int result = 0;
     long long arr[4] = {1,2,3,4};
@@ -828,12 +829,12 @@ int test_edge_ULong256_bitwise() {
         testing::printTestFailed(__FILE__, __LINE__, __func__, "&", "ULong256", "ULong256", "0", (a & b).str());
         result = 1;
     }
-    if (!((a | b) == 0xFFFFFFFFFFFFFFFFULL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "|", "ULong256", "ULong256", std::to_string(0xFFFFFFFFFFFFFFFFULL), (a | b).str());
+    if (!((a | b) == static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "|", "ULong256", "ULong256", std::to_string(static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL)), (a | b).str());
         result = 1;
     }
-    if (!((a ^ b) == 0xFFFFFFFFFFFFFFFFULL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "^", "ULong256", "ULong256", std::to_string(0xFFFFFFFFFFFFFFFFULL), (a ^ b).str());
+    if (!((a ^ b) == static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "^", "ULong256", "ULong256", std::to_string(static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL)), (a ^ b).str());
         result = 1;
     }
     a &= b;
@@ -843,18 +844,19 @@ int test_edge_ULong256_bitwise() {
     }
     a = ULong256(0xF0F0F0F0F0F0F0F0ULL);
     a |= b;
-    if (!(a == 0xFFFFFFFFFFFFFFFFULL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "|=", "ULong256", "ULong256", std::to_string(0xFFFFFFFFFFFFFFFFULL), a.str());
+    if (!(a == static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "|=", "ULong256", "ULong256", std::to_string(static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL)), a.str());
         result = 1;
     }
     a = ULong256(0xF0F0F0F0F0F0F0F0ULL);
     a ^= b;
-    if (!(a == 0xFFFFFFFFFFFFFFFFULL)) {
-        testing::printTestFailed(__FILE__, __LINE__, __func__, "^=", "ULong256", "ULong256", std::to_string(0xFFFFFFFFFFFFFFFFULL), a.str());
+    if (!(a == static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL))) {
+        testing::printTestFailed(__FILE__, __LINE__, __func__, "^=", "ULong256", "ULong256", std::to_string(static_cast<unsigned long long>(0xFFFFFFFFFFFFFFFFULL)), a.str());
         result = 1;
     }
     return result;
 }
+
 int test_edge_ULong256_load_save() {
     int result = 0;
     unsigned long long arr[4] = {1,2,3,4};
@@ -883,6 +885,45 @@ int test_edge_ULong256_load_save() {
     return result;
 }
 
+template <typename T, typename S = typename T::storedType>
+int test_edge_bit_rshift() {
+    T v(avx::constants::ONES);
+    T bV{sizeof(S) * 8 - 3, sizeof(S) * 8 - 2, sizeof(S) * 8 - 1, sizeof(S) * 8};
+
+    std::array<S, T::size> resV;
+    v.save(resV);
+
+    resV[0] >>= sizeof(S) * 8 - 3;
+    resV[1] >>= sizeof(S) * 8 - 2;
+    resV[2] >>= sizeof(S) * 8 - 1;
+    resV[3] >>= sizeof(S) * 8;
+
+    T excpected(resV);
+    int result = 0;
+    T cV = v >> bV;
+
+    // std::cout<< "INFO: " << v.str() << ' ' << excpected.str() << ' ' << cV.str() << '\n';
+    
+
+    if(cV != excpected){
+        testing::printTestFailed(__FILE__, __LINE__, __func__, ">>", testing::demangle(typeid(T).name()).c_str(), testing::demangle(typeid(T).name()).c_str(), excpected.str(), cV.str());
+        result = 1;
+    }
+
+    v.save(resV);
+    cV = v;
+
+    cV >>= sizeof(S) * 8 - 2;
+    excpected = T(v[0] >> sizeof(S) * 8 - 2);
+
+    if(cV != excpected){
+        testing::printTestFailed(__FILE__, __LINE__, __func__, ">>", testing::demangle(typeid(T).name()).c_str(), testing::demangle(typeid(S).name()).c_str(), excpected.str(), cV.str());
+        result = 1;
+    }
+
+    return result;
+}
+
 
 int main(int argc, char* argv[]) {
     int result = 0;
@@ -893,6 +934,7 @@ int main(int argc, char* argv[]) {
     result |= test_edge_Int256_div();
     result |= test_edge_Int256_bitwise();
     result |= test_edge_Int256_load_save();
+    result |= test_edge_bit_rshift<avx::Int256>();
     // result |= test_edge_Int256_index();
     result |= test_edge_Short256_add();
     result |= test_edge_Short256_sub();
@@ -900,6 +942,7 @@ int main(int argc, char* argv[]) {
     result |= test_edge_Short256_div();
     result |= test_edge_Short256_bitwise();
     result |= test_edge_Short256_load_save();
+    result |= test_edge_bit_rshift<avx::Short256>();
     // result |= test_edge_Short256_index();
     result |= test_edge_UShort256_add();
     result |= test_edge_UShort256_sub();
@@ -907,6 +950,7 @@ int main(int argc, char* argv[]) {
     result |= test_edge_UShort256_div();
     result |= test_edge_UShort256_bitwise();
     result |= test_edge_UShort256_load_save();
+    result |= test_edge_bit_rshift<avx::UShort256>();
     // result |= test_edge_UShort256_index();
     result |= test_edge_Long256_add();
     result |= test_edge_Long256_sub();
@@ -914,6 +958,7 @@ int main(int argc, char* argv[]) {
     result |= test_edge_Long256_div();
     result |= test_edge_Long256_bitwise();
     result |= test_edge_Long256_load_save();
+    result |= test_edge_bit_rshift<avx::Long256>();
     // result |= test_edge_Long256_index();
     result |= test_edge_ULong256_add();
     result |= test_edge_ULong256_sub();
@@ -921,9 +966,9 @@ int main(int argc, char* argv[]) {
     result |= test_edge_ULong256_div();
     result |= test_edge_ULong256_bitwise();
     result |= test_edge_ULong256_load_save();
+    result |= test_edge_bit_rshift<avx::ULong256>();
     // result |= test_edge_ULong256_index();
 
-    std::cout << "Vectors equal: " << (avx::Long256(0xFFFF'FFFF'FFFF'FFFF) == 0xFFFF'FFFF'FFFF'FFFF) << '\n';
     
     return result;
 }

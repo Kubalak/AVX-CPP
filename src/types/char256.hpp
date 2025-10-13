@@ -1645,13 +1645,16 @@ namespace avx {
              */
             friend std::ostream& operator<<(std::ostream& os, const Char256& a) {
                 alignas(32) char tmp[33];
-                tmp[32] = '\0';
-
+                
                 _mm256_store_si256((__m256i*)tmp, a.v);
+                
+                tmp[32] = '\0';
                 
                 os << tmp;
                 return os;
             }
+
+            //TODO: Add friend operators with scalar before Char256
 
     };
 }

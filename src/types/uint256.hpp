@@ -898,7 +898,9 @@ namespace avx {
             result += ")";
             return result;
         }
-        };
+
+        //TODO: Add friend operators for scalar before UInt256.
+    };
 };
 
 

@@ -1260,6 +1260,7 @@ namespace avx {
              * @return UChar256 New vector after right shift.
              */
             UChar256 operator>>(const UChar256& bV) const noexcept {
+                //TODO: Optimize this for AVX512
                 __m256i q1_a = _mm256_and_si256(v, constants::EPI8_CRATE_EPI32);
                 __m256i q1_b = _mm256_and_si256(bV.v, constants::EPI8_CRATE_EPI32);
 
@@ -1360,8 +1361,6 @@ namespace avx {
                 return *this;
             }
 
-
-
             /**
              * Bitwise NOT operator.
              * @return UChar256 New vector with all bits inverted.
@@ -1409,14 +1408,16 @@ namespace avx {
              */
            friend std::ostream& operator<<(std::ostream& os, const UChar256& a) {
                 alignas(32) unsigned char tmp[33];
-                tmp[32] = '\0';
-
+                
                 _mm256_store_si256((__m256i*)tmp, a.v);
+                
+                tmp[32] = '\0';
                 
                 os << tmp;
                 return os;
             }
 
+            //TODO: Add friend operator for scalar before UChar256
 
     };
 }

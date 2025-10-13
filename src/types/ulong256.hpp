@@ -845,6 +845,8 @@ namespace avx {
             result += ")";
             return result;
         }
+
+        //TODO: Add friend operator for scalar before ULong256.
     };
 }
 

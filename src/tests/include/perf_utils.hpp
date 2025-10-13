@@ -4,6 +4,7 @@
 #include "test_utils.hpp"
 #include "cpuinfo.hpp"
 #include <utility>
+#include <ctime>
 
 #define _AVX_ADD_RAW    1 // Use to check if verification failed e.g. `(testing::perf::allPerfTest() & _AVX_ADD_RAW) != 0;`
 #define _AVX_ADD        2 // Use to check if verification failed for `Test add AVX2`.
@@ -1303,6 +1304,7 @@ namespace testing{
         int allPerfTest(std::vector<S> &aV, std::vector<S> &bV, std::vector<S> &cV, const TestConfig<S> &config, int64_t itemsCount = -1) {
 
             std::vector<S> dV(itemsCount > 0 ? itemsCount : aV.size()); // Temporary vector for storing bV vector & number of bits - 1;
+            static const std::string testNames[] = {"ADD_AVX_RAW", "ADD_AVX_LIB", "ADD_SEQ", "SUB_AVX_RAW", "SUB_AVX_LIB", "SUB_SEQ", "MUL_AVX_RAW", "MUL_AVX_LIB", "MUL_SEQ", "DIV_AVX_RAW", "DIV_AVX_LIB", "DIV_SEQ", "MOD_AVX_RAW", "MOD_AVX_LIB", "MOD_SEQ", "LSH_AVX_RAW", "LSH_AVX_LIB", "LSH_SEQ", "RSH_AVX_RAW", "RSH_AVX_LIB", "RSH_SEQ"};
             if(itemsCount > 0){
                 aV.resize(itemsCount);
                 bV.resize(itemsCount);
@@ -1363,8 +1365,10 @@ namespace testing{
 
             int64_t times[21];
             std::tuple<int64_t, S, S> validations[21];
-            for(char i = 0; i < 21; ++i)
+            for(char i = 0; i < 21; ++i){
+                times[i] = -1;
                 validations[i] = std::make_tuple(-1, static_cast<S>(0), static_cast<S>(0));
+            }
 
             if(config.doWarmup)
                 doCPUWarmup(config.warmupDuration, !config.printWarmupInfo);
@@ -1638,10 +1642,31 @@ namespace testing{
                     result |= (std::get<0>(validations[i]) != -1) << i;
             
             stop = std::chrono::steady_clock::now();
+            std::time_t stop_ts = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+            std::tm *tm_local = std::localtime(&stop_ts);
 
             duration = universalDuration(std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count());
 
             printf("%-20s %8.4lf %s\n","Tests finished in:", duration.first, duration.second.c_str());
+
+            char timeFormatted[256];
+            std::strftime(timeFormatted, sizeof(timeFormatted), "%d.%m.%Y-%H_%M_%S", tm_local);
+
+            std::string filename = "LOG_" + demangle(typeid(S).name()) + std::string("_") + std::string(timeFormatted) + std::string(".csv");
+            std::ofstream logfile(filename, std::ios_base::out | std::ios_base::trunc);
+            if(logfile.good()){
+                logfile << "TEST_NAME;TIME_NS;TIME_SCALED;VALIDATION\n";
+                for(int i{0}; i < 21; ++i){
+                    if(times[i] != -1){
+                        auto timePair = testing::universalDuration(times[i]);
+                        logfile << testNames[i] << ';' << times[i] << ';' << timePair.first << ' ' << timePair.second << ';' << validationToStr(validations[i]) << '\n';
+                    }
+                    else
+                        logfile << testNames[i] <<";;;\n";
+                }
+                logfile.close();
+                std::cout << "Results have been saved to " << filename <<'\n';
+            }
 
             return result;
         }
